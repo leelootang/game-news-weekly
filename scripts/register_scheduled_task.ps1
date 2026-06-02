@@ -13,8 +13,7 @@ $ErrorActionPreference = "Stop"
 
 $TaskName    = "AIGameIndustry_DailyCollectors"
 $ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$PythonExe   = (Get-Command python).Source
-$RunnerPath  = Join-Path $ProjectRoot "run_daily_collectors.py"
+$ScriptPath  = Join-Path $ProjectRoot "scripts\run_collect_and_push.ps1"
 $LogDir      = Join-Path $ProjectRoot "collector_logs\scheduled"
 $LogFile     = Join-Path $LogDir "scheduled_run.log"
 
@@ -22,8 +21,8 @@ if (-not (Test-Path $LogDir)) {
     New-Item -ItemType Directory -Path $LogDir | Out-Null
 }
 
-# Wrap python in cmd.exe so we can redirect stdout/stderr to a rolling log file.
-$CmdArgs = "/c `"`"$PythonExe`" `"$RunnerPath`" --preset yesterday --workers 4 --no-progress >> `"$LogFile`" 2>&1`""
+# Wrap PowerShell in cmd.exe so we can redirect stdout/stderr to a rolling log file.
+$CmdArgs = "/c `"powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$ScriptPath`" >> `"$LogFile`" 2>&1`""
 
 $Action = New-ScheduledTaskAction `
     -Execute "cmd.exe" `
@@ -63,11 +62,11 @@ Register-ScheduledTask `
     -Trigger $Trigger `
     -Settings $Settings `
     -Principal $Principal `
-    -Description "Daily 08:00 run of run_daily_collectors.py for the previous day." | Out-Null
+    -Description "Daily 08:00 collect previous-day news and push news_data changes to GitHub." | Out-Null
 
 Write-Host "Registered scheduled task '$TaskName'."
 Write-Host "  Project root : $ProjectRoot"
-Write-Host "  Python       : $PythonExe"
+Write-Host "  Script       : $ScriptPath"
 Write-Host "  Log file     : $LogFile"
 Write-Host ""
 Write-Host "Run it now to verify:"
