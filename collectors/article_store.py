@@ -154,7 +154,19 @@ def write_article_record(
     if existing and existing.get("content_sha1") == normalized["content_sha1"]:
         data_file = existing.get("data_file")
         if data_file and (data_dir / Path(data_file).name).exists():
-            return existing
+            jsonl_has_item = False
+            if jsonl_path.exists():
+                for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                    if not line.strip():
+                        continue
+                    try:
+                        if json.loads(line).get("id") == item_id:
+                            jsonl_has_item = True
+                            break
+                    except json.JSONDecodeError:
+                        continue
+            if jsonl_has_item:
+                return existing
 
     records: list[dict[str, Any]] = []
     if jsonl_path.exists():
