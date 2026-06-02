@@ -45,7 +45,9 @@ if ($dirtyBefore) {
 
 Invoke-Checked "git" @("pull", "--ff-only")
 
-Invoke-Checked $PythonExe @(
+$collectorFailed = $false
+
+& $PythonExe @(
     "run_daily_collectors.py",
     "--preset",
     "yesterday",
@@ -53,6 +55,10 @@ Invoke-Checked $PythonExe @(
     "4",
     "--no-progress"
 )
+if ($LASTEXITCODE -ne 0) {
+    $collectorFailed = $true
+    Write-Host "[scheduled] collector runner exited with code $LASTEXITCODE; continuing to index and push collected data."
+}
 
 Invoke-Checked $PythonExe @("scripts/build_article_indexes.py")
 
@@ -62,10 +68,19 @@ git diff --cached --quiet
 if ($LASTEXITCODE -eq 0) {
     Write-Host "[scheduled] no news_data changes to commit."
 } elseif ($LASTEXITCODE -eq 1) {
-    Invoke-Checked "git" @("commit", "-m", "Collect game news for $RunDate")
+    if ($collectorFailed) {
+        Invoke-Checked "git" @("commit", "-m", "Collect game news for $RunDate (partial)")
+    } else {
+        Invoke-Checked "git" @("commit", "-m", "Collect game news for $RunDate")
+    }
     Invoke-Checked "git" @("push")
 } else {
     throw "git diff --cached --quiet failed with exit code $LASTEXITCODE"
+}
+
+if ($collectorFailed) {
+    Write-Host "[scheduled] finished with collector failures at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    exit 1
 }
 
 Write-Host "[scheduled] finished at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
