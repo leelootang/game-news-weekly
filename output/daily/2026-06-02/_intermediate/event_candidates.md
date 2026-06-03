@@ -35,3 +35,12 @@
 - P001 | Embracer CEO 详述 Fellowship Entertainment：集中 IP/工作室、降低开发成本、修复信任 | S0198 | 当日唯一深度来源。
 - P002 | 移动游戏从 core-first 转向 event-first 的 live ops 讨论 | S0057 | 可作移动运营趋势补充。
 - P003 | Zynga 创始人 Proven Better New 框架与“合法复制”讨论 | S0065, S0076 | 产品方法论，有争议性。
+
+
+## Release Calendar Product-Level Revision｜2026-06-02
+- R005 | 《夜幕之下》6 月 2 日公测前瞻直播 | S0118, S0022 | include | release_calendar 与 industry_news 重合。
+- R006 | 《二重螺旋》“银星奔流”新版本 | S0110, S0137 | include | 多个 release_calendar 源重合。
+- R007 | 《战双帕弥什》“长路归航”新版本 | S0104, S0112 | include | 多个 release_calendar 源重合。
+- R008 | 《梦幻新诛仙：轻享》预下载 / 限量测试 | S0116, S0154 | include | 多个 release_calendar 源重合。
+- R009 | 《风之国世界》预下载 / 6 月 3 日上线 | S0117, S0165 | include | 多个 release_calendar 源重合。
+- R010 | 《小岛日记》上线 / 首发 | S0107, S0168 | include | 多个 release_calendar 源重合。

@@ -5,6 +5,8 @@
 - Input records: 198
 - Date window: 2026-06-02
 - Input file: `output/daily/2026-06-02/_intermediate/report_inputs.jsonl`
+- Summary file: `output/daily/2026-06-02/_intermediate/report_inputs_summary.md`
+- Index file: `output/daily/2026-06-02/_intermediate/report_inputs_index.md`
 
 ## Item Source Map
 
@@ -33,27 +35,30 @@
    - S0101 | Holo3.1：快速本地计算机使用智能体 | https://huggingface.co/blog/Hcompany/holo31
 
 ### 三、新游发布 / 产品日历
-1. 国内移动产品更新与预下载集中在 6 月 2 日
+1. 《夜幕之下》
+   - S0118 | 夜幕之下-全员恶人复仇题材(官服) - 19:00 开启公测前瞻直播 | https://www.3839.com/a/182365.htm
+   - S0022 | 6月预计17款新游上线：女性向二游《夜幕之下》登场，腾讯《天堂2》网易生活模拟 | http://www.gamelook.com.cn/2026/06/594437/
+   - Evidence signal: release_calendar item overlaps with industry_news monthly new-product preview.
+2. 《二重螺旋》
    - S0110 | 二重螺旋(官服) - 新版本「银星奔流」开启 | https://www.3839.com/a/158909.htm
-   - S0112 | 战双帕弥什 - 新版本「长路归航」开启 | https://www.3839.com/a/98964.htm
-   - S0116 | 梦幻新诛仙：轻享 - 10:00 预下载，6月3日抢注测试 | https://www.3839.com/a/195139.htm
-   - S0117 | 风之国世界-预下载 - 18:00 预下载，6月3日上线 | https://www.3839.com/a/191463.htm
    - S0137 | 二重螺旋 - 新版本更新 | https://www.taptap.cn/app/388717
+   - Evidence signal: same product appears in multiple release_calendar sources.
+3. 《战双帕弥什》
+   - S0104 | 战双帕弥什 - 新版本 | https://newgame.17173.com/game-info-1037186.html
+   - S0112 | 战双帕弥什 - 新版本「长路归航」开启 | https://www.3839.com/a/98964.htm
+   - Evidence signal: same product appears in multiple release_calendar sources.
+4. 《梦幻新诛仙：轻享》
+   - S0116 | 梦幻新诛仙：轻享 - 10:00 预下载，6月3日抢注测试 | https://www.3839.com/a/195139.htm
    - S0154 | 梦幻新诛仙：轻享 - 限量测试 | https://www.taptap.cn/app/820664
+   - Evidence signal: same product appears in multiple release_calendar sources.
+5. 《风之国世界》
+   - S0117 | 风之国世界-预下载 - 18:00 预下载，6月3日上线 | https://www.3839.com/a/191463.htm
    - S0165 | 风之国世界 - 预下载 | https://www.taptap.cn/app/796300
-2. TapTap 与 16P 记录多款中小产品首发
+   - Evidence signal: same product appears in multiple release_calendar sources.
+6. 《小岛日记》
    - S0107 | 小岛日记 - 上线 | https://www.16p.com/1950838.html
-   - S0138 | 军团幸存者 - 首发 | https://www.taptap.cn/app/803680
-   - S0140 | 合合餐厅 - 首发 | https://www.taptap.cn/app/839937
-   - S0141 | 命运循环 - 首发 | https://www.taptap.cn/app/861804
-   - S0155 | 武林大反派攻略指南 - 首发 | https://www.taptap.cn/app/865295
    - S0168 | 小岛日记 - 首发 (10:00 开始) | https://www.taptap.cn/app/751613
-3. 海外重点产品公布档期与预购信息
-   - S0120 | Silent Hill: Townfall launches September 24 | https://news.google.com/rss/articles/CBMif0FVX3lxTE1qeDVhTmVNRkxHQXdXYmtod1ZxbHV4S2lSaXB4M1pzVThySkZwd3lwdG82WmtwMHdrNkpHMGhNZW1QRW9NUFM1ZU5BUDJsQk5lTVRsdjMyWGtyWVVNQ0luVS05MjZUTjBXa0gxbG1jWE4yMWNaN3pXQzdUaXZiLUk?oc=5
-   - S0121 | Onimusha: Way of the Sword launches September 25, demo now available | https://news.google.com/rss/articles/CBMinwFBVV95cUxQd1htWWZkSUx6QU02czJRZFhxMndOMng1QW5HSUJMazNBYWFDUEZlN1pCb1lUSkNhZjdSZHBWNVdZbC01MG4xTHJVdlRhMTEydjhNWktyaWZUd3N4R0dnQWtGSmVjTEFVckdLdWptdHc4WmxHaHNyODJzeE1DSTc2S241MWdVYkRrTlRYOHN6VnIzT0JnTkRTLWlSTXpFWTQ?oc=5
-   - S0124 | Dune: Awakening for PS5, Xbox Series launches September 22 | https://news.google.com/rss/articles/CBMikgFBVV95cUxQVDNfVlhkMmdLQkNtWGlidThPVDMwNVBMdnp1VFV1OVR1Z0xmQXdzSnY1dEU0b21MenhlUnpNUU1McU5RTFB0YjFOekRiWEJyMzlPMnlnX1Noam5vUXpzME5XbkdxX05XNXQzUGxGcEJnbHFsd2RNVmJldlgxa3hBa200b2xabURDZFBWeldYY29lUQ?oc=5
-   - S0125 | Phantom Blade Zero delayed to October 29 | https://news.google.com/rss/articles/CBMifEFVX3lxTE50dHlQaUJ1eGtLRGZUV3M1WXFxYmJGM2twTFl0ZjduNHRnV1pZRm9XTzFWNW1ia2xLTFI3SG5SQk1QMjExaF9seTVnRFRNazJ6d3V0UVZZMXFmTlhlODdpTG10UEE2RXpfVEFGM09tbERHVVFaVFlVM1JXYnI?oc=5
-   - S0129 | Marvel’s Wolverine ‘Extended Gameplay’ trailer, pre-orders now available | https://news.google.com/rss/articles/CBMiogFBVV95cUxNRWtPVHlNdThCS1k4elZJSklHd1VTbk52c2E1Tm9HVXRTVTZmWUFvN3hSNzN2c0ZYai1jZmxZRk1CVFFjbmJjVlJrd28wME9SYVZQRHE4UW1lbVAyY2N1ZnJRUVpON3BENElzb2hmWElzMkxTVlB3ZEctSGRWMHpzNmJVSXRGaEZ3UTA0YWtsTmxkZ0RWMTQzeUJXTmJISlB5UFE?oc=5
+   - Evidence signal: same product appears in multiple release_calendar sources.
 
 ### 四、玩家舆论 / 社区动态
 1. 《燕云十六声》NPC 文案争议在 NGA 持续发酵
@@ -66,3 +71,9 @@
 ### 五、行业精选 / 深度观察
 1. Embracer 将核心 IP 与工作室集中到 Fellowship Entertainment
    - S0198 | Embracer CEO: I hope trust in us is improving | https://www.thegamebusiness.com/p/embracer-ceo-i-hope-trust-in-us-is
+
+## Notable Exclusions
+- S0037/S0063 Tekken 8 director departure: excluded as overseas console / fighting-game personnel news with weaker relevance than platform and mobile-market signals.
+- S0038 California AB 1921: excluded from daily body due to weaker direct mobile / global distribution impact in this window; retained as weekly-law-policy candidate.
+- S0040 Call of Duty install-base analysis: excluded from daily body because it is mainly console-generation exposure and less relevant than selected platform sales signal.
+- S0067 Playstack transaction: excluded due to limited available detail in extracted text.
