@@ -52,7 +52,7 @@ $collectorFailed = $false
     "--preset",
     "yesterday",
     "--workers",
-    "4",
+    "1",
     "--no-progress"
 )
 if ($LASTEXITCODE -ne 0) {
