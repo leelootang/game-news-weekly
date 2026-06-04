@@ -293,7 +293,8 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     /* feed */
     .feed{{padding:30px 48px 64px;width:100%;}}
     /* responsive card grid: auto-fills 1/2/3/4 columns to fill the available width */
-    .icard-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:14px;}}
+    .icard-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
+    @media(max-width:900px){{.icard-grid{{grid-template-columns:1fr;}}}}
     /* day group (level 1) */
     .day-block{{margin-bottom:48px;}}
     .day-hd{{display:flex;align-items:center;gap:14px;margin:0 0 8px;}}
