@@ -1,0 +1,214 @@
+# Report Inputs Index
+
+## ai_trends
+
+- S0086 | 2026-06-03 | aihot.virxact.com | 341 chars | 微软首款高级推理AI模型MAI-Thinking-1发布 | https://www.theverge.com/tech/941664/microsoft-ai-model-reasoning-mai-thinking-1-build-2026
+- S0087 | 2026-06-03 | aihot.virxact.com | 392 chars | Holo3.1：快速本地计算机使用智能体 | https://huggingface.co/blog/Hcompany/holo31
+- S0088 | 2026-06-03 | aihot.virxact.com | 316 chars | 阶跃星辰Step 3.7 Flash发布，专为高效推理设计 | https://x.com/StepFun_ai/status/2061655529731342402
+- S0089 | 2026-06-03 | aihot.virxact.com | 328 chars | Claude Code 新增动态工作流功能 | https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code
+- S0090 | 2026-06-03 | aihot.virxact.com | 288 chars | Claude Platform 新增 CLI 工具 | https://x.com/ClaudeDevs/status/2061877343078244459
+- S0091 | 2026-06-03 | aihot.virxact.com | 240 chars | OpenAI Codex 发布 Python SDK，可直接嵌入应用 | https://x.com/vista8/status/2061846741885018296
+- S0092 | 2026-06-03 | aihot.virxact.com | 314 chars | Google DeepMind 开源科学智能体工具包 | https://x.com/googleaidevs/status/2061924472245153863
+- S0093 | 2026-06-03 | aihot.virxact.com | 327 chars | 微软发布开源框架 Adaptive Spec-driven Scoring：支持用文本描述创建 AI 评估测试 | https://techcrunch.com/2026/06/02/new-microsoft-tool-lets-devs-spin-up-ai-behavior-tests-using-text-descriptions
+- S0094 | 2026-06-03 | aihot.virxact.com | 227 chars | Runway API 推出 Aleph 2.0 视频编辑功能 | https://x.com/runwayml/status/2061895998545244342
+- S0095 | 2026-06-03 | aihot.virxact.com | 277 chars | Nathan Lambert离开Ai2，结束2.5年OLMO等项目工作 | https://x.com/natolambert/status/2061813361848029631
+- S0096 | 2026-06-03 | aihot.virxact.com | 399 chars | Anthropic扩展Project Glasswing计划 | https://www.anthropic.com/news/expanding-project-glasswing
+- S0097 | 2026-06-03 | aihot.virxact.com | 274 chars | SK会长崔泰源：SK海力士计划未来五年内晶圆产能翻倍 | https://www.ithome.com/0/958/810.htm
+- S0098 | 2026-06-03 | aihot.virxact.com | 291 chars | Anthropic支持美国AI行政令实施 | https://x.com/AnthropicAI/status/2061924580222968183
+- S0099 | 2026-06-03 | aihot.virxact.com | 235 chars | 微软研究：Aurora天气预报速度超传统超算数千倍 | https://x.com/MSFTResearch/status/2061927189977727450
+- S0100 | 2026-06-03 | aihot.virxact.com | 331 chars | Anthropic可解释性研究：区分因果效应相似的特征 | https://transformer-circuits.pub/2026/may-update/index.html
+- S0101 | 2026-06-03 | aihot.virxact.com | 202 chars | Codex正在成为每个人的生产力工具 | https://openai.com/index/codex-for-knowledge-work
+- S0102 | 2026-06-03 | aihot.virxact.com | 374 chars | 为了不花那120刀，我把电脑清理软件做成了开源skill | https://x.com/Khazix0918/status/2061669881725309048
+- S0103 | 2026-06-03 | aihot.virxact.com | 332 chars | 商汤开源SenseNova-Skills AI办公技能套件 | https://x.com/SenseTime_AI/status/2061822148076093625
+- S0104 | 2026-06-03 | aihot.virxact.com | 152 chars | Karpathy 分享学习方法论 | https://x.com/rohanpaul_ai/status/2061601689841648120
+- S0105 | 2026-06-03 | aihot.virxact.com | 317 chars | Claude Code团队实践：智能体编程如何重塑工程组织与流程 | https://claude.com/blog/running-an-ai-native-engineering-org
+- S0106 | 2026-06-03 | aihot.virxact.com | 193 chars | Claude Code 自我检查与反馈闭环技巧 | https://x.com/ClaudeDevs/status/2061900434722496604
+- S0107 | 2026-06-03 | aihot.virxact.com | 264 chars | GitHub Copilot应用：智能体原生的桌面体验 | https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience
+- S0108 | 2026-06-03 | aihot.virxact.com | 211 chars | Replit 与微软合作发布 Fabric 集成 | https://x.com/Replit/status/2061892255028486435
+- S0109 | 2026-06-03 | aihot.virxact.com | 231 chars | OpenAI呼吁通过全球领导力推进青年AI安全与机遇 | https://openai.com/index/advancing-youth-safety-and-opportunity-through-global-leadership
+- S0110 | 2026-06-03 | aihot.virxact.com | 208 chars | Travelers借助OpenAI在全国部署AI理赔助手 | https://openai.com/index/travelers
+- S0111 | 2026-06-03 | aihot.virxact.com | 404 chars | 开放模型的繁荣生态 | https://www.tomtunguz.com/the-thriving-ecosystem-of-open-models
+- S0112 | 2026-06-03 | aihot.virxact.com | 272 chars | Gary Marcus：为什么事情终将崩塌 | https://garymarcus.substack.com/p/why-things-will-eventually-fall-apart
+
+## community_discourse
+
+- S0169 | 2026-06-03 | bbs.nga.cn | 3146 chars | [新瓜]鸣潮2077联动卡池规则前瞻爆出，有点难评，节奏开始了 | https://bbs.nga.cn/read.php?tid=46882152&_fp=2&forder_by=postdatedesc
+- S0170 | 2026-06-03 | bbs.nga.cn | 1218 chars | [少女前线]少前新设定集，转正了x爱人形的设定 | https://bbs.nga.cn/read.php?tid=46888555&_fp=2&forder_by=postdatedesc
+- S0171 | 2026-06-03 | bbs.nga.cn | 1648 chars | [新瓜]异环国际服宣传图番茄后没有蟑螂 与国服不符[已加上蟑螂] | https://bbs.nga.cn/read.php?tid=46877839&_fp=2&forder_by=postdatedesc
+- S0172 | 2026-06-03 | bbs.nga.cn | 1936 chars | 崩铁联动ubw第二弹角色远坂凛缝合伊什塔尔争议开始在外网发酵了 | https://bbs.nga.cn/read.php?tid=46915637&forder_by=postdatedesc
+- S0173 | 2026-06-03 | bbs.nga.cn | 1838 chars | [新瓜]鸣潮开发者访谈，策划直言“不会放弃对品质的追求”和“束缚想法”，疑似回应原神前瞻 | https://bbs.nga.cn/read.php?tid=46895724&forder_by=postdatedesc
+- S0174 | 2026-06-03 | bbs.nga.cn | 882 chars | [原神]木偶节奏毫不意外的向集美滑轨加了布料 | https://bbs.nga.cn/read.php?tid=46911164&forder_by=postdatedesc
+- S0175 | 2026-06-03 | bbs.nga.cn | 1749 chars | [腾讯] UP主在叔叔投稿宝可梦角色鸭子坐视频，被鹅厂以制造男女对立为由举报下架 | https://bbs.nga.cn/read.php?tid=46873571&_fp=2&forder_by=postdatedesc
+- S0176 | 2026-06-03 | bbs.nga.cn | 2978 chars | [新瓜] 与游戏公司合作的“时光研游”发布洛克王国手游座谈会，标注仅限女性 | https://bbs.nga.cn/read.php?tid=46913498&forder_by=postdatedesc
+- S0177 | 2026-06-03 | bbs.nga.cn | 1792 chars | [新瓜]不知何故，近期终末地官号加速掉粉 | https://bbs.nga.cn/read.php?tid=46913868&forder_by=postdatedesc
+- S0178 | 2026-06-03 | bbs.nga.cn | 2225 chars | [新瓜]忮忌十六声最终选择修改忮忌文案，但依旧阴阳玩家 | https://bbs.nga.cn/read.php?tid=46894302&_fp=2&forder_by=postdatedesc
+- S0179 | 2026-06-03 | bbs.nga.cn | 1651 chars | [新瓜][手游五黑框]居然没人搬，那我就发了 | https://bbs.nga.cn/read.php?tid=46912579&forder_by=postdatedesc
+- S0180 | 2026-06-03 | bbs.nga.cn | 1540 chars | [网易决斗链接]“半龙女仆”变违禁词无法检索 | https://bbs.nga.cn/read.php?tid=46917589&forder_by=postdatedesc
+- S0181 | 2026-06-03 | bbs.nga.cn | 1206 chars | [这也能连起来]竟然能找到又玩洛克又打拳又忮忌的百大up主啊 | https://bbs.nga.cn/read.php?tid=46910884&forder_by=postdatedesc
+- S0182 | 2026-06-03 | bbs.nga.cn | 1505 chars | [终末地]小瓜，终末地内鬼惨遭yj嘲讽(雾) | https://bbs.nga.cn/read.php?tid=46913581&forder_by=postdatedesc
+- S0183 | 2026-06-03 | bbs.nga.cn | 1674 chars | [疑似内容]归唐删去了要做单机的动态表述，疑似要转型做手游了 | https://bbs.nga.cn/read.php?tid=46905553&forder_by=postdatedesc
+- S0184 | 2026-06-03 | bbs.nga.cn | 877 chars | [新闻相关]恋与深空联动上海国际电影节 | https://bbs.nga.cn/read.php?tid=46914767&forder_by=postdatedesc
+- S0185 | 2026-06-03 | bbs.nga.cn | 1206 chars | [鹰角] 校队笑话+1 | https://bbs.nga.cn/read.php?tid=46914332&forder_by=postdatedesc
+- S0186 | 2026-06-03 | bbs.nga.cn | 1771 chars | [新瓜]小瓜 鸣潮up角色达尼亚大招后的嫌弃脸被官方实锤为bug修了 | https://bbs.nga.cn/read.php?tid=46895459&forder_by=postdatedesc
+- S0187 | 2026-06-03 | bbs.nga.cn | 1032 chars | [王者荣耀世界]暗改视角谎称bug，假装更新修复实际更新完还是暗改后版本 | https://bbs.nga.cn/read.php?tid=46911260&forder_by=postdatedesc
+- S0188 | 2026-06-03 | reddit.com | 5284 chars | CD Projekt Red's new mystery IP 'Hadar' is "an emotional, open-world experience" in line with the developer's Witcher and Cyberpunk games | https://www.reddit.com/r/gaming/comments/1tvthli/cd_projekt_reds_new_mystery_ip_hadar_is_an/
+- S0189 | 2026-06-03 | reddit.com | 1494 chars | LEGO® Batman™: Legacy of the Dark Knight | Nintendo Switch™ 2 Release Date Announcement | https://www.reddit.com/r/gaming/comments/1tvtbd0/lego_batman_legacy_of_the_dark_knight_nintendo/
+- S0190 | 2026-06-03 | reddit.com | 1391 chars | 'Maybe GTA 6 Can’t Make That Same Splash' — Grand Theft Auto 5 Lester Actor Says Rockstar Satire May Not Hit the Same in 2026 as It Did in 2013 | https://www.reddit.com/r/gaming/comments/1tvrkwz/maybe_gta_6_cant_make_that_same_splash_grand/
+- S0191 | 2026-06-03 | reddit.com | 1397 chars | According To this Interview in Polygon, Beyond Good & Evil 2 is Somehow STILL in Development | https://www.reddit.com/r/gaming/comments/1tvqoq3/according_to_this_interview_in_polygon_beyond/
+- S0192 | 2026-06-03 | reddit.com | 873 chars | Behind the scenes of Jack Quaid in God of War Laufey | https://www.reddit.com/r/gaming/comments/1tv7qal/behind_the_scenes_of_jack_quaid_in_god_of_war/
+- S0193 | 2026-06-03 | reddit.com | 866 chars | Persona 5 Royal Headlines Xbox Game Pass June 2026 Wave 1 | https://www.reddit.com/r/gaming/comments/1tvsbqy/persona_5_royal_headlines_xbox_game_pass_june/
+- S0194 | 2026-06-03 | reddit.com | 1726 chars | "This Is Not a Prequel": God of War's Cory Barlog Confirms Laufey Is "A Continuation of The Timeline" | https://www.reddit.com/r/gaming/comments/1tv95zv/this_is_not_a_prequel_god_of_wars_cory_barlog/
+- S0195 | 2026-06-03 | reddit.com | 1532 chars | Steve Vai creates and records the lead guitar for the Halo 2 theme | https://www.reddit.com/r/gaming/comments/1tvpy70/steve_vai_creates_and_records_the_lead_guitar_for/
+- S0196 | 2026-06-03 | reddit.com | 1627 chars | God of War Laufey - Official Gameplay Reveal | PS5 Games | https://www.reddit.com/r/gaming/comments/1tv61a1/god_of_war_laufey_official_gameplay_reveal_ps5/
+- S0197 | 2026-06-03 | reddit.com | 1315 chars | Have you ever bought a console just to play one game? Was it worth it and did you go on to use the console after? | https://www.reddit.com/r/gaming/comments/1tvomgt/have_you_ever_bought_a_console_just_to_play_one/
+
+## deep_analysis
+
+- S0198 | 2026-06-03 | newsletter.gamediscover.co | 13103 chars | Why 'hobbyists' are a bigger discovery disruptor for games then AI... | https://newsletter.gamediscover.co/p/why-hobbyists-are-a-bigger-discovery
+
+## industry_news
+
+- S0001 | 2026-06-03 | gcores.com | 44 chars | 剑戟动作游戏《鬼武者 Way of the Sword》体验版现已在各大平台发布 | https://www.gcores.com/articles/215319
+- S0002 | 2026-06-03 | gcores.com | 41 chars | 《沙丘：觉醒》宣布9月22日登陆主机，带来完整单人战役体验 | https://www.gcores.com/articles/215318
+- S0003 | 2026-06-03 | gcores.com | 38 chars | 清风拂山岗！《影之刃零》延期至10月29日，只为品质再进化 | https://www.gcores.com/articles/215310
+- S0004 | 2026-06-03 | gcores.com | 42 chars | 《战神 劳菲》正式公布：6月State of Play消息汇总 | https://www.gcores.com/articles/215314
+- S0005 | 2026-06-03 | gcores.com | 74 chars | 《辐射76》现已实装“侵袭”更新，Xbox Series X|S及PlayStation 5原生版本开启公测 | https://www.gcores.com/articles/215315
+- S0006 | 2026-06-03 | gcores.com | 37 chars | TV动画《迷宫饭》第二季将于7月5日公布最新情报 | https://www.gcores.com/articles/215306
+- S0007 | 2026-06-03 | gcores.com | 44 chars | 《红色沙漠》公布 6 至 9 月内容更新预览，并首度公开后续 DLC 计划 | https://www.gcores.com/articles/215304
+- S0008 | 2026-06-03 | gcores.com | 54 chars | NS2独占虚幻5恐怖游戏《Beyond The Dark - Nightwatch》预告片公开 | https://www.gcores.com/articles/215300
+- S0009 | 2026-06-03 | gcores.com | 70 chars | 微星40周年闪耀Computex 2026：CLAW 8 EX AI+掌机、泰坦18 Ultra龙魂典藏版、神影16 星云白惊艳发布 | https://www.gcores.com/articles/215299
+- S0010 | 2026-06-03 | gcores.com | 69 chars | 《双峰》风悬疑恐怖恶魔城新游《银松镇 Silver Pines》确认10月8日发售，免费试玩版现已上线 | https://www.gcores.com/articles/215297
+- S0011 | 2026-06-03 | gcores.com | 44 chars | 《怪物猎人》x U-Treasure 订婚&结婚对戒 今日发售 | https://www.gcores.com/articles/215293
+- S0012 | 2026-06-03 | gcores.com | 23 chars | 《绯红结系》游戏累计销量突破200万份 | https://www.gcores.com/articles/215288
+- S0013 | 2026-06-03 | gcores.com | 39 chars | 战斗画面首曝：《阿索拉：星之祈愿》前导预告公开 | https://www.gcores.com/articles/215283
+- S0014 | 2026-06-03 | gcores.com | 36 chars | 【抽奖】萝莉勇者？直接电！平台跳跃类《哇咔纳传说》6月16日上架 | https://www.gcores.com/articles/215281
+- S0015 | 2026-06-03 | gcores.com | 40 chars | A24恐怖科幻惊悚片《后室》确认引进内地，上映日期待定 | https://www.gcores.com/articles/215320
+- S0016 | 2026-06-03 | gcores.com | 40 chars | 免费MMO《宝藏世界》“灿烂夏日”限时活动现已开启！ | https://www.gcores.com/articles/215326
+- S0017 | 2026-06-03 | gcores.com | 42 chars | Arc System Works全新动漫风格作品将于7月5日公布 | https://www.gcores.com/articles/215330
+- S0018 | 2026-06-03 | gcores.com | 39 chars | 《寂静岭》系列新作《寂静岭：Townfall》将于9月24日发售 | https://www.gcores.com/articles/215334
+- S0019 | 2026-06-03 | gcores.com | 39 chars | 《哥特王朝1 重制版》开场动画公布，将于2026年6月6日正式推出 | https://www.gcores.com/articles/215341
+- S0020 | 2026-06-03 | gamelook.com.cn | 5359 chars | 当一款上线半年的二游，决定更换看板娘 | http://www.gamelook.com.cn/2026/06/594548/
+- S0021 | 2026-06-03 | gamelook.com.cn | 2000 chars | “你的独立游戏赚了多少”？开发者集体对账：养活自己都难，但乐在其中 | http://www.gamelook.com.cn/2026/06/594642/
+- S0022 | 2026-06-03 | gamelook.com.cn | 1887 chars | 《仙境传说RO》主机游戏首曝！玩家两眼一黑：“画质低的堪忧、这能叫主机”? | http://www.gamelook.com.cn/2026/06/594651/
+- S0023 | 2026-06-03 | gamelook.com.cn | 4297 chars | “花钱之前看一眼”！腾讯官方答疑：IAA小游戏买量痛点和破局方法论 | http://www.gamelook.com.cn/2026/06/594583/
+- S0024 | 2026-06-03 | gamelook.com.cn | 2356 chars | 《蔚蓝档案》出走团队新作曝实机PV，《Astrae Oratio》就是“BA+崩铁” ？ | http://www.gamelook.com.cn/2026/06/594628/
+- S0025 | 2026-06-03 | gamelook.com.cn | 3716 chars | 5月微信小游戏畅销榜Top 100：占城大师第7、QQ经典农场第2 | http://www.gamelook.com.cn/2026/06/594600/
+- S0026 | 2026-06-03 | gamelook.com.cn | 3911 chars | 微信要放出“终极猛兽”？腾讯股价史诗级暴涨10% | http://www.gamelook.com.cn/2026/06/594601/
+- S0027 | 2026-06-03 | cgames.com | 801 chars | 影之刃零跳票延期50天，制作人致歉称能变得更好 | https://cgames.com/contents/2/11726.html
+- S0028 | 2026-06-03 | cgames.com | 4339 chars | 这支8人小团队，又做了款畅销Top1爆款 | https://cgames.com/contents/2/11733.html
+- S0029 | 2026-06-03 | m.sohu.com | 9879 chars | 黑马涌现，字节入场：吹爆AI游戏前，先得弄清几个雷区 | https://m.sohu.com/a/1031641697_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.1780543552045Y03dab2_324
+- S0030 | 2026-06-03 | m.sohu.com | 9024 chars | 带着3只猫，躺在5亿美金私人游艇，但Steam创始人G胖正在遭遇一场危机 | https://m.sohu.com/a/1031641577_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1780543552045Y03dab2_324
+- S0031 | 2026-06-03 | youxituoluo.com | 7613 chars | 游戏AI落地为何这么难？对话ThinkingAI：旧方法用不好现在的AI | https://www.youxituoluo.com/534543.html
+- S0032 | 2026-06-03 | youxituoluo.com | 561 chars | 活动报名丨游戏广告政策宣讲会暨流量增长分享会 | https://www.youxituoluo.com/534544.html
+- S0033 | 2026-06-03 | youxichaguan.com | 4862 chars | 新游流水超10亿，这个赛道已被中国厂商“接管” | https://youxichaguan.com/archives/197644
+- S0034 | 2026-06-03 | youxichaguan.com | 2447 chars | 刀锋再磨砺！梁其伟：《影之刃零》延期50天只为交出最好答卷 | https://youxichaguan.com/archives/197660
+- S0035 | 2026-06-03 | youxichaguan.com | 1039 chars | MINTROCKET烹饪冒险新作《料理人班乔》首曝亮相，「戴夫宇宙」超展开！ | https://youxichaguan.com/archives/197674
+- S0036 | 2026-06-03 | youxichaguan.com | 2283 chars | PGC游戏行业联合大会2026沪上再起航 开启全球商务机遇 | https://youxichaguan.com/archives/197681
+- S0037 | 2026-06-03 | youxichaguan.com | 1076 chars | 《地牢猎手6》完整版CG 6月3日发布：随从集结，激战三头巨龙 | https://youxichaguan.com/archives/197687
+- S0038 | 2026-06-03 | youxichaguan.com | 972 chars | 新版本爆料！魔域口袋版年中资料片定档 | https://youxichaguan.com/archives/197693
+- S0039 | 2026-06-03 | youxichaguan.com | 1745 chars | 决胜巅峰土耳其冠军联赛S7总决赛即将启幕，赛事规模再创历史新高 | https://youxichaguan.com/archives/197696
+- S0040 | 2026-06-03 | yystv.net | 1208 chars | 《影之刃零》宣布延期50天发售，将抓住最后时间“再实现一次进化” | http://www.yystv.net/p/14015
+- S0041 | 2026-06-03 | new.qq.com | 935 chars | 阅文集团斥4亿再收购艺画开天股份，后者重点游戏已研发七年 | https://new.qq.com/rain/a/20260603A073MC00
+- S0042 | 2026-06-03 | new.qq.com | 10168 chars | 下载总榜第一！对话《夜幕之下》团队：女性向家族群像游戏的诞生 | https://new.qq.com/rain/a/20260603A073M400
+- S0043 | 2026-06-03 | gamesindustry.biz | 3126 chars | Sony's summer State of Play showcase was big on God of War, Wolverine, gore and GTA-dodging release dates | https://www.gamesindustry.biz/sonys-summer-state-of-play-showcase-was-big-on-god-of-war-wolverine-gore-and-gta-dodging-release-dates
+- S0044 | 2026-06-03 | gamesindustry.biz | 4513 chars | ESA: 67% of Americans played video games for more than an hour in 2025 | https://www.gamesindustry.biz/esa-67-of-americans-played-video-games-for-more-than-an-hour-in-2025
+- S0045 | 2026-06-03 | gamesindustry.biz | 1958 chars | Cyberpunk 2077 and Blue Prince among winners of 2026 Apple Design Awards | https://www.gamesindustry.biz/cyberpunk-2077-and-blue-prince-among-winners-of-2026-apple-design-awards
+- S0046 | 2026-06-03 | gamesindustry.biz | 11679 chars | "Nobody's making games for the retired people" – The growing yet underserved market for grey gamers | https://www.gamesindustry.biz/nobodys-making-games-for-the-retired-people-the-growing-yet-underserved-market-for-grey-gamers
+- S0047 | 2026-06-03 | pocketgamer.biz | 2125 chars | Miraculous and Rabbids launch cross-experience Roblox collaboration | https://www.pocketgamer.biz/miraculous-and-rabbids-launch-cross-experience-roblox-collaboration/
+- S0048 | 2026-06-03 | pocketgamer.biz | 1880 chars | Stillfront divests OFM Studios and cuts $26.5m Gameberry settlement | https://www.pocketgamer.biz/stillfront-divests-ofm-studios-and-cuts-265m-gameberry-settlement/
+- S0049 | 2026-06-03 | pocketgamer.biz | 1746 chars | California State Assembly passes landmark game preservation bill | https://www.pocketgamer.biz/california-state-assembly-passes-landmark-game-preservation-bill/
+- S0050 | 2026-06-03 | pocketgamer.biz | 2514 chars | Apple names 2026 Design Awards winners | https://www.pocketgamer.biz/apple-reveals-2026-design-awards-winners/
+- S0051 | 2026-06-03 | pocketgamer.biz | 1681 chars | Nitro Games' Warhammer 40,000: Boltgun Boom to launch on mobile in 2026 | https://www.pocketgamer.biz/nitro-games-warhammer-40000-boltgun-boom-to-launch-on-mobile-in-2026/
+- S0052 | 2026-06-03 | pocketgamer.biz | 2107 chars | LEGO stores to partner with Pokémon Go this summer, with exclusive rewards and LEGO Smart Play sets ahead | https://www.pocketgamer.biz/lego-stores-to-partner-with-pokemon-go-this-summer/
+- S0053 | 2026-06-03 | pocketgamer.biz | 2437 chars | Asia and MENA video game revenue set to surpass $100bn by 2030 | https://www.pocketgamer.biz/report-asia-and-mena-video-game-revenue-set-to-surpass-100bn-by-2030/
+- S0054 | 2026-06-03 | pocketgamer.biz | 1631 chars | Mattel Digital Studios releases Skeletor: Until Next Time mobile game | https://www.pocketgamer.biz/mattel-digital-studios-releases-skeletor-until-next-time-mobile-game/
+- S0055 | 2026-06-03 | pocketgamer.biz | 4309 chars | Zynga's senior games VP: "Barcelona has become a hub for top-level game developer talent" | https://www.pocketgamer.biz/zyngas-senior-games-vp-barcelona-has-become-a-hub-for-top-level-game-developer-talent/
+- S0056 | 2026-06-03 | pocketgamer.biz | 7998 chars | June 2026's Movers and Shakers: PocketGamer.biz expands, King's new CMO, plus hires at Rovio, Scopely and more | https://www.pocketgamer.biz/june-2026s-movers-and-shakers/
+- S0057 | 2026-06-03 | pocketgamer.biz | 2210 chars | The Top 30 Nordic Game Makers of 2026 | https://www.pocketgamer.biz/the-top-30-nordic-game-makers-of-2026/
+- S0058 | 2026-06-03 | gamedeveloper.com | 1328 chars | Mina the Hollower sells 300,000 copies in three days | https://www.gamedeveloper.com/business/mina-the-hollower-sold-300-000-copies-in-three-days
+- S0059 | 2026-06-03 | gamedeveloper.com | 2804 chars | Total consumer spending on games topped $60B in the US in 2025 | https://www.gamedeveloper.com/business/total-consumer-spending-on-games-topped-60b-in-the-us-in-2025
+- S0060 | 2026-06-03 | gamedeveloper.com | 1475 chars | Update: Team17 has laid off members of its marketing and communications department | https://www.gamedeveloper.com/business/team17-has-laid-off-members-of-its-marketing-and-communications-department
+- S0061 | 2026-06-03 | mobilegamer.biz | 1724 chars | Apple nominates Inkle, Devolver, FuturLab, Toppluva and more in annual design awards | https://mobilegamer.biz/inkle-devolver-futurlab-toppluva-sound-games-and-more-are-in-the-running-for-an-apple-design-award/
+- S0062 | 2026-06-03 | mobilegamer.biz | 6914 chars | Data digest: King’s €6bn EU report, Playstack sold, more UA finance, April’s top games, more | https://mobilegamer.biz/data-digest-kings-6bn-eu-report-playstack-sold-more-ua-finance-aprils-top-games-more/
+- S0063 | 2026-06-03 | mobilegamer.biz | 2512 chars | Supercell, King and Sybo bosses hit out at “scary” EU proposals | https://mobilegamer.biz/supercell-king-and-sybo-bosses-hit-out-at-scary-eu-proposals/
+- S0064 | 2026-06-03 | videogameschronicle.com | 2146 chars | Digital Eclipse is remastering six retro Toy Story games, including a PS3 classic | https://www.videogameschronicle.com/news/digital-eclipse-is-remastering-six-retro-toy-story-games-including-a-ps3-classic/
+- S0065 | 2026-06-03 | videogameschronicle.com | 2234 chars | Amazon Prime’s 15 ‘free’ games for June include Tomb Raider 4-6 Remastered and Mafia 3 Definitive Edition | https://www.videogameschronicle.com/news/amazon-primes-15-free-games-for-june-include-tomb-raider-4-6-remastered-and-mafia-3-definitive-edition/
+- S0066 | 2026-06-03 | videogameschronicle.com | 2292 chars | Insomniac premieres 7 minutes of Marvel’s Wolverine gameplay | https://www.videogameschronicle.com/news/insomniac-premieres-7-minutes-of-marvels-wolverine-gameplay/
+- S0067 | 2026-06-03 | videogameschronicle.com | 2092 chars | Rayman Legends Retold, a remake of the 2013 platformer, has been announced | https://www.videogameschronicle.com/news/rayman-legends-retold-has-been-announced-is-coming-in-october/
+- S0068 | 2026-06-03 | videogameschronicle.com | 2114 chars | Tomb Raider: Legacy of Atlantis has been delayed to 2027, confirmed for Switch 2 | https://www.videogameschronicle.com/news/tomb-raider-legacy-of-atlantis-has-been-delayed-to-2027/
+- S0069 | 2026-06-03 | videogameschronicle.com | 1430 chars | Kemuri is coming from Ikumi Nakamura’s Unseen Inc in 2027 | https://www.videogameschronicle.com/news/kemuri-ikumi-nakamuras-unseen-inc-2027/
+- S0070 | 2026-06-03 | videogameschronicle.com | 1145 chars | An Onimusha: Way of the Sword demo is out today, with a full release confirmed for September | https://www.videogameschronicle.com/news/onimusha-way-of-the-sword-release-date-demo/
+- S0071 | 2026-06-03 | videogameschronicle.com | 1836 chars | Silent Hill: Townfall, Konami’s Scottish Silent Hill, gets a release date | https://www.videogameschronicle.com/news/silent-hill-townfall-konamis-scottish-silent-hill-gets-a-release-date/
+- S0072 | 2026-06-03 | videogameschronicle.com | 1695 chars | RuneScape: Dragonwilds, Gitaroo Man, and more are being added to PS Plus | https://www.videogameschronicle.com/news/runescape-dragonwilds-gitaroo-man-ps-plus/
+- S0073 | 2026-06-03 | videogameschronicle.com | 1961 chars | Sony announces Until Dawn 2, due for release next year | https://www.videogameschronicle.com/news/sony-announces-until-dawn-2-due-for-release-next-year/
+- S0074 | 2026-06-03 | videogameschronicle.com | 12206 chars | INSIDE THE UBISOFT STUDIO REMAKING RAYMAN LEGENDS IN 3D – AND WHAT IT MEANS FOR RAYMAN’S FUTURE | https://www.videogameschronicle.com/features/rayman-legends-retold/
+- S0075 | 2026-06-03 | videogameschronicle.com | 5937 chars | ‘WE’RE ON PAR WITH XBOX SERIES S’: HOW RAYMAN LEGENDS: RETOLD IS BRINGING 60FPS RAY-TRACING TO SWITCH 2 | https://www.videogameschronicle.com/features/interviews/rayman-legends-switch-2/
+- S0076 | 2026-06-03 | videogameschronicle.com | 3481 chars | PlayStation unveils God of War Laufey, a new PS5 entry starring Kratos’s ‘dead’ wife, Faye | https://www.videogameschronicle.com/news/playstation-unveils-god-of-war-laufey-a-new-ps5-entry-starring-kratoss-dead-wife-faye/
+- S0077 | 2026-06-03 | videogameschronicle.com | 5939 chars | State of Play: Here’s every announcement from PlayStation’s big live stream | https://www.videogameschronicle.com/news/state-of-play-heres-every-announcement-from-playstations-big-live-stream/
+- S0078 | 2026-06-03 | videogameschronicle.com | 1022 chars | Video: Here’s a look at eFootball Kick-Off, Konami’s offline spin-off, running on Switch 2 | https://www.videogameschronicle.com/news/video-heres-a-look-at-efootball-kick-off-konamis-offline-spin-off-running-on-switch-2/
+- S0079 | 2026-06-03 | videogameschronicle.com | 2146 chars | WWE 2K series ‘could be double or triple the size that it is’, Take-Two CEO says | https://www.videogameschronicle.com/news/wwe-2k-series-could-be-double-or-triple-the-size-that-it-is-take-two-ceo-says/
+- S0080 | 2026-06-03 | videogameschronicle.com | 2418 chars | Acclaimed 10-player co-op platformer Pico Park is being delisted, after it was accidentally made permanently free last year | https://www.videogameschronicle.com/news/acclaimed-10-player-co-op-platformer-pico-park-is-being-delisted-after-it-was-accidentally-made-permanently-free-last-year/
+- S0081 | 2026-06-03 | videogameschronicle.com | 4546 chars | Michael Jackson nearly made a game called Dark Rim with Enter the Matrix studio Shiny Entertainment | https://www.videogameschronicle.com/news/michael-jackson-nearly-made-a-game-called-dark-rim-with-enter-the-matrix-studio-shiny-entertainment/
+- S0082 | 2026-06-03 | videogameschronicle.com | 2702 chars | Marvel’s Wolverine director says the game’s extreme gore can be turned off | https://www.videogameschronicle.com/news/marvels-wolverine-director-says-the-games-extreme-gore-can-be-turned-off/
+- S0083 | 2026-06-03 | videogameschronicle.com | 1840 chars | WWE 2K26 Ringside Pass Season 3 is here with four new superstars, a returning NBA star and more ‘Persona’ outfits | https://www.videogameschronicle.com/news/wwe-2k26-ringside-pass-season-3-is-here-with-four-new-superstars-a-returning-nba-star-and-more-persona-outfits/
+- S0084 | 2026-06-03 | videogameschronicle.com | 2332 chars | PlayerUnknown’s studio is downsizing, making its Prologue game free, and looking into refunding those who bought it | https://www.videogameschronicle.com/news/playerunknowns-studio-is-downsizing-making-its-prologue-game-free-and-looking-into-refunding-those-who-bought-it/
+- S0085 | 2026-06-03 | videogameschronicle.com | 1617 chars | A Nintendo Direct is reportedly coming next week, just after Summer Game Fest | https://www.videogameschronicle.com/news/a-nintendo-direct-is-reportedly-coming-next-week-just-after-summer-game-fest/
+
+## release_calendar
+
+- S0113 | 2026-06-03 | 16p.com | 160 chars | 咪哇伊奇幻冒险 - 删档计费测试 | https://www.16p.com/1951106.html
+- S0114 | 2026-06-03 | 16p.com | 169 chars | 梦幻新诛仙：轻享 - 限量抢注删档计费测试 | https://www.16p.com/1946063.html
+- S0115 | 2026-06-03 | 16p.com | 154 chars | 风之国世界 - 上线 | https://www.16p.com/1945834.html
+- S0116 | 2026-06-03 | 16p.com | 156 chars | 飘流幻境新世界 - 上线 | https://www.16p.com/1951109.html
+- S0117 | 2026-06-03 | 16p.com | 183 chars | Drop in the Hole - 上线 | https://www.16p.com/1946492.html
+- S0118 | 2026-06-03 | 16p.com | 180 chars | 疾速地下城 - 上线 | https://www.16p.com/1946488.html
+- S0119 | 2026-06-03 | 16p.com | 167 chars | 靠裝勇者：背包合成RPG - 上线 | https://www.16p.com/1946491.html
+- S0120 | 2026-06-03 | 3839.com | 189 chars | Dinkum手游 - 参与招募赢6月23日海外首测资格 | https://www.3839.com/a/163383.htm
+- S0121 | 2026-06-03 | 3839.com | 184 chars | 三国：天下归心 - 更新S2赛季，新增英雄鲁肃、孟获 | https://www.3839.com/a/183988.htm
+- S0122 | 2026-06-03 | 3839.com | 185 chars | 打造世界-先试玩后解锁 - 免费试玩版已上线！新DLC更新 | https://www.3839.com/a/198460.htm
+- S0123 | 2026-06-03 | 3839.com | 184 chars | 洛克王国：世界 - 12点~16点【炫彩蛋】限时卖 | https://www.3839.com/a/105882.htm
+- S0124 | 2026-06-03 | 3839.com | 180 chars | 燕云十六声(官服) - 「孔庙祈福」活动开启 | https://www.3839.com/a/146289.htm
+- S0125 | 2026-06-03 | 3839.com | 189 chars | 第五人格(官服)-1v4对抗 - 第四十三赛季·精华3开启 | https://www.3839.com/a/84747.htm
+- S0126 | 2026-06-03 | 3839.com | 172 chars | 追迹迷城 - 首曝预约，上线时间待定 | https://www.3839.com/a/189352.htm
+- S0127 | 2026-06-03 | 3839.com | 192 chars | 夜幕之下-预下载(官服) - 10:00 预下载，6月5日正式上线 | https://www.3839.com/a/182365.htm
+- S0128 | 2026-06-03 | 3839.com | 172 chars | 星辰变：归来 - 10:00 预下载，6月4日上线 | https://www.3839.com/a/169981.htm
+- S0129 | 2026-06-03 | 3839.com | 182 chars | 梦幻新诛仙：轻享 - 10:00 限量抢注测试 | https://www.3839.com/a/195139.htm
+- S0130 | 2026-06-03 | 3839.com | 176 chars | 风之国世界 - 10:00 正式上线 | https://www.3839.com/a/191463.htm
+- S0131 | 2026-06-03 | taptap.cn | 113 chars | 一刀帝王绿 - 新游预约 | https://www.taptap.cn/app/866127
+- S0132 | 2026-06-03 | taptap.cn | 111 chars | 万物皆可吃 - 首发 | https://www.taptap.cn/app/865847
+- S0133 | 2026-06-03 | taptap.cn | 109 chars | 东篱集 - 首发 | https://www.taptap.cn/app/863319
+- S0134 | 2026-06-03 | taptap.cn | 113 chars | 仙子请自重 - 首发 | https://www.taptap.cn/app/866137
+- S0135 | 2026-06-03 | taptap.cn | 135 chars | 仙途漫漫 - 首发 | https://www.taptap.cn/app/848134
+- S0136 | 2026-06-03 | taptap.cn | 146 chars | 代号：穿越（TapTap测试版） - 限量测试 | https://www.taptap.cn/app/823156
+- S0137 | 2026-06-03 | taptap.cn | 125 chars | 修仙宗门搜打撤 - 首发 | https://www.taptap.cn/app/833694
+- S0138 | 2026-06-03 | taptap.cn | 111 chars | 修仙流水线 - 首发 | https://www.taptap.cn/app/853983
+- S0139 | 2026-06-03 | taptap.cn | 126 chars | 傲视天下 - 限量测试 | https://www.taptap.cn/app/826892
+- S0140 | 2026-06-03 | taptap.cn | 112 chars | 小丑麻将 - 首发 | https://www.taptap.cn/app/865906
+- S0141 | 2026-06-03 | taptap.cn | 124 chars | 小镇派对 - 新游预约 | https://www.taptap.cn/app/860247
+- S0142 | 2026-06-03 | taptap.cn | 133 chars | 我有无限召唤系统 - 首发 | https://www.taptap.cn/app/865577
+- S0143 | 2026-06-03 | taptap.cn | 125 chars | 挂机打教主 - 首发 | https://www.taptap.cn/app/818942
+- S0144 | 2026-06-03 | taptap.cn | 122 chars | 挖穿地球 - 新游预约 | https://www.taptap.cn/app/864752
+- S0145 | 2026-06-03 | taptap.cn | 125 chars | 放置修仙宗门(TapTap测试版) - 新游预约 | https://www.taptap.cn/app/846077
+- S0146 | 2026-06-03 | taptap.cn | 123 chars | 樱梦海 - 新游预约 | https://www.taptap.cn/app/835676
+- S0147 | 2026-06-03 | taptap.cn | 124 chars | 武林神话 - 首发 | https://www.taptap.cn/app/853248
+- S0148 | 2026-06-03 | taptap.cn | 117 chars | 点点地球:进化46亿年 - 首发 | https://www.taptap.cn/app/865887
+- S0149 | 2026-06-03 | taptap.cn | 110 chars | 群雄讨董 - 首发 | https://www.taptap.cn/app/866021
+- S0150 | 2026-06-03 | taptap.cn | 111 chars | 肉鸽：弹球 - 首发 | https://www.taptap.cn/app/854454
+- S0151 | 2026-06-03 | taptap.cn | 142 chars | 逃出金光洞（TapTap测试版） - 测试招募 | https://www.taptap.cn/app/797524
+- S0152 | 2026-06-03 | taptap.cn | 110 chars | 链接传导 - 首发 | https://www.taptap.cn/app/866148
+- S0153 | 2026-06-03 | taptap.cn | 110 chars | 音梦钢琴 - 首发 | https://www.taptap.cn/app/866359
+- S0154 | 2026-06-03 | taptap.cn | 141 chars | 风之国世界 - 首发 | https://www.taptap.cn/app/796300
+- S0155 | 2026-06-03 | taptap.cn | 122 chars | 风起汉末2 - 首发 | https://www.taptap.cn/app/865583
+- S0156 | 2026-06-03 | taptap.cn | 127 chars | 飘流幻境新世界 - 首发 | https://www.taptap.cn/app/825161
+- S0157 | 2026-06-03 | taptap.cn | 137 chars | 魔塔勇者圣女篇 - 测试招募 | https://www.taptap.cn/app/856296
+- S0158 | 2026-06-03 | taptap.cn | 115 chars | 鸟大了什么林子都有 - 首发 | https://www.taptap.cn/app/861885
+- S0159 | 2026-06-03 | taptap.cn | 160 chars | 料理人班乔 - 新游预约 (06:00 开始) | https://www.taptap.cn/app/864393
+- S0160 | 2026-06-03 | taptap.cn | 158 chars | 夜幕之下 - 预下载 (10:00 开始) | https://www.taptap.cn/app/746164
+- S0161 | 2026-06-03 | gematsu.com | 503 chars | Avatar Legends: The Fighting Game delayed to July 23 | https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMW03WllzZXNSbHJkMXFvMWZvdmVNaTBvZG5Fd013VVhaVkk1c0FtbWw4Z2pFRWU1NFVNQkc2bjIwWUVlcXNqQXFuZlpBdXRPeWh2a1hxUzBDTF9RR0JEeWY2V0hDWXFjVjhIM2lQVlhvTnZ1MzJyblpad0RVYmNsbnBIT184VlRLZFJ3?oc=5
+- S0162 | 2026-06-03 | gematsu.com | 504 chars | System Shock 2: 25th Anniversary Remaster for Switch 2 now available | https://news.google.com/rss/articles/CBMioAFBVV95cUxOSE5yQUx3c1pnMWhLVENCdXc5am80QjBtQjlvTDhpNnlzRC11VUIxc3NJV085N3dEODdSRlRaVXFkZzlFVGttYnd0REs1clJpY2kydmFfWS1jNDNlbDhNN0kwNHk5YlFfY0c3NFhNcV9fcFRZV0hDQ3hWT3NmWmU2cVhDSGRnRW1JWmFPODU5SW1jdE9ZRk1NYU5jYUtvbDJ1?oc=5
+- S0163 | 2026-06-03 | gematsu.com | 588 chars | LEGO Batman: Legacy of the Dark Knight for Switch 2 launches September 18 | https://news.google.com/rss/articles/CBMipwFBVV95cUxOdUdWdURYMUpZblEwT0xEQ3ZvV1dGc2tITVpXMnVGUzhlWGFwTFQ0cW9id1E3S1RMOVhLVlBYdURaYUNrbUlxbFRKYmJhSms0THZuS3I1Z0lWTXA4V3VMVXR4bWNRWjZxbHNDczVac0p5MS1INDNmTGQxQlFra0lSN1M2cTdsa1BnTkJpWGxzNVNYT252U2pERzBXc1poT08yTFo0NTNXRQ?oc=5
+- S0164 | 2026-06-03 | gematsu.com | 500 chars | Pokemon Champions for iOS, Android launches June 17 | https://news.google.com/rss/articles/CBMiigFBVV95cUxQQ0lpOWJYeWpvSDZ5OW5iN2NKVF8yelZ3czVPU2xPNzFIZzZrZTFRMDBFbUlKSlUyLUJOdk5Gb0Y1SG5IQnFjMllaWm96Q01DbkQ3TXRhQnpseHlLcENMZnRleUFiQ2VoUnVfQUNrRlAyeHVyNUd6V3N0UkhpUzlJY2VsMGQxSjRzTEE?oc=5
+- S0165 | 2026-06-03 | gematsu.com | 526 chars | The Guild: Europa 1410 launches in Early Access on July 16 | https://news.google.com/rss/articles/CBMikwFBVV95cUxNNkFsc1VCeHpmSU9LNUdLaW9DbmVhS0ZBNm9ZMTRXd21Ic3laZHVyZmIzWnZObWJMUDVIS2hvR1EzUkJKRXZ2N202MmMxUmVhZEFaUWhTdmFiVUpzcHBoeEV4UlAzd3FCVC1XSmZ0U1I4aUt0V19UYTA1VUV6ZGpRZk9BR2taM2F3U2NzVU4xeFhPcXM?oc=5
+- S0166 | 2026-06-03 | gematsu.com | 630 chars | Console Archives Firework Thrower Kantaro’s 53 Stations of the Tokaido launches June 4 | https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ0xVa0owNXNndmNlZ0t4cjlwQVZPcFRjaHFQNFpIbVRtLWtvcU54OEx6clF4bVFVSDRqenlPR0Zmb3NMam5JMlA3b1FNdGZUdGtDYzZodHJWY19wVUhtcFNNTk8zSHppNXNWVFYydDNrWkMzcERPMDdBWU9BckdWX0MxM1o2V2c1ZHRyQ3JvMHpZTDc0ZGUyUnRuUXBiNV92a1FaVnJwVFlrc2dNQXJGalFxV3UycjRj?oc=5
+- S0167 | 2026-06-03 | gematsu.com | 457 chars | Arcade Archives Cameltry launches June 4 | https://news.google.com/rss/articles/CBMifEFVX3lxTE5EZUdja1ZrNWpCOUdnSEw5NlRkeU9jdmxScnFqQ2U3YkM3ZTc4TXdQRjdjUmFHdUIwVEpnVU9mYTZIQzlxX0VxR0dWWllmRFhhSEg2Zmd5RGZxNDROSS1XcnVUY1plSVppZVpiYmgtSnJJbkgtQ3lHemRPNGk?oc=5
+- S0168 | 2026-06-03 | gematsu.com | 484 chars | Artis Impact for Switch launches September 17 | https://news.google.com/rss/articles/CBMigwFBVV95cUxOUmN0MjZQSi1zcmNDWmJheDFsZE41Tnl2RU9wRVBzTF9kNExNeGdPem9ZdWNrTDJtQXUySThBdzl2RFdYcjFBTU5CX1FtZUlBSXlsMHdodG1kU1lrNkw3ZmtYNFlRdkpmNUlpdVVfcVBmZEZKMVFJNjB5aW1QSFNLRExacw?oc=5
