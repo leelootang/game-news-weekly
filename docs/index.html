@@ -215,9 +215,20 @@
       padding:14px 22px;font-size:14.5px;font-weight:600;color:var(--accent);box-shadow:var(--sh);transition:transform .16s;}
     .fb-link:hover{transform:translateY(-2px);box-shadow:var(--sh-lg);}
 
+    /* changelog */
+    .cl-wrap{padding:0 0 64px;}
+    .cl-list{display:flex;flex-direction:column;gap:14px;padding:24px 48px 0;max-width:980px;}
+    .cl-card{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+      -webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--glass-border);
+      border-radius:18px;padding:20px 22px;box-shadow:var(--sh);}
+    .cl-date{font-size:12px;color:var(--faint);font-weight:700;letter-spacing:.5px;margin-bottom:8px;}
+    .cl-title{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;}
+    .cl-body{margin-top:8px;font-size:14px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;}
+
     @media(max-width:760px){
       .sb{display:none;}
       .feed,.reports-hd,.rgrid,.fb-body{padding-left:18px;padding-right:18px;}
+      .cl-list{padding-left:18px;padding-right:18px;}
       .ftabs{padding:0 14px;}
       .search-wrap{padding:10px 14px;}
       .search-wrap input{width:170px;}
@@ -291,11 +302,7 @@
   </div>
 
   <div class="view" id="view-changelog">
-    <div class="ph">
-      <div class="ph-icon">🗒️</div>
-      <div class="ph-text">暂无更新日志</div>
-      <div class="ph-sub">这里将记录网站功能和数据源的重要更新</div>
-    </div>
+    <div class="cl-wrap"><div class="reports-hd"><h2>更新日志</h2><p>记录站点结构、样式、数据源与发布流程的重要变化。</p></div><div class="cl-list"><article class="cl-card"><div class="cl-date">2026-06-04</div><div class="cl-title">初步搭建了网页框架</div></article></div></div>
   </div>
 
   <div class="view" id="view-feedback">

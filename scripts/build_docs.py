@@ -9,12 +9,15 @@ import base64
 import json
 import re
 import shutil
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 OUTPUT = ROOT / "output"
 DOCS = ROOT / "docs"
+SITE_DATA = ROOT / "site_data"
 SHARED_LOGO = OUTPUT / "assets" / "moonton_logo.png"
+CHANGELOG_FILE = SITE_DATA / "changelog.jsonl"
 
 SECTION_ORDER = ("industry", "ai", "release", "discourse", "deep")
 
@@ -163,7 +166,64 @@ def section_pills_html(counts: dict) -> str:
     return " ".join(out)
 
 
-def build_index(reports: list[dict], all_items: list[dict]) -> str:
+def load_changelog() -> list[dict]:
+    if not CHANGELOG_FILE.exists():
+        return []
+    entries = []
+    for line in CHANGELOG_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            item = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        date = str(item.get("date", "")).strip()
+        summary = str(item.get("summary", "")).strip()
+        if not date or not summary:
+            continue
+        entries.append({
+            "date": date,
+            "summary": summary,
+            "details": str(item.get("details", "")).strip(),
+        })
+    return sorted(entries, key=lambda item: item["date"], reverse=True)
+
+
+def changelog_html(entries: list[dict]) -> str:
+    if not entries:
+        return (
+            '<div class="ph">'
+            '<div class="ph-icon">🗒️</div>'
+            '<div class="ph-text">暂无更新日志</div>'
+            '<div class="ph-sub">这里将记录网站功能和数据源的重要更新</div>'
+            '</div>'
+        )
+
+    cards = []
+    for entry in entries:
+        details_html = ""
+        if entry["details"]:
+            details_html = f'<div class="cl-body">{escape(entry["details"])}</div>'
+        cards.append(
+            '<article class="cl-card">'
+            f'<div class="cl-date">{escape(entry["date"])}</div>'
+            f'<div class="cl-title">{escape(entry["summary"])}</div>'
+            f"{details_html}"
+            "</article>"
+        )
+    return (
+        '<div class="cl-wrap">'
+        '<div class="reports-hd">'
+        '<h2>更新日志</h2>'
+        '<p>记录站点结构、样式、数据源与发布流程的重要变化。</p>'
+        '</div>'
+        f'<div class="cl-list">{"".join(cards)}</div>'
+        '</div>'
+    )
+
+
+def build_index(reports: list[dict], all_items: list[dict], changelog_entries: list[dict]) -> str:
     daily   = [r for r in reports if r["type"] == "daily"]
     weekly  = [r for r in reports if r["type"] == "weekly"]
     monthly = [r for r in reports if r["type"] == "monthly"]
@@ -201,6 +261,7 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     daily_rcards  = "\n".join(report_card(r) for r in daily)   if daily   else '<p class="empty-msg">暂无日报</p>'
     weekly_rcards = "\n".join(report_card(r) for r in weekly)  if weekly  else '<p class="empty-msg">暂无周报</p>'
     monthly_rcards= "\n".join(report_card(r) for r in monthly) if monthly else '<p class="empty-msg">暂无月报</p>'
+    changelog_view = changelog_html(changelog_entries)
 
     feed_tabs = '<button class="ftab active" data-sec="all">全部</button>'
     for sid in SECTION_ORDER:
@@ -423,9 +484,20 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
       padding:14px 22px;font-size:14.5px;font-weight:600;color:var(--accent);box-shadow:var(--sh);transition:transform .16s;}}
     .fb-link:hover{{transform:translateY(-2px);box-shadow:var(--sh-lg);}}
 
+    /* changelog */
+    .cl-wrap{{padding:0 0 64px;}}
+    .cl-list{{display:flex;flex-direction:column;gap:14px;padding:24px 48px 0;max-width:980px;}}
+    .cl-card{{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+      -webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--glass-border);
+      border-radius:18px;padding:20px 22px;box-shadow:var(--sh);}}
+    .cl-date{{font-size:12px;color:var(--faint);font-weight:700;letter-spacing:.5px;margin-bottom:8px;}}
+    .cl-title{{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;}}
+    .cl-body{{margin-top:8px;font-size:14px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;}}
+
     @media(max-width:760px){{
       .sb{{display:none;}}
       .feed,.reports-hd,.rgrid,.fb-body{{padding-left:18px;padding-right:18px;}}
+      .cl-list{{padding-left:18px;padding-right:18px;}}
       .ftabs{{padding:0 14px;}}
       .search-wrap{{padding:10px 14px;}}
       .search-wrap input{{width:170px;}}
@@ -493,11 +565,7 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
   </div>
 
   <div class="view" id="view-changelog">
-    <div class="ph">
-      <div class="ph-icon">🗒️</div>
-      <div class="ph-text">暂无更新日志</div>
-      <div class="ph-sub">这里将记录网站功能和数据源的重要更新</div>
-    </div>
+    {changelog_view}
   </div>
 
   <div class="view" id="view-feedback">
@@ -755,6 +823,7 @@ def build_docs() -> None:
     DOCS.mkdir(exist_ok=True)
     reports: list[dict] = []
     all_items: list[dict] = []
+    changelog_entries = load_changelog()
 
     # Daily reports feed the 行业动态 stream (weekly/monthly are digests; excluded to avoid duplication)
     for folder in sorted((OUTPUT / "daily").glob("*/"), reverse=True):
@@ -793,7 +862,7 @@ def build_docs() -> None:
         reports.append({"type": "monthly", "date": name, "url": report_url, "total": total, "counts": counts})
         print(f"  monthly/{name}  ({total} items)")
 
-    (DOCS / "index.html").write_text(build_index(reports, all_items), encoding="utf-8")
+    (DOCS / "index.html").write_text(build_index(reports, all_items, changelog_entries), encoding="utf-8")
     print(f"\nDone — {len(reports)} reports, {len(all_items)} feed items → docs/index.html")
 
 
