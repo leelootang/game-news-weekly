@@ -1,29 +1,33 @@
-# Selection Decisions｜2026-06-02
+# Selection Decisions — 2026-06-02
 
 | candidate | decision | target_section | reason |
 | --- | --- | --- | --- |
-| C001 | include | 行业新闻 | 《王者荣耀世界》产品成绩与制作人架构变化交叉，且有行业报道与社区讨论补证。 |
-| C002 | include | 行业新闻 | PlayStation 第一方销量有多家媒体重复覆盖，反映平台内容供给周期。 |
-| C003 | include | 行业新闻 | 新西兰游戏产业收入与政策投入回报具备区域产业参考价值。 |
-| C004 | include | 行业新闻 | 欧洲移动游戏收入数据直接关联移动市场规模。 |
-| C005 | include | 行业新闻 | 名臣健康并购对赌失败是中国游戏 IP 改编、发行变动和业绩承诺风险案例。 |
-| C006 | exclude | - | 《向往的生活》小游戏案例有价值，但日报行业新闻已覆盖更强市场 / 平台 / 风险信号。 |
-| C007 | exclude | - | 海外格斗游戏人事变动，和移动 / 跨平台业务关联弱。 |
-| C008 | exclude | - | 法规议题可进入周报观察，日报优先级低于已选平台和市场数据。 |
-| C009 | exclude | - | 主机装机盘分析偏 console generation，保留为周报候选。 |
-| C010 | exclude | - | Playstack 交易抽取正文细节较少，不进入日报正文。 |
-| A001 | include | AI 新闻 | Meta AI 客服漏洞直接体现 agent 执行权限风险。 |
-| A002 | include | AI 新闻 | Holo3.1 体现本地计算机使用智能体能力更新。 |
-| R005 | include | 新游发布 / 产品日历 | 《夜幕之下》有 release_calendar 事件，并被 industry_news 的 6 月新游前瞻单独强调。 |
-| R006 | include | 新游发布 / 产品日历 | 《二重螺旋》同日出现在多个 calendar 源。 |
-| R007 | include | 新游发布 / 产品日历 | 《战双帕弥什》同日出现在多个 calendar 源。 |
-| R008 | include | 新游发布 / 产品日历 | 《梦幻新诛仙：轻享》同日出现在多个 calendar 源。 |
-| R009 | include | 新游发布 / 产品日历 | 《风之国世界》同日出现在多个 calendar 源。 |
-| R010 | include | 新游发布 / 产品日历 | 《小岛日记》同日出现在多个 calendar 源。 |
-| D001 | include | 玩家舆论 / 社区动态 | 《燕云十六声》文案争议在 6 月 2 日仍持续发酵，并有多个相关主题。 |
-| D003 | include | 玩家舆论 / 社区动态 | 《鸣潮》联动池规则争议围绕明确的付费体验事件。 |
-| D002 | merge | 行业新闻 | 《王者荣耀世界》制作人变动已在行业新闻承载，社区条目避免重复。 |
-| D004 | merge | 行业新闻 | PlayStation 销量话题已在行业新闻承载。 |
-| P001 | include | 行业精选 / 深度观察 | 当日唯一深度来源，讨论 Embracer 重组、IP 集中化与信任修复。 |
-| P002 | exclude | - | mobile live ops 主题有价值，但来源为会议预热访谈，日报优先级低。 |
-| P003 | exclude | - | 产品方法论有争议性，且和当日业务事件弱相关。 |
+| C001 | include | 行业新闻 | 关注名单核心产品（腾讯王者 IP），3 源覆盖商业 + 人事，是当日单条最具迁移价值的事件 |
+| C002 | include | 行业新闻 | 网易（关注名单）季度财报，宏观体量 + 重点产品列表 |
+| C003 | include | 行业新闻 | 网易海外控股工作室产品级失败 + 组织调整，非弱相关西方独立 3A 工会类型 |
+| C004 | include | 行业新闻 | 字节代理收缩的具体下游案例，含明确金额 + 上市公司补偿条款 |
+| C005 | include | 行业新闻 | 接续 6/1 联邦法案的州级层面通过，GaaS 政策连续信号 |
+| C006 | include | 行业新闻 | 国内长线运营 / 老游内容营销数据级参考 |
+| C007 | include (borderline) | 行业新闻 | 中国掌机 + 海外 IP 风控边界事件，单源但事件完整，由用户决定 |
+| C008 | include (borderline) | 行业新闻 | 海外主机一方销量（弱相关清单），多源；由用户决定 |
+| C009 | include | AI 新闻 | 跨头部公司同期信号，主题清晰（智能体进入业务场景）|
+| C010 | include | AI 新闻 | 国内开源 / 推理优化模型 |
+| C011 | include (borderline) | AI 新闻 | AI 基础设施大额融资但与游戏直接迁移弱 |
+| C012 | include | 产品日历 | 库洛动作竞技长线产品 + 两源 calendar 重合 |
+| C013 | include | 产品日历 | 两源 calendar 重合 |
+| C014 | include | 产品日历 | 两源 calendar 重合，国产新游进入上线窗口 |
+| C015 | include (borderline) | 产品日历 | 跨 section（release + industry）但属公测预告，由用户决定 |
+| C016 | include | 玩家舆论 | 3 NGA 帖 + 反复横跳事件，时间线明确 |
+| C017 | include | 玩家舆论 | 跨 section 借证（industry 分析 + community 实时争议）|
+| C018 | include (borderline) | 玩家舆论 | 单源持续帖但开放世界二游赛道相关 |
+| C019 | include (borderline) | 玩家舆论 | 关注名单（西山居）产品状态信号，财报 + 电话会议互证 |
+| C020 | include | 深度观察 | 与 6/1 Scopely 形成对位，发行 / 控股组合管理观察 |
+| C021 | include (borderline) | 深度观察 | 行业深度观察，由用户决定 |
+
+## 本次选择原则备注
+
+- 应用 SKILL"宁多勿少"原则：6 条 borderline 候选保留进正文。
+- 应用 SKILL Hard Stop 1—7 自检：均已通过（详见报告末尾）。
+- 应用 SKILL 工作流第 4 步多源前置扫描：识别出王者荣耀世界（3 源）、PlayStation 一方（3 源）、Quantic Dream（在 industry + community 同框）、燕云十六声（3 帖）、鸣潮（2 NGA 帖 + 1 industry 分析）、4 款新游日历（每款 2 源）等关键多源事件。
+- 跨 section 反重复检查：王者荣耀世界 商业事实进 industry；玩家对换人 + S0 失利的吐槽未单独成 community item（散见 S0189 但 angle 与 industry 同质，避免重复）。鸣潮跨 industry + community 但 industry side 借入 S0023 作 deep_analysis，community side 写 S0174/S0187 实时争议，两侧角度分离。
+- exclude 条目（17 项）已列入 event_candidates.md 末表，保留审计留痕。
