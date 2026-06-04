@@ -26,6 +26,15 @@ def logo_data_uri() -> str:
 
 LOGO_URI = ""  # filled in build_docs() after we confirm the file exists
 
+ATTRIBUTION_BAR = (
+    '<div style="background:#1f2a3d;color:#9fb4d2;font-size:12px;text-align:center;'
+    'padding:7px 16px;letter-spacing:.2px;">'
+    'Made by 沐瞳科技战略团队 · 有问题请联系 '
+    '<a href="mailto:leelootang@moonton.com" '
+    'style="color:#56a8ff;text-decoration:none;">leelootang@moonton.com</a>'
+    '</div>'
+)
+
 SECTION_LABELS = {
     "industry": "行业",
     "ai": "AI",
@@ -87,6 +96,7 @@ def copy_report(html_path: Path, dest_dir: Path) -> None:
     content = html_path.read_text(encoding="utf-8")
     if LOGO_URI:
         content = content.replace('src="moonton_logo.png"', f'src="{LOGO_URI}"')
+    content = content.replace("<body>", f"<body>{ATTRIBUTION_BAR}", 1)
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
 
 
@@ -182,6 +192,7 @@ def build_index(reports: list[dict]) -> str:
   </style>
 </head>
 <body>
+{ATTRIBUTION_BAR}
 <header>
   <div class="brand">
     <div class="brand-logo"><img src="{LOGO_URI}" alt=""></div>
