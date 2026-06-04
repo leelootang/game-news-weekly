@@ -85,13 +85,33 @@
       background:rgba(255,255,255,.7);color:var(--muted);cursor:pointer;display:grid;place-items:center;
       font-size:14px;transition:all .14s;}
     .ds-arrow:hover{color:var(--accent);border-color:var(--accent);}
-    .ds-track{display:flex;gap:7px;overflow-x:auto;scroll-behavior:smooth;flex:1;
+    .ds-track{display:flex;gap:4px;overflow-x:auto;scroll-behavior:smooth;flex:1;align-items:stretch;
       scrollbar-width:none;}
     .ds-track::-webkit-scrollbar{display:none;}
-    .ds-chip{flex-shrink:0;border:1px solid var(--hair);background:rgba(255,255,255,.6);color:var(--ink2);
-      padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .14s;}
-    .ds-chip:hover{border-color:var(--accent);color:var(--accent);}
-    .ds-chip.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;box-shadow:0 3px 10px rgba(91,110,245,.28);}
+    /* 全部 pill */
+    .ds-all{flex-shrink:0;align-self:center;border:1px solid var(--hair);background:rgba(255,255,255,.6);
+      color:var(--ink2);padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;
+      white-space:nowrap;transition:all .14s;margin-right:4px;}
+    .ds-all:hover{border-color:var(--accent);color:var(--accent);}
+    .ds-all.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;
+      box-shadow:0 3px 10px rgba(91,110,245,.28);}
+    .ds-sep{flex-shrink:0;align-self:center;width:1px;height:30px;background:var(--hair);margin:0 6px;}
+    /* day cell */
+    .ds-day{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:44px;
+      padding:5px 6px 4px;border:0;background:transparent;cursor:pointer;border-radius:13px;transition:all .14s;}
+    .ds-day .dw{font-size:11px;color:var(--faint);font-weight:500;line-height:1;}
+    .ds-day .dn{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+      font-size:14.5px;font-weight:600;color:var(--ink2);line-height:1;transition:all .14s;}
+    .ds-day .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);margin-top:-1px;}
+    .ds-day.has-data:hover .dn{background:rgba(91,110,245,.12);color:var(--accent);}
+    .ds-day.today .dw{color:var(--accent);font-weight:700;}
+    .ds-day.today .dn{color:var(--accent);}
+    .ds-day.active .dw{color:var(--accent);font-weight:700;}
+    .ds-day.active .dn{background:linear-gradient(135deg,#6e7bf6,#8b6df0);color:#fff;
+      box-shadow:0 4px 12px rgba(91,110,245,.34);}
+    .ds-day.active .dot{background:#8b6df0;}
+    .ds-day.no-data{cursor:default;}
+    .ds-day.no-data .dw,.ds-day.no-data .dn{color:var(--faint);opacity:.55;}
 
     /* feed */
     .feed{padding:30px 48px 64px;width:100%;}
@@ -447,26 +467,54 @@ document.getElementById('search').addEventListener('input', e => {
   renderFeed();
 });
 
-function dateChipLabel(d) {
-  const p = String(d).split('-');
-  if (p.length === 3) return `${parseInt(p[1],10)}/${parseInt(p[2],10)}`;
-  return d;
+const WEEKDAYS = ['周日','周一','周二','周三','周四','周五','周六'];
+function ymd(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
 }
 function renderDateStrip() {
   const track = document.getElementById('ds-track');
-  const chips = [`<button class="ds-chip${currentDate==='all'?' active':''}" data-date="all">全部日期</button>`];
-  allDates.forEach(d => {
-    chips.push(`<button class="ds-chip${currentDate===d?' active':''}" data-date="${d}">${dateChipLabel(d)}</button>`);
-  });
-  track.innerHTML = chips.join('');
-  track.querySelectorAll('.ds-chip').forEach(btn => {
+  const dataSet = new Set(allDates);
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  let start = new Date(today); start.setDate(start.getDate() - 7);
+  let end   = new Date(today); end.setDate(end.getDate() + 5);
+  // extend the window back so the oldest report day is always reachable
+  if (allDates.length) {
+    const oldest = new Date(allDates[allDates.length-1] + 'T00:00:00');
+    if (oldest < start) start = oldest;
+  }
+
+  const parts = [`<button class="ds-all${currentDate==='all'?' active':''}" data-date="all">全部</button>`,
+                 `<span class="ds-sep"></span>`];
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate()+1)) {
+    const ds = ymd(d);
+    const diff = Math.round((d - today) / 86400000);
+    let num = String(d.getDate());
+    if (diff === 0) num = '今'; else if (diff === -1) num = '昨';
+    const isFuture = diff > 0;
+    const hasData = !isFuture && dataSet.has(ds);
+    const cls = ['ds-day', hasData ? 'has-data' : 'no-data'];
+    if (diff === 0) cls.push('today');
+    if (currentDate === ds) cls.push('active');
+    parts.push(`<button class="${cls.join(' ')}" data-date="${ds}" ${hasData?'':'disabled'} data-today="${diff===0?'1':''}">
+      <span class="dw">${WEEKDAYS[d.getDay()]}</span>
+      <span class="dn">${num}</span>
+      ${hasData ? '<span class="dot"></span>' : '<span class="dot" style="background:transparent"></span>'}
+    </button>`);
+  }
+  track.innerHTML = parts.join('');
+
+  track.querySelector('.ds-all').addEventListener('click', () => { currentDate = 'all'; renderDateStrip(); renderFeed(); });
+  track.querySelectorAll('.ds-day.has-data').forEach(btn => {
     btn.addEventListener('click', () => {
-      currentDate = btn.dataset.date;
-      track.querySelectorAll('.ds-chip').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      currentDate = (currentDate === btn.dataset.date) ? 'all' : btn.dataset.date;
+      renderDateStrip();
       renderFeed();
     });
   });
+  // keep today (or the selected day) visible
+  const focus = track.querySelector('.ds-day.active') || track.querySelector('.ds-day[data-today="1"]');
+  if (focus) focus.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
 document.getElementById('ds-prev').addEventListener('click', () => {
   document.getElementById('ds-track').scrollBy({ left: -240, behavior: 'smooth' });
