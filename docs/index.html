@@ -94,10 +94,9 @@
     .ds-chip.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;box-shadow:0 3px 10px rgba(91,110,245,.28);}
 
     /* feed */
-    .feed{padding:30px 48px 64px;max-width:1360px;width:100%;}
-    /* 2-column card grid within each subsection */
-    .icard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
-    @media(max-width:1100px){.icard-grid{grid-template-columns:1fr;}}
+    .feed{padding:30px 48px 64px;width:100%;}
+    /* responsive card grid: auto-fills 1/2/3/4 columns to fill the available width */
+    .icard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;}
     /* day group (level 1) */
     .day-block{margin-bottom:48px;}
     .day-hd{display:flex;align-items:center;gap:14px;margin:0 0 8px;}
