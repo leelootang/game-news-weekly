@@ -208,7 +208,7 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
       --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.78);
       --glass-border:rgba(255,255,255,.7); --hair:rgba(31,45,75,.10);
       --sh:0 6px 28px rgba(31,45,75,.07); --sh-lg:0 14px 40px rgba(31,45,75,.12);
-      --attrib-h:36px; --sw:256px;
+      --attrib-h:0px; --sw:256px;
     }}
     *{{box-sizing:border-box;margin:0;padding:0;}}
     html,body{{height:100%;}}
@@ -226,15 +226,7 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     button,input{{font:inherit;}}
     ::selection{{background:rgba(91,110,245,.22);}}
 
-    /* attribution — sticky so the top never "leaks" */
-    .attrib{{position:sticky;top:0;z-index:1000;height:var(--attrib-h);display:flex;
-      align-items:center;justify-content:center;gap:6px;
-      background:rgba(26,33,52,.82);backdrop-filter:blur(12px) saturate(160%);
-      -webkit-backdrop-filter:blur(12px) saturate(160%);
-      color:#aebdd6;font-size:12px;letter-spacing:.2px;border-bottom:1px solid rgba(255,255,255,.06);}}
-    .attrib a{{color:#7fa6ff;}}
-
-    .layout{{display:flex;min-height:calc(100vh - var(--attrib-h));}}
+    .layout{{display:flex;min-height:100vh;}}
 
     /* ── sidebar (frosted glass) ── */
     .sb{{width:var(--sw);flex-shrink:0;position:sticky;top:var(--attrib-h);
@@ -255,15 +247,20 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     .sb-item:hover{{background:rgba(255,255,255,.55);color:var(--ink);}}
     .sb-item.active{{background:rgba(91,110,245,.12);color:var(--accent);font-weight:600;box-shadow:inset 0 0 0 1px rgba(91,110,245,.18);}}
     .sb-icon{{font-size:16px;width:20px;text-align:center;}}
-    .sb-footer{{margin-top:auto;padding:16px 22px;border-top:1px solid var(--hair);font-size:11.5px;color:var(--muted);line-height:1.6;}}
+    .sb-footer{{margin-top:auto;padding:16px 22px;border-top:1px solid var(--hair);font-size:11.5px;color:var(--muted);line-height:1.65;}}
+    .sb-footer .made{{color:var(--ink2);font-weight:600;}}
+    .sb-footer a{{color:var(--accent);}}
+    .sb-footer .stat{{margin-top:8px;color:var(--faint);}}
 
     /* ── main ── */
     .main{{flex:1;min-width:0;display:flex;flex-direction:column;}}
     .view{{display:none;flex:1;flex-direction:column;}}
     .view.active{{display:flex;}}
 
-    /* topbar (frosted, sticky right under attribution) */
-    .topbar{{position:sticky;top:var(--attrib-h);z-index:8;display:flex;align-items:center;gap:0;flex-wrap:wrap;
+    /* sticky header wrapper (section tabs + date strip move together) */
+    .feed-head{{position:sticky;top:0;z-index:8;}}
+    /* topbar (frosted) */
+    .topbar{{display:flex;align-items:center;gap:0;flex-wrap:wrap;
       background:rgba(255,255,255,.6);backdrop-filter:blur(20px) saturate(160%);
       -webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--hair);}}
     .ftabs{{display:flex;flex:1;overflow-x:auto;padding:0 32px;}}
@@ -277,8 +274,27 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     .search-wrap input::placeholder{{color:var(--faint);}}
     .search-wrap input:focus{{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,110,245,.12);background:#fff;}}
 
+    /* date filter strip */
+    .date-strip{{display:flex;align-items:center;gap:8px;
+      padding:11px 20px;background:rgba(255,255,255,.5);backdrop-filter:blur(18px) saturate(160%);
+      -webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--hair);}}
+    .ds-arrow{{flex-shrink:0;width:30px;height:30px;border-radius:9px;border:1px solid var(--hair);
+      background:rgba(255,255,255,.7);color:var(--muted);cursor:pointer;display:grid;place-items:center;
+      font-size:14px;transition:all .14s;}}
+    .ds-arrow:hover{{color:var(--accent);border-color:var(--accent);}}
+    .ds-track{{display:flex;gap:7px;overflow-x:auto;scroll-behavior:smooth;flex:1;
+      scrollbar-width:none;}}
+    .ds-track::-webkit-scrollbar{{display:none;}}
+    .ds-chip{{flex-shrink:0;border:1px solid var(--hair);background:rgba(255,255,255,.6);color:var(--ink2);
+      padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .14s;}}
+    .ds-chip:hover{{border-color:var(--accent);color:var(--accent);}}
+    .ds-chip.active{{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;box-shadow:0 3px 10px rgba(91,110,245,.28);}}
+
     /* feed */
-    .feed{{padding:30px 48px 64px;max-width:1120px;width:100%;}}
+    .feed{{padding:30px 48px 64px;max-width:1360px;width:100%;}}
+    /* 2-column card grid within each subsection */
+    .icard-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
+    @media(max-width:1100px){{.icard-grid{{grid-template-columns:1fr;}}}}
     /* day group (level 1) */
     .day-block{{margin-bottom:48px;}}
     .day-hd{{display:flex;align-items:center;gap:14px;margin:0 0 8px;}}
@@ -357,7 +373,6 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
   </style>
 </head>
 <body>
-<div class="attrib">Made by 沐瞳科技战略团队 · 有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></div>
 <div class="layout">
 
 <aside class="sb">
@@ -377,16 +392,27 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
   <button class="sb-item" data-view="changelog"><span class="sb-icon">📝</span>更新日志</button>
   <button class="sb-item" data-view="feedback"><span class="sb-icon">💬</span>反馈</button>
 
-  <div class="sb-footer">共 {total_reports} 期报告 · {total_items} 条动态</div>
+  <div class="sb-footer">
+    <div class="made">Made by 沐瞳科技战略团队</div>
+    <div>有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></div>
+    <div class="stat">共 {total_reports} 期报告 · {total_items} 条动态</div>
+  </div>
 </aside>
 
 <div class="main">
 
   <div class="view active" id="view-feed">
-    <div class="topbar">
-      <div class="ftabs">{feed_tabs}</div>
-      <div class="search-wrap">
-        <input type="search" id="search" placeholder="搜索产品、公司、动态关键词…" autocomplete="off">
+    <div class="feed-head">
+      <div class="topbar">
+        <div class="ftabs">{feed_tabs}</div>
+        <div class="search-wrap">
+          <input type="search" id="search" placeholder="搜索产品、公司、动态关键词…" autocomplete="off">
+        </div>
+      </div>
+      <div class="date-strip">
+        <button class="ds-arrow" id="ds-prev" aria-label="向前">‹</button>
+        <div class="ds-track" id="ds-track"></div>
+        <button class="ds-arrow" id="ds-next" aria-label="向后">›</button>
       </div>
     </div>
     <div class="feed" id="feed-content"></div>
@@ -441,7 +467,11 @@ document.querySelectorAll('.sb-item').forEach(btn => {{
 }});
 
 let currentSec = 'all';
+let currentDate = 'all';
 let searchQuery = '';
+
+// all available dates (descending)
+const allDates = [...new Set(allItems.map(it => it.date))].sort((a, b) => b.localeCompare(a));
 
 function escHtml(s) {{
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -457,6 +487,7 @@ function renderFeed() {{
   const feedEl = document.getElementById('feed-content');
   const filtered = allItems.filter(it => {{
     if (currentSec !== 'all' && it.section !== currentSec) return false;
+    if (currentDate !== 'all' && it.date !== currentDate) return false;
     if (!q) return true;
     return [it.title, it.body, (it.meta||[]).join(' ')].join(' ').toLowerCase().includes(q);
   }});
@@ -493,6 +524,7 @@ function renderFeed() {{
           <span class="subsec-cnt">${{items.length}} 条</span>
         </div>`);
       }}
+      html.push('<div class="icard-grid">');
       items.forEach(it => {{
         const tagStyle = `background:${{color}}1f;color:${{color}};`;
         const metaTags = (it.meta||[]).map(m => {{
@@ -509,8 +541,8 @@ function renderFeed() {{
           <a class="ireport" href="${{escHtml(it.reportUrl)}}">查看完整报告 →</a>
         </div>`);
       }});
+      html.push('</div>');
     }});
-    html.push('</div>');
   }});
   feedEl.innerHTML = html.join('');
 }}
@@ -527,6 +559,35 @@ document.getElementById('search').addEventListener('input', e => {{
   searchQuery = e.target.value;
   renderFeed();
 }});
+
+function dateChipLabel(d) {{
+  const p = String(d).split('-');
+  if (p.length === 3) return `${{parseInt(p[1],10)}}/${{parseInt(p[2],10)}}`;
+  return d;
+}}
+function renderDateStrip() {{
+  const track = document.getElementById('ds-track');
+  const chips = [`<button class="ds-chip${{currentDate==='all'?' active':''}}" data-date="all">全部日期</button>`];
+  allDates.forEach(d => {{
+    chips.push(`<button class="ds-chip${{currentDate===d?' active':''}}" data-date="${{d}}">${{dateChipLabel(d)}}</button>`);
+  }});
+  track.innerHTML = chips.join('');
+  track.querySelectorAll('.ds-chip').forEach(btn => {{
+    btn.addEventListener('click', () => {{
+      currentDate = btn.dataset.date;
+      track.querySelectorAll('.ds-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFeed();
+    }});
+  }});
+}}
+document.getElementById('ds-prev').addEventListener('click', () => {{
+  document.getElementById('ds-track').scrollBy({{ left: -240, behavior: 'smooth' }});
+}});
+document.getElementById('ds-next').addEventListener('click', () => {{
+  document.getElementById('ds-track').scrollBy({{ left: 240, behavior: 'smooth' }});
+}});
+renderDateStrip();
 renderFeed();
 
 const cardSets = {{
