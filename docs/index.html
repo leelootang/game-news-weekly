@@ -127,7 +127,7 @@
     .imetag{font-size:12px;background:rgba(31,45,75,.06);color:var(--muted);padding:3px 10px;border-radius:8px;}
     .imetag.bl{background:rgba(240,160,42,.14);color:#a8680a;}
     .icard-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-    .ireport{font-size:13px;color:var(--muted);font-weight:600;}
+    .ireport{font-size:13px;color:var(--muted);font-weight:400;}
     .ireport:hover{color:var(--accent);text-decoration:underline;}
     .isrc-btn{font-size:13px;color:var(--accent);font-weight:600;background:transparent;border:0;cursor:pointer;padding:0;}
     .isrc-btn:hover{text-decoration:underline;}
@@ -389,7 +389,7 @@ function renderFeed() {
           ${metaTags ? `<div class="imeta">${metaTags}</div>` : ''}
           <div class="icard-foot">
             ${(it.sources||[]).length ? `<button class="isrc-btn" data-idx="${itemRefs.push(it)-1}">查看来源 (${it.sources.length}) →</button>` : ''}
-            <a class="ireport" href="${escHtml(it.reportUrl)}">查看完整报告 →</a>
+            <a class="ireport" href="${escHtml(it.reportUrl)}">查看日报 →</a>
           </div>
         </div>`);
       });
