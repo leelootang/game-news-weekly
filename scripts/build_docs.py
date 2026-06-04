@@ -5,6 +5,7 @@ Scans output/daily/*/interactive_report.html and output/weekly/*/interactive_rep
 copies them to docs/ with logos, and generates an index page.
 """
 
+import base64
 import json
 import re
 import shutil
@@ -14,6 +15,16 @@ ROOT = Path(__file__).parent.parent
 OUTPUT = ROOT / "output"
 DOCS = ROOT / "docs"
 SHARED_LOGO = OUTPUT / "assets" / "moonton_logo.png"
+
+def logo_data_uri() -> str:
+    logo = SHARED_LOGO if SHARED_LOGO.exists() else next(OUTPUT.glob("daily/*/moonton_logo.png"), None)
+    if not logo:
+        return ""
+    data = base64.b64encode(logo.read_bytes()).decode()
+    return f"data:image/png;base64,{data}"
+
+
+LOGO_URI = ""  # filled in build_docs() after we confirm the file exists
 
 SECTION_LABELS = {
     "industry": "行业",
@@ -74,8 +85,8 @@ def extract_metadata(html_content: str) -> tuple[int, dict]:
 def copy_report(html_path: Path, dest_dir: Path) -> None:
     dest_dir.mkdir(parents=True, exist_ok=True)
     content = html_path.read_text(encoding="utf-8")
-    # Repoint logo to the single shared asset (two levels up from docs/daily/DATE/ or docs/weekly/DATE/)
-    content = content.replace('src="moonton_logo.png"', 'src="../../assets/moonton_logo.png"')
+    if LOGO_URI:
+        content = content.replace('src="moonton_logo.png"', f'src="{LOGO_URI}"')
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
 
 
@@ -173,7 +184,7 @@ def build_index(reports: list[dict]) -> str:
 <body>
 <header>
   <div class="brand">
-    <div class="brand-logo"><img src="assets/moonton_logo.png" alt=""></div>
+    <div class="brand-logo"><img src="{LOGO_URI}" alt=""></div>
     <div>
       <div class="brand-title">游戏行业情报站</div>
       <div class="brand-sub">AI 生成 · 每日更新</div>
@@ -216,13 +227,10 @@ def build_index(reports: list[dict]) -> str:
 
 
 def build_docs() -> None:
-    DOCS.mkdir(exist_ok=True)
-    assets_dir = DOCS / "assets"
-    assets_dir.mkdir(exist_ok=True)
-    logo_src = SHARED_LOGO if SHARED_LOGO.exists() else next(OUTPUT.glob("daily/*/moonton_logo.png"), None)
-    if logo_src:
-        shutil.copy2(logo_src, assets_dir / "moonton_logo.png")
+    global LOGO_URI
+    LOGO_URI = logo_data_uri()
 
+    DOCS.mkdir(exist_ok=True)
     reports: list[dict] = []
 
     for html_path in sorted((OUTPUT / "daily").glob("*/interactive_report.html"), reverse=True):
