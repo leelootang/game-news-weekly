@@ -82,19 +82,18 @@
 
     /* feed */
     .feed{padding:30px 48px 64px;max-width:1120px;width:100%;}
-    .sec-block{margin-bottom:44px;}
-    .sec-hd{display:flex;align-items:center;gap:11px;margin-bottom:6px;}
-    .sec-bar{width:5px;height:22px;border-radius:3px;flex-shrink:0;}
-    .sec-name{font-size:19px;font-weight:800;letter-spacing:.2px;}
-    .sec-cnt{font-size:13px;color:var(--muted);font-weight:500;}
-
-    /* date divider */
-    .date-div{display:flex;align-items:center;gap:16px;margin:24px 0 16px;}
-    .date-div::before,.date-div::after{content:"";height:1px;flex:1;
-      background:linear-gradient(90deg,transparent,var(--hair),transparent);}
-    .date-div span{font-size:13px;font-weight:700;color:var(--ink2);background:var(--glass-strong);
-      padding:5px 16px;border-radius:20px;border:1px solid var(--glass-border);
-      backdrop-filter:blur(10px);box-shadow:var(--sh);white-space:nowrap;}
+    /* day group (level 1) */
+    .day-block{margin-bottom:48px;}
+    .day-hd{display:flex;align-items:center;gap:14px;margin:0 0 8px;}
+    .day-date{font-size:21px;font-weight:800;letter-spacing:.3px;color:var(--ink);white-space:nowrap;}
+    .day-cnt{font-size:12.5px;color:var(--muted);font-weight:500;white-space:nowrap;}
+    .day-hd::after{content:"";flex:1;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--hair),transparent);}
+    /* section sub-group (level 2) */
+    .subsec-hd{display:flex;align-items:center;gap:9px;margin:22px 0 12px;}
+    .subsec-bar{width:4px;height:17px;border-radius:3px;flex-shrink:0;}
+    .subsec-name{font-size:15px;font-weight:700;letter-spacing:.1px;}
+    .subsec-cnt{font-size:12px;color:var(--muted);}
 
     /* item card (glass) */
     .icard{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
@@ -270,39 +269,51 @@ function renderFeed() {
     feedEl.innerHTML = '<div class="no-results">没有找到相关内容</div>';
     return;
   }
+  // Group by date (level 1, descending), then by section (level 2, fixed order).
+  const dates = [];
+  const byDate = {};
+  filtered.forEach(it => {
+    if (!byDate[it.date]) { byDate[it.date] = []; dates.push(it.date); }
+    byDate[it.date].push(it);
+  });
+  dates.sort((a, b) => b.localeCompare(a));
+
+  const singleSection = currentSec !== 'all';
   const html = [];
-  const sections = currentSec === 'all' ? SECTION_ORDER : [currentSec];
-  sections.forEach(sid => {
-    const items = filtered.filter(it => it.section === sid);
-    if (!items.length) return;
-    const color = SECTION_COLORS[sid];
-    html.push(`<div class="sec-block">
-      <div class="sec-hd">
-        <span class="sec-bar" style="background:${color}"></span>
-        <span class="sec-name">${SECTION_LABELS[sid]}</span>
-        <span class="sec-cnt">${items.length} 条</span>
+  dates.forEach(date => {
+    const dayItems = byDate[date];
+    html.push(`<div class="day-block">
+      <div class="day-hd">
+        <span class="day-date">${dateLabel(date)}</span>
+        <span class="day-cnt">${dayItems.length} 条</span>
       </div>`);
-    let lastDate = null;
-    items.forEach(it => {
-      if (it.date !== lastDate) {
-        html.push(`<div class="date-div"><span>${dateLabel(it.date)}</span></div>`);
-        lastDate = it.date;
+    SECTION_ORDER.forEach(sid => {
+      const items = dayItems.filter(it => it.section === sid);
+      if (!items.length) return;
+      const color = SECTION_COLORS[sid];
+      if (!singleSection) {
+        html.push(`<div class="subsec-hd">
+          <span class="subsec-bar" style="background:${color}"></span>
+          <span class="subsec-name">${SECTION_LABELS[sid]}</span>
+          <span class="subsec-cnt">${items.length} 条</span>
+        </div>`);
       }
-      const tagStyle = `background:${color}1f;color:${color};`;
-      const metaTags = (it.meta||[]).map(m => {
-        const bl = /borderline/i.test(m);
-        return `<span class="imetag${bl?' bl':''}">${escHtml(m)}</span>`;
-      }).join('');
-      html.push(`<div class="icard">
-        <div class="icard-top">
-          <span class="itag" style="${tagStyle}">${SECTION_LABELS[it.section]}</span>
-          <span class="idate">${escHtml(it.date)}</span>
-        </div>
-        <div class="ititle">${escHtml(it.title)}</div>
-        <div class="ibody">${escHtml(it.body)}</div>
-        ${metaTags ? `<div class="imeta">${metaTags}</div>` : ''}
-        <a class="ireport" href="${escHtml(it.reportUrl)}">查看完整报告 →</a>
-      </div>`);
+      items.forEach(it => {
+        const tagStyle = `background:${color}1f;color:${color};`;
+        const metaTags = (it.meta||[]).map(m => {
+          const bl = /borderline/i.test(m);
+          return `<span class="imetag${bl?' bl':''}">${escHtml(m)}</span>`;
+        }).join('');
+        html.push(`<div class="icard">
+          <div class="icard-top">
+            <span class="itag" style="${tagStyle}">${SECTION_LABELS[it.section]}</span>
+          </div>
+          <div class="ititle">${escHtml(it.title)}</div>
+          <div class="ibody">${escHtml(it.body)}</div>
+          ${metaTags ? `<div class="imeta">${metaTags}</div>` : ''}
+          <a class="ireport" href="${escHtml(it.reportUrl)}">查看完整报告 →</a>
+        </div>`);
+      });
     });
     html.push('</div>');
   });
