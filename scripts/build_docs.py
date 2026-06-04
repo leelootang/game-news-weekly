@@ -1,8 +1,8 @@
 """
 Build docs/ for GitHub Pages.
 
-Scans output/daily/*/interactive_report.html and output/weekly/*/interactive_report.html,
-copies them to docs/ with logos, and generates a portal index page.
+Scans output/daily/*/interactive_report.html (and weekly/monthly when present),
+copies them to docs/ with the logo inlined, and generates a portal index page.
 """
 
 import base64
@@ -26,12 +26,13 @@ SECTION_LABELS = {
     "deep":     "深度观察",
 }
 
+# Refined, slightly desaturated palette for a premium feel
 SECTION_COLORS = {
-    "industry": "#1769e0",
-    "ai":       "#00a6c8",
-    "release":  "#11a36a",
-    "discourse":"#d68a00",
-    "deep":     "#7866d9",
+    "industry": "#4f7cff",
+    "ai":       "#00b3d4",
+    "release":  "#16b884",
+    "discourse":"#f0a02a",
+    "deep":     "#8b6df0",
 }
 
 
@@ -46,6 +47,7 @@ def logo_data_uri() -> str:
 
 LOGO_URI = ""  # set in build_docs()
 
+# Static attribution bar injected into each report page (not sticky there).
 ATTRIBUTION_BAR = (
     '<div style="background:#1f2a3d;color:#9fb4d2;font-size:12px;text-align:center;'
     'padding:7px 16px;letter-spacing:.2px;">'
@@ -74,7 +76,6 @@ def _find_items_block(html: str) -> str | None:
 
 
 def extract_items_full(html: str, date_str: str, report_url: str) -> list[dict]:
-    """Return all items from a report HTML (new JSON format only)."""
     block = _find_items_block(html)
     if not block:
         return []
@@ -82,14 +83,20 @@ def extract_items_full(html: str, date_str: str, report_url: str) -> list[dict]:
         items = json.loads(block)
     except json.JSONDecodeError:
         return []
+    slim = []
     for item in items:
-        item["date"] = date_str
-        item["reportUrl"] = report_url
-    return items
+        slim.append({
+            "section": item.get("section", ""),
+            "title": item.get("title", ""),
+            "body": item.get("body", ""),
+            "meta": item.get("meta", []),
+            "date": date_str,
+            "reportUrl": report_url,
+        })
+    return slim
 
 
 def extract_metadata(html: str) -> tuple[int, dict]:
-    """Return (total_count, {section: count}) for any format."""
     block = _find_items_block(html)
     if not block:
         return 0, {}
@@ -105,11 +112,8 @@ def extract_metadata(html: str) -> tuple[int, dict]:
     counts = {}
     for sec_id in SECTION_LABELS:
         counts[sec_id] = len(re.findall(rf'section:\s*["\']?{sec_id}["\']?', block))
-    total = sum(counts.values())
-    return total, {k: v for k, v in counts.items() if v > 0}
+    return sum(counts.values()), {k: v for k, v in counts.items() if v > 0}
 
-
-# ── per-report page ───────────────────────────────────────────────────────────
 
 def copy_report(html_path: Path, dest_dir: Path) -> None:
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -119,8 +123,6 @@ def copy_report(html_path: Path, dest_dir: Path) -> None:
     content = content.replace("<body>", f"<body>{ATTRIBUTION_BAR}", 1)
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
 
-
-# ── index page ────────────────────────────────────────────────────────────────
 
 def format_date(date_str: str) -> str:
     parts = date_str.split("-")
@@ -144,8 +146,7 @@ def section_pills_html(counts: dict) -> str:
             continue
         c = SECTION_COLORS[sid]
         out.append(
-            f'<span style="background:{c}18;color:{c};border:1px solid {c}33;'
-            f'padding:2px 8px;border-radius:8px;font-size:11px;">'
+            f'<span style="background:{c}1f;color:{c};padding:2px 9px;border-radius:8px;font-size:11px;">'
             f'{SECTION_LABELS[sid]} {n}</span>'
         )
     return " ".join(out)
@@ -159,11 +160,8 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     total_items = len(all_items)
     total_reports = len(reports)
 
-    # ── embed data as JSON for client-side JS ─────────────────────────────────
-    items_json = json.dumps(all_items, ensure_ascii=False)
-    reports_json = json.dumps(reports, ensure_ascii=False)
+    items_json = json.dumps(all_items, ensure_ascii=False).replace("</", "<\\/")
 
-    # ── report cards (日报/周报 tab) ──────────────────────────────────────────
     def report_card(r: dict) -> str:
         d = r["date"]
         if r["type"] == "weekly":
@@ -174,28 +172,25 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
         else:
             date_label = format_date_long(d)
         type_labels = {"daily": "日报", "weekly": "周报", "monthly": "月报"}
-        type_colors = {"daily": "#1769e0", "weekly": "#7866d9", "monthly": "#11a36a"}
-        bc = type_colors.get(r["type"], "#1769e0")
+        type_colors = {"daily": "#4f7cff", "weekly": "#8b6df0", "monthly": "#16b884"}
+        bc = type_colors.get(r["type"], "#4f7cff")
         bl = type_labels.get(r["type"], "报告")
         pills = section_pills_html(r["counts"])
         return (
             f'<a href="{r["url"]}" class="rcard">'
             f'<div class="rcard-top">'
-            f'<span class="rbadge" style="background:{bc}18;color:{bc};border:1px solid {bc}33;">{bl}</span>'
-            f'<span class="rtotal">{r["total"]} 条</span>'
-            f'</div>'
+            f'<span class="rbadge" style="background:{bc}1f;color:{bc};">{bl}</span>'
+            f'<span class="rtotal">{r["total"]} 条</span></div>'
             f'<div class="rdate">{date_label}</div>'
             f'<div class="rpills">{pills}</div>'
-            f'<div class="rlink">查看完整报告 →</div>'
-            f'</a>'
+            f'<div class="rlink">查看完整报告 →</div></a>'
         )
 
-    all_rcards   = "\n".join(report_card(r) for r in reports) if reports else '<p class="empty-msg">暂无报告</p>'
-    daily_rcards = "\n".join(report_card(r) for r in daily)   if daily   else '<p class="empty-msg">暂无日报</p>'
-    weekly_rcards= "\n".join(report_card(r) for r in weekly)  if weekly  else '<p class="empty-msg">暂无周报</p>'
-    monthly_rcards="\n".join(report_card(r) for r in monthly) if monthly else '<p class="empty-msg">暂无月报</p>'
+    all_rcards    = "\n".join(report_card(r) for r in reports) if reports else '<p class="empty-msg">暂无报告</p>'
+    daily_rcards  = "\n".join(report_card(r) for r in daily)   if daily   else '<p class="empty-msg">暂无日报</p>'
+    weekly_rcards = "\n".join(report_card(r) for r in weekly)  if weekly  else '<p class="empty-msg">暂无周报</p>'
+    monthly_rcards= "\n".join(report_card(r) for r in monthly) if monthly else '<p class="empty-msg">暂无月报</p>'
 
-    # ── filter tab list for feed ──────────────────────────────────────────────
     feed_tabs = '<button class="ftab active" data-sec="all">全部</button>'
     for sid in SECTION_ORDER:
         feed_tabs += f'<button class="ftab" data-sec="{sid}">{SECTION_LABELS[sid]}</button>'
@@ -208,130 +203,164 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
   <title>游戏行业情报站</title>
   <style>
     :root {{
-      --bg:#f4f6fb; --panel:#fff; --ink:#15202e; --ink2:#2a3a52; --muted:#5b6b82;
-      --line:#e3e8f1; --sh:0 4px 16px rgba(24,39,75,.07); --sh2:0 8px 28px rgba(24,39,75,.11);
-      --sw:248px;
+      --ink:#1a2436; --ink2:#3a4862; --muted:#6b7993; --faint:#9aa6bd;
+      --accent:#5b6ef5;
+      --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.78);
+      --glass-border:rgba(255,255,255,.7); --hair:rgba(31,45,75,.10);
+      --sh:0 6px 28px rgba(31,45,75,.07); --sh-lg:0 14px 40px rgba(31,45,75,.12);
+      --attrib-h:36px; --sw:256px;
     }}
     *{{box-sizing:border-box;margin:0;padding:0;}}
-    body{{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}}
+    html,body{{height:100%;}}
+    body{{color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif;
+          line-height:1.65;-webkit-font-smoothing:antialiased;}}
+    /* decorative gradient field behind the frosted glass */
+    body::before{{content:"";position:fixed;inset:0;z-index:-1;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(91,110,245,.20), transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(0,179,212,.16), transparent 40%),
+        radial-gradient(circle at 78% 88%, rgba(139,109,240,.18), transparent 46%),
+        radial-gradient(circle at 25% 92%, rgba(22,184,132,.13), transparent 44%),
+        linear-gradient(135deg,#eef1fb 0%,#f3effb 48%,#eaf3fc 100%);}}
     a{{color:inherit;text-decoration:none;}}
     button,input{{font:inherit;}}
+    ::selection{{background:rgba(91,110,245,.22);}}
 
-    /* ── layout ── */
-    .layout{{display:flex;min-height:calc(100vh - 34px);}}
+    /* attribution — sticky so the top never "leaks" */
+    .attrib{{position:sticky;top:0;z-index:1000;height:var(--attrib-h);display:flex;
+      align-items:center;justify-content:center;gap:6px;
+      background:rgba(26,33,52,.82);backdrop-filter:blur(12px) saturate(160%);
+      -webkit-backdrop-filter:blur(12px) saturate(160%);
+      color:#aebdd6;font-size:12px;letter-spacing:.2px;border-bottom:1px solid rgba(255,255,255,.06);}}
+    .attrib a{{color:#7fa6ff;}}
 
-    /* ── sidebar ── */
-    .sb{{width:var(--sw);flex-shrink:0;background:linear-gradient(180deg,#283449 0%,#1f2a3d 100%);
-         color:#eef5ff;position:sticky;top:34px;height:calc(100vh - 34px);overflow-y:auto;
-         display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.06);}}
-    .sb-brand{{padding:22px 18px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:11px;}}
-    .sb-logo{{width:36px;height:36px;background:#fff;border-radius:7px;padding:6px;flex-shrink:0;display:grid;place-items:center;}}
+    .layout{{display:flex;min-height:calc(100vh - var(--attrib-h));}}
+
+    /* ── sidebar (frosted glass) ── */
+    .sb{{width:var(--sw);flex-shrink:0;position:sticky;top:var(--attrib-h);
+      height:calc(100vh - var(--attrib-h));overflow-y:auto;display:flex;flex-direction:column;
+      background:rgba(255,255,255,.48);backdrop-filter:blur(22px) saturate(170%);
+      -webkit-backdrop-filter:blur(22px) saturate(170%);border-right:1px solid rgba(255,255,255,.55);}}
+    .sb-brand{{padding:24px 20px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--hair);}}
+    .sb-logo{{width:40px;height:40px;background:#fff;border-radius:11px;padding:7px;flex-shrink:0;
+      display:grid;place-items:center;box-shadow:0 3px 10px rgba(31,45,75,.10);}}
     .sb-logo img{{width:100%;height:100%;object-fit:contain;display:block;}}
-    .sb-name{{font-size:14.5px;font-weight:700;letter-spacing:.3px;}}
-    .sb-sub{{font-size:11px;color:#9fb4d2;margin-top:2px;}}
-
-    .sb-section{{padding:18px 18px 6px;}}
-    .sb-section-label{{font-size:10px;color:#4a6480;letter-spacing:1.1px;text-transform:uppercase;font-weight:700;}}
-    .sb-item{{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;color:#b8cde6;
-              padding:9px 18px;text-align:left;cursor:pointer;font-size:13.5px;position:relative;transition:background .12s,color .12s;}}
-    .sb-item:hover{{background:rgba(255,255,255,.05);color:#fff;}}
-    .sb-item.active{{background:rgba(255,255,255,.08);color:#fff;}}
-    .sb-item.active::before{{content:"";position:absolute;left:0;top:5px;bottom:5px;width:3px;border-radius:0 3px 3px 0;background:#56a8ff;}}
-    .sb-icon{{font-size:15px;width:19px;text-align:center;opacity:.8;}}
-    .sb-footer{{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,.06);
-                font-size:11px;color:#3d5570;line-height:1.5;}}
+    .sb-name{{font-size:15px;font-weight:700;letter-spacing:.2px;color:var(--ink);}}
+    .sb-sub{{font-size:11px;color:var(--muted);margin-top:3px;}}
+    .sb-section{{padding:20px 22px 8px;}}
+    .sb-section-label{{font-size:10px;color:var(--faint);letter-spacing:1.3px;text-transform:uppercase;font-weight:700;}}
+    .sb-item{{display:flex;align-items:center;gap:11px;width:calc(100% - 16px);margin:1px 8px;border:0;
+      background:transparent;color:var(--ink2);padding:11px 14px;text-align:left;cursor:pointer;
+      font-size:14px;font-weight:500;border-radius:11px;position:relative;transition:all .16s;}}
+    .sb-item:hover{{background:rgba(255,255,255,.55);color:var(--ink);}}
+    .sb-item.active{{background:rgba(91,110,245,.12);color:var(--accent);font-weight:600;box-shadow:inset 0 0 0 1px rgba(91,110,245,.18);}}
+    .sb-icon{{font-size:16px;width:20px;text-align:center;}}
+    .sb-footer{{margin-top:auto;padding:16px 22px;border-top:1px solid var(--hair);font-size:11.5px;color:var(--muted);line-height:1.6;}}
 
     /* ── main ── */
     .main{{flex:1;min-width:0;display:flex;flex-direction:column;}}
     .view{{display:none;flex:1;flex-direction:column;}}
     .view.active{{display:flex;}}
 
-    /* topbar (feed) */
-    .topbar{{position:sticky;top:34px;z-index:9;background:var(--panel);border-bottom:1px solid var(--line);
-             display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}}
-    .ftabs{{display:flex;flex:1;overflow-x:auto;padding:0 24px;gap:0;}}
-    .ftab{{padding:13px 14px;border:0;background:transparent;color:var(--muted);cursor:pointer;
-           font-size:13px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s;}}
+    /* topbar (frosted, sticky right under attribution) */
+    .topbar{{position:sticky;top:var(--attrib-h);z-index:8;display:flex;align-items:center;gap:0;flex-wrap:wrap;
+      background:rgba(255,255,255,.6);backdrop-filter:blur(20px) saturate(160%);
+      -webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--hair);}}
+    .ftabs{{display:flex;flex:1;overflow-x:auto;padding:0 32px;}}
+    .ftab{{padding:16px 16px;border:0;background:transparent;color:var(--muted);cursor:pointer;
+      font-size:14px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap;transition:color .14s;}}
     .ftab:hover:not(.active){{color:var(--ink);}}
-    .ftab.active{{color:#1769e0;border-bottom-color:#1769e0;}}
-    .search-wrap{{display:flex;align-items:center;gap:7px;padding:8px 16px;border-left:1px solid var(--line);}}
-    .search-wrap input{{border:1px solid var(--line);background:var(--bg);border-radius:7px;
-                        padding:7px 12px;font-size:13px;color:var(--ink);outline:0;width:200px;transition:border-color .15s;}}
-    .search-wrap input:focus{{border-color:#1769e0;}}
+    .ftab.active{{color:var(--accent);border-bottom-color:var(--accent);font-weight:600;}}
+    .search-wrap{{padding:10px 24px;}}
+    .search-wrap input{{border:1px solid var(--hair);background:rgba(255,255,255,.7);border-radius:11px;
+      padding:9px 15px;font-size:13.5px;color:var(--ink);outline:0;width:300px;transition:all .16s;}}
+    .search-wrap input::placeholder{{color:var(--faint);}}
+    .search-wrap input:focus{{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,110,245,.12);background:#fff;}}
 
-    /* feed content */
-    .feed{{padding:24px 32px 56px;max-width:860px;}}
-    .sec-block{{margin-bottom:36px;}}
-    .sec-hd{{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--line);}}
-    .sec-dot{{width:9px;height:9px;border-radius:50%;flex-shrink:0;}}
-    .sec-name{{font-size:15px;font-weight:700;}}
-    .sec-cnt{{font-size:12px;color:var(--muted);}}
-    .no-results{{padding:48px 0;text-align:center;color:var(--muted);font-size:14px;}}
+    /* feed */
+    .feed{{padding:30px 48px 64px;max-width:1120px;width:100%;}}
+    .sec-block{{margin-bottom:44px;}}
+    .sec-hd{{display:flex;align-items:center;gap:11px;margin-bottom:6px;}}
+    .sec-bar{{width:5px;height:22px;border-radius:3px;flex-shrink:0;}}
+    .sec-name{{font-size:19px;font-weight:800;letter-spacing:.2px;}}
+    .sec-cnt{{font-size:13px;color:var(--muted);font-weight:500;}}
 
-    /* item card */
-    .icard{{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:17px 20px;
-            margin-bottom:10px;transition:box-shadow .15s;}}
-    .icard:hover{{box-shadow:var(--sh);}}
-    .icard-top{{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap;}}
-    .itag{{font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;}}
-    .idate{{font-size:11.5px;color:var(--muted);}}
-    .ititle{{font-size:14.5px;font-weight:700;line-height:1.45;margin-bottom:8px;color:var(--ink);}}
-    .ibody{{font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:10px;
-            display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}}
-    .imeta{{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}}
-    .imetag{{font-size:11px;background:#f0f4fa;color:var(--muted);padding:2px 8px;border-radius:6px;}}
-    .imetag.bl{{background:#fff3dc;color:#945e00;}}
-    .ireport{{font-size:12px;color:#1769e0;}}
+    /* date divider */
+    .date-div{{display:flex;align-items:center;gap:16px;margin:24px 0 16px;}}
+    .date-div::before,.date-div::after{{content:"";height:1px;flex:1;
+      background:linear-gradient(90deg,transparent,var(--hair),transparent);}}
+    .date-div span{{font-size:13px;font-weight:700;color:var(--ink2);background:var(--glass-strong);
+      padding:5px 16px;border-radius:20px;border:1px solid var(--glass-border);
+      backdrop-filter:blur(10px);box-shadow:var(--sh);white-space:nowrap;}}
 
-    /* report cards */
-    .reports-hd{{padding:24px 32px 0;}}
-    .reports-hd h2{{font-size:19px;font-weight:700;}}
-    .reports-hd p{{font-size:13px;color:var(--muted);margin-top:4px;}}
-    .rtabs{{display:flex;gap:4px;padding:16px 32px 0;border-bottom:1px solid var(--line);background:var(--panel);}}
-    .rtab{{padding:9px 16px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;
-           font-weight:500;border-bottom:2px solid transparent;transition:color .12s;}}
+    /* item card (glass) */
+    .icard{{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+      -webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--glass-border);
+      border-radius:18px;padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);
+      transition:transform .18s,box-shadow .18s;}}
+    .icard:hover{{transform:translateY(-2px);box-shadow:var(--sh-lg);}}
+    .icard-top{{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap;}}
+    .itag{{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}}
+    .idate{{font-size:12px;color:var(--faint);}}
+    .ititle{{font-size:17.5px;font-weight:700;line-height:1.45;margin-bottom:10px;color:var(--ink);letter-spacing:.1px;}}
+    .ibody{{font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;
+      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}}
+    .imeta{{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}}
+    .imetag{{font-size:12px;background:rgba(31,45,75,.06);color:var(--muted);padding:3px 10px;border-radius:8px;}}
+    .imetag.bl{{background:rgba(240,160,42,.14);color:#a8680a;}}
+    .ireport{{font-size:13px;color:var(--accent);font-weight:600;}}
+    .ireport:hover{{text-decoration:underline;}}
+    .no-results{{padding:64px 0;text-align:center;color:var(--muted);font-size:15px;}}
+
+    /* reports view */
+    .reports-hd{{padding:30px 48px 0;}}
+    .reports-hd h2{{font-size:22px;font-weight:800;letter-spacing:.2px;}}
+    .reports-hd p{{font-size:13.5px;color:var(--muted);margin-top:5px;}}
+    .rtabs{{display:flex;gap:4px;padding:18px 48px 0;}}
+    .rtab{{padding:10px 18px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:13.5px;
+      font-weight:500;border-radius:10px 10px 0 0;border-bottom:2px solid transparent;transition:color .14s;}}
     .rtab:hover:not(.active){{color:var(--ink);}}
-    .rtab.active{{color:#1769e0;border-bottom-color:#1769e0;}}
-    .rgrid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:13px;padding:22px 32px 56px;}}
-    .rcard{{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:17px 19px;
-            display:flex;flex-direction:column;gap:9px;box-shadow:0 1px 3px rgba(24,39,75,.04);transition:transform .12s,box-shadow .12s;}}
-    .rcard:hover{{transform:translateY(-2px);box-shadow:var(--sh2);}}
+    .rtab.active{{color:var(--accent);border-bottom-color:var(--accent);font-weight:600;}}
+    .rgrid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;padding:24px 48px 64px;max-width:1200px;}}
+    .rcard{{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+      -webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--glass-border);
+      border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:11px;
+      box-shadow:var(--sh);transition:transform .18s,box-shadow .18s;}}
+    .rcard:hover{{transform:translateY(-3px);box-shadow:var(--sh-lg);}}
     .rcard-top{{display:flex;align-items:center;justify-content:space-between;}}
-    .rbadge{{font-size:11px;font-weight:700;padding:2px 9px;border-radius:7px;}}
+    .rbadge{{font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:8px;}}
     .rtotal{{font-size:12px;color:var(--muted);}}
-    .rdate{{font-size:15.5px;font-weight:700;line-height:1.3;}}
-    .rpills{{display:flex;flex-wrap:wrap;gap:5px;}}
-    .rlink{{font-size:12px;color:#1769e0;}}
-    .empty-msg{{color:var(--muted);font-size:14px;padding:40px 0;}}
+    .rdate{{font-size:17px;font-weight:800;line-height:1.3;}}
+    .rpills{{display:flex;flex-wrap:wrap;gap:6px;}}
+    .rlink{{font-size:12.5px;color:var(--accent);font-weight:600;}}
+    .empty-msg{{color:var(--muted);font-size:14px;padding:48px 0;}}
 
-    /* placeholder views */
-    .ph{{display:flex;flex-direction:column;align-items:center;justify-content:center;
-         min-height:320px;color:var(--muted);gap:10px;padding:40px;}}
-    .ph-icon{{font-size:42px;opacity:.35;}}
-    .ph-text{{font-size:15px;font-weight:600;}}
-    .ph-sub{{font-size:13px;opacity:.75;text-align:center;max-width:360px;line-height:1.6;}}
+    /* placeholder / feedback */
+    .ph{{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:360px;color:var(--muted);gap:12px;padding:40px;}}
+    .ph-icon{{font-size:46px;opacity:.4;}}
+    .ph-text{{font-size:16px;font-weight:700;color:var(--ink2);}}
+    .ph-sub{{font-size:13.5px;opacity:.85;text-align:center;max-width:380px;line-height:1.7;}}
+    .fb-body{{padding:34px 48px;max-width:560px;}}
+    .fb-body h2{{font-size:20px;font-weight:800;margin-bottom:12px;}}
+    .fb-body p{{font-size:14.5px;color:var(--ink2);line-height:1.8;margin-bottom:22px;}}
+    .fb-link{{display:inline-flex;align-items:center;gap:9px;background:var(--glass);
+      backdrop-filter:blur(14px);border:1px solid var(--glass-border);border-radius:13px;
+      padding:14px 22px;font-size:14.5px;font-weight:600;color:var(--accent);box-shadow:var(--sh);transition:transform .16s;}}
+    .fb-link:hover{{transform:translateY(-2px);box-shadow:var(--sh-lg);}}
 
-    /* feedback */
-    .fb-body{{padding:28px 32px;max-width:520px;}}
-    .fb-body h2{{font-size:18px;font-weight:700;margin-bottom:10px;}}
-    .fb-body p{{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:20px;}}
-    .fb-link{{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);
-              border-radius:8px;padding:12px 18px;font-size:14px;font-weight:500;color:#1769e0;transition:background .12s;}}
-    .fb-link:hover{{background:#eaf2ff;}}
-
-    @media(max-width:700px){{
+    @media(max-width:760px){{
       .sb{{display:none;}}
-      .feed,.reports-hd,.rgrid,.fb-body{{padding-left:16px;padding-right:16px;}}
-      .ftabs{{padding:0 12px;}}
-      .search-wrap input{{width:140px;}}
+      .feed,.reports-hd,.rgrid,.fb-body{{padding-left:18px;padding-right:18px;}}
+      .ftabs{{padding:0 14px;}}
+      .search-wrap{{padding:10px 14px;}}
+      .search-wrap input{{width:170px;}}
     }}
   </style>
 </head>
 <body>
-{ATTRIBUTION_BAR}
+<div class="attrib">Made by 沐瞳科技战略团队 · 有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></div>
 <div class="layout">
 
-<!-- ── sidebar ─────────────────────────────────────────────────────── -->
 <aside class="sb">
   <div class="sb-brand">
     <div class="sb-logo"><img src="{LOGO_URI}" alt=""></div>
@@ -342,39 +371,28 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
   </div>
 
   <div class="sb-section"><div class="sb-section-label">内容</div></div>
-  <button class="sb-item active" data-view="feed">
-    <span class="sb-icon">📡</span>行业动态
-  </button>
-  <button class="sb-item" data-view="reports">
-    <span class="sb-icon">📋</span>日报 · 周报 · 月报
-  </button>
+  <button class="sb-item active" data-view="feed"><span class="sb-icon">📡</span>行业动态</button>
+  <button class="sb-item" data-view="reports"><span class="sb-icon">📋</span>日报 · 周报 · 月报</button>
 
-  <div class="sb-section" style="margin-top:8px;"><div class="sb-section-label">其他</div></div>
-  <button class="sb-item" data-view="changelog">
-    <span class="sb-icon">📝</span>更新日志
-  </button>
-  <button class="sb-item" data-view="feedback">
-    <span class="sb-icon">💬</span>反馈
-  </button>
+  <div class="sb-section" style="margin-top:6px;"><div class="sb-section-label">其他</div></div>
+  <button class="sb-item" data-view="changelog"><span class="sb-icon">📝</span>更新日志</button>
+  <button class="sb-item" data-view="feedback"><span class="sb-icon">💬</span>反馈</button>
 
   <div class="sb-footer">共 {total_reports} 期报告 · {total_items} 条动态</div>
 </aside>
 
-<!-- ── main ─────────────────────────────────────────────────────────── -->
 <div class="main">
 
-  <!-- 行业动态 -->
   <div class="view active" id="view-feed">
     <div class="topbar">
       <div class="ftabs">{feed_tabs}</div>
       <div class="search-wrap">
-        <input type="search" id="search" placeholder="搜索动态…" autocomplete="off">
+        <input type="search" id="search" placeholder="搜索产品、公司、动态关键词…" autocomplete="off">
       </div>
     </div>
     <div class="feed" id="feed-content"></div>
   </div>
 
-  <!-- 日报 · 周报 · 月报 -->
   <div class="view" id="view-reports">
     <div class="reports-hd">
       <h2>日报 · 周报 · 月报</h2>
@@ -389,7 +407,6 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     <div class="rgrid" id="reports-grid">{all_rcards}</div>
   </div>
 
-  <!-- 更新日志 -->
   <div class="view" id="view-changelog">
     <div class="ph">
       <div class="ph-icon">🗒️</div>
@@ -398,7 +415,6 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     </div>
   </div>
 
-  <!-- 反馈 -->
   <div class="view" id="view-feedback">
     <div class="fb-body">
       <h2>反馈与联系</h2>
@@ -407,17 +423,15 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     </div>
   </div>
 
-</div><!-- .main -->
-</div><!-- .layout -->
+</div>
+</div>
 
 <script>
 const SECTION_ORDER = {json.dumps(list(SECTION_ORDER))};
 const SECTION_LABELS = {json.dumps(SECTION_LABELS, ensure_ascii=False)};
 const SECTION_COLORS = {json.dumps(SECTION_COLORS)};
 const allItems = {items_json};
-const allReports = {reports_json};
 
-// ── sidebar navigation ─────────────────────────────────────────────────
 document.querySelectorAll('.sb-item').forEach(btn => {{
   btn.addEventListener('click', () => {{
     document.querySelectorAll('.sb-item').forEach(b => b.classList.remove('active'));
@@ -427,12 +441,16 @@ document.querySelectorAll('.sb-item').forEach(btn => {{
   }});
 }});
 
-// ── feed rendering ─────────────────────────────────────────────────────
 let currentSec = 'all';
 let searchQuery = '';
 
 function escHtml(s) {{
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}}
+function dateLabel(d) {{
+  const p = String(d).split('-');
+  if (p.length === 3) return `${{p[0]}} 年 ${{parseInt(p[1],10)}} 月 ${{parseInt(p[2],10)}} 日`;
+  return d;
 }}
 
 function renderFeed() {{
@@ -441,16 +459,12 @@ function renderFeed() {{
   const filtered = allItems.filter(it => {{
     if (currentSec !== 'all' && it.section !== currentSec) return false;
     if (!q) return true;
-    const txt = [it.title, it.body, (it.meta||[]).join(' ')].join(' ').toLowerCase();
-    return txt.includes(q);
+    return [it.title, it.body, (it.meta||[]).join(' ')].join(' ').toLowerCase().includes(q);
   }});
-
   if (!filtered.length) {{
     feedEl.innerHTML = '<div class="no-results">没有找到相关内容</div>';
     return;
   }}
-
-  // Group by section (keep SECTION_ORDER), within each section: date desc (already sorted from build)
   const html = [];
   const sections = currentSec === 'all' ? SECTION_ORDER : [currentSec];
   sections.forEach(sid => {{
@@ -459,15 +473,20 @@ function renderFeed() {{
     const color = SECTION_COLORS[sid];
     html.push(`<div class="sec-block">
       <div class="sec-hd">
-        <span class="sec-dot" style="background:${{color}}"></span>
+        <span class="sec-bar" style="background:${{color}}"></span>
         <span class="sec-name">${{SECTION_LABELS[sid]}}</span>
         <span class="sec-cnt">${{items.length}} 条</span>
       </div>`);
+    let lastDate = null;
     items.forEach(it => {{
-      const tagStyle = `background:${{color}}18;color:${{color}};border:1px solid ${{color}}33;`;
+      if (it.date !== lastDate) {{
+        html.push(`<div class="date-div"><span>${{dateLabel(it.date)}}</span></div>`);
+        lastDate = it.date;
+      }}
+      const tagStyle = `background:${{color}}1f;color:${{color}};`;
       const metaTags = (it.meta||[]).map(m => {{
-        const isBl = /borderline/i.test(m);
-        return `<span class="imetag${{isBl?' bl':''}}">${{escHtml(m)}}</span>`;
+        const bl = /borderline/i.test(m);
+        return `<span class="imetag${{bl?' bl':''}}">${{escHtml(m)}}</span>`;
       }}).join('');
       html.push(`<div class="icard">
         <div class="icard-top">
@@ -485,7 +504,6 @@ function renderFeed() {{
   feedEl.innerHTML = html.join('');
 }}
 
-// section filter tabs
 document.querySelectorAll('.ftab').forEach(btn => {{
   btn.addEventListener('click', () => {{
     document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
@@ -494,39 +512,29 @@ document.querySelectorAll('.ftab').forEach(btn => {{
     renderFeed();
   }});
 }});
-
-// search
 document.getElementById('search').addEventListener('input', e => {{
   searchQuery = e.target.value;
   renderFeed();
 }});
-
 renderFeed();
 
-// ── reports tab filter ─────────────────────────────────────────────────
-const dailyCards   = `{daily_rcards}`;
-const weeklyCards  = `{weekly_rcards}`;
-const monthlyCards = `{monthly_rcards}`;
-const allCards     = `{all_rcards}`;
-
+const cardSets = {{
+  all: `{all_rcards}`,
+  daily: `{daily_rcards}`,
+  weekly: `{weekly_rcards}`,
+  monthly: `{monthly_rcards}`
+}};
 document.querySelectorAll('.rtab').forEach(btn => {{
   btn.addEventListener('click', () => {{
     document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const grid = document.getElementById('reports-grid');
-    const t = btn.dataset.rtype;
-    if (t === 'all')     grid.innerHTML = allCards;
-    else if (t === 'daily')  grid.innerHTML = dailyCards;
-    else if (t === 'weekly') grid.innerHTML = weeklyCards;
-    else if (t === 'monthly') grid.innerHTML = monthlyCards;
+    document.getElementById('reports-grid').innerHTML = cardSets[btn.dataset.rtype] || '';
   }});
 }});
 </script>
 </body>
 </html>"""
 
-
-# ── main ──────────────────────────────────────────────────────────────────────
 
 def build_docs() -> None:
     global LOGO_URI
@@ -536,11 +544,11 @@ def build_docs() -> None:
     reports: list[dict] = []
     all_items: list[dict] = []
 
+    # Daily reports feed the 行业动态 stream (weekly/monthly are digests; excluded to avoid duplication)
     for html_path in sorted((OUTPUT / "daily").glob("*/interactive_report.html"), reverse=True):
         date_str = html_path.parent.name
         report_url = f"daily/{date_str}/"
-        dest_dir = DOCS / "daily" / date_str
-        copy_report(html_path, dest_dir)
+        copy_report(html_path, DOCS / "daily" / date_str)
         content = html_path.read_text(encoding="utf-8")
         total, counts = extract_metadata(content)
         items = extract_items_full(content, date_str, report_url)
@@ -551,29 +559,20 @@ def build_docs() -> None:
     for html_path in sorted((OUTPUT / "weekly").glob("*/interactive_report.html"), reverse=True):
         folder = html_path.parent.name
         report_url = f"weekly/{folder}/"
-        dest_dir = DOCS / "weekly" / folder
-        copy_report(html_path, dest_dir)
-        content = html_path.read_text(encoding="utf-8")
-        total, counts = extract_metadata(content)
-        items = extract_items_full(content, folder, report_url)
-        all_items.extend(items)
+        copy_report(html_path, DOCS / "weekly" / folder)
+        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
         reports.append({"type": "weekly", "date": folder, "url": report_url, "total": total, "counts": counts})
         print(f"  weekly/{folder}  ({total} items)")
 
     for html_path in sorted((OUTPUT / "monthly").glob("*/interactive_report.html"), reverse=True):
         folder = html_path.parent.name
         report_url = f"monthly/{folder}/"
-        dest_dir = DOCS / "monthly" / folder
-        copy_report(html_path, dest_dir)
-        content = html_path.read_text(encoding="utf-8")
-        total, counts = extract_metadata(content)
-        items = extract_items_full(content, folder, report_url)
-        all_items.extend(items)
+        copy_report(html_path, DOCS / "monthly" / folder)
+        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
         reports.append({"type": "monthly", "date": folder, "url": report_url, "total": total, "counts": counts})
         print(f"  monthly/{folder}  ({total} items)")
 
-    index_html = build_index(reports, all_items)
-    (DOCS / "index.html").write_text(index_html, encoding="utf-8")
+    (DOCS / "index.html").write_text(build_index(reports, all_items), encoding="utf-8")
     print(f"\nDone — {len(reports)} reports, {len(all_items)} feed items → docs/index.html")
 
 
