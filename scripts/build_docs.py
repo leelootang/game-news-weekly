@@ -90,6 +90,7 @@ def extract_items_full(html: str, date_str: str, report_url: str) -> list[dict]:
             "title": item.get("title", ""),
             "body": item.get("body", ""),
             "meta": item.get("meta", []),
+            "sources": item.get("sources", []),
             "date": date_str,
             "reportUrl": report_url,
         })
@@ -323,9 +324,38 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
     .imeta{{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}}
     .imetag{{font-size:12px;background:rgba(31,45,75,.06);color:var(--muted);padding:3px 10px;border-radius:8px;}}
     .imetag.bl{{background:rgba(240,160,42,.14);color:#a8680a;}}
+    .icard-foot{{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}}
     .ireport{{font-size:13px;color:var(--accent);font-weight:600;}}
     .ireport:hover{{text-decoration:underline;}}
+    .isrc-btn{{font-size:13px;color:var(--muted);font-weight:600;background:transparent;border:0;cursor:pointer;padding:0;}}
+    .isrc-btn:hover{{color:var(--accent);}}
     .no-results{{padding:64px 0;text-align:center;color:var(--muted);font-size:15px;}}
+
+    /* source drawer */
+    .drawer-mask{{position:fixed;inset:0;z-index:40;background:rgba(20,28,45,.32);
+      backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .2s;}}
+    .drawer-mask.open{{opacity:1;visibility:visible;}}
+    .drawer{{position:fixed;top:0;right:0;z-index:41;height:100vh;width:min(440px,92vw);
+      display:flex;flex-direction:column;transform:translateX(100%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+      background:var(--glass-strong);backdrop-filter:blur(26px) saturate(170%);
+      -webkit-backdrop-filter:blur(26px) saturate(170%);border-left:1px solid var(--glass-border);
+      box-shadow:-14px 0 44px rgba(31,45,75,.18);}}
+    .drawer.open{{transform:translateX(0);}}
+    .drawer-hd{{display:flex;align-items:flex-start;gap:12px;padding:22px 24px 16px;border-bottom:1px solid var(--hair);}}
+    .drawer-hd .dh-title{{flex:1;font-size:15px;font-weight:700;line-height:1.5;color:var(--ink);}}
+    .drawer-hd .dh-sub{{font-size:12px;color:var(--muted);margin-top:4px;}}
+    .drawer-close{{flex-shrink:0;width:30px;height:30px;border-radius:9px;border:1px solid var(--hair);
+      background:rgba(255,255,255,.7);color:var(--muted);cursor:pointer;font-size:17px;line-height:1;}}
+    .drawer-close:hover{{color:var(--accent);border-color:var(--accent);}}
+    .drawer-body{{flex:1;overflow-y:auto;padding:16px 24px 28px;}}
+    .src-item{{display:block;padding:13px 15px;margin-bottom:11px;border-radius:13px;
+      background:rgba(255,255,255,.55);border:1px solid var(--hair);transition:all .16s;}}
+    a.src-item:hover{{border-color:var(--accent);box-shadow:var(--sh);transform:translateY(-1px);}}
+    .src-id{{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.4px;}}
+    .src-name{{font-size:14px;color:var(--ink);font-weight:600;margin:4px 0 5px;line-height:1.5;}}
+    .src-url{{font-size:12px;color:var(--muted);word-break:break-all;line-height:1.5;}}
+    a.src-item .src-url{{color:var(--accent);}}
+    .src-none{{color:var(--muted);font-size:13.5px;padding:8px 0;}}
 
     /* reports view */
     .reports-hd{{padding:30px 48px 0;}}
@@ -451,6 +481,18 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
 </div>
 </div>
 
+<div class="drawer-mask" id="drawer-mask"></div>
+<aside class="drawer" id="drawer" aria-label="来源">
+  <div class="drawer-hd">
+    <div>
+      <div class="dh-title" id="drawer-title"></div>
+      <div class="dh-sub" id="drawer-sub"></div>
+    </div>
+    <button class="drawer-close" id="drawer-close" aria-label="关闭">×</button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+
 <script>
 const SECTION_ORDER = {json.dumps(list(SECTION_ORDER))};
 const SECTION_LABELS = {json.dumps(SECTION_LABELS, ensure_ascii=False)};
@@ -482,7 +524,9 @@ function dateLabel(d) {{
   return d;
 }}
 
+let itemRefs = [];
 function renderFeed() {{
+  itemRefs = [];
   const q = searchQuery.trim().toLowerCase();
   const feedEl = document.getElementById('feed-content');
   const filtered = allItems.filter(it => {{
@@ -538,14 +582,52 @@ function renderFeed() {{
           <div class="ititle">${{escHtml(it.title)}}</div>
           <div class="ibody">${{escHtml(it.body)}}</div>
           ${{metaTags ? `<div class="imeta">${{metaTags}}</div>` : ''}}
-          <a class="ireport" href="${{escHtml(it.reportUrl)}}">查看完整报告 →</a>
+          <div class="icard-foot">
+            ${{(it.sources||[]).length ? `<button class="isrc-btn" data-idx="${{itemRefs.push(it)-1}}">查看来源 (${{it.sources.length}}) →</button>` : ''}}
+            <a class="ireport" href="${{escHtml(it.reportUrl)}}">查看完整报告 →</a>
+          </div>
         </div>`);
       }});
       html.push('</div>');
     }});
   }});
   feedEl.innerHTML = html.join('');
+  feedEl.querySelectorAll('.isrc-btn').forEach(btn => {{
+    btn.addEventListener('click', () => openDrawer(itemRefs[+btn.dataset.idx]));
+  }});
 }}
+
+function openDrawer(it) {{
+  if (!it) return;
+  document.getElementById('drawer-title').textContent = it.title;
+  document.getElementById('drawer-sub').textContent =
+    `${{SECTION_LABELS[it.section]}} · ${{dateLabel(it.date)}}`;
+  const body = document.getElementById('drawer-body');
+  const srcs = it.sources || [];
+  if (!srcs.length) {{
+    body.innerHTML = '<div class="src-none">本条暂无来源链接</div>';
+  }} else {{
+    body.innerHTML = srcs.map(s => {{
+      const id = escHtml(s[0]||''), name = escHtml(s[1]||''), url = String(s[2]||'');
+      const isHttp = /^https?:\\/\\//i.test(url);
+      const inner = `<div class="src-id">${{id}}</div>
+        <div class="src-name">${{name}}</div>
+        ${{url ? `<div class="src-url">${{escHtml(url)}}</div>` : ''}}`;
+      return isHttp
+        ? `<a class="src-item" href="${{escHtml(url)}}" target="_blank" rel="noopener noreferrer">${{inner}}</a>`
+        : `<div class="src-item">${{inner}}</div>`;
+    }}).join('');
+  }}
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-mask').classList.add('open');
+}}
+function closeDrawer() {{
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-mask').classList.remove('open');
+}}
+document.getElementById('drawer-mask').addEventListener('click', closeDrawer);
+document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e => {{ if (e.key === 'Escape') closeDrawer(); }});
 
 document.querySelectorAll('.ftab').forEach(btn => {{
   btn.addEventListener('click', () => {{
