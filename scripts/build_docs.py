@@ -283,7 +283,7 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
       background:rgba(255,255,255,.7);color:var(--muted);cursor:pointer;display:grid;place-items:center;
       font-size:14px;transition:all .14s;}}
     .ds-arrow:hover{{color:var(--accent);border-color:var(--accent);}}
-    .ds-track{{display:flex;gap:4px;overflow-x:auto;scroll-behavior:smooth;flex:1;align-items:stretch;
+    .ds-track{{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;flex:1;align-items:stretch;
       scrollbar-width:none;}}
     .ds-track::-webkit-scrollbar{{display:none;}}
     /* 全部 pill */
@@ -295,8 +295,8 @@ def build_index(reports: list[dict], all_items: list[dict]) -> str:
       box-shadow:0 3px 10px rgba(91,110,245,.28);}}
     .ds-sep{{flex-shrink:0;align-self:center;width:1px;height:30px;background:var(--hair);margin:0 6px;}}
     /* day cell */
-    .ds-day{{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:44px;
-      padding:5px 6px 4px;border:0;background:transparent;cursor:pointer;border-radius:13px;transition:all .14s;}}
+    .ds-day{{flex:1 1 0;min-width:46px;display:flex;flex-direction:column;align-items:center;gap:4px;
+      padding:6px 4px 5px;border:0;background:transparent;cursor:pointer;border-radius:13px;transition:all .14s;}}
     .ds-day .dw{{font-size:11px;color:var(--faint);font-weight:500;line-height:1;}}
     .ds-day .dn{{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
       font-size:14.5px;font-weight:600;color:var(--ink2);line-height:1;transition:all .14s;}}
