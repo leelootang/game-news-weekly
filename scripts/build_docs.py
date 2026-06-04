@@ -125,6 +125,16 @@ def copy_report(html_path: Path, dest_dir: Path) -> None:
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
 
 
+def find_report_html(folder: Path, kind: str) -> Path | None:
+    """Locate a report HTML in *folder*, preferring the standard filename
+    `game_industry_<kind>_*.html`, falling back to legacy `interactive_report.html`."""
+    standard = sorted(folder.glob(f"game_industry_{kind}_*.html"))
+    if standard:
+        return standard[0]
+    legacy = folder / "interactive_report.html"
+    return legacy if legacy.exists() else None
+
+
 def format_date(date_str: str) -> str:
     parts = date_str.split("-")
     if len(parts) == 3:
@@ -747,8 +757,11 @@ def build_docs() -> None:
     all_items: list[dict] = []
 
     # Daily reports feed the 行业动态 stream (weekly/monthly are digests; excluded to avoid duplication)
-    for html_path in sorted((OUTPUT / "daily").glob("*/interactive_report.html"), reverse=True):
-        date_str = html_path.parent.name
+    for folder in sorted((OUTPUT / "daily").glob("*/"), reverse=True):
+        html_path = find_report_html(folder, "daily")
+        if not html_path:
+            continue
+        date_str = folder.name
         report_url = f"daily/{date_str}/"
         copy_report(html_path, DOCS / "daily" / date_str)
         content = html_path.read_text(encoding="utf-8")
@@ -758,21 +771,27 @@ def build_docs() -> None:
         reports.append({"type": "daily", "date": date_str, "url": report_url, "total": total, "counts": counts})
         print(f"  daily/{date_str}  ({total} items, {len(items)} in feed)")
 
-    for html_path in sorted((OUTPUT / "weekly").glob("*/interactive_report.html"), reverse=True):
-        folder = html_path.parent.name
-        report_url = f"weekly/{folder}/"
-        copy_report(html_path, DOCS / "weekly" / folder)
+    for folder in sorted((OUTPUT / "weekly").glob("*/"), reverse=True):
+        html_path = find_report_html(folder, "weekly")
+        if not html_path:
+            continue
+        name = folder.name
+        report_url = f"weekly/{name}/"
+        copy_report(html_path, DOCS / "weekly" / name)
         total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
-        reports.append({"type": "weekly", "date": folder, "url": report_url, "total": total, "counts": counts})
-        print(f"  weekly/{folder}  ({total} items)")
+        reports.append({"type": "weekly", "date": name, "url": report_url, "total": total, "counts": counts})
+        print(f"  weekly/{name}  ({total} items)")
 
-    for html_path in sorted((OUTPUT / "monthly").glob("*/interactive_report.html"), reverse=True):
-        folder = html_path.parent.name
-        report_url = f"monthly/{folder}/"
-        copy_report(html_path, DOCS / "monthly" / folder)
+    for folder in sorted((OUTPUT / "monthly").glob("*/"), reverse=True):
+        html_path = find_report_html(folder, "monthly")
+        if not html_path:
+            continue
+        name = folder.name
+        report_url = f"monthly/{name}/"
+        copy_report(html_path, DOCS / "monthly" / name)
         total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
-        reports.append({"type": "monthly", "date": folder, "url": report_url, "total": total, "counts": counts})
-        print(f"  monthly/{folder}  ({total} items)")
+        reports.append({"type": "monthly", "date": name, "url": report_url, "total": total, "counts": counts})
+        print(f"  monthly/{name}  ({total} items)")
 
     (DOCS / "index.html").write_text(build_index(reports, all_items), encoding="utf-8")
     print(f"\nDone — {len(reports)} reports, {len(all_items)} feed items → docs/index.html")
