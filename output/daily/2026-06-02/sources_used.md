@@ -18,7 +18,12 @@
 
 ## Item Source Map
 
-### 一、行业新闻
+### 一、steam榜单
+- SteamDB 周度全球热销榜 TOP10 — SteamDB-W23
+- 007 First Light — SteamDB-W23
+- Path of Exile 2 — SteamDB-W23
+- LEGO® Batman™: Legacy of the Dark Knight — SteamDB-W23
+### 二、行业新闻
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |
@@ -32,7 +37,7 @@
 | 8 | 联想被指 G02 复古掌机预装上千款任天堂游戏，公司称为第三方私自添加（borderline） | S0002 | gamelook.com.cn |
 | 9 | PlayStation 一方游戏销量小幅回升，结束五年下滑（borderline） | S0047, S0062, S0079, S0041 | gamesindustry.biz / gamedeveloper.com / vgc |
 
-### 二、AI 新闻
+### 三、AI 新闻
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |
@@ -40,7 +45,7 @@
 | 2 | 阶跃星辰 Step 3.7 Flash 发布，主打推理效率 | S0098 | x.com (StepFun_ai) |
 | 3 | Alphabet 拟通过股权融资 800 亿美元用于 AI 资本支出（borderline） | S0089 | bloomberg.com |
 
-### 三、新游发布 / 产品日历
+### 四、新游发布 / 产品日历
 
 | # | 游戏 | source_ids | 本地证据信号 |
 | --- | --- | --- | --- |
@@ -49,7 +54,7 @@
 | 3 | 产品日历 - 风之国世界 | S0125, S0173 | 两个 calendar 源记录 6/2 18:00 预下载、6/3 上线 |
 | 4 | 产品日历 - 夜幕之下 | S0126, S0009 | 跨 section：release_calendar + industry_news《6月17款新游》专题重合 |
 
-### 四、玩家舆论 / 社区动态
+### 五、玩家舆论 / 社区动态
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |

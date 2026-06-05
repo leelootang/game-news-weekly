@@ -69,8 +69,23 @@ def _find_items_block(html: str) -> str | None:
         return None
     idx = html.index("[", start)
     depth = 0
+    in_string = False
+    escape_next = False
+    quote_char = ""
     for i in range(idx, len(html)):
         c = html[i]
+        if in_string:
+            if escape_next:
+                escape_next = False
+            elif c == "\\":
+                escape_next = True
+            elif c == quote_char:
+                in_string = False
+            continue
+        if c in {'"', "'"}:
+            in_string = True
+            quote_char = c
+            continue
         if c == "[":
             depth += 1
         elif c == "]":
