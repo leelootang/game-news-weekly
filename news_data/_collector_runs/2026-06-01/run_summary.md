@@ -1,145 +1,31 @@
 # Collection Summary
 
-- Generated at: 2026-06-02T10:12:57+00:00
+- Generated at: 2026-06-05T04:21:01+00:00
 - Window: 2026-06-01T00:00:00 <= published < 2026-06-02T00:00:00
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\_collector_runs\2026-06-01`
 
 | Section | Collector | Status | Health | Articles |
 | --- | --- | --- | --- | ---: |
-| `ai_trends` | `aihot` | ok | warning | 29 |
-| `community_discourse` | `nga_mobile_gossip` | ok | healthy | 8 |
-| `community_discourse` | `reddit_gaming_rising` | ok | healthy | 7 |
-| `deep_analysis` | `deconstructor_deconstructions` | ok | normal_zero | 0 |
-| `deep_analysis` | `gamediscover` | ok | normal_zero | 0 |
-| `deep_analysis` | `naavik_digest` | ok | healthy | 1 |
-| `deep_analysis` | `thegamebusiness` | ok | healthy | 1 |
 | `industry_news` | `cgames` | ok | healthy | 2 |
 | `industry_news` | `dataeye_36kr` | ok | healthy | 2 |
 | `industry_news` | `gamedeveloper` | ok | healthy | 3 |
 | `industry_news` | `gamelook` | ok | healthy | 5 |
 | `industry_news` | `gamesindustry` | ok | healthy | 6 |
-| `industry_news` | `gcores` | ok | healthy | 12 |
+| `industry_news` | `gcores` | ok | healthy | 10 |
 | `industry_news` | `investgame` | ok | zero_articles | 0 |
-| `industry_news` | `mobilegamer` | ok | healthy | 3 |
-| `industry_news` | `pocketgamer` | failed | failed | 8 |
-| `industry_news` | `vgc` | ok | healthy | 7 |
+| `industry_news` | `mobilegamer` | failed | failed | 3 |
+| `industry_news` | `pocketgamer` | ok | healthy | 9 |
+| `industry_news` | `vgc` | failed | failed | 7 |
 | `industry_news` | `youxichaguan` | ok | healthy | 8 |
 | `industry_news` | `youxiputao_sohu` | ok | healthy | 2 |
-| `industry_news` | `youxituoluo` | ok | healthy | 6 |
+| `industry_news` | `youxituoluo` | failed | failed | 3 |
 | `industry_news` | `youxixinzhi_qqnews` | ok | healthy | 1 |
 | `industry_news` | `yystv` | ok | healthy | 9 |
 | `release_calendar` | `ceshibiao_17173` | ok | healthy | 3 |
 | `release_calendar` | `gematsu_release_dates` | ok | healthy | 12 |
-| `release_calendar` | `haoyou_kuaibao_3839` | ok | healthy | 28 |
-| `release_calendar` | `taptap_app_calendar` | ok | healthy | 28 |
+| `release_calendar` | `haoyou_kuaibao_3839` | ok | healthy | 29 |
+| `release_calendar` | `taptap_app_calendar` | ok | healthy | 29 |
 | `release_calendar` | `wanjiang_16p_newgame` | ok | healthy | 10 |
-
-## ai_trends / aihot
-
-- Status: ok
-- Health: warning
-- Health note: [rss] warning: AI HOT RSS did not include an item older than --since; collecting the visible feed window only
-- In-window articles: 29
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\ai_trends\2026-06-01`
-
-- NVIDIA与Google Cloud助力下一波AI构建者
-- Nemotron 3 Ultra 本周即将发布
-- 如何使用 NVIDIA Alpamayo 在闭环中后训练自动驾驶模型
-- 使用NVIDIA Cosmos 3开发物理AI推理、世界与行动模型
-- 介绍Cosmos Coalition
-- NVIDIA 发布工厂运营蓝图，为工厂提供自主智能管理智能体
-- 腾讯混元发布智能体长期记忆插件Hy-Memory
-- Runway 在伦敦设立欧洲总部及世界模型研究中心
-- Apache RocketMQ 发布 AI 专用消息引擎
-- 使用Claude Opus 4.8将书籍转化为AI技能的教程
-- 王兴：美团 AI Agent"小美"与腾讯元宝即将深度合作，用户订单无缝连接
-- OpenBMB发布UltraData两大开源数据集，登顶HuggingFace趋势榜
-- 微软研究聚焦：智能体评估与价值对齐
-- AI Pulse 探讨智能体时代新指标 DAA
-- 作者分享使用 Codex App 开发的开源项目合集
-- 开源与闭源模型在不同的增长曲线上
-- 构建每周千美元预算上限的智能体教程
-- 超越LLM：为何可扩展的企业AI采用取决于智能体逻辑
-- Luma成立开放物理AI实验室攻克泛化难题
-- SenseNova新模型解决AI图表生成难题
-- 智谱：建议 A 股发行并在科创板上市
-- Auto Router 新增成本质量权衡参数
-- 介绍 Mellum2：JetBrains 推出的 12B 混合专家模型
-- OpenAI在密歇根州启动Stargate 1GW数据中心建设
-- OpenAI前沿模型与Codex现可在AWS上使用
-- Cursor Teams计划定价方案更新
-- NVIDIA AI Cloud生态系统全球扩张，满足AI算力需求
-- NVIDIA 工厂运营蓝图为工厂打造 AI 大脑
-- 台湾产业巨头借力NVIDIA加速全球AI基础设施建设
-
-## community_discourse / nga_mobile_gossip
-
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
-- In-window articles: 8
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-06-01`
-
-- [厂商] [異環] 塔吉多他...................
-- [新瓜] [新瓜速递]卡厄斯梦境国服开服第一天8倍邮件奖励BUG封号事件，更新后续，已确认为假瓜，更新up主联系希望我删帖，更新up主承认造谣道歉动态
-- [新瓜][明日方舟]瓜小味甜，明日方舟校队笑话+1
-- [蔚蓝档案]可能是“欠债老赖”最寸步难行的二游
-- [新瓜] 燕云十六岁新地图NPC文案改了，但没完全改……
-- [新瓜][瓜小味甜]雷索纳斯新角色立绘为LM7绘制，但角色名叫黎美琪
-- [少女前线][小瓜]少女前线设定集3近期发货，购入豪华版玩家到手发现录入ost歌曲的U盘为空
-- [新瓜]《龙之谷启程》游戏宣传图使用英雄联盟龙王圣龙皮肤
-
-## community_discourse / reddit_gaming_rising
-
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
-- In-window articles: 7
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-06-01`
-
-- What was the last movie tie-in game?
-- Team17, an unsung villain of video game development?
-- Manabu Sakamoto, the designer of the PlayStation logo (and prototypes).
-- Defender of the Crown: The Legend Returns Interview
-- Games with fantastic shotgun gameplay
-- AMA (Ask me Anything) with Kniv Studio, developer of the recently released STARDUST: Wish of Witch, is now live on r/JRPG, come and join the discussion!
-- DOOM Runs On Everything...except Neo Geo
-
-## deep_analysis / deconstructor_deconstructions
-
-- Status: ok
-- Health: normal_zero
-- Health note: deep-analysis source had no posts in this window
-- In-window articles: 0
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-06-01`
-
-## deep_analysis / gamediscover
-
-- Status: ok
-- Health: normal_zero
-- Health note: deep-analysis source had no posts in this window
-- In-window articles: 0
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-06-01`
-
-## deep_analysis / naavik_digest
-
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
-- In-window articles: 1
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-06-01`
-
-- Dissecting Scopely’s Mobile Empire in 2026
-
-## deep_analysis / thegamebusiness
-
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
-- In-window articles: 1
-- Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-06-01`
-
-- Call of Duty dodges GTA, but can it stage a comeback? – The Game Business Micro
 
 ## industry_news / cgames
 
@@ -209,7 +95,7 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 12
+- In-window articles: 10
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-01`
 
 - 《我的世界大电影2》公布正式片名，将于27年夏季上映
@@ -220,8 +106,6 @@
 - 漫画《全职猎人》单行本第39卷7月3日发售
 - 《仙境传说》世界观新作《仙境传说 Console Project》正式公布
 - 《蜘蛛侠：崭新之日》确认引进内地，上映档期待定
-- 《铁拳8》游戏总监池田幸平现已离开万代南梦宫工作室
-- 多人联机欢乐游戏《崩溃小队》现已推出！首周购买可享近6折优惠
 - 东园映画公布《镖人》动画电影首支先行预告片
 - 管理船员，直面人性 | 生存策略游戏《冰海孤船》中文CG预告首曝
 
@@ -235,9 +119,9 @@
 
 ## industry_news / mobilegamer
 
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
+- Status: failed
+- Health: failed
+- Health note: collector exited with a non-zero status
 - In-window articles: 3
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-01`
 
@@ -247,10 +131,10 @@
 
 ## industry_news / pocketgamer
 
-- Status: failed
-- Health: failed
-- Health note: collector exited with a non-zero status
-- In-window articles: 8
+- Status: ok
+- Health: healthy
+- Health note: saved one or more in-window items
+- In-window articles: 9
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-01`
 
 - Atari acquires Crossy Road creator Hipster Whale in deal worth up to $39.3m
@@ -259,14 +143,15 @@
 - Global Game Jam launches micro-missions pilot to connect indie studios with emerging talent
 - Hot Five: Fortnite’s iOS comeback, Take-Two Interactive’s "fantastic mobile performance", and Block Blast’s brief unavailability on Google Play
 - King’s first European market report reveals mobile's €5.9bn economic impact for the continent
+- Maliyo Games' GameUp Africa has trained 6,000 devs in five years
 - NJD Games creative director Baraa Odeh on building a racing franchise and taking Hajwala culture global
 - Tencent reportedly preparing UGC initiative for Delta Force
 
 ## industry_news / vgc
 
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
+- Status: failed
+- Health: failed
+- Health note: collector exited with a non-zero status
 - In-window articles: 7
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-01`
 
@@ -308,16 +193,13 @@
 
 ## industry_news / youxituoluo
 
-- Status: ok
-- Health: healthy
-- Health note: saved one or more in-window items
-- In-window articles: 6
+- Status: failed
+- Health: failed
+- Health note: collector exited with a non-zero status
+- In-window articles: 3
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-01`
 
 - 3亿MAU，单月流水超千万，全球霸榜的《Block Blast!》 突遭谷歌下架
-- 射击赛道竞争白热化，腾讯却带来一款“高门槛老游戏”？
-- 突然曝光新实机，广州团队的大世界二游亮牌了？
-- MAU 528万、周留存70%！综艺小游戏用情绪价值，打赢IP长线运营战
 - 立项一波三折、AI包办关卡：《一箭又一箭》团队分享简单玩法如何变现
 - 微小MAU已稳定突破5亿，网易中式搜打撤首曝，《望月》最新实机PV丨陀螺周报
 
@@ -387,7 +269,7 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 28
+- In-window articles: 29
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-06-01`
 
 - 暗黑破坏神：不朽-暴雪正版 - 四周年庆典开启
@@ -412,6 +294,7 @@
 - 白键上的协奏曲：贝斯英雄 - 预约开启，Q4（10~12月）上线
 - 造梦西游OL - 上线新玩法-天道树
 - 火影忍者手游 - 新长赛季“星界游钓”开启
+- 火影忍者手游 - 新长赛季「星界游钓」开启
 - 球球大作战(官服)-小羊波德莱尔联动 - 小羊波德莱尔联动开启
 - 王者荣耀-S43赛季 - 【海诺-烬夜裁决】皮肤上线
 - 穿越火线-枪战王者 - 【光涤吾魂】活动上线
@@ -424,7 +307,7 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 28
+- In-window articles: 29
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-06-01`
 
 - 辐射：避难所 - 新版本更新
@@ -434,6 +317,7 @@
 - 明日方舟 - 新版本更新
 - 代号：地心 - 测试招募 (10:00 开始)
 - 糖霜炼金术 - 首发
+- 终末少女：弹珠物语 - 首发
 - 幻宠启示录 - 首发
 - 狩之纪元 - 新游预约
 - 全民游戏大亨2 - 首发

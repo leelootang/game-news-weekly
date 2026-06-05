@@ -72,6 +72,13 @@ The report input extractor reads structured text first:
 news_data/<section>/YYYY-MM-DD/articles.jsonl
 ```
 
+When SteamDB rankings should appear in a report, include the ranking section in
+the extractor call:
+
+```powershell
+python <skill_root>\scripts\extract_report_inputs.py --workspace . --date 2026-06-04 --report-type daily --sections industry_news ai_trends release_calendar pc_rankings community_discourse deep_analysis
+```
+
 It also reads old PDFs from:
 
 ```text
@@ -102,11 +109,13 @@ Collectors are registered under section keys:
 - `industry_news`: market, company, platform, and industry news
 - `ai_trends`: AI-specific news and tooling signals relevant to games
 - `release_calendar`: game launch, beta, update, and product-event tracking
+- `pc_rankings`: PC bestseller rankings and SteamDB market-signal snapshots
 - `deep_analysis`: newsletters, essays, and long-form industry analysis
 - `community_discourse`: player opinion, community incidents, and forum/social excerpts
 
 The runner still accepts legacy aliases: `market_news`, `ai_news`,
-`product_launches`, `newsletter`, and `player_discourse`.
+`product_launches`, `newsletter`, and `player_discourse`. It also accepts
+`rankings` as an alias for `pc_rankings`.
 
 ## Daily Collection
 
@@ -224,8 +233,23 @@ Collector requirements:
 - `haoyou_kuaibao_3839`
 - `taptap_app_calendar`
 - `gematsu_release_dates`
+- `steamdb_rankings`
 - `nga_mobile_gossip`
 - `reddit_gaming_rising`
+
+## SteamDB Rankings
+
+`steamdb_rankings` writes one structured record to `pc_rankings` per run.
+Single-day windows crawl `https://steamdb.info/stats/globaltopsellers/`, keep
+the TOP10, and mark titles whose SteamDB release date falls in the current
+month. If the collection date is before the 10th day of the month, the previous
+month is included in that launch window.
+
+Multi-day windows crawl `https://steamdb.info/topsellers/`, keep the TOP10, and
+mark products whose Change value implies they were outside the previous week's
+TOP10. Marked products are enriched from their SteamDB app chart pages with
+publisher, release date, tags/genre, one preferred sales estimate, and
+review/rating text.
 
 ## Adding A New Source
 

@@ -1,0 +1,44 @@
+{
+  "started_at": "2026-06-05T04:04:49+00:00",
+  "finished_at": "2026-06-05T04:04:52+00:00",
+  "consistency_mismatches": [],
+  "preset": "yesterday",
+  "since": "2026-06-02T00:00:00",
+  "until": "2026-06-03T00:00:00",
+  "out_root": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data",
+  "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\_collector_runs\\2026-06-02",
+  "output_folder": "2026-06-02",
+  "sections": [
+    "industry_news"
+  ],
+  "collectors": [
+    "vgc"
+  ],
+  "results": [
+    {
+      "collector": "vgc",
+      "section": "industry_news",
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py",
+        "--out",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-06-02",
+        "--max-pages",
+        "3",
+        "--since",
+        "2026-06-02",
+        "--until",
+        "2026-06-03"
+      ],
+      "returncode": 1,
+      "status": "failed",
+      "health": "failed",
+      "health_note": "collector exited with a non-zero status",
+      "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-06-02",
+      "in_window_article_count": 0,
+      "in_window_titles": [],
+      "stdout": "[config] window: 2026-06-02 00:00:00 <= published < 2026-06-03 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-06-02\n[rss] open https://www.videogameschronicle.com/feed/\n[rss] page 1: +0, older=0, total=0\n[rss] open https://www.videogameschronicle.com/feed/?paged=2\n[rss] page 2: +0, older=0, total=0\n[rss] open https://www.videogameschronicle.com/feed/?paged=3\n[rss] page 3: +0, older=0, total=0\n[rss] collected 0 article(s), future_or_today=30, excluded_guides=0\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py\", line 579, in <module>\n    asyncio.run(main())\n    ~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py\", line 547, in main\n    items = collect_feed_items(since, until, args.max_pages)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py\", line 302, in collect_feed_items\n    raise RuntimeError(f\"hit --max-pages={max_pages} before proving VGC RSS moved older than requested window\")\nRuntimeError: hit --max-pages=3 before proving VGC RSS moved older than requested window\n",
+      "stderr": ""
+    }
+  ]
+}

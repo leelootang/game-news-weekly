@@ -5,6 +5,7 @@ import html
 import json
 import os
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -12,6 +13,61 @@ from typing import Any
 
 ARTICLE_JSONL_NAME = "articles.jsonl"
 ARTICLE_INDEX_NAME = "articles_index.md"
+
+# Each collector runs in its own subprocess (the runner launches them via
+# subprocess.Popen), and many of them share one per-section articles.jsonl.
+# write_article_record does a non-atomic read-modify-write of that shared file,
+# so concurrent collectors would clobber each other's rows. A threading.Lock is
+# useless here because the writers are separate processes, so guard the
+# read-modify-write with a cross-process lockfile keyed by the jsonl path.
+_LOCK_STALE_SECONDS = 120.0
+_LOCK_WAIT_SECONDS = 300.0
+
+
+class _InterProcessLock:
+    """Spin-wait exclusive lock backed by an O_EXCL lockfile (cross-platform)."""
+
+    def __init__(self, target: Path) -> None:
+        self.lockfile = Path(str(target) + ".lock")
+        self.fd: int | None = None
+
+    def __enter__(self) -> "_InterProcessLock":
+        start = time.monotonic()
+        while True:
+            try:
+                self.fd = os.open(str(self.lockfile), os.O_CREAT | os.O_EXCL | os.O_RDWR)
+                os.write(self.fd, str(os.getpid()).encode("ascii"))
+                return self
+            except FileExistsError:
+                try:
+                    age = time.time() - self.lockfile.stat().st_mtime
+                except OSError:
+                    age = 0.0
+                if age > _LOCK_STALE_SECONDS:
+                    # Holder likely died without releasing; reclaim the lock.
+                    try:
+                        os.remove(self.lockfile)
+                    except OSError:
+                        pass
+                    continue
+                if time.monotonic() - start > _LOCK_WAIT_SECONDS:
+                    # Never hang a collector forever; proceed unlocked as a last resort.
+                    self.fd = None
+                    return self
+                time.sleep(0.05)
+
+    def __exit__(self, *exc: Any) -> None:
+        if self.fd is not None:
+            os.close(self.fd)
+            try:
+                os.remove(self.lockfile)
+            except OSError:
+                pass
+            self.fd = None
+
+
+def _lock_for(path: Path) -> _InterProcessLock:
+    return _InterProcessLock(path)
 
 
 def save_pdf_enabled() -> bool:
@@ -150,42 +206,43 @@ def write_article_record(
         "extra": record.get("extra") or {},
     }
 
-    existing = manifest.setdefault("items", {}).get(item_id)
-    if existing and existing.get("content_sha1") == normalized["content_sha1"]:
-        data_file = existing.get("data_file")
-        if data_file and (data_dir / Path(data_file).name).exists():
-            jsonl_has_item = False
-            if jsonl_path.exists():
-                for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
-                    if not line.strip():
-                        continue
-                    try:
-                        if json.loads(line).get("id") == item_id:
-                            jsonl_has_item = True
-                            break
-                    except json.JSONDecodeError:
-                        continue
-            if jsonl_has_item:
-                return existing
+    with _lock_for(jsonl_path):
+        existing = manifest.setdefault("items", {}).get(item_id)
+        if existing and existing.get("content_sha1") == normalized["content_sha1"]:
+            data_file = existing.get("data_file")
+            if data_file and (data_dir / Path(data_file).name).exists():
+                jsonl_has_item = False
+                if jsonl_path.exists():
+                    for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                        if not line.strip():
+                            continue
+                        try:
+                            if json.loads(line).get("id") == item_id:
+                                jsonl_has_item = True
+                                break
+                        except json.JSONDecodeError:
+                            continue
+                if jsonl_has_item:
+                    return existing
 
-    records: list[dict[str, Any]] = []
-    if jsonl_path.exists():
-        for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
-            if not line.strip():
-                continue
-            try:
-                row = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if row.get("id") != item_id:
-                records.append(row)
+        records: list[dict[str, Any]] = []
+        if jsonl_path.exists():
+            for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                if not line.strip():
+                    continue
+                try:
+                    row = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if row.get("id") != item_id:
+                    records.append(row)
 
-    row = {"id": item_id, **normalized}
-    records.append(row)
-    with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for item in records:
-            handle.write(json.dumps(item, ensure_ascii=False) + "\n")
-    write_article_index(data_dir)
+        row = {"id": item_id, **normalized}
+        records.append(row)
+        with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
+            for item in records:
+                handle.write(json.dumps(item, ensure_ascii=False) + "\n")
+        write_article_index(data_dir)
 
     manifest_item = {
         "data_file": ARTICLE_JSONL_NAME,

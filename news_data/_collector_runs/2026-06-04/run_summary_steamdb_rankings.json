@@ -1,0 +1,44 @@
+{
+  "started_at": "2026-06-05T09:44:20+00:00",
+  "finished_at": "2026-06-05T09:44:26+00:00",
+  "consistency_mismatches": [],
+  "preset": "yesterday",
+  "since": "2026-06-04T00:00:00",
+  "until": "2026-06-05T00:00:00",
+  "out_root": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data",
+  "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\_collector_runs\\2026-06-04",
+  "output_folder": "2026-06-04",
+  "sections": [
+    "pc_rankings"
+  ],
+  "collectors": [
+    "steamdb_rankings"
+  ],
+  "results": [
+    {
+      "collector": "steamdb_rankings",
+      "section": "pc_rankings",
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\steamdb_rankings.py",
+        "--out",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-04",
+        "--max-pages",
+        "1",
+        "--since",
+        "2026-06-04",
+        "--until",
+        "2026-06-05"
+      ],
+      "returncode": 1,
+      "status": "failed",
+      "health": "failed",
+      "health_note": "collector exited with a non-zero status",
+      "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-04",
+      "in_window_article_count": 0,
+      "in_window_titles": [],
+      "stdout": "[config] window: 2026-06-04 00:00:00 <= collected < 2026-06-05 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-04\n[list] open https://steamdb.info/stats/globaltopsellers/\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\steamdb_rankings.py\", line 589, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\steamdb_rankings.py\", line 544, in main\n    mode, rows = asyncio.run(collect_rankings(since, until, headful=args.headful))\n                 ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\steamdb_rankings.py\", line 465, in collect_rankings\n    raise RuntimeError(\n        \"SteamDB returned a browser verification challenge; automated ranking collection is blocked.\"\n    )\nRuntimeError: SteamDB returned a browser verification challenge; automated ranking collection is blocked.\n",
+      "stderr": ""
+    }
+  ]
+}

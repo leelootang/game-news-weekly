@@ -39,6 +39,8 @@ SECTION_ALIASES = {
     "product_launches": "release_calendar",
     "newsletter": "deep_analysis",
     "player_discourse": "community_discourse",
+    "rankings": "pc_rankings",
+    "pc_rankings": "pc_rankings",
 }
 
 
@@ -209,6 +211,12 @@ COLLECTORS: dict[str, Collector] = {
         key="gematsu_release_dates",
         script=ROOT / "collectors" / "gematsu_release_dates.py",
         section="release_calendar",
+        default_max_pages=1,
+    ),
+    "steamdb_rankings": Collector(
+        key="steamdb_rankings",
+        script=ROOT / "collectors" / "steamdb_rankings.py",
+        section="pc_rankings",
         default_max_pages=1,
     ),
     "nga_mobile_gossip": Collector(
@@ -590,6 +598,102 @@ def count_collector_items(out_dir: Path, collector_key: str, since: datetime, un
     }
 
 
+def prune_stale_manifest_entries(args: argparse.Namespace, selected: list[Collector]) -> int:
+    """Drop manifest entries whose row is missing from articles.jsonl before collecting.
+
+    Collectors skip re-fetching any item already recorded in their manifest. If a
+    row was previously lost from the shared articles.jsonl (e.g. an old concurrent
+    write before the cross-process lock existed), the manifest would keep claiming
+    it and the collector would never re-add it. Pruning such stale entries lets the
+    normal skip logic re-fetch them, so the manifest and jsonl self-heal.
+    """
+    folder = args.output_folder_name
+    run_manifest_dir = args.out / "_collector_runs" / folder
+    if not run_manifest_dir.exists():
+        return 0
+    pruned_total = 0
+    for collector in selected:
+        jsonl_path = args.out / collector.section / folder / "articles.jsonl"
+        present_ids: set[str] = set()
+        if jsonl_path.exists():
+            for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                if not line.strip():
+                    continue
+                try:
+                    present_ids.add(str(json.loads(line).get("id")))
+                except json.JSONDecodeError:
+                    continue
+        for manifest_file in run_manifest_dir.glob(f"{collector.key}*manifest.json"):
+            try:
+                manifest = json.loads(manifest_file.read_text(encoding="utf-8-sig"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            items = manifest.get("items", {})
+            stale = [
+                item_id
+                for item_id, item in items.items()
+                if item.get("data_file") == "articles.jsonl" and str(item_id) not in present_ids
+            ]
+            if not stale:
+                continue
+            for item_id in stale:
+                del items[item_id]
+            manifest_file.write_text(
+                json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True),
+                encoding="utf-8",
+            )
+            pruned_total += len(stale)
+            print(
+                f"[runner] pruned {len(stale)} stale manifest entries for "
+                f"{collector.section}/{collector.key} (missing from articles.jsonl)"
+            )
+    if pruned_total:
+        print(f"[runner] total stale manifest entries pruned for re-fetch: {pruned_total}")
+    return pruned_total
+
+
+def check_article_consistency(results: list[dict]) -> list[dict]:
+    """Cross-check manifest-reported counts against rows actually in articles.jsonl.
+
+    in_window_article_count is derived from per-collector manifests, which are
+    written independently and therefore survive even when concurrent writers
+    clobber rows in the shared section articles.jsonl. Comparing the manifest
+    count against rows physically present in the jsonl surfaces that data loss
+    instead of letting it pass silently.
+    """
+    rows_by_dir: dict[str, dict[str, int]] = {}
+    mismatches: list[dict] = []
+    for result in results:
+        out_dir = result.get("out") or ""
+        if out_dir not in rows_by_dir:
+            counts: dict[str, int] = {}
+            jsonl_path = Path(out_dir) / "articles.jsonl"
+            if jsonl_path.exists():
+                for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                    if not line.strip():
+                        continue
+                    try:
+                        row = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    key = str(row.get("source_key") or row.get("source") or "")
+                    counts[key] = counts.get(key, 0) + 1
+            rows_by_dir[out_dir] = counts
+        expected = int(result.get("in_window_article_count") or 0)
+        actual = rows_by_dir[out_dir].get(result.get("collector", ""), 0)
+        if actual < expected:
+            mismatches.append(
+                {
+                    "section": result.get("section"),
+                    "collector": result.get("collector"),
+                    "manifest_count": expected,
+                    "jsonl_rows": actual,
+                    "out": out_dir,
+                }
+            )
+    return mismatches
+
+
 def collector_health(result_status: str, section: str, article_count: int, output: str) -> tuple[str, str]:
     output_lower = output.lower()
     if result_status != "ok":
@@ -733,6 +837,7 @@ def main() -> int:
     args.run_summary_out.mkdir(parents=True, exist_ok=True)
     prune_old_logs(args.out)
     selected = filter_collectors_by_section(parse_collectors(args.collectors), parse_sections(args.sections))
+    prune_stale_manifest_entries(args, selected)
     started_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     panel = ProgressPanel(selected, enabled=not args.no_progress)
@@ -759,9 +864,20 @@ def main() -> int:
             f"[runner]   {result['section']}/{result['collector']}: "
             f"{result['in_window_article_count']} ({result.get('health', 'unknown')})"
         )
+    consistency_mismatches = check_article_consistency(results)
+    if consistency_mismatches:
+        print("[runner] CONSISTENCY WARNING: manifest count exceeds rows in articles.jsonl (possible lost writes):")
+        for m in consistency_mismatches:
+            print(
+                f"[runner]   {m['section']}/{m['collector']}: "
+                f"manifest={m['manifest_count']} jsonl_rows={m['jsonl_rows']}"
+            )
+    else:
+        print("[runner] consistency check passed: articles.jsonl rows match manifest counts.")
     summary = {
         "started_at": started_at,
         "finished_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "consistency_mismatches": consistency_mismatches,
         "preset": args.preset,
         "since": args.window_since.isoformat(timespec="seconds"),
         "until": args.window_until.isoformat(timespec="seconds"),
