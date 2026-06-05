@@ -388,8 +388,8 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
 
     /* feed */
     .feed{{padding:30px 48px 64px;width:100%;}}
-    /* responsive card grid: use the full content width on large screens */
-    .icard-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;}}
+    /* match the daily report layout: two columns on desktop, one on mobile */
+    .icard-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
     @media(max-width:900px){{.icard-grid{{grid-template-columns:1fr;}}}}
     /* day group (level 1) */
     .day-block{{margin-bottom:48px;}}
