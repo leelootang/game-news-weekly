@@ -19,12 +19,13 @@ SITE_DATA = ROOT / "site_data"
 SHARED_LOGO = OUTPUT / "assets" / "moonton_logo.png"
 CHANGELOG_FILE = SITE_DATA / "changelog.jsonl"
 
-SECTION_ORDER = ("industry", "ai", "release", "discourse", "deep")
+SECTION_ORDER = ("rankings", "industry", "ai", "release", "discourse", "deep")
 
 SECTION_LABELS = {
     "industry": "行业新闻",
     "ai": "AI 动态",
     "release": "产品日历",
+    "rankings": "steam当日榜单",
     "discourse": "玩家舆论",
     "deep":     "深度观察",
 }
@@ -34,6 +35,7 @@ SECTION_COLORS = {
     "industry": "#4f7cff",
     "ai":       "#00b3d4",
     "release":  "#16b884",
+    "rankings": "#d05f3f",
     "discourse":"#f0a02a",
     "deep":     "#8b6df0",
 }

@@ -4,11 +4,17 @@
 - 输入文件夹：`output/daily/2026-06-04/_intermediate/report_inputs.jsonl`（198 条记录，0 提取失败）
 - 提取摘要：`output/daily/2026-06-04/_intermediate/report_inputs_summary.md`
 - 索引：`output/daily/2026-06-04/_intermediate/report_inputs_index.md`
-- 分节计数：industry_news 81 · ai_trends 27 · community_discourse 33 · release_calendar 56 · deep_analysis 1
+- 分节计数：pc_rankings 1 · industry_news 81 · ai_trends 27 · community_discourse 33 · release_calendar 56 · deep_analysis 1
 
 ## Item Source Map
 
-### 一、行业新闻
+### 一、steam当日榜单
+- SteamDB 当前全球热销榜 TOP10 — SteamDB-R0
+- Forza Horizon 6 — SteamDB-R2, WEB-R2A
+- Gothic 1 Remake — SteamDB-R5, WEB-R5A
+- 007 First Light — SteamDB-R6, WEB-R6A
+
+### 二、行业新闻
 - 《异环》日本版登顶畅销榜，引日本业界反思本土竞争力 — S0034
 - 前《崩坏：星穹铁道》技术负责人余洋射击新作创业，获库洛投资 — S0048, S0037, S0032, S0171
 - 阅文 4 亿元收购艺画开天，腾讯完全退出 — S0021, S0041
@@ -17,22 +23,26 @@
 - Amazon MGM 将主导未来 007 系列游戏发行 — S0073, S0066, S0052
 - 网易撤资 Quantic Dream，《星球大战：日蚀》前景承压 — S0036
 
-### 二、AI 新闻
+### 三、AI 新闻
 - 腾讯光子发布"造化工坊"AI 互动影游平台 — S0023
 - GDC 2026 趋势报告：生成式 AI 采用率上升 — S0020
 
-### 三、产品日历
+### 四、产品日历
 - 产品日历 - 星辰变：归来 — S0120, S0110, S0111
 - 产品日历 - 龙渊王座 — S0122, S0114, S0153
 - 产品日历 - 燃烧纪元 — S0121, S0112
 - 产品日历 - 宝可梦冠军（Pokémon Champions） — S0116
 
-### 四、玩家舆论
+### 五、玩家舆论
 - 网易系多款手游以"忮忌"替换"嫉妒"，被玩家指文案夹带性别立场 — S0182, S0168, S0172
 - 《No Rest for the Wicked》Xbox 版延期，玩家归因 Series S 机能 — S0183, S0076
 
-### 五、深度观察
+### 六、深度观察
 - The Game Business：《使命召唤》是最受《GTA6》威胁的产品 — S0198
+
+## steam当日榜单证据信号
+- TOP10 来自 SteamDB 当前全球热销榜（SteamDB-R0）。2026-06-04 日报采集日小于当月 10 日，按规则将 2026 年 5 月与 6 月上线产品纳入近期新品视野。
+- Forza Horizon 6、Gothic 1 Remake、007 First Light 的发行商、上线时间、品类、销量、好评率、Online 与 Peak 来自 SteamDB；销量从 SteamDB 详情页销量估算中按预设优先级选取单个数值；游戏背景与当日表现解释补充自公开报道（WEB-R2A、WEB-R5A、WEB-R6A）。
 
 ## 产品日历证据信号
 - 星辰变：归来：17173（S0110，公测 / Android+iOS / 发行 江苏欢娱网络科技有限公司）、16p（S0111，上线 / CN）、3839（S0120，10:00 正式上线）三源一致。
