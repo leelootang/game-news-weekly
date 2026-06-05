@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -37,7 +37,7 @@
     .app.collapsed { grid-template-columns:0 minmax(0,1fr); }
 
     /* Sidebar — frosted glass */
-    aside.sidebar { position:sticky; top:0; height:100vh; padding:24px 18px; color:var(--ink);
+    aside.sidebar { position:sticky; top:0; height:100vh; padding:24px 18px; color:var(--ink); display:flex; flex-direction:column;
       background:rgba(255,255,255,.48); backdrop-filter:blur(22px) saturate(170%); -webkit-backdrop-filter:blur(22px) saturate(170%);
       border-right:1px solid rgba(255,255,255,.55); overflow-y:auto; overflow-x:hidden; transition:transform .25s cubic-bezier(.4,0,.2,1), opacity .2s; }
     .app.collapsed aside.sidebar { transform:translateX(-100%); opacity:0; pointer-events:none; }
@@ -49,11 +49,11 @@
     .sidebar-toggle .icon-close { display:none; }
     .app.collapsed .sidebar-toggle .icon-open { display:none; }
     .app.collapsed .sidebar-toggle .icon-close { display:inline; }
-    .brand { display:flex; align-items:center; gap:12px; padding-bottom:20px; border-bottom:1px solid var(--line); }
-    .brand-mark { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background:#fff; padding:7px; box-shadow:0 3px 10px rgba(31,45,75,.10); }
+    .brand { display:flex; align-items:center; gap:12px; padding:0 2px 20px; border-bottom:1px solid var(--line); }
+    .brand-mark { width:40px; height:40px; display:grid; place-items:center; border-radius:11px; background:#fff; padding:7px; box-shadow:0 3px 10px rgba(31,45,75,.10); }
     .brand-mark img { width:100%; height:100%; display:block; object-fit:contain; }
-    .brand strong { display:block; font-size:16px; line-height:1.1; letter-spacing:.3px; color:var(--ink); }
-    .brand span { display:block; font-size:11.5px; color:var(--muted); margin-top:3px; }
+    .brand strong { display:block; font-size:15px; line-height:1.1; letter-spacing:.2px; color:var(--ink); }
+    .brand span { display:block; font-size:11px; color:var(--muted); margin-top:3px; }
     .nav-title { margin:22px 0 10px; color:var(--faint); font-size:10px; letter-spacing:1.3px; text-transform:uppercase; font-weight:700; }
     .nav { display:grid; gap:3px; }
     .nav button { width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px; border:0; background:transparent; color:var(--ink-soft); padding:11px 14px; text-align:left; cursor:pointer; border-radius:11px; position:relative; font-size:14px; font-weight:500; transition:all .14s; }
@@ -67,7 +67,10 @@
     .nav button[data-section="deep"] { --accent2:var(--deep); }
     .count { min-width:24px; padding:1px 9px; color:var(--muted); background:rgba(31,45,75,.07); text-align:center; border-radius:11px; font-size:12px; font-weight:600; }
     .nav button.active .count { background:var(--accent2,var(--accent)); color:#fff; }
-    .aside-note { margin-top:22px; padding:14px; background:rgba(255,255,255,.5); border:1px solid var(--glass-border); border-left:3px solid var(--ai); color:var(--ink-soft); font-size:12.5px; line-height:1.6; border-radius:12px; }
+    .sidebar-footer { margin:auto -18px -24px; padding:16px 22px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted); line-height:1.65; }
+    .sidebar-footer .made { color:var(--ink-soft); font-weight:600; }
+    .sidebar-footer a { color:var(--accent); }
+    .sidebar-footer .stat { margin-top:8px; color:var(--faint); }
 
     /* Main */
     main { padding:30px 40px 64px; min-width:0; }
@@ -181,11 +184,15 @@
     <aside class="sidebar">
       <div class="brand" aria-label="沐瞳科技">
         <div class="brand-mark" aria-hidden="true"><img src="../../assets/moonton_logo.png" alt=""></div>
-        <div><strong>MOONTON</strong><span>沐瞳科技 · Strategy Brief</span></div>
+        <div><strong>游戏行业情报站</strong><span>AI 生成 · 每日更新</span></div>
       </div>
       <div class="nav-title">Sections</div>
       <nav class="nav" id="nav"></nav>
-      <div class="aside-note">面向内部团队的报告视图。内容按业务事件、产品节点和玩家反馈拆分，来源映射可在每条内容内查看。</div>
+      <div class="sidebar-footer">
+        <div class="made">Made by 沐瞳科技战略团队</div>
+        <div>有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></div>
+        <div class="stat">2026-05-30 · 17 条动态</div>
+      </div>
     </aside>
     <main>
       <div class="topbar">

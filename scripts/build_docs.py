@@ -124,7 +124,8 @@ def copy_report(html_path: Path, dest_dir: Path) -> None:
     content = html_path.read_text(encoding="utf-8")
     if LOGO_URI:
         content = re.sub(r'src="[^"]*moonton_logo\.png"', f'src="{LOGO_URI}"', content)
-    content = content.replace("<body>", f"<body>{ATTRIBUTION_BAR}", 1)
+    if 'class="sidebar-footer"' not in content:
+        content = content.replace("<body>", f"<body>{ATTRIBUTION_BAR}", 1)
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
 
 
