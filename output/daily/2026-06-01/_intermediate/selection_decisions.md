@@ -1,40 +1,33 @@
-# Selection Decisions
+# Selection Decisions — 2026-06-01
 
 | candidate | decision | target_section | reason |
 | --- | --- | --- | --- |
-| C001 | include | 行业新闻 | 多源覆盖的移动收购，IP + 平台双重信号 |
-| C002 | include | 行业新闻 | 3A 排产与人力强信号 |
-| C003 | exclude | - | 用户反馈：西方主机 3A 劳资治理，对沐瞳业务实操参考意义弱 |
-| C004 | include | 行业新闻 | 腾讯长线竞技产品平台化方向 |
-| C005 | include | 行业新闻 | 超大 DAU 出海产品平台风险 |
-| C006 | exclude | - | Hard Stop：Moonton/MLBB 屏蔽规则 |
-| C007 | include | AI 新闻 | 实用编码 / 多模态模型升级 |
-| C008 | include | AI 新闻 | 跨源指向智能体走向工作流 / 业务入口 |
-| C009 | exclude | - | 基础设施信号，与游戏直接相关度低 |
-| C010 | exclude | - | 市场背景，与游戏行业操作间接 |
-| C011 | include | 新游发布 / 产品日历 | 多源重合的主版本上线 |
-| C012 | include | 新游发布 / 产品日历 | 多源 + 重要 IP 联动 |
-| C013 | include | 新游发布 / 产品日历 | 三源重合 |
-| C014 | include (borderline) | 新游发布 / 产品日历 | 两源重合但属预告类，由用户决定保留与否 |
-| C015 | include | 玩家舆论 / 社区动态 | 时间线清晰、多帖延续 |
-| C016 | include | 玩家舆论 / 社区动态 | 高热度，但写法需分开事实与玩家解读 |
-| C017 | exclude | - | 单源单线，玩家指控未证实 |
-| C018 | exclude | - | 售后小事件，体量不够 |
-| C019 | include | 行业精选 / 深度观察 | 强组合策略观察 |
-| C020 | include (borderline) | 行业精选 / 深度观察 | 3A 射击赛季观察，可与 Scopely 同期收录 |
-| C021 | include | 玩家舆论 / 社区动态 | 当日最大舆情事件，老版本漏掉，必须补回 |
-| C022 | include | 行业新闻 | 多源确认的 Xbox 一方独占 3A 跳票 |
-| C023 | exclude | - | 用户反馈：海外老 IP + 端 / 主机格斗作品的人事变动与用户业务弱相关 |
-| C024 | include (borderline) | 行业新闻 | 与用户女性向赛道相关，由用户决定写不写 |
-| C025 | include (borderline) | 行业新闻 | 国内大厂单机方向信号，体量待夏日节释放 |
-| C026 | include (borderline) | 行业新闻 | 关注名单公司（灵犀）新品冲榜 |
-| C027 | include | 行业新闻 | live-service 平台政策强信号 |
-| C028 | include (borderline) | AI 新闻 | AI 用于关卡生成的具体落地案例 |
-| C029 | include (borderline) | 行业精选 / 深度观察 | 关注名单公司爆款，含具体流水/团队数据，老版本明显漏选 |
-| C030 | include | 行业新闻 | 三源覆盖的广州买量大厂内容型二游进度，用户反馈后补入 |
+| C001 | include | 行业新闻 | 海外移动并购整合，4 源覆盖 |
+| C002 | include | 行业新闻 | 3A 旗舰排产 + 人力强度信号 |
+| C003 | include | 行业新闻 | 关注名单核心产品（腾讯）平台化路径 |
+| C004 | include | 行业新闻 | 广州买量大厂向内容型二游转型实跑，2 源 |
+| C005 | include | 行业新闻 | 超大 DAU 出海休闲产品平台风险 |
+| C006 | include | 行业新闻 | Xbox 一方独占节奏，3 源 |
+| C007 | include | 行业新闻 | GaaS 关服政策线，与 6/2 加州 AB1921 连续 |
+| C008 | include (borderline) | 行业新闻 | 老厂"数值思路做乙游"差异化路径 |
+| C009 | include (borderline) | 行业新闻 | 网易单机方向重点项目进度 |
+| C010 | include (borderline) | 行业新闻 | SLG 大厂轻量产品策略落地 |
+| C011 | include | AI 新闻 | 当日多条信号共同指向智能体走向记忆/部署/服务入口 |
+| C012 | include (borderline) | AI 新闻 | AI 小游戏关卡 procedural 生成具体落地（源在 industry_news，编辑归入 AI 段）|
+| C013 | include | 产品日历 | 2 calendar 源 |
+| C014 | include | 产品日历 | 2 calendar 源 + 重要 IP 联动 |
+| C015 | include | 产品日历 | 2 calendar 源，中体量新品公开测试 |
+| C016 | include (borderline) | 产品日历 | 6/1 仅预约/招募，首测在 6/12 |
+| C017 | include | 玩家舆论 | 二游差评墙刷新纪录 + 官方致歉，老版本漏选本次补入 |
+| C018 | include | 玩家舆论 | 与 6/2 燕云"阴阳岳飞"事件构成同一长期 pattern 早期节点 |
+| C019 | include | 深度观察 | 与 6/2 Embracer / Fellowship 形成控股组合管理对位 |
+| C020 | include (borderline) | 深度观察 | 小团队 / 长周期 / 反潮流品类发行容忍度样本 |
+| C021 | include (borderline) | 深度观察 | 3A 射击大盘换代洗牌观察 |
 
 ## 本次选择原则备注
 
-- 应用 SKILL"宁多勿少"原则：把往常会 exclude 的几条 borderline（C014/C020/C024/C025/C026/C028）保留进正文，由用户最终筛选。
-- Hard Stop 已逐条比对：无 Moonton；无运营建议；calendar 正文不暴露 pipeline 语言；每个 item 都将出现在 sources_used.md。
-- C021《重返未来:1999》240万差评事件是老版本明显漏选项，本次重做后补入。
+- 本版基于 6/1 采集器补跑后的重新抽取（197 条，0 失败 / 0 空 text）。
+- 应用 SKILL Hard Stop（每条事实须可在 source text 找到）：旧版正文的「MiniMax M3」与「鸣潮 Warframe + 开发者访谈」在补跑后的本地数据中已无对应记录，从正文剔除——AI 段由 3 条收为 2 条、社区段由 3 条收为 2 条。详见 event_candidates.md 末表。
+- 应用"宁多勿少"原则：borderline 候选保留进正文；industry 10 条超出 3-7 软上限，按高新闻密度日的高价值例外保留。
+- 已核对 S0004 / S0005 / S0012 / S0080 / S0081 / S0086 / S0196 / S0197 等关键 source 原文（Bash + UTF-8 读取，规避 PowerShell GBK 问题）。
+- 决胜巅峰 EWC（S0064）按 Hard Stop 屏蔽规则排除。
