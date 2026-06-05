@@ -25,7 +25,7 @@ SECTION_LABELS = {
     "industry": "行业新闻",
     "ai": "AI 动态",
     "release": "产品日历",
-    "rankings": "steam当日榜单",
+    "rankings": "steam榜单",
     "discourse": "玩家舆论",
     "deep":     "深度观察",
 }
@@ -94,6 +94,7 @@ def extract_items_full(html: str, date_str: str, report_url: str) -> list[dict]:
             "section": item.get("section", ""),
             "title": item.get("title", ""),
             "body": item.get("body", ""),
+            "body_html": item.get("body_html", ""),
             "meta": item.get("meta", []),
             "sources": item.get("sources", []),
             "date": date_str,
@@ -409,12 +410,23 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
       border-radius:18px;padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);
       transition:transform .18s,box-shadow .18s;}}
     .icard:hover{{transform:translateY(-2px);box-shadow:var(--sh-lg);}}
+    .icard.rich{{grid-column:1 / -1;}}
     .icard-top{{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap;}}
     .itag{{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}}
     .idate{{font-size:12px;color:var(--faint);}}
     .ititle{{font-size:17.5px;font-weight:700;line-height:1.45;margin-bottom:10px;color:var(--ink);letter-spacing:.1px;}}
     .ibody{{font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;
       display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}}
+    .ibody.rich{{display:block;-webkit-line-clamp:unset;overflow:visible;}}
+    .ibody.rich p{{margin:0 0 14px;color:var(--ink2);font-size:14.5px;line-height:1.78;}}
+    .ibody.rich ul{{margin:0 0 12px;padding-left:20px;color:var(--ink2);line-height:1.65;font-size:13.5px;}}
+    .ibody.rich li{{margin:0 0 8px;}}
+    .ibody.rich .ranking-table-wrap{{width:100%;overflow-x:auto;border:1px solid var(--hair);border-radius:10px;background:rgba(255,255,255,.54);}}
+    .ibody.rich .ranking-table{{width:100%;min-width:680px;border-collapse:collapse;font-size:12.5px;}}
+    .ibody.rich .ranking-table th,.ibody.rich .ranking-table td{{padding:6px 10px;border-bottom:1px solid var(--hair);text-align:left;white-space:nowrap;}}
+    .ibody.rich .ranking-table th{{color:var(--ink);background:rgba(208,95,63,.08);font-weight:700;}}
+    .ibody.rich .ranking-table td:first-child,.ibody.rich .ranking-table th:first-child{{text-align:right;}}
+    .ibody.rich .ranking-table tbody tr:last-child td{{border-bottom:0;}}
     .imeta{{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}}
     .imetag{{font-size:12px;background:rgba(31,45,75,.06);color:var(--muted);padding:3px 10px;border-radius:8px;}}
     .imetag.bl{{background:rgba(240,160,42,.14);color:#a8680a;}}
@@ -672,16 +684,17 @@ function renderFeed() {{
       html.push('<div class="icard-grid">');
       items.forEach(it => {{
         const tagStyle = `background:${{color}}1f;color:${{color}};`;
+        const richBody = typeof it.body_html === 'string' && it.body_html.trim().length > 0;
         const metaTags = (it.meta||[]).map(m => {{
           const bl = /borderline/i.test(m);
           return `<span class="imetag${{bl?' bl':''}}">${{escHtml(m)}}</span>`;
         }}).join('');
-        html.push(`<div class="icard">
+        html.push(`<div class="icard${{richBody ? ' rich' : ''}}">
           <div class="icard-top">
             <span class="itag" style="${{tagStyle}}">${{SECTION_LABELS[it.section]}}</span>
           </div>
           <div class="ititle">${{escHtml(it.title)}}</div>
-          <div class="ibody">${{escHtml(it.body)}}</div>
+          <div class="ibody${{richBody ? ' rich' : ''}}">${{richBody ? it.body_html : escHtml(it.body)}}</div>
           ${{metaTags ? `<div class="imeta">${{metaTags}}</div>` : ''}}
           <div class="icard-foot">
             ${{(it.sources||[]).length ? `<button class="isrc-btn" data-idx="${{itemRefs.push(it)-1}}">查看来源 (${{it.sources.length}}) →</button>` : ''}}
