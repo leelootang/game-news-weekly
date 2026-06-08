@@ -70,6 +70,41 @@ def _lock_for(path: Path) -> _InterProcessLock:
     return _InterProcessLock(path)
 
 
+_IO_RETRY_ATTEMPTS = 6
+_IO_RETRY_BASE_DELAY = 0.05
+
+
+def _is_sharing_violation(exc: OSError) -> bool:
+    """True for transient Windows file-sharing / access-denied errors."""
+    if isinstance(exc, PermissionError):
+        return True
+    if getattr(exc, "winerror", None) in (5, 32, 33):  # ACCESS_DENIED, SHARING/LOCK_VIOLATION
+        return True
+    return exc.errno == 13  # EACCES
+
+
+def _retry_io(fn):
+    """Run a file op, retrying transient Windows sharing violations.
+
+    Collectors in the same section rewrite a shared articles.jsonl / index. The
+    cross-process lockfile serializes intent, but on Windows the OS or AV can
+    still briefly hold a handle just after another writer released the lock,
+    surfacing as PermissionError(13) / ERROR_SHARING_VIOLATION. These clear in
+    milliseconds, so retry with a short backoff instead of failing the record.
+    """
+    last: OSError | None = None
+    for attempt in range(_IO_RETRY_ATTEMPTS):
+        try:
+            return fn()
+        except OSError as exc:
+            if not _is_sharing_violation(exc):
+                raise
+            last = exc
+            time.sleep(_IO_RETRY_BASE_DELAY * (attempt + 1))
+    assert last is not None
+    raise last
+
+
 def save_pdf_enabled() -> bool:
     return os.environ.get("NEWS_SAVE_PDF", "").strip().lower() in {"1", "true", "yes", "on"}
 
@@ -213,7 +248,7 @@ def write_article_record(
             if data_file and (data_dir / Path(data_file).name).exists():
                 jsonl_has_item = False
                 if jsonl_path.exists():
-                    for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+                    for line in _retry_io(lambda: jsonl_path.read_text(encoding="utf-8-sig")).splitlines():
                         if not line.strip():
                             continue
                         try:
@@ -227,7 +262,7 @@ def write_article_record(
 
         records: list[dict[str, Any]] = []
         if jsonl_path.exists():
-            for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+            for line in _retry_io(lambda: jsonl_path.read_text(encoding="utf-8-sig")).splitlines():
                 if not line.strip():
                     continue
                 try:
@@ -239,10 +274,14 @@ def write_article_record(
 
         row = {"id": item_id, **normalized}
         records.append(row)
-        with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
-            for item in records:
-                handle.write(json.dumps(item, ensure_ascii=False) + "\n")
-        write_article_index(data_dir)
+
+        def _flush() -> None:
+            with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
+                for item in records:
+                    handle.write(json.dumps(item, ensure_ascii=False) + "\n")
+            write_article_index(data_dir)
+
+        _retry_io(_flush)
 
     manifest_item = {
         "data_file": ARTICLE_JSONL_NAME,
