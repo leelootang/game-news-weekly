@@ -1,6 +1,6 @@
 # Collection Summary
 
-- Generated at: 2026-06-06T00:13:27+00:00
+- Generated at: 2026-06-08T03:42:58+00:00
 - Window: 2026-06-05T00:00:00 <= published < 2026-06-06T00:00:00
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\_collector_runs\2026-06-05`
 
@@ -19,7 +19,7 @@
 | `industry_news` | `gamedeveloper` | ok | healthy | 2 |
 | `industry_news` | `mobilegamer` | ok | healthy | 2 |
 | `industry_news` | `investgame` | ok | zero_articles | 0 |
-| `industry_news` | `vgc` | failed | failed | 0 |
+| `industry_news` | `vgc` | ok | healthy | 7 |
 | `industry_news` | `dataeye_36kr` | ok | healthy | 1 |
 | `ai_trends` | `aihot` | ok | warning | 33 |
 | `deep_analysis` | `gamediscover` | ok | normal_zero | 0 |
@@ -27,12 +27,12 @@
 | `deep_analysis` | `thegamebusiness` | ok | healthy | 1 |
 | `deep_analysis` | `deconstructor_deconstructions` | ok | normal_zero | 0 |
 | `release_calendar` | `ceshibiao_17173` | ok | healthy | 5 |
-| `release_calendar` | `wanjiang_16p_newgame` | ok | healthy | 5 |
+| `release_calendar` | `wanjiang_16p_newgame` | ok | healthy | 6 |
 | `release_calendar` | `haoyou_kuaibao_3839` | ok | healthy | 25 |
-| `release_calendar` | `taptap_app_calendar` | ok | healthy | 52 |
-| `release_calendar` | `gematsu_release_dates` | ok | healthy | 4 |
+| `release_calendar` | `taptap_app_calendar` | ok | healthy | 54 |
+| `release_calendar` | `gematsu_release_dates` | ok | healthy | 14 |
 | `pc_rankings` | `steamdb_rankings` | failed | failed | 0 |
-| `community_discourse` | `nga_mobile_gossip` | ok | healthy | 20 |
+| `community_discourse` | `nga_mobile_gossip` | ok | healthy | 27 |
 | `community_discourse` | `reddit_gaming_rising` | ok | healthy | 3 |
 
 ## industry_news / gcores
@@ -245,11 +245,19 @@
 
 ## industry_news / vgc
 
-- Status: failed
-- Health: failed
-- Health note: collector exited with a non-zero status
-- In-window articles: 0
+- Status: ok
+- Health: healthy
+- Health note: saved one or more in-window items
+- In-window articles: 7
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-05`
+
+- Asha Sharma says she wants Xbox to be ‘the number one gaming and entertainment company’ by 2030
+- Crimson Desert’s latest patch adds a pinball mini-game
+- FIFA World Cup 2026 game launches on Netflix June 11 as EA rivalry begins
+- ‘Our console players aren’t excited about that’: Xbox CEO Asha Sharma says it ditched Copilot because it didn’t solve a problem
+- Steam Machine and Steam Frame confirmed for summer 2026 by Valve
+- Summer Game Fest showcase 2026: Where to watch today’s presentation
+- Xbox CEO says platforms ‘must have exclusive content’ as she weighs exclusivity shift
 
 ## industry_news / dataeye_36kr
 
@@ -356,12 +364,13 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 5
+- In-window articles: 6
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-06-05`
 
 - 夜幕之下-全员恶人群像 - 上线
 - 轨道连结-先试玩后解锁 - 上线
 - 蛙蛙豹豹的树屋 - 限量不删档测试
+- 疯狂的法宝 - 限量删档测试
 - Dawn One Night Werewolf Games - 上线
 - 阿西, 美女室友竟然...？2 - 上线
 
@@ -404,7 +413,7 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 52
+- In-window articles: 54
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-06-05`
 
 - 旅人日记 - 首发
@@ -430,6 +439,7 @@
 - 穿越修仙界：从成为剑仙开始 - 首发
 - 宇宙星神 - 限量测试
 - 其实我是个演员 - 首发
+- 唐伯虎点秋香 - 首发
 - 你会聊天吗 - 首发
 - 夏风里的我们 - 首发
 - 繁星：寄生代码 - 首发
@@ -459,19 +469,30 @@
 - 塔防阵地 - 限量测试
 - 瓜田李下 - 首发
 - 张三李四 - 首发
+- 荒野之旅 - 新游预约
 
 ## release_calendar / gematsu_release_dates
 
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 4
+- In-window articles: 14
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-06-05`
 
+- The Wolf Among Us 2: A Telltale Series launches in 2027 for PS5, Xbox Series, Switch 2, Xbox One, Switch, and PC
+- Palworld launches July 10
+- 33 Immortals launches June 10
+- Screenbound launches September 10
+- End of Abyss launches October 1
+- Mortal Shell II PC open beta now available
+- Star Wars Zero Company launches August 27
 - Minecraft Dungeons II launches September 29
 - STRANGER THAN HEAVEN launches January 15, 2027
+- Lords of the Fallen II adds Steam version, launches this fall
+- Physics-based co-op game An Eggstremely Hard Game launches July 24
 - RuneScape: Dragonwilds launches September 15 for PS5, Xbox Series, and PC
 - EA Sports College Football 27 launches July 9 for PS5, Xbox Series, and PC
+- HITMAN World of Assassination Elusive Target mission ‘The Wizard’ starring Wiz Khalifa now available
 
 ## pc_rankings / steamdb_rankings
 
@@ -486,29 +507,36 @@
 - Status: ok
 - Health: healthy
 - Health note: saved one or more in-window items
-- In-window articles: 20
+- In-window articles: 27
 - Output: `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-06-05`
 
 - [小瓜] c104小报ba最后的辉煌
 - [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI
 - [腾讯] UP主在叔叔投稿宝可梦角色鸭子坐视频，被鹅厂以制造男女对立为由举报下架
+- [1999]重返未来1999就周年庆问题进行回应
+- [卡厄思梦境]国服先行角色在国际服将使用同款和谐版本造炎上
 - [米哈游] 星铁第二期fsn联动强推双王
 - [新瓜]神了，忮忌十六声，又把npc和文案改回最初版本
 - [原神]木偶节奏毫不意外的向集美滑轨加了布料
 - [新瓜][手游五黑框]居然没人搬，那我就发了
 - [网易决斗链接]“半龙女仆”变违禁词无法检索
+- [战雷有手游所以也算手游瓜]战雷新cg出现明显军事常识错误
 - [米哈游]著名米黑番鼠鉴赏家(黎洋)对米哈游实名道歉，并赔偿50万元
 - [厂商]库洛投资米哈游前星铁技术负责人创业公司，在研射击项目
 - [洛克王国：世界](更新：当bug解决了)洛克王国再次无公告暗改
 - [新瓜] [夜幕之下]女性向ml大作开服首瓜之取名超级敏感
 - [鹰角] [纯搬运][疑似内容]街霸6角色动作模组疑似借鉴明日方舟终末地新角色弭弗
 - [绝区零]官方小红书特供“太太杯”大赛广招同人女
+- [厂商]1999吧的官方吧主因为乱封被下了
 - [终末地官方漫画]出现还是不要打扰她们了
 - [新瓜] 终末地1.3新池角色建模更动
 - [厂商]网易游戏全面屏蔽“鲜花”字段
+- [联动]雷索纳斯×魔法少女的魔女审判联动
 - [同人]C108摊位数速报，BA首次下跌
+- [洛克王国：世界]反向优化肝度，依旧试探玩家底线
 - [新瓜] 女性向二游《夜幕之下》流水关注贴
 - [新瓜]拂晓胜利之刻突然公告关服，原因开服时间未知
+- [疑似消息]拂晓胜利之刻突发停服
 
 ## community_discourse / reddit_gaming_rising
 

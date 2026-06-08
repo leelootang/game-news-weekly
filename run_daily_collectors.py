@@ -145,7 +145,7 @@ COLLECTORS: dict[str, Collector] = {
         key="vgc",
         script=ROOT / "collectors" / "vgc.py",
         section="industry_news",
-        default_max_pages=3,
+        default_max_pages=12,
     ),
     "dataeye_36kr": Collector(
         key="dataeye_36kr",
