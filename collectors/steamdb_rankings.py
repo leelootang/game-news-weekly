@@ -1,41 +1,86 @@
 """
-Fetch SteamDB PC bestseller rankings and store one structured ranking record.
+Fetch the current Steam global top-sellers ranking and enrich each title with
+Gamalytic sales/owner estimates, storing one structured ranking record.
 
-Daily windows use the live global top sellers page and mark current-month
-launches. Multi-day windows use the weekly top sellers page and mark products
-whose change implies they were outside last week's top 10.
+History
+-------
+This collector previously scraped SteamDB (steamdb.info). SteamDB sits behind a
+Cloudflare anti-bot wall and additionally IP-bans scrapers, so automated
+collection was blocked every day. It now relies entirely on stable HTTP/JSON
+sources:
+
+* Ranking spine  -> Steam store "Top Sellers" search results
+  (store.steampowered.com/search/results/?filter=topsellers&json=1). This is the
+  closest official equivalent of SteamDB's global top-sellers chart.
+* Per-title data -> Gamalytic API (api.gamalytic.com/game/{appid}). Gamalytic is
+  the same third-party sales estimator SteamDB used to embed, so we get real
+  copiesSold / revenue / owners numbers plus publisher, genres, release date and
+  review score in a single call. Hardware and bundles return HTTP 404 from
+  Gamalytic and are skipped automatically.
+* Live players  -> Steam GetMostPlayedGames (one call, optional enrichment for
+  concurrent/peak players stored in each row's detail).
+
+The Gamalytic API key is read from the GAMALYTIC_API_KEY environment variable (or
+--gamalytic-key); it is never hard-coded.
+
+The SOURCE_KEY is intentionally kept as "steamdb_rankings" so the runner
+registration, section mapping and downstream report ids stay unchanged. The
+record `text` (TOP10 markdown table + new-product bullets) and `extra.rows`
+(structured per-title data) preserve the original shape so half-manual report
+generation keeps working.
 """
 
 from __future__ import annotations
 
 import argparse
-import asyncio
 import json
+import os
 import re
 import sys
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.error import HTTPError, URLError
+from urllib.parse import quote, urlencode
+from urllib.request import Request, urlopen
 
-from article_store import write_article_record
+from article_store import ARTICLE_JSONL_NAME, data_dir_for, write_article_record
 from manifest_paths import collector_manifest_path, collector_run_manifest_dir, legacy_manifest_paths
 
-from playwright.async_api import TimeoutError as PWTimeout
-from playwright.async_api import async_playwright
+# Console output carries CJK and trademark glyphs; force UTF-8 so logging never
+# crashes on a Windows GBK console or when the runner captures subprocess output.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
+    except (AttributeError, ValueError):
+        pass
 
 
-BASE_URL = "https://steamdb.info"
-DAILY_URL = f"{BASE_URL}/stats/globaltopsellers/"
-WEEKLY_URL = f"{BASE_URL}/topsellers/"
-SOURCE_DOMAIN = "steamdb.info"
+STEAM_SEARCH_URL = "https://store.steampowered.com/search/results/"
+STEAM_TOPSELLERS_PAGE = "https://store.steampowered.com/search/?filter=topsellers"
+STEAM_WEEKLY_TOPSELLERS_URL = "https://api.steampowered.com/IStoreTopSellersService/GetWeeklyTopSellers/v1/"
+STEAM_WEEKLY_CHART_PAGE = "https://store.steampowered.com/charts/topselling/global"
+STEAM_MOST_PLAYED_URL = "https://api.steampowered.com/ISteamChartsService/GetMostPlayedGames/v1/"
+GAMALYTIC_GAME_URL = "https://api.gamalytic.com/game/{appid}"
+
+SOURCE_DOMAIN = "store.steampowered.com"
 SOURCE_KEY = "steamdb_rankings"
 MANIFEST_NAME = f"{SOURCE_KEY}_{SOURCE_DOMAIN}_manifest.json"
 MANIFEST_DIR_NAME = "_collector_manifests"
-TOP_N = 10
-PAGE_TIMEOUT = 45_000
-DETAIL_DELAY = 0.7
+
+# Daily uses the live rolling top-sellers list; weekly/monthly reports use Steam's
+# official weekly top-sellers chart (Tuesday-reset), which returns the most recent
+# finalized week automatically.
+TOP_N_DAILY = 10
+TOP_N_WEEKLY = 15
+CANDIDATE_POOL = 60  # over-fetch the daily chart so hardware/bundles can be filtered out
+WEEKLY_POOL = 30  # over-fetch the weekly chart for the same reason
+HTTP_TIMEOUT = 30
+HTTP_RETRIES = 3
+GAMALYTIC_DELAY = 0.35  # be polite between Gamalytic calls
+STEAM_CC = "us"
+STEAM_LANG = "english"
 LOCAL_TZ = timezone(timedelta(hours=8))
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -53,15 +98,19 @@ class RankingRow:
     price: str = ""
     rating: str = ""
     release: str = ""
-    follows: str = ""
-    online: str = ""
-    peak: str = ""
-    change: str = ""
+    sales: str = ""
+    revenue: str = ""
     developer: str = ""
+    publisher: str = ""
+    genres: str = ""
+    change: str = ""
     marker: str = ""
-    detail: dict[str, str | list[str]] = field(default_factory=dict)
+    detail: dict[str, object] = field(default_factory=dict)
 
 
+# --------------------------------------------------------------------------- #
+# Date helpers (kept compatible with the previous collector)
+# --------------------------------------------------------------------------- #
 def parse_date(value: str, *, end_of_day: bool = False) -> datetime:
     raw = value.strip()
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
@@ -84,6 +133,25 @@ def preset_window(name: str) -> tuple[datetime, datetime]:
     raise ValueError(f"unknown preset: {name}")
 
 
+def report_mode(since: datetime, until: datetime) -> str:
+    if since.date() == (until - timedelta(seconds=1)).date():
+        return "daily"
+    return "periodic"
+
+
+def daily_launch_window(reference: datetime) -> tuple[datetime, datetime]:
+    month_start = reference.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    if reference.day < 10:
+        if month_start.month == 1:
+            month_start = month_start.replace(year=month_start.year - 1, month=12)
+        else:
+            month_start = month_start.replace(month=month_start.month - 1)
+    return month_start, reference.replace(hour=23, minute=59, second=59, microsecond=0)
+
+
+# --------------------------------------------------------------------------- #
+# Manifest IO (unchanged contract)
+# --------------------------------------------------------------------------- #
 def load_manifest(out_dir: Path) -> dict:
     path = collector_manifest_path(out_dir, MANIFEST_DIR_NAME, MANIFEST_NAME)
     legacy_paths = legacy_manifest_paths(out_dir, MANIFEST_DIR_NAME, MANIFEST_NAME)
@@ -111,346 +179,357 @@ def save_manifest(out_dir: Path, manifest: dict) -> None:
     tmp.replace(path)
 
 
-def report_mode(since: datetime, until: datetime) -> str:
-    if since.date() == (until - timedelta(seconds=1)).date():
-        return "daily"
-    return "periodic"
-
-
-def parse_release_date(value: str, *, reference: datetime) -> datetime | None:
-    text = re.sub(r"\s+", " ", value or "").strip()
-    if not text or text in {"-", "—"}:
-        return None
-    formats = [
-        "%d %B %Y",
-        "%d %b %Y",
-        "%B %Y",
-        "%b %Y",
-        "%Y-%m-%d",
-    ]
-    for fmt in formats:
+# --------------------------------------------------------------------------- #
+# HTTP helpers
+# --------------------------------------------------------------------------- #
+def http_get(url: str, *, headers: dict[str, str] | None = None) -> bytes:
+    request_headers = {"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9"}
+    if headers:
+        request_headers.update(headers)
+    last_exc: Exception | None = None
+    for attempt in range(1, HTTP_RETRIES + 1):
         try:
-            parsed = datetime.strptime(text, fmt)
-            if fmt in {"%B %Y", "%b %Y"}:
-                parsed = parsed.replace(day=1)
-            return parsed
-        except ValueError:
-            pass
-    match = re.search(
-        r"\b(\d{1,2})\s+([A-Za-z]+)\s+(20\d{2})\b|"
-        r"\b([A-Za-z]+)\s+(20\d{2})\b|"
-        r"\b([A-Za-z]{3})\s+(20\d{2})\b",
-        text,
+            with urlopen(Request(url, headers=request_headers), timeout=HTTP_TIMEOUT) as resp:
+                return resp.read()
+        except HTTPError as exc:
+            # 404 is a real answer (e.g. Gamalytic on hardware); don't retry it.
+            if exc.code == 404:
+                raise
+            last_exc = exc
+        except (URLError, TimeoutError) as exc:
+            last_exc = exc
+        if attempt < HTTP_RETRIES:
+            time.sleep(1.0 * attempt)
+    raise RuntimeError(f"GET failed after {HTTP_RETRIES} tries: {url} ({last_exc!r})")
+
+
+def http_get_json(url: str, *, headers: dict[str, str] | None = None) -> dict:
+    return json.loads(http_get(url, headers=headers).decode("utf-8", "replace"))
+
+
+# --------------------------------------------------------------------------- #
+# Steam top-sellers ranking spine
+# --------------------------------------------------------------------------- #
+def fetch_topsellers(pool: int = CANDIDATE_POOL) -> list[tuple[str, str]]:
+    """Return [(app_id, name)] in chart order from Steam's Top Sellers search."""
+    query = urlencode(
+        {
+            "query": "",
+            "filter": "topsellers",
+            "cc": STEAM_CC,
+            "l": STEAM_LANG,
+            "json": "1",
+            "infinite": "1",
+            "start": "0",
+            "count": str(pool),
+        }
     )
-    if match:
-        return parse_release_date(match.group(0), reference=reference)
-    match = re.fullmatch(r"([A-Za-z]{3,9})\s+(\d{4})", text)
-    if match:
-        return parse_release_date(match.group(0), reference=reference)
-    return None
+    data = http_get_json(f"{STEAM_SEARCH_URL}?{query}")
+    html = data.get("results_html") or ""
+    if not html:
+        raise RuntimeError("Steam top-sellers search returned no results_html")
 
-
-def daily_launch_window(reference: datetime) -> tuple[datetime, datetime]:
-    month_start = reference.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-    if reference.day < 10:
-        if month_start.month == 1:
-            month_start = month_start.replace(year=month_start.year - 1, month=12)
-        else:
-            month_start = month_start.replace(month=month_start.month - 1)
-    return month_start, reference.replace(hour=23, minute=59, second=59, microsecond=0)
-
-
-def is_current_launch(row: RankingRow, reference: datetime) -> bool:
-    released_at = parse_release_date(str(row.detail.get("release_date") or row.release), reference=reference)
-    if not released_at:
-        return False
-    start, end = daily_launch_window(reference)
-    return start <= released_at <= end
-
-
-def change_number(value: str) -> int | None:
-    text = re.sub(r"\s+", " ", value or "").strip()
-    match = re.search(r"\d+", text)
-    return int(match.group(0)) if match else None
-
-
-def is_new_topn(row: RankingRow) -> bool:
-    text = re.sub(r"\s+", " ", row.change or "").strip().lower()
-    if text in {"new", "re-entry", "reentry"}:
-        return True
-    moved = change_number(text)
-    if moved is None:
-        return False
-    return row.rank + moved > TOP_N
-
-
-def is_steamdb_challenge(text: str) -> bool:
-    normalized = re.sub(r"\s+", " ", text or "").strip().lower()
-    return (
-        "checking your browser" in normalized
-        or "enable javascript and cookies to continue" in normalized
-        or "cf-error" in normalized
-    )
-
-
-async def rows_from_daily_page(page) -> list[RankingRow]:
-    rows = await page.evaluate(
-        """() => {
-            const table = document.querySelector('table');
-            if (!table) return [];
-            return [...table.querySelectorAll('tbody tr')].slice(0, 10).map(tr => {
-                const cells = [...tr.querySelectorAll('td, th')].map(td => ({
-                    text: (td.innerText || td.textContent || '').trim(),
-                    html: td.innerHTML || ''
-                }));
-                const link = tr.querySelector('a[href^="/app/"]');
-                return {
-                    cells,
-                    href: link ? link.getAttribute('href') : '',
-                    name: link ? (link.innerText || link.textContent || '').trim() : ''
-                };
-            });
-        }"""
-    )
-    parsed: list[RankingRow] = []
-    for item in rows:
-        cells = [re.sub(r"\s+", " ", cell.get("text", "")).strip() for cell in item.get("cells", [])]
-        rank_match = re.search(r"\d+", cells[0] if cells else "")
-        href = item.get("href") or ""
-        app_match = re.search(r"/app/(\d+)", href)
-        name = item.get("name") or (cells[1] if len(cells) > 1 else "")
-        if not rank_match or not app_match or not name:
+    results: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    # Within each result row the app id (data-ds-appid) appears before the title
+    # span, so pair each app id with the first title that follows it. A simple
+    # split on the row class would misalign names by one row, because the app id
+    # attribute precedes class="search_result_row" in the <a> tag.
+    for app_id, raw_name in re.findall(
+        r'data-ds-appid="(\d+)".*?<span class="title">([^<]+)</span>', html, flags=re.S
+    ):
+        if app_id in seen:
             continue
-        data = cells[2:]
-        parsed.append(
-            RankingRow(
-                rank=int(rank_match.group(0)),
-                app_id=app_match.group(1),
-                name=name,
-                url=urljoin(BASE_URL, href),
-                price=data[0] if len(data) > 0 else "",
-                rating=data[1] if len(data) > 1 else "",
-                release=data[2] if len(data) > 2 else "",
-                follows=data[3] if len(data) > 3 else "",
-                online=data[4] if len(data) > 4 else "",
-                peak=data[5] if len(data) > 5 else "",
-            )
-        )
-    return parsed[:TOP_N]
-
-
-async def rows_from_weekly_page(page) -> list[RankingRow]:
-    rows = await page.evaluate(
-        """() => {
-            const table = document.querySelector('table');
-            if (!table) return [];
-            return [...table.querySelectorAll('tbody tr')].slice(0, 10).map(tr => {
-                const cells = [...tr.querySelectorAll('td, th')].map(td => ({
-                    text: (td.innerText || td.textContent || '').trim(),
-                    html: td.innerHTML || '',
-                    cls: td.className || ''
-                }));
-                const link = tr.querySelector('a[href^="/app/"]');
-                return {
-                    cells,
-                    href: link ? link.getAttribute('href') : '',
-                    name: link ? (link.innerText || link.textContent || '').trim() : ''
-                };
-            });
-        }"""
-    )
-    parsed: list[RankingRow] = []
-    for item in rows:
-        cells = [re.sub(r"\s+", " ", cell.get("text", "")).strip() for cell in item.get("cells", [])]
-        rank_match = re.search(r"\d+", cells[0] if cells else "")
-        href = item.get("href") or ""
-        app_match = re.search(r"/app/(\d+)", href)
-        name = item.get("name") or (cells[1] if len(cells) > 1 else "")
-        if not rank_match or not app_match or not name:
+        name = re.sub(r"\s+", " ", raw_name).strip()
+        if not name:
             continue
-        tail = cells[2:]
-        release = tail[-1] if tail else ""
-        developer = tail[-2] if len(tail) >= 2 else ""
-        change = " ".join(tail[:-2]).strip() if len(tail) > 2 else ""
-        parsed.append(
-            RankingRow(
-                rank=int(rank_match.group(0)),
-                app_id=app_match.group(1),
-                name=name,
-                url=urljoin(BASE_URL, href),
-                change=change,
-                developer=developer,
-                release=release,
-            )
-        )
-    return parsed[:TOP_N]
+        seen.add(app_id)
+        results.append((app_id, name))
+    if not results:
+        raise RuntimeError("Steam top-sellers parser produced zero rows; page structure may have changed")
+    return results
 
 
-def regex_value(text: str, label: str) -> str:
-    match = re.search(rf"^{re.escape(label)}\s+(.+)$", text, flags=re.MULTILINE)
-    return re.sub(r"\s+", " ", match.group(1)).strip() if match else ""
+def fetch_weekly_topsellers(pool: int = WEEKLY_POOL) -> tuple[datetime | None, list[tuple[str, str]]]:
+    """Return (week_start, [(app_id, name)]) from Steam's official weekly chart.
+
+    Uses IStoreTopSellersService/GetWeeklyTopSellers, the same data behind
+    store.steampowered.com/charts/topselling. The chart resets on Tuesdays; the
+    endpoint always returns the most recent finalized week, exposed as
+    `start_date` (epoch seconds for that Tuesday).
+    """
+    payload = {
+        "country_code": STEAM_CC.upper(),
+        "context": {"language": STEAM_LANG, "country_code": STEAM_CC.upper(), "steam_realm": 1},
+        "data_request": {"include_assets": False, "include_release": True},
+        "page_count": pool,
+    }
+    url = f"{STEAM_WEEKLY_TOPSELLERS_URL}?input_json={quote(json.dumps(payload))}"
+    response = http_get_json(url).get("response") or {}
+    ranks = response.get("ranks") or []
+    if not ranks:
+        raise RuntimeError("Steam weekly top-sellers endpoint returned no ranks")
+
+    week_start: datetime | None = None
+    start_epoch = response.get("start_date")
+    if isinstance(start_epoch, (int, float)) and start_epoch > 0:
+        week_start = datetime.fromtimestamp(start_epoch, timezone.utc).replace(tzinfo=None)
+
+    results: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for entry in ranks:
+        app_id = str(entry.get("appid") or entry.get("item", {}).get("appid") or "")
+        if not app_id or app_id in seen:
+            continue
+        name = re.sub(r"\s+", " ", str(entry.get("item", {}).get("name") or "")).strip()
+        if not name:
+            continue
+        seen.add(app_id)
+        results.append((app_id, name))
+    return week_start, results
 
 
-async def fetch_detail(context, row: RankingRow) -> dict[str, str | list[str]]:
-    page = await context.new_page()
-    url = f"{BASE_URL}/app/{row.app_id}/charts/"
+# --------------------------------------------------------------------------- #
+# Live concurrent players (optional enrichment)
+# --------------------------------------------------------------------------- #
+def fetch_player_counts() -> dict[str, dict[str, int]]:
     try:
-        print(f"[detail] open {row.rank}. {row.name} {url}")
-        await page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-        body_text = await page.locator("body").inner_text(timeout=10_000)
-        if is_steamdb_challenge(body_text):
-            raise RuntimeError(
-                "SteamDB returned a browser verification challenge; automated detail collection is blocked."
-            )
-        try:
-            await page.wait_for_selector("h1", timeout=15_000)
-        except PWTimeout:
-            pass
-        return await page.evaluate(
-            """() => {
-                const text = document.body.innerText || '';
-                const links = [...document.querySelectorAll('a')];
-                const tags = links
-                    .filter(a => /^\\/tag\\//.test(a.getAttribute('href') || ''))
-                    .map(a => (a.innerText || a.textContent || '').trim())
-                    .filter(Boolean);
-                const review = links
-                    .map(a => (a.innerText || a.textContent || '').trim())
-                    .find(t => /%\\s+.*reviews?/i.test(t)) || '';
-                function afterHeading(heading) {
-                    const idx = text.indexOf(heading);
-                    if (idx < 0) return [];
-                    const rest = text.slice(idx + heading.length).split(/\\n(?=##|###|How many players|SteamDB does not own)/)[0];
-                    return rest.split('\\n').map(s => s.trim()).filter(Boolean);
-                }
-                function value(label) {
-                    const escaped = label.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-                    const m = text.match(new RegExp('^' + escaped + '\\\\s+(.+)$', 'm'));
-                    return m ? m[1].replace(/\\s+/g, ' ').trim() : '';
-                }
-                return {
-                    title: (document.querySelector('h1')?.innerText || '').trim(),
-                    publisher: value('Publisher'),
-                    developer: value('Developer'),
-                    release_date: value('Release Date') || value('Steam Release Date') || value('Store Release Date'),
-                    primary_genre: value('Primary Genre'),
-                    store_genres: value('Store Genres'),
-                    review: review,
-                    owners: afterHeading('Owner estimations').filter(s => /^~/.test(s)),
-                    review_breakdown: afterHeading('User reviews history').slice(0, 4),
-                    tags: [...new Set(tags)].slice(0, 6),
-                    page_text: text
-                };
-            }"""
-        )
-    except Exception as exc:
-        print(f"[detail] failed {row.name}: {exc!r}", file=sys.stderr)
+        data = http_get_json(STEAM_MOST_PLAYED_URL)
+    except Exception as exc:  # non-fatal; players are a nice-to-have column
+        print(f"[players] skipped: {exc!r}", file=sys.stderr)
         return {}
-    finally:
-        await page.close()
+    out: dict[str, dict[str, int]] = {}
+    for rank in data.get("response", {}).get("ranks", []):
+        app_id = str(rank.get("appid"))
+        out[app_id] = {
+            "concurrent": rank.get("concurrent_in_game") or rank.get("last_week_peak") or 0,
+            "peak": rank.get("peak_in_game") or 0,
+        }
+    return out
 
 
-def clean_detail_value(value: str) -> str:
-    text = re.sub(r"\s+", " ", value or "").strip()
-    text = re.sub(r"\s*\(\)\s*$", "", text)
-    return text
+# --------------------------------------------------------------------------- #
+# Gamalytic enrichment
+# --------------------------------------------------------------------------- #
+def gamalytic_game(app_id: str, api_key: str) -> dict | None:
+    """Return Gamalytic record for a Steam app, or None if it is not a game."""
+    url = GAMALYTIC_GAME_URL.format(appid=app_id)
+    try:
+        data = http_get_json(url, headers={"api-key": api_key})
+    except HTTPError as exc:
+        if exc.code == 404:
+            return None  # hardware / bundle / unknown app
+        raise
+    if data.get("itemType") and data.get("itemType") != "game":
+        return None
+    return data
 
 
-def detail_field(row: RankingRow, key: str, fallback: str = "") -> str:
-    value = row.detail.get(key)
-    if isinstance(value, str):
-        return clean_detail_value(value)
-    return fallback
-
-
-def detail_tags(row: RankingRow) -> str:
-    tags = row.detail.get("tags")
-    if isinstance(tags, list) and tags:
-        return " / ".join(str(tag) for tag in tags[:4])
-    genre = detail_field(row, "store_genres") or detail_field(row, "primary_genre")
-    return genre
-
-
-def owners_text(row: RankingRow) -> str:
-    owners = row.detail.get("owners")
-    if isinstance(owners, list) and owners:
-        return "；".join(str(item) for item in owners[:3])
-    return ""
-
-
-def preferred_sales_text(row: RankingRow) -> str:
-    owners = row.detail.get("owners")
-    if not isinstance(owners, list) or not owners:
+# --------------------------------------------------------------------------- #
+# Formatting helpers
+# --------------------------------------------------------------------------- #
+def fmt_count(value: object) -> str:
+    try:
+        n = int(value)
+    except (TypeError, ValueError):
         return ""
-    ordered_names = ("gamalytic", "vg insights")
-    normalized = [str(item).strip() for item in owners if str(item).strip()]
-    def sales_only(item: str) -> str:
-        text = re.sub(r"\s+by\s+.+$", "", item, flags=re.I).strip()
-        return re.sub(r"^~\s*", "", text).strip()
-
-    for source_name in ordered_names:
-        for item in normalized:
-            if source_name in item.lower():
-                return sales_only(item)
-    return sales_only(normalized[0])
+    if n <= 0:
+        return ""
+    if n >= 100_000_000:
+        return f"{n / 100_000_000:.2f}亿".replace(".00亿", "亿")
+    if n >= 10_000:
+        return f"{n / 10_000:.1f}万".replace(".0万", "万")
+    return str(n)
 
 
-def rating_text(row: RankingRow) -> str:
-    review = detail_field(row, "review") or row.rating
-    if review:
-        return review
-    breakdown = row.detail.get("review_breakdown")
-    if isinstance(breakdown, list) and breakdown:
-        return "；".join(str(item) for item in breakdown[:2])
+def fmt_money(value: object) -> str:
+    try:
+        n = float(value)
+    except (TypeError, ValueError):
+        return ""
+    if n <= 0:
+        return ""
+    if n >= 100_000_000:
+        return f"${n / 100_000_000:.2f}亿"
+    if n >= 10_000:
+        return f"${n / 10_000:.1f}万"
+    return f"${n:,.0f}"
+
+
+def fmt_price(value: object) -> str:
+    try:
+        n = float(value)
+    except (TypeError, ValueError):
+        return ""
+    if n <= 0:
+        return "免费"
+    return f"${n:.2f}"
+
+
+def release_datetime(value: object) -> datetime | None:
+    try:
+        ms = int(value)
+    except (TypeError, ValueError):
+        return None
+    if ms <= 0:
+        return None
+    return datetime.fromtimestamp(ms / 1000, timezone.utc).replace(tzinfo=None)
+
+
+def fmt_release(value: object) -> str:
+    dt = release_datetime(value)
+    return dt.strftime("%Y-%m-%d") if dt else ""
+
+
+def join_names(value: object, limit: int = 2) -> str:
+    if isinstance(value, list):
+        names = [str(item).strip() for item in value if str(item).strip()]
+        return " / ".join(names[:limit])
+    if isinstance(value, str):
+        return value.strip()
     return ""
 
 
+# --------------------------------------------------------------------------- #
+# Row construction
+# --------------------------------------------------------------------------- #
+def build_row(rank: int, app_id: str, steam_name: str, game: dict, players: dict[str, dict[str, int]]) -> RankingRow:
+    name = (game.get("name") or steam_name or "").strip() or steam_name
+    review_score = game.get("reviewScore")
+    rating = f"{int(review_score)}%" if isinstance(review_score, (int, float)) and review_score else ""
+    player_stat = players.get(app_id, {})
+    detail = {
+        "publisher": join_names(game.get("publishers"), limit=3),
+        "developer": join_names(game.get("developers"), limit=3),
+        "release_date": fmt_release(game.get("releaseDate")),
+        "genres": game.get("genres") if isinstance(game.get("genres"), list) else [],
+        "tags": game.get("tags")[:6] if isinstance(game.get("tags"), list) else [],
+        "review_score": review_score,
+        "reviews": game.get("reviews"),
+        "copies_sold": game.get("copiesSold"),
+        "owners": game.get("owners"),
+        "revenue": game.get("revenue"),
+        "followers": game.get("followers"),
+        "wishlists": game.get("wishlists"),
+        "avg_playtime": game.get("avgPlaytime"),
+        "price_usd": game.get("price"),
+        "concurrent_players": player_stat.get("concurrent"),
+        "peak_players": player_stat.get("peak"),
+        "estimate_accuracy": game.get("accuracy"),
+    }
+    return RankingRow(
+        rank=rank,
+        app_id=app_id,
+        name=name,
+        url=f"https://store.steampowered.com/app/{app_id}/",
+        price=fmt_price(game.get("price")),
+        rating=rating,
+        release=fmt_release(game.get("releaseDate")),
+        sales=fmt_count(game.get("copiesSold")),
+        revenue=fmt_money(game.get("revenue")),
+        developer=join_names(game.get("developers"), limit=2),
+        publisher=join_names(game.get("publishers"), limit=2),
+        genres=join_names(game.get("genres"), limit=4),
+        detail=detail,
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Marker logic
+# --------------------------------------------------------------------------- #
+def is_current_launch(row: RankingRow, reference: datetime) -> bool:
+    released = release_datetime(row.detail.get("release_date_ms") or None)
+    if released is None:
+        # detail.release_date is already a formatted string; re-parse it
+        text = str(row.detail.get("release_date") or row.release or "").strip()
+        try:
+            released = datetime.strptime(text, "%Y-%m-%d")
+        except ValueError:
+            return False
+    start, end = daily_launch_window(reference)
+    return start <= released <= end
+
+
+def load_previous_appids(out_dir: Path, mode: str, before: datetime) -> set[str]:
+    """Read the most recent stored ranking (same mode) before `before`."""
+    data_dir = data_dir_for(out_dir)
+    jsonl_path = data_dir / ARTICLE_JSONL_NAME
+    if not jsonl_path.exists():
+        return set()
+    best_published = ""
+    best_appids: set[str] = set()
+    for line in jsonl_path.read_text(encoding="utf-8-sig").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if row.get("source_key") != SOURCE_KEY:
+            continue
+        extra = row.get("extra") or {}
+        if extra.get("mode") != mode:
+            continue
+        published = str(row.get("published_at") or "")
+        try:
+            published_dt = datetime.fromisoformat(published.replace("Z", "+00:00")).replace(tzinfo=None)
+        except ValueError:
+            continue
+        if published_dt >= before:
+            continue
+        if published > best_published:
+            best_published = published
+            best_appids = {str(r.get("app_id")) for r in extra.get("rows", []) if r.get("app_id")}
+    return best_appids
+
+
+# --------------------------------------------------------------------------- #
+# Record text
+# --------------------------------------------------------------------------- #
 def product_bullet(row: RankingRow, mode: str) -> str:
-    publisher = detail_field(row, "publisher") or "SteamDB未列发行商"
-    release_date = detail_field(row, "release_date") or row.release or "SteamDB未列上线时间"
-    tags = detail_tags(row) or "SteamDB未列品类"
-    sales = preferred_sales_text(row) or "暂无销量估算"
-    rating = rating_text(row) or "暂无好评率"
+    publisher = row.publisher or "未列发行商"
+    release = row.release or "未列上线时间"
+    genres = row.genres or "未列品类"
+    sales = row.sales or "暂无销量估算"
+    revenue = row.revenue or "暂无营收估算"
+    rating = row.rating or "暂无好评率"
     marker = "近期新品" if mode == "daily" else "新上榜"
     return (
         f"- ★ #{row.rank} 《{row.name}》为{marker}，发行商 {publisher}，"
-        f"上线时间 {release_date}，品类 {tags}，销量约 {sales}，好评率/评价：{rating}。"
+        f"上线 {release}，品类 {genres}，销量约 {sales}，营收约 {revenue}，好评率 {rating}。"
     )
 
 
-def markdown_table(rows: list[RankingRow], mode: str) -> str:
-    if mode == "daily":
-        lines = [
-            "| Rank | 标记 | Name | Price | Rating | Release | Online | Peak |",
-            "| ---: | --- | --- | --- | --- | --- | ---: | ---: |",
-        ]
-        for row in rows:
-            lines.append(
-                "| "
-                f"{row.rank} | {row.marker} | [{row.name}]({row.url}) | {row.price or '-'} | "
-                f"{row.rating or '-'} | {row.release or '-'} | {row.online or '-'} | {row.peak or '-'} |"
-            )
-        return "\n".join(lines)
-
+def markdown_table(rows: list[RankingRow]) -> str:
     lines = [
-        "| Rank | 标记 | Name | Change | Developer | Release Date |",
-        "| ---: | --- | --- | --- | --- | --- |",
+        "| Rank | 标记 | Name | 价格 | 好评率 | 上线 | 销量 | 营收 |",
+        "| ---: | --- | --- | --- | --- | --- | ---: | ---: |",
     ]
     for row in rows:
         lines.append(
             "| "
-            f"{row.rank} | {row.marker} | [{row.name}]({row.url}) | {row.change or '-'} | "
-            f"{row.developer or '-'} | {row.release or '-'} |"
+            f"{row.rank} | {row.marker or ''} | [{row.name}]({row.url}) | {row.price or '-'} | "
+            f"{row.rating or '-'} | {row.release or '-'} | {row.sales or '-'} | {row.revenue or '-'} |"
         )
     return "\n".join(lines)
 
 
-def build_record_text(rows: list[RankingRow], mode: str, source_url: str, since: datetime, until: datetime) -> str:
+def build_record_text(
+    rows: list[RankingRow], mode: str, since: datetime, until: datetime, week_start: datetime | None
+) -> str:
     marked = [row for row in rows if row.marker]
-    title = "SteamDB 当前全球热销榜 TOP10" if mode == "daily" else "SteamDB 周度全球热销榜 TOP10"
+    top_label = f"TOP{len(rows)}"
+    if mode == "daily":
+        title = f"Steam 当前全球热销榜 {top_label}"
+        source_line = f"Source: {STEAM_TOPSELLERS_PAGE} (排名) + Gamalytic (销量/营收估算)"
+    else:
+        week_text = f"（周 of {week_start:%Y-%m-%d}，周二重置）" if week_start else ""
+        title = f"Steam 官方周销量榜 {top_label}{week_text}"
+        source_line = f"Source: {STEAM_WEEKLY_CHART_PAGE} (官方周榜) + Gamalytic (销量/营收估算)"
     lines = [
         title,
-        f"Source page: {source_url}",
+        source_line,
         f"Window: {since.isoformat(timespec='seconds')} <= collected < {until.isoformat(timespec='seconds')}",
         "",
         "榜单新品信息:",
@@ -458,57 +537,68 @@ def build_record_text(rows: list[RankingRow], mode: str, source_url: str, since:
     if marked:
         lines.extend(product_bullet(row, mode) for row in marked)
     else:
-        lines.append("- 本次 TOP10 未识别到符合规则的新品/新上榜产品。")
-    lines.extend(["", "TOP10 表格:", markdown_table(rows, mode)])
+        lines.append(f"- 本次 {top_label} 未识别到符合规则的新品/新上榜产品。")
+    lines.extend(["", f"{top_label} 表格:", markdown_table(rows)])
     return "\n".join(lines).rstrip()
 
 
-async def collect_rankings(since: datetime, until: datetime, *, headful: bool = False) -> tuple[str, list[RankingRow]]:
+# --------------------------------------------------------------------------- #
+# Collection
+# --------------------------------------------------------------------------- #
+def collect_rankings(
+    since: datetime, until: datetime, api_key: str, out_dir: Path
+) -> tuple[str, list[RankingRow], datetime | None]:
     mode = report_mode(since, until)
-    source_url = DAILY_URL if mode == "daily" else WEEKLY_URL
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=not headful)
-        context = await browser.new_context(
-            user_agent=USER_AGENT,
-            locale="en-US",
-            timezone_id="Asia/Shanghai",
-            viewport={"width": 1280, "height": 900},
-        )
-        page = await context.new_page()
-        print(f"[list] open {source_url}")
-        await page.goto(source_url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-        body_text = await page.locator("body").inner_text(timeout=10_000)
-        if is_steamdb_challenge(body_text):
-            raise RuntimeError(
-                "SteamDB returned a browser verification challenge; automated ranking collection is blocked."
-            )
+    week_start: datetime | None = None
+    if mode == "daily":
+        top_n = TOP_N_DAILY
+        print(f"[list] fetch daily top sellers: {STEAM_TOPSELLERS_PAGE}")
+        candidates = fetch_topsellers()
+    else:
+        top_n = TOP_N_WEEKLY
+        print(f"[list] fetch weekly top sellers: {STEAM_WEEKLY_CHART_PAGE}")
+        week_start, candidates = fetch_weekly_topsellers()
+        if week_start:
+            print(f"[list] weekly chart week of {week_start:%Y-%m-%d} (Tuesday reset)")
+    print(f"[list] {len(candidates)} chart entries before filtering (target TOP{top_n})")
+    players = fetch_player_counts()
+
+    rows: list[RankingRow] = []
+    for app_id, steam_name in candidates:
+        if len(rows) >= top_n:
+            break
         try:
-            await page.wait_for_selector("table tbody tr", timeout=20_000)
-        except PWTimeout as exc:
-            raise RuntimeError("SteamDB ranking table was not found; site structure may have changed") from exc
-        rows = await (rows_from_daily_page(page) if mode == "daily" else rows_from_weekly_page(page))
-        await page.close()
-        if not rows:
-            raise RuntimeError("SteamDB ranking parser returned zero rows")
+            game = gamalytic_game(app_id, api_key)
+        except Exception as exc:
+            print(f"[gamalytic] {app_id} {steam_name}: {exc!r}", file=sys.stderr)
+            continue
+        if game is None:
+            print(f"[skip] {app_id} {steam_name}: not a game (hardware/bundle)")
+            continue
+        rank = len(rows) + 1
+        row = build_row(rank, app_id, steam_name, game, players)
+        rows.append(row)
+        print(f"[row] #{rank} {row.name} sales={row.sales or '-'} revenue={row.revenue or '-'}")
+        time.sleep(GAMALYTIC_DELAY)
 
-        candidates = rows if mode == "daily" else [row for row in rows if is_new_topn(row)]
-        if mode == "daily":
-            # Detail pages are needed before current-month matching because the
-            # list only carries month-level release dates.
-            candidates = rows
-        for row in candidates:
-            row.detail = await fetch_detail(context, row)
-            await asyncio.sleep(DETAIL_DELAY)
+    if not rows:
+        raise RuntimeError("No games resolved from the Steam top-sellers chart via Gamalytic")
 
-        reference = since if mode == "daily" else until - timedelta(seconds=1)
+    if mode == "daily":
+        reference = since
         for row in rows:
-            if mode == "daily":
-                row.marker = "★ 近期新品" if is_current_launch(row, reference) else ""
-            else:
-                row.marker = "★ 新上榜" if is_new_topn(row) else ""
-        await context.close()
-        await browser.close()
-    return mode, rows
+            row.marker = "★ 近期新品" if is_current_launch(row, reference) else ""
+    else:
+        previous = load_previous_appids(out_dir, mode, since)
+        # Fall back to the chart week for "recent launch" when there is no prior
+        # snapshot to diff against.
+        reference = week_start or (until - timedelta(seconds=1))
+        for row in rows:
+            is_new = (row.app_id not in previous) if previous else is_current_launch(row, reference)
+            row.marker = "★ 新上榜" if is_new else ""
+            if is_new and not previous:
+                row.change = "new"
+    return mode, rows, week_start
 
 
 def record_id(mode: str, since: datetime, until: datetime) -> str:
@@ -517,14 +607,16 @@ def record_id(mode: str, since: datetime, until: datetime) -> str:
     return f"steamdb_rankings_periodic_{since:%Y-%m-%d}_to_{(until - timedelta(seconds=1)):%Y-%m-%d}"
 
 
-def title_for(mode: str, since: datetime, until: datetime) -> str:
+def title_for(mode: str, since: datetime, until: datetime, week_start: datetime | None) -> str:
     if mode == "daily":
-        return f"SteamDB 当前全球热销榜 TOP10（{since:%Y-%m-%d}）"
-    return f"SteamDB 周度全球热销榜 TOP10（{since:%Y-%m-%d} 至 {(until - timedelta(seconds=1)):%Y-%m-%d}）"
+        return f"Steam 当前全球热销榜 TOP{TOP_N_DAILY}（{since:%Y-%m-%d}）"
+    if week_start:
+        return f"Steam 官方周销量榜 TOP{TOP_N_WEEKLY}（周 of {week_start:%Y-%m-%d}）"
+    return f"Steam 官方周销量榜 TOP{TOP_N_WEEKLY}（{since:%Y-%m-%d} 至 {(until - timedelta(seconds=1)):%Y-%m-%d}）"
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fetch SteamDB bestseller rankings.")
+    parser = argparse.ArgumentParser(description="Fetch Steam top-sellers ranking enriched with Gamalytic data.")
     parser.add_argument("--out", type=Path, default=Path("./news_data"), help="Output directory")
     parser.add_argument(
         "--preset",
@@ -535,9 +627,22 @@ def main() -> int:
     parser.add_argument("--since", type=str, default="", help="Start date/time, inclusive. Example: 2026-06-01")
     parser.add_argument("--until", type=str, default="", help="End date/time, exclusive. Example: 2026-06-02")
     parser.add_argument("--max-pages", type=int, default=1, help="Accepted for runner compatibility")
-    parser.add_argument("--limit", type=int, default=0, help="Optional maximum rows to keep from TOP10 for debugging")
-    parser.add_argument("--headful", action="store_true", help="Show browser window")
+    parser.add_argument("--limit", type=int, default=0, help="Optional maximum rows to keep for debugging")
+    parser.add_argument("--headful", action="store_true", help="Accepted for runner compatibility (no longer used)")
+    parser.add_argument(
+        "--gamalytic-key",
+        type=str,
+        default="",
+        help="Gamalytic API key; falls back to GAMALYTIC_API_KEY env var.",
+    )
     args = parser.parse_args()
+
+    api_key = args.gamalytic_key or os.environ.get("GAMALYTIC_API_KEY", "").strip()
+    if not api_key:
+        raise SystemExit(
+            "Gamalytic API key missing. Set the GAMALYTIC_API_KEY environment variable "
+            "or pass --gamalytic-key."
+        )
 
     try:
         since, until = preset_window(args.preset)
@@ -549,8 +654,6 @@ def main() -> int:
         until = parse_date(args.until)
     if since >= until:
         raise SystemExit("--since must be earlier than --until")
-    if args.max_pages != 1:
-        print("[config] SteamDB rankings are single ranking pages; --max-pages is accepted for compatibility")
 
     args.out.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest(args.out)
@@ -558,12 +661,17 @@ def main() -> int:
     print(f"[config] window: {since} <= collected < {until}")
     print(f"[config] output: {args.out.resolve()}")
 
-    mode, rows = asyncio.run(collect_rankings(since, until, headful=args.headful))
+    mode, rows, week_start = collect_rankings(since, until, api_key, args.out)
     if args.limit > 0:
         rows = rows[: args.limit]
-    source_url = DAILY_URL if mode == "daily" else WEEKLY_URL
-    text = build_record_text(rows, mode, source_url, since, until)
+    text = build_record_text(rows, mode, since, until, week_start)
     item_id = record_id(mode, since, until)
+    ranking_source = (
+        "store.steampowered.com/search?filter=topsellers"
+        if mode == "daily"
+        else "IStoreTopSellersService/GetWeeklyTopSellers"
+    )
+    source_url = STEAM_TOPSELLERS_PAGE if mode == "daily" else STEAM_WEEKLY_CHART_PAGE
     write_article_record(
         args.out,
         manifest,
@@ -572,7 +680,7 @@ def main() -> int:
             "source": SOURCE_DOMAIN,
             "source_key": SOURCE_KEY,
             "section": "pc_rankings",
-            "title": title_for(mode, since, until),
+            "title": title_for(mode, since, until, week_start),
             "url": source_url,
             "published_at": (until - timedelta(seconds=1)).isoformat(timespec="seconds"),
             "text": text,
@@ -580,6 +688,9 @@ def main() -> int:
                 "mode": mode,
                 "top_n": len(rows),
                 "marked_count": sum(1 for row in rows if row.marker),
+                "week_start": week_start.strftime("%Y-%m-%d") if week_start else None,
+                "ranking_source": ranking_source,
+                "enrichment_source": "api.gamalytic.com",
                 "rows": [
                     {
                         "rank": row.rank,
@@ -588,7 +699,14 @@ def main() -> int:
                         "url": row.url,
                         "marker": row.marker,
                         "change": row.change,
+                        "price": row.price,
+                        "rating": row.rating,
                         "release": row.release,
+                        "sales": row.sales,
+                        "revenue": row.revenue,
+                        "developer": row.developer,
+                        "publisher": row.publisher,
+                        "genres": row.genres,
                         "detail": row.detail,
                     }
                     for row in rows
@@ -598,7 +716,7 @@ def main() -> int:
     )
     save_manifest(args.out, manifest)
     elapsed = time.monotonic() - started
-    print(f"[done] ok=1 fail=0 mode={mode} marked={sum(1 for row in rows if row.marker)} elapsed={elapsed:.1f}s")
+    print(f"[done] ok=1 fail=0 mode={mode} rows={len(rows)} marked={sum(1 for row in rows if row.marker)} elapsed={elapsed:.1f}s")
     return 0
 
 
