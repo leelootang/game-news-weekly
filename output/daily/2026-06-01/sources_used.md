@@ -17,13 +17,7 @@
 - `_intermediate/selection_decisions.md`
 
 ## Item Source Map
-
-### 一、steam榜单
-- SteamDB 周度全球热销榜 TOP10 — SteamDB-W23
-- 007 First Light — SteamDB-W23
-- Path of Exile 2 — SteamDB-W23
-- LEGO® Batman™: Legacy of the Dark Knight — SteamDB-W23
-### 二、行业新闻
+### 一、行业新闻
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |
@@ -38,14 +32,14 @@
 | 9 | 网易雷火《归唐》将于夏日游戏节释出新消息（borderline） | S0033 | gcores.com |
 | 10 | 灵犀互娱《宗师之上》冲入 iOS 畅销榜 TOP10（borderline） | S0001 | gamelook.com.cn |
 
-### 三、AI 新闻
+### 二、AI 新闻
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |
 | 1 | 智能体从模型能力走向记忆、部署和服务入口 | S0080, S0081, S0086 | x.com (腾讯混元) / openai.com / ithome.com |
 | 2 | 微短小游戏《一箭又一箭》：AI 全自动生成关卡（borderline） | S0012 | youxituoluo.com |
 
-### 四、新游发布 / 产品日历
+### 三、新游发布 / 产品日历
 
 | # | 游戏 | source_ids | 本地证据信号 |
 | --- | --- | --- | --- |
@@ -54,7 +48,7 @@
 | 3 | 产品日历 - 最终的梦幻岛 | S0111, S0166 | 两个 calendar 源（16p + 3839）记录 6/1 删档计费/限量测试 |
 | 4 | 产品日历 - 代号：地心 | S0100, S0180 | 两个 calendar 源（3839 + taptap）记录 6/1 预约 + 招募、6/12 首测（borderline）|
 
-### 五、玩家舆论 / 社区动态
+### 四、玩家舆论 / 社区动态
 
 | # | 标题 | source_ids | 关键来源 |
 | --- | --- | --- | --- |

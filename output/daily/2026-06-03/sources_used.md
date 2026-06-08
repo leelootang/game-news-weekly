@@ -15,9 +15,3 @@
 - `output/daily/2026-06-03/_intermediate/report_inputs_index.md`
 
 ## Item Source Map
-
-### 一、steam榜单
-- SteamDB 当前全球热销榜 TOP10 — SteamDB-D0
-- Forza Horizon 6 — SteamDB-D0
-- Gothic 1 Remake — SteamDB-D0
-- Resident Evil Requiem / Resident Evil 4 — SteamDB-D0

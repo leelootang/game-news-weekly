@@ -16,12 +16,6 @@
 - Empty text records: 1 (`S0103` Web 更新，AI HOT 空白页，未用于正文)
 
 ## Item Source Map
-
-### 一、steam榜单
-- SteamDB 周度全球热销榜 TOP10 — SteamDB-W23
-- 007 First Light — SteamDB-W23
-- Path of Exile 2 — SteamDB-W23
-- LEGO® Batman™: Legacy of the Dark Knight — SteamDB-W23
 ### 腾讯 SPARK 2026 披露 42 款游戏与 AI 工具进展
 - Source ids: S0009, S0010, S0041, S0073, S0087, S0097
 - Files: `gamelook_gamelook.com.cn_2026-05-28_spark2026...pdf`; `gcores.com_2026-05-28_SPARK2026...pdf`; `youxichaguan_youxichaguan.com_2026-05-28_SPARK2026...pdf`; `yystv_yystv.net_2026-05-28_42款游戏集中亮相...pdf`

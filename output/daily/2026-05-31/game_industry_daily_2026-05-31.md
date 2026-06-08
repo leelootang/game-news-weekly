@@ -1,24 +1,5 @@
 # 游戏行业日报｜2026-05-31
-
-## 一、steam榜单
-
-- #2《007 First Light》在 5/26 发售当周即来到周榜第 2，说明新作首周商业热度非常集中。
-- #6《Path of Exile 2》周环比上升 38 位至第 6，是本周榜单里爬升幅度最大的产品。
-- #10《LEGO® Batman™: Legacy of the Dark Knight》与 #5《Paralives》都在 5 月下旬发售后维持前十，5 月新品仍在持续吸走付费注意力。
-
-| Rank | 标记 | Name | Change | Developer | Release Date |
-| ---: | --- | --- | --- | --- | --- |
-| 1 |  | Counter-Strike 2 | 1 | Valve | 21 August 2012 |
-| 2 |  | 007 First Light | 6 | IO Interactive A/S | 26 May 2026 |
-| 3 |  | Forza Horizon 6 | 2 | Playground Games | 19 May 2026 |
-| 4 |  | Steam Deck | — | — | 17 January 2025 |
-| 5 |  | Paralives | — | Alex Masse and team | 25 May 2026 |
-| 6 | ★ 新上榜 | Path of Exile 2 | 38 | Grinding Gear Games | 6 December 2024 |
-| 7 |  | Subnautica 2 | 4 | Unknown Worlds Entertainment | 14 May 2026 |
-| 8 |  | Apex Legends™ | Free 1 | Respawn | 5 November 2020 |
-| 9 |  | PUBG: BATTLEGROUNDS | Free | PUBG Corporation | 21 December 2017 |
-| 10 | ★ 新上榜 | LEGO® Batman™: Legacy of the Dark Knight | 6 | TT Games | 22 May 2026 |
-## 二、行业新闻
+## 一、行业新闻
 
 ### 1. Ubisoft《雷曼》双作泄露：Origins 高清版与 Legends 重制版 10 月发布
 
@@ -48,7 +29,7 @@ Summer Game Fest 2026 时间表发布，发布季于本周正式开始。Reddit 
 
 诺诚游戏法指出，俄罗斯监管机构 2026 年对 EA、Take-Two、Epic 等游戏公司提起诉讼。第 23-FZ 号联邦法律自 2025 年 7 月起生效，将数据本地化从"应使用境内数据库"改为明确禁止使用境外数据库进行个人数据处理，且义务主体扩展至受托第三方。对中国出海游戏企业而言，过去全球统一服务器/账号/数据中台的架构将直接与新规冲突，用户数据须自收集起即在俄境内完成初始处理。
 
-## 三、AI 新闻
+## 二、AI 新闻
 
 ### 1. GitHub Copilot 转向 token 计费，开发者抱怨费用不可控
 
@@ -62,7 +43,7 @@ Summer Game Fest 2026 时间表发布，发布季于本周正式开始。Reddit 
 
 NVIDIA、微软与 Arm 同步发布指向台北的坐标，暗示 6 月 1 日发布会有重大动作，被认为是 NVIDIA 与联发科合作的 ARM 笔记本芯片 N1X 预告。该芯片整合 CPU、Blackwell 架构 GPU 及 AI 单元，目标让轻薄本具备接近 RTX 4070 的图形性能。这标志 NVIDIA 从显卡供应商转向定义整机核心方案，将冲击 Intel、AMD、高通在 PC 市场的地位，也关系到 PC 游戏的硬件基准与本地 AI 推理能力。
 
-## 四、新游发布 / 产品日历
+## 三、新游发布 / 产品日历
 
 - 《海之乐章 2：一折服》由珠海心游发行、上海凛冬网络科技开发，5 月 31 日上线「龙舟一号」资料片，PC 平台，动漫 Q 版休闲 PK 品类，国内中文发行。
 
@@ -72,7 +53,7 @@ NVIDIA、微软与 Arm 同步发布指向台北的坐标，暗示 6 月 1 日发
 
 - 末日慢生活题材手游《リヴリヴ 終末スローライフ》由 cocone ONE corporation 发行，5 月 31 日在美区（US）上线。
 
-## 五、玩家舆论 / 社区动态
+## 四、玩家舆论 / 社区动态
 
 ### 1. 《燕云十六声》删除"忮忌"文案，但方式被解读为"宁死不屈"
 

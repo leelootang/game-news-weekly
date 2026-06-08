@@ -17,9 +17,3 @@
 - Selection decisions: `output/daily/2026-05-29/_intermediate/selection_decisions.md`
 
 ## Item Source Map
-
-### 一、steam榜单
-- SteamDB 周度全球热销榜 TOP10 — SteamDB-W23
-- 007 First Light — SteamDB-W23
-- Path of Exile 2 — SteamDB-W23
-- LEGO® Batman™: Legacy of the Dark Knight — SteamDB-W23
