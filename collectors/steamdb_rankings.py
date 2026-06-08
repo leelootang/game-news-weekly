@@ -516,13 +516,24 @@ def markdown_table(rows: list[RankingRow]) -> str:
 
 
 def build_record_text(
-    rows: list[RankingRow], mode: str, since: datetime, until: datetime, week_start: datetime | None
+    rows: list[RankingRow],
+    mode: str,
+    since: datetime,
+    until: datetime,
+    week_start: datetime | None,
+    snapshot_at: datetime,
 ) -> str:
     marked = [row for row in rows if row.marker]
     top_label = f"TOP{len(rows)}"
+    target_day = (until - timedelta(seconds=1)).date()
+    note_line = None
     if mode == "daily":
-        title = f"Steam 当前全球热销榜 {top_label}"
+        title = f"Steam 全球热销榜 {top_label}（{target_day} 日报 · 实时榜采集于 {snapshot_at:%Y-%m-%d}）"
         source_line = f"Source: {STEAM_TOPSELLERS_PAGE} (排名) + Gamalytic (销量/营收估算)"
+        note_line = (
+            f"说明：Steam 日榜无历史查询，此为采集日 {snapshot_at:%Y-%m-%d} 的实时热销榜，"
+            f"用于补充 {target_day} 日报。"
+        )
     else:
         week_text = f"（周 of {week_start:%Y-%m-%d}，周二重置）" if week_start else ""
         title = f"Steam 官方周销量榜 {top_label}{week_text}"
@@ -531,9 +542,10 @@ def build_record_text(
         title,
         source_line,
         f"Window: {since.isoformat(timespec='seconds')} <= collected < {until.isoformat(timespec='seconds')}",
-        "",
-        "榜单新品信息:",
     ]
+    if note_line:
+        lines.append(note_line)
+    lines.extend(["", "榜单新品信息:"])
     if marked:
         lines.extend(product_bullet(row, mode) for row in marked)
     else:
@@ -546,7 +558,7 @@ def build_record_text(
 # Collection
 # --------------------------------------------------------------------------- #
 def collect_rankings(
-    since: datetime, until: datetime, api_key: str, out_dir: Path
+    since: datetime, until: datetime, api_key: str, out_dir: Path, snapshot_at: datetime
 ) -> tuple[str, list[RankingRow], datetime | None]:
     mode = report_mode(since, until)
     week_start: datetime | None = None
@@ -585,7 +597,12 @@ def collect_rankings(
         raise RuntimeError("No games resolved from the Steam top-sellers chart via Gamalytic")
 
     if mode == "daily":
-        reference = since
+        # The Steam daily top-sellers list has no historical query: it always
+        # returns the live chart at run time. Reports are produced "today for
+        # yesterday", so this live snapshot (captured on snapshot_at) is filed
+        # under the target day as a supplement. Use the capture date as the
+        # launch-window reference, since that is what the list actually reflects.
+        reference = snapshot_at
         for row in rows:
             row.marker = "★ 近期新品" if is_current_launch(row, reference) else ""
     else:
@@ -607,9 +624,12 @@ def record_id(mode: str, since: datetime, until: datetime) -> str:
     return f"steamdb_rankings_periodic_{since:%Y-%m-%d}_to_{(until - timedelta(seconds=1)):%Y-%m-%d}"
 
 
-def title_for(mode: str, since: datetime, until: datetime, week_start: datetime | None) -> str:
+def title_for(
+    mode: str, since: datetime, until: datetime, week_start: datetime | None, snapshot_at: datetime
+) -> str:
     if mode == "daily":
-        return f"Steam 当前全球热销榜 TOP{TOP_N_DAILY}（{since:%Y-%m-%d}）"
+        target_day = (until - timedelta(seconds=1)).date()
+        return f"Steam 全球热销榜 TOP{TOP_N_DAILY}（{target_day} 日报 · 采集于 {snapshot_at:%Y-%m-%d}）"
     if week_start:
         return f"Steam 官方周销量榜 TOP{TOP_N_WEEKLY}（周 of {week_start:%Y-%m-%d}）"
     return f"Steam 官方周销量榜 TOP{TOP_N_WEEKLY}（{since:%Y-%m-%d} 至 {(until - timedelta(seconds=1)):%Y-%m-%d}）"
@@ -661,10 +681,11 @@ def main() -> int:
     print(f"[config] window: {since} <= collected < {until}")
     print(f"[config] output: {args.out.resolve()}")
 
-    mode, rows, week_start = collect_rankings(since, until, api_key, args.out)
+    snapshot_at = datetime.now().replace(microsecond=0)
+    mode, rows, week_start = collect_rankings(since, until, api_key, args.out, snapshot_at)
     if args.limit > 0:
         rows = rows[: args.limit]
-    text = build_record_text(rows, mode, since, until, week_start)
+    text = build_record_text(rows, mode, since, until, week_start, snapshot_at)
     item_id = record_id(mode, since, until)
     ranking_source = (
         "store.steampowered.com/search?filter=topsellers"
@@ -680,7 +701,7 @@ def main() -> int:
             "source": SOURCE_DOMAIN,
             "source_key": SOURCE_KEY,
             "section": "pc_rankings",
-            "title": title_for(mode, since, until, week_start),
+            "title": title_for(mode, since, until, week_start, snapshot_at),
             "url": source_url,
             "published_at": (until - timedelta(seconds=1)).isoformat(timespec="seconds"),
             "text": text,
@@ -688,6 +709,9 @@ def main() -> int:
                 "mode": mode,
                 "top_n": len(rows),
                 "marked_count": sum(1 for row in rows if row.marker),
+                "snapshot_at": snapshot_at.isoformat(timespec="seconds"),
+                "snapshot_date": snapshot_at.strftime("%Y-%m-%d"),
+                "is_supplement": mode == "daily" and snapshot_at.date() != (until - timedelta(seconds=1)).date(),
                 "week_start": week_start.strftime("%Y-%m-%d") if week_start else None,
                 "ranking_source": ranking_source,
                 "enrichment_source": "api.gamalytic.com",
