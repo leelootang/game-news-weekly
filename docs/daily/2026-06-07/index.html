@@ -18,6 +18,7 @@
       --release:#16b884; --release-soft:rgba(22,184,132,.13); --release-ink:#0b7a57;
       --discourse:#f0a02a; --discourse-soft:rgba(240,160,42,.15); --discourse-ink:#9a6206;
       --deep:#8b6df0; --deep-soft:rgba(139,109,240,.13); --deep-ink:#5a3fc0;
+      --rankings:#d05f3f; --rankings-soft:rgba(208,95,63,.12); --rankings-ink:#9d3f25;
     }
     * { box-sizing:border-box; margin:0; padding:0; }
     html,body { height:100%; }
@@ -60,6 +61,7 @@
     .nav button:hover { background:rgba(255,255,255,.55); color:var(--ink); }
     .nav button.active { background:rgba(91,110,245,.12); color:var(--accent); font-weight:600; box-shadow:inset 0 0 0 1px rgba(91,110,245,.18); }
     .nav button.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:0 3px 3px 0; background:var(--accent2,var(--accent)); }
+    .nav button[data-section="rankings"] { --accent2:var(--rankings); }
     .nav button[data-section="industry"] { --accent2:var(--industry); }
     .nav button[data-section="ai"] { --accent2:var(--ai); }
     .nav button[data-section="release"] { --accent2:var(--release); }
@@ -68,6 +70,9 @@
     .count { min-width:24px; padding:1px 9px; color:var(--muted); background:rgba(31,45,75,.07); text-align:center; border-radius:11px; font-size:12px; font-weight:600; }
     .nav button.active .count { background:var(--accent2,var(--accent)); color:#fff; }
     .aside-note { margin-top:22px; padding:14px; background:rgba(255,255,255,.5); border:1px solid var(--glass-border); border-left:3px solid var(--ai); color:var(--ink-soft); font-size:12.5px; line-height:1.6; border-radius:12px; }
+    .sidebar-footer { margin-top:18px; padding:14px 4px 0; border-top:1px solid var(--line); color:var(--muted); font-size:11.5px; line-height:1.7; }
+    .sidebar-footer strong { display:block; color:var(--ink-soft); font-weight:700; }
+    .sidebar-footer a { color:var(--accent); font-weight:600; overflow-wrap:anywhere; }
 
     /* Main */
     main { padding:30px 40px 64px; min-width:0; }
@@ -95,6 +100,7 @@
 
     /* Section-head (单 section 视图) */
     .section-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; margin:6px 0 20px; padding:16px 20px; background:var(--glass); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid var(--glass-border); border-left:4px solid var(--accent2,var(--industry)); border-radius:18px; box-shadow:var(--shadow-sm); }
+    .section-head[data-section="rankings"] { --accent2:var(--rankings); }
     .section-head[data-section="industry"] { --accent2:var(--industry); }
     .section-head[data-section="ai"] { --accent2:var(--ai); }
     .section-head[data-section="release"] { --accent2:var(--release); }
@@ -110,6 +116,7 @@
     .section-block { margin-top:38px; }
     .section-block:first-child { margin-top:0; }
     .section-banner { display:flex; align-items:baseline; gap:14px; padding:13px 18px; margin-bottom:16px; background:var(--accent-soft,var(--industry-soft)); border-left:4px solid var(--accent2,var(--industry)); border-radius:14px; }
+    .section-banner[data-section="rankings"] { --accent2:var(--rankings); --accent-soft:var(--rankings-soft); --accent-ink:var(--rankings-ink); }
     .section-banner[data-section="industry"] { --accent2:var(--industry); --accent-soft:var(--industry-soft); --accent-ink:var(--industry-ink); }
     .section-banner[data-section="ai"] { --accent2:var(--ai); --accent-soft:var(--ai-soft); --accent-ink:var(--ai-ink); }
     .section-banner[data-section="release"] { --accent2:var(--release); --accent-soft:var(--release-soft); --accent-ink:var(--release-ink); }
@@ -122,8 +129,10 @@
     /* Cards — glass */
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
     .grid.compact { grid-template-columns:1fr; }
+    .section-block[data-section="rankings"] .grid { grid-template-columns:1fr; }
     .item { background:var(--glass); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid var(--glass-border); border-left:3px solid var(--accent2,var(--industry)); padding:20px 24px; border-radius:18px; box-shadow:var(--shadow-sm); transition:transform .18s, box-shadow .18s; display:flex; flex-direction:column; }
     .item:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+    .item[data-section="rankings"] { --accent2:var(--rankings); --accent-soft:var(--rankings-soft); --accent-ink:var(--rankings-ink); }
     .item[data-section="industry"] { --accent2:var(--industry); --accent-soft:var(--industry-soft); --accent-ink:var(--industry-ink); }
     .item[data-section="ai"] { --accent2:var(--ai); --accent-soft:var(--ai-soft); --accent-ink:var(--ai-ink); }
     .item[data-section="release"] { --accent2:var(--release); --accent-soft:var(--release-soft); --accent-ink:var(--release-ink); }
@@ -184,7 +193,7 @@
     }
   </style>
 </head>
-<body><div style="background:#1f2a3d;color:#9fb4d2;font-size:12px;text-align:center;padding:7px 16px;letter-spacing:.2px;">Made by 沐瞳科技战略团队 · 有问题请联系 <a href="mailto:leelootang@moonton.com" style="color:#56a8ff;text-decoration:none;">leelootang@moonton.com</a></div>
+<body>
   <div class="app" id="app">
     <aside class="sidebar">
       <div class="brand" aria-label="沐瞳科技">
@@ -194,6 +203,7 @@
       <div class="nav-title">Sections</div>
       <nav class="nav" id="nav"></nav>
       <div class="aside-note">面向内部团队的报告视图。内容按业务事件、产品节点和玩家反馈拆分，来源映射可在每条内容内查看。</div>
+      <div class="sidebar-footer"><strong>Made by 沐瞳科技战略团队</strong><span>有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></span></div>
     </aside>
     <main>
       <div class="topbar">
@@ -207,10 +217,10 @@
         </div>
       </div>
       <div class="metrics">
-        <div class="metric"><span>行业新闻</span><strong>7</strong></div>
-        <div class="metric"><span>产品日历</span><strong>4</strong></div>
+        <div class="metric"><span>行业新闻</span><strong>4</strong></div>
+        <div class="metric"><span>产品日历</span><strong>2</strong></div>
         <div class="metric"><span>玩家舆论</span><strong>3</strong></div>
-        <div class="metric"><span>采集记录</span><strong>240</strong></div>
+        <div class="metric"><span>采集记录</span><strong>93</strong></div>
       </div>
       <div class="section-head" id="sectionHead">
         <div><h2 id="sectionTitle"></h2><p id="sectionDesc"></p></div>
@@ -283,6 +293,7 @@
     function buildSectionBlock(sectionId, itemList) {
       const block = document.createElement("div");
       block.className = "section-block";
+      block.dataset.section = sectionId;
       const banner = document.createElement("div");
       banner.className = "section-banner";
       banner.dataset.section = sectionId;
