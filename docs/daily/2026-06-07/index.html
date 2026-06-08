@@ -270,7 +270,7 @@
         return `<span class="${cls}">${m}</span>`;
       }).join("");
       const bodyMarkup = item.body_html || `<p>${item.body}</p>`;
-      node.innerHTML = `<div class="item-top"><span class="tag">${sectionLabels[item.section]}</span></div><h3>${item.title}</h3>${bodyMarkup}<div class="meta-row">${metaTags}</div><button class="source-btn" type="button">???? ?</button>`;
+      node.innerHTML = `<div class="item-top"><span class="tag">${sectionLabels[item.section]}</span></div><h3>${item.title}</h3>${bodyMarkup}<div class="meta-row">${metaTags}</div><button class="source-btn" type="button">&#26597;&#30475;&#26469;&#28304; &rarr;</button>`;
       node.querySelector(".source-btn").addEventListener("click", () => openDrawer(item));
       return node;
     }
