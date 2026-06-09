@@ -59,8 +59,6 @@
 - 产品日历 - 宝可梦 Champions —— S1004, S1095｜gematsu.com / pocketgamer.biz｜June 17；本地证据：release_calendar 多源
 - 产品日历 - 夜幕之下 —— S0760, S0882｜3839.com / new.qq.com｜https://www.3839.com/a/182365.htm ｜本地证据：release_calendar + industry_news（厂商/品类回填）双来源
 - 产品日历 - 料理人班乔 —— S0875, S1065｜youxichaguan.com / gamelook.com.cn｜https://youxichaguan.com/archives/197674 ｜厂商/IP 回填自 industry_news
-- 产品日历 - 沙丘：觉醒 —— S0766｜gematsu.com｜September 22；本地证据：单一 calendar 源
-- 产品日历 - 寂静岭：Townfall —— S0762, S0858｜gematsu.com / gcores.com｜September 24；本地证据：release_calendar + industry_news 双覆盖
 - 产品日历 - 影之刃零 —— S0874, S0767｜youxichaguan.com / gematsu.com｜https://youxichaguan.com/archives/197660 ｜本地证据：release_calendar + industry_news 双覆盖（延期事件）
 
 ### 四、玩家舆论 / 社区动态
@@ -68,7 +66,7 @@
 1. 《鸣潮》2077联动卡池被爆独立保底+副产物缩水，玩家质疑变相涨价 —— S0289, S0296, S0829, S1009｜bbs.nga.cn｜https://bbs.nga.cn/read.php?tid=46882152
 2. 《燕云十六声》新地图NPC"付鹏举""忮忌"被指阴阳岳飞，三轮改动仍未平息 —— S0360, S0364, S0419, S0828, S0833, S1018｜bbs.nga.cn｜https://bbs.nga.cn/read.php?tid=46886352
 3. 《重返未来：1999》三周年PV被冲240万条评论，制作组发长文致歉 —— S0298, S0441, S0366｜bbs.nga.cn / gamelook.com.cn｜http://www.gamelook.com.cn/2026/06/594392/
-4. 《洛克王国 世界》男角色"鸭子坐"性别争议反复横跳，叠加流水下滑 —— S0163, S0293, S0294, S0408, S0415, S0417｜bbs.nga.cn｜https://bbs.nga.cn/read.php?tid=46879621
+4. 《洛克王国 世界》女角色"鸭子坐"动作差分引发性别争议，官方删改反复 —— S0293, S0415, S0163, S0294, S0408, S0417｜bbs.nga.cn｜https://bbs.nga.cn/read.php?tid=46857960（女洛鸭子坐核心：S0293；男洛露出支线：S0415；宝可梦视频被举报：S0163；收场/流水：S0294/S0417）
 
 ### 五、行业精选 / 深度观察
 
@@ -77,13 +75,13 @@
 
 ## release_calendar 本地证据信号汇总
 
-- 强（calendar + industry_news 同游戏重合）：鸣潮、夜幕之下、寂静岭：Townfall、影之刃零。
+- 强（calendar + industry_news 同游戏重合）：鸣潮、夜幕之下、影之刃零。
 - 强（跨多个 calendar 源）：崩坏：星穹铁道（3839+17173）、宝可梦 Champions（gematsu+pocketgamer/3839）。
-- 弱（单一 calendar 源）：沙丘：觉醒。
 
 ## 被排除的值得注意条目（与理由）
 
 - 海外主机/3A/硬件弱相关：Steam Deck OLED 涨价（S0050/S0084）、巫师3/巫师4（S0229/S0467）、Fable 延期（S0464）、007/MGM/Amazon 发行权（S1090）、Balatro/Playstack 出售（S0244/S0641）、铁拳8 总监离职（S0669）、Rockstar 工会/PlayerUnknown 裁员/Team17 裁员（S0469/S1088/S1102）、PlayStation 一方销量/State of Play/Switch 2 销量/ROG Xbox Ally/CoD 退主机（S0681/S0917/S1117/S0489/S0248）。理由：对用户业务（移动/竞技/生活模拟/数值卡牌/跨平台）无 1 个以上具体迁移点。
+- 远期常规定档（非当下、相关性不足）：沙丘：觉醒（S0766，9/22 主机开放世界生存）、寂静岭：Townfall（S0762/S0858，9/24 主机心理恐怖）。按"远期主机定档公告不入日报/周报"规则排除（保留延期/跳票等生命周期变动如影之刃零）。
 - 例行许可：中国 5 月过审 158 款版号（S0495）。按规则排除。
 - 区域监管不涉 mobile/全球分发：加州 AB1921 游戏保护法案（S0672/S0889）。
 - 未核到原文/单源谨慎不入：Liftoff IPO（S1102 记录为 Team17，Liftoff 实际记录另在 mobilegamer，本轮未核）、库洛投资前崩铁技术负责人、网易撤资 Quantic Dream（S1074 单源）。
