@@ -7,8 +7,8 @@
 ### CR000 - Steam 官方周销量榜 TOP15（周 of 2026-05-26）
 - section: pc_rankings
 - source_ids: steamdb_rankings_periodic_2026-05-28_to_2026-06-04
-- facts: 来源 Steam 官方周榜 store.steampowered.com/charts/topselling/global（周二重置）+ Gamalytic 销量/营收估算。窗口最近一周为 of 2026-05-26，与报告窗口重叠。TOP15 中 5 个新上榜：#2 Forza Horizon 6（Xbox Game Studios，2026-05-19，Racing/Sim/Sports，销量263.8万/营收$1.57亿/好评84%）、#4 Paralives（Paralives Studio，2026-05-25，Simulation/Early Access，66.7万/$2253.9万/91%）、#6 Subnautica 2（Unknown Worlds，2026-05-14，Action/Adventure/EA，432.5万/$1.11亿/91%）、#7 LEGO Batman: Legacy of the Dark Knight（Warner Bros，2026-05-22，Action/Adventure，33.9万/$2178.5万/96%）、#14 Gamble With Your Friends（TENSTACK，2026-05-01，Adventure/Indie/Sim，209.5万/$1260万/89%）。#1 为 007 First Light（2026-05-27 上线，82.3万/$4780万/92%）。
-- notes: 周榜只能取最近一周，无法回溯精确 5/28-6/4，已注明 of 2026-05-26。Paralives=生活模拟、Subnautica 2=生存，均与用户赛道相关。
+- facts: 来源 Steam 官方周榜（IStoreTopSellersService/GetWeeklyTopSellers）+ Gamalytic 销量/营收估算。窗口最近完整周为 of 2026-05-26，与报告窗口重叠。**真·新上榜（上周不在 TOP15）经 last_week_rank/consecutive_weeks 校验：仅 #9 Mina the Hollower 挖掘者米娜（consec=1、无上周排名；Yacht Club Games，2026-05-29，8-bit 动作冒险，三天约30万份）**。名次大幅跃升：Path of Exile 2（上周47→本周5）、燕云十六声（43→13）、黎明杀机（23→15）、守望先锋（30→14）。007 First Light 升至游戏榜首（上周8）。生活模拟 Paralives（第4，上周5）、生存 Subnautica 2（第6，上周4）高位但非新进榜。各行 last_week_rank：007=8 Forza=1 CS2=2 Paralives=5 PoE2=47 Sub2=4 LEGO=3 Marvel=7 Mina=新 Apex=9 Warframe=11 WWM=43 OW=30 Gamble=10 DBD=23。
+- notes: ⚠ 初版误把 Forza/Paralives/Subnautica2/LEGO/Gamble 标为"新上榜"——实际它们上周已在 TOP15（采集器当时丢弃了 last_week_rank、回退到发售日猜测）。已按官方周榜 last_week_rank/consecutive_weeks 订正：本周真·新进榜仅 Mina 一款。采集器已同步修复（见 steamdb_rankings.py，改用 last_week_rank+consecutive_weeks 判定）。周榜只能取最近完整周，无法精确回溯 5/28-6/4。
 
 ## 行业新闻
 

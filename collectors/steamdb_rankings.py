@@ -87,6 +87,7 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/125.0.0.0 Safari/537.36"
 )
+ROOT = Path(__file__).resolve().parent.parent
 
 
 @dataclass
@@ -179,6 +180,36 @@ def save_manifest(out_dir: Path, manifest: dict) -> None:
     tmp.replace(path)
 
 
+def load_dotenv_value(root: Path, key: str) -> str:
+    for name in (".env.local", ".env"):
+        path = root / name
+        if not path.exists():
+            continue
+        for raw_line in path.read_text(encoding="utf-8-sig").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            env_key, value = line.split("=", 1)
+            if env_key.strip() != key:
+                continue
+            cleaned = value.strip().strip('"').strip("'")
+            if cleaned:
+                return cleaned
+    return ""
+
+
+def resolve_gamalytic_key(cli_value: str) -> str:
+    if cli_value.strip():
+        return cli_value.strip()
+    env_value = os.environ.get("GAMALYTIC_API_KEY", "").strip()
+    if env_value:
+        return env_value
+    file_value = load_dotenv_value(ROOT, "GAMALYTIC_API_KEY")
+    if file_value:
+        return file_value
+    return ""
+
+
 # --------------------------------------------------------------------------- #
 # HTTP helpers
 # --------------------------------------------------------------------------- #
@@ -250,8 +281,16 @@ def fetch_topsellers(pool: int = CANDIDATE_POOL) -> list[tuple[str, str]]:
     return results
 
 
-def fetch_weekly_topsellers(pool: int = WEEKLY_POOL) -> tuple[datetime | None, list[tuple[str, str]]]:
-    """Return (week_start, [(app_id, name)]) from Steam's official weekly chart.
+def fetch_weekly_topsellers(
+    pool: int = WEEKLY_POOL,
+) -> tuple[datetime | None, list[tuple[str, str]], dict[str, dict[str, int]]]:
+    """Return (week_start, [(app_id, name)], chart_meta) from Steam's official weekly chart.
+
+    `chart_meta` maps app_id -> {"last_week_rank": int|None, "consecutive_weeks": int}.
+    `last_week_rank` is absent (None) when the product was NOT on last week's chart,
+    which—together with consecutive_weeks==1—is the authoritative signal for a genuine
+    new chart entry. This is what drives the "★ 新上榜" marker; we no longer fall back to
+    a release-date heuristic when this data is available.
 
     Uses IStoreTopSellersService/GetWeeklyTopSellers, the same data behind
     store.steampowered.com/charts/topselling. The chart resets on Tuesdays; the
@@ -276,6 +315,7 @@ def fetch_weekly_topsellers(pool: int = WEEKLY_POOL) -> tuple[datetime | None, l
         week_start = datetime.fromtimestamp(start_epoch, timezone.utc).replace(tzinfo=None)
 
     results: list[tuple[str, str]] = []
+    chart_meta: dict[str, dict[str, int]] = {}
     seen: set[str] = set()
     for entry in ranks:
         app_id = str(entry.get("appid") or entry.get("item", {}).get("appid") or "")
@@ -286,7 +326,12 @@ def fetch_weekly_topsellers(pool: int = WEEKLY_POOL) -> tuple[datetime | None, l
             continue
         seen.add(app_id)
         results.append((app_id, name))
-    return week_start, results
+        lwr = entry.get("last_week_rank")
+        chart_meta[app_id] = {
+            "last_week_rank": int(lwr) if isinstance(lwr, (int, float)) else None,
+            "consecutive_weeks": int(entry.get("consecutive_weeks") or 0),
+        }
+    return week_start, results, chart_meta
 
 
 # --------------------------------------------------------------------------- #
@@ -562,6 +607,7 @@ def collect_rankings(
 ) -> tuple[str, list[RankingRow], datetime | None]:
     mode = report_mode(since, until)
     week_start: datetime | None = None
+    chart_meta: dict[str, dict[str, int]] = {}
     if mode == "daily":
         top_n = TOP_N_DAILY
         print(f"[list] fetch daily top sellers: {STEAM_TOPSELLERS_PAGE}")
@@ -569,7 +615,7 @@ def collect_rankings(
     else:
         top_n = TOP_N_WEEKLY
         print(f"[list] fetch weekly top sellers: {STEAM_WEEKLY_CHART_PAGE}")
-        week_start, candidates = fetch_weekly_topsellers()
+        week_start, candidates, chart_meta = fetch_weekly_topsellers()
         if week_start:
             print(f"[list] weekly chart week of {week_start:%Y-%m-%d} (Tuesday reset)")
     print(f"[list] {len(candidates)} chart entries before filtering (target TOP{top_n})")
@@ -606,15 +652,28 @@ def collect_rankings(
         for row in rows:
             row.marker = "★ 近期新品" if is_current_launch(row, reference) else ""
     else:
-        previous = load_previous_appids(out_dir, mode, since)
-        # Fall back to the chart week for "recent launch" when there is no prior
-        # snapshot to diff against.
+        # Preferred: the official weekly chart exposes last_week_rank /
+        # consecutive_weeks per entry. A genuine new chart entry has no
+        # last_week_rank (and consecutive_weeks == 1). Persist both onto each row
+        # so the table can show last-week movement; only mark true new entries.
         reference = week_start or (until - timedelta(seconds=1))
+        previous = load_previous_appids(out_dir, mode, since)  # legacy fallback only
+        have_chart_meta = bool(chart_meta)
         for row in rows:
-            is_new = (row.app_id not in previous) if previous else is_current_launch(row, reference)
+            meta = chart_meta.get(row.app_id, {})
+            lwr = meta.get("last_week_rank")
+            consec = meta.get("consecutive_weeks")
+            row.detail["last_week_rank"] = lwr
+            row.detail["consecutive_weeks"] = consec
+            if have_chart_meta:
+                is_new = (lwr is None) or (consec == 1)
+            elif previous:
+                is_new = row.app_id not in previous
+            else:
+                # last resort when neither chart meta nor a prior snapshot exists
+                is_new = is_current_launch(row, reference)
             row.marker = "★ 新上榜" if is_new else ""
-            if is_new and not previous:
-                row.change = "new"
+            row.change = "new" if is_new else (f"上周{lwr}" if lwr is not None else "")
     return mode, rows, week_start
 
 
@@ -657,11 +716,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    api_key = args.gamalytic_key or os.environ.get("GAMALYTIC_API_KEY", "").strip()
+    api_key = resolve_gamalytic_key(args.gamalytic_key)
     if not api_key:
         raise SystemExit(
-            "Gamalytic API key missing. Set the GAMALYTIC_API_KEY environment variable "
-            "or pass --gamalytic-key."
+            "Gamalytic API key missing. Set GAMALYTIC_API_KEY in the environment, "
+            "store it in .env.local/.env, or pass --gamalytic-key."
         )
 
     try:
