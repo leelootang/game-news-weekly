@@ -1,4 +1,4 @@
-# Article Index -  / news_data
+# Article Index - pc_rankings / 2026-06-04
 
 - Records: 1
 - By source: `steamdb_rankings` 1
