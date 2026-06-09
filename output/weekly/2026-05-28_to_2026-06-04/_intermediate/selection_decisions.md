@@ -29,6 +29,7 @@
 | C-AI004 | include | AI 新闻 | 微信 AI 智能体技术面，与游戏分发入口直接相关（与 C003 不同侧面） |
 | CR001 | include | 产品日历 | 头部二游崩铁 4.3 版本节点 |
 | CR002 | include | 产品日历 | 头部二游鸣潮 3.4，处联动争议窗口 |
+| CR009 | include | 产品日历 | 卡厄思梦境 5/28 国服公测，DBG 卡牌构筑，腾讯今年首款二游；release_calendar+industry_news+SPARK 最强多源（初版漏选，已补） |
 | CR003 | include | 产品日历 | 宝可梦 Champions 移动版，最大 IP，多源 |
 | CR004 | include | 产品日历 | 女性向群像新品类探索，预约破千万、下载榜第一 |
 | CR005 | include | 产品日历 | 生活模拟/经营新作（潜水员戴夫 IP），用户赛道 |

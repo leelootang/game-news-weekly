@@ -56,6 +56,7 @@
 
 - 产品日历 - 崩坏：星穹铁道 —— S0547, S0545｜3839.com / 17173.com｜https://www.3839.com/ ｜本地证据：release_calendar 多源（3839 + 17173）
 - 产品日历 - 鸣潮 —— S0285｜gematsu.com｜June 8；本地证据：release_calendar + community_discourse（CC001 同游戏）双覆盖
+- 产品日历 - 卡厄思梦境 —— S0146, S0149, S0011, S0001｜17173.com / 16p.com / cgames.com / gamelook.com.cn｜https://newgame.17173.com/game-info-1037122.html ｜本地证据：release_calendar（17173 公测 + 16p 上线）+ industry_news（S0011 制作人专访）+ SPARK 发布会，最强多源
 - 产品日历 - 宝可梦 Champions —— S1004, S1095｜gematsu.com / pocketgamer.biz｜June 17；本地证据：release_calendar 多源
 - 产品日历 - 夜幕之下 —— S0760, S0882｜3839.com / new.qq.com｜https://www.3839.com/a/182365.htm ｜本地证据：release_calendar + industry_news（厂商/品类回填）双来源
 - 产品日历 - 料理人班乔 —— S0875, S1065｜youxichaguan.com / gamelook.com.cn｜https://youxichaguan.com/archives/197674 ｜厂商/IP 回填自 industry_news
