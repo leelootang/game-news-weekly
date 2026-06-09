@@ -43,6 +43,18 @@ OLD_REDDIT_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
 )
+REDDIT_BROWSER_HEADERS = {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cache-Control": "no-cache",
+    "DNT": "1",
+    "Pragma": "no-cache",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Upgrade-Insecure-Requests": "1",
+}
 PDF_RENDER_VERSION = 2
 
 
@@ -112,6 +124,11 @@ async def fetch_json_browser(page, url: str) -> dict | list:
                 print(f"[http] retry {attempt}/3 after Reddit error: {exc}", file=sys.stderr)
                 await page.wait_for_timeout(int(1500 * attempt))
     raise RuntimeError(f"failed to fetch Reddit JSON: {url}: {last_exc}") from last_exc
+
+
+def is_reddit_access_blocked(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "403" in text or "forbidden" in text or "blocked" in text
 
 
 def listing_url(after: str | None, limit: int = 100) -> str:
@@ -214,7 +231,7 @@ def save_manifest(out_dir: Path, manifest: dict) -> None:
     tmp.replace(path)
 
 
-async def collect_posts(since: datetime, until: datetime, max_pages: int, top_n: int) -> list[RedditPost]:
+async def collect_posts(since: datetime, until: datetime, max_pages: int, top_n: int) -> tuple[list[RedditPost], bool]:
     selected: list[RedditPost] = []
     seen: set[str] = set()
     old_streak = 0
@@ -224,7 +241,12 @@ async def collect_posts(since: datetime, until: datetime, max_pages: int, top_n:
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page(user_agent=USER_AGENT)
+        page = await browser.new_page(
+            user_agent=OLD_REDDIT_USER_AGENT,
+            extra_http_headers=REDDIT_BROWSER_HEADERS,
+            locale="en-US",
+            viewport={"width": 1440, "height": 1024},
+        )
         for page_num in range(1, max_pages + 1):
             url = listing_url(after)
             print(f"[listing] open page={page_num}: {url}")
@@ -233,7 +255,17 @@ async def collect_posts(since: datetime, until: datetime, max_pages: int, top_n:
             except Exception as exc:
                 print(f"[listing] reddit JSON failed, falling back to old Reddit HTML: {exc}", file=sys.stderr)
                 await browser.close()
-                return await collect_posts_old_html(since, until, max_pages, top_n)
+                try:
+                    return await collect_posts_old_html(since, until, max_pages, top_n), True
+                except Exception as fallback_exc:
+                    if is_reddit_access_blocked(fallback_exc):
+                        print(
+                            "[listing] Reddit blocked both JSON and old Reddit HTML fallback; "
+                            "returning zero posts for this run.",
+                            file=sys.stderr,
+                        )
+                    return [], True
+                    raise
             listing = (data.get("data") if isinstance(data, dict) else {}) or {}
             children = listing.get("children") or []
             after = listing.get("after")
@@ -261,20 +293,20 @@ async def collect_posts(since: datetime, until: datetime, max_pages: int, top_n:
                         print(f"[listing] stop: {old_streak} consecutive posts older than window")
                         print(f"[listing] skipped_future={skipped_future}")
                         await browser.close()
-                        return selected[:top_n]
+                        return selected[:top_n], False
                     continue
                 old_streak = 0
                 selected.append(post)
                 if len(selected) >= top_n:
                     print(f"[listing] reached top_n={top_n}")
                     await browser.close()
-                    return selected
+                    return selected, False
             if not after:
                 break
         await browser.close()
 
     print(f"[listing] skipped_future={skipped_future}")
-    return selected[:top_n]
+    return selected[:top_n], False
 
 
 async def collect_posts_old_html(since: datetime, until: datetime, max_pages: int, top_n: int) -> list[RedditPost]:
@@ -289,7 +321,9 @@ async def collect_posts_old_html(since: datetime, until: datetime, max_pages: in
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(
             user_agent=OLD_REDDIT_USER_AGENT,
-            extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+            extra_http_headers=REDDIT_BROWSER_HEADERS,
+            locale="en-US",
+            viewport={"width": 1440, "height": 1024},
         )
         for page_num in range(1, max_pages + 1):
             if not url:
@@ -298,7 +332,11 @@ async def collect_posts_old_html(since: datetime, until: datetime, max_pages: in
             response = await page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
             if not response or response.status >= 400:
                 await browser.close()
-                raise RuntimeError(f"old Reddit fallback failed: HTTP status {response.status if response else 'unknown'}")
+                status = response.status if response else "unknown"
+                if status == 403:
+                    print("[listing:fallback] old Reddit returned HTTP 403; returning zero posts.", file=sys.stderr)
+                    return []
+                raise RuntimeError(f"old Reddit fallback failed: HTTP status {status}")
             payload = await page.evaluate(
                 """() => {
                     const rows = Array.from(document.querySelectorAll('#siteTable > .thing.link'));
@@ -360,7 +398,9 @@ async def collect_posts_old_html(since: datetime, until: datetime, max_pages: in
     return selected[:top_n]
 
 
-async def fetch_top_comments(page, post: RedditPost, limit: int = 8) -> list[dict]:
+async def fetch_top_comments(page, post: RedditPost, limit: int = 8, force_old_reddit: bool = False) -> list[dict]:
+    if force_old_reddit:
+        return await fetch_top_comments_old_html(page, post, limit)
     url = f"{post.permalink}.json?{urlencode({'sort': 'top', 'limit': str(limit), 'raw_json': '1'})}"
     try:
         data = await fetch_json_browser(page, url)
@@ -504,7 +544,7 @@ async def render_pdf(post: RedditPost, out_dir: Path, file_name: str, comments: 
         await browser.close()
 
 
-async def save_posts(posts: list[RedditPost], out_dir: Path) -> tuple[int, int]:
+async def save_posts(posts: list[RedditPost], out_dir: Path, *, force_old_reddit_comments: bool = False) -> tuple[int, int]:
     manifest = load_manifest(out_dir)
     manifest.setdefault("items", {})
     ok = 0
@@ -524,7 +564,7 @@ async def save_posts(posts: list[RedditPost], out_dir: Path) -> tuple[int, int]:
             elif not save_pdf_enabled():
                 try:
                     print(f"[{post.post_id}] extract text rank={post.rising_rank} score={post.score} comments={post.num_comments}")
-                    comments = await fetch_top_comments(comments_page, post)
+                    comments = await fetch_top_comments(comments_page, post, force_old_reddit=force_old_reddit_comments)
                     html_text = render_post_html(post, comments)
                     write_article_record(
                         out_dir,
@@ -564,7 +604,7 @@ async def save_posts(posts: list[RedditPost], out_dir: Path) -> tuple[int, int]:
             else:
                 try:
                     print(f"[{post.post_id}] render rank={post.rising_rank} score={post.score} comments={post.num_comments}")
-                    comments = await fetch_top_comments(comments_page, post)
+                    comments = await fetch_top_comments(comments_page, post, force_old_reddit=force_old_reddit_comments)
                     await render_pdf(post, out_dir, file_name, comments)
                     ok += 1
                 except Exception as exc:
@@ -617,9 +657,13 @@ async def amain(args: argparse.Namespace) -> int:
     print(f"[config] window: {since} <= created < {until}")
     print(f"[config] output: {out_dir}")
     print(f"[config] listing: /r/{SUBREDDIT}/rising, preserving Reddit rising order")
-    posts = await collect_posts(since, until, args.max_pages, top_n)
+    posts, json_blocked = await collect_posts(since, until, args.max_pages, top_n)
     print(f"[listing] selected {len(posts)} post(s)")
-    ok, fail = await save_posts(posts, out_dir)
+    if not posts:
+        print("[listing] no Reddit posts collected; source may be quiet or temporarily blocked")
+    if json_blocked:
+        print("[comments] listing JSON was blocked; using old Reddit HTML for comment extraction")
+    ok, fail = await save_posts(posts, out_dir, force_old_reddit_comments=json_blocked)
     print(f"[done] ok={ok} fail={fail} output={out_dir}")
     return 1 if fail else 0
 

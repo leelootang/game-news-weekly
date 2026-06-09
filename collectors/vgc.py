@@ -522,7 +522,7 @@ async def main() -> None:
     )
     parser.add_argument("--since", type=str, default="", help="Start date/time, inclusive. Example: 2026-05-21")
     parser.add_argument("--until", type=str, default="", help="End date/time, exclusive. Example: 2026-05-28")
-    parser.add_argument("--max-pages", type=int, default=3, help="Maximum RSS pages to scan")
+    parser.add_argument("--max-pages", type=int, default=20, help="Maximum RSS pages to scan")
     parser.add_argument("--limit", type=int, default=0, help="Optional maximum articles to export")
     parser.add_argument("--headful", action="store_true", help="Show browser window")
     args = parser.parse_args()
