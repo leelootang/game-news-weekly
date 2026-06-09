@@ -113,7 +113,7 @@
 | S0046 | `vgc` / `news_data/industry_news/2026-06-06/articles.jsonl` | https://www.videogameschronicle.com/news/shift-up-reveals-stellar-blade-sequel-blood-rain/ |
 | S0098 | `haoyou_kuaibao_3839` / `news_data/release_calendar/2026-06-06/articles.jsonl` | https://www.3839.com/a/198777.htm |
 
-### 《夜幕之下》男角色触摸语音使用“忌妒”，玩家围绕女性向表达边界争论
+### 《夜幕之下》男角色触摸语音使用“忮忌”，玩家围绕女性向表达边界争论
 
 | source_id | file/source | URL |
 | --- | --- | --- |
