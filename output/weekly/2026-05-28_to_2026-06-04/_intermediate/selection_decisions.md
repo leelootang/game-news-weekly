@@ -1,51 +1,56 @@
-﻿# Selection Decisions — 2026-05-28 to 2026-06-04
+# Selection Decisions — 2026-05-28 to 2026-06-04
 
-维度覆盖自检：市场数据/并购/平台政策/档期变动/资本信号 — 市场数据3张候选（C018/C019/C020）、并购3张（C009/C010/C015）、平台政策2张（C013/C003）、档期变动3张（C011/C021/CR003-006）、资本信号4张（C014/C015/C016/C020）
+维度覆盖自检：市场数据/并购/平台政策/档期变动/资本信号/国产竞品向产品与人才 — 市场数据 5 张（C002/C013/C014/C015/C016）、并购投融资 1 张入选（C012）+ 多张排除留痕（阅文、Liftoff、Playstack、巫师IP）、平台政策 2 张（C011/C002）、档期变动 3 张（CR006/CR007/CR008）、资本信号 4 张（C003/C009/C010/C018）、国产竞品向产品与人才 7 张（C005/C006/C007/C008/C009/CR004/DD002）。本周数据极其丰富，行业新闻入选 16 条，略超周报软上限 12，因平台大盘数据与国产竞品/资本信号同周密集，且已严格剔除海外主机/3A/硬件噪音；犹豫项标 borderline 交用户筛。
 
 | candidate | decision | target_section | reason |
 |---|---|---|---|
-| C001 | include | 行业新闻 | SPARK2026是本周核心事件，多款AI技术落地，多源覆盖 |
-| C002 | include | 行业新闻 | 微信小游戏MAU 5亿是重要平台数据里程碑，PC端是新增量窗口信号 |
-| C003 | include | 行业新闻 | Steam Deck OLED涨价45%是明确平台硬件政策信号，多源覆盖 |
-| C004 | include | 行业新闻 | Fortnite iOS回归340万下载是移动分发重要信号，AppMagic数据可信 |
-| C005 | include | 行业新闻 | 公测一个月制作人离职是重要资本/产品信号，腾讯头部MOBA产品 |
-| C006 | include | 行业新闻 | 抄袭被实锤+官方道歉，有明确商业事实（Madhead公告） |
-| C007 | include | 行业新闻 | 网易头部厂商季报，游戏收入+6.9%有具体数字 |
-| C008 | include (borderline) | 行业新闻 | 3亿MAU体量的渠道下架事件不可忽视，但原因不明且已恢复，borderline |
-| C009 | include | 行业新闻 | 移动休闲品类M&A，Crossy Road是重要IP |
-| C010 | include | 行业新闻 | Balatro发行商被收购，爆款独游发行生态信号 |
-| C011 | include | 行业新闻 | Fable主动避让GTA6档期是明确市场信号，Xbox决策透明 |
-| C012 | include | 行业新闻 | 《巫师3》6500万销量+第三资料片+《巫师4》密集开发，CD Projekt三连利好 |
-| C013 | include | 行业新闻 | 加州游戏保护法案是有立法意义的平台政策事件，多源覆盖 |
-| C014 | include | 行业新闻 | 腾讯股价单日+10%是显著资本信号，微信AI智能体是具体催化剂 |
-| C015 | include | 行业新闻 | 阅文控股艺画开天+腾讯退出，IP整合资本信号，附估值缩水数据 |
-| C016 | include | 行业新闻 | PUBG创始人工作室裁员+游戏停止开发，有具体事实 |
-| C017 | include | 行业新闻 | 007发行权换手是明确发行生态变化，Amazon/MGM进入游戏发行 |
-| C018 | include | 行业新闻 | ESA美国607亿美元年度消费是权威市场大盘数据，有Circana来源 |
-| C019 | include | 行业新闻 | Niko Partners亚洲+MENA市场预测是区域市场信号 |
-| C020 | include (borderline) | 行业新闻 | Liftoff移动营销公司IPO是移动生态基础设施信号，borderline但有具体数字 |
-| C021 | include | 行业新闻 + 产品日历 | 《影之刃零》延期有明确新发布日，梁其伟致歉是具体事件 |
-| C022 | include (borderline) | 行业新闻 | 库洛投资前崩铁技术骨干，二游技术人才流动信号 |
-| C023 | include (borderline) | 行业新闻 | 网易撤资Quantic Dream仅单源爆料，标borderline |
-| C024 | exclude | - | Switch 2英国销量是主机硬件数据，对移动/跨平台业务无实质迁移点；排除正文，留痕 |
-| C025 | exclude | - | 西方3A劳资纠纷弱相关类，不影响移动/全球分发节奏；排除正文 |
-| C026 | include | 行业新闻 | FIFA多发行商战略，Roblox等移动平台参与，有移动相关性 |
-| C027 | include | 行业新闻 | 网易《破碎之地》制作人创业做搜打撤新作，国产竞品方向高相关，用户重点要求 |
-| C028 | include | 行业新闻 | 腾讯《三角洲行动》UGC平台招聘曝光，5000万DAU产品平台化信号，用户重点要求 |
-| C029 | include | 行业新闻 | 灵犀《宗师之上》上线即爆+放置MMO品类拓展，国产新品爆款信号，用户重点要求 |
-| CAI001 | include | AI新闻 | 微信AI智能体是腾讯最高战略，与游戏分发链路直接相关 |
-| CAI002 | include | AI新闻 | MagicDawn NDGI是游戏渲染技术直接落地，全行业开源影响大 |
-| CAI003 | include | AI新闻 | 代号Craft代表AI进入游戏创作生产链前沿 |
-| CAI004 | include | AI新闻 | GDC权威趋势报告，直接反映开发者AI采用现状 |
-| CAI005 | include (borderline) | AI新闻 | Anthropic估值超OpenAI是AI行业格局变化，对AI工具选型有间接影响 |
-| CC001 | include | 玩家舆论 | 240万条评论创二游社区记录，制作组已致歉，事件闭环 |
-| CC002 | include | 玩家舆论 | 《鸣潮》联动卡池争议是高热度二游变现争议，407回复仍活跃 |
-| CC003 | include | 玩家舆论 | 《燕云十六声》文案事件是典故/影射类争议，符合Hard Stop 7要求展开解读 |
-| CR001 | include | 产品日历 | 米哈游崩铁4.3版本，头部二游版本事件 |
-| CR002 | include | 产品日历 | 鸣潮3.4版本，Gematsu来源，头部二游 |
-| CR003 | include | 产品日历 | 宝可梦Champions移动版，宝可梦IP重要上线，三源覆盖 |
-| CR004 | merge into C021 | 产品日历 | 影之刃零延期已归入行业新闻C021 |
-| CR005 | include (borderline) | 产品日历 | 沙丘：觉醒主机版发售，开放世界品类 |
-| CR006 | include (borderline) | 产品日历 | 寂静岭：Townfall定档，知名恐怖IP，多源覆盖 |
-| DD001 | include | 行业精选 | 微信5亿MAU是本周最具代表性的平台数据，PC端增量是值得观察的结构变化 |
-| DD002 | include | 行业精选 | 腾讯SPARK展示三条AI路径，在AI+游戏讨论最密集的一周值得作深度观察 |
+| CR000 | include | steam榜单 | 用户新增需求；官方周榜 of 2026-05-26，含 Paralives/Subnautica2 等生活模拟/生存新上榜 |
+| C001 | include | 行业新闻 | 本周核心事件，42 款产品 + 两项游戏 AI，多源 |
+| C002 | include | 行业新闻 | 微信小游戏 5 亿 MAU + PC 端结构性增量，平台大盘里程碑 |
+| C003 | include | 行业新闻 | 腾讯单日 +10.09% 创四年最大涨幅，微信 AI 智能体为明确催化剂 |
+| C004 | include | 行业新闻 | Fortnite iOS 回归 340 万，移动分发八年新高，AppMagic 数据 |
+| C005 | include | 行业新闻 | 头部竞技 MOBA 公测一月制作人离职，产品+人才信号 |
+| C006 | include | 行业新闻 | 网易制作人创业搜打撤新作，用户重点赛道+人才外溢 |
+| C007 | include | 行业新闻 | 5000万 DAU 竞技产品 UGC 平台化，传言级但方向明确 |
+| C008 | include | 行业新闻 | 灵犀首试放置 MMO 上线即爆，放置=用户优先赛道 |
+| C009 | include | 行业新闻 | 国产微恐+搜打撤出海日韩+巨人资本高增长 |
+| C010 | include | 行业新闻 | 网易 Q1 游戏 +6.9%，头部厂商资本信号 |
+| C011 | include | 行业新闻 | 3 亿 MAU 体量渠道下架，移动平台风险信号 |
+| C012 | include | 行业新闻 | 移动休闲品类 M&A，Crossy Road 重要 IP |
+| C013 | include | 行业新闻 | ESA 美国 607 亿超影视音乐总和，移动为最大平台 |
+| C014 | include | 行业新闻 | Niko 亚洲+MENA 市场模型，SEA/MENA 高相关 |
+| C015 | include | 行业新闻 | 抖音老游长线运营+特色人群营销数据 |
+| C016 | include | 行业新闻 | 欧洲移动 €75.3 亿大盘报告（King 委托） |
+| C017 | include (borderline) | 行业新闻 | 抄袭实锤+官方道歉+AI 生产合规，borderline 交用户筛 |
+| C018 | include (borderline) | 行业新闻 | 金山游戏 -22% + 西山居关停并转，上市公司组织信号 |
+| C-AI001 | include | AI 新闻 | NDGI 游戏渲染底层技术+全行业开源 |
+| C-AI002 | include | AI 新闻 | 代号Craft，AI 进入游戏内容生产链前沿 |
+| C-AI003 | include | AI 新闻 | GDC 权威趋势报告，反映开发者 AI 采用现状 |
+| C-AI004 | include | AI 新闻 | 微信 AI 智能体技术面，与游戏分发入口直接相关（与 C003 不同侧面） |
+| CR001 | include | 产品日历 | 头部二游崩铁 4.3 版本节点 |
+| CR002 | include | 产品日历 | 头部二游鸣潮 3.4，处联动争议窗口 |
+| CR003 | include | 产品日历 | 宝可梦 Champions 移动版，最大 IP，多源 |
+| CR004 | include | 产品日历 | 女性向群像新品类探索，预约破千万、下载榜第一 |
+| CR005 | include | 产品日历 | 生活模拟/经营新作（潜水员戴夫 IP），用户赛道 |
+| CR006 | include (borderline) | 产品日历 | 沙丘觉醒主机定档，开放世界生存，单源 |
+| CR007 | include (borderline) | 产品日历 | 寂静岭 Townfall 定档，知名 IP |
+| CR008 | include | 产品日历 | 影之刃零延期 50 天，重大档期变动+国产 ARPG |
+| CC001 | include | 玩家舆论 | 高热二游变现争议，窗口内仍活跃 |
+| CC002 | include | 玩家舆论 | 典故/影射类，已解开岳飞/忮贤忌能典故 |
+| CC003 | include | 玩家舆论 | 240 万评论创二游社区纪录，官方致歉闭环 |
+| CC004 | include | 玩家舆论 | 腾讯大 IP 性别叙事反复+商业表现下滑 |
+| DD001 | include | 深度观察 | 微信 5 亿 MAU 与 PC 端增量结构 |
+| DD002 | include | 深度观察 | 国产搜打撤集中立项与赛道两端分化 |
+| —Steam Deck 涨价 | exclude | - | 纯 PC 掌机硬件定价，无可迁移点（弱相关） |
+| —巫师3/巫师4 | exclude | - | 西方单机 3A，弱相关 |
+| —Fable 延期 | exclude | - | 西方主机，GTA6 档期信号弱迁移 |
+| —007/MGM/Amazon | exclude | - | 西方主机发行，弱相关 |
+| —Balatro/Playstack 出售 | exclude | - | 西方单机发行商资本事件，弱相关 |
+| —铁拳8总监离职 | exclude | - | 主机格斗 IP 人事，弱相关 |
+| —Rockstar工会/PUBG裁员/Team17裁员 | exclude | - | 西方劳资/重组，弱相关 |
+| —PS一方销量/SoP/God of War/Switch2销量/ROG Ally/CoD退主机 | exclude | - | 主机硬件/独占，弱相关 |
+| —加州 AB1921 | exclude | - | 区域监管不影响 mobile/全球分发 |
+| —中国 5 月 158 款版号 | exclude | - | 例行许可，规则排除 |
+| —阅文收购艺画开天 | exclude | - | IP/动画整合，游戏侧《凡应》在研，用户赛道迁移弱（仅留痕） |
+| —Liftoff IPO/库洛投资/网易撤资 Quantic Dream | exclude | - | 相关但本轮未核到原文（或单源海外主机），谨慎不入正文 |
+| —沐瞳/MLBB/决胜巅峰（S0501/S0879/S0676内） | exclude | - | Hard Stop 2，正文绝对排除，仅审计留痕 |

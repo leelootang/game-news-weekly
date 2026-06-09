@@ -1,431 +1,265 @@
-﻿# Event Candidates — 2026-05-28 to 2026-06-04
+# Event Candidates — 2026-05-28 to 2026-06-04
 
-## C001 - 腾讯SPARK2026游戏发布会：42款游戏+AI技术集中亮相
-- section: industry_news
-- status: candidate
-- source_ids: S0001, S0010, S0018, S0020, S0028, S0085
-- entities: 腾讯, SPARK2026, 代号Craft, MagicDawn NDGI
-- facts:
-  - 超40款游戏公布最新动态
-  - 发布全球首个跨平台神经动态GI方案MagicDawn NDGI，AI神经网络实时还原动态光影，覆盖高端PC至ARM移动端，已落地量产并面向全行业开源（S0028）
-  - AI游戏创作平台"代号Craft"亮相：用自然语言输入游戏创意，AI生成2D/3D可玩游戏，内置2万+云端资产库（S0020）
-- notes: 多家媒体覆盖，是本周最重量级单一事件之一
+> 重生成版本（按用户标准收紧海外主机/3A/硬件噪音，并新增 steam 周榜）。facts 均经对应 source_id 原文核读。
 
-## C002 - 微信小游戏MAU破5亿，PC端+IAP/IAA双线数据公开
-- section: industry_news
-- status: candidate
-- source_ids: S0006, S0003, S0007, S0044
-- entities: 微信小游戏, 腾讯, 李卿, 孟令刚, 杨静怡
-- facts:
-  - 微信小游戏月活用户破5亿，日均时长超1小时，iOS支付已跑通（S0006）
-  - IAP小游戏MAU 3亿，模拟品类收入增200%，二合一占比70%（S0007）
-  - PC小游戏付费用户ARPU增长130%，在线时长增长100%（S0003）
-  - 单季度流水破千万的游戏超300款，8成团队规模小于30人（S0044）
-- notes: 2026微信小游戏开发者大会在杭州举行
+## steam 周榜
 
-## C003 - Valve Steam Deck OLED涨价超40%，512GB $549→$789
-- section: industry_news
-- status: candidate
-- source_ids: S0050, S0063, S0084
-- entities: Valve, Steam Deck
-- facts:
-  - 512GB型号$549→$789；1TB型号$649→$949，平均涨幅约45%（S0050, S0084）
-  - Valve称原因为行业内存短缺导致的零部件成本与物流成本上涨
+### CR000 - Steam 官方周销量榜 TOP15（周 of 2026-05-26）
+- section: pc_rankings
+- source_ids: steamdb_rankings_periodic_2026-05-28_to_2026-06-04
+- facts: 来源 Steam 官方周榜 store.steampowered.com/charts/topselling/global（周二重置）+ Gamalytic 销量/营收估算。窗口最近一周为 of 2026-05-26，与报告窗口重叠。TOP15 中 5 个新上榜：#2 Forza Horizon 6（Xbox Game Studios，2026-05-19，Racing/Sim/Sports，销量263.8万/营收$1.57亿/好评84%）、#4 Paralives（Paralives Studio，2026-05-25，Simulation/Early Access，66.7万/$2253.9万/91%）、#6 Subnautica 2（Unknown Worlds，2026-05-14，Action/Adventure/EA，432.5万/$1.11亿/91%）、#7 LEGO Batman: Legacy of the Dark Knight（Warner Bros，2026-05-22，Action/Adventure，33.9万/$2178.5万/96%）、#14 Gamble With Your Friends（TENSTACK，2026-05-01，Adventure/Indie/Sim，209.5万/$1260万/89%）。#1 为 007 First Light（2026-05-27 上线，82.3万/$4780万/92%）。
+- notes: 周榜只能取最近一周，无法回溯精确 5/28-6/4，已注明 of 2026-05-26。Paralives=生活模拟、Subnautica 2=生存，均与用户赛道相关。
 
-## C004 - Fortnite全球iOS回归，首周340万下载，创八年新高
+## 行业新闻
+
+### C001 - 腾讯 SPARK2026 发布会：42 款游戏 + 两项游戏 AI 技术
+- section: industry_news（headline）
+- source_ids: S0001, S0085, S0035, S0018
+- facts: 5/27 SPARK2026，制作/发行/投资三篇章共 42 款游戏。One More Thing 发布两项游戏 AI 产品（全球首个跨平台神经动态全局光照 NDGI 全面开源、AI 游戏创作平台"代号Craft"）+ 瓷业经营小游戏《瓷都小匠》。多款产品 AI 落地：和平精英 AI 明星队友"小田"+ 绿洲启元 UGC 全链路 AI 创作助手（15分钟出 demo）；王者荣耀 AI 灵宝/AI 解说；流放之路国服 WeGame AI 助手"蛋蛋君"。
+- notes: AI 部分拆到 AI 新闻（C-AI 系列）；此卡 industry 只写发布会规模与整体信号。
+
+### C002 - 微信小游戏 MAU 破 5 亿 + PC 端成新增量
 - section: industry_news
-- status: candidate
+- source_ids: S0006, S0003, S0004, S0044
+- facts: 2026 微信小游戏大会（杭州）。MAU 5 亿（男53%/女47%，一二线45%，24-40岁占50%，日均>60分钟，好友互动日均>1亿次）；开发者 50 万、8 成团队<30人；DAU 破百万小游戏 60→80 款，单季流水破千万>300 款。IAA：4 亿用户、70%只玩 IAA、人均每月玩 7.5 款、女性占 60%。PC 端：MAU 同比+10%、40%为 PC 独占用户、24-40岁占60%、在线时长×2、付费规模涨幅远超一倍、单 title ARPU+130%/在线时长+100%、PC 广告投放同比+35%、平台给 PC 额外 10% 专属广告金。已跑通 iOS 支付。
+- notes: 深度观察 DD001 用此卡的 PC 结构数据做延展，注意 industry 写数据本身、deep 写结构判断。
+
+### C003 - 腾讯股价单日涨 10.09%，微信 AI 智能体原型测试完成
+- section: industry_news
+- source_ids: S0866
+- facts: 6/2 腾讯港股收 480 港元/股、涨 10.09%、市值超 4.38 万亿港元，创 2021-01-25 以来单日最高涨幅；美团/阿里同日大涨。催化剂：FT 报道腾讯已完成微信内嵌 AI 智能体原型测试，最快 6 月启动合规审批，列为最高战略优先级；前 OpenAI 研究员姚顺雨加入。Kakao AI Agent（5000万用户）被视作参照。
+- notes: AI 智能体技术面拆到 AI 新闻（C-AI004），此卡写资本信号。
+
+### C004 - Fortnite 全球 iOS 回归首周 340 万下载，创八年新高
+- section: industry_news
 - source_ids: S0051
-- entities: Epic Games, Fortnite, App Store
-- facts:
-  - iOS回归首周约340万次下载，八年高位（AppMagic数据）（S0051）
-  - 沙特领跑47.4万，法国36.6万，英国30.7万；美国仅15.1万
-  - 接近2018年上线首周370万下载量（S0051）
+- facts: AppMagic 数据，Fortnite 重返 iOS 首个 7 天约 340 万下载，接近 2018 首发周 370 万，为登陆 App Store 第四强周。沙特 47.4万领跑、法国 36.6万、英国 30.7万，美国仅 15.1万。5/19 单日装机近 29 万（环比+1408%），5/23 峰值 67.4万。澳大利亚仍因支付争议未上架。
+- notes: 移动分发重要信号。
 
-## C005 - 《王者荣耀：世界》执行制作人李新平公测约一个月后正式离职
+### C005 - 《王者荣耀：世界》执行制作人李新平公测一月后离职
 - section: industry_news
-- status: candidate
-- source_ids: S0661, S0670, S0680
-- entities: 腾讯, 天美L1, 李新平, 《王者荣耀：世界》, 李旻
-- facts:
-  - 李新平正式离职腾讯，有超20年行业经验，担任执行制作人兼主美（S0661）
-  - 游戏4月公测后市场表现未达预期；4月底李旻已接任制作人，李新平转顾问（S0661）
-  - 离职当日（6月2日）游戏开启S1赛季，短暂回升至畅销榜第16位
+- source_ids: S0661, S0670, S0210
+- facts: 6/2 曝李新平（心平）已离职腾讯，距 4 月公测约一月。20余年从业、2008 入腾讯、曾任《天涯明月刀》主美，主导《王者荣耀：世界》（2019 立项、研发七年、执行制作人兼主美）。游戏上线后最高 iOS 畅销榜 TOP24、最低跌至 154 名；4 月底已调任顾问、由天美 L1 总经理李旻兼任制作人。5/29 开 S1 赛季短暂回升至畅销榜 TOP16。DAU 峰值曾破千万但流水不及预期；内部主因决策分散、"意见太多"。
+- notes: 竞技 MOBA 头部 + 人才/产品信号，高相关。
 
-## C006 - 《神魔之塔》宣传片被爆抄袭《鸣潮》绯雪动画，Madhead正式道歉
-- section: industry_news / community_discourse
-- status: candidate
-- source_ids: S0203, S0162
-- entities: Madhead, 《神魔之塔》, 《鸣潮》, 库洛
-- facts:
-  - 《神魔之塔》新角色"成吉思汗"宣传片在分镜、运镜、特效、动作节奏上与《鸣潮》绯雪共鸣解放动画高度雷同（S0203）
-  - 视频倒影中直接出现《鸣潮》绯雪原始模型（S0203）
-  - Madhead于5月27日发布正式道歉公告，承认制作审核流程严重失误，已启动内部问责（S0203）
-  - NGA帖子69回复（S0162），玩家指出"树都一样"等多处直接证据
+### C006 - 网易《破碎之地》制作人吴晓创业，新作《逃离动物城》主打俯视角 PVE 搜打撤
+- section: industry_news（+ 深度观察借证）
+- source_ids: S0676, S0757
+- facts: 6/2 广州北落师门（吴晓创业公司）首曝《逃离动物城》，俯视角 PVE 搜打撤，僵尸末日扮小动物、3 人组队、强调场景破坏，计划 2026 Q3 测试，商业化抽卡。吴晓履历：网易《大唐无双》、灵犀《长安幻世绘》《风之大陆》、网易《破碎之地》（中式废土 PVE 射击、耗资数亿未上线）。判断：新品立项要么 3A 化、要么轻量化；PVE 在射击占比国际约 20%、国内远未达。3839 标签：多人联机/竞技/射击，预计 Q3 开测。
+- notes: 搜打撤=用户重点赛道。⚠ S0676 原文提及"沐瞳《头号禁区》MOBA+搜打撤"——Hard Stop 2，正文严禁出现，仅此留痕。深度观察 DD002 引用本卡但只作赛道信号之一。
 
-## C007 - 网易Q1游戏收入同比增6.9%至37亿美元
+### C007 - 腾讯《三角洲行动》筹备 UGC 平台（招聘曝光）
 - section: industry_news
-- status: candidate
-- source_ids: S0231, S0697
-- entities: 网易
-- facts:
-  - Q1游戏收入257亿人民币（约37亿美元），同比增6.9%（S0231）
-  - 整体营收306亿人民币，同比增6.1%（S0231）
-  - 《燕云十六声》《漫威争锋》扩大海外发行，自研产品贡献主力（S0231）
-
-## C008 - Block Blast（3亿MAU）突遭谷歌Play下架后当日恢复，原因不明
-- section: industry_news
-- status: candidate (borderline)
-- source_ids: S0234, S0239, S0445
-- entities: Hungry Studio, Block Blast, Google Play
-- facts:
-  - 拥有3亿MAU的益智消除游戏《Block Blast》突遭谷歌Play下架，数小时后恢复（S0445, S0234, S0239）
-  - 官方未说明下架原因
-
-## C009 - Atari以约3930万美元收购《Crossy Road》开发商Hipster Whale
-- section: industry_news
-- status: candidate
-- source_ids: S0474, S0479, S0481, S0505
-- entities: Atari, Hipster Whale, Crossy Road
-- facts:
-  - 初始2930万美元+最高1000万美元业绩对赌，合计最高3930万美元（S0481）
-  - Hipster Whale是经典移动休闲游戏《Crossy Road》（天天过马路）开发商（S0481）
-
-## C010 - Balatro发行商Playstack以1.25亿英镑估值被出售
-- section: industry_news
-- status: candidate
-- source_ids: S0244, S0253, S0320, S0641, S0698
-- entities: Playstack, Balatro, Fandom, GameSpot
-- facts:
-  - 发行过爆款卡牌Roguelite《Balatro》的英国发行商Playstack，以约1.25亿英镑估值出售给Fandom/GameSpot母公司（S0641, S0253）
-
-## C011 - Fable延期至2027年2月，Xbox主动避让GTA6档期
-- section: industry_news
-- status: candidate
-- source_ids: S0464, S0282, S0485
-- entities: Xbox, Playground Games, Fable, GTA6
-- facts:
-  - 《神鬼寓言》重启版延期至2027年2月，原定2026年秋季发售（S0464）
-  - Xbox CCO Matt Booty明确表示秋季档期与GTA6重叠，主动避让（S0464）
-
-## C012 - CD Projekt《巫师3》销量突破6500万+第三资料片；《巫师4》密集开发（513人）
-- section: industry_news
-- status: candidate
-- source_ids: S0229, S0467, S0315
-- entities: CD Projekt, The Witcher 3, The Witcher 4
-- facts:
-  - 《巫师3》全球销量突破6500万份（S0315），Q1巫师IP营收同比增36%（S0229）
-  - 宣布第三资料片《Songs of the Past》，与Fool's Theory联合开发，预计2027年发售（S0229）
-  - 《巫师4》进入"最密集开发阶段"，团队扩张至513人（S0467）
-
-## C013 - 加州游戏保护法案AB 1921以43-16票通过州议会，进入参议院
-- section: industry_news
-- status: candidate
-- source_ids: S0488, S0672, S0889
-- entities: California, Stop Killing Games, 游戏保护
-- facts:
-  - 《保护我们的游戏法案》（AB 1921）以43-16票通过加州州议会（S0488, S0672）
-  - 要求游戏公司关闭服务器前提前通知玩家并提供离线可用方案（S0488）
-  - 由Stop Killing Games推动，起因育碧下架《The Crew》（S0672）
-
-## C014 - 腾讯股价6月2日单日涨10.09%，微信AI智能体消息为主要催化剂
-- section: industry_news
-- status: candidate
-- source_ids: S0866
-- entities: 腾讯, 微信, AI智能体
-- facts:
-  - 6月2日腾讯港股收盘480港元/股，涨幅10.09%，总市值超4.38万亿港元（S0866）
-  - 《金融时报》报道：腾讯已完成微信内嵌AI智能体原型测试，最快6月启动合规审批（S0866）
-  - 创2021年1月25日以来单日最高涨幅记录（S0866）
-
-## C015 - 阅文4亿元收购艺画开天28.22%股权，腾讯亏本退出
-- section: industry_news
-- status: candidate
-- source_ids: S0881, S1059, S1079
-- entities: 阅文集团, 艺画开天, 腾讯, 《灵笼》, 《凡应》
-- facts:
-  - 阅文以约4亿元从腾讯处收购武汉艺画开天28.22%股权，完成后持股59.7%，成为大股东（S1059）
-  - 艺画开天估值约13.1亿元，较2022年融资时近25亿元大幅缩水（S1059）
-  - 腾讯原始收购成本约4.89亿元，此次约4亿元出售，基本亏本退出（S1059）
-  - 艺画开天持有《灵笼》IP（全平台超100亿次观看）及开发7年的游戏《凡应》（S0881, S1059）
-
-## C016 - PlayerUnknown Productions裁员重组，Go Wayback停止开发
-- section: industry_news
-- status: candidate
-- source_ids: S1088, S0924, S1103
-- entities: PlayerUnknown Productions, Brendan Greene
-- facts:
-  - PUBG创始人Brendan Greene承认"已到达我能继续资助旅程的极限"，宣布重组（S1088）
-  - 开发中的《Go Wayback》停止开发，承诺退款购买者（S0924, S1103）
-
-## C017 - MGM/Amazon Game Studios接手IO Interactive未来007游戏发行
-- section: industry_news
-- status: candidate
-- source_ids: S1090, S1104, S1111
-- entities: IO Interactive, Amazon Game Studios, MGM, 《007 First Light》
-- facts:
-  - IO Interactive不再自发行未来007游戏，改由MGM和Amazon Game Studios发行（S1090）
-  - Amazon通过2022年84.5亿美元收购MGM获007 IP权益（S1090）
-  - 《007 First Light》为IO自发行，首日销量超150万份（S1090）
-
-## C018 - ESA 2026年报：美国2025年游戏消费607亿美元，超影视+音乐总和
-- section: industry_news
-- status: candidate
-- source_ids: S0884, S0899
-- entities: ESA, Circana, 美国游戏市场
-- facts:
-  - 2025年美国游戏市场总消费607亿美元（内容523亿+硬件54亿+配件29.5亿），超电影+电视+音乐综合（S0899）
-  - 2.12亿美国人玩游戏，平均年龄37岁（S0884）
-
-## C019 - 亚洲及MENA市场2025年收入888亿美元，预计2030年达1036亿
-- section: industry_news
-- status: candidate
-- source_ids: S1091, S0893
-- entities: Niko Partners, 亚洲, MENA
-- facts:
-  - 2025年亚洲+MENA游戏收入888亿美元，预计2030年达1036亿美元（增幅16.5%）（S1091）
-  - 印度2025年突破5亿玩家，2030年营收预计超18亿美元（S1091）
-
-## C020 - Liftoff Mobile IPO：纳斯达克上市，估值38.3亿美元，融资4.37亿
-- section: industry_news
-- status: candidate
-- source_ids: S1102, S1106
-- entities: Liftoff Mobile, Blackstone
-- facts:
-  - 每股23美元，高于预期区间$20-22，融资4.37亿美元（S1102）
-  - 服务878家客户，触达14亿日活用户，6月4日纳斯达克上市（S1102）
-
-## C021 - 《影之刃零》延期50天至10月29日，梁其伟致歉
-- section: industry_news + release_calendar
-- status: candidate
-- source_ids: S0843, S0867, S0874, S1060
-- entities: 《影之刃零》, 梁其伟
-- facts:
-  - 新发售日为2026年10月29日（S0843），延期50天
-  - 制作人梁其伟公开致歉，表示延期为品质再进化（S0874）
-  - 玩家反应以理解和支持为主（S1060）
-
-## C022 - 前《崩坏：星穹铁道》技术负责人创业，库洛投资占股10%
-- section: industry_news
-- status: candidate
-- source_ids: S1070, S1075, S1086
-- entities: 库洛, 《崩坏：星穹铁道》
-- facts:
-  - 前崩铁技术负责人创业，库洛以投资方式持股约10%（S1086）
-
-## C023 - 网易欲撤资Quantic Dream，《星球大战：日蚀》恐成泡影
-- section: industry_news
-- status: candidate (borderline)
-- source_ids: S1074
-- entities: 网易, Quantic Dream, 《星球大战：日蚀》
-- facts:
-  - 据报道网易欲从法国开发商Quantic Dream撤资（S1074）
-  - 若撤资确认，《星球大战：日蚀》开发存疑（S1074）
-- notes: 单源，borderline
-
-## C024 - Switch 2英国销量破百万，比原版Switch快30周达成
-- section: industry_news
-- status: candidate (borderline)
-- source_ids: S1117
-- entities: Nintendo, Switch 2
-- facts:
-  - Switch 2在英国上市52周内售出100万台，原版Switch花费82周（S1117）
-  - 并列英国史上第六快销售速度主机（S1117）
-
-## C025 - Rockstar员工宣布成立工会，在法律诉讼背景下推进投票
-- section: industry_news
-- status: candidate (borderline)
-- source_ids: S0240, S0469, S0472
-- entities: Rockstar Games, IWGB
-- facts:
-  - Rockstar员工宣布加入英国IWGB工会（S0469）
-  - 在多起法律诉讼仍未解决背景下推进工会化投票（S0472）
-- notes: 直接影响GTA6研发团队，但属于西方劳资弱相关
-
-## C026 - CD Projekt FIFA多发行商"Digital Football"战略
-- section: industry_news
-- status: candidate
-- source_ids: S0226, S0473
-- entities: FIFA, Roblox, Epic, Konami, SEGA
-- facts:
-  - FIFA宣布多发行商"Digital Football"策略，涵盖Roblox（超10亿次游玩）、Epic、Konami等合作（S0226, S0473）
-  - 与EA决裂后确立多授权生态方向（S0226）
-
-## C027 - 网易《破碎之地》制作人吴晓创业，新作《逃离动物城》为俯视角PVE搜打撤
-- section: industry_news
-- status: candidate
-- source_ids: S0676
-- entities: 网易, 吴晓, 广州北落师门, 《破碎之地》, 《逃离动物城》
-- facts:
-  - 制作人吴晓离开网易后创办创意工作室"广州北落师门"，曾任网易《破碎之地》（中式废土PVE射击，耗资数亿未上线）制作人（S0676）
-  - 此前履历包括灵犀互娱《长安幻世绘》《风之大陆》及网易《大唐无双》（S0676）
-  - 新作《逃离动物城》为俯视角PVE搜打撤，僵尸末日背景扮演小动物，支持3人合作，含场景破坏，计划2026 Q3测试（S0676）
-- notes: 用户重点要求纳入；搜打撤（extraction shooter）品类，与公司在研竞品方向高度相关（对标分析仅留痕于审计文件，不入正文）
-
-## C028 - 腾讯《三角洲行动》招聘信息曝光UGC平台计划
-- section: industry_news
-- status: candidate
 - source_ids: S0471
-- entities: 腾讯, 三角洲行动, UGC
-- facts:
-  - 《三角洲行动》招聘信息透露正在搭建UGC平台，包含创作者工具、游戏内编辑器、内容分发与变现机制（S0471）
-  - 《三角洲行动》2026年3月国内DAU突破5000万（S0471）
-  - 定位为长线内容平台（S0471）
-- notes: 用户重点要求纳入；传言级别但来源为官方招聘信息，信号明确
+- facts: PocketGamer 据 Game Daily：腾讯 IEG 更新招聘，《三角洲行动》拟建 UGC 平台，含创作者工具、游戏内编辑器、内容分发与变现，目标支撑百万级 DAU。《三角洲行动》2026-03 国内 DAU 破 5000 万。对标 Fortnite 与"和平精英 Oasis"创作者生态。
+- notes: 大 DAU 竞技产品平台化，传言级（招聘）但方向明确，高相关。
 
-## C029 - 灵犀互娱《宗师之上》上线即爆，放置MMO品类首次尝试
+### C008 - 灵犀互娱《宗师之上》上线即爆，首试放置 MMO
 - section: industry_news
-- status: candidate
-- source_ids: S0438, S1069
-- entities: 灵犀互娱, 《宗师之上》
-- facts:
-  - 修仙题材竖版放置MMO，3D卡通渲染轻国风，融合二合与开箱like玩法（S0438）
-  - iOS畅销榜最高冲至Top10，首日畅销榜约30名，15天流水近亿（S1069）
-  - 灵犀首次尝试放置MMO品类，此前以SLG《三国志·战略版》、三国卡牌及女性向《如鸢》著称（S1069）
-- notes: 用户重点要求纳入；国产新品爆款信号，放置MMO品类拓展
+- source_ids: S0438, S1070
+- facts: 修仙竖版放置 MMO，iOS 畅销榜最高 TOP10、首日约30名、15天稳前20、半月流水近亿、月流水有望破亿。3D 卡通渲染轻国风，二合+开箱like 改造放置 MMO（技能两两合成、无职业限制自由 BD；双放置系统：练功自动闯关掉技能、游历大世界开箱出装备）；主线疑用 AI 生成动画；公测联动《浪浪山小妖怪》。境界修为不做商业化、付费藏在同境"头衔"压制，首月6元月卡，亲和中 R。灵犀此前以《三国志·战略版》、三国卡牌、女性向《如鸢》著称，曾靠日系 MMO《森之国度》《风之大陆》成名。
+- notes: 放置=用户优先赛道；国产新品爆款。
 
----
+### C009 - 巨人《超自然行动组》出海《Tomb Busters》登日韩，日免费榜第3、韩第7
+- section: industry_news
+- source_ids: S0202
+- facts: 5/27《Tomb Busters》登陆美日韩，iOS/Android/PC 三端互通。日 App Store 免费榜第3、韩第7；韩预约破100万。国内《超自然行动组》"中式微恐+搜打撤"，DAU 破千万、截至 2026Q1 累计注册超 2 亿、累计流水破 50 亿，长期国内 iOS 免费榜 TOP10、畅销榜最高第4。巨人网络 2025 营收 50.47亿(+72.69%)，2026Q1 营收 23.29亿(+221.70%)、归母净利 10.80亿(+210.58%)。目标欧美/日韩/东南亚。
+- notes: 国产竞技/微恐出海 + 资本高增长，高相关。
 
-## CAI001 - 腾讯微信内嵌AI智能体原型测试完成，最快6月启动合规审批
+### C010 - 网易 2026Q1 游戏收入同比 +6.9% 至约 37 亿美元
+- section: industry_news
+- source_ids: S0231
+- facts: 网易 Q1 游戏收入 257 亿人民币（37 亿美元）+6.9%，整体营收 306 亿(+6.1%)，97.5% 来自在线游戏。自研《梦幻西游》《燕云十六声》《第五人格》《蛋仔派对》《永劫无间》贡献，《燕云十六声》《漫威争锋》扩大海外发行。3 月已确认停止资助名越工作室（Gang of Dragon），知情称还需≥7亿日元(4440万美元)才能完工。
+- notes: 头部厂商资本信号。
+
+### C011 - Block Blast（3亿MAU）突遭谷歌 Play 下架数小时后恢复
+- section: industry_news
+- source_ids: S0234, S0239
+- facts: 5/28 Hungry Studio 的消除手游 Block Blast 从 Google Play 下架（波及全球177地区），24 小时内恢复，官方未说明原因；iOS 与国内安卓不受影响。该作 2021 上线累计装机约 8.68 亿，截至 2026-01 DAU 7000万、MAU 3亿，开发商列 2025 Top50 手游厂商第42。
+- notes: 体量级渠道摩擦，移动平台风险信号，include。
+
+### C012 - Atari 最高 3930 万美元收购《Crossy Road》开发商 Hipster Whale
+- section: industry_news
+- source_ids: S0479, S0481, S0505
+- facts: Atari 收购澳洲 Hipster Whale，初始 2930 万美元（含 330 万股票），三年对赌最高再加 1000 万（合计最高 3930 万）。Hipster Whale 截至 2026-01-31 财年营收 828 万美元、EBITDA 利润 463 万；《Crossy Road》累计下载超 3.4 亿，另有 Pac-Man 256、Disney Crossy Road 等。联合创始人 Matt Hall 将领导 Atari 移动开发（含 Netflix/Amazon/AirConsole 车载项目）。
+- notes: 移动休闲 M&A，相关。
+
+### C013 - ESA 2026 年报：美国 2025 游戏消费 607 亿美元，超影视音乐总和；移动为最大平台
+- section: industry_news
+- source_ids: S0884, S0899
+- facts: ESA+Circana：2025 美国游戏总消费 607 亿美元（内容523/硬件54/配件29.5），近 2021 峰值 617 亿，超电影+电视+音乐合计。超 2.12 亿美国人玩游戏，平均 37 岁、半数≥35。移动为最受欢迎平台（73% 家庭、80% 8岁以上玩家），近三分之一玩家只用移动，女性玩家更偏移动。PC 52%、主机 44%。年轻世代月均内购约 20 美元。
+- notes: 市场大盘 + 移动主导，高相关。
+
+### C014 - Niko Partners：亚洲及 MENA 游戏市场 2030 年预计达 1036 亿美元
+- section: industry_news
+- source_ids: S0893
+- facts: 2025 亚洲+MENA 收入 888 亿美元(+约3%)，2026 预计 918 亿，2030 达 1036 亿（五年 CAGR 3%），玩家近 20 亿。中日韩占 89%；印度增最快（CAGR 11%、超 5 亿玩家、2027 移动付费破 10 亿美元、2030 近 20 亿美元市场）；MENA-3 (沙特/UAE/埃及) 2030 达 30 亿美元；东南亚泰国 2026 破 20 亿、印尼 2030 达 15 亿。中国小游戏占移动支出近 20%。女性玩家占 42%。亚洲对生成式 AI 态度比西方更正面。
+- notes: SEA/MENA 市场信号，高相关。
+
+### C015 - 抖音《游戏特色人群白皮书》：65.3% 流水增量来自上线超一年成熟产品
+- section: industry_news
+- source_ids: S0666
+- facts: 巨量引擎+伽马数据。2025 流水增量 TOP100 移动游戏中 65.3% 来自上线超 1 年成熟产品（高于新品）；近 6 成头部手游明星达人合作数≥2人；下载新游/回流用户超 6 成受平台因素影响；付费增加用户近 3 成受游戏外平台影响。提出"九大游戏特色人群"分层定向投放方法论（竞技制霸发烧友、经典 RPG 大玩家、轻量小游戏体验派等）。
+- notes: 移动营销/老游长线运营数据，高相关。
+
+### C016 - 欧洲移动游戏 2025 全球营收 €75.3 亿（King 委托报告）
+- section: industry_news
+- source_ids: S0677, S0478
+- facts: King 委托 Nordicity《Mobile Matters》：欧洲移动游戏公司 2025 全球营收 €7.53 十亿（€7.53bn），2028 将破 €80 亿；对欧洲经济贡献 GVA €58.9亿。覆盖 32 国、超 1000 家专做移动的工作室、支撑 6.33 万全职岗位。芬兰 €14亿/英国 €8.95亿/爱尔兰 €8.68亿领先。移动占全球游戏收入 55%（€912.5亿/€1672.6亿）。欧洲 61% 人玩手游、平均 31 岁。发行商 41% 年支出用于买量与留存。
+- notes: 移动大盘数据，相关。
+
+### C017 - 神魔之塔宣传片实锤抄袭《鸣潮》，Madhead 道歉
+- section: industry_news（borderline）
+- source_ids: S0203
+- facts: 香港老牌手游《神魔之塔》新角色"成吉思汗"宣传片被指分镜/运镜/特效/动作与《鸣潮》"绯雪"共鸣解放高度雷同，地面倒影直接映出绯雪原模型。5/27 开发商 Madhead 正式道歉、承认制作与审核严重失职、启动问责、视频下架，整改含"重新检视 AI 辅助制作流程、禁止以第三方作品直接生成/重制素材"，补偿魔法石5粒。腾讯 Q1 财报曾点名表扬《鸣潮》技术成绩。
+- notes: 产品/原创争议 + AI 生产合规，borderline include。
+
+### C018 - 金山 Q1 游戏收入 -22%，西山居"关停并转"
+- section: industry_news（borderline）
+- source_ids: S0204
+- facts: 金山软件 Q1 营收 24.17亿(+3%)，游戏及其他收入 8.03亿(-22%、环比-7%)，占比从约四成降至 33%，因"现有游戏收益下降"。CEO 邹涛称下滑趋势还会延续 1-2 季度，重点版本要 Q3/Q4。《鹅鸭杀》1/7 公测、4 月《甄嬛传》联动冲畅销榜第5，处用户增长阶段。西山居三策略："关停并转"（砍无战略价值老旧项目）、夯实《剑网3》剑侠系列、AI 创作新范式。玩家猜测涉《尘白禁区》《解限机》但短期砍可能性不大。
+- notes: 上市公司资本/组织信号，borderline include。
+
+## AI 新闻
+
+### C-AI001 - 腾讯 MagicDawn NDGI：全球首个跨平台神经动态全局光照，全面开源
 - section: ai_trends
-- status: candidate
+- source_ids: S0001, S0028
+- facts: SPARK2026 发布，基于神经网络实时推理替代传统全局光照，画质比肩路径追踪、性能远低于 Lumen 等；已落地量产腾讯游戏产品并全面开源；联合 Arm 适配 2026 新一代 Arm GPU 内置 AI 加速器，面向移动端 AI 渲染。
+- notes: 游戏渲染底层技术 + 开源，高相关。
+
+### C-AI002 - 腾讯"代号Craft"AI 游戏创作平台
+- section: ai_trends
+- source_ids: S0001, S0020
+- facts: 腾讯生态发展部自研，自然语言文字指令即可由 AI 搭建 2D/3D 多品类游戏雏形；内置 AIGC 工具链、免费开放超万种预制美术资产；近期开启官方首测。
+- notes: AI 进入内容生产链前沿。
+
+### C-AI003 - GDC 2026 趋势报告：生成式 AI 普及但落地有分歧
+- section: ai_trends
+- source_ids: S1059
+- facts: 五大趋势：生成式 AI 普及、联合研发增长、手游双重变现(IAA+IAP)普及、融资/发行更难、反 DEI 与年龄歧视。规划/头脑风暴/邮件等场景 AI 获普遍支持（资深从业者更高），Claude Code 被频繁提及；代码与美术资产侧更谨慎。暴雪 Zhen Zhai 称约 70% 任务可自动化，Orion CEO 称"远不到10%"，分歧大。智能体 AI 可削减 3A 故障处理/代码/运维成本。
+- notes: 权威趋势，反映开发者 AI 现状。
+
+### C-AI004 - 微信内嵌 AI 智能体：原型测试完成，列最高战略优先级
+- section: ai_trends
 - source_ids: S0866
-- entities: 腾讯, 微信, AI智能体
-- facts:
-  - 《金融时报》援引知情人士：腾讯完成微信内嵌AI智能体原型测试（S0866）
-  - 内部列为最高战略优先级，完成合规审批后先小范围外部用户测试（S0866）
+- facts: FT 报道腾讯完成微信内嵌 AI 智能体原型测试，最快 6 月走合规审批；用户主界面右滑进入对话框，可自动调用小程序执行指令（如查咖啡馆下单）。最大价值在打通数百万小程序乃至小游戏互通。前 OpenAI 研究员姚顺雨主导；参照腾讯参股的 Kakao AI Agent。
+- notes: 与游戏分发链路直接相关（微信 5 亿小游戏用户入口层）。与 C003 同事件不同侧面——C003 写资本、此卡写 AI 技术与分发想象。
 
-## CAI002 - 腾讯MagicDawn NDGI：全球首个跨平台神经动态GI方案，全行业开源
-- section: ai_trends
-- status: candidate
-- source_ids: S0028
-- entities: 腾讯游戏, MagicDawn NDGI
-- facts:
-  - AI神经网络实时还原电影级动态光影，画质比肩路径追踪（S0028）
-  - 覆盖高端PC至ARM移动端，全平台无缝适配，已落地量产（S0028）
-  - 向全行业开源开放（S0028）
+## 新游发布 / 产品日历
 
-## CAI003 - 腾讯"代号Craft"AI游戏创作平台：自然语言→可玩游戏
-- section: ai_trends
-- status: candidate
-- source_ids: S0020
-- entities: 腾讯, 代号Craft
-- facts:
-  - 输入自然语言文字指令→AI生成2D/3D多品类可玩游戏（S0020）
-  - 内置完整AIGC工具+2万+云端精品资产库（S0020）
-  - 即将开启官方首测（S0020）
+### CR001 - 《崩坏：星穹铁道》4.3 版本（米哈游，6/1，新五星【千冶·刃】）
+- source_ids: S0547, S0545
+- facts: 米哈游二次元 RPG，官服 4.3 版本 6/1 更新，新角色【千冶·刃】登场。
+- notes: 头部二游版本节点。
 
-## CAI004 - GDC 2026趋势报告：生成式AI采用率上升，开发者面临"基础设施问题"
-- section: ai_trends
-- status: candidate
-- source_ids: S0052, S1058
-- entities: GDC, 游戏AI趋势
-- facts:
-  - 五大趋势：生成式AI、合作研发、移动双变现、融资困难、政策倡导（S0052）
-  - 开发者认可AI用于规划和常规任务，但基础设施标准化制约落地（S0052）
-
-## CAI005 - Anthropic融资后估值9650亿美元，首次超越OpenAI
-- section: ai_trends
-- status: candidate
-- source_ids: S0330
-- entities: Anthropic, OpenAI
-- facts:
-  - 融资650亿美元，融资后估值9650亿美元（S0330）
-- notes: AI行业竞争格局信号
-
----
-
-## CC001 - 《重返未来：1999》3.7版本PV被240万条评论冲，制作组致歉
-- section: community_discourse
-- status: candidate
-- source_ids: S0441, S0298, S0366
-- entities: 《重返未来：1999》, Bluepoch
-- facts:
-  - trigger: 4月30日3.7版本（三周年）上线，限定角色"小瑞安侬"商业化争议+周年庆诚意不足，玩家不满情绪集中爆发（S0441）
-  - complaint_logic: 240万条评论创二游社区历史记录，玩家不满核心在于"周年版本运营多重问题累积"，而非单一事件（S0441）
-  - timeline: 4月30日上线→PV被冲240万条评论→5月29日制作组发长文致歉并公布补偿方案（S0441）
-  - follow_up_scan: S0298（48回复）5月29日NGA跟进，玩家分化："补偿是赚的"vs."道歉晚了一个半月"（S0298, S0366）
-
-## CC002 - 《鸣潮》2077联动卡池独立保底+副产物缩水，玩家质疑氪金门槛上升
-- section: community_discourse
-- status: candidate
-- source_ids: S0289, S0296
-- entities: 《鸣潮》, 库洛, 2077联动
-- facts:
-  - trigger: 5月29日NGA玩家爆料联动卡池规则：独立保底、独立抽卡道具、独立副产物，且副产物（幻梦珊瑚）获取量相比普通池子削减（S0289）
-  - complaint_logic: 独立保底意味着为联动单独花费，珊瑚削减意味着效率变差，需480珊瑚才能解锁换共鸣链被视为故意阻拦；玩家直接评价"纯cs""纯纯恶心人"（S0289）
-  - timeline: 5月29日前瞻爆料→持续至6月1日仍活跃；主帖407回复21页，热度991（S0289）
-  - follow_up_scan: 库洛官方截至本地窗口内未发布正式回应（S0289, S0296）
-
-## CC003 - 《燕云十六声》"忮忌"NPC文案疑似阴阳岳飞，官方删改后仍被质疑
-- section: community_discourse
-- status: candidate
-- source_ids: S0360, S0364, S0419
-- entities: 《燕云十六声》, 网易
-- facts:
-  - trigger: 5月30日新地图NPC名"付鹏举"、文案用词"忮忌"，被玩家解读为阴阳岳飞（S0360）
-  - 影射三要素：①影射对象为岳飞（字鹏举）；②"忮忌"（忮贤忌能）在两宋史料中常指赵构/秦桧一派对岳飞的猜忌；③NGA帖文直引"付鹏举""忮忌"为证（S0360）
-  - complaint_logic: 玩家质疑文案作者刻意植入隐射，违背游戏定位（S0360）
-  - timeline: 5月30日曝光（208回复，热度583）→官方将"付鹏举"改为"付鹏"但保留"忮忌"词汇→5月31日玩家再爆"改名但没完全改"，官方新增"性情极好，每事必究"文案被指再度阴阳→最终删除"忮忌"文案，玩家认为"宁死不屈"（S0364, S0419）
-  - follow_up_scan: S0419（28回复）显示玩家情绪持续，预期后续仍有类似问题
-
----
-
-## CR001 - 《崩坏：星穹铁道》4.3版本6月1日更新，新角色千冶·刃登场
-- section: release_calendar
-- status: candidate
-- source_ids: S0545, S0547
-- entities: 米哈游, 崩坏：星穹铁道
-- facts: 4.3版本6月1日上线，新角色【千冶·刃】登场（S0545, S0547）
-
-## CR002 - 《鸣潮》3.4版本"未曾梦见之梦"6月8日发布
-- section: release_calendar
-- status: candidate
+### CR002 - 《鸣潮》3.4 版本"未曾梦见之梦"（库洛，6/8）
 - source_ids: S0285
-- entities: 库洛, 鸣潮
-- facts: 3.4版本"The Dream Not Dreamed"，6月8日上线（S0285）
+- facts: Gematsu：库洛《鸣潮》3.4 "The Dream Not Dreamed" 6/8 上线。开放世界动作 RPG。
+- notes: 头部二游；处 2077 联动卡池争议窗口期（见 community CC001）。
 
-## CR003 - 《宝可梦 Champions》移动版6月17日起陆续上线
-- section: release_calendar
-- status: candidate
-- source_ids: S1050, S1095, S1107
-- entities: 宝可梦公司, 宝可梦 Champions
-- facts: 宝可梦 Champions 移动版6月17日起陆续上线（S1050, S1095, S1107）
+### CR003 - 《宝可梦 Champions》移动版（宝可梦公司，6/17 iOS/Android）
+- source_ids: S1004, S1095
+- facts: Gematsu/PocketGamer：Pokemon Champions iOS/Android 6/17 上线。收集对战 RPG。
+- notes: 全球最大 IP 独立移动对战产品，多源。
 
-## CR004 - 《影之刃零》延期至10月29日
-- section: release_calendar
-- status: merge into C021
-- source_ids: S0843
+### CR004 - 《夜幕之下》（广州百奥·不眠夜工作室，6/5 公测，女性向群像）
+- source_ids: S0760, S0882
+- facts: 广州百奥不眠夜工作室自研，6/5 公测、6/2 前瞻直播；全平台预约破 1000 万、预下载登 iOS 下载总榜第一。女性向"家族群像"（非乙女），家族帮派/复仇/博弈题材、即时制卡牌战斗、AVG 广播剧式演出、女本位叙事。
+- notes: 女性向新品类探索，高相关（女性向赛道）。
 
-## CR005 - 《沙丘：觉醒》9月22日登陆主机，提供完整单人战役
-- section: release_calendar
-- status: candidate
-- source_ids: S1045
-- entities: Funcom, 沙丘：觉醒
-- facts: 9月22日登陆主机，带完整单人战役体验（S1045）
+### CR005 - 《料理人班乔》（MINTROCKET，烹饪模拟冒险，潜水员戴夫 IP）
+- source_ids: S0875, S1065
+- facts: State of Play 首曝，《潜水员戴夫》原班 MINTROCKET 新作，烹饪模拟+冒险，扮班乔环游亚洲城市精进厨艺；Steam/TapTap PC/PS5 商店页已上线可加愿望单。
+- notes: 生活模拟/经营，高相关（生活模拟赛道）。允许提及前作《潜水员戴夫》一处定位。
 
-## CR006 - 《寂静岭：Townfall》定档9月24日发售
-- section: release_calendar
-- status: candidate
-- source_ids: S0858, S0911
-- entities: Konami, No Code, 寂静岭：Townfall
-- facts: 9月24日发售（S0858, S0911），多源覆盖
+### CR006 - 《沙丘：觉醒》（Funcom，9/22 登陆主机）
+- source_ids: S0766
+- facts: Gematsu：Dune: Awakening PS5/Xbox Series 9/22；开放世界生存。
+- notes: 重磅主机档期，单源 calendar。
 
----
+### CR007 - 《寂静岭：Townfall》（Konami/No Code，9/24）
+- source_ids: S0762, S0858
+- facts: Gematsu：Silent Hill: Townfall 9/24 发售；心理恐怖。
+- notes: 知名 IP 定档。
 
-## DD001 - 微信小游戏5亿MAU之后，PC端是下一个增量窗口
+### CR008 - 《影之刃零》延期 50 天至 10/29（灵游坊/梁其伟）
+- source_ids: S0874, S0767
+- facts: 6/3 索尼 State of Play 放新 PV、宣布夏季预售；制作人梁其伟宣布发售日由 2026-09-09 延至 2026-10-29（延 50 天），为升级角色模型、重构场景"再进化"，争取不依赖光追保留表现力。武侠朋克 ARPG。延期完全基于自身产品而非档期。
+- notes: 重大档期变动 + 国产 ARPG。
+
+## 玩家舆论 / 社区动态
+
+### CC001 - 《鸣潮》2077 联动卡池独立保底+副产物缩水，玩家质疑变相涨价
+- section: community_discourse
+- source_ids: S0289, S0296, S0829, S1009
+- trigger: 5/29 NGA 爆料《鸣潮》Cyberpunk 2077 联动卡池规则。
+- complaint_logic: 联动池独立保底/独立抽卡道具/独立副产物，保底与普通池不互继承；联动副产物"幻梦珊瑚"获取量相比普通珊瑚被全面削减；需攒满 480 珊瑚才解锁共鸣链兑换功能（兑换价仍 360）。玩家指"在七折优惠幌子下变相涨价/加门槛/砍获取"，评价"纯 CS（纯纯恶心人）"，并对比《终末地》、批评库洛进腾讯后有 KPI 压力。
+- timeline: 5/29 爆料（主帖 407 回复/21 页/热度~991）→ 5/31~6/3 持续（428 回复/22 页/热度~1001），另有 61→81 回复珊瑚专帖追踪。情绪两极但批评为主，伴随"控评/堵嘴"指控。
+- follow_up_scan: 截至本地窗口库洛官方未见正式回应；3.4 版本 6/8 上线即在此争议窗口内。
+- notes: 高热二游变现争议，include。
+
+### CC002 - 《燕云十六声》新地图 NPC"付鹏举/忮忌"被指阴阳岳飞，三轮改动仍未平息
+- section: community_discourse
+- source_ids: S0360, S0364, S0419, S0828, S0833, S1018
+- trigger: 5/30 新地图"蓬山"上线，玩家发现 NPC 名"付鹏举"、文案用"忮忌"。
+- complaint_logic: ①影射对象=岳飞（字"鹏举"，"付鹏举"谐音"副鹏举"）；②"忮忌"取自"忮贤忌能"，两宋史料常用于形容赵构、秦桧一派对岳飞的猜忌；③NGA 帖内玩家直引"付鹏举""忮忌""阴湿鹏举"作直接证据。被解读为厂商夹带"私货"、阴阳民族英雄/批评玩家。
+- timeline: 5/30 爆料（208回复/11页/热度~583）→ 5/30 第一次改"付鹏举"为"付鹏"但保留"忮忌"（被讥"忮忌十六声"）→ 5/31 删"忮忌"却新增"性情极好，每事必究"（被指再度阴阳，47→28回复多帖）→ 6/2 又把 NPC 与文案改回最初版本（87回复/5页/热度~309），被指"知错不改、对抗到底"。
+- follow_up_scan: 三轮反复均有帖记录；窗口内无官方正式声明，玩家预期"私货文案后续还会出现"。
+- notes: 典故/影射类，已按 Hard Stop 解开岳飞/忮贤忌能典故，include。
+
+### CC003 - 《重返未来：1999》三周年 3.7 版本被冲 240 万条评论，制作组长文致歉
+- section: community_discourse
+- source_ids: S0298, S0441, S0366
+- trigger: 4/30 蓝色破晓推送 3.7（三周年）版本，5/29 制作组发长文致歉。
+- complaint_logic: 多重问题叠加爆发——周年限定"小瑞安侬"被指对高人气角色梅蕾尔的"替身文学夺舍/背刺"；高人气角色"37"迟迟不狂想却长期当"带货工具人"；周年首推限时累充+绝版外观（激进商业化）却对旧诉求视而不见；高难关卡数值膨胀绑定养成资源引发强度焦虑。玩家以"修城墙"（刷评论）表达不满。
+- timeline: 3.7 PV 被冲超 240 万条评论（创二游社区之最，超《明日方舟》多索雷斯 100 万、《鸣潮》二周年 60 万）→ 5/29 致歉长文（降高难资源门槛/新增助战、年内下半年实装 37 狂想、慎评限时累充、补偿含皮肤自选箱+30抽券）。畅销榜从去年二周年第6 滑落至今年第16。
+- follow_up_scan: NGA 分化——"给补偿是赚的" vs "隔一个半月才道歉、诚意不足、收入腰斩才低头"。事件趋于平息但情绪分化。
+- notes: 创纪录二游社区事件 + 官方闭环，include。
+
+### CC004 - 《洛克王国 世界》男洛"鸭子坐"性别争议反复横跳，叠加流水下滑
+- section: community_discourse
+- source_ids: S0163, S0293, S0294, S0408, S0415, S0417
+- trigger: 5 月《洛克王国 世界》围绕男角色"鸭子坐"姿势与"媚男/物化"细节的性别叙事争议。
+- complaint_logic: 小红书一方要求男洛删除/更改"鸭子坐"姿势与露出小巧思（被男性玩家指为"双标物化男性"）；官方"删了又加回来"两头不讨好，被冲约 1.1 万条（号称"7 倍杀多索雷斯"）；另有腾讯以"制造男女对立"为由举报下架 B 站玩家投稿宝可梦"鸭子坐"视频，被讥"南山必胜客/堵嘴"。
+- timeline: 5 月持续；官方靠撒补偿（约 12 个十连+礼包级福利）压节奏，未兑现"直播回应"；5/28 起流水跌出畅销榜前 20（总榜约31名），玩家就"无氪金点所以下滑正常"与"运营方案失败"争论；核心矛盾被指实为版本 BUG/精灵生态等游戏内问题，性别只是抓手。
+- follow_up_scan: 官方未直播正面回应；补偿后节奏压下但活跃下滑（大师段位排队变慢）。
+- notes: 腾讯大 IP 性别叙事 + 商业表现，include（competitive/养成产品舆情）。
+
+## 行业精选 / 深度观察
+
+### DD001 - 微信小游戏 5 亿 MAU：增量已在 PC 端
 - section: deep_analysis
-- status: candidate
-- source_ids: S0006, S0003, S0007, S0043
-- facts:
-  - MAU突破5亿但增速进入成熟期；PC端ARPU+130%、时长+100%，呈现结构性增量
-  - IAA 4亿MAU vs IAP 3亿MAU，双线并行但诉求分层明显
+- source_ids: S0006, S0003, S0044
+- facts: 移动端进入成熟期（IAA 4 亿、7 成只玩免费），PC 端出现独立增量信号（40% PC 独占用户、24-40岁占60%、时长×2、付费涨幅远超一倍、单 title ARPU+130%）；与《黑神话：悟空》以来 PC 硬件升温互证；平台给 PC 额外 10% 广告金。
+- notes: 结构性观察，与 C002 区分（C002 写数据，DD001 写判断）。
 
-## DD002 - AI与游戏生产链：腾讯SPARK展示的三条技术路径
+### DD002 - 国产搜打撤集中立项与人才外溢，硬核与轻量化两端分化
 - section: deep_analysis
-- status: candidate
-- source_ids: S0020, S0028, S0866, S1061
-- facts:
-  - 路径一：AI基础技术（MagicDawn NDGI渲染方案，全行业开源）
-  - 路径二：AI内容工具（代号Craft，自然语言生成游戏）
-  - 路径三：AI生态入口（微信AI智能体接入游戏链路）
+- source_ids: S0676, S0208, S0657, S0001
+- facts: 多信号同周出现：网易《破碎之地》制作人吴晓创业首曝俯视角 PVE 搜打撤《逃离动物城》（Q3 测试，主打轻量化+养成差异化）；搜打撤鼻祖、塔科夫之父尼基塔新作《Fragmentary Order》（130人、更硬核、PVPVE+独立 PVE）；Byte Barrel 公布硬核战术末世射击《二氧化物》；腾讯 SPARK 上《暗区突围》S18 新版与端游《暗区突围：无限》S5 持续迭代。赛道呈"硬核拟真"与"轻量化降门槛"两端分化，PVE 需求是国内主要空白（国际射击中 PVE 约占 20%、国内远未达）。
+- notes: 用户重点赛道趋势综合。⚠ 不得提及沐瞳相关产品。
+
+## 维度覆盖自检与排除留痕
+
+- 市场/大盘数据：C002（微信5亿/PC）、C013（ESA607亿）、C014（Niko亚洲MENA）、C015（抖音白皮书）、C016（欧洲移动）——5 张。
+- 并购/投融资：C012（Atari收Crossy Road）入选；阅文收艺画开天、Liftoff IPO、Playstack 出售均 exclude 留痕。
+- 平台/渠道政策：C011（Block Blast 下架）、C002（iOS支付跑通）。
+- 重大产品档期变动：CR008（影之刃零延期）、CR006/CR007（主机定档）。
+- 上市公司/头部厂商资本信号：C003（腾讯股价）、C009（巨人+221%）、C010（网易Q1）、C018（金山-22%）。
+- 重点厂商国产新品/新赛道/制作人动向：C005（李新平离职）、C006（吴晓搜打撤创业）、C007（三角洲UGC）、C008（宗师之上放置MMO）、C009（巨人出海）、CR004（夜幕之下女性向）、DD002（搜打撤赛道）。
+
+### 排除项（弱相关海外主机/3A/硬件，默认排除，留痕）
+- Valve Steam Deck OLED 涨价45%（S0050/S0058/S0084）——纯 PC 掌机硬件定价，对移动/竞技无可迁移点。exclude。
+- 《巫师3》6500万+第三资料片+《巫师4》扩至513人（S0229/S0467）——西方单机 3A。exclude。
+- 《神鬼寓言》Fable 延期 2027（S0322/S0464）——西方主机；GTA6 档期信号弱迁移。exclude。
+- 007/MGM/Amazon 发行权（S1090/S1091/S1104）——西方主机发行。exclude。
+- Balatro 发行商 Playstack 被出售（S0244/S0253/S0641）——西方单机发行商资本事件，弱相关。exclude。
+- 铁拳8 总监池田幸平离职（S0669/S0684）——主机格斗 IP 人事，弱相关。exclude。
+- Rockstar 工会 / PlayerUnknown 裁员 / Team17 裁员（S0469/S1088/S1102）——西方劳资/重组，弱相关。exclude。
+- PlayStation 一方销量、State of Play、God of War Laufey、Switch 2 销量、ROG Xbox Ally、CoD 退主机（S0681/S0917/S1117/S1119/S0489/S0248）——主机硬件/独占。exclude。
+- 加州 AB1921 游戏保护法案（S0672/S0889）——区域监管，不影响 mobile/全球分发。exclude。
+- 中国 5 月过审 158 款版号（S0495/S0562周报）——例行许可，按规则排除。exclude。
+- Liftoff IPO、库洛投资前崩铁技术负责人、网易撤资 Quantic Dream——移动/资本或单源海外，本轮未核到原文，谨慎不入正文。exclude（留待后续）。
+- 阅文 4 亿收购艺画开天（S0881）——IP/动画整合，游戏侧《凡应》仍在研，对用户赛道迁移弱。exclude 正文，仅留痕。
+- ⚠ 沐瞳/MLBB/决胜巅峰相关（S0501 决胜巅峰电竞世俱杯、S0879 决胜巅峰土耳其联赛、S0676 头号禁区）——Hard Stop 2，正文绝对排除，仅审计留痕。
