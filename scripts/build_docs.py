@@ -524,6 +524,15 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .cl-title{{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;}}
     .cl-body{{margin-top:8px;font-size:14px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;}}
 
+    /* steam ranking table rendered inside a feed item's rich body */
+    .ibody .rank-table{{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px;}}
+    .ibody .rank-table th,.ibody .rank-table td{{padding:7px 10px;border-bottom:1px solid rgba(31,45,75,.10);text-align:center;white-space:nowrap;}}
+    .ibody .rank-table th{{color:#93402b;background:rgba(208,95,63,.10);font-weight:600;}}
+    .ibody .rank-table tbody tr:hover{{background:rgba(208,95,63,.05);}}
+    .ibody .new-tag{{display:inline-block;background:#d05f3f;color:#fff;padding:1px 7px;border-radius:7px;font-size:11px;white-space:nowrap;}}
+    .ibody ul{{margin:0 0 12px 18px;}}
+    .ibody li{{margin:5px 0;line-height:1.7;}}
+
     @media(max-width:760px){{
       .sb{{display:none;}}
       .feed,.reports-hd,.rgrid,.fb-body{{padding-left:18px;padding-right:18px;}}
