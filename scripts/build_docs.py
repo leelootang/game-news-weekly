@@ -430,8 +430,7 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .itag{{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}}
     .idate{{font-size:12px;color:var(--faint);}}
     .ititle{{font-size:17.5px;font-weight:700;line-height:1.45;margin-bottom:10px;color:var(--ink);letter-spacing:.1px;}}
-    .ibody{{font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;
-      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}}
+    .ibody{{font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;}}
     .ibody.rich{{display:block;-webkit-line-clamp:unset;overflow:visible;}}
     .ibody.rich p{{margin:0 0 14px;color:var(--ink2);font-size:14.5px;line-height:1.78;}}
     .ibody.rich ul{{margin:0 0 12px;padding-left:20px;color:var(--ink2);line-height:1.65;font-size:13.5px;}}
@@ -530,6 +529,8 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .ibody .rank-table th{{color:#93402b;background:rgba(208,95,63,.10);font-weight:600;}}
     .ibody .rank-table tbody tr:hover{{background:rgba(208,95,63,.05);}}
     .ibody .new-tag{{display:inline-block;background:#d05f3f;color:#fff;padding:1px 7px;border-radius:7px;font-size:11px;white-space:nowrap;}}
+    .ibody .rank-table tr.hl td{{background:rgba(208,95,63,.13);}}
+    .ibody .rank-table tr.hl td strong{{color:#93402b;}}
     .ibody ul{{margin:0 0 12px 18px;}}
     .ibody li{{margin:5px 0;line-height:1.7;}}
 
