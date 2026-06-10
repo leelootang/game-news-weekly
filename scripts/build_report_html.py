@@ -39,6 +39,66 @@ KIND_CN = {"daily": "日报", "weekly": "周报", "monthly": "月报"}
 BRAND_SUB = {"daily": "AI 生成 · 每日更新", "weekly": "AI 生成 · 每周更新", "monthly": "AI 生成 · 每月更新"}
 
 
+# --- meta tag derivation --------------------------------------------------
+# Built-in keyword -> tag map (companies + user's priority tracks). A future
+# tagging system can extend/override this by dropping a JSON object
+# {keyword: tag} at scripts/tag_mapping.json — it is merged on top at runtime.
+TAG_KEYWORDS: dict[str, str] = {
+    # companies / publishers
+    "腾讯": "腾讯", "Tencent": "腾讯", "网易": "网易", "NetEase": "网易",
+    "米哈游": "米哈游", "miHoYo": "米哈游", "库洛": "库洛", "灵犀": "灵犀",
+    "巨人": "巨人网络", "叠纸": "叠纸", "鹰角": "鹰角", "完美世界": "完美世界",
+    "三七": "三七互娱", "点点": "点点", "字节": "字节跳动", "ByteDance": "字节跳动",
+    "快手": "快手", "西山居": "西山居", "金山": "金山", "莉莉丝": "莉莉丝",
+    "Riot": "Riot", "Roblox": "Roblox", "Apple": "Apple", "苹果": "Apple",
+    "King": "King", "Atari": "Atari", "Liftoff": "Liftoff",
+    "Niko": "市场数据", "Newzoo": "市场数据", "Sensor Tower": "市场数据",
+    "ESA": "市场数据", "Circana": "市场数据", "伽马数据": "市场数据", "AppMagic": "市场数据",
+    # tracks / topics (user priority tracks first)
+    "搜打撤": "搜打撤", "extraction": "搜打撤", "二游": "二游", "二次元": "二游",
+    "放置": "放置", "模拟经营": "模拟经营", "生活模拟": "生活模拟", "自走棋": "自走棋",
+    "卡牌": "卡牌", "SLG": "SLG", "MOBA": "MOBA", "女性向": "女性向", "乙游": "女性向",
+    "互动影视": "互动影视", "互动影像": "互动影视", "出海": "出海", "东南亚": "东南亚",
+    "并购": "并购", "收购": "并购", "IPO": "IPO", "上市": "IPO", "财报": "财报",
+    "融资": "融资", "联动": "联动", "停服": "停服", "公测": "上线", "裁员": "裁员",
+    "版号": "版号", "UGC": "UGC", "买量": "买量", "小游戏": "小游戏", "畅销榜": "畅销榜",
+    "智能体": "AI智能体", "AIGC": "AIGC", "渲染": "AI渲染", "大模型": "大模型",
+}
+
+
+def _load_tag_keywords() -> dict[str, str]:
+    mapping = dict(TAG_KEYWORDS)
+    override = Path(__file__).resolve().parent / "tag_mapping.json"
+    if override.exists():
+        try:
+            mapping.update({str(k): str(v) for k, v in json.loads(override.read_text(encoding="utf-8")).items()})
+        except Exception:
+            pass
+    return mapping
+
+
+_TAG_MAP = _load_tag_keywords()
+
+
+def derive_tags(title: str, body: str, max_tags: int = 3) -> list[str]:
+    """Best-effort 1-3 tag chips: product names in 《》 first, then keyword hits."""
+    tags: list[str] = []
+    for name in re.findall(r"《([^》]+)》", title) + re.findall(r"《([^》]+)》", body):
+        name = name.strip()
+        # skip near-duplicate product names (one is a substring of another)
+        if 1 <= len(name) <= 12 and not any(name in t or t in name for t in tags):
+            tags.append(name)
+        if len(tags) >= 2:  # at most 2 product tags
+            break
+    text = f"{title} {body}"
+    for kw, tag in _TAG_MAP.items():
+        if len(tags) >= max_tags:
+            break
+        if kw in text and tag not in tags:
+            tags.append(tag)
+    return tags[:max_tags]
+
+
 def heading_to_section(text: str) -> str | None:
     if "steam" in text.lower():
         return "rankings"
@@ -203,8 +263,10 @@ def parse_report(md: str, kind: str, title_ids, id_meta):
                         break
             if not srcs:
                 srcs = [["steam", "Steam 官方热销榜（+ Gamalytic 估算）", "https://store.steampowered.com/charts/topselling/global"]]
+            rank_meta = {"daily": ["Steam 当日榜", "TOP10"], "weekly": ["Steam 周榜", "TOP15"],
+                         "monthly": ["Steam 月榜", "TOP15"]}.get(kind, ["Steam 榜单"])
             items.append({"section": "rankings", "title": title, "body": title, "body_html": body_html,
-                          "meta": [], "sources": srcs})
+                          "meta": rank_meta, "sources": srcs})
         elif sec == "release":
             for ln in rest.splitlines():
                 s = ln.strip()
@@ -215,7 +277,8 @@ def parse_report(md: str, kind: str, title_ids, id_meta):
                 gname = gm.group(1) if gm else body[:24]
                 srcs = sources_for(f"产品日历 - {gname}", title_ids, id_meta) or sources_for(gname, title_ids, id_meta)
                 items.append({"section": "release", "title": gname, "body": body,
-                              "body_html": "<p>" + md_inline(body) + "</p>", "meta": [], "sources": srcs})
+                              "body_html": "<p>" + md_inline(body) + "</p>",
+                              "meta": derive_tags(f"《{gname}》", body), "sources": srcs})
         else:
             matches = list(re.finditer(r"(?m)^###\s+\d+\.\s+(.+)$", rest))
             for i, mt in enumerate(matches):
@@ -227,7 +290,8 @@ def parse_report(md: str, kind: str, title_ids, id_meta):
                 body_plain = " ".join(paras)
                 body_html = "".join(f"<p>{md_inline(p)}</p>" for p in paras)
                 items.append({"section": sec, "title": title, "body": body_plain,
-                              "body_html": body_html, "meta": [], "sources": sources_for(title, title_ids, id_meta)})
+                              "body_html": body_html, "meta": derive_tags(title, body_plain),
+                              "sources": sources_for(title, title_ids, id_meta)})
     return items
 
 
