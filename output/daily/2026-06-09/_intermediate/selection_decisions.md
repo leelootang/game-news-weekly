@@ -15,6 +15,8 @@
 | S0122 Liftoff IPO 5.03 亿/+24% | include | 行业新闻 | 移动广告/变现资本信号 |
 | S0106 Roblox 收购 Morpheus AI | include | AI 新闻 | 游戏平台的实时世界模型 AI，game-relevant |
 | S0109/S0145 苹果 WWDC 端侧模型 + Xcode 代理式编程 | include | AI 新闻 | 含面向游戏开发者工具，对移动研发链路有影响 |
+| S0201/S0184/S0078/S0061 盛世天下·女帝篇 | include | 产品日历 | 新版本「女帝篇」6/9 上线，release_calendar(3839+16p) ∩ industry(S0061/S0078) 最强多源；初版漏选已补（厂商 New One Studio，互动影视） |
+| S0181/S0228 江山北望 | exclude (borderline) | - | 为给盛世天下让位、控制日报产品日历在 4 条内；互动电影叙事向、相关性低于其余，留痕 |
 | S0180/S0198/S0226 月相计划 | include | 产品日历 | 国产策略向新品，三源覆盖 |
 | S0179/S0197/S0210 打工吧！小精灵 | include | 产品日历 | 抓宠+模拟经营，三源覆盖 |
 | S0186/S0200/S0220 荒无之下 | include | 产品日历 | 回合制冒险，三源覆盖 |

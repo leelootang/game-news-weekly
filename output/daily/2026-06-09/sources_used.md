@@ -27,14 +27,14 @@
 - 苹果 WWDC 把端侧基础模型与 Xcode 27 代理式编程推向开发者 - S0109, S0145
 
 ### 三、新游发布 / 产品日历
+- 产品日历 - 盛世天下·女帝篇 - S0201, S0184, S0078, S0061
 - 产品日历 - 月相计划 - S0180, S0198, S0226
 - 产品日历 - 打工吧！小精灵 - S0179, S0197, S0210
 - 产品日历 - 荒无之下 - S0186, S0200, S0220
-- 产品日历 - 江山北望 - S0181, S0228
 
 ### 四、玩家舆论 / 社区动态
 - 《新月同行》6月9日18时正式停服，玩家复盘"题材美术可惜、玩法底子不行" - S0249
-- 《鸣潮》×《边缘行者》联动"结局并入正史"传言被编剧辟谣，争议转向二次传播 - S0250
+- 《鸣潮》×《边缘行者》联动冲上多国畅销榜，"结局是否正史"引发争议 - S0250, S0060（商业表现/联动内容为 industry 同事件背景回填）
 
 ### 五、行业精选 / 深度观察
 - 夏日游戏节窗口期：国产二游集体出海卡位，网易产品线同步复苏 - S0059, S0060
@@ -75,7 +75,9 @@
 - S0186 | wanjiang_16p_newgame | 荒无之下 - 上线 | https://www.16p.com/1951541.html
 - S0200 | haoyou_kuaibao_3839 | 荒无之下 - 10:00 正式上线 | https://www.3839.com/a/198143.htm
 - S0220 | taptap_app_calendar | 荒无之下 - 首发 | https://www.taptap.cn/app/856371
-- S0181 | wanjiang_16p_newgame | 江山北望 - 上线 | https://www.16p.com/1951553.html
-- S0228 | taptap_app_calendar | 江山北望 - 首发 (12:00 开始) | https://www.taptap.cn/app/784824
+- S0201 | haoyou_kuaibao_3839 | 盛世天下-女帝篇 - 14:00 新版本「女帝篇」上线（买断制/互动影像/剧情） | https://www.3839.com/a/184089.htm
+- S0184 | wanjiang_16p_newgame | 盛世天下：女帝篇 - 新增版本 | https://www.16p.com/1950919.html
+- S0078 | youxichaguan.com | 《盛世天下》女帝篇现已全球多平台上线（New One Studio 开发，约1000分钟内容） | https://youxichaguan.com/
+- S0060 | gamelook.com.cn | 《鸣潮》中日韩畅销TOP10、联动内容与商业表现（玩家舆论#2 背景回填） | http://www.gamelook.com.cn/
 - S0249 | nga_mobile_gossip | [烛薪]《新月同行》正式停服(2026.06.09) | https://bbs.nga.cn/read.php?tid=46948005&forder_by=postdatedesc
 - S0250 | nga_mobile_gossip | [鸣潮联动][瓜小味甜]赛博朋克边缘行者编剧出来辟谣联动结局非正史 | https://bbs.nga.cn/read.php?tid=46954184&forder_by=postdatedesc
