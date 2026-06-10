@@ -137,7 +137,7 @@
       border-radius:18px;padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);
       transition:transform .18s,box-shadow .18s;}
     .icard:hover{transform:translateY(-2px);box-shadow:var(--sh-lg);}
-    .icard.rich{grid-column:1 / -1;}
+    .icard.wide{grid-column:1 / -1;}
     .icard-top{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap;}
     .itag{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}
     .idate{font-size:12px;color:var(--faint);}
@@ -439,7 +439,7 @@ function renderFeed() {
           const bl = /borderline/i.test(m);
           return `<span class="imetag${bl?' bl':''}">${escHtml(m)}</span>`;
         }).join('');
-        html.push(`<div class="icard${richBody ? ' rich' : ''}">
+        html.push(`<div class="icard${richBody ? ' rich' : ''}${it.section === 'rankings' ? ' wide' : ''}">
           <div class="icard-top">
             <span class="itag" style="${tagStyle}">${SECTION_LABELS[it.section]}</span>
           </div>
