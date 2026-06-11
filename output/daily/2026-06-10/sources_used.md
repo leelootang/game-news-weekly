@@ -33,14 +33,14 @@
 
 | 报告条目 | Source ID | 文件/来源 | URL |
 |---|---|---|---|
-| 《鸣潮》×边缘行者联动刷新纪录 | S0049, S0043, S0056 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn, gamelook.com.cn, youxituoluo.com |
-| 5月手游市场数据（王者/Kingshot/Nikke/鸣潮/异环） | S0043, S0056, S0095 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn, youxituoluo.com, mobilegamer.biz |
-| EA $55B 收购 LBO 分析 | S0077 | `industry_news/2026-06-10/articles.jsonl` | gamesindustry.biz |
-| Xbox CEO 硬件危机+Activision存疑+Helix | S0073, S0093, S0100 | `industry_news/2026-06-10/articles.jsonl` | gamesindustry.biz, gamedeveloper.com, videogameschronicle.com |
-| 宝可梦财报创纪录（$33亿/+70%/TCG Pocket） | S0050 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn |
-| 《黑色信标》停运（408天/腾讯/前库洛） | S0051 | `industry_news/2026-06-10/articles.jsonl` | cgames.com |
-| Jin Universe Studios《Aether Dawn》披露 | S0070 | `industry_news/2026-06-10/articles.jsonl` | new.qq.com |
-| 任天堂欧洲Joy-Con被罚€3500万 | S0068, S0092 | `industry_news/2026-06-10/articles.jsonl` | yystv.net, gamedeveloper.com |
+| 《鸣潮》×《赛博朋克：边缘行者》联动刷新国产二游纪录 | S0049, S0043, S0056 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn, gamelook.com.cn, youxituoluo.com |
+| 5月全球手游市场：王者荣耀月收10亿，Kingshot冲入全球前五 | S0043, S0056, S0095 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn, youxituoluo.com, mobilegamer.biz |
+| EA $55B 收购：史上最大游戏 LBO，债务转移至 EA 资产负债表 | S0077 | `industry_news/2026-06-10/articles.jsonl` | gamesindustry.biz |
+| Xbox CEO：行业面临硬件"危机"，下一代主机将探索截然不同商业模式 | S0073, S0093, S0100 | `industry_news/2026-06-10/articles.jsonl` | gamesindustry.biz, gamedeveloper.com, videogameschronicle.com |
+| 宝可梦公司财报创纪录：年收$33亿、净利润同比暴涨70.7% | S0050 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn |
+| 《黑色信标》宣布8月17日停服：前库洛主创腾讯投资二游仅运营408天 | S0051 | `industry_news/2026-06-10/articles.jsonl` | cgames.com |
+| 新加坡初创 Jin Universe Studios 披露二次元ARPG新作，核心团队来自腾讯/鹰角/库洛 | S0070 | `industry_news/2026-06-10/articles.jsonl` | new.qq.com |
+| 任天堂欧洲就 Joy-Con 故障信息披露不透明被罚€3500万 | S0068, S0092 | `industry_news/2026-06-10/articles.jsonl` | yystv.net, gamedeveloper.com |
 
 ---
 
@@ -48,9 +48,9 @@
 
 | 报告条目 | Source ID | 文件/来源 | URL |
 |---|---|---|---|
-| 腾讯光子 Light AI 首次亮相 | S0045 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn |
-| 疯狂出租车新作 AI 标注争议 | S0067 | `industry_news/2026-06-10/articles.jsonl` | yystv.net |
-| 火山方舟版权商业化平台上线 | S0127 | `ai_trends/2026-06-10/articles.jsonl` | aihot.virxact.com（原始来源：火山引擎官方公众号）|
+| 腾讯光子 Light AI 首次对外亮相：游戏资产工业化管线平台，内部打磨4年 | S0045 | `industry_news/2026-06-10/articles.jsonl` | gamelook.com.cn |
+| 世嘉《疯狂出租车》新作主动标注AI，仍遭媒体与玩家集中抨击 | S0067 | `industry_news/2026-06-10/articles.jsonl` | yystv.net |
+| 火山方舟版权商业化平台上线，周星驰三大电影IP首批入驻AI视频创作授权 | S0127 | `ai_trends/2026-06-10/articles.jsonl` | aihot.virxact.com（原始来源：火山引擎官方公众号）|
 
 ---
 
@@ -70,9 +70,9 @@
 
 | 报告条目 | Source ID | 文件/来源 | URL |
 |---|---|---|---|
-| 崩铁×UBW联动远坂凛缝合伊什塔尔争议 | S0218（主帖），S0215（相关联动争议帖） | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
-| 《终末地》官号加速掉粉 | S0216 | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
-| 鸣潮联动编剧辟谣非正史 | S0224 | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
+| 崩铁×UBW联动第二弹：远坂凛角色设计混入FGO伊什塔尔元素，国内外争议发酵 | S0218（主帖），S0215（相关联动争议帖） | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
+| 《终末地》官号加速掉粉：新版本前夕玩家疲态曝露，上线131天已飞游戏榜 | S0216 | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
+| 鸣潮联动编剧发文辟谣：鸣潮×边缘行者联动结局非《边缘行者》正史 | S0224 | `community_discourse/2026-06-10/articles.jsonl` | bbs.nga.cn |
 
 ---
 
@@ -80,7 +80,7 @@
 
 | 报告条目 | Source ID | 文件/来源 | URL |
 |---|---|---|---|
-| Project Zomboid 长线销售分析 | S0246 | `deep_analysis/2026-06-10/articles.jsonl` | newsletter.gamediscover.co |
+| 《Project Zomboid》如何在没有大更新的情况下持续销售，直到累计收入破亿？ | S0246 | `deep_analysis/2026-06-10/articles.jsonl` | newsletter.gamediscover.co |
 
 ---
 
