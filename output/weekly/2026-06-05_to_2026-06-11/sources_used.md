@@ -2,7 +2,7 @@
 
 ## 缺数据说明（Missing Data）
 
-- **Steam 官方周榜未采集**：本窗口内 `pc_rankings` 仅 5 条日报快照（S0443/S0536/S0736/S1012/S1258），gcores S1281 仅一句话提及"《极限竞速：地平线6》登顶|2026年6月第1周"无结构化排名。按 SKILL Missing Data 处理，本周报跳过 `## steam周榜` 节，不联网/不补造。
+- **Steam 官方周榜全量未直接采集**：本窗口内 `pc_rankings` 仅 5 条日报快照（S0443/S0536/S0736/S1012/S1258），未直接抓到 `store.steampowered.com/charts/topselling/global` 周榜全量与 `last_week_rank` 字段。本周报 `## steam周榜` 节用**窗口末端 6-11 日榜快照**（S1258）+ **gcores 周销榜报道**（S1281：「《极限竞速：地平线 6》登顶｜2026 年 6 月第 1 周」）交叉构造、不臆造名次变化，明确省略"较上周"列。
 - 个别国产媒体（gamelook、youxituoluo 等）在 6/13、6/14 当日 zero/failed（本窗口未直接影响，但已在对应日报记录）。
 
 ## 本地输入文件夹
@@ -13,6 +13,10 @@
 - 同窗口各 daily 报告：`output/daily/2026-06-05/`～`output/daily/2026-06-11/`（已发布的日报，作为聚合参考）
 
 ## Item Source Map
+
+### steam周榜
+
+- steam周榜 - S1258, S1281
 
 ### 一、行业新闻
 
@@ -51,7 +55,7 @@
 
 - 国产二游"停服潮"：新月同行 / 黑色信标 / 拂晓胜利之刻接连关服 - S0720, S0984, S0243, S0266, S1062
 - 《鸣潮》×《赛博朋克：边缘行者》联动：从"刷纪录"到"结局是否正史" - S0985, S0711, S0712, S1060
-- 网易"敏感词"风波持续：决斗链接"半龙女仆"等被屏蔽，《夜幕之下》取名首日卡顿 - S0251, S0240, S0252, S0159
+- 国产手游/二游"敏感词"与上线首日争议：网易多款游戏被指词库扩张，不眠夜《夜幕之下》取名卡顿 - S0251, S0240, S0252, S0136, S0225
 - 《洛克王国：世界》三连翻车：座谈会口径＋暗改图标＋逼肝赛季任务 - S0255, S0262, S0530, S0158
 
 ### 五、行业精选 / 深度观察
@@ -83,6 +87,10 @@
 - S0243 | bbs.nga.cn | [新瓜]拂晓胜利之刻突然公告关服，原因开服时间未知 | https://bbs.nga.cn/read.php?tid=46929961
 - S0251 | bbs.nga.cn | [网易决斗链接]"半龙女仆"变违禁词无法检索 | https://bbs.nga.cn/read.php?tid=46917589
 - S0252 | bbs.nga.cn | [新瓜] [夜幕之下]女性向ml大作开服首瓜之取名超级敏感 | https://bbs.nga.cn/read.php?tid=46917801
+- S0136 | 17173.com | 夜幕之下 - 公测 (Publisher: 不眠夜工作室) | https://newgame.17173.com/game-info-1037003.html
+- S0225 | taptap.cn | 夜幕之下 - 首发 (10:00 开始) | https://www.taptap.cn/app/746164
+- S1258 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-11 日报 · 采集于 2026-06-12） | https://store.steampowered.com/search/?filter=topsellers
+- S1281 | gcores.com | Steam周销量排行榜:《极限竞速：地平线6》登顶|2026年6月第1周 | https://www.gcores.com/articles/215731
 - S0255 | bbs.nga.cn | [洛克王国：世界](更新：当bug解决了)洛克王国再次无公告暗改 | https://bbs.nga.cn/read.php?tid=46926290
 - S0262 | bbs.nga.cn | [洛克王国：世界]反向优化肝度，依旧试探玩家底线 | https://bbs.nga.cn/read.php?tid=46929238
 - S0266 | bbs.nga.cn | [疑似消息]拂晓胜利之刻突发停服 | https://bbs.nga.cn/read.php?tid=46930000
