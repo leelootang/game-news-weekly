@@ -5,6 +5,8 @@
 | candidate | decision | target_section | reason |
 | --- | --- | --- | --- |
 | C001 | include | 行业新闻 | 互动影视品类里程碑,市场数据 |
+| C0NEW1 | include | 行业新闻 | 9377塔防+鸿蒙生态 (gamelook 复跑回补) |
+| C0NEW2 | include | 行业新闻 | 腾讯射击/搜打撤/都市开放世界三路信号 (cgames 复跑回补) |
 | C002 | include | 行业精选 / 深度观察 | 题材创新,生活/青春题材回潮观察 |
 | C003 | include | 玩家舆论 | 米哈游对黑产维权胜诉,舆论生态信号 |
 | C004 | include | 玩家舆论 | 绝区零养成/付费透明度争议 |

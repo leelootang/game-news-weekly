@@ -767,6 +767,21 @@ def run_collector(args: argparse.Namespace, collector: Collector, panel: Progres
     if returncode != 0 and combined_output and not args.show_collector_output:
         print(f"[runner] {collector.section}/{collector.key} failed output:")
         print(combined_output.rstrip())
+    if returncode != 0 and combined_output:
+        # Persist failed collector stderr to disk so future failures are diagnosable
+        # (previously this output only went to the runner's console and was lost
+        # after the scheduled task finished — see 2026-06-14 gamelook/cgames).
+        try:
+            run_dir = args.out / "_collector_runs" / args.output_folder_name
+            run_dir.mkdir(parents=True, exist_ok=True)
+            log_path = run_dir / f"{collector.key}_stderr.log"
+            with log_path.open("w", encoding="utf-8") as fh:
+                fh.write(f"# {collector.section}/{collector.key} failed at {datetime.now(timezone.utc).isoformat()}\n")
+                fh.write(f"# command: {' '.join(command)}\n")
+                fh.write(f"# returncode: {returncode}\n\n")
+                fh.write(combined_output)
+        except OSError as exc:  # disk full / permission — don't crash the whole run
+            print(f"[runner] failed to persist stderr log for {collector.key}: {exc}")
     print(f"[runner] {collector.section}/{collector.key}: {status}, in-window articles={collection_stats['count']}")
     return {
         "collector": collector.key,
