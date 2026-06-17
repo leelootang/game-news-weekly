@@ -43,6 +43,20 @@
   - follow_up_scan: 帖内争论网易出海(漫威争锋/燕云/日服吃鸡)与米哈游影响力对比
 - notes: 国产厂商出海影响力市场信号,来源为NGA讨论、榜单权威待考,放community
 
+## C0NEW1 - Mega Rewards 更名 Trofeo + Carlson 任 CRO，推"成就奖励"广告新模式
+- section: industry_news
+- source_ids: S0036
+- entities: Trofeo / Mega Rewards / Kim Carlson
+- facts: 移动广告公司 Mega Rewards 更名 Trofeo,Kim Carlson(前Mobivity CRO/COO,曾在Aarki/Appnique/Taptica/InMobi)任CRO;模式与offerwall/激励视频区隔,主张游戏内里程碑触发品牌奖励(流媒体试用/免费披萨等),变现时机由"打断"转"庆祝";Carlson称多数手游玩家从不内购、传统激励广告又主要推送竞品
+- notes: 手游变现新模式信号,与移动业务相关
+
+## C0NEW2 - 飞神老兵 Koi 带 7 人小团队回成都做 2.5D 怪物猎人-like《White Hunt》
+- section: industry_news
+- source_ids: S0031
+- entities: Koi(王紫林) / White Hunt / 飞神工作室 / Ego Studio
+- facts: 游戏茶馆专访;Koi曾参与飞神工作室创办、2021《重构》项目因资金被砍解散后赴广州上市公司;回成都集结7人小团队复活5年前A4纸概念,2.5D动作游戏《White Hunt》(4人联机怪物猎人-like)demo已上Steam;主动入局腾讯《怪物猎人:世界》、米哈游《Origin's Knot》扎堆的赛道
+- notes: 国产小团队/制作人离职创业人才信号,正中维度自检第6项
+
 ## C006 - SGF 2026观察：Backrooms电影带火同名游戏，Xbox利润承压
 - section: deep_analysis
 - source_ids: S0123, S0021

@@ -1,5 +1,15 @@
 # Sources Used — 游戏行业日报 2026-06-14
 
+## 缺数据说明（Missing Data）
+
+2026-06-14 本地 industry_news 采集情况（按 `news_data/_collector_runs/2026-06-14/run_summary.md`）：
+
+- **采集器 failed**：gamelook、cgames
+- **zero_articles**：gcores、gamesindustry、pocketgamer、gamedeveloper、mobilegamer、vgc、youxituoluo、youxixinzhi_qqnews、dataeye_36kr、yystv、investgame
+- **有效产出**：youxiputao_sohu（1 条）、youxichaguan（1 条）
+
+周末英美 biz 本就不更，叠加国内两家采集器 failed，industry_news 当日仅 2 条入库。本报告按 SKILL Missing Data 处理：不联网补缺、不编造，行业新闻"无显著X则写少"。
+
 ## 本地输入文件夹
 
 - `news_data/industry_news/2026-06-14/`

@@ -20,7 +20,7 @@
 | 9 |  | 007 First Light | $69.99 | 92% | 2026-05-27 | 86.1万 | $4996.0万 |
 | 10 |  | FINAL FANTASY VII REMAKE INTERGRADE | $39.99 | 88% | 2022-06-17 | 192.7万 | $5795.6万 |
 
-> 说明：2026-06-14 为周日轻量日，本地行业新闻仅2条、AI 源均为通用大模型动态，行业新闻按"宁缺勿滥"保留一条够分量条目，AI 节本日无显著游戏相关进展。
+> 数据缺口说明：2026-06-14（周六）本地 industry_news 采集中 gcores、gamesindustry、pocketgamer、gamedeveloper、mobilegamer、vgc、youxituoluo、youxixinzhi_qqnews、dataeye_36kr、yystv 均 zero_articles，gamelook 与 cgames 采集器 failed（详见 run_summary），整日仅 sohu 1 条 + youxichaguan 1 条入库。周末英美 biz 本就不更，叠加国内两家采集失败，本报告未联网补缺；行业新闻按 Missing Data 处理只保留一条够分量条目，AI 节本日无游戏相关进展。
 
 ## 一、行业新闻
 

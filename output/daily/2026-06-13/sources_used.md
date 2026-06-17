@@ -1,5 +1,9 @@
 # Sources Used — 游戏行业日报 2026-06-13
 
+## 缺数据说明
+
+6-13 本地 industry_news 采集中以下来源 zero_articles（按 run_summary）：gamelook、cgames（failed）、youxituoluo、yystv、youxixinzhi_qqnews、gamesindustry、gamedeveloper、mobilegamer、investgame、dataeye_36kr。当日 industry_news 共 40 条但以海外主机/3A 与小新闻为主，本报告未联网补缺。
+
 ## 本地输入文件夹
 
 - `news_data/industry_news/2026-06-13/`
@@ -20,6 +24,8 @@
 
 - 微软考虑将Xbox剥离为子公司，并快速推进新《辐射》《上古卷轴》 - S0037
 - Palworld诉讼接近尾声，任天堂或几乎一无所获；1.0定档7月10日 - S0039
+- Mega Rewards 更名 Trofeo 并任命 Kim Carlson 为 CRO，推"成就奖励"广告新模式 - S0036
+- 《重构》老兵 Koi 带 7 人小团队回成都做《White Hunt》，2.5D 怪物猎人-like demo 已上 Steam - S0031
 
 ### 二、AI 新闻
 
@@ -46,6 +52,8 @@
 - S0001 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-13 日报 · 采集于 2026-06-14） | https://store.steampowered.com/search/?filter=topsellers
 - S0037 | videogameschronicle.com | Xbox reportedly given green light to fast-track new Fallout, as Microsoft considers spinning off business | https://www.videogameschronicle.com/news/xbox-reportedly-given-green-light-to-fast-track-new-fallout-as-microsoft-considers-spinning-off-business/
 - S0039 | videogameschronicle.com | Palworld lawsuit nears end with Nintendo reportedly poised to gain almost nothing | https://www.videogameschronicle.com/news/palworld-lawsuit-nears-end-with-nintendo-reportedly-poised-to-gain-almost-nothing/
+- S0036 | pocketgamer.biz | Mega Rewards rebrands as Trofeo and appoints Kim Carlson as CRO | https://www.pocketgamer.biz/mega-rewards-rebrands-as-trofeo-and-appoints-kim-carlson-as-cro/
+- S0031 | youxichaguan.com | On bustling Yulin Road, I teamed up with Miha Yuyuan Art to create a Monster Hunter-style game | https://youxichaguan.com/en/archives/199486
 - S0027 | m.sohu.com | 离职腾讯后，他在新游戏塞了600个AI NPC，结果它们聪明过头了…… | https://m.sohu.com/a/1036183952_204824
 - S0100 | bbs.nga.cn | [新瓜]不知何故，近期终末地官号加速掉粉 | https://bbs.nga.cn/read.php?tid=46913868
 - S0107 | bbs.nga.cn | [新瓜]中国企业全球影响力100强名单发布，游戏行业唯有一家上榜 | https://bbs.nga.cn/read.php?tid=46977645&forder_by=postdatedesc
