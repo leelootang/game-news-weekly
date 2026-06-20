@@ -1,0 +1,38 @@
+# industry_news/cgames failed at 2026-06-20T00:03:41.379245+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-19 --max-pages 3 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-06-19 00:00:00 <= published < 2026-06-20 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-06-19
+[list] open hot https://cgames.com/channels/2.html
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 469, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 446, in main
+    items = await collect_news_items(context, since, until, args.max_pages)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 220, in collect_news_items
+    await list_page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\async_api\_generated.py", line 9712, in wait_for_load_state
+    await self._impl_obj.wait_for_load_state(
+        state=state, timeout=to_milliseconds(timeout)
+    )
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 577, in wait_for_load_state
+    return await self._main_frame.wait_for_load_state(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 276, in wait_for_load_state
+    return await self._wait_for_load_state_impl(state, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 304, in _wait_for_load_state_impl
+    await waiter.result()
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded.
