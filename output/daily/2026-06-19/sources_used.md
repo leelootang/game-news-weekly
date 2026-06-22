@@ -27,14 +27,13 @@
 - steam当日榜单 - S0001
 
 ### 一、行业新闻
-
 - Newzoo 称 2025 年全球游戏市场收入首次突破 2000 亿美元 - S0004, S0032, S0039
-- PlayStation 收紧第一方单机 PC 策略，并把 AI 写进官方战略摘要 - S0033, S0049
 - Roblox 公布品牌植入收费公式，2027 年起按曝光地区向创作者收费 - S0034, S0037
-- 欧盟不立法强制“停服后可玩”，但将推动游戏寿命管理行业规范 - S0035, S0040
+- D2C 讨论升温：移动工作室从绕开抽成转向掌握玩家关系与数据 - S0041, S0043, S0045
+- 《Pokémon Champions》移动端上线首日登顶 13 国 iPhone 游戏下载榜 - S0036, S0052
 - Kabam 整合洛杉矶办公室并裁员 - S0051
 - 库洛周边业务被推到年流水破亿量级 - S0029
-- 《GTA6》公布封面图，并确认 6 月 25 日开启预购 - S0002
+- 欧盟不立法强制“停服后可玩”，但将推动游戏寿命管理行业规范 - S0035, S0040
 
 ### 二、AI 新闻
 
@@ -103,3 +102,8 @@
 - C019 / S0073（Cloudflare 为 AI 智能体推出临时账户）：功能边界清晰，但与本日报告其他 AI 条目相比对游戏团队工作流的直接性略弱。
 - C020 / S0054, S0157（Epic Games Launcher V2 承诺提速 5 倍）：事件真实，也有社区溢出，但重要性仍低于已选 7 条行业新闻。
 - `report_inputs_summary.md` 标出的“三角洲行动”跨 section 强信号经复核为误聚类；industry 侧的 S0031 实际是华硕天选软文，不能与日历事件合并。
+- S0041 | pocketgamer.biz | 4 key takeaways from PGC Barcelona: D2C’s reality, star names flock to Spain, and going AI-first | https://www.pocketgamer.biz/4-key-takeaways-from-pgc-barcelona-d2cs-reality-star-names-flock-to-spain-and-going-ai-first/
+- S0043 | pocketgamer.biz | The D2C window is open. Here's how mobile studios can walk through it | https://www.pocketgamer.biz/the-d2c-window-is-open-heres-how-mobile-studios-can-walk-through-it/
+- S0045 | pocketgamer.biz | Direct-to-consumer in games: Promise versus reality | https://www.pocketgamer.biz/d2c-in-games-promise-versus-reality/
+- S0036 | pocketgamer.biz | Pokémon Champions tops iPhone App Store installs in 13 countries on launch day | https://www.pocketgamer.biz/pokemon-champions-tops-app-store-installs-in-13-countries-on-launch-day/
+- S0052 | mobilegamer.biz | New game digest: Pokémon, Kingdom Rush, Barbie, soft launches from Century and Miniclip, more | https://mobilegamer.biz/new-game-digest-pokemon-kingdom-rush-barbie-soft-launches-from-century-and-miniclip-more/

@@ -22,14 +22,13 @@
 - steam当日榜单 - S0001
 
 ### 一、行业新闻
-
-- Epic 正式公布 Unreal Engine 6，目标 2027 年底开放早期接入 - S0074, S0088, S0094
 - Newzoo 称 2025 年全球游戏市场收入首次突破 2000 亿美元 - S0034
-- 《GTA6》6 月 25 日开启预购，11 月 19 日档期进一步锁定 - S0100, S0035
-- Don’t Nod 称正延长现金 runway，腾讯不再做短期追加投资 - S0077, S0089
-- OtherSide 取消代号 Argos 后裁撤 17 人 - S0076, S0087
-- 土耳其手游市场逆势增长，Dream Games 与 Peak Games 吃下逾八成收入 - S0080
-- Queen Digital Entertainment 关闭，前 King 高管新工作室未能跑出下一款“Candy Crush” - S0093
+- Epic 正式公布 Unreal Engine 6，目标 2027 年底开放早期接入 - S0018, S0074, S0081, S0088, S0094, S0095
+- 米哈游《BSide: Olivia Lin》开放 Steam 页面，近期将启动 EA 测试 - S0038
+- 腾讯《奥星热浪》用热梗 PV 撬动 1000 万播放，测试聚焦轻量搜打撤 - S0041
+- 鸿蒙游戏生态披露 6600 万用户与 3 万款游戏上架，成为国内获量新增量 - S0048, S0055, S0073
+- 《盛世天下》女帝篇 5 天销量破 100 万，全系列销量突破 300 万 - S0061
+- 微信小游戏《小兵有前途》空降畅销榜 Top48，SLG 小游戏出现低门槛混合玩法 - S0102
 
 ### 二、AI 新闻
 
@@ -101,3 +100,13 @@
 - C020 / S0157, S0225（《情感反诈模拟器》预约）：只有预约节点且厂商缺失，强度不如已选 4 条。
 - C024 / S0238（《代号鸢》总制作人疑似跳槽）：传言属性偏重，缺少更强本地实证。
 - C025 / S0245（《归唐》删去“单机”表述）：旧帖续热且证据停留在玩家猜测，未进入正文。
+- S0018 | gcores.com | 全面拥抱AI：Epic公布虚幻引擎6路线图 | https://www.gcores.com/articles/216057
+- S0081 | pocketgamer.biz | Epic Games outlines its vision for Unreal Engine 6 | https://www.pocketgamer.biz/epic-games-outlines-its-vision-for-unreal-engine-6/
+- S0095 | videogameschronicle.com | Epic introduces major Unreal Engine 5 update that runs ‘twice as fast’ on Nintendo Switch 2 | https://www.videogameschronicle.com/news/epic-introduces-major-unreal-engine-5-update-that-runs-twice-as-fast-on-nintendo-switch-2/
+- S0038 | m.sohu.com | 米哈游新作开放Steam页面，将于近期开始测试 | https://m.sohu.com/a/1038562523_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.17818275248817ecwjKa_324
+- S0041 | youxituoluo.com | PV1000万播放的腾讯新游，竟是用梗做出来 | https://www.youxituoluo.com/534598.html
+- S0048 | youxichaguan.com | HDC 2026 | 游戏服务论坛圆满落幕，鸿蒙为游戏行业注入长效增长动能 | https://youxichaguan.com/archives/200090
+- S0055 | youxichaguan.com | 鸿蒙游戏生态发展报告：百倍增长用户平台，深度布局要点解析 | https://youxichaguan.com/archives/200170
+- S0073 | new.qq.com | 20人团队跑出百万DAU、大厂也来抢量：谁在鸿蒙生态跑出加速度 | https://new.qq.com/rain/a/20260618A06C4800
+- S0061 | youxichaguan.com | 《盛世天下》“女帝登基”刷屏背后：抖音如何让互动影视作品快速破圈 | https://youxichaguan.com/archives/200272
+- S0102 | 36kr.com | 空降畅销榜TOP48，北京厂商跑出SLG小游戏黑马？ | https://36kr.com/p/3857926161044740

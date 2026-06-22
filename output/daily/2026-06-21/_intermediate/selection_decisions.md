@@ -33,3 +33,8 @@
 | C018 | exclude | - | thread heat exists, but `疑似内容` lowers support quality |
 | C019 | exclude | - | mostly speculative branding interpretation, not a settled event |
 | C020 | include | 行业精选 / 深度观察 | synthesis is grounded in same-day local evidence and explains a broader shift |
+
+## 2026-06-22 行业新闻重筛记录
+
+- 根据用户反馈，本次仅重筛行业新闻权重：国内市场、国内公司、移动市场和国产产品/人才信号优先；海外主机 / 端游 / 3A 常规宣传、人事和观点项降权。
+- 更新后的行业新闻条目：《激战：大牌英雄》全球首曝并开放国服预约; 《宝可梦GO》研发商空间数据去向争议再发酵; 育碧联合创始人 Claude Guillemot 坠机身亡。
