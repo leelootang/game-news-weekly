@@ -45,3 +45,16 @@
 
 - 根据用户反馈，本次仅重筛行业新闻权重：国内市场、国内公司、移动市场和国产产品/人才信号优先；海外主机 / 端游 / 3A 常规宣传、人事和观点项降权。
 - 更新后的行业新闻条目：Newzoo 称 2025 年全球游戏市场收入首次突破 2000 亿美元; Epic 正式公布 Unreal Engine 6，目标 2027 年底开放早期接入; 米哈游《BSide: Olivia Lin》开放 Steam 页面，近期将启动 EA 测试; 腾讯《奥星热浪》用热梗 PV 撬动 1000 万播放，测试聚焦轻量搜打撤; 鸿蒙游戏生态披露 6600 万用户与 3 万款游戏上架，成为国内获量新增量; 《盛世天下》女帝篇 5 天销量破 100 万，全系列销量突破 300 万; 微信小游戏《小兵有前途》空降畅销榜 Top48，SLG 小游戏出现低门槛混合玩法。
+
+## 新品日历口径修订（2026-06-22）
+
+本次按用户确认的新规则复核：industry_news + release_calendar 同产品 / 同事件重叠 > industry_news 单独强新品节点 > release_calendar 单独强新品节点；release_calendar 内部重复不单独加权，条数不绑定旧日报原数量，按 Section Targets 软目标与事件分量综合取舍。
+
+| candidate | decision | target_section | reason |
+| --- | --- | --- | --- |
+| BSide: Olivia Lin | include | 新游发布 / 产品日历 | industry_news + release_calendar 重叠；米哈游新作开放商店页并即将测试。 |
+| 折言 | include | 新游发布 / 产品日历 | industry_news + release_calendar 重叠；Switch 2、iOS、Android 同日发售 / 上线。 |
+| 三国杀：天命棋局 | include | 新游发布 / 产品日历 | release_calendar 强测试节点；游卡 IP 新形态，双日历源互证。 |
+| 原神 | exclude | - | 头部老品前瞻直播 / 版本节点，不属于新品上线；在本口径下让位给新品与测试。 |
+| 夜幕之下 | exclude | - | 老品版本更新；缺少行业源放大信号。 |
+| 笑傲江湖OL | exclude | - | 老牌端游常规版本更新；不符合新品日历优先口径。 |

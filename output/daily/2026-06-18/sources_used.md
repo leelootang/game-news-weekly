@@ -38,10 +38,10 @@
 
 ### 三、新游发布 / 产品日历
 
-- 产品日历 - 原神 - S0136, S0179
-- 产品日历 - 夜幕之下 - S0134, S0152, S0189
+- 产品日历 - BSide: Olivia Lin - S0038, S0141
+- 产品日历 - 折言 - S0016, S0045, S0161
 - 产品日历 - 三国杀：天命棋局 - S0137, S0177
-- 产品日历 - 笑傲江湖OL - S0135
+
 
 ### 四、玩家舆论 / 社区动态
 
@@ -90,6 +90,20 @@
 - S0239 | bbs.nga.cn | [疑似内容][新瓜]潜水员戴夫新dlc出现鸣潮相关彩蛋 | https://bbs.nga.cn/read.php?tid=47009680&forder_by=postdatedesc
 - S0240 | bbs.nga.cn | [新瓜]崩铁最新动态爻光手指出现问题，被指ai作画，目前已修改 | https://bbs.nga.cn/read.php?tid=46994775&_fp=2&forder_by=postdatedesc
 - S0268 | thegamebusiness.com | Why does Xbox need a brutal reset? | https://www.thegamebusiness.com/p/why-does-xbox-need-a-brutal-reset
+- S0016 | gcores.com | 互动小说《折言》Nintendo Switch 2、iOS、Android版于6月18日发售 | https://www.gcores.com/articles/216061
+- S0018 | gcores.com | 全面拥抱AI：Epic公布虚幻引擎6路线图 | https://www.gcores.com/articles/216057
+- S0038 | m.sohu.com | 米哈游新作开放Steam页面，将于近期开始测试 | https://m.sohu.com/a/1038562523_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.17818275248817ecwjKa_324
+- S0041 | youxituoluo.com | PV1000万播放的腾讯新游，竟是用梗做出来 | https://www.youxituoluo.com/534598.html
+- S0045 | youxichaguan.com | 全球好评《折言》今日发售！Switch 2及手机全平台促销中 | https://youxichaguan.com/archives/200065
+- S0048 | youxichaguan.com | HDC 2026 | 游戏服务论坛圆满落幕，鸿蒙为游戏行业注入长效增长动能 | https://youxichaguan.com/archives/200090
+- S0055 | youxichaguan.com | 鸿蒙游戏生态发展报告：百倍增长用户平台，深度布局要点解析 | https://youxichaguan.com/archives/200170
+- S0061 | youxichaguan.com | 《盛世天下》“女帝登基”刷屏背后：抖音如何让互动影视作品快速破圈 | https://youxichaguan.com/archives/200272
+- S0073 | new.qq.com | 20人团队跑出百万DAU、大厂也来抢量：谁在鸿蒙生态跑出加速度 | https://new.qq.com/rain/a/20260618A06C4800
+- S0081 | pocketgamer.biz | Epic Games outlines its vision for Unreal Engine 6 | https://www.pocketgamer.biz/epic-games-outlines-its-vision-for-unreal-engine-6/
+- S0095 | videogameschronicle.com | Epic introduces major Unreal Engine 5 update that runs ‘twice as fast’ on Nintendo Switch 2 | https://www.videogameschronicle.com/news/epic-introduces-major-unreal-engine-5-update-that-runs-twice-as-fast-on-nintendo-switch-2/
+- S0102 | 36kr.com | 空降畅销榜TOP48，北京厂商跑出SLG小游戏黑马？ | https://36kr.com/p/3857926161044740
+- S0141 | 3839.com | BSide： Olivia Lin PC/主机 - 米哈游新作正式开放Steam页面 | https://www.3839.com/a/199343.htm
+- S0161 | 3839.com | 折言 - 海外上线安卓和iOS | https://www.3839.com/a/197001.htm
 
 ## 排除的值得注意条目
 
@@ -100,13 +114,3 @@
 - C020 / S0157, S0225（《情感反诈模拟器》预约）：只有预约节点且厂商缺失，强度不如已选 4 条。
 - C024 / S0238（《代号鸢》总制作人疑似跳槽）：传言属性偏重，缺少更强本地实证。
 - C025 / S0245（《归唐》删去“单机”表述）：旧帖续热且证据停留在玩家猜测，未进入正文。
-- S0018 | gcores.com | 全面拥抱AI：Epic公布虚幻引擎6路线图 | https://www.gcores.com/articles/216057
-- S0081 | pocketgamer.biz | Epic Games outlines its vision for Unreal Engine 6 | https://www.pocketgamer.biz/epic-games-outlines-its-vision-for-unreal-engine-6/
-- S0095 | videogameschronicle.com | Epic introduces major Unreal Engine 5 update that runs ‘twice as fast’ on Nintendo Switch 2 | https://www.videogameschronicle.com/news/epic-introduces-major-unreal-engine-5-update-that-runs-twice-as-fast-on-nintendo-switch-2/
-- S0038 | m.sohu.com | 米哈游新作开放Steam页面，将于近期开始测试 | https://m.sohu.com/a/1038562523_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.17818275248817ecwjKa_324
-- S0041 | youxituoluo.com | PV1000万播放的腾讯新游，竟是用梗做出来 | https://www.youxituoluo.com/534598.html
-- S0048 | youxichaguan.com | HDC 2026 | 游戏服务论坛圆满落幕，鸿蒙为游戏行业注入长效增长动能 | https://youxichaguan.com/archives/200090
-- S0055 | youxichaguan.com | 鸿蒙游戏生态发展报告：百倍增长用户平台，深度布局要点解析 | https://youxichaguan.com/archives/200170
-- S0073 | new.qq.com | 20人团队跑出百万DAU、大厂也来抢量：谁在鸿蒙生态跑出加速度 | https://new.qq.com/rain/a/20260618A06C4800
-- S0061 | youxichaguan.com | 《盛世天下》“女帝登基”刷屏背后：抖音如何让互动影视作品快速破圈 | https://youxichaguan.com/archives/200272
-- S0102 | 36kr.com | 空降畅销榜TOP48，北京厂商跑出SLG小游戏黑马？ | https://36kr.com/p/3857926161044740

@@ -34,9 +34,11 @@
 - Midjourney V8.1 Draft mode 把草图阶段改成 24 张低清批量探索 - S0099
 
 ### 三、新游发布 / 产品日历
+
 - 产品日历 - 地牢猎手6 - S0047, S0115, S0117, S0146, S0161
+- 产品日历 - Pokémon Champions - S0066, S0087, S0126
 - 产品日历 - 彩虹六号：攻势 - S0118, S0148
-- 产品日历 - 咪哇伊奇幻冒险 - S0116, S0145, S0159
+
 
 ### 四、玩家舆论 / 社区动态
 - 《崩坏：星穹铁道》“爻光”动态手指出错后紧急修改，玩家再掀 AI 作画争论 - S0209
@@ -82,15 +84,18 @@
 - S0214 | bbs.nga.cn | [新瓜]《卡厄斯梦境》开服仅一个月追平国际服半年游戏进度且0补偿 | https://bbs.nga.cn/read.php?tid=46997710&forder_by=postdatedesc
 - S0215 | bbs.nga.cn | [腾讯] [洛克王国]对于离谱的生蛋机制，小洛克们表示"有家不能回" | https://bbs.nga.cn/read.php?tid=47003276&forder_by=postdatedesc
 - S0230 | newsletter.gamediscover.co | What Twitch data adds to our view of game discovery... | https://newsletter.gamediscover.co/p/what-twitch-data-adds-to-our-view
+- S0038 | m.sohu.com | 《如鸢》制作人小萌离职背后，是女性向游戏的困境与无奈 | https://m.sohu.com/a/1037923289_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.4.1781741102852Qnh2DPx_324
+- S0042 | youxituoluo.com | 移动端的 DLSS 时刻：告别性能和画质焦虑，Arm 要抹平手游与 PC 的差距 | https://www.youxituoluo.com/534585.html
+- S0043 | youxituoluo.com | 2026H1游戏投融资复盘：百亿资金流向何处？明星制作人成为“硬通货” | https://www.youxituoluo.com/534583.html
+- S0044 | youxituoluo.com | 网易纯血武侠出海，半年斩获2210万美元 | https://www.youxituoluo.com/534588.html
+- S0046 | youxituoluo.com | 灵犀互娱《如鸢》制作人小萌离职 | https://www.youxituoluo.com/534589.html
+- S0057 | new.qq.com | 独家 | 灵犀《如鸢》制作人小萌及主笔已离职 | https://new.qq.com/rain/a/20260617A04FI100
+- S0066 | pocketgamer.biz | Pokémon Champions launches on mobile today | https://www.pocketgamer.biz/pokemon-champions-launches-on-mobile-today/
+- S0087 | videogameschronicle.com | Latest Pokémon Champions update adds new Pokémon and brings the game to mobile | https://www.videogameschronicle.com/news/latest-pokemon-champions-update-adds-new-pokemon-and-brings-the-game-to-mobile/
+- S0126 | 3839.com | 宝可梦冠军 - 已于海外上线安卓和iOS | https://www.3839.com/a/180448.htm
 
 ## 排除的值得注意条目
 - C008 / S0063（Affle 收购 AdColony 资产）：事件真实，但当天行业分量弱于工作室生存、监管与产品成绩条目。
 - C013 / S0100（Anthropic 企业订阅份额超过 OpenAI）：商业面有信息量，但与游戏生产链条的直接关联弱于已入选三项 AI 条目。
 - C021 / S0197, S0202（尘白禁区延期与社区欢呼）：热度高，但帖子里的圈层黑话与戏谑成分过重，难以在不失真的前提下稳妥写入正文。
 - C017 / S0123, S0157（《卡厄思梦境》日历事件）：已作为社区争议并入 C019，避免与社区节重复。
-- S0038 | m.sohu.com | 《如鸢》制作人小萌离职背后，是女性向游戏的困境与无奈 | https://m.sohu.com/a/1037923289_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.4.1781741102852Qnh2DPx_324
-- S0046 | youxituoluo.com | 灵犀互娱《如鸢》制作人小萌离职 | https://www.youxituoluo.com/534589.html
-- S0057 | new.qq.com | 独家 | 灵犀《如鸢》制作人小萌及主笔已离职 | https://new.qq.com/rain/a/20260617A04FI100
-- S0043 | youxituoluo.com | 2026H1游戏投融资复盘：百亿资金流向何处？明星制作人成为“硬通货” | https://www.youxituoluo.com/534583.html
-- S0044 | youxituoluo.com | 网易纯血武侠出海，半年斩获2210万美元 | https://www.youxituoluo.com/534588.html
-- S0042 | youxituoluo.com | 移动端的 DLSS 时刻：告别性能和画质焦虑，Arm 要抹平手游与 PC 的差距 | https://www.youxituoluo.com/534585.html

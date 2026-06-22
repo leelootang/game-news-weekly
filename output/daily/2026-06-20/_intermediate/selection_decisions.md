@@ -25,3 +25,14 @@
 | RC03 | exclude | - | 《合合梦幻岛》仅有上线与发行商信息，缺玩法标签，信号弱 |
 | RC04 | exclude | - | 《巅峰极速》为常规登录奖励，不够格进入日历正文 |
 | RC05 | exclude | - | 《山海烬墟》仅测试招募与策略标签，缺更多支持信息 |
+
+## 新品日历口径修订（2026-06-22）
+
+本次按用户确认的新规则复核：industry_news + release_calendar 同产品 / 同事件重叠 > industry_news 单独强新品节点 > release_calendar 单独强新品节点；release_calendar 内部重复不单独加权，条数不绑定旧日报原数量，按 Section Targets 软目标与事件分量综合取舍。
+
+| candidate | decision | target_section | reason |
+| --- | --- | --- | --- |
+| 望月 | include | 新游发布 / 产品日历 | industry_news 单独强新品节点；国内重点开放世界项目公开试玩，有具体体验与产品改动信息。 |
+| 植物大战僵尸杂交版-手机重制版 | exclude | - | 日历源仅支撑测试与内容上线，厂商缺失且更接近版本 / 体验项。 |
+| 宠物星球 | exclude | - | 仅 TapTap 限量测试，厂商缺失，产品体量与外部信号不足。 |
+| 合合梦幻岛 | exclude | - | 虽为正式上线且有公司信息，但缺少行业源和产品体量信号，低于本轮收录门槛。 |

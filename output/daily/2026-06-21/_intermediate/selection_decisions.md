@@ -38,3 +38,13 @@
 
 - 根据用户反馈，本次仅重筛行业新闻权重：国内市场、国内公司、移动市场和国产产品/人才信号优先；海外主机 / 端游 / 3A 常规宣传、人事和观点项降权。
 - 更新后的行业新闻条目：《激战：大牌英雄》全球首曝并开放国服预约; 《宝可梦GO》研发商空间数据去向争议再发酵; 育碧联合创始人 Claude Guillemot 坠机身亡。
+
+## 新品日历口径修订（2026-06-22）
+
+本次按用户确认的新规则复核：industry_news + release_calendar 同产品 / 同事件重叠 > industry_news 单独强新品节点 > release_calendar 单独强新品节点；release_calendar 内部重复不单独加权，条数不绑定旧日报原数量，按 Section Targets 软目标与事件分量综合取舍。
+
+| candidate | decision | target_section | reason |
+| --- | --- | --- | --- |
+| 激战：大牌英雄 | include | 新游发布 / 产品日历 | industry_news + release_calendar 重叠；全球首曝 + 国服预约，发行、监修方和品类完整。 |
+| 天堂 | exclude | - | 经典版攻城战属于老品版本 / 生命周期运营，不是新品上线。 |
+| 影之大陆 / 沉默的宅邸 / 英雄霸业 | exclude | - | 仅 TapTap 单源首发 / 测试，厂商缺失且外部信号不足。 |
