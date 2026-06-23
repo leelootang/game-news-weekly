@@ -242,4 +242,37 @@
 - entities: Epic / Unreal Engine 6 / Roblox
 - facts:
   - Source says Tim Sweeney framed UE6 around connected ecosystems and AI productivity tools.
-- notes: real long-term signal, but less directly tied to the user’s current domestic-priority brief than C021.
+- notes: secondary/summary source; superseded by the detailed UE6 source S0025 in C023.
+
+## C023 - Epic 在 Unreal Fest 正式公布虚幻引擎 6
+- section: industry_news
+- status: candidate
+- source_ids: S0025
+- entities: Epic Games / Unreal Engine 6 / UEFN / Verse / MCP
+- facts:
+  - Source says Epic officially announced UE6 at Unreal Fest, unifying UE5 and UEFN into one engine.
+  - Source says UE6 moves game logic to the Verse language with distributed transactional memory, adds Portable Content, and integrates MCP to connect Claude/Gemini-style models for level/rigging automation.
+  - Source says Early Access is set for late 2027, full release 12–18 months later; UE5.8 ships as the last planned UE5 major version.
+- notes: foundational engine/tooling + AI signal for the whole industry; restored after over-aggressive prior downweighting.
+
+## C024 - 米哈游《绝区零》登陆 Steam
+- section: industry_news
+- status: candidate
+- source_ids: S0028
+- entities: 米哈游 / 绝区零 / Steam / PlayStation
+- facts:
+  - Source says ZZZ launched on Steam with a first-day concurrency peak around 1.5万 and about 30万 wishlists/pre-orders.
+  - Source says miHoYo chose ZZZ first to test net-new users against the 30% platform cut, likely region-locking China and targeting overseas Steam-heavy markets.
+  - Source says domestic 二游 treat PS5 as the flagship tier and Steam as incremental/long-tail, with 鸣潮/卡拉彼丘/少女前线2 already onboard.
+- notes: strong 米哈游 PC-platform strategy signal; previously omitted.
+
+## C025 - 成都西山居被曝大幅组织调整，《尘白禁区》团队收缩
+- section: industry_news
+- status: candidate
+- source_ids: S0031
+- entities: 成都西山居 / 尘白禁区 / 金山软件
+- facts:
+  - Source says 成都西山居 is undergoing a large organizational restructuring; insiders say a lot of 外包 for 《尘白禁区》 was let go and both domestic and overseas teams are shrinking.
+  - Source says 金山软件 FY2025 revenue was 96.83亿元 (down 6%), with game-and-other revenue down 28%; Q1 2026 that line fell another 22%.
+  - Source says both filings omitted 《尘白禁区》, and CEO 邹涛 said non-strategic projects would be moderately scaled back.
+- notes: domestic studio organization/headcount signal; previously omitted.

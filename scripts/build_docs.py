@@ -302,7 +302,7 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
       --attrib-h:0px; --sw:256px;
     }}
     *{{box-sizing:border-box;margin:0;padding:0;}}
-    html,body{{height:100%;}}
+    html,body{{height:100%;overflow-x:hidden;}}
     body{{color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif;
           line-height:1.65;-webkit-font-smoothing:antialiased;}}
     /* decorative gradient field behind the frosted glass */
@@ -351,10 +351,10 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     /* sticky header wrapper (section tabs + date strip move together) */
     .feed-head{{position:sticky;top:0;z-index:8;}}
     /* topbar (frosted) */
-    .topbar{{display:flex;align-items:center;gap:0;flex-wrap:wrap;
+    .topbar{{display:flex;align-items:center;gap:0;flex-wrap:wrap;min-width:0;overflow:hidden;
       background:rgba(255,255,255,.6);backdrop-filter:blur(20px) saturate(160%);
       -webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--hair);}}
-    .ftabs{{display:flex;flex:1;overflow-x:auto;padding:0 32px;}}
+    .ftabs{{display:flex;flex:1 1 0;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:0 32px;}}
     .ftab{{padding:16px 16px;border:0;background:transparent;color:var(--muted);cursor:pointer;
       font-size:14px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap;transition:color .14s;}}
     .ftab:hover:not(.active){{color:var(--ink);}}
@@ -366,14 +366,14 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .search-wrap input:focus{{border-color:var(--accent);box-shadow:0 0 0 3px rgba(91,110,245,.12);background:#fff;}}
 
     /* date filter strip */
-    .date-strip{{display:flex;align-items:center;gap:8px;
+    .date-strip{{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;
       padding:11px 20px;background:rgba(255,255,255,.5);backdrop-filter:blur(18px) saturate(160%);
       -webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--hair);}}
     .ds-arrow{{flex-shrink:0;width:30px;height:30px;border-radius:9px;border:1px solid var(--hair);
       background:rgba(255,255,255,.7);color:var(--muted);cursor:pointer;display:grid;place-items:center;
       font-size:14px;transition:all .14s;}}
     .ds-arrow:hover{{color:var(--accent);border-color:var(--accent);}}
-    .ds-track{{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;flex:1;align-items:stretch;
+    .ds-track{{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;flex:1 1 0;min-width:0;max-width:100%;align-items:stretch;
       scrollbar-width:none;}}
     .ds-track::-webkit-scrollbar{{display:none;}}
     /* 全部 pill */
@@ -402,9 +402,9 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .ds-day.no-data .dw,.ds-day.no-data .dn{{color:var(--faint);opacity:.55;}}
 
     /* feed */
-    .feed{{padding:30px 48px 64px;width:100%;}}
+    .feed{{padding:30px 48px 64px;width:100%;min-width:0;}}
     /* match the daily report layout: two columns on desktop, one on mobile */
-    .icard-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
+    .icard-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;min-width:0;}}
     @media(max-width:900px){{.icard-grid{{grid-template-columns:1fr;}}}}
     /* day group (level 1) */
     .day-block{{margin-bottom:48px;}}
@@ -420,7 +420,7 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .subsec-cnt{{font-size:12px;color:var(--muted);}}
 
     /* item card (glass) */
-    .icard{{background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+    .icard{{min-width:0;background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
       -webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--glass-border);
       border-radius:18px;padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);
       transition:transform .18s,box-shadow .18s;}}
@@ -430,7 +430,7 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .itag{{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}}
     .idate{{font-size:12px;color:var(--faint);}}
     .ititle{{font-size:17.5px;font-weight:700;line-height:1.45;margin-bottom:10px;color:var(--ink);letter-spacing:.1px;}}
-    .ibody{{font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;}}
+    .ibody{{min-width:0;font-size:14.5px;color:var(--ink2);line-height:1.78;margin-bottom:14px;}}
     .ibody.rich{{display:block;-webkit-line-clamp:unset;overflow:visible;}}
     .ibody.rich p{{margin:0 0 14px;color:var(--ink2);font-size:14.5px;line-height:1.78;}}
     .ibody.rich ul{{margin:0 0 12px;padding-left:20px;color:var(--ink2);line-height:1.65;font-size:13.5px;}}
