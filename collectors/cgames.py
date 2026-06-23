@@ -38,6 +38,9 @@ SOURCE_DOMAIN = "cgames.com"
 SOURCE_KEY = "cgames"
 FILE_PREFIX = f"{SOURCE_KEY}_{SOURCE_DOMAIN}"
 PAGE_TIMEOUT = 30_000
+NETWORK_IDLE_TIMEOUT = 8_000
+LIST_SELECTOR_TIMEOUT = 20_000
+ARTICLE_SELECTOR_TIMEOUT = 20_000
 PER_ARTICLE_DELAY = 0.8
 MANIFEST_NAME = f"{FILE_PREFIX}_manifest.json"
 MANIFEST_DIR_NAME = "_collector_manifests"
@@ -158,12 +161,19 @@ async def extract_list_links(page) -> list[dict[str, str]]:
     )
 
 
+async def wait_for_network_quiet(page, label: str) -> None:
+    try:
+        await page.wait_for_load_state("networkidle", timeout=NETWORK_IDLE_TIMEOUT)
+    except PWTimeout:
+        print(f"[warn] {label}: networkidle timeout; continuing after DOM/selector readiness", file=sys.stderr)
+
+
 async def fetch_article_item(context, url: str, channel: str) -> NewsItem:
     page = await context.new_page()
     try:
         await page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-        await page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
-        await page.wait_for_selector(".kbxq_l h2, .xqnr", timeout=15_000)
+        await wait_for_network_quiet(page, f"article {make_news_id(url)}")
+        await page.wait_for_selector(".kbxq_l h2, .xqnr", timeout=ARTICLE_SELECTOR_TIMEOUT)
         meta = await page.evaluate(
             """() => {
                 const text = selector => {
@@ -210,20 +220,34 @@ async def collect_news_items(context, since: datetime, until: datetime, max_page
     items: dict[str, NewsItem] = {}
     seen: set[str] = set()
     channels_without_boundary: list[str] = []
+    channel_errors: list[str] = []
+    successful_channels = 0
     try:
         for channel, base_url in CHANNELS.items():
             reached_older_boundary = False
+            channel_had_links = False
             for page_no in range(1, max_pages + 1):
                 url = base_url if page_no == 1 else f"{base_url}?page={page_no}"
                 print(f"[list] open {channel} {url}")
-                await list_page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-                await list_page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
                 try:
-                    await list_page.wait_for_selector('a[href*="/contents/"]', timeout=15_000)
+                    await list_page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+                    await list_page.wait_for_selector('a[href*="/contents/"]', timeout=LIST_SELECTOR_TIMEOUT)
                 except PWTimeout as exc:
-                    raise RuntimeError(f"no 竞核 article links found on {channel}; source structure may have changed") from exc
+                    msg = f"{channel} page {page_no}: no 竞核 article links before timeout"
+                    print(f"[warn] {msg}", file=sys.stderr)
+                    channel_errors.append(msg)
+                    break
+                except Exception as exc:
+                    msg = f"{channel} page {page_no}: list page failed: {exc!r}"
+                    print(f"[warn] {msg}", file=sys.stderr)
+                    channel_errors.append(msg)
+                    break
+
+                await wait_for_network_quiet(list_page, f"list {channel} page {page_no}")
 
                 rows = await extract_list_links(list_page)
+                if rows:
+                    channel_had_links = True
                 page_new = 0
                 page_older = 0
                 page_candidates = 0
@@ -261,10 +285,16 @@ async def collect_news_items(context, since: datetime, until: datetime, max_page
                 if page_older:
                     reached_older_boundary = True
                     break
-            if not reached_older_boundary:
+            if channel_had_links:
+                successful_channels += 1
+            if channel_had_links and not reached_older_boundary:
                 channels_without_boundary.append(channel)
     finally:
         await list_page.close()
+
+    if successful_channels == 0:
+        details = "; ".join(channel_errors) if channel_errors else "no article links found"
+        raise RuntimeError(f"all 竞核 channels failed during list discovery: {details}")
 
     if channels_without_boundary:
         raise RuntimeError(

@@ -34,7 +34,7 @@
 | C017 | exclude | - | major title, but this window already has stronger new-product release signals; season preview is comparatively weaker |
 | C018 | include | 玩家舆论 / 社区动态 | clear trigger, complaint logic, and limited official follow-up all appear in source |
 | C019 | include | 玩家舆论 / 社区动态 | concrete timeline compression plus resource-compensation dispute; thread remained active in-window |
-| C020 | exclude | - | real discourse, but lower weight and more taste-driven than the selected controversies |
+| C020 | include | 玩家舆论 / 社区动态 | corrected after review: same-day top otome role-supply dispute with concrete trigger, thin-setup complaint, resource-allocation concern, and official Weibo soothing visible in source |
 | C021 | include | 行业精选 / 深度观察 | domestic-market structural observation grounded in same-day local evidence |
 | C022 | exclude | - | valid macro engine/platform signal, but less aligned with the domestic-priority brief than C021 |
 

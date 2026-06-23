@@ -220,7 +220,9 @@
 - facts:
   - Thread says the sixth male lead launched on the night of `2026-06-22`.
   - Complaint logic focuses on thin pre-launch setup and dissatisfaction with character design.
-- notes: real discourse event, but narrower and less weighty than the two selected controversies.
+  - Thread discussion also raises concerns that adding another male lead may dilute schedule and content resources for existing characters.
+  - Thread says the official Weibo account replied heavily to soothe players.
+- notes: stronger than originally weighted because the dispute touches role-supply cadence and player-relationship management for a top otome title, not only character aesthetics.
 
 ## C021 - 终端预装与短视频分发都在放大轻量内容
 - section: deep_analysis

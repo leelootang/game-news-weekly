@@ -1,7 +1,7 @@
 # Article Index - industry_news / 2026-06-22
 
-- Records: 87
-- By source: `dataeye_36kr` 3, `gamedeveloper` 4, `gamelook` 8, `gamesindustry` 4, `gcores` 21, `mobilegamer` 3, `pocketgamer` 9, `vgc` 7, `youxichaguan` 14, `youxiputao_sohu` 5, `youxixinzhi_qqnews` 3, `yystv` 6
+- Records: 89
+- By source: `cgames` 2, `dataeye_36kr` 3, `gamedeveloper` 4, `gamelook` 8, `gamesindustry` 4, `gcores` 21, `mobilegamer` 3, `pocketgamer` 9, `vgc` 7, `youxichaguan` 14, `youxiputao_sohu` 5, `youxixinzhi_qqnews` 3, `yystv` 6
 - Raw JSONL: `articles.jsonl`
 
 | # | ID | Source | Published | Chars | Status | Title | URL |
@@ -93,3 +93,5 @@
 | 85 | `14075` | `yystv` | 2026-06-22T00:00:00 | 5361 | ok | 宫崎英高的“精神导师”酝酿十年的新作，为什么值得你期待？ | [link](http://www.yystv.net/p/14075) |
 | 86 | `14076` | `yystv` | 2026-06-22T00:00:00 | 4160 | ok | 不卷花活，卡牌二游空降畅销榜前十，就纯靠“好玩”？ | [link](http://www.yystv.net/p/14076) |
 | 87 | `14079` | `yystv` | 2026-06-22T00:00:00 | 2038 | ok | 30万悬赏“最强AI牌手”，宝可梦官方宣布举办AI卡牌对战赛 | [link](http://www.yystv.net/p/14079) |
+| 88 | `11948` | `cgames` | 2026-06-22T00:00:00 | 3327 | ok | 米哈游千亿豪赌AI后，拿出了一款新作 | [link](https://cgames.com/contents/2/11948.html) |
+| 89 | `11950` | `cgames` | 2026-06-22T00:00:00 | 3453 | ok | 今天这款新二游，看得懂算你厉害 | [link](https://cgames.com/contents/2/11950.html) |
