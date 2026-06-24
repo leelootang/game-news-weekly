@@ -15,10 +15,22 @@ from feishu_common import (
     content_hash,
     load_dotenv,
     load_report_summary,
+    read_json,
     report_paths,
     utc_now_iso,
     write_json,
 )
+
+
+def existing_doc_for_date(date: str) -> dict[str, str] | None:
+    """Return {token, url} of the docx already created for this date (recorded
+    in the publish log) so re-pushes reuse the same document instead of
+    spawning a new one — we keep one docx per date and edit it in place
+    (Feishu keeps edit history). Returns None when no doc exists yet."""
+    log = read_json(PUBLISH_LOG_DIR / f"daily_{date}.json", None)
+    if isinstance(log, dict) and log.get("doc_token") and log.get("doc_url"):
+        return {"token": log["doc_token"], "url": log["doc_url"]}
+    return None
 
 
 def resolve_doc_url(date: str, explicit: str | None) -> str | None:
@@ -64,7 +76,11 @@ def publish(args: argparse.Namespace) -> int:
         print(f"[dry-run] subscribers: {len(subscribers)}")
         print(f"[dry-run] markdown: {markdown_path}")
         if args.create_doc:
-            print(f"[dry-run] would create docx in folder: {folder_token or '(MISSING folder token!)'}")
+            existing = None if args.new_doc else existing_doc_for_date(args.date)
+            if existing:
+                print(f"[dry-run] would REUSE existing docx: {existing['url']}")
+            else:
+                print(f"[dry-run] would create docx in folder: {folder_token or '(MISSING folder token!)'}")
         else:
             print(f"[dry-run] doc_url: {resolve_doc_url(args.date, args.doc_url) or '(none)'}")
         return 0
@@ -77,13 +93,19 @@ def publish(args: argparse.Namespace) -> int:
 
     doc_token = None
     if args.create_doc:
-        if not folder_token:
-            print("--create-doc requires a folder token (pass --folder-token or set FEISHU_DAILY_FOLDER_TOKEN).")
-            return 1
-        created = create_daily_doc(client, args.date, summary, folder_token)
-        doc_url = created["url"]
-        doc_token = created["token"]
-        print(f"[doc] created docx token={doc_token} url={doc_url}")
+        existing = None if args.new_doc else existing_doc_for_date(args.date)
+        if existing:
+            doc_url = existing["url"]
+            doc_token = existing["token"]
+            print(f"[doc] reusing existing docx token={doc_token} url={doc_url}")
+        else:
+            if not folder_token:
+                print("--create-doc requires a folder token (pass --folder-token or set FEISHU_DAILY_FOLDER_TOKEN).")
+                return 1
+            created = create_daily_doc(client, args.date, summary, folder_token)
+            doc_url = created["url"]
+            doc_token = created["token"]
+            print(f"[doc] created docx token={doc_token} url={doc_url}")
     else:
         doc_url = resolve_doc_url(args.date, args.doc_url)
 
@@ -125,6 +147,11 @@ def main() -> int:
     parser.add_argument(
         "--folder-token",
         help="Target Feishu drive folder token for --create-doc (defaults to FEISHU_DAILY_FOLDER_TOKEN).",
+    )
+    parser.add_argument(
+        "--new-doc",
+        action="store_true",
+        help="Force a brand-new docx even if one already exists for the date (default: reuse).",
     )
     parser.add_argument("--to-open-id", help="Send to one open_id for testing instead of all subscribers.")
     parser.add_argument("--max-items", type=int, default=6, help="Max items shown per section in the card.")

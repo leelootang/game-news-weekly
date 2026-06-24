@@ -26,6 +26,8 @@ description: 把已生成好的游戏行业日报/周报/月报 markdown 发布�
 11. **docs 改动是本地的**。`build_docs.py` 只改本地 `docs/`,不会自动 commit/push 到 GitHub Pages。是否提交推送要**先问用户**,不要擅自 git push。
 12. **飞书文档(docx)每条信息后必须带引用格式来源链接**。`--create-doc` 会先用 `build_docx_markdown(date)` 生成 `_intermediate/docx_import_<date>.md`(在每个 item 后插一行 `> 来源：[标题](url)` 引用块),再导入这份、**不是原报告 markdown**。来源取自 `sources_used.md`(`parse_sources` + `sources_for`,复用 `build_report_html`)。两条铁律:① **绝不把引用行写回原报告 markdown**——原 md 是 lint / 网页 / 卡片的唯一真相源,污染它会破坏 lint 和字数检查;② 来源标题里的 `[ ]` 方括号(NGA 标题常见 `[新瓜]`/`[英雄互娱]`)必须转全角 `【 】`,否则会破坏 markdown 链接文字解析。`docx_import_*.md` 是生成物,已加入 .gitignore,不提交。
 
+13. **每个日期只保留一篇 docx**。`publish_feishu_daily.py` 不再每次推送都新建文档——`existing_doc_for_date(date)` 先查 `publish_logs/daily_<date>.json` 的 `doc_token`/`doc_url`,**有则复用同一篇**(dry-run 会打印 `would REUSE existing docx`,正式跑打印 `[doc] reusing existing docx`)。用户要求:同一天内容要改就**在原文档里手改**(飞书有编辑历史),不要堆一堆新文档。只有 `--new-doc` 才强制新建。注意复用意味着文档内容停留在首次创建那一版,后续改报告正文不会自动回灌进 docx——这是有意为之(用户手动维护)。验收:同一天重复推送后,飞书云空间该日期下**只有一篇** docx,链接不变。
+
 > 注:用户已明确**不要改 `docs/` 网页里的来源展示**(网页保留原有"查看来源"抽屉)。来源引用只加在**飞书文档(docx)**里。2026-06-24 我曾误改 `report_template.html` 的网页渲染,被纠正——不要重犯。
 
 ## 完整发布链路(命令)
@@ -64,7 +66,8 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 
 - **卡片从 markdown 解析,不另写数据源**。改卡片内容 = 改 markdown 后重发,不要在卡片里手填文案。
 - **每节取每条的一句话**:`_item_one_liner` → `### N.` 标题取标题本身;`- ` bullet 用 `_first_clause` 截到第一个 `；` 前的主句。所以 markdown 里 bullet 的主信息要放在第一个分号前。
-- **Steam 榜单降噪**:`_STEAM_NOISE = ("长线产品","榜单主体","稳定主体","成熟产品","把住榜单","把持榜单")`,`_keep_steam_line` 在 🛒 节过滤掉这类"成熟产品稳居榜单"的总体叙述,只留新品与异动。完整叙述仍保留在网页/docx。
+- **Steam 榜单降噪 + 裁短**:`_STEAM_NOISE` 里的总体叙述被 `_keep_steam_line` 过滤;留下的行再 `split("：",1)[0]` 只取**全角冒号前的标题**(如「**MECCHA CHAMELEON** 排名升至第 2」),砍掉后面一长串销量/营收细节。注意只切**全角 `：`**——产品名里的半角 `:`(如 `SAND: Raiders of Sophie`)不能被切断。完整叙述仍保留在网页/docx。
+- **重点短句加粗 `_emphasize`**:每条卡片行自动加粗一个可扫读的关键短语,方便快速 get 重点。优先加粗行内**第一个《产品名》**(整体加粗,绝不在 `《X：Y》` 里截断);无《》则加粗**首个中文逗号前的主语短句**(长度 4–26 字);再不行就整行加粗(≤26 字)。改动在 `feishu_common._emphasize`,验收:发卡前肉眼扫一遍,确认每行有且仅有一处合理加粗、《》没被拆断。
 - **节的映射与取舍**在 `_section_meta`:rankings🛒 / industry📰 / ai🤖 / release🎮 / discourse💬 / deep🧠;含"深度/精选"关键词的节 `drop=True`,**卡片里整节略去**(只在网页/docx 出现)。
 - **文档按钮**:传入 `doc_url` 时卡片底部加一个 primary 按钮"📄 查看完整日报",指向 docx。
 - **`per_section` / `--max-items`** 控制每节最多显示几条;见 Hard No #6,务必大于最长节的条目数。

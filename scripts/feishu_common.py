@@ -586,6 +586,27 @@ def _keep_steam_line(line: str) -> bool:
     return not any(keyword in line for keyword in _STEAM_NOISE)
 
 
+def _emphasize(line: str) -> str:
+    """Bold the scannable key phrase of a card line so readers get the point
+    fast. Prefer a leading 《产品名》 title; else bold the lead clause before
+    the first Chinese comma; else bold a short whole line. Never split inside
+    a 《...》 (titles can contain ：), so we bold the bracketed span as a unit."""
+    m = re.search(r"《[^》]+》", line)
+    if m and m.start() <= 24 and (m.end() - m.start()) <= 26:
+        s, e = m.start(), m.end()
+        return f"{line[:s]}**{line[s:e]}**{line[e:]}"
+    idx = -1
+    for sep in ("，", ","):
+        pos = line.find(sep)
+        if pos > 0 and (idx < 0 or pos < idx):
+            idx = pos
+    if 4 <= idx <= 26:
+        return f"**{line[:idx]}**{line[idx:]}"
+    if len(line) <= 26:
+        return f"**{line}**"
+    return line
+
+
 def build_daily_card(
     summary: dict[str, Any], doc_url: str | None = None, per_section: int = 6
 ) -> dict[str, Any]:
@@ -601,11 +622,18 @@ def build_daily_card(
             continue
         one_liners = [line for line in (_item_one_liner(it) for it in section.get("items", [])) if line]
         if emoji == "🛒":
-            one_liners = [line for line in one_liners if _keep_steam_line(line)]
+            # Steam bullets read "名称 排名升至第 N：一长串细节" — keep only the
+            # headline before the full-width colon (names use half-width ":",
+            # so split on "：" won't truncate "SAND: Raiders of Sophie").
+            one_liners = [
+                line.split("：", 1)[0].strip()
+                for line in one_liners
+                if _keep_steam_line(line)
+            ]
         if not one_liners:
             continue
         lines = [f"**{emoji} {display}**"]
-        lines.extend(f"• {line}" for line in one_liners[:per_section])
+        lines.extend(f"• {_emphasize(line)}" for line in one_liners[:per_section])
         elements.append({"tag": "div", "text": {"tag": "lark_md", "content": "\n".join(lines)}})
 
     if doc_url:
