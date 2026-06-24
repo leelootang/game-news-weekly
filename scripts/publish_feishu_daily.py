@@ -11,6 +11,7 @@ from feishu_common import (
     active_subscribers,
     add_date_arg,
     build_daily_card,
+    build_docx_markdown,
     content_hash,
     load_dotenv,
     load_report_summary,
@@ -36,7 +37,8 @@ def create_daily_doc(
     if not markdown_path.exists():
         raise FileNotFoundError(f"Daily report markdown not found: {markdown_path}")
     doc_name = summary.get("title") or f"游戏行业日报 {date}"
-    file_token = client.upload_import_media(markdown_path, markdown_path.name)
+    import_path = build_docx_markdown(date)
+    file_token = client.upload_import_media(import_path, import_path.name)
     ticket = client.create_import_task(file_token, doc_name, folder_token)
     result = client.poll_import_task(ticket)
     client.set_doc_public_permission(result["token"], doc_type="docx")

@@ -410,6 +410,128 @@ def load_report_summary(date: str, max_items: int | None = None) -> dict[str, An
     }
 
 
+def _citation_md(srcs: list | None) -> str | None:
+    """Render a Feishu quote line `> 来源：[标题](url) · ...` for a list of
+    [sid, name, url] entries. Returns None when there is nothing to cite."""
+    parts: list[str] = []
+    for entry in srcs or []:
+        sid = entry[0] if len(entry) > 0 else ""
+        name = entry[1] if len(entry) > 1 else ""
+        url = entry[2] if len(entry) > 2 else ""
+        label = str(name or sid or "来源").strip()
+        # full-width the brackets so they can't break the markdown link text
+        label = label.replace("[", "【").replace("]", "】")
+        if re.match(r"https?://", str(url or "")):
+            parts.append(f"[{label}]({url})")
+        else:
+            parts.append(label)
+    if not parts:
+        return None
+    return "> 来源：" + " · ".join(parts)
+
+
+def build_docx_markdown(date: str) -> Path:
+    """Produce a markdown variant for Feishu docx import that appends a
+    `> 来源：[标题](url)` quote line after each item. The canonical report
+    markdown stays untouched; the augmented file is written under
+    `_intermediate/docx_import_<date>.md` and its path is returned.
+
+    Source lookup + title mapping reuse build_report_html so the docx
+    citations match the same sources the webpage would show.
+    """
+    import build_report_html as brh  # reuse parse_sources / sources_for / RANK_LABEL
+
+    md_path, _, report_dir = report_paths(date)
+    md = md_path.read_text(encoding="utf-8")
+    sources_path = report_dir / "sources_used.md"
+    if sources_path.exists():
+        title_ids, id_meta = brh.parse_sources(sources_path.read_text(encoding="utf-8"))
+    else:
+        title_ids, id_meta = {}, {}
+
+    kind = "daily"
+    if "_weekly_" in md_path.name:
+        kind = "weekly"
+    elif "_monthly_" in md_path.name:
+        kind = "monthly"
+    rank_label = brh.RANK_LABEL.get(kind, "steam榜单")
+
+    def rankings_sources(title: str) -> list:
+        srcs = brh.sources_for(title, title_ids, id_meta)
+        if not srcs:
+            for k, v in title_ids.items():
+                if "steam" in k.lower():
+                    srcs = [[i, *id_meta.get(i, ("Steam 官方榜单", "https://store.steampowered.com/charts/topselling/global"))] for i in v]
+                    break
+        if not srcs:
+            srcs = [["steam", "Steam 官方热销榜", "https://store.steampowered.com/charts/topselling/global"]]
+        return srcs
+
+    out: list[str] = []
+    section_kind: str | None = None
+    pending_title: str | None = None   # open news item awaiting its citation
+    rankings_title: str | None = None  # rankings item title awaiting its citation
+
+    def flush_news() -> None:
+        nonlocal pending_title
+        if pending_title:
+            line = _citation_md(brh.sources_for(pending_title, title_ids, id_meta))
+            if line:
+                out.append("")
+                out.append(line)
+        pending_title = None
+
+    def flush_rankings() -> None:
+        nonlocal rankings_title
+        if section_kind == "rankings" and rankings_title is not None:
+            line = _citation_md(rankings_sources(rankings_title))
+            if line:
+                out.append("")
+                out.append(line)
+        rankings_title = None
+
+    for ln in md.splitlines():
+        s = ln.strip()
+        h2 = re.match(r"^##\s+(.+)$", s)
+        if h2:
+            flush_news()
+            flush_rankings()
+            section_kind = brh.heading_to_section(h2.group(1).strip())
+            rankings_title = rank_label if section_kind == "rankings" else None
+            out.append(ln)
+            continue
+        h3 = re.match(r"^###\s+(?:\d+\.\s+)?(.+)$", s)
+        if h3 and section_kind == "rankings":
+            rankings_title = h3.group(1).strip()
+            out.append(ln)
+            continue
+        if h3 and section_kind in ("industry", "ai", "discourse", "deep"):
+            flush_news()
+            pending_title = h3.group(1).strip()
+            out.append(ln)
+            continue
+        if section_kind == "release" and s.startswith("- "):
+            out.append(ln)
+            body = s[2:].strip()
+            gm = re.search(r"《([^》]+)》", body)
+            gname = gm.group(1) if gm else body[:24]
+            srcs = brh.sources_for(f"产品日历 - {gname}", title_ids, id_meta) or brh.sources_for(gname, title_ids, id_meta)
+            line = _citation_md(srcs)
+            if line:
+                out.append(line)
+            continue
+        out.append(ln)
+
+    flush_news()
+    flush_rankings()
+
+    augmented = "\n".join(out) + "\n"
+    out_path = report_dir / "_intermediate" / f"docx_import_{date}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(augmented, encoding="utf-8")
+    return out_path
+
+
 # Section name (markdown 中文标题或 json code) -> (emoji, 卡片显示名, 是否在卡片中略去)
 _DROP_KEYWORDS = ("深度", "精选")
 _WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
@@ -484,8 +606,6 @@ def build_daily_card(
             continue
         lines = [f"**{emoji} {display}**"]
         lines.extend(f"• {line}" for line in one_liners[:per_section])
-        if len(one_liners) > per_section:
-            lines.append(f"• …等共 {len(one_liners)} 条，详见完整日报")
         elements.append({"tag": "div", "text": {"tag": "lark_md", "content": "\n".join(lines)}})
 
     if doc_url:
