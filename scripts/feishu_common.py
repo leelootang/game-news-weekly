@@ -622,14 +622,7 @@ def build_daily_card(
             continue
         one_liners = [line for line in (_item_one_liner(it) for it in section.get("items", [])) if line]
         if emoji == "🛒":
-            # Steam bullets read "名称 排名升至第 N：一长串细节" — keep only the
-            # headline before the full-width colon (names use half-width ":",
-            # so split on "：" won't truncate "SAND: Raiders of Sophie").
-            one_liners = [
-                line.split("：", 1)[0].strip()
-                for line in one_liners
-                if _keep_steam_line(line)
-            ]
+            one_liners = [line for line in one_liners if _keep_steam_line(line)]
         if not one_liners:
             continue
         lines = [f"**{emoji} {display}**"]
