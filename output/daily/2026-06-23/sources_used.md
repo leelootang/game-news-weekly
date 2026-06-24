@@ -38,6 +38,9 @@
 - 《三角洲行动》全面战场国际邀请赛扩至全球八队，中国自研 FPS 跑通海外赛事链路 - S0058
 - 《Neverness to Everness》两个月手游流水达 4210 万美元，日本贡献最高 - S0082
 - 叠纸用 48 秒 PV 推出《恋与深空》新男主，头部乙游再做长线变量 - S0049
+- Valve 公布 Steam Machine 定价超千美元，同步进一步开放 SteamOS - S0067, S0025, S0002
+- 腾讯被曝考虑退出 Marvelous 等日本工作室股权，称游戏仍是核心业务 - S0037, S0072, S0106
+- EA 被曝再启裁员，主要波及招聘、客服、信任安全与 IT 等支持岗 - S0031, S0070, S0090
 
 ### 二、AI 新闻
 
@@ -80,12 +83,18 @@
 - S0183 | bbs.nga.cn | [英雄互娱] 二重螺旋新版本强推社交、强势回收掉率书，竞争型联机利好工作室与外挂，连续自刎归天 | https://bbs.nga.cn/read.php?tid=47010345&forder_by=postdatedesc
 - S0190 | bbs.nga.cn | [腾讯] [洛克王国]对于离谱的生蛋机制，小洛克们表示"有家不能回"(6.20更新，官方把生蛋时间代码删掉了) | https://bbs.nga.cn/read.php?tid=47003276&_fp=2&forder_by=postdatedesc
 - S0195 | thegamebusiness.com | Fans were so angry about a Command & Conquer mobile game that it changed EA | https://www.thegamebusiness.com/p/fans-were-so-angry-about-a-command
+- S0067 | gamesindustry.biz | Valve's Steam Machine price starts at $1049 / £879; original pricing "no longer viable" due to hardware supply issues | https://www.gamesindustry.biz/valves-steam-machine-price-starts-at-1049-879-original-pricing-no-longer-viable-due-to-hardware-supply-issues
+- S0025 | gcores.com | V社进一步开放SteamOS，官方解释硬件产品定价逻辑 | https://www.gcores.com/articles/216244
+- S0002 | gcores.com | Valve 正式公布 Steam Machine 价格与首批出货时间 | https://www.gcores.com/articles/216243
+- S0037 | gcores.com | 据彭博社报道，腾讯正计划退出对 Marvelous 等少数股权投资 | https://www.gcores.com/articles/216278
+- S0072 | gamesindustry.biz | Report: Tencent plans to exit investments in Japanese studios like Story of Seasons developer Marvelous | https://www.gamesindustry.biz/report-tencent-plans-to-exit-investments-in-japanese-studios-like-story-of-seasons-developer-marvelous
+- S0106 | videogameschronicle.com | Tencent is reportedly in talks to sell its shares in some Japanese studios, even if that means taking a loss | https://www.videogameschronicle.com/news/tencent-is-reportedly-in-talks-to-sell-its-shares-in-some-japanese-studios-even-if-that-means-taking-a-loss/
+- S0031 | gcores.com | EA 被曝再次裁员，涉及招聘、客服、安全与 IT 团队 | https://www.gcores.com/articles/216249
+- S0070 | gamesindustry.biz | EA is reportedly laying off recruitment, customer support, safety, and IT staff | https://www.gamesindustry.biz/ea-is-reportedly-laying-off-recruitment-customer-support-safety-and-it-staff
+- S0090 | gamedeveloper.com | Report: EA conducts layoffs in Hyderabad, India and the US | https://www.gamedeveloper.com/business/report-ea-conducts-layoffs-in-hyderabad-india-and-the-us
 
 ## Notable Exclusions
 
-- Steam Machine 定价与 SteamOS 开放（S0002, S0025, S0036, S0067, S0071, S0091, S0099）：多源覆盖充分，但偏海外硬件，不如本日国内主体新闻直接。
-- 腾讯拟退出部分日本工作室投资（S0037, S0072, S0093, S0106）：资本信号有效，但迁移点弱于灵犀出售、国内新品与组织动作。
-- EA 再次裁员（S0031, S0070, S0076, S0090）：海外组织新闻成立，但优先级低于本窗口国内产品、资本与赛道线索。
 - AppsFlyer 获逾 10 亿美元投资（S0075, S0095）：偏广告技术生态，未进入正文。
 - 不休的勇士多源上线（S0129, S0138, S0143）：多源日历只证明事件存在，主体与节点分量不足。
 - 《尘白禁区》延期引发社区“欢呼胜利”（S0180）：热度高但更像圈层内情绪与梗，不如机制争议类事件清晰。
