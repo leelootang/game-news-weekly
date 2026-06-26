@@ -103,12 +103,12 @@ GameDiscoverCo 的通讯复盘了 2026 年 6 月 Steam 新品节（Next Fest）"
 
 | Rank | 标记 | Name | 价格 | 好评率 | 上线 | 销量 | 营收 |
 | ---: | --- | --- | --- | --- | --- | ---: | ---: |
-| 1 | ★ 近期新品 | **[MECCHA CHAMELEON](https://store.steampowered.com/app/4704690/)** | $5.99 | 84% | 2026-06-10 | 783.2万 | $3662.4万 |
-| 2 |  | [Counter-Strike 2](https://store.steampowered.com/app/730/) | 免费 | 86% | 2012-08-21 | 3.50亿 | $120.80亿 |
-| 3 |  | [Dead by Daylight](https://store.steampowered.com/app/381210/) | $19.99 | 79% | 2016-06-14 | 1903.9万 | $1.81亿 |
-| 4 |  | [Marvel Rivals](https://store.steampowered.com/app/2767030/) | 免费 | 76% | 2024-12-05 | 2627.7万 | $4.10亿 |
-| 5 |  | [Warhammer 40,000: Darktide](https://store.steampowered.com/app/1361210/) | $39.99 | 71% | 2022-11-30 | 353.2万 | $7969.4万 |
-| 6 |  | [Cyberpunk 2077](https://store.steampowered.com/app/1091500/) | $59.99 | 87% | 2020-12-09 | 2339.2万 | $7.32亿 |
-| 7 |  | [The Binding of Isaac: Rebirth](https://store.steampowered.com/app/250900/) | $14.99 | 97% | 2014-11-04 | 902.2万 | $8030.4万 |
-| 8 |  | [Baldur's Gate 3](https://store.steampowered.com/app/1086940/) | $59.99 | 97% | 2023-08-03 | 1618.1万 | $7.65亿 |
-| 9 |  | [DELTARUNE](https://store.steampowered.com/app/1671210/) | $24.99 | 98% | 2025-06-04 | 162.1万 | $3562.0万 |
+| 1 | ★ 近期新品 | **MECCHA CHAMELEON** | $5.99 | 84% | 2026-06-10 | 783.2万 | $3662.4万 |
+| 2 |  | Counter-Strike 2 | 免费 | 86% | 2012-08-21 | 3.50亿 | $120.80亿 |
+| 3 |  | Dead by Daylight | $19.99 | 79% | 2016-06-14 | 1903.9万 | $1.81亿 |
+| 4 |  | Marvel Rivals | 免费 | 76% | 2024-12-05 | 2627.7万 | $4.10亿 |
+| 5 |  | Warhammer 40,000: Darktide | $39.99 | 71% | 2022-11-30 | 353.2万 | $7969.4万 |
+| 6 |  | Cyberpunk 2077 | $59.99 | 87% | 2020-12-09 | 2339.2万 | $7.32亿 |
+| 7 |  | The Binding of Isaac: Rebirth | $14.99 | 97% | 2014-11-04 | 902.2万 | $8030.4万 |
+| 8 |  | Baldur's Gate 3 | $59.99 | 97% | 2023-08-03 | 1618.1万 | $7.65亿 |
+| 9 |  | DELTARUNE | $24.99 | 98% | 2025-06-04 | 162.1万 | $3562.0万 |
