@@ -117,6 +117,26 @@ if ($LASTEXITCODE -ne 0) {
     Write-Host "[scheduled] collector runner exited with code $LASTEXITCODE; continuing to index and push collected data."
 }
 
+# 周五:在日榜快照之外,额外抓一次官方 Steam 周榜(IStoreTopSellersService/GetWeeklyTopSellers,
+# 周二重置的最近定稿周),供当天 9 点周报生成优先使用。日榜数据照常保留、各存各的。
+# 周榜窗口对齐周报 ID:start = 今天-7(上周五),end = 今天-1(本周四),
+# 多日窗口会让 steamdb_rankings 走 periodic 模式抓官方周榜。
+if ((Get-Date).DayOfWeek -eq [System.DayOfWeek]::Friday) {
+    if ($gamalyticKey) {
+        $weekStart = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+        $weekEnd = (Get-Date).AddDays(-1).ToString("yyyy-MM-dd")
+        Write-Host "[scheduled] Friday: collecting official Steam weekly chart $weekStart..$weekEnd"
+        & $PythonExe "run_daily_collectors.py" "--collectors" "steamdb_rankings" "--since" $weekStart "--until" $weekEnd "--workers" "1" "--no-progress"
+        if ($LASTEXITCODE -ne 0) {
+            $collectorFailed = $true
+            Write-Host "[scheduled] weekly steam collector exited with code $LASTEXITCODE; continuing to index and push collected data."
+        }
+    }
+    else {
+        Write-Host "[scheduled] Friday weekly Steam chart skipped: GAMALYTIC_API_KEY not found."
+    }
+}
+
 Invoke-Checked $PythonExe @("scripts/build_article_indexes.py")
 
 Invoke-Checked "git" @("add", "news_data")
