@@ -110,6 +110,18 @@ def active_subscribers() -> list[dict[str, Any]]:
     return [row for row in data["subscribers"] if row.get("subscribed") and row.get("open_id")]
 
 
+def mark_subscriber_pushed(open_id: str, date: str) -> None:
+    """Record that `open_id` already received `date`'s report so a same-day
+    re-subscribe is not mistaken for a new subscriber and backfilled twice."""
+    data = load_subscribers()
+    row = next((r for r in data["subscribers"] if r.get("open_id") == open_id), None)
+    if row is None:
+        return
+    row["last_pushed_date"] = date
+    row["updated_at"] = utc_now_iso()
+    write_json(SUBSCRIBERS_PATH, data)
+
+
 class FeishuAPIError(RuntimeError):
     pass
 
@@ -296,13 +308,37 @@ class FeishuClient:
         )
 
 
+_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_RANGE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_to_\d{4}-\d{2}-\d{2}$")
+
+# kind -> reader-facing noun used in card labels / fallback titles.
+REPORT_NOUN = {"daily": "日报", "weekly": "周报", "weekend": "周末报", "monthly": "月报"}
+
+
+def resolve_report(identifier: str) -> tuple[str, Path, Path]:
+    """Locate a report by its identifier and return (kind, report_dir, md_path).
+
+    A single date (`YYYY-MM-DD`) is a daily report; a range
+    (`<start>_to_<end>`) is a weekly / weekend / monthly report — we pick the
+    kind by which folder actually holds the markdown."""
+    if _DATE_RE.match(identifier):
+        report_dir = ROOT / "output" / "daily" / identifier
+        return "daily", report_dir, report_dir / f"game_industry_daily_{identifier}.md"
+    if _RANGE_RE.match(identifier):
+        for kind in ("weekly", "weekend", "monthly"):
+            report_dir = ROOT / "output" / kind / identifier
+            md_path = report_dir / f"game_industry_{kind}_{identifier}.md"
+            if md_path.exists():
+                return kind, report_dir, md_path
+        # Nothing on disk yet: point at the weekly path so errors are legible.
+        report_dir = ROOT / "output" / "weekly" / identifier
+        return "weekly", report_dir, report_dir / f"game_industry_weekly_{identifier}.md"
+    raise ValueError(f"Unrecognized report identifier: {identifier!r}")
+
+
 def report_paths(date: str) -> tuple[Path, Path, Path]:
-    report_dir = ROOT / "output" / "daily" / date
-    return (
-        report_dir / f"game_industry_daily_{date}.md",
-        report_dir / "report_page_data.json",
-        report_dir,
-    )
+    _, report_dir, md_path = resolve_report(date)
+    return md_path, report_dir / "report_page_data.json", report_dir
 
 
 def _strip_item_number(text: str) -> str:
@@ -387,22 +423,26 @@ def _sections_from_json(data: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def load_report_summary(date: str, max_items: int | None = None) -> dict[str, Any]:
-    markdown_path, data_path, report_dir = report_paths(date)
+    kind, report_dir, markdown_path = resolve_report(date)
+    data_path = report_dir / "report_page_data.json"
+    noun = REPORT_NOUN.get(kind, "日报")
     if not report_dir.exists():
-        raise FileNotFoundError(f"Daily report folder not found: {report_dir}")
+        raise FileNotFoundError(f"Report folder not found: {report_dir}")
     if markdown_path.exists():
         text = markdown_path.read_text(encoding="utf-8")
         sections = _parse_markdown_sections(text)
         title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
-        title = title_match.group(1).strip() if title_match else f"游戏行业日报 | {date}"
+        title = title_match.group(1).strip() if title_match else f"游戏行业{noun} | {date}"
     elif data_path.exists():
         data = json.loads(data_path.read_text(encoding="utf-8"))
         sections = _sections_from_json(data)
-        title = data.get("title") or f"游戏行业日报 | {date}"
+        title = data.get("title") or f"游戏行业{noun} | {date}"
     else:
-        raise FileNotFoundError(f"Daily report markdown not found: {markdown_path}")
+        raise FileNotFoundError(f"Report markdown not found: {markdown_path}")
     return {
         "date": date,
+        "kind": kind,
+        "noun": noun,
         "title": title,
         "sections": sections,
         "item_count": sum(len(s["items"]) for s in sections),
@@ -452,6 +492,8 @@ def build_docx_markdown(date: str) -> Path:
     kind = "daily"
     if "_weekly_" in md_path.name:
         kind = "weekly"
+    elif "_weekend_" in md_path.name:
+        kind = "weekend"
     elif "_monthly_" in md_path.name:
         kind = "monthly"
     rank_label = brh.RANK_LABEL.get(kind, "steam榜单")
@@ -610,6 +652,7 @@ def _emphasize(line: str) -> str:
 def build_daily_card(
     summary: dict[str, Any], doc_url: str | None = None, per_section: int = 6
 ) -> dict[str, Any]:
+    noun = summary.get("noun", "日报")
     weekday = _weekday_label(summary["date"])
     header_title = f"🤖 {summary['title']}"
     if weekday:
@@ -637,7 +680,7 @@ def build_daily_card(
                 "actions": [
                     {
                         "tag": "button",
-                        "text": {"tag": "plain_text", "content": "📄 查看完整日报"},
+                        "text": {"tag": "plain_text", "content": f"📄 查看完整{noun}"},
                         "type": "primary",
                         "url": doc_url,
                     }
@@ -647,7 +690,7 @@ def build_daily_card(
     elements.append(
         {
             "tag": "note",
-            "elements": [{"tag": "plain_text", "content": "AI 自动整理 · 每条详情见完整日报"}],
+            "elements": [{"tag": "plain_text", "content": f"AI 自动整理 · 每条详情见完整{noun}"}],
         }
     )
 
@@ -670,7 +713,12 @@ def content_hash(path: Path) -> str:
 
 
 def add_date_arg(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--date", required=True, help="Daily report date, e.g. 2026-06-23.")
+    parser.add_argument(
+        "--date",
+        required=True,
+        help="Report identifier: a date for daily (2026-06-23) or a range for "
+        "weekly/weekend (2026-06-20_to_2026-06-26).",
+    )
 
 
 def main_check_config() -> int:

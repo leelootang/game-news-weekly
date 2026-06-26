@@ -1,7 +1,7 @@
 """
 Build docs/ for GitHub Pages.
 
-Scans output/daily/*/interactive_report.html (and weekly/monthly when present),
+Scans output/daily/*/interactive_report.html (and weekend/weekly/monthly when present),
 copies them to docs/ with the logo inlined, and generates a portal index page.
 """
 
@@ -244,6 +244,7 @@ def changelog_html(entries: list[dict]) -> str:
 
 def build_index(reports: list[dict], all_items: list[dict], changelog_entries: list[dict]) -> str:
     daily   = [r for r in reports if r["type"] == "daily"]
+    weekend = [r for r in reports if r["type"] == "weekend"]
     weekly  = [r for r in reports if r["type"] == "weekly"]
     monthly = [r for r in reports if r["type"] == "monthly"]
 
@@ -254,15 +255,15 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
 
     def report_card(r: dict) -> str:
         d = r["date"]
-        if r["type"] == "weekly":
+        if r["type"] in {"weekend", "weekly"}:
             parts = d.split("_to_")
             date_label = f"{format_date(parts[0])} — {format_date(parts[1])}" if len(parts) == 2 else d
         elif r["type"] == "monthly":
             date_label = d
         else:
             date_label = format_date_long(d)
-        type_labels = {"daily": "日报", "weekly": "周报", "monthly": "月报"}
-        type_colors = {"daily": "#4f7cff", "weekly": "#8b6df0", "monthly": "#16b884"}
+        type_labels = {"daily": "日报", "weekend": "周末报", "weekly": "周报", "monthly": "月报"}
+        type_colors = {"daily": "#4f7cff", "weekend": "#00a78e", "weekly": "#8b6df0", "monthly": "#16b884"}
         bc = type_colors.get(r["type"], "#4f7cff")
         bl = type_labels.get(r["type"], "报告")
         pills = section_pills_html(r["counts"])
@@ -278,6 +279,7 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
 
     all_rcards    = "\n".join(report_card(r) for r in reports) if reports else '<p class="empty-msg">暂无报告</p>'
     daily_rcards  = "\n".join(report_card(r) for r in daily)   if daily   else '<p class="empty-msg">暂无日报</p>'
+    weekend_rcards= "\n".join(report_card(r) for r in weekend) if weekend else '<p class="empty-msg">暂无周末报</p>'
     weekly_rcards = "\n".join(report_card(r) for r in weekly)  if weekly  else '<p class="empty-msg">暂无周报</p>'
     monthly_rcards= "\n".join(report_card(r) for r in monthly) if monthly else '<p class="empty-msg">暂无月报</p>'
     changelog_view = changelog_html(changelog_entries)
@@ -592,12 +594,13 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
 
   <div class="view" id="view-reports">
     <div class="reports-hd">
-      <h2>日报 · 周报 · 月报</h2>
+      <h2>日报 · 周末报 · 周报 · 月报</h2>
       <p>点击卡片查看完整可交互报告</p>
     </div>
     <div class="rtabs">
       <button class="rtab active" data-rtype="all">全部</button>
       <button class="rtab" data-rtype="daily">日报</button>
+      <button class="rtab" data-rtype="weekend">周末报</button>
       <button class="rtab" data-rtype="weekly">周报</button>
       <button class="rtab" data-rtype="monthly">月报</button>
     </div>
@@ -842,6 +845,7 @@ renderFeed();
 const cardSets = {{
   all: `{all_rcards}`,
   daily: `{daily_rcards}`,
+  weekend: `{weekend_rcards}`,
   weekly: `{weekly_rcards}`,
   monthly: `{monthly_rcards}`
 }};
@@ -880,6 +884,17 @@ def build_docs() -> None:
         all_items.extend(items)
         reports.append({"type": "daily", "date": date_str, "url": report_url, "total": total, "counts": counts})
         print(f"  daily/{date_str}  ({total} items, {len(items)} in feed)")
+
+    for folder in sorted((OUTPUT / "weekend").glob("*/"), reverse=True):
+        html_path = find_report_html(folder, "weekend")
+        if not html_path:
+            continue
+        name = folder.name
+        report_url = f"weekend/{name}/"
+        copy_report(html_path, DOCS / "weekend" / name)
+        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
+        reports.append({"type": "weekend", "date": name, "url": report_url, "total": total, "counts": counts})
+        print(f"  weekend/{name}  ({total} items)")
 
     for folder in sorted((OUTPUT / "weekly").glob("*/"), reverse=True):
         html_path = find_report_html(folder, "weekly")

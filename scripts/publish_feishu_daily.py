@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from feishu_common import (
@@ -15,6 +16,7 @@ from feishu_common import (
     content_hash,
     load_dotenv,
     load_report_summary,
+    mark_subscriber_pushed,
     read_json,
     report_paths,
     utc_now_iso,
@@ -33,6 +35,28 @@ def existing_doc_for_date(date: str) -> dict[str, str] | None:
     return None
 
 
+def latest_broadcast_today() -> tuple[str, dict] | None:
+    """Find the report broadcast to subscribers today (any kind: daily / weekly /
+    weekend) by scanning publish logs for one whose published_at falls on today's
+    local date. Returns (identifier, log) for the most recent, or None when no
+    broadcast has happened yet today. Used to catch up late subscribers with
+    exactly the report everyone else received today, not a guessed date."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    best: tuple[str, dict] | None = None
+    for log_path in PUBLISH_LOG_DIR.glob("daily_*.json"):
+        log = read_json(log_path, None)
+        if not isinstance(log, dict) or not log.get("doc_url"):
+            continue
+        if (log.get("published_at") or "")[:10] != today:
+            continue
+        identifier = log.get("date")
+        if not identifier:
+            continue
+        if best is None or (log.get("published_at") or "") > (best[1].get("published_at") or ""):
+            best = (identifier, log)
+    return best
+
+
 def resolve_doc_url(date: str, explicit: str | None) -> str | None:
     if explicit:
         return explicit
@@ -48,7 +72,7 @@ def create_daily_doc(
     markdown_path = Path(summary["markdown_path"])
     if not markdown_path.exists():
         raise FileNotFoundError(f"Daily report markdown not found: {markdown_path}")
-    doc_name = summary.get("title") or f"游戏行业日报 {date}"
+    doc_name = summary.get("title") or f"游戏行业{summary.get('noun', '日报')} {date}"
     import_path = build_docx_markdown(date)
     file_token = client.upload_import_media(import_path, import_path.name)
     ticket = client.create_import_task(file_token, doc_name, folder_token)
@@ -61,6 +85,32 @@ def resolve_folder_token(explicit: str | None) -> str | None:
     if explicit:
         return explicit
     return os.environ.get("FEISHU_DAILY_FOLDER_TOKEN", "").strip() or None
+
+
+def backfill_one(
+    client: FeishuClient, open_id: str, date: str | None = None, *, max_items: int = 6
+) -> str | None:
+    """Send a single subscriber the card+doc for `date` (default: today),
+    reusing the docx already created for that date. Used to immediately catch up
+    a subscriber who joined after the daily broadcast. Raises FileNotFoundError
+    when the report for the date has not been generated yet. Marks the
+    subscriber pushed and returns the doc_url used (may be None)."""
+    load_dotenv()
+    date = date or datetime.now().strftime("%Y-%m-%d")
+    summary = load_report_summary(date)
+    existing = existing_doc_for_date(date)
+    if existing:
+        doc_url = existing["url"]
+    else:
+        folder_token = resolve_folder_token(None)
+        if folder_token:
+            doc_url = create_daily_doc(client, date, summary, folder_token)["url"]
+        else:
+            doc_url = resolve_doc_url(date, None)
+    card = build_daily_card(summary, doc_url=doc_url, per_section=max_items)
+    client.send_interactive_card(open_id, card)
+    mark_subscriber_pushed(open_id, date)
+    return doc_url
 
 
 def publish(args: argparse.Namespace) -> int:
@@ -120,6 +170,11 @@ def publish(args: argparse.Namespace) -> int:
         except Exception as exc:
             results.append({"open_id": open_id, "ok": False, "error": str(exc)})
             print(f"[failed] {open_id}: {exc}")
+
+    if not args.to_open_id:
+        for row in results:
+            if row["ok"]:
+                mark_subscriber_pushed(row["open_id"], args.date)
 
     log = {
         "date": args.date,

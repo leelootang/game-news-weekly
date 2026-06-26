@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime
 from typing import Any
 
 from feishu_common import FeishuClient, load_dotenv, upsert_subscriber
@@ -9,7 +10,9 @@ from feishu_common import FeishuClient, load_dotenv, upsert_subscriber
 
 SUBSCRIBE_WORDS = {"订阅", "订阅日报", "开始订阅", "subscribe"}
 UNSUBSCRIBE_WORDS = {"退订", "退订日报", "取消订阅", "unsubscribe", "stop"}
-HELP_TEXT = "发送“订阅日报”即可每天收到游戏行业日报；发送“退订日报”可取消。"
+HELP_TEXT = "发送“订阅日报”即可收到游戏行业报告（工作日：日报 / 周五：周报 / 周一：周末报）；发送“退订日报”可取消。"
+# 报告在 11 点群发；之后新订阅者已错过群发，立即给他补发今天群发的那份报告。
+BACKFILL_AFTER_HOUR = 11
 
 
 def _attr(obj: Any, name: str, default: Any = None) -> Any:
@@ -40,6 +43,33 @@ def _message_text(message: Any) -> str:
     return ""
 
 
+def _maybe_backfill_today(client: FeishuClient, open_id: str, prev_pushed_date: str | None) -> None:
+    """After 11:00 local time, immediately send a freshly-subscribed user the report
+    that was broadcast today — whichever kind it was (daily / weekly / weekend) —
+    reusing the same docx everyone else got. Skips silently if it's still early,
+    if nothing has been broadcast yet today, or if the user already got it."""
+    now = datetime.now()
+    if now.hour < BACKFILL_AFTER_HOUR:
+        return
+    try:
+        from publish_feishu_daily import backfill_one, latest_broadcast_today
+
+        broadcast = latest_broadcast_today()
+        if broadcast is None:
+            print("[feishu] backfill skipped: no broadcast yet today")
+            return
+        identifier, _log = broadcast
+        if prev_pushed_date == identifier:
+            return
+        backfill_one(client, open_id, identifier)
+    except FileNotFoundError:
+        print("[feishu] backfill skipped: today's report folder missing")
+    except Exception as exc:  # never let a backfill failure break the listener
+        print(f"[feishu] backfill failed open_id={open_id}: {exc}")
+    else:
+        print(f"[feishu] backfilled {identifier} report to new subscriber open_id={open_id}")
+
+
 def handle_message_event(data: Any) -> None:
     event = _attr(data, "event", data)
     message = _attr(event, "message", {})
@@ -54,9 +84,13 @@ def handle_message_event(data: Any) -> None:
     client = FeishuClient.from_env()
     normalized = text.lower()
     if normalized in SUBSCRIBE_WORDS:
-        upsert_subscriber(open_id=open_id, user_id=ids["user_id"], union_id=ids["union_id"], subscribed=True)
+        record = upsert_subscriber(
+            open_id=open_id, user_id=ids["user_id"], union_id=ids["union_id"], subscribed=True
+        )
+        prev_pushed_date = record.get("last_pushed_date")
         client.send_text(open_id, "已订阅游戏行业日报。每天日报生成后，我会私聊推送卡片和完整文档链接。")
         print(f"[feishu] subscribed open_id={open_id}")
+        _maybe_backfill_today(client, open_id, prev_pushed_date)
     elif normalized in UNSUBSCRIBE_WORDS:
         upsert_subscriber(open_id=open_id, user_id=ids["user_id"], union_id=ids["union_id"], subscribed=False)
         client.send_text(open_id, "已退订游戏行业日报。之后不会再主动推送。")

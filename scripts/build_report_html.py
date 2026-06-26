@@ -26,6 +26,7 @@ TEMPLATE = Path(__file__).resolve().parent / "report_template.html"
 
 SECTION_DESCS = {
     "rankings": {"daily": "Steam 全球热销榜 TOP10 与近期新品。",
+                 "weekend": "Steam 全球热销榜 TOP10 与近期新品。",
                  "weekly": "Steam 官方周销量榜 TOP15 与本周新上榜。",
                  "monthly": "Steam 月度热销榜与本月新上榜。"},
     "industry": "公司、产品、市场与资本动作。",
@@ -34,9 +35,14 @@ SECTION_DESCS = {
     "discourse": "社区热点、争议与玩家情绪。",
     "deep": "值得内部团队继续跟踪的结构性变化。",
 }
-RANK_LABEL = {"daily": "steam当日榜单", "weekly": "steam周榜", "monthly": "steam月榜"}
-KIND_CN = {"daily": "日报", "weekly": "周报", "monthly": "月报"}
-BRAND_SUB = {"daily": "AI 生成 · 每日更新", "weekly": "AI 生成 · 每周更新", "monthly": "AI 生成 · 每月更新"}
+RANK_LABEL = {"daily": "steam当日榜单", "weekend": "steam当日榜单", "weekly": "steam周榜", "monthly": "steam月榜"}
+KIND_CN = {"daily": "日报", "weekend": "周末报", "weekly": "周报", "monthly": "月报"}
+BRAND_SUB = {
+    "daily": "AI 生成 · 每日更新",
+    "weekend": "AI 生成 · 周末更新",
+    "weekly": "AI 生成 · 每周更新",
+    "monthly": "AI 生成 · 每月更新",
+}
 
 
 # --- meta tag derivation --------------------------------------------------
@@ -127,6 +133,10 @@ def parse_meta(md_path: Path):
     if m:
         d = m.group(2)
         return "daily", d, d, f"{d}", f"游戏行业日报 | {d}"
+    m = re.match(r"game_industry_(weekend)_(\d{4}-\d{2}-\d{2})_to_(\d{4}-\d{2}-\d{2})\.md$", name)
+    if m:
+        s, e = m.group(2), m.group(3)
+        return "weekend", s, e, f"{s} ~ {e}", f"游戏行业周末报 | {s} ~ {e}"
     m = re.match(r"game_industry_(weekly)_(\d{4}-\d{2}-\d{2})_to_(\d{4}-\d{2}-\d{2})\.md$", name)
     if m:
         s, e = m.group(2), m.group(3)
@@ -263,7 +273,7 @@ def parse_report(md: str, kind: str, title_ids, id_meta):
                         break
             if not srcs:
                 srcs = [["steam", "Steam 官方热销榜（+ Gamalytic 估算）", "https://store.steampowered.com/charts/topselling/global"]]
-            rank_meta = {"daily": ["Steam 当日榜", "TOP10"], "weekly": ["Steam 周榜", "TOP15"],
+            rank_meta = {"daily": ["Steam 当日榜", "TOP10"], "weekend": ["Steam 当日榜", "TOP10"], "weekly": ["Steam 周榜", "TOP15"],
                          "monthly": ["Steam 月榜", "TOP15"]}.get(kind, ["Steam 榜单"])
             items.append({"section": "rankings", "title": title, "body": title, "body_html": body_html,
                           "meta": rank_meta, "sources": srcs})
