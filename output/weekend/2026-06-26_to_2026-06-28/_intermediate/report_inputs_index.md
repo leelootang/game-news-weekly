@@ -1,0 +1,446 @@
+# Report Inputs Index｜2026-06-26 至 2026-06-28
+
+- 记录总数：413
+
+## pc_rankings（3 条）
+
+来源域名分布：store.steampowered.com×3
+
+- S0001 | 2026-06-26 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-26 日报 · 采集于 2026-06-27）
+- S0252 | 2026-06-27 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-27 日报 · 采集于 2026-06-28）
+- S0356 | 2026-06-28 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-28 日报 · 采集于 2026-06-29）
+
+## industry_news（150 条）
+
+来源域名分布：gcores.com×71, youxichaguan.com×15, pocketgamer.biz×10, videogameschronicle.com×9, m.sohu.com×8, gamesindustry.biz×8, gamelook.com.cn×7, gamedeveloper.com×6, youxituoluo.com×5, cgames.com×4, yystv.net×3, mobilegamer.biz×2, new.qq.com×1, 36kr.com×1
+
+- S0002 | 2026-06-26 | gcores.com | 《天国：拯救 2》发布 1.5.6 更新，新增支线任务“小丑来访”
+- S0003 | 2026-06-26 | gcores.com | Xbox 官方宣布将于 8 月起全球涨价，512GB 型号涨 100 美元，1TB 型号涨 150 美元
+- S0004 | 2026-06-26 | gcores.com | 索尼宣布Bungie大裁员，绝大多数《命运》开发者受波及
+- S0005 | 2026-06-26 | gcores.com | Sony 确认日本专属 PS5 目前亏损销售，售价低于 Switch 2
+- S0006 | 2026-06-26 | gcores.com | Xbox 大规模裁员拉开序幕，《午夜之南》开发商多名员工确认被解雇
+- S0007 | 2026-06-26 | gcores.com | 【抽奖】学院魅魔新角色！休闲肉鸽《奥术扳机》新版本现已更新
+- S0008 | 2026-06-26 | gcores.com | 【抽奖】《TEVI: Fauna Arcana》DLC今日正式登陆Steam平台
+- S0009 | 2026-06-26 | gcores.com | 多家零售商下架《GTA 6》实体版，因确认实体版为盒内兑换码
+- S0010 | 2026-06-26 | gcores.com | 任天堂新研发基地正式定名“本社第二开发栋”，2029年3月竣工
+- S0011 | 2026-06-26 | gcores.com | 【抽奖】极简风空管模拟游戏《迷你空管》现已登录 Nintendo Switch 平台
+- S0012 | 2026-06-26 | gcores.com | 像素动作 RPG《巨像：蚀世之灾》将于7月22 日开启Steam抢先体验
+- S0013 | 2026-06-26 | gcores.com | 《电车炫客》将于7月15日正式发售，在疾驰轨道上展开冒险
+- S0014 | 2026-06-26 | gcores.com | 《海贼王》重制版动画《THE ONE PIECE》先导预告公开
+- S0015 | 2026-06-26 | gcores.com | 动画《赛博朋克：边缘行者 2》将于6月29日公布新情报
+- S0016 | 2026-06-26 | gcores.com | 前 Xbox 员工警告称裁员可能被用作报复手段
+- S0017 | 2026-06-26 | gcores.com | 为竞技而生 | 八位堂天刃星 Pro 正式发布
+- S0018 | 2026-06-26 | gcores.com | AI披露导致Steam游戏销量跌超50%，游戏调研公司警告「灾难性」后果
+- S0019 | 2026-06-26 | gcores.com | 《索尼克赛车 交叉世界》现已追加中文语音
+- S0020 | 2026-06-26 | gcores.com | 倾听玩家意见：Owlcat紧急撤回游戏启动器更新
+- S0021 | 2026-06-26 | gcores.com | 《孩之宝游戏少儿系列》正式官宣，确认登陆Steam及主机平台
+- S0022 | 2026-06-26 | gcores.com | Capcom Spotlight 2026 汇总：《龙之信条2：黑暗觉者》《怪物猎人物语3》《鬼武者：剑之道》新情报公开
+- S0023 | 2026-06-26 | gcores.com | 苹果宣布上调多款Mac、iPad及HomePod价格
+- S0024 | 2026-06-26 | gcores.com | 《刺客信条：黑旗 记忆重置》全球首次直播，即将在深圳核聚变扬帆启航！
+- S0025 | 2026-06-26 | gcores.com | 夏促史低3折！咪咕游戏《波斯王子：失落的王冠》国行限时低价来袭
+- S0026 | 2026-06-26 | gcores.com | 《赛车经理2》正式公布，将于2027年正式发售
+- S0027 | 2026-06-26 | gcores.com | Epic喜加一：价值76元《星穹遗迹》免费领
+- S0028 | 2026-06-26 | gcores.com | 大世界动作冒险RPG《白银之城》「二分法测试」招募正式开启
+- S0029 | 2026-06-26 | gcores.com | 纪念30周年，《生化危机》首个大型展览10月30日开展
+- S0030 | 2026-06-26 | gcores.com | Valve 修改 Steam Machine 页面，删除对 60fps 的承诺
+- S0031 | 2026-06-26 | gcores.com | 2026年第二十三届ChinaJoy定档7月31日“与AI同游”引领全球数字娱乐新风向
+- S0032 | 2026-06-26 | gcores.com | 诺兰史诗大片《奥德赛》定档8月14日
+- S0033 | 2026-06-26 | gcores.com | 《女神异闻录 3 Reload》全球累计销量突破 300 万，Steam促销同步开启
+- S0034 | 2026-06-26 | gcores.com | 《雪地奔驰》第18季“修复与动力”将带你深入墨西哥热带丛林！
+- S0035 | 2026-06-26 | gcores.com | DC巨制《超级少女》今日上映 高燃星际冒险席卷暑期大银幕
+- S0036 | 2026-06-26 | gcores.com | 突破 600 万！《天国：拯救Ⅱ》全球销量破 600 万份
+- S0037 | 2026-06-26 | gcores.com | 《罗密欧是个绝命侠》迎来首次大型更新，带来《火线迈阿密》联动及更多内容
+- S0038 | 2026-06-26 | gcores.com | Daedalic开启Steam夏季超值特卖，《谢尔曼指挥官》同步迎来大型免费更新
+- S0039 | 2026-06-26 | gcores.com | 新史低25.2元！模拟经营《喵喵茶餐厅》Steam夏促开启限时六折优惠
+- S0040 | 2026-06-26 | gcores.com | 《神之亵渎2》《人间地狱》《堕落之主》等热门作品迎来史低！Steam 夏季特卖 2026 精选游戏推荐
+- S0041 | 2026-06-26 | gcores.com | 世界级造型娱乐节目《NEXT LEVEL SHOWCASE XVIII》公开
+- S0042 | 2026-06-26 | gcores.com | 免费MMORPG《宝藏世界》Steam 夏季特卖开启，精选礼包限时最高六折！
+- S0043 | 2026-06-26 | gcores.com | 随时随地舒服一下，治愈系小岛生活模拟《舒舒服服小岛时光》TapTap预约开启！
+- S0044 | 2026-06-26 | gcores.com | 国风仙侠单机游戏《猿公剑》公布最新预告片，现已开启预约
+- S0045 | 2026-06-26 | gcores.com | 动作肉鸽独游《梦之形》夏促开启限时史低折扣，手游版预约上线TapTap
+- S0046 | 2026-06-26 | gcores.com | 线下圆桌 | 那些年，中国游戏未做完的梦：《大软》《UCG》机核等 8 位老编辑首度同台
+- S0047 | 2026-06-26 | gamelook.com.cn | 人均“短命”的休闲游戏赛道，跑出了一款稳定运营15年的长青产品？
+- S0048 | 2026-06-26 | gamelook.com.cn | 报告：手游“DTC官网充值”规模超170亿美元，大部分厂商“还没上车”
+- S0049 | 2026-06-26 | gamelook.com.cn | 欧美大厂“主动丑化游戏角色”? 前3A项目美术证实：微软真这么干过！
+- S0050 | 2026-06-26 | gamelook.com.cn | 游戏公司增收！Google Play商店“新分成方案、三方支付”6月30日起生效
+- S0051 | 2026-06-26 | gamelook.com.cn | 9周做的独游、爆赚2个亿？CEO复盘：“灵感来了、火速完成它”！
+- S0052 | 2026-06-26 | gamelook.com.cn | 腾讯费汉城：IAP内购小游戏，如何投放广告实现增长？
+- S0053 | 2026-06-26 | gamelook.com.cn | 《GTA6》预售多疯狂？索尼“全方位力挺”，R星确认“不卖光盘”玩家惊呆
+- S0054 | 2026-06-26 | cgames.com | 刚刚闯入畅销前十，网易“逆子”把自己重做了一遍
+- S0055 | 2026-06-26 | cgames.com | 刚刚，网易官宣将上线今年游戏圈最大的“BUG”
+- S0056 | 2026-06-26 | m.sohu.com | 杭州网易，「再造」杭州
+- S0057 | 2026-06-26 | m.sohu.com | 天美终于掏出了「核武器」
+- S0058 | 2026-06-26 | youxituoluo.com | 百万奖金+50万直投！2026南山创业之星游戏产业赛全面开启招募
+- S0059 | 2026-06-26 | youxituoluo.com | 深圳人速冲！5张核聚变门票免费抢，深圳电竞潮玩盛宴连嗨两周！
+- S0060 | 2026-06-26 | youxituoluo.com | 从《百日战纪》到《仙剑4重制版》：一家美元基金的“非平庸”投资法则
+- S0061 | 2026-06-26 | youxituoluo.com | 全球手游收入TOP10中国占据6席，出海主力正向细分赛道转移
+- S0062 | 2026-06-26 | youxituoluo.com | 5月小游戏观察 | 腾讯情怀大作空降登顶，《永远的蔚蓝星球》冲入前三
+- S0063 | 2026-06-26 | youxichaguan.com | 体验《轮回之兽》两小时以后，我觉得GF是真的会做游戏啊！
+- S0064 | 2026-06-26 | youxichaguan.com | 诡夜长安，百妖奇谈！《长安幻想》3.5周年大服重磅开启！
+- S0065 | 2026-06-26 | youxichaguan.com | 『OCTOPinbs』免费DLC今日起正式上线！Steam夏季特卖开启7折优惠！
+- S0066 | 2026-06-26 | youxichaguan.com | 全球PUBG强队集结PNC2026首尔总决赛，PCL蓄力冲顶历史佳绩
+- S0067 | 2026-06-26 | youxichaguan.com | 版本公测开启！魔域口袋版全新地图/美女直播等你上线！
+- S0068 | 2026-06-26 | youxichaguan.com | DOTA2全新大型活动暗黑狂欢上线！5款机关人身心，15款英雄套装，更有海量免费福利等你解锁
+- S0069 | 2026-06-26 | youxichaguan.com | 随时随地舒服一下，治愈系小岛生活模拟《舒舒服服小岛时光》TapTap预约开启！
+- S0070 | 2026-06-26 | youxichaguan.com | 动作肉鸽独游《梦之形》夏促开启限时史低折扣，手游版预约上线TapTap
+- S0071 | 2026-06-26 | youxichaguan.com | 剑侠再启，江湖重逢｜虎牙×西山居匠心新作《剑侠情缘：重逢》正式启宣
+- S0072 | 2026-06-26 | youxichaguan.com | Steam夏促开启，来2P Games一站式入坑，权谋战棋到修仙肉鸽全都有
+- S0073 | 2026-06-26 | youxichaguan.com | 深入禁区清除感染《轮回保险公司R.I.P》全新版本“天穹堡垒”上线
+- S0074 | 2026-06-26 | yystv.net | 100部好书等着被做成游戏，这可能是出版业和游戏业最近的一次
+- S0075 | 2026-06-26 | yystv.net | 2026年第二十三届ChinaJoy定档7月31日“与AI同游”引领全球数字娱乐新风向
+- S0076 | 2026-06-26 | new.qq.com | 登上畅销榜！4399再战女性向，这款种花新游能成吗
+- S0077 | 2026-06-26 | gamesindustry.biz | "Mission Impossible is high on my list" – how Paramount plans to use co-dev to exploit its archive, while building its own all-new IP
+- S0078 | 2026-06-26 | gamesindustry.biz | Microsoft significantly increases Xbox prices worldwide and withdraws 2TB model citing "components crisis"
+- S0079 | 2026-06-26 | gamesindustry.biz | Sony cuts 292 jobs at Destiny maker Bungie
+- S0080 | 2026-06-26 | gamesindustry.biz | Epic's Sweeney claims Steam AI labels are "really irresponsible of Valve"
+- S0081 | 2026-06-26 | gamesindustry.biz | Italy's 34BigThings spins out from Embracer Group
+- S0082 | 2026-06-26 | gamesindustry.biz | Five things to avoid when marketing your indie game | Opinion
+- S0083 | 2026-06-26 | gamesindustry.biz | Valve can afford a niche, pricey hardware launch; Sony and Microsoft can't | Opinion
+- S0084 | 2026-06-26 | pocketgamer.biz | Clash of Clans brings interactive live experience to San Diego
+- S0085 | 2026-06-26 | pocketgamer.biz | Almedia opens London office to expand data and machine learning team
+- S0086 | 2026-06-26 | pocketgamer.biz | Chinese developers file antitrust complaint against Apple over App Store fees
+- S0087 | 2026-06-26 | pocketgamer.biz | CVC Capital Partners invests in Chess.com to support global growth
+- S0088 | 2026-06-26 | pocketgamer.biz | Apple raises MacBook and iPad prices as AI-driven memory costs climb
+- S0089 | 2026-06-26 | pocketgamer.biz | New release roundup: King of Delivery 2, Daily Match, WWE Generations: Eras Collide, and more
+- S0090 | 2026-06-26 | pocketgamer.biz | Pocket Gamer Connects Summit Shanghai partners with ChinaJoy
+- S0091 | 2026-06-26 | pocketgamer.biz | Supercell's Vladislav Perge on building communities and player trust
+- S0092 | 2026-06-26 | pocketgamer.biz | Rising hardware prices, meaningful inclusion and Pokémon Champions’ early success | Week in Views
+- S0093 | 2026-06-26 | gamedeveloper.com | Microsoft raises price of Xbox consoles once again, sunsets 2TB model
+- S0094 | 2026-06-26 | gamedeveloper.com | VR dev Combat Waffle Studios lays off staff
+- S0095 | 2026-06-26 | gamedeveloper.com | Meccha Chameleon sells 7M copies in first two weeks
+- S0096 | 2026-06-26 | gamedeveloper.com | Steam Machine sticker shock, even more Ubisoft layoffs, and another Xbox price hike - Patch Notes #58
+- S0097 | 2026-06-26 | gamedeveloper.com | Keywords has laid off 128 employees in San Francisco
+- S0098 | 2026-06-26 | gamedeveloper.com | Inside Skybound's video game strategy ft. David 'DA' Alpert and Jon Goldman
+- S0099 | 2026-06-26 | mobilegamer.biz | New game digest: Guild Wars, Zynga’s board game adventure, Scopely’s next game, UFC, The Traitors, more
+- S0100 | 2026-06-26 | mobilegamer.biz | The new studio from two former King execs, Queen Digital Entertainment, has closed
+- S0101 | 2026-06-26 | videogameschronicle.com | Epic Games CEO says it’s ‘really irresponsible’ of Steam to make studios disclose AI use
+- S0102 | 2026-06-26 | videogameschronicle.com | Microsoft is raising the price of Xbox consoles by $100-$150
+- S0103 | 2026-06-26 | videogameschronicle.com | Capcom details Dragon’s Dogma 2: Dark Arisen, including dungeon challenges and new region
+- S0104 | 2026-06-26 | videogameschronicle.com | Capcom drops Monster Hunter Stories 3 story DLC featuring fan-favorite character
+- S0105 | 2026-06-26 | videogameschronicle.com | Retiring Mario and Zelda director Takashi Tezuka clarifies he’ll still be involved at Nintendo
+- S0106 | 2026-06-26 | videogameschronicle.com | Amazon GTA 6 listing mentions unannounced features including ‘Larger map’ and ‘NPC routines’
+- S0107 | 2026-06-26 | videogameschronicle.com | Bungie layoffs revealed to have affected nearly 300 jobs at Destiny 2 maker
+- S0108 | 2026-06-26 | videogameschronicle.com | Podcast: What’s next for Bungie after devastating cuts?
+- S0109 | 2026-06-26 | videogameschronicle.com | Xbox hits worst US sales month on record, PS5 drops 58%, as hardware prices soar
+- S0110 | 2026-06-26 | 36kr.com | 供给暴涨153.4%、收益翻8倍，AI视听出海进入高速扩张期
+- S0253 | 2026-06-27 | gcores.com | 线下圆桌 | 那些年，中国游戏未做完的梦：《大软》《UCG》机核等 8 位老编辑首度同台
+- S0254 | 2026-06-27 | gcores.com | 国风仙侠单机游戏《猿公剑》公布最新预告片，现已开启预约
+- S0255 | 2026-06-27 | gcores.com | 动作肉鸽独游《梦之形》夏促开启限时史低折扣，手游版预约上线TapTap
+- S0256 | 2026-06-27 | gcores.com | Daedalic开启Steam夏季超值特卖，《谢尔曼指挥官》同步迎来大型免费更新
+- S0257 | 2026-06-27 | gcores.com | 新史低25.2元！模拟经营《喵喵茶餐厅》Steam夏促开启限时六折优惠
+- S0258 | 2026-06-27 | gcores.com | 《神之亵渎2》《人间地狱》《堕落之主》等热门作品迎来史低！Steam 夏季特卖 2026 精选游戏推荐
+- S0259 | 2026-06-27 | gcores.com | 世界级造型娱乐节目《NEXT LEVEL SHOWCASE XVIII》公开
+- S0260 | 2026-06-27 | gcores.com | 免费MMORPG《宝藏世界》Steam 夏季特卖开启，精选礼包限时最高六折！
+- S0261 | 2026-06-27 | gcores.com | 随时随地舒服一下，治愈系小岛生活模拟《舒舒服服小岛时光》TapTap预约开启！
+- S0262 | 2026-06-27 | gcores.com | 突破 600 万！《天国：拯救Ⅱ》全球销量破 600 万份
+- S0263 | 2026-06-27 | gcores.com | 《罗密欧是个绝命侠》迎来首次大型更新，带来《火线迈阿密》联动及更多内容
+- S0264 | 2026-06-27 | gcores.com | 2026年第二十三届ChinaJoy定档7月31日“与AI同游”引领全球数字娱乐新风向
+- S0265 | 2026-06-27 | gcores.com | 诺兰史诗大片《奥德赛》定档8月14日
+- S0266 | 2026-06-27 | gcores.com | 《女神异闻录 3 Reload》全球累计销量突破 300 万，Steam促销同步开启
+- S0267 | 2026-06-27 | gcores.com | 《雪地奔驰》第18季“修复与动力”将带你深入墨西哥热带丛林！
+- S0268 | 2026-06-27 | gcores.com | DC巨制《超级少女》今日上映 高燃星际冒险席卷暑期大银幕
+- S0269 | 2026-06-27 | gcores.com | Valve 修改 Steam Machine 页面，删除对 60fps 的承诺
+- S0270 | 2026-06-27 | gcores.com | 大世界动作冒险RPG《白银之城》「二分法测试」招募正式开启
+- S0271 | 2026-06-27 | gcores.com | 纪念30周年，《生化危机》首个大型展览10月30日开展
+- S0272 | 2026-06-27 | gcores.com | 《刺客信条：黑旗 记忆重置》全球首次直播，即将在深圳核聚变扬帆启航！
+- S0273 | 2026-06-27 | gcores.com | 夏促史低3折！咪咕游戏《波斯王子：失落的王冠》国行限时低价来袭
+- S0274 | 2026-06-27 | gcores.com | 《赛车经理2》正式公布，将于2027年正式发售
+- S0275 | 2026-06-27 | gcores.com | Epic喜加一：价值76元《星穹遗迹》免费领
+- S0276 | 2026-06-27 | gcores.com | Capcom Spotlight 2026 汇总：《龙之信条2：黑暗觉者》《怪物猎人物语3》《鬼武者：剑之道》新情报公开
+- S0277 | 2026-06-27 | gcores.com | 苹果宣布上调多款Mac、iPad及HomePod价格
+- S0278 | 2026-06-27 | m.sohu.com | 一群行业老兵做的UE5仙侠冲上热搜，但把我气破防了
+- S0279 | 2026-06-27 | m.sohu.com | 王思聪「毁号」造福全体玩家，腾讯的刷子游戏也开始热闹了
+- S0280 | 2026-06-27 | m.sohu.com | 网易又整了款开放世界新品？还贴脸腾讯上了热搜
+- S0281 | 2026-06-27 | youxichaguan.com | 2026游戏行业夏季冲量大考：流量向「新」与 AI 破局，厂商如何打赢冲量战？
+- S0282 | 2026-06-27 | youxichaguan.com | 全球最大电竞赛事EWC连续两年选择中国智能影像，OBSBOT寻影用实力定义赛事级专业标准
+- S0283 | 2026-06-27 | yystv.net | 大力宣传MMO，《诡秘之主》游戏怎么敢的？
+- S0284 | 2026-06-27 | gamesindustry.biz | PlayStation hardware sales fall to their lowest May total since 2000 | US Monthly Charts
+- S0357 | 2026-06-28 | gcores.com | BOE（京东方）前沿电竞技术矩阵亮相“核聚变嘉年华” 携手合作伙伴共筑原生电竞生态新格局
+- S0358 | 2026-06-28 | cgames.com | Q3近20款大厂产品上线或开测；暑期档米哈游库洛鹰角刚正面丨Changing周报
+- S0359 | 2026-06-28 | cgames.com | 刚刚，叠纸恋与深空直播回应：新男主来了，主线在做了
+- S0360 | 2026-06-28 | m.sohu.com | 《恋与深空》凌晨为新男主道歉，但好戏还在后头
+- S0361 | 2026-06-28 | m.sohu.com | 欧盟拒绝为“停止杀死游戏”立法；解包泄密，被判赔10万 | 一周说「法」
+- S0362 | 2026-06-28 | m.sohu.com | 千亿流水大佬离职创业，对话少云：老登不要永立潮头
+- S0363 | 2026-06-28 | youxichaguan.com | 从企鹅岛到火星基地，《失控进化》带着4000万人一起刷屏
+- S0364 | 2026-06-28 | youxichaguan.com | 从企鹅岛到火星基地，《失控进化》带着4000万人一起刷屏
+- S0365 | 2026-06-28 | pocketgamer.biz | Direct-to-consumer banks $17 billion and Google rolls out fee changes | Week in Mobile Games podcast
+
+## ai_trends（38 条）
+
+来源域名分布：aihot.virxact.com×38
+
+- S0111 | 2026-06-26 | aihot.virxact.com | General Intuition 完成 3.2 亿美元融资，用游戏数据训练通用 AI 智能体
+- S0112 | 2026-06-26 | aihot.virxact.com | Google Finance 全新 Android 应用与投资组合功能上线
+- S0113 | 2026-06-26 | aihot.virxact.com | 多数主流AI聊天机器人政治立场偏左，"反觉醒"模型也不例外
+- S0114 | 2026-06-26 | aihot.virxact.com | OLMo Hybrid vs Transformer：混合模型在实义词上优势明显，但重复短语上几无优势
+- S0115 | 2026-06-26 | aihot.virxact.com | 赫库兰尼姆古卷首次被完整虚拟解读
+- S0116 | 2026-06-26 | aihot.virxact.com | Runway发布Agent 2.0
+- S0117 | 2026-06-26 | aihot.virxact.com | Midjourney V8.1 草稿模式新增随机风格功能
+- S0118 | 2026-06-26 | aihot.virxact.com | IBM 首度推出亚纳米级芯片技术
+- S0119 | 2026-06-26 | aihot.virxact.com | Midjourney 预览 V8.2 并加速草稿模式
+- S0120 | 2026-06-26 | aihot.virxact.com | 美国政府要求OpenAI暂缓GPT-5.6广泛发布
+- S0121 | 2026-06-26 | aihot.virxact.com | Codex 在 ChatGPT 移动 App 正式可用
+- S0122 | 2026-06-26 | aihot.virxact.com | Claude Code v2.1.193 发布
+- S0123 | 2026-06-26 | aihot.virxact.com | @exponentialview 发布《State of the AI Economy》报告：AI经济年化收入超1750亿美元
+- S0124 | 2026-06-26 | aihot.virxact.com | 小互开源个人IP配图技能"小互IP Studio"，含31个原创角色
+- S0125 | 2026-06-26 | aihot.virxact.com | Claude Code 6个实用Hook玩法
+- S0126 | 2026-06-26 | aihot.virxact.com | 近400家美国报纸起诉微软和OpenAI：未经授权抓取新闻内容训练AI
+- S0127 | 2026-06-26 | aihot.virxact.com | 小鹏 CEO 何小鹏：2026 年底自动驾驶可以合法进入全球
+- S0128 | 2026-06-26 | aihot.virxact.com | OpenAI 预览新一代模型 GPT-5.6 Sol
+- S0129 | 2026-06-26 | aihot.virxact.com | Anthropic Economic Index 报告：使用节奏
+- S0130 | 2026-06-26 | aihot.virxact.com | Leaf 开源项目：将网红峰哥做成实时通话 AI 分身
+- S0285 | 2026-06-27 | aihot.virxact.com | Weave 推出智能模型路由工具，可直接接入 Claude Code、Codex 和 Cursor
+- S0286 | 2026-06-27 | aihot.virxact.com | 华盛顿邮报报告：AI聊天机器人存在左翼偏见
+- S0287 | 2026-06-27 | aihot.virxact.com | 纽约时报修订诉讼，指控微软为OpenAI建造版权侵权超级计算机
+- S0288 | 2026-06-27 | aihot.virxact.com | Cursor 研究发现奖励攻击虚增编码智能体 SWE-bench Pro 分数
+- S0289 | 2026-06-27 | aihot.virxact.com | 国家统计局：1-5月规上工业企业利润增18.8%，电子行业利润增103.9%贡献43.1%
+- S0290 | 2026-06-27 | aihot.virxact.com | 阿里千问输入法上线 macOS 版：最快 300 字/分，AI 自动润色
+- S0291 | 2026-06-27 | aihot.virxact.com | AI 账单失控后 DeepSeek 成"香饽饽"，部分美国企业已 100% 切换
+- S0292 | 2026-06-27 | aihot.virxact.com | "Raise Us"启动：前美商务部长与四州合作筹集10亿美元应对AI就业冲击
+- S0293 | 2026-06-27 | aihot.virxact.com | Runway API 推出广告本地化 Recipe
+- S0294 | 2026-06-27 | aihot.virxact.com | 一次失败的（民族国家？）攻击的剖析
+- S0366 | 2026-06-28 | aihot.virxact.com | DeepSeek 开源 DSpark 投机解码框架，加速 DeepSeek-V4 生成速度 60-85%
+- S0367 | 2026-06-28 | aihot.virxact.com | 苹果Vision负责人跳槽OpenAI，触控OLED MacBook用M5芯片
+- S0368 | 2026-06-28 | aihot.virxact.com | SpaceX 注册 SpaceXAI 商标，将合并 xAI
+- S0369 | 2026-06-28 | aihot.virxact.com | 四大顶级AI对决《文明VI》：Claude核平法国仍输，暴露感知与执行短板
+- S0370 | 2026-06-28 | aihot.virxact.com | 阿德拉菲尼尔：仅在AI agent工作时阻止Mac睡眠的菜单栏工具
+- S0371 | 2026-06-28 | aihot.virxact.com | 新浪开源VibeThinker-3B：推理可压缩，事实知识不能
+- S0372 | 2026-06-28 | aihot.virxact.com | 仅有三个AI模型在500天创业测试中盈利超过起始资本
+- S0373 | 2026-06-28 | aihot.virxact.com | Grok 4.5 私测于 SpaceX 和 Tesla，性能接近 Opus
+
+## release_calendar（174 条）
+
+来源域名分布：taptap.cn×116, 3839.com×36, 16p.com×10, 17173.com×9, gematsu.com×3
+
+- S0131 | 2026-06-26 | 17173.com | 战术小队：破晓攻势 - 内测
+- S0132 | 2026-06-26 | 17173.com | 桃花源记2 - 资料片
+- S0133 | 2026-06-26 | 17173.com | 远征 - 新版本
+- S0134 | 2026-06-26 | 17173.com | 逆水寒手游 - 新版本
+- S0135 | 2026-06-26 | 17173.com | 飞飞：无限宇宙 - 公测
+- S0136 | 2026-06-26 | 17173.com | 镭明闪击 - 新版本
+- S0137 | 2026-06-26 | 17173.com | 诡秘之主 - 内测
+- S0138 | 2026-06-26 | 17173.com | 传奇世界无双 - 公测
+- S0139 | 2026-06-26 | 17173.com | 燕云十六声 - 新版本
+- S0140 | 2026-06-26 | 16p.com | 幻想之刃 - 上线
+- S0141 | 2026-06-26 | 16p.com | 幻灵召唤 - 删档计费测试
+- S0142 | 2026-06-26 | 16p.com | 怨楼 - 上线
+- S0143 | 2026-06-26 | 16p.com | 战术小队：破晓攻势 - 限号删档不计费测试
+- S0144 | 2026-06-26 | 16p.com | 星梦养成记 - 试玩
+- S0145 | 2026-06-26 | 16p.com | 诡秘之主 - 限量计费删档
+- S0146 | 2026-06-26 | 16p.com | 足球冠军杯大世界 - 上线
+- S0147 | 2026-06-26 | 16p.com | 飞飞：无限宇宙 - 上线
+- S0148 | 2026-06-26 | 3839.com | 三角洲行动 - 新地图「核电站-AZ3」上线
+- S0149 | 2026-06-26 | 3839.com | 使命召唤手游 - 赛末冲刺领史诗枪械
+- S0150 | 2026-06-26 | 3839.com | 元气保卫战 测试服 - 开启限量抢注测试
+- S0151 | 2026-06-26 | 3839.com | 剑侠情缘：重逢 招募中 - 参与招募赢限量测试资格
+- S0152 | 2026-06-26 | 3839.com | 大富翁：全球首富 - 首曝预约，上线时间待定
+- S0153 | 2026-06-26 | 3839.com | 失控进化-7月9日上线 - 冲！速抢专属昵称赢Q币好礼
+- S0154 | 2026-06-26 | 3839.com | 奥奇传说 - 新版本全民送次元之心
+- S0155 | 2026-06-26 | 3839.com | 快爆PC游戏商店 - 夏促开启！参与赢300元CDK助力金
+- S0156 | 2026-06-26 | 3839.com | 恋恋终序 - 开启测试资格招募
+- S0157 | 2026-06-26 | 3839.com | 我的世界：移动版(官服) - 新主题季【百鸟学院】上线
+- S0158 | 2026-06-26 | 3839.com | 明日之后(官服) - 会员服上线
+- S0159 | 2026-06-26 | 3839.com | 明日方舟：终末地(官服) - 新干员【卡缪】登场
+- S0160 | 2026-06-26 | 3839.com | 暖雪 - 本体及DLC限时史低折扣
+- S0161 | 2026-06-26 | 3839.com | 最强蜗牛 - 六周年庆典，新种族「丫丫」登场
+- S0162 | 2026-06-26 | 3839.com | 极品飞车：集结-燃夏时速 - 恶灵骑士套装限时返场
+- S0163 | 2026-06-26 | 3839.com | 洛克王国：世界 - 菊花梨大量出没
+- S0164 | 2026-06-26 | 3839.com | 火影忍者手游 - 功夫季活动武道宗师开启
+- S0165 | 2026-06-26 | 3839.com | 燕云十六声(官服) - 新版本「江南时代」开启
+- S0166 | 2026-06-26 | 3839.com | 王牌竞速(官服) - 免费领新传说级干扰位【清规·浩然】
+- S0167 | 2026-06-26 | 3839.com | 白银之城(官服) 招募中 - 多种方式赢限量测试资格
+- S0168 | 2026-06-26 | 3839.com | 竞拍之王 PC/主机 - 开启5折新史低折扣
+- S0169 | 2026-06-26 | 3839.com | 蛋仔派对(官服)-四周年 - 登录领彩虹币+永久典藏外观
+- S0170 | 2026-06-26 | 3839.com | 诡秘之主 - 限量测试开启！
+- S0171 | 2026-06-26 | 3839.com | 超级变色龙-Steam自购 - 云玩上线
+- S0172 | 2026-06-26 | 3839.com | 超自然行动组-果宝特攻联动 - 新角色「无心」上线
+- S0173 | 2026-06-26 | 3839.com | 逆水寒(官服) - “逆水寒:新世界”开启,登录领648福利
+- S0174 | 2026-06-26 | 3839.com | 重生细胞 - 本体限时15元史低折扣
+- S0175 | 2026-06-26 | 3839.com | 幻想之刃 - 10:00 正式上线
+- S0176 | 2026-06-26 | 3839.com | 幻灵召唤 - 10:00 删档测试
+- S0177 | 2026-06-26 | 3839.com | 怨楼 - 10:00 上线试玩
+- S0178 | 2026-06-26 | 3839.com | 我要当老祖 - 10:00 正式上线
+- S0179 | 2026-06-26 | 3839.com | 足球冠军杯大世界 - 10:00 正式上线
+- S0180 | 2026-06-26 | 3839.com | 飞飞：无限宇宙 - 15:00 正式上线
+- S0181 | 2026-06-26 | 3839.com | 鸣潮-3.4版本(官服) - 19:00 开启3.5版本前瞻直播
+- S0182 | 2026-06-26 | taptap.cn | 一直刮一直爽 - 首发
+- S0183 | 2026-06-26 | taptap.cn | 三角洲行动 - 新版本更新
+- S0184 | 2026-06-26 | taptap.cn | 云海寻仙记 - 测试招募
+- S0185 | 2026-06-26 | taptap.cn | 从主神空间开始 - 测试招募
+- S0186 | 2026-06-26 | taptap.cn | 仙灵物语 - 不限量测试
+- S0187 | 2026-06-26 | taptap.cn | 以传说之名 - 限量测试
+- S0188 | 2026-06-26 | taptap.cn | 侠影千关 - 首发
+- S0189 | 2026-06-26 | taptap.cn | 保险箱大亨 - 首发
+- S0190 | 2026-06-26 | taptap.cn | 冒险岛：枫之新篇 - 新游预约
+- S0191 | 2026-06-26 | taptap.cn | 凡骨也要当老祖 - 新游预约
+- S0192 | 2026-06-26 | taptap.cn | 剑侠情缘：重逢 - 测试招募
+- S0193 | 2026-06-26 | taptap.cn | 喜盈家 - 首发
+- S0194 | 2026-06-26 | taptap.cn | 嘻游记 - 首发
+- S0195 | 2026-06-26 | taptap.cn | 大厂生存抽卡模拟器 - 首发
+- S0196 | 2026-06-26 | taptap.cn | 大宋经略志 - 首发
+- S0197 | 2026-06-26 | taptap.cn | 大富翁：全球首富 - 新游预约
+- S0198 | 2026-06-26 | taptap.cn | 失落城堡2 - 测试招募
+- S0199 | 2026-06-26 | taptap.cn | 奥奇传说 - 新版本更新
+- S0200 | 2026-06-26 | taptap.cn | 宇宙星球大亨 - 首发
+- S0201 | 2026-06-26 | taptap.cn | 山海经传说 - 首发
+- S0202 | 2026-06-26 | taptap.cn | 帝国传奇：像素英雄 - 折扣
+- S0203 | 2026-06-26 | taptap.cn | 幻想之刃 - 首发
+- S0204 | 2026-06-26 | taptap.cn | 幽灵轨迹 - 限量测试
+- S0205 | 2026-06-26 | taptap.cn | 怨楼 - 首发
+- S0206 | 2026-06-26 | taptap.cn | 我有一座岛 - 新游预约
+- S0207 | 2026-06-26 | taptap.cn | 我要当老祖 - 首发
+- S0208 | 2026-06-26 | taptap.cn | 无广俄罗斯方块Tetris - 首发
+- S0209 | 2026-06-26 | taptap.cn | 星梦养成记 - 首发
+- S0210 | 2026-06-26 | taptap.cn | 最强蜗牛 - 新版本更新
+- S0211 | 2026-06-26 | taptap.cn | 未名之夏 - 首发
+- S0212 | 2026-06-26 | taptap.cn | 机甲争霸 - 首发
+- S0213 | 2026-06-26 | taptap.cn | 林山海探案集 - 第二案:公交车爆炸案 - 首发
+- S0214 | 2026-06-26 | taptap.cn | 流浪星球毁灭吞噬星球星噬 - 新游预约
+- S0215 | 2026-06-26 | taptap.cn | 甜品益智消 - 首发
+- S0216 | 2026-06-26 | taptap.cn | 疯狂保卫战 - 限量测试
+- S0217 | 2026-06-26 | taptap.cn | 积木小镇 - 首发
+- S0218 | 2026-06-26 | taptap.cn | 群星之末 - 首发
+- S0219 | 2026-06-26 | taptap.cn | 艾薇的轮回 - 首发
+- S0220 | 2026-06-26 | taptap.cn | 英雄试炼场 - 不限量测试
+- S0221 | 2026-06-26 | taptap.cn | 荒野射击 - 首发
+- S0222 | 2026-06-26 | taptap.cn | 薄暮档案 - 首发
+- S0223 | 2026-06-26 | taptap.cn | 财富帝国 - 首发
+- S0224 | 2026-06-26 | taptap.cn | 足球冠军杯大世界 - 首发
+- S0225 | 2026-06-26 | taptap.cn | 飞镖战记 - 新游预约
+- S0226 | 2026-06-26 | taptap.cn | 飞飞：无限宇宙 - 首发
+- S0227 | 2026-06-26 | taptap.cn | 黑历史：献帝 - 新游预约
+- S0228 | 2026-06-26 | taptap.cn | 龟兔赛跑游戏 - 不限量测试
+- S0229 | 2026-06-26 | taptap.cn | 我不是胖虎：小岛大当家 - 测试招募 (10:00 开始)
+- S0230 | 2026-06-26 | taptap.cn | 剑隐侠踪录 - 测试招募 (11:00 开始)
+- S0231 | 2026-06-26 | taptap.cn | 元气保卫战（TapTap测试版） - 限量测试 (12:00 开始)
+- S0232 | 2026-06-26 | taptap.cn | 喵斯快跑 - 折扣 (17:00 开始)
+- S0233 | 2026-06-26 | gematsu.com | Easy Delivery Co. ‘EasyCo EasyRally’ update launches July 6
+- S0234 | 2026-06-26 | gematsu.com | Silent Hill f x FATAL FRAME II: Crimson Butterfly REMAKE collaboration costume DLC ‘Crimson Butterfly’ now available
+- S0235 | 2026-06-26 | gematsu.com | UNDERGROUNDED launches July 3
+- S0295 | 2026-06-27 | 3839.com | 波普戈斯街机 PC/主机 - 开启限免，快爆喜加一支持入库
+- S0296 | 2026-06-27 | 3839.com | 牧场气息 - 00:00 不删档测试
+- S0297 | 2026-06-27 | taptap.cn | 三国无敌 - 首发
+- S0298 | 2026-06-27 | taptap.cn | 乐玩 - 首发
+- S0299 | 2026-06-27 | taptap.cn | 众神召唤 - 不限量测试
+- S0300 | 2026-06-27 | taptap.cn | 修仙摆摊模拟器 - 首发
+- S0301 | 2026-06-27 | taptap.cn | 像素开荒农场 - 首发
+- S0302 | 2026-06-27 | taptap.cn | 全域战争 - 首发
+- S0303 | 2026-06-27 | taptap.cn | 剑宗奇缘 - 首发
+- S0304 | 2026-06-27 | taptap.cn | 单词对战wordbattle - 不限量测试
+- S0305 | 2026-06-27 | taptap.cn | 堆叠修仙 - 首发
+- S0306 | 2026-06-27 | taptap.cn | 增量放置弹球 - 首发
+- S0307 | 2026-06-27 | taptap.cn | 小小公寓物语 - 新游预约
+- S0308 | 2026-06-27 | taptap.cn | 小小冒险家寻宝记2 - 新游预约
+- S0309 | 2026-06-27 | taptap.cn | 小猫咪大城市 - 新游预约 (00:00 开始)
+- S0310 | 2026-06-27 | taptap.cn | 异界庄园(TapTap测试版) - 新游预约
+- S0311 | 2026-06-27 | taptap.cn | 归墟海域 - 首发
+- S0312 | 2026-06-27 | taptap.cn | 我要做皇帝 - 首发
+- S0313 | 2026-06-27 | taptap.cn | 拼豆工坊 - 首发
+- S0314 | 2026-06-27 | taptap.cn | 星途光年 - 首发
+- S0315 | 2026-06-27 | taptap.cn | 星际放置远征 - 首发
+- S0316 | 2026-06-27 | taptap.cn | 暗黑动物自动刷宝 - 首发
+- S0317 | 2026-06-27 | taptap.cn | 期末周 Dead Week - 首发
+- S0318 | 2026-06-27 | taptap.cn | 梦幻足球 - 限量测试
+- S0319 | 2026-06-27 | taptap.cn | 沦陷之城 - 首发
+- S0320 | 2026-06-27 | taptap.cn | 海克斯：坠仙秘境 - 首发
+- S0321 | 2026-06-27 | taptap.cn | 滚滚堂 - 新游预约
+- S0322 | 2026-06-27 | taptap.cn | 满庭芳·宋上繁华 - 限量测试
+- S0323 | 2026-06-27 | taptap.cn | 王权争夺 - 首发
+- S0324 | 2026-06-27 | taptap.cn | 珠蚌经营模拟器 - 首发
+- S0325 | 2026-06-27 | taptap.cn | 糖果猫 - 限量测试
+- S0326 | 2026-06-27 | taptap.cn | 美职篮：绝对巨星 - 不限量测试
+- S0327 | 2026-06-27 | taptap.cn | 翡翠大亨 - 首发
+- S0328 | 2026-06-27 | taptap.cn | 至尊兵王 - 首发
+- S0329 | 2026-06-27 | taptap.cn | 蜜蜂飞呀飞 - 首发
+- S0330 | 2026-06-27 | taptap.cn | 谷域无双 - 新游预约
+- S0331 | 2026-06-27 | taptap.cn | 进化摆摊大乱斗 - 首发
+- S0332 | 2026-06-27 | taptap.cn | 追逐卡蕾多 - 测试招募
+- S0333 | 2026-06-27 | taptap.cn | 铸时匠 - 折扣
+- S0334 | 2026-06-27 | taptap.cn | 镇邪人 - 新游预约
+- S0335 | 2026-06-27 | taptap.cn | 魔塔经典20层 - 首发
+- S0336 | 2026-06-27 | taptap.cn | 魔法哈奇（TapTap测试版） - 首发
+- S0374 | 2026-06-28 | 16p.com | Fa Barber Shop Hair Chop Salon - 上线
+- S0375 | 2026-06-28 | 16p.com | Little Baby vs Daddy Fun Day - 上线
+- S0376 | 2026-06-28 | taptap.cn | 3D翡翠：一刀切出帝王绿 - 首发
+- S0377 | 2026-06-28 | taptap.cn | 三国志放置英雄传 - 首发
+- S0378 | 2026-06-28 | taptap.cn | 代号：深渊之歌（TapTap 测试版） - 限量测试
+- S0379 | 2026-06-28 | taptap.cn | 元素战地 - 首发
+- S0380 | 2026-06-28 | taptap.cn | 内部调查 - 首发
+- S0381 | 2026-06-28 | taptap.cn | 列阵千秋 - 首发
+- S0382 | 2026-06-28 | taptap.cn | 剑隐侠踪录 - 测试招募
+- S0383 | 2026-06-28 | taptap.cn | 商业帝国 - 不限量测试
+- S0384 | 2026-06-28 | taptap.cn | 奶茶之神 - 首发
+- S0385 | 2026-06-28 | taptap.cn | 寻长生 - 首发
+- S0386 | 2026-06-28 | taptap.cn | 封神图 - 限量测试
+- S0387 | 2026-06-28 | taptap.cn | 抢占绝地 - 首发
+- S0388 | 2026-06-28 | taptap.cn | 推拿大王 - 首发
+- S0389 | 2026-06-28 | taptap.cn | 水浒英雄传 - 首发
+- S0390 | 2026-06-28 | taptap.cn | 沉默的宅邸 - 首发
+- S0391 | 2026-06-28 | taptap.cn | 点点移山 - 首发
+- S0392 | 2026-06-28 | taptap.cn | 益智骰子棋 - 首发
+- S0393 | 2026-06-28 | taptap.cn | 美女打怪古风 - 首发
+- S0394 | 2026-06-28 | taptap.cn | 翡翠玉器大亨 - 首发
+- S0395 | 2026-06-28 | taptap.cn | 西游除妖记 - 首发
+- S0396 | 2026-06-28 | taptap.cn | 银器大师 - 首发
+- S0397 | 2026-06-28 | taptap.cn | 问道之路 - 新游预约
+- S0398 | 2026-06-28 | taptap.cn | 阴阳平衡球 - 首发
+- S0399 | 2026-06-28 | taptap.cn | 霓虹冲刺 - 首发
+- S0400 | 2026-06-28 | taptap.cn | 龙灵 - 限量测试
+
+## community_discourse（47 条）
+
+来源域名分布：bbs.nga.cn×47
+
+- S0236 | 2026-06-26 | bbs.nga.cn | [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI
+- S0237 | 2026-06-26 | bbs.nga.cn | [少女前线]腾讯采访羽中
+- S0238 | 2026-06-26 | bbs.nga.cn | [新瓜]恋与深空上线第六位男主，但社区反响较差
+- S0239 | 2026-06-26 | bbs.nga.cn | [新瓜] [卡厄斯梦境]ai小画师魅力时刻之吃蛋糕
+- S0240 | 2026-06-26 | bbs.nga.cn | [库洛]外派员工驻场2月下班后去世 库洛HR深夜内部信公告
+- S0241 | 2026-06-26 | bbs.nga.cn | [人事变动] 代号鸢总制作人疑似跳槽米哈游子公司
+- S0242 | 2026-06-26 | bbs.nga.cn | [新瓜]恋与深空老六瓜，新男主新pv上线
+- S0243 | 2026-06-26 | bbs.nga.cn | [新瓜][鹰角][瓜小味甜]明日方舟终末地，森空岛危机合约[纪念]头像框，外服永久，国服限时30天
+- S0244 | 2026-06-26 | bbs.nga.cn | [新瓜]终末地热更新后部分用户登陆后闪退
+- S0245 | 2026-06-26 | bbs.nga.cn | [新瓜]恋与深空这个“不要在锅里洗澡”没人搬吗
+- S0246 | 2026-06-26 | bbs.nga.cn | [米哈游] 崩坏3第二部铺垫了很久的主线角色终于要进卡池了，但是不是自机角色
+- S0247 | 2026-06-26 | bbs.nga.cn | [原神]乙游男大放送，首款前瞻pv男多女少的二游研发成功
+- S0248 | 2026-06-26 | bbs.nga.cn | [鹰角]yjwl在自家app森空岛堵嘴提出外服区别对待的玩家
+- S0249 | 2026-06-26 | bbs.nga.cn | [鹰角]潜水员戴夫新dlc出现泡姆泡姆彩蛋小游戏
+- S0250 | 2026-06-26 | bbs.nga.cn | [新瓜]雪松遭遇不明身份的DDos攻击，再再再直播天鹅湖
+- S0251 | 2026-06-26 | bbs.nga.cn | [厂商] Epic总裁锐评steam:缺乏开放性，接触不到原神等顶级群体
+- S0337 | 2026-06-27 | bbs.nga.cn | [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI
+- S0338 | 2026-06-27 | bbs.nga.cn | [新瓜]鸣潮新的漂泊者饰品疑似抄袭游戏弹力果冻
+- S0339 | 2026-06-27 | bbs.nga.cn | [少女前线]2026年了还有从上到下全是二手屎的顶级媒体
+- S0340 | 2026-06-27 | bbs.nga.cn | [新瓜] [瓜小味甜][回旋镖]库洛新地图竹林不符合现实逻辑
+- S0341 | 2026-06-27 | bbs.nga.cn | [新瓜][原神]新角色撞脸明日方舟五星
+- S0342 | 2026-06-27 | bbs.nga.cn | [新瓜]有手游角色算手游瓜，2026年第一季度蓝p站作品数据统计
+- S0343 | 2026-06-27 | bbs.nga.cn | [新瓜]追放也被打了？
+- S0344 | 2026-06-27 | bbs.nga.cn | [新瓜]恋与深空这个“不要在锅里洗澡”没人搬吗
+- S0345 | 2026-06-27 | bbs.nga.cn | 逆水寒手游微博再度喊话王者荣耀，并在天美楼下请卡车
+- S0346 | 2026-06-27 | bbs.nga.cn | [新瓜]终末地热更新后部分用户登陆后闪退
+- S0347 | 2026-06-27 | bbs.nga.cn | [新瓜][雪松]致敬传奇斯拉夫活动:一出事就播天鹅湖
+- S0348 | 2026-06-27 | bbs.nga.cn | [疑似内容]《恋与深空》第六男主五星卡面名字惹争议
+- S0349 | 2026-06-27 | bbs.nga.cn | [1999][新瓜]重返未来1999角色被发现有严重数值bug
+- S0350 | 2026-06-27 | bbs.nga.cn | [新瓜]《恋与深空》“不要在锅里洗澡”文案疑似调侃“铁锅杀妻案”
+- S0351 | 2026-06-27 | bbs.nga.cn | [厂商] B站于今日对BanG Dream!新游Our Notes进行大规模宣发
+- S0352 | 2026-06-27 | bbs.nga.cn | [新瓜]逆战来来
+- S0353 | 2026-06-27 | bbs.nga.cn | [厂商]EPIC：steam和v社永远接触不到《原神》等顶级玩家群体
+- S0354 | 2026-06-27 | bbs.nga.cn | [NIKKE] 临时工定错时间，提前放出nikke联动女神异闻录3，4，5的预告。
+- S0401 | 2026-06-28 | bbs.nga.cn | [新瓜] 回旋镖:战舰少女联动南京舰疑似非官方机构联动
+- S0402 | 2026-06-28 | bbs.nga.cn | [新闻相关]新京报下场质问叠纸
+- S0403 | 2026-06-28 | bbs.nga.cn | [燕云十六声]梁山伯与祝英台变男同
+- S0404 | 2026-06-28 | bbs.nga.cn | [新瓜]恋与深空老六瓜，新男主新pv上线
+- S0405 | 2026-06-28 | bbs.nga.cn | [新瓜]有手游角色算手游瓜，2026年第一季度蓝p站作品数据统计
+- S0406 | 2026-06-28 | bbs.nga.cn | [新瓜]追放也被打了？
+- S0407 | 2026-06-28 | bbs.nga.cn | [厂商] 恋与深空官方深夜发布道歉公告
+- S0408 | 2026-06-28 | bbs.nga.cn | [恋与深空]疑似有玩家开始前往叠纸大楼线下闹事
+- S0409 | 2026-06-28 | bbs.nga.cn | [米哈游][瓜小味甜]3DM每日新闻因AI互动软件是否锁国区再遭米U团建
+- S0410 | 2026-06-28 | bbs.nga.cn | [鹰角]yjwl在自家app森空岛堵嘴提出外服区别对待的玩家
+- S0411 | 2026-06-28 | bbs.nga.cn | [米哈游] [原神] 终于更新剧情文本速点功能
+- S0412 | 2026-06-28 | bbs.nga.cn | [腾讯] 上半年手游国服收入前10
+- S0413 | 2026-06-28 | bbs.nga.cn | [新瓜]龙族联动龙女仆
+
+## deep_analysis（1 条）
+
+来源域名分布：newsletter.gamediscover.co×1
+
+- S0355 | 2026-06-27 | newsletter.gamediscover.co | How Small Spaces sold ~15x its Week 1 sales after a year (!)
