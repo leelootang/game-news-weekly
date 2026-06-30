@@ -5,21 +5,22 @@
 ## Item Source Map
 
 - 网易《逆水寒：新世界》破纪录上线，首日冲畅销榜前列 - S0013, S0030
+- 字节《SlashZero》核聚变展会首次开放试玩，团队来自《晶核》 - S0040
+- 原《奥拉星2》制作人新作《拉尼亚》首曝，主打回合制玩法 - S0039
 - 阿里拟出售灵犀互娱，腾讯拟出售日本工作室股份 - S0029
 - Newzoo：2025 年全球游戏市场首破 2000 亿美元 - S0029
 - 巨量引擎×抖音小游戏推出 40% 返点激励新政 - S0035, S0029
 - 芯片涨价、苹果上调售价 20%，游戏公司股价跟跌 - S0021
-- 波兰 CD Projekt 母公司更名为 CD Projekt Red - S0042
 - Game Oracle 研究：声明使用 AI 的 Steam 游戏首月评论低 52.6% - S0061
 - Epic 老板 Sweeney 谈 AI 价值，并再度反对 Steam 的 AI 披露要求 - S0018
 - 产品日历 - 遗忘之海 - S0014, S0027, S0031
-- 产品日历 - 拉尼亚 - S0115, S0039
+- 产品日历 - 拉尼亚 - S0115
 - 产品日历 - 代号新生 - S0038
 - 产品日历 - 从主神空间开始 - S0080, S0085
 - 《恋与深空》第六男主敖尹引发连锁争议，官方道歉未平舆情 - S0124, S0136, S0137, S0120, S0125, S0126, S0127
 - 库洛新地图「竹林」被指不符合现实逻辑 - S0122
 - Deconstructor of Fun：Merge-2 是否比 Match-3 更赚钱？ - S0140
-- Naavik：两个被低估的移动游戏开发区域 - S0138
+- Naavik：两个被低估的移动游戏开发区域——巴基斯坦与波罗的海 - S0138
 
 ## Source Details
 
@@ -29,14 +30,14 @@
 - S0029 | youxituoluo.com | 阿里计划出售灵犀，腾讯拟出售日本工作室股份，《遗忘之海》7月9日PC公测 \| 陀螺周报 | https://www.youxituoluo.com/article/2026-06-29-3
 - S0035 | youxichaguan.com | 40%返点、单款封顶500万：巨量引擎与抖音小游戏联合发布限时激励新政 | https://www.youxichaguan.com/news/2026-06-29-6
 - S0021 | gamelook.com.cn | AI芯片危机、苹果大涨价！游戏公司股价"无辜躺枪"太过了吧？ | https://www.gamelook.com.cn/2026/06/588055
-- S0042 | gamesindustry.biz | CD Projekt rebrands to CD Projekt Red | https://www.gamesindustry.biz/cd-projekt-rebrands-to-cd-projekt-red
+- S0040 | new.qq.com | 字节跳动居然偷偷做了一款单机动作Roguelike游戏？ | https://new.qq.com/rain/a/20260629A2
+- S0039 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A1
 - S0061 | 36kr.com | 数据实锤：游戏用AI后，销量少52% | https://36kr.com/p/2026062961
 - S0018 | gamelook.com.cn | Epic老板："AI价值在于减少苦力活"！评价Steam"至今没有拳头和原神" | https://www.gamelook.com.cn/2026/06/588030
 - S0014 | gamelook.com.cn | 公测定档！网易最"有力气"的游戏，要给冷清的暑期档点一把火 | https://www.gamelook.com.cn/2026/06/588010
 - S0027 | youxituoluo.com | 剑指7月：网易今年最"叛逆"的大作要来了 | https://www.youxituoluo.com/article/2026-06-29-1
 - S0031 | youxichaguan.com | 《遗忘之海》PC端7月9日公测上线！公测前瞻情报公开 | https://www.youxichaguan.com/news/2026-06-29-2
 - S0115 | taptap.cn | 拉尼亚 - 测试招募 (10:00 开始) | https://www.taptap.cn/app/836285
-- S0039 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A1
 - S0038 | new.qq.com | 4399搜打撤来了，主打轻量化PVP战斗 | https://new.qq.com/rain/a/20260629A0
 - S0080 | 16p.com | 从主神空间开始 - 限量删档测试 | https://www.16p.com/1952261.html
 - S0085 | taptap.cn | 从主神空间开始 - 限量测试 | https://www.taptap.cn/app/487379
@@ -60,7 +61,8 @@
 - S0029 | youxituoluo.com | 阿里计划出售灵犀，腾讯拟出售日本工作室股份，《遗忘之海》7月9日PC公测 \| 陀螺周报 | https://www.youxituoluo.com/article/2026-06-29-3
 - S0035 | youxichaguan.com | 40%返点、单款封顶500万：巨量引擎与抖音小游戏联合发布限时激励新政 | https://www.youxichaguan.com/news/2026-06-29-6
 - S0021 | gamelook.com.cn | AI芯片危机、苹果大涨价！游戏公司股价"无辜躺枪"太过了吧？ | https://www.gamelook.com.cn/2026/06/588055
-- S0042 | gamesindustry.biz | CD Projekt rebrands to CD Projekt Red | https://www.gamesindustry.biz/cd-projekt-rebrands-to-cd-projekt-red
+- S0040 | new.qq.com | 字节跳动居然偷偷做了一款单机动作Roguelike游戏？ | https://new.qq.com/rain/a/20260629A2
+- S0039 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A1
 
 ## ai_trends
 - S0061 | 36kr.com | 数据实锤：游戏用AI后，销量少52% | https://36kr.com/p/2026062961
@@ -71,7 +73,6 @@
 - S0027 | youxituoluo.com | 剑指7月：网易今年最"叛逆"的大作要来了 | https://www.youxituoluo.com/article/2026-06-29-1
 - S0031 | youxichaguan.com | 《遗忘之海》PC端7月9日公测上线！公测前瞻情报公开 | https://www.youxichaguan.com/news/2026-06-29-2
 - S0115 | taptap.cn | 拉尼亚 - 测试招募 (10:00 开始) | https://www.taptap.cn/app/836285
-- S0039 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A1
 - S0038 | new.qq.com | 4399搜打撤来了，主打轻量化PVP战斗 | https://new.qq.com/rain/a/20260629A0
 - S0080 | 16p.com | 从主神空间开始 - 限量删档测试 | https://www.16p.com/1952261.html
 - S0085 | taptap.cn | 从主神空间开始 - 限量测试 | https://www.taptap.cn/app/487379

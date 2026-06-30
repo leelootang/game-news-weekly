@@ -26,25 +26,29 @@
 
 网易《逆水寒：新世界》上线当天冲上 iOS 畅销榜第 7、免费榜前列并登上热搜，创该 IP 两年最高纪录；首支宣传 PV 在 B 站登顶全站第一、播放约 880 万。该版本对画质、经济、养成、战斗等系统做了 12 项核心改动，近乎重写，被视为网易暑期档主力之一。
 
-### 2. 阿里拟出售灵犀互娱，腾讯拟出售日本工作室股份
+### 2. 字节《SlashZero》核聚变展会首次开放试玩，团队来自《晶核》
+
+字节跳动朝夕光年旗下 Streetlamp Studio 的 3D 横版动作 Roguelike 单机游戏《SlashZero》在深圳核聚变展会首次开放试玩，并公开研发团队身份——核心成员曾参与《晶核》开发。该作 3 月已低调发布首曝 PV，制作人称希望弥补《晶核》中数值成长体系逐渐压过战斗系统的遗憾，做一款让动作真正成为主角的单机肉鸽，局内构筑含水火风雷四元素与芯片标签化系统。
+
+### 3. 原《奥拉星2》制作人新作《拉尼亚》首曝，主打回合制玩法
+
+原广州百田《奥拉星 2》制作人阿毛（脑大）于 2025 年 1 月创立广州鬼马网络，旗下回合制新作《拉尼亚》首次曝光并放出首支 PV。该作采用极具辨识度的平面奇幻画风与 Q 版角色，回合制战斗融入即时闪避机制、三人小队及类精灵养成图鉴，6 月 29 日已同步启动首测招募。
+
+### 4. 阿里拟出售灵犀互娱，腾讯拟出售日本工作室股份
 
 据陀螺周报，阿里巴巴计划出售灵犀互娱，已接触三七互娱、中国儒意、世纪华通、巨人网络等潜在买家；同期彭博社报道腾讯拟出售旗下部分日本工作室股份。两笔交易若落地，将牵动国内 SLG 资产估值与腾讯海外布局收缩节奏。
 
-### 3. Newzoo：2025 年全球游戏市场首破 2000 亿美元
+### 5. Newzoo：2025 年全球游戏市场首破 2000 亿美元
 
 Newzoo 数据显示，2025 年全球游戏市场规模首次突破 2000 亿美元，达 2016 亿美元、同比增长 9.1%，其中 PC 端增幅创史上最高。该数据印证主机疲软背景下 PC 与跨平台游戏继续承接增长，移动大盘趋于稳定。
 
-### 4. 巨量引擎×抖音小游戏推出 40% 返点激励新政
+### 6. 巨量引擎×抖音小游戏推出 40% 返点激励新政
 
 巨量引擎联合抖音小游戏推出限时 IAP 激励政策，同步发行高潜新游返货点位升至 40%、单款封顶 500 万元，符合条件老游最高 12%、单款封顶 300 万元。机制从单一流量扶持升级为「内容+投放+经营」综合牵引，强调增量消耗与素材供给等过程指标，扶持力度创历史新高。
 
-### 5. 芯片涨价、苹果上调售价 20%，游戏公司股价跟跌
+### 7. 芯片涨价、苹果上调售价 20%，游戏公司股价跟跌
 
 美光 2026 财年 Q3 营收 414.6 亿美元、同比增逾四倍、毛利率升至 84.9%。6 月 25 日苹果宣布 MacBook、iPad 全球涨价约 20%、微软跟进上调 Xbox 售价，苹果当日股价跌 6.12%、市值蒸发超 2600 亿美元。A 股、港股游戏板块及任天堂、索尼股价同步跟跌。
-
-### 6. 波兰 CD Projekt 母公司更名为 CD Projekt Red
-
-波兰游戏公司 CD Projekt 在 6 月 23 日股东大会表决通过将母公司更名为 CD Projekt Red，以统一母公司与旗下《巫师》《赛博朋克》开发工作室的名称。该公司 1994 年成立为外国游戏分销商，2002 年设立 CD Projekt Red 工作室。
 
 ## 二、AI 新闻
 
@@ -83,55 +87,10 @@ Tim Sweeney 在接受 PC Gamer 采访时表示，AI 的价值在于「减少苦�
 
 Deconstructor of Fun 撰文指出，2026 年 2 月《Gossip Harbor》月流水达 7770 万美元，首次超过《Candy Crush Saga》的 7170 万美元；Q1《Gossip Harbor》季度收入同比增长 172%，而《Candy Crush》下滑 7%。一款 Merge 游戏悄然反超移动消除品类最知名的招牌，引发行业对「Merge-2 是否在变现机制上找到根本性优势」的讨论。
 
-### 2. Naavik：两个被低估的移动游戏开发区域
+### 2. Naavik：两个被低估的移动游戏开发区域——巴基斯坦与波罗的海
 
-Naavik 撰文指出，在土耳其、越南等热门枢纽因 UA 成本飙升、资本收紧而日趋拥挤昂贵的背景下，寻找优势意味着关注他人尚未涌入的地方。文章盘点了两个「雷达之下」的新兴移动开发区域，供投资人提前押注人才枢纽、创始人寻找低成本跑道、工作室警惕潜在新对手的悄然崛起。
+Naavik 基于 Sensor Tower 2021–2025 年下载与营收数据，剔除新加坡/香港（多为中国厂商出海发行壳）及韩国、越南、土耳其等成熟强国后，锁定两个「雷达之下」的新兴移动开发区域——**巴基斯坦**与**波罗的海三国**（以拉脱维亚、爱沙尼亚为主，立陶宛同为枢纽）。两地打法迥异：一个胜在规模，一个胜在精度。
 
-## Item Source Map
+巴基斯坦 2025 年贡献超 10 亿次下载，但高度依赖广告变现的超休闲、IAP 偏弱；头部 Game District（收购土耳其 Gleam Games、2025 营收同比 +55%）与 Mindstorm Studios（混合休闲爆款 Hexa Sort 带来 3200 万下载、2800 万美元营收，创始人为前 AppLovin 高管）已向混合休闲与内购进阶，核心瓶颈是把海量下载转化为付费用户。
 
-- 网易《逆水寒：新世界》破纪录上线，首日冲畅销榜前列 - S0013, S0030
-- 阿里拟出售灵犀互娱，腾讯拟出售日本工作室股份 - S0029
-- Newzoo：2025 年全球游戏市场首破 2000 亿美元 - S0029
-- 巨量引擎×抖音小游戏推出 40% 返点激励新政 - S0035, S0029
-- 芯片涨价、苹果上调售价 20%，游戏公司股价跟跌 - S0021
-- 波兰 CD Projekt 母公司更名为 CD Projekt Red - S0042
-- Game Oracle 研究：声明使用 AI 的 Steam 游戏首月评论低 52.6% - S0061
-- Epic 老板 Sweeney 谈 AI 价值，并再度反对 Steam 的 AI 披露要求 - S0018
-- 产品日历 - 遗忘之海 - S0014, S0027, S0031
-- 产品日历 - 拉尼亚 - S0115, S0039
-- 产品日历 - 代号新生 - S0038
-- 产品日历 - 从主神空间开始 - S0080, S0085
-- 《恋与深空》第六男主敖尹引发连锁争议，官方道歉未平舆情 - S0124, S0136, S0137, S0120, S0125, S0126, S0127
-- 库洛新地图「竹林」被指不符合现实逻辑 - S0122
-- Deconstructor of Fun：Merge-2 是否比 Match-3 更赚钱？ - S0140
-- Naavik：两个被低估的移动游戏开发区域 - S0138
-
-## Source Details
-
-- S0001 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-29 日报 · 采集于 2026-06-30） | https://store.steampowered.com/search/?filter=topsellers
-- S0013 | gamelook.com.cn | 破纪录！三年后生造「新世界」的网易逆子，不只是靠力大砖飞 | https://www.gamelook.com.cn/2026/06/588001
-- S0014 | gamelook.com.cn | 公测定档！网易最"有力气"的游戏，要给冷清的暑期档点一把火 | https://www.gamelook.com.cn/2026/06/588010
-- S0018 | gamelook.com.cn | Epic老板："AI价值在于减少苦力活"！评价Steam"至今没有拳头和原神" | https://www.gamelook.com.cn/2026/06/588030
-- S0021 | gamelook.com.cn | AI芯片危机、苹果大涨价！游戏公司股价"无辜躺枪"太过了吧？ | https://www.gamelook.com.cn/2026/06/588055
-- S0027 | youxituoluo.com | 剑指7月：网易今年最"叛逆"的大作要来了 | https://www.youxituoluo.com/article/2026-06-29-1
-- S0029 | youxituoluo.com | 阿里计划出售灵犀，腾讯拟出售日本工作室股份，《遗忘之海》7月9日PC公测 \| 陀螺周报 | https://www.youxituoluo.com/article/2026-06-29-3
-- S0030 | youxichaguan.com | 首日杀入畅销榜第8，新老玩家数量激增，这款"测了"3年的网易游戏终于要"开服了" | https://www.youxichaguan.com/news/2026-06-29-1
-- S0031 | youxichaguan.com | 《遗忘之海》PC端7月9日公测上线！公测前瞻情报公开 | https://www.youxichaguan.com/news/2026-06-29-2
-- S0035 | youxichaguan.com | 40%返点、单款封顶500万：巨量引擎与抖音小游戏联合发布限时激励新政 | https://www.youxichaguan.com/news/2026-06-29-6
-- S0038 | new.qq.com | 4399搜打撤来了，主打轻量化PVP战斗 | https://new.qq.com/rain/a/20260629A0
-- S0039 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A1
-- S0042 | gamesindustry.biz | CD Projekt rebrands to CD Projekt Red | https://www.gamesindustry.biz/cd-projekt-rebrands-to-cd-projekt-red
-- S0061 | 36kr.com | 数据实锤：游戏用AI后，销量少52% | https://36kr.com/p/2026062961
-- S0080 | 16p.com | 从主神空间开始 - 限量删档测试 | https://www.16p.com/1952261.html
-- S0085 | taptap.cn | 从主神空间开始 - 限量测试 | https://www.taptap.cn/app/487379
-- S0115 | taptap.cn | 拉尼亚 - 测试招募 (10:00 开始) | https://www.taptap.cn/app/836285
-- S0120 | bbs.nga.cn | [新瓜][恋与深空]疑似夹带私货，文本中试药实验编号0731 | https://bbs.nga.cn/read.php?tid=47071625
-- S0122 | bbs.nga.cn | [新瓜] [瓜小味甜][回旋镖]库洛新地图竹林不符合现实逻辑 | https://bbs.nga.cn/read.php?tid=47060328
-- S0124 | bbs.nga.cn | [新瓜]恋与深空老六瓜，新男主新pv上线 | https://bbs.nga.cn/read.php?tid=47056549
-- S0125 | bbs.nga.cn | [新闻相关] 中国妇女发文批判《恋与深空》 | https://bbs.nga.cn/read.php?tid=47072203
-- S0126 | bbs.nga.cn | [厂商]叠纸发了带公章的对目前节奏回应的公函 | https://bbs.nga.cn/read.php?tid=47073170
-- S0127 | bbs.nga.cn | [厂商] 恋与深空官方深夜发布道歉公告 | https://bbs.nga.cn/read.php?tid=47063411
-- S0136 | bbs.nga.cn | [疑似内容]《恋与深空》第六男主五星卡面名字惹争议 | https://bbs.nga.cn/read.php?tid=47059618
-- S0137 | bbs.nga.cn | [新瓜]《恋与深空》"不要在锅里洗澡"文案疑似调侃"铁锅杀妻案" | https://bbs.nga.cn/read.php?tid=47061136
-- S0138 | naavik.co | Two Underrated Mobile Development Regions You Need To Know | https://naavik.co/digest/two-underrated-mobile-development-regions
-- S0140 | deconstructoroffun.com | Does Merge-2 Monetize Better Than Match-3? | https://www.deconstructoroffun.com/blog/merge-2-vs-match-3
+波罗的海则以小博大：拉脱维亚 Estoty（Sand Balls 等超休闲爆款、累计 16 亿下载）、爱沙尼亚 Plummy Games（创始人出自 Peak，爱沙尼亚为欧洲人均独角兽密度最高国）、立陶宛 Nordcurrent（2025 年 IAP 约 1.6 亿美元）撑起西方级技术基建与精英人才密度，成本却远低于伦敦、柏林；其下一跃迁取决于这些龙头能否成为持续回流人才与资本的「孵化器」。
