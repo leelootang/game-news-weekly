@@ -22,7 +22,7 @@
 - 报告：手游 DTC 官网充值规模超 170 亿美元 - S0048, S0365
 - Google Play 新分成方案与三方支付 6 月 30 日起生效 - S0050
 - 48 家中国开发者向市场监管总局投诉苹果 App Store 抽成 - S0086
-- 网易前高级副总裁邵赟离职、创立风投基金 Magic Find Ventures - S0362
+- 网易前高级副总裁少云离职一年半后首度发声，详解 Magic Find 投资标准与 AI 重注 - S0362
 - 《逆水寒：新世界》上线冲入畅销前十，官方称在线破千万 - S0054, S0280
 - 5 月微信小游戏：《QQ经典农场》空降登顶、《永远的蔚蓝星球》冲入前三 - S0062
 - 叠纸就《恋与深空》第六男主舆情发致歉公告，承诺加快主线并送 20 抽补偿 - S0359, S0407, S0402, S0238
@@ -39,6 +39,7 @@
 - 产品日历 - 三角洲行动 - S0057, S0148, S0183
 - 产品日历 - 剑侠情缘：重逢 - S0071, S0151, S0192
 - 产品日历 - 失控进化 - S0363, S0153
+- 产品日历 - 遗忘之海 - S0055, S0358
 
 ### 玩家舆论 / 社区动态
 
@@ -98,10 +99,13 @@
 - S0240 | bbs.nga.cn | [库洛]外派员工驻场2月下班后去世 库洛HR深夜内部信公告 | https://bbs.nga.cn/read.php?tid=47012144&_fp=2&forder_by=postdatedesc
 - S0355 | newsletter.gamediscover.co | How Small Spaces sold ~15x its Week 1 sales after a year (!) | https://newsletter.gamediscover.co/p/how-small-spaces-sold-15x-its-week
 - S0356 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-06-28 日报 · 采集于 2026-06-29） | https://store.steampowered.com/search/?filter=topsellers
+- S0055 | cgames.com | 刚刚，网易官宣将上线今年游戏圈最大的“BUG” | https://cgames.com/contents/2/12012.html
+- S0358 | cgames.com | Q3近20款大厂产品上线或开测；暑期档米哈游库洛鹰角刚正面丨Changing周报 | https://cgames.com/contents/2/12019.html
 
 ## release_calendar 取用说明
 
 - 诡秘之主、三角洲行动、剑侠情缘：重逢、失控进化四款同时出现在 industry 与 calendar 源，以上线/测试/启宣节点形态进产品日历，industry 源仅回填厂商/品类/评级证据，不在行业新闻另起条目。
+- 遗忘之海仅出现在 industry_news 源（S0055 定档专稿 + S0358 周报回填），但 S0055 本身即 6/26 公测前瞻直播+PC 定档 7/9 节点，按"行业新闻内的上线/定档节点优先升进产品日历"规则进日历，不在行业新闻另起条目。
 
 ## 排除条目
 
