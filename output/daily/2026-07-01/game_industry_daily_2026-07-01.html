@@ -1,0 +1,354 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>游戏行业日报 | 2026-07-01</title>
+  <style>
+    :root {
+      --ink:#1a2436; --ink-soft:#3a4862; --muted:#6b7993; --faint:#9aa6bd;
+      --accent:#5b6ef5;
+      --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.78);
+      --glass-border:rgba(255,255,255,.7); --line:rgba(31,45,75,.10); --line-strong:rgba(31,45,75,.16);
+      --shadow-sm:0 3px 12px rgba(31,45,75,.05);
+      --shadow:0 6px 28px rgba(31,45,75,.07);
+      --shadow-lg:0 14px 40px rgba(31,45,75,.12);
+      --industry:#4f7cff; --industry-soft:rgba(79,124,255,.12); --industry-ink:#2b53c4;
+      --ai:#00b3d4; --ai-soft:rgba(0,179,212,.12); --ai-ink:#06748a;
+      --release:#16b884; --release-soft:rgba(22,184,132,.13); --release-ink:#0b7a57;
+      --rankings:#d05f3f; --rankings-soft:rgba(208,95,63,.13); --rankings-ink:#93402b;
+      --discourse:#f0a02a; --discourse-soft:rgba(240,160,42,.15); --discourse-ink:#9a6206;
+      --deep:#8b6df0; --deep-soft:rgba(139,109,240,.13); --deep-ink:#5a3fc0;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html,body { height:100%; }
+    body { color:var(--ink); font-family:"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+    /* decorative gradient field behind the frosted glass */
+    body::before { content:""; position:fixed; inset:0; z-index:-1;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(91,110,245,.20), transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(0,179,212,.16), transparent 40%),
+        radial-gradient(circle at 78% 88%, rgba(139,109,240,.18), transparent 46%),
+        radial-gradient(circle at 25% 92%, rgba(22,184,132,.13), transparent 44%),
+        linear-gradient(135deg,#eef1fb 0%,#f3effb 48%,#eaf3fc 100%); }
+    a { color:inherit; text-decoration:none; }
+    button,input { font:inherit; }
+    ::selection { background:rgba(91,110,245,.22); }
+    .app { min-height:100vh; display:grid; grid-template-columns:264px minmax(0,1fr); transition:grid-template-columns .25s cubic-bezier(.4,0,.2,1); }
+    .app.collapsed { grid-template-columns:0 minmax(0,1fr); }
+
+    /* Sidebar — frosted glass */
+    aside.sidebar { position:sticky; top:0; height:100vh; padding:24px 18px; color:var(--ink); display:flex; flex-direction:column;
+      background:rgba(255,255,255,.48); backdrop-filter:blur(22px) saturate(170%); -webkit-backdrop-filter:blur(22px) saturate(170%);
+      border-right:1px solid rgba(255,255,255,.55); overflow-y:auto; overflow-x:hidden; transition:transform .25s cubic-bezier(.4,0,.2,1), opacity .2s; }
+    .app.collapsed aside.sidebar { transform:translateX(-100%); opacity:0; pointer-events:none; }
+
+    /* Sidebar toggle button (in topbar, always visible) */
+    .sidebar-toggle { width:40px; height:40px; border:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--ink-soft); cursor:pointer; border-radius:12px; display:grid; place-items:center; font-size:16px; line-height:1; transition:all .14s; }
+    .sidebar-toggle:hover { color:var(--accent); border-color:var(--accent); }
+    .sidebar-toggle .icon-open { display:inline; }
+    .sidebar-toggle .icon-close { display:none; }
+    .app.collapsed .sidebar-toggle .icon-open { display:none; }
+    .app.collapsed .sidebar-toggle .icon-close { display:inline; }
+    .brand { display:flex; align-items:center; gap:12px; padding:0 2px 20px; border-bottom:1px solid var(--line); }
+    .brand-mark { width:40px; height:40px; display:grid; place-items:center; border-radius:11px; background:#fff; padding:7px; box-shadow:0 3px 10px rgba(31,45,75,.10); }
+    .brand-mark img { width:100%; height:100%; display:block; object-fit:contain; }
+    .brand strong { display:block; font-size:15px; line-height:1.1; letter-spacing:.2px; color:var(--ink); }
+    .brand span { display:block; font-size:11px; color:var(--muted); margin-top:3px; }
+    .nav-title { margin:22px 0 10px; color:var(--faint); font-size:10px; letter-spacing:1.3px; text-transform:uppercase; font-weight:700; }
+    .nav { display:grid; gap:3px; }
+    .nav button { width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px; border:0; background:transparent; color:var(--ink-soft); padding:11px 14px; text-align:left; cursor:pointer; border-radius:11px; position:relative; font-size:14px; font-weight:500; transition:all .14s; }
+    .nav button:hover { background:rgba(255,255,255,.55); color:var(--ink); }
+    .nav button.active { background:rgba(91,110,245,.12); color:var(--accent); font-weight:600; box-shadow:inset 0 0 0 1px rgba(91,110,245,.18); }
+    .nav button.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:0 3px 3px 0; background:var(--accent2,var(--accent)); }
+    .nav button[data-section="industry"] { --accent2:var(--industry); }
+    .nav button[data-section="ai"] { --accent2:var(--ai); }
+    .nav button[data-section="release"] { --accent2:var(--release); }
+    .nav button[data-section="rankings"] { --accent2:var(--rankings); }
+    .nav button[data-section="discourse"] { --accent2:var(--discourse); }
+    .nav button[data-section="deep"] { --accent2:var(--deep); }
+    .count { min-width:24px; padding:1px 9px; color:var(--muted); background:rgba(31,45,75,.07); text-align:center; border-radius:11px; font-size:12px; font-weight:600; }
+    .nav button.active .count { background:var(--accent2,var(--accent)); color:#fff; }
+    .sidebar-footer { margin:auto -18px -24px; padding:16px 22px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted); line-height:1.65; }
+    .sidebar-footer .made { color:var(--ink-soft); font-weight:600; }
+    .sidebar-footer a { color:var(--accent); }
+    .sidebar-footer .stat { margin-top:8px; color:var(--faint); }
+
+    /* Main */
+    main { padding:30px 40px 64px; min-width:0; }
+    .topbar { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:26px; padding-bottom:22px; border-bottom:1px solid var(--line); }
+    h1 { margin:0; font-size:28px; line-height:1.25; letter-spacing:-.2px; font-weight:800; color:var(--ink); }
+    .subtitle { margin-top:8px; color:var(--muted); font-size:13.5px; }
+    .actions { display:flex; gap:10px; align-items:center; }
+    .search { width:320px; display:flex; align-items:center; gap:8px; background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid var(--glass-border); padding:9px 14px; border-radius:12px; transition:border-color .15s, box-shadow .15s; }
+    .search:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px rgba(91,110,245,.12); background:#fff; }
+    .search input { width:100%; border:0; outline:0; background:transparent; color:var(--ink); font-size:13.5px; }
+    .search input::placeholder { color:var(--faint); }
+    .icon-btn { border:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--ink-soft); cursor:pointer; width:40px; height:40px; border-radius:12px; transition:all .14s; }
+    .icon-btn:hover { color:var(--accent); border-color:var(--accent); }
+
+    /* Metrics */
+    .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:30px; }
+    .metric { background:var(--glass); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid var(--glass-border); padding:18px 20px; border-radius:18px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; }
+    .metric::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent2,var(--industry)); }
+    .metric:nth-child(1) { --accent2:var(--industry); }
+    .metric:nth-child(2) { --accent2:var(--release); }
+    .metric:nth-child(3) { --accent2:var(--discourse); }
+    .metric:nth-child(4) { --accent2:var(--deep); }
+    .metric span { color:var(--muted); font-size:12.5px; letter-spacing:.3px; }
+    .metric strong { display:block; font-size:26px; line-height:1.1; margin-top:6px; font-weight:800; color:var(--ink); }
+
+    /* Section-head (单 section 视图) */
+    .section-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; margin:6px 0 20px; padding:16px 20px; background:var(--glass); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid var(--glass-border); border-left:4px solid var(--accent2,var(--industry)); border-radius:18px; box-shadow:var(--shadow-sm); }
+    .section-head[data-section="industry"] { --accent2:var(--industry); }
+    .section-head[data-section="ai"] { --accent2:var(--ai); }
+    .section-head[data-section="release"] { --accent2:var(--release); }
+    .section-head[data-section="rankings"] { --accent2:var(--rankings); }
+    .section-head[data-section="discourse"] { --accent2:var(--discourse); }
+    .section-head[data-section="deep"] { --accent2:var(--deep); }
+    h2 { margin:0; font-size:20px; font-weight:700; }
+    .section-head p { margin:4px 0 0; color:var(--muted); font-size:13px; }
+    .toggle { display:flex; border:1px solid var(--glass-border); background:var(--glass); border-radius:11px; overflow:hidden; }
+    .toggle button { padding:8px 15px; border:0; background:transparent; color:var(--ink-soft); cursor:pointer; font-size:13px; transition:all .14s; }
+    .toggle button.active { background:var(--accent); color:#fff; font-weight:600; }
+
+    /* "全部" 视图下的 section 分块 */
+    .section-block { margin-top:38px; min-width:0; }
+    .section-block:first-child { margin-top:0; }
+    .section-banner { display:flex; align-items:baseline; gap:14px; padding:13px 18px; margin-bottom:16px; background:var(--accent-soft,var(--industry-soft)); border-left:4px solid var(--accent2,var(--industry)); border-radius:14px; }
+    .section-banner[data-section="industry"] { --accent2:var(--industry); --accent-soft:var(--industry-soft); --accent-ink:var(--industry-ink); }
+    .section-banner[data-section="ai"] { --accent2:var(--ai); --accent-soft:var(--ai-soft); --accent-ink:var(--ai-ink); }
+    .section-banner[data-section="release"] { --accent2:var(--release); --accent-soft:var(--release-soft); --accent-ink:var(--release-ink); }
+    .section-banner[data-section="rankings"] { --accent2:var(--rankings); --accent-soft:var(--rankings-soft); --accent-ink:var(--rankings-ink); }
+    .section-banner[data-section="discourse"] { --accent2:var(--discourse); --accent-soft:var(--discourse-soft); --accent-ink:var(--discourse-ink); }
+    .section-banner[data-section="deep"] { --accent2:var(--deep); --accent-soft:var(--deep-soft); --accent-ink:var(--deep-ink); }
+    .section-banner h2 { color:var(--accent-ink); font-size:17px; margin:0; font-weight:700; }
+    .section-banner .banner-count { color:var(--accent2); font-weight:700; font-size:13px; }
+    .section-banner .banner-desc { color:var(--accent-ink); opacity:.7; font-size:13px; margin-left:auto; }
+
+    /* Cards — glass */
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; min-width:0; }
+    .grid.compact { grid-template-columns:1fr; }
+    .item { min-width:0; background:var(--glass); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%); border:1px solid var(--glass-border); border-left:3px solid var(--accent2,var(--industry)); padding:20px 24px; border-radius:18px; box-shadow:var(--shadow-sm); transition:transform .18s, box-shadow .18s; display:flex; flex-direction:column; }
+    .item:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+    .item[data-section="industry"] { --accent2:var(--industry); --accent-soft:var(--industry-soft); --accent-ink:var(--industry-ink); }
+    .item[data-section="ai"] { --accent2:var(--ai); --accent-soft:var(--ai-soft); --accent-ink:var(--ai-ink); }
+    .item[data-section="release"] { --accent2:var(--release); --accent-soft:var(--release-soft); --accent-ink:var(--release-ink); }
+    .item[data-section="rankings"] { --accent2:var(--rankings); --accent-soft:var(--rankings-soft); --accent-ink:var(--rankings-ink); grid-column:1 / -1; }
+    .item[data-section="discourse"] { --accent2:var(--discourse); --accent-soft:var(--discourse-soft); --accent-ink:var(--discourse-ink); }
+    .item[data-section="deep"] { --accent2:var(--deep); --accent-soft:var(--deep-soft); --accent-ink:var(--deep-ink); }
+    .item-top { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:11px; }
+    .tag { padding:3px 11px; font-size:12px; color:var(--accent-ink); background:var(--accent-soft); border-radius:8px; font-weight:700; letter-spacing:.2px; }
+    h3 { margin:2px 0 10px; font-size:17.5px; line-height:1.45; font-weight:700; color:var(--ink); letter-spacing:.1px; }
+    .item p { margin:0 0 14px; color:var(--ink-soft); font-size:14.5px; line-height:1.78; }
+    .meta-row { display:flex; flex-wrap:wrap; gap:7px; color:var(--muted); font-size:12px; margin-bottom:4px; }
+    .meta-row span { padding:3px 10px; background:rgba(31,45,75,.06); border-radius:8px; }
+    .item .meta-row span.borderline { background:rgba(240,160,42,.14); color:#a8680a; }
+    .source-btn { margin-top:14px; padding:8px 14px; border:1px solid var(--glass-border); background:rgba(255,255,255,.5); color:var(--accent); cursor:pointer; border-radius:11px; font-size:13px; font-weight:600; align-self:flex-start; transition:all .14s; }
+    .source-btn:hover { background:var(--accent-soft); border-color:var(--accent2); }
+    .ranking-notes { margin:0 0 12px; padding-left:20px; color:var(--ink-soft); line-height:1.55; font-size:13.5px; }
+    .ranking-table-wrap { width:100%; overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:rgba(255,255,255,.54); }
+    .ranking-table { width:100%; min-width:680px; border-collapse:collapse; font-size:12.5px; }
+    .ranking-table th,.ranking-table td { padding:6px 10px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+    .ranking-table th { color:var(--ink); background:rgba(208,95,63,.08); font-weight:700; }
+    .ranking-table td:first-child,.ranking-table th:first-child { text-align:right; }
+    .ranking-table tbody tr:last-child td { border-bottom:0; }
+    .empty { display:none; padding:48px; border:1px dashed var(--line-strong); color:var(--muted); text-align:center; background:var(--glass); border-radius:18px; }
+    .empty.visible { display:block; }
+
+    /* Drawer */
+    .overlay { position:fixed; inset:0; display:none; background:rgba(26,36,54,.3); backdrop-filter:blur(3px); }
+    .overlay.open { display:block; }
+    .drawer { position:fixed; top:0; right:0; width:min(440px,100vw); height:100vh; transform:translateX(100%); transition:.22s cubic-bezier(.4,0,.2,1); background:rgba(255,255,255,.85); backdrop-filter:blur(24px) saturate(160%); -webkit-backdrop-filter:blur(24px) saturate(160%); border-left:1px solid var(--glass-border); box-shadow:-18px 0 44px rgba(31,45,75,.16); padding:24px; overflow:auto; }
+    .drawer.open { transform:translateX(0); }
+    .drawer-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:8px; }
+    .drawer h2 { font-size:17px; line-height:1.4; }
+    #drawerNote { color:var(--muted); font-size:13px; line-height:1.7; margin:0 0 18px; padding-bottom:16px; border-bottom:1px solid var(--line); }
+    .source-card { border:1px solid var(--glass-border); padding:13px 15px; margin-top:10px; border-radius:12px; background:rgba(255,255,255,.55); }
+    .source-card strong { font-size:13px; color:var(--ink); }
+    .source-url { display:block; margin-top:6px; color:var(--accent); overflow-wrap:anywhere; user-select:text; font-size:12.5px; text-decoration:none; }
+    a.source-url:hover { text-decoration:underline; }
+    a.source-url:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+
+    @media (max-width:900px) {
+      .app { grid-template-columns:1fr; }
+      aside.sidebar { position:relative; height:auto; }
+      .nav { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      main { padding:22px 18px 36px; }
+      .topbar,.section-head { align-items:stretch; flex-direction:column; }
+      .search { width:100%; }
+      .metrics,.grid { grid-template-columns:1fr; }
+      .section-banner { flex-wrap:wrap; }
+      .section-banner .banner-desc { margin-left:0; width:100%; }
+    }
+    @media print {
+      body::before { display:none; }
+      aside.sidebar,.actions,.toggle,.source-btn,.drawer,.overlay { display:none!important; }
+      .app { display:block; }
+      main { padding:0; }
+      .item { break-inside:avoid; box-shadow:none; border-color:#bbb; backdrop-filter:none; background:#fff; }
+      .section-banner { break-after:avoid; }
+    }
+  .rank-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;}.rank-table th,.rank-table td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap;}.rank-table th{color:var(--rankings-ink);background:var(--rankings-soft);font-weight:600;}.rank-table tbody tr:hover{background:rgba(208,95,63,.05);}.rank-table tr.hl td{background:rgba(208,95,63,.13);}.rank-table tr.hl td strong{color:var(--rankings-ink,#93402b);font-weight:700;}.new-tag{display:inline-block;background:var(--rankings);color:#fff;padding:1px 7px;border-radius:7px;font-size:11px;}
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar">
+      <div class="brand" aria-label="沐瞳科技">
+        <div class="brand-mark" aria-hidden="true"><img src="../../assets/moonton_logo.png" alt=""></div>
+        <div><strong>游戏行业情报站</strong><span>AI 生成 · 每日更新</span></div>
+      </div>
+      <div class="nav-title">Sections</div>
+      <nav class="nav" id="nav"></nav>
+      <div class="sidebar-footer">
+        <div class="made">Made by 沐瞳科技战略团队</div>
+        <div>有问题请联系 <a href="mailto:leelootang@moonton.com">leelootang@moonton.com</a></div>
+        <div class="stat">2026-07-01 · 18 条动态</div>
+      </div>
+    </aside>
+    <main>
+      <div class="topbar">
+        <div><h1>游戏行业日报</h1><div class="subtitle">2026-07-01 · steam当日榜单、行业新闻、AI、产品日历、玩家舆论与精选观察</div></div>
+        <div class="actions">
+          <button class="sidebar-toggle" id="sidebarToggle" type="button" title="折叠 / 展开侧栏" aria-label="切换侧栏">
+            <span class="icon-open">«</span><span class="icon-close">»</span>
+          </button>
+          <label class="search">⌕<input id="search" type="search" placeholder="搜索条目、公司、产品"></label>
+          <button class="icon-btn" id="printBtn" type="button" title="打印">⎙</button>
+        </div>
+      </div>
+      <div class="metrics"><div class="metric"><span>行业新闻</span><strong>7</strong></div><div class="metric"><span>产品日历</span><strong>4</strong></div><div class="metric"><span>玩家舆论</span><strong>3</strong></div><div class="metric"><span>采集记录</span><strong>193</strong></div></div>
+      <div class="section-head" id="sectionHead">
+        <div><h2 id="sectionTitle"></h2><p id="sectionDesc"></p></div>
+        <div class="toggle"><button id="viewGrid" class="active" type="button">双列</button><button id="viewList" type="button">列表</button></div>
+      </div>
+      <div id="content"></div>
+      <div class="empty" id="empty">没有匹配的条目。</div>
+    </main>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="来源详情">
+    <div class="drawer-head"><h2 id="drawerTitle"></h2><button class="icon-btn" id="closeDrawer" type="button">×</button></div>
+    <p id="drawerNote"></p>
+    <div id="sourceList"></div>
+  </aside>
+  <script>
+    const sections = [{"id": "all", "label": "全部", "desc": "浏览全部内容，或从左侧选择单个板块。"}, {"id": "rankings", "label": "steam当日榜单", "desc": "Steam 全球热销榜 TOP10 与近期新品。"}, {"id": "industry", "label": "行业新闻", "desc": "公司、产品、市场与资本动作。"}, {"id": "ai", "label": "AI 新闻", "desc": "游戏相关的 AI 与开发工具。"}, {"id": "release", "label": "产品日历", "desc": "上线、测试、新版本与重点节点。"}, {"id": "discourse", "label": "玩家舆论", "desc": "社区热点、争议与玩家情绪。"}, {"id": "deep", "label": "深度观察", "desc": "值得内部团队继续跟踪的结构性变化。"}];
+    const items = [{"section": "rankings", "title": "steam当日榜单", "body": "steam当日榜单", "body_html": "<p style=\"color:var(--muted);font-size:13px;margin-bottom:10px;\">数据来源：Steam 热销榜（排名）+ Gamalytic（销量/营收估算）。Steam 日榜无历史查询，此为采集日 2026-07-02 的实时热销榜，用于补充 2026-07-01 日报。</p><ul style=\"margin:0 0 14px 18px;display:grid;gap:7px;\"><li>★ #2《MECCHA CHAMELEON》为近期新品，发行商 lemorion_1224，2026-06-10 上线，休闲品类，销量约 1026.6 万、营收约 $4898.2 万、好评率 85%，较前一日（约 1014.8 万/$4831.3 万）继续走高。</li><li>★ #8《SAND: Raiders of Sophie》为近期新品，发行商 tinyBuild，2026-06-22 上线，动作/冒险/抢先体验，销量约 25.6 万、营收约 $458.7 万、好评率 54%。</li></ul><div style=\"overflow-x:auto;\"><table class=\"rank-table\"><thead><tr><th>Rank</th><th>标记</th><th style=\"text-align:left\">游戏</th><th>价格</th><th>好评率</th><th>上线</th><th style=\"text-align:right\">销量</th><th style=\"text-align:right\">营收</th></tr></thead><tbody><tr><td>1</td><td></td><td style=\"text-align:left\">Counter-Strike 2</td><td>免费</td><td>86%</td><td>2012-08-21</td><td style=\"text-align:right\">3.51亿</td><td style=\"text-align:right\">$121.17亿</td></tr><tr class=\"hl\"><td>2</td><td><span class=\"new-tag\">★ 近期新品</span></td><td style=\"text-align:left\"><strong>MECCHA CHAMELEON</strong></td><td>$5.99</td><td>85%</td><td>2026-06-10</td><td style=\"text-align:right\">1026.6万</td><td style=\"text-align:right\">$4898.2万</td></tr><tr><td>3</td><td></td><td style=\"text-align:left\">Apex Legends™</td><td>免费</td><td>68%</td><td>2020-11-04</td><td style=\"text-align:right\">7704万</td><td style=\"text-align:right\">$19.14亿</td></tr><tr><td>4</td><td></td><td style=\"text-align:left\">Dead by Daylight</td><td>$19.99</td><td>78%</td><td>2016-06-14</td><td style=\"text-align:right\">1906.8万</td><td style=\"text-align:right\">$1.80亿</td></tr><tr><td>5</td><td></td><td style=\"text-align:left\">Overwatch®</td><td>免费</td><td>31%</td><td>2023-08-10</td><td style=\"text-align:right\">1773万</td><td style=\"text-align:right\">$1.26亿</td></tr><tr><td>6</td><td></td><td style=\"text-align:left\">Cyberpunk 2077</td><td>$59.99</td><td>87%</td><td>2020-12-09</td><td style=\"text-align:right\">2362.7万</td><td style=\"text-align:right\">$7.33亿</td></tr><tr><td>7</td><td></td><td style=\"text-align:left\">Marvel Rivals</td><td>免费</td><td>76%</td><td>2024-12-05</td><td style=\"text-align:right\">2637.1万</td><td style=\"text-align:right\">$4.11亿</td></tr><tr class=\"hl\"><td>8</td><td><span class=\"new-tag\">★ 近期新品</span></td><td style=\"text-align:left\"><strong>SAND: Raiders of Sophie</strong></td><td>$24.99</td><td>54%</td><td>2026-06-22</td><td style=\"text-align:right\">25.6万</td><td style=\"text-align:right\">$458.7万</td></tr><tr><td>9</td><td></td><td style=\"text-align:left\">Destiny 2</td><td>免费</td><td>78%</td><td>2019-10-01</td><td style=\"text-align:right\">3839万</td><td style=\"text-align:right\">$9.65亿</td></tr><tr><td>10</td><td></td><td style=\"text-align:left\">Warframe</td><td>免费</td><td>88%</td><td>2013-03-25</td><td style=\"text-align:right\">4795.8万</td><td style=\"text-align:right\">$11.61亿</td></tr></tbody></table></div>", "meta": ["Steam 当日榜", "TOP10"], "sources": [["steam", "Steam 官方热销榜（+ Gamalytic 估算）", "https://store.steampowered.com/charts/topselling/global"]]}, {"section": "industry", "title": "《传奇》母公司娱美德约 49 亿元易主，买方 Neopulse 被指疑似阿里系", "body": "6 月 30 日，韩国游戏公司娱美德（Wemade）创始人、最大股东朴冠浩与本土法人 Neopulse 签署股票购买协议，拟出售其持有的全部股份，交易总额约 9200 亿韩元（约合 49 亿元人民币），最终交割定于 10 月 30 日。交易完成后 Neopulse 合计持股将达 40.25%，成为第一大股东。Neopulse 成立于 2025 年 10 月，唯一股东为香港盛松投资（股东陈伟）；多家韩媒称其为「与阿里巴巴及中国主要游戏企业关系密切」的投资平台。娱美德拥有《传奇》（MIR）、《夜鸦》《暮光双龙》等 MMO IP，其中《夜鸦》国服刚于 6 月 29 日取得版号。", "body_html": "<p>6 月 30 日，韩国游戏公司娱美德（Wemade）创始人、最大股东朴冠浩与本土法人 Neopulse 签署股票购买协议，拟出售其持有的全部股份，交易总额约 9200 亿韩元（约合 49 亿元人民币），最终交割定于 10 月 30 日。交易完成后 Neopulse 合计持股将达 40.25%，成为第一大股东。Neopulse 成立于 2025 年 10 月，唯一股东为香港盛松投资（股东陈伟）；多家韩媒称其为「与阿里巴巴及中国主要游戏企业关系密切」的投资平台。娱美德拥有《传奇》（MIR）、《夜鸦》《暮光双龙》等 MMO IP，其中《夜鸦》国服刚于 6 月 29 日取得版号。</p>", "meta": ["传奇", "夜鸦", "版号"], "sources": []}, {"section": "industry", "title": "7 月预计 18–19 款新游上线，网易腾讯多款大作扎堆暑期档", "body": "据 GameLook 统计，7 月定档新游数量创新高。三款重点产品：腾讯《失控进化》（获《Rust》正版授权的搜打拆产品，全网预约超 4000 万，7 月 6 日开启 PC 预下载、7 月 9 日上线）、腾讯《舞力全开：派对》（体感音舞手游），以及网易《遗忘之海》（Joker 工作室开放世界海战新作，PC 端定档 7 月 9 日、手游 7 月内）。品类上开放世界大作集中，合成休闲品类亦密集入场（《小镇派对》《咪哇伊奇幻冒险》等），Steam 移植自走棋《选技大乱斗》同期上线。", "body_html": "<p>据 GameLook 统计，7 月定档新游数量创新高。三款重点产品：腾讯《失控进化》（获《Rust》正版授权的搜打拆产品，全网预约超 4000 万，7 月 6 日开启 PC 预下载、7 月 9 日上线）、腾讯《舞力全开：派对》（体感音舞手游），以及网易《遗忘之海》（Joker 工作室开放世界海战新作，PC 端定档 7 月 9 日、手游 7 月内）。品类上开放世界大作集中，合成休闲品类亦密集入场（《小镇派对》《咪哇伊奇幻冒险》等），Steam 移植自走棋《选技大乱斗》同期上线。</p>", "meta": ["失控进化", "Rust", "腾讯"], "sources": []}, {"section": "industry", "title": "2026 上半年海外大厂裁员人数已接近 2025 全年", "body": "据裁员追踪站 videogamelayoffs 统计，2026 上半年有报道的裁员人数达 4600 人，逼近 2025 全年的 5300 人；裁员事件从去年同期 91 起降至 71 起，但单次规模变大——Epic 裁撤超 1000 人、Bungie 涉及至少 292 人。此外路透社称微软拟裁减 2.5% 以内员工（约 5500 人）。裁员大致归为三类：GaaS 转型失败、甩掉扩张期冗余、受生成式 AI 影响。索尼对 Bungie 已计提减值 1201 亿日元，育碧上半年至少六轮裁员，Embracer 员工从 1.6 万余人缩减至 6000 余人。", "body_html": "<p>据裁员追踪站 videogamelayoffs 统计，2026 上半年有报道的裁员人数达 4600 人，逼近 2025 全年的 5300 人；裁员事件从去年同期 91 起降至 71 起，但单次规模变大——Epic 裁撤超 1000 人、Bungie 涉及至少 292 人。此外路透社称微软拟裁减 2.5% 以内员工（约 5500 人）。裁员大致归为三类：GaaS 转型失败、甩掉扩张期冗余、受生成式 AI 影响。索尼对 Bungie 已计提减值 1201 亿日元，育碧上半年至少六轮裁员，Embracer 员工从 1.6 万余人缩减至 6000 余人。</p>", "meta": ["裁员"], "sources": []}, {"section": "industry", "title": "微软暂停新第三方 3A 入 XGP 谈判，订阅制退潮显现", "body": "据《绝地潜兵2》项目负责人透露，微软已暂停所有新第三方 3A 游戏与 Xbox Game Pass 的入库合作谈判，已签约合同照常履行。彭博社称，仅《使命召唤》系列首日入库两年，就让 Xbox 损失约 3 亿美元买断销量；微软总部已停止对 Xbox 部门无限输血，要求游戏业务三年内实现 30% 稳定利润率。同期 Epic 因《堡垒之夜》收入下滑接连裁员收缩，苹果 Arcade 亦大幅砍撤项目，订阅/补贴模式整体从规模扩张转向利润优先。", "body_html": "<p>据《绝地潜兵2》项目负责人透露，微软已暂停所有新第三方 3A 游戏与 Xbox Game Pass 的入库合作谈判，已签约合同照常履行。彭博社称，仅《使命召唤》系列首日入库两年，就让 Xbox 损失约 3 亿美元买断销量；微软总部已停止对 Xbox 部门无限输血，要求游戏业务三年内实现 30% 稳定利润率。同期 Epic 因《堡垒之夜》收入下滑接连裁员收缩，苹果 Arcade 亦大幅砍撤项目，订阅/补贴模式整体从规模扩张转向利润优先。</p>", "meta": ["绝地潜兵2", "使命召唤", "Apple"], "sources": []}, {"section": "industry", "title": "深圳全民互动《空格之境》冲进微信抖音畅销榜 TOP40", "body": "古风女性向合成游戏《空格之境》约在 4 月首次上榜，运营一个多月后升至微信、抖音畅销榜 TOP40。开发商深圳全民互动去年位列小游戏百强企业第 12 名，此前已有放置 RPG《神器传说》《四季物语》等成绩。《空格之境》以「超现实古风大片」AI 素材引流，再靠社区运营留存，当前圈子超 15 万人、发帖破 69 万；其抖音官号近一个月涨粉 10 多万、总数超 16 万，粉丝画像约九成为女性。", "body_html": "<p>古风女性向合成游戏《空格之境》约在 4 月首次上榜，运营一个多月后升至微信、抖音畅销榜 TOP40。开发商深圳全民互动去年位列小游戏百强企业第 12 名，此前已有放置 RPG《神器传说》《四季物语》等成绩。《空格之境》以「超现实古风大片」AI 素材引流，再靠社区运营留存，当前圈子超 15 万人、发帖破 69 万；其抖音官号近一个月涨粉 10 多万、总数超 16 万，粉丝画像约九成为女性。</p>", "meta": ["空格之境", "神器传说", "放置"], "sources": []}, {"section": "industry", "title": "六人团队《赵云与阿斗》登顶微信抖音 IAA 双榜", "body": "IAA 小游戏《赵云与阿斗》上线后曾连续 7 天占据微信人气榜、畅玩榜双榜第一，抖音热门榜、畅销榜亦为双榜第一。开发商为曾推出《躺平发育》的蜜獾工坊，据 CEO 李眉宇透露参与该项目前后仅五六人、常规阶段三四人。玩法上融合了《Random Dice》的随机塔防底层与《文字游戏》的文字组合机制，用蜀国武将名与「文字变兵器」的表现力实现高密度空间决策。", "body_html": "<p>IAA 小游戏《赵云与阿斗》上线后曾连续 7 天占据微信人气榜、畅玩榜双榜第一，抖音热门榜、畅销榜亦为双榜第一。开发商为曾推出《躺平发育》的蜜獾工坊，据 CEO 李眉宇透露参与该项目前后仅五六人、常规阶段三四人。玩法上融合了《Random Dice》的随机塔防底层与《文字游戏》的文字组合机制，用蜀国武将名与「文字变兵器」的表现力实现高密度空间决策。</p>", "meta": ["赵云与阿斗", "躺平发育", "小游戏"], "sources": []}, {"section": "industry", "title": "米哈游同日成立「舒俱」「公正之秤」两家子公司", "body": "工商信息显示，6 月 29 日米哈游同日成立上海米哈游舒俱科技有限公司与上海米哈游公正之秤科技有限公司，法定代表人均为于晨曦，注册资本各 1000 万元，落户上海徐汇区。两个名称均取自《崩坏：星穹铁道》世界观：「舒俱」指向游戏中「星际和平公司」旗下战略投资相关设定，「公正之秤」指向律法泰坦「塔兰顿」。业界普遍判断此为内部业务单元财务独立核算的常规操作。", "body_html": "<p>工商信息显示，6 月 29 日米哈游同日成立上海米哈游舒俱科技有限公司与上海米哈游公正之秤科技有限公司，法定代表人均为于晨曦，注册资本各 1000 万元，落户上海徐汇区。两个名称均取自《崩坏：星穹铁道》世界观：「舒俱」指向游戏中「星际和平公司」旗下战略投资相关设定，「公正之秤」指向律法泰坦「塔兰顿」。业界普遍判断此为内部业务单元财务独立核算的常规操作。</p>", "meta": ["崩坏：星穹铁道", "米哈游"], "sources": []}, {"section": "ai", "title": "Ludo AI 升级 Sprite Generator，新增姿态与动画导出工具", "body": "Ludo.ai 为其 Sprite Generator 推出更新，新增姿态生成、动画序列与导出功能，主打为独立开发者与小团队减少手工工作量。更新包含重构的 Pose Generator（可按预设或自定义提示生成新姿态并保持角色风格比例）、Rotate Sprite（从单张 sprite 生成多视角）、以及 Generate Transition/After/Before 等衔接动画片段的工具，目标是把单张 sprite 快速扩展为完整动画集。CTO Jorge Gomes 称升级聚焦于摆姿、连接动画、统一格式导出这些团队通常放慢速度的环节。", "body_html": "<p>Ludo.ai 为其 Sprite Generator 推出更新，新增姿态生成、动画序列与导出功能，主打为独立开发者与小团队减少手工工作量。更新包含重构的 Pose Generator（可按预设或自定义提示生成新姿态并保持角色风格比例）、Rotate Sprite（从单张 sprite 生成多视角）、以及 Generate Transition/After/Before 等衔接动画片段的工具，目标是把单张 sprite 快速扩展为完整动画集。CTO Jorge Gomes 称升级聚焦于摆姿、连接动画、统一格式导出这些团队通常放慢速度的环节。</p>", "meta": [], "sources": []}, {"section": "ai", "title": "龙腾世纪老将 David Gaider 称生成式 AI 是「瘟疫」", "body": "《龙腾世纪》资深叙事设计师 David Gaider 公开批评生成式 AI 是「瘟疫」，称其「尚未准备好投入实用，只是有很多高管非常非常希望它能行」。相关讨论在 r/gaming 冲上上升榜，获约 2856 分、243 条评论。高赞评论集中吐槽高管试图用 AI 为服务型游戏批量生产内容以替代美术与程序，以及部分公司裁掉真人后反被 AI 涨价、付出更高成本获得更差产出的现象。", "body_html": "<p>《龙腾世纪》资深叙事设计师 David Gaider 公开批评生成式 AI 是「瘟疫」，称其「尚未准备好投入实用，只是有很多高管非常非常希望它能行」。相关讨论在 r/gaming 冲上上升榜，获约 2856 分、243 条评论。高赞评论集中吐槽高管试图用 AI 为服务型游戏批量生产内容以替代美术与程序，以及部分公司裁掉真人后反被 AI 涨价、付出更高成本获得更差产出的现象。</p>", "meta": ["龙腾世纪"], "sources": []}, {"section": "release", "title": "选技大乱斗", "body": "《选技大乱斗》Steam 移植自走棋手游 7 月 1 日首发上线（TapTap 端 10:00 开启）；", "body_html": "<p>《选技大乱斗》Steam 移植自走棋手游 7 月 1 日首发上线（TapTap 端 10:00 开启）；</p>", "meta": ["选技大乱斗", "自走棋"], "sources": []}, {"section": "release", "title": "时空猎人·觉醒", "body": "《时空猎人·觉醒》动作横版格斗手游开启预下载，7 月 2 日正式上线；", "body_html": "<p>《时空猎人·觉醒》动作横版格斗手游开启预下载，7 月 2 日正式上线；</p>", "meta": ["时空猎人·觉醒"], "sources": []}, {"section": "release", "title": "伊莫", "body": "《伊莫》开放世界抓宠新游开启测试预下载，7 月 2 日早 10 点开测；", "body_html": "<p>《伊莫》开放世界抓宠新游开启测试预下载，7 月 2 日早 10 点开测；</p>", "meta": ["伊莫"], "sources": []}, {"section": "release", "title": "代号：新生", "body": "《代号：新生》动物题材搜打撤射击新游开启测试预下载，7 月 2 日开测。", "body_html": "<p>《代号：新生》动物题材搜打撤射击新游开启测试预下载，7 月 2 日开测。</p>", "meta": ["代号：新生", "搜打撤"], "sources": []}, {"section": "discourse", "title": "《恋与深空》欧美玩家请愿吁敖尹回归、扬言集体诉讼，与国内舆论对撞", "body": "叠纸宣布取消敖尹后，NGA 玩家转向关注海外反应：有帖称国外签名请愿网站已聚集 4 万余名玩家要求敖尹回归、附带 1.5 万余条评论，另有帖称欧美玩家在社交平台声势渐大、扬言可能发起集体诉讼。社区讨论呈现「国内外女性玩家为同一角色对撞」的戏剧化场面，也有玩家判断欧美一方缺乏国内「媒体矩阵」式声量、难以扭转已「说死」的官方公告，海外市场影响成为主要担忧点。", "body_html": "<p>叠纸宣布取消敖尹后，NGA 玩家转向关注海外反应：有帖称国外签名请愿网站已聚集 4 万余名玩家要求敖尹回归、附带 1.5 万余条评论，另有帖称欧美玩家在社交平台声势渐大、扬言可能发起集体诉讼。社区讨论呈现「国内外女性玩家为同一角色对撞」的戏剧化场面，也有玩家判断欧美一方缺乏国内「媒体矩阵」式声量、难以扭转已「说死」的官方公告，海外市场影响成为主要担忧点。</p>", "meta": ["恋与深空", "叠纸"], "sources": []}, {"section": "discourse", "title": "《恋与深空》「731」子弹反转，玩家转向「为主角维权」", "body": "围绕此前争议的「731」剧情，NGA 有玩家考据指出该内容实出自开服首发男主之一沈星回的旧剧情（「世界深处25」相关章节），而非新男主敖尹，质疑其被掐头去尾用作攻击新男主的「子弹」。官方发布新微博后，部分玩家话锋转为「为老男主维权」，社区对「拿历史伤痛当撕番武器」多有批评与调侃；亦有玩家继续翻找其他男主皮肤中的数字元素，争议持续外溢。", "body_html": "<p>围绕此前争议的「731」剧情，NGA 有玩家考据指出该内容实出自开服首发男主之一沈星回的旧剧情（「世界深处25」相关章节），而非新男主敖尹，质疑其被掐头去尾用作攻击新男主的「子弹」。官方发布新微博后，部分玩家话锋转为「为老男主维权」，社区对「拿历史伤痛当撕番武器」多有批评与调侃；亦有玩家继续翻找其他男主皮肤中的数字元素，争议持续外溢。</p>", "meta": ["恋与深空"], "sources": []}, {"section": "discourse", "title": "《鸣潮》被指单月手机端流水首次同时超越原神、崩铁", "body": "NGA 有玩家援引 Sensor Tower 6 月付费版数据（不含国服安卓及其他平台）称，《鸣潮》手机端单月流水首次同时超越《原神》与《崩坏：星穹铁道》。帖子引发口径之争：有回帖认为「2 月就已超过」、此次并非首次，也有玩家围绕库洛的抽卡节奏、版本运营等展开米库两方拉扯，整体以数据口径与阵营对立的讨论为主。", "body_html": "<p>NGA 有玩家援引 Sensor Tower 6 月付费版数据（不含国服安卓及其他平台）称，《鸣潮》手机端单月流水首次同时超越《原神》与《崩坏：星穹铁道》。帖子引发口径之争：有回帖认为「2 月就已超过」、此次并非首次，也有玩家围绕库洛的抽卡节奏、版本运营等展开米库两方拉扯，整体以数据口径与阵营对立的讨论为主。</p>", "meta": ["鸣潮", "原神", "库洛"], "sources": []}, {"section": "deep", "title": "GameDiscoverCo 深拆《MECCHA CHAMELEON》：$6 涂色捉迷藏何以成「不可复制的爆款」", "body": "GameDiscoverCo 通讯（Simon Carless）专门拆解了 6 月 PC 新品榜预定登顶者《MECCHA CHAMELEON》——由两名日本独立开发者打造的 6 美元「捉迷藏 × 涂色」多人游戏，自 6 月 9 日 Steam 上线以来销量已破 1000 万份、流水超 5000 万美元。文章梳理其做对的几点：团队已有可复用的多人 Unreal 框架（用免费 Epic Online Services 做匹配、无专用服务器，扩容零成本且低负担）；「边发边学」——自 2024 年底以来已上线 6 款 Steam 作品（含仅售约 5000 份的《Link Penguins》），并被指曾在 Fortnite Creative 中长期打磨伪装与社交欺骗机制；小体量定价与极高的上手可读性。但作者强调这属于「不可预见的巨型爆款」：游戏并无强设计骨架，走红源于玩法制造的情境（被形容为「Prop Hunt 但用涂色藏身」），近一周登上 Twitch 第 3、观看时长 1040 万小时，更接近「展示人类奇思的电视综艺形态」而非传统游戏，因此难以按方法论复制。", "body_html": "<p>GameDiscoverCo 通讯（Simon Carless）专门拆解了 6 月 PC 新品榜预定登顶者《MECCHA CHAMELEON》——由两名日本独立开发者打造的 6 美元「捉迷藏 × 涂色」多人游戏，自 6 月 9 日 Steam 上线以来销量已破 1000 万份、流水超 5000 万美元。文章梳理其做对的几点：团队已有可复用的多人 Unreal 框架（用免费 Epic Online Services 做匹配、无专用服务器，扩容零成本且低负担）；「边发边学」——自 2024 年底以来已上线 6 款 Steam 作品（含仅售约 5000 份的《Link Penguins》），并被指曾在 Fortnite Creative 中长期打磨伪装与社交欺骗机制；小体量定价与极高的上手可读性。但作者强调这属于「不可预见的巨型爆款」：游戏并无强设计骨架，走红源于玩法制造的情境（被形容为「Prop Hunt 但用涂色藏身」），近一周登上 Twitch 第 3、观看时长 1040 万小时，更接近「展示人类奇思的电视综艺形态」而非传统游戏，因此难以按方法论复制。</p>", "meta": [], "sources": []}];
+    const sectionLabels = Object.fromEntries(sections.map(s => [s.id, s.label]));
+    const sectionDescs = Object.fromEntries(sections.map(s => [s.id, s.desc]));
+    const orderedSectionIds = sections.filter(s => s.id !== "all").map(s => s.id);
+    let currentSection = "all";
+    let compact = false;
+    const nav = document.getElementById("nav");
+    const content = document.getElementById("content");
+    const sectionHead = document.getElementById("sectionHead");
+    const search = document.getElementById("search");
+    const empty = document.getElementById("empty");
+    const drawer = document.getElementById("drawer");
+    const overlay = document.getElementById("overlay");
+    function matches(item, query) {
+      if (!query) return true;
+      const text = [item.title,item.body,item.meta.join(" "),item.sources.map(s => s.join(" ")).join(" ")].join(" ").toLowerCase();
+      return text.includes(query.toLowerCase());
+    }
+    function isBorderline(m) {
+      return /borderline/i.test(m);
+    }
+    function renderNav() {
+      nav.innerHTML = "";
+      sections.forEach(section => {
+        const count = section.id === "all" ? items.length : items.filter(item => item.section === section.id).length;
+        const button = document.createElement("button");
+        button.dataset.section = section.id;
+        if (section.id === currentSection) button.classList.add("active");
+        button.innerHTML = `<span>${section.label}</span><span class="count">${count}</span>`;
+        button.addEventListener("click", () => { currentSection = section.id; render(); });
+        nav.appendChild(button);
+      });
+    }
+    function renderItem(item) {
+      const node = document.createElement("article");
+      node.className = "item";
+      node.dataset.section = item.section;
+      const metaTags = item.meta.map(m => {
+        const cls = isBorderline(m) ? "borderline" : "";
+        return `<span class="${cls}">${m}</span>`;
+      }).join("");
+      const bodyMarkup = item.body_html || `<p>${item.body}</p>`;
+      node.innerHTML = `<div class="item-top"><span class="tag">${sectionLabels[item.section]}</span></div><h3>${item.title}</h3>${bodyMarkup}<div class="meta-row">${metaTags}</div><button class="source-btn" type="button">查看来源 →</button>`;
+      node.querySelector(".source-btn").addEventListener("click", () => openDrawer(item));
+      return node;
+    }
+    function buildGrid(itemList) {
+      const grid = document.createElement("section");
+      grid.className = compact ? "grid compact" : "grid";
+      itemList.forEach(item => grid.appendChild(renderItem(item)));
+      return grid;
+    }
+    function buildSectionBlock(sectionId, itemList) {
+      const block = document.createElement("div");
+      block.className = "section-block";
+      const banner = document.createElement("div");
+      banner.className = "section-banner";
+      banner.dataset.section = sectionId;
+      banner.innerHTML = `<h2>${sectionLabels[sectionId]}</h2><span class="banner-count">${itemList.length} 条</span><span class="banner-desc">${sectionDescs[sectionId]}</span>`;
+      block.appendChild(banner);
+      block.appendChild(buildGrid(itemList));
+      return block;
+    }
+    function render() {
+      renderNav();
+      const query = search.value.trim();
+      const filtered = items.filter(item => (currentSection === "all" || item.section === currentSection) && matches(item, query));
+      content.innerHTML = "";
+      if (currentSection === "all") {
+        sectionHead.style.display = "none";
+        orderedSectionIds.forEach(sid => {
+          const sectionItems = filtered.filter(it => it.section === sid);
+          if (sectionItems.length > 0) content.appendChild(buildSectionBlock(sid, sectionItems));
+        });
+      } else {
+        sectionHead.style.display = "flex";
+        sectionHead.dataset.section = currentSection;
+        document.getElementById("sectionTitle").textContent = sectionLabels[currentSection];
+        document.getElementById("sectionDesc").textContent = sectionDescs[currentSection];
+        content.appendChild(buildGrid(filtered));
+      }
+      empty.classList.toggle("visible", filtered.length === 0);
+    }
+    function openDrawer(item) {
+      document.getElementById("drawerTitle").textContent = item.title;
+      document.getElementById("drawerNote").textContent = item.body;
+      document.getElementById("sourceList").innerHTML = item.sources.map(([id,name,url]) => {
+        const safeUrl = String(url || "");
+        const isHttp = /^https?:\/\//i.test(safeUrl);
+        const linkAttrs = isHttp ? `href="${safeUrl}" target="_blank" rel="noopener noreferrer"` : "";
+        const urlEl = isHttp
+          ? `<a class="source-url" ${linkAttrs}>${safeUrl} ↗</a>`
+          : `<span class="source-url">${safeUrl}</span>`;
+        return `<div class="source-card"><strong>${id} · ${name}</strong>${urlEl}</div>`;
+      }).join("");
+      drawer.classList.add("open"); overlay.classList.add("open");
+    }
+    function closeDrawer() { drawer.classList.remove("open"); overlay.classList.remove("open"); }
+    search.addEventListener("input", render);
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+    // Sidebar collapse — state persists in localStorage
+    const app = document.getElementById("app");
+    const SIDEBAR_KEY = "report-sidebar-collapsed";
+    try { if (localStorage.getItem(SIDEBAR_KEY) === "1") app.classList.add("collapsed"); } catch (e) {}
+    document.getElementById("sidebarToggle").addEventListener("click", () => {
+      app.classList.toggle("collapsed");
+      try { localStorage.setItem(SIDEBAR_KEY, app.classList.contains("collapsed") ? "1" : "0"); } catch (e) {}
+    });
+    document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
+    overlay.addEventListener("click", closeDrawer);
+    document.getElementById("viewGrid").addEventListener("click", () => { compact = false; document.getElementById("viewGrid").classList.add("active"); document.getElementById("viewList").classList.remove("active"); render(); });
+    document.getElementById("viewList").addEventListener("click", () => { compact = true; document.getElementById("viewList").classList.add("active"); document.getElementById("viewGrid").classList.remove("active"); render(); });
+    render();
+  </script>
+</body>
+</html>
