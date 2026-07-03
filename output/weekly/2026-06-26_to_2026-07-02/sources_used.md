@@ -1,0 +1,107 @@
+# Sources Used｜2026-06-26_to_2026-07-02 weekly
+
+## Item Source Map
+
+- 《传奇》母公司娱美德约 9200 亿韩元易主，买方 Neopulse 疑似阿里系 - S0768, S0959
+- 微软 8 月起全球上调 Xbox 售价 $100–150，主机 5 月销量创历史新低 - S0078, S0102, S0109, S0093
+- 微软暂停新第三方 3A 入 XGP，传考虑关闭或出售 Arkane 等工作室 - S0761, S0808, S0793
+- 索尼 Bungie 裁员 292 人，宣布 2028 年起停产实体光盘 - S0079, S0797, S0814
+- 2026 上半年大厂裁员逼近 2025 全年，育碧罢工、网易 Quantic Dream 拟裁 115 人 - S0770, S0608, S0764
+- 2026 上半年至少 28 款知名产品停服，网易占 9 款 - S0578
+- 7 月预计 19 款新游扎堆，腾讯《失控进化》预约超 4000 万 - S0765, S0442, S0363
+- 《恋与深空》官方取消敖尹、承诺不再新增男主并追责造谣者 - S0766, S0576, S0571
+- 《闪耀！优俊少女》出海首年海外营收破 1 亿美元，美国占七成 - S0588, S0465
+- 《空格之境》挤进畅销榜 TOP40，《赵云与阿斗》登顶 IAA 双榜 - S0790, S0767
+- 米哈游同日成立两家子公司，阿里拟售灵犀、腾讯拟售日本工作室股份 - S0762, S0442
+- 中国开发者告苹果反垄断，Google 输掉 47 亿欧元 Android 上诉 - S0086, S1003, S0050
+- 研究称披露用 AI 的 Steam 游戏首月评论低 52.6%，Epic 批 Valve AI 标签 - S0474, S0018, S0080, S0101, S0431
+- 开源引擎 Godot 宣布不再接受 AI 生成代码与 vibe coding 贡献 - S0956, S1006, S0986
+- General Intuition 完成 3.2 亿美元 A 轮，用游戏数据训练通用 AI 智能体 - S0111, S0627
+- AI 3D 与世界模型公司 VAST 完成超 10 亿元融资，吉利领投 - S0964, S0967, S0961
+- 产品日历 - 选技大乱斗 - S0844, S0888
+- 产品日历 - 时空猎人·觉醒 - S1032, S1040
+- 产品日历 - 伊莫 - S0851, S1036
+- 产品日历 - 代号：新生 - S0859, S1035
+- 产品日历 - 斗罗大陆：传承 - S0971
+- 产品日历 - 力力普的工坊 - S0600
+- 产品日历 - 剑侠情缘：重逢 - S0071
+- 《恋与深空》全周舆情：官方滑跪、欧美请愿诉讼与「731 子弹」反转 - S0716, S0719, S0900, S0911, S1171, S0912, S0908, S0913, S0408, S0734
+- 《鸣潮》被指单月手机端流水首超原神、崩铁，数据口径引争议 - S0907
+- 《逆水寒手游》天美楼下请卡车喊话王者荣耀，被批「碰瓷式营销」 - S0345
+- 深拆《MECCHA CHAMELEON》：$6 躲猫猫涂色何以两周卖出 700 万份 - S0095, S0929, S0946, S1182
+- Merge-2 是否比 Match-3 更能变现：Gossip Harbor 单月反超 Candy Crush - S0553
+- Steam 官方周销量榜 TOP15 - S1182
+
+## Source Details
+
+- S0768 | m.sohu.com | 《传奇》IP母公司娱美德49亿易主，买方疑似阿里系？ | https://m.sohu.com/a/1044359593_204824
+- S0959 | www.gamelook.com.cn | 传奇版权易主！神秘中国资本40亿收购Wemade董事长全部股份，世纪华通否认参与 | http://www.gamelook.com.cn/2026/07/596542/
+- S0078 | www.gamesindustry.biz | Microsoft significantly increases Xbox prices worldwide and withdraws 2TB model citing "components crisis" | https://www.gamesindustry.biz/microsoft-significantly-increases-xbox-prices-worldwide-and-withdraws-2tb-model-citing-components-crisis
+- S0102 | www.videogameschronicle.com | Microsoft is raising the price of Xbox consoles by $100-$150 | https://www.videogameschronicle.com/news/microsoft-is-raising-the-price-of-xbox-consoles-by-100-150/
+- S0109 | www.videogameschronicle.com | Xbox hits worst US sales month on record, PS5 drops 58%, as hardware prices soar | https://www.videogameschronicle.com/news/xbox-hits-worst-us-sales-month-on-record-ps5-drops-58-as-hardware-prices-soar/
+- S0093 | www.gamedeveloper.com | Microsoft raises price of Xbox consoles once again, sunsets 2TB model | https://www.gamedeveloper.com/console/microsoft-raises-price-of-xbox-consoles-once-again-sunsets-2tb-model
+- S0761 | www.gamelook.com.cn | 订阅制要完？微软XGP“没钱买新游入库”，苹果Arcade、EPIC商店也够呛 | http://www.gamelook.com.cn/2026/07/596487/
+- S0808 | www.gamedeveloper.com | Report: Xbox considering sale or closure of Arkane, other studios, as layoffs loom | https://www.gamedeveloper.com/business/report-xbox-considering-sales-or-closures-at-arkane-and-at-least-4-other-studios
+- S0793 | www.gamesindustry.biz | Xbox ends deal to fund and publish IO Interactive's Project Fantasy; redundancies expected | https://www.gamesindustry.biz/xbox-ends-deal-to-fund-and-publish-io-interactives-project-fantasy-redundancies-expected
+- S0079 | www.gamesindustry.biz | Sony cuts 292 jobs at Destiny maker Bungie | https://www.gamesindustry.biz/sony-cuts-292-jobs-at-destiny-maker-bungie
+- S0797 | www.gamesindustry.biz | Sony to discontinue physical discs for new games launching on PS consoles from January 2028 | https://www.gamesindustry.biz/sony-to-discontinue-physical-discs-for-new-games-launching-on-ps-consoles-from-january-2028
+- S0814 | www.gamedeveloper.com | PS3 and PS Vita digital stores are closing starting August 2026 | https://www.gamedeveloper.com/business/ps3-and-ps-vita-digital-stores-are-closing-starting-august-2026
+- S0770 | m.sohu.com | 2026上半年，游戏大厂裁员数量已接近2025全年 | https://m.sohu.com/a/1044409315_204824
+- S0608 | www.gamesindustry.biz | Ubisoft Barcelona staff go on strike over 51 staff being laid off | https://www.gamesindustry.biz/ubisoft-barcelona-staff-go-on-strike-over-51-staff-being-laid-off
+- S0764 | www.gamelook.com.cn | 网易纳入“港股通”喜获援军！法国子公司Quantic Dream裁员115人、引发罢工 | http://www.gamelook.com.cn/2026/07/596486/
+- S0578 | cgames.com | 26年H1超30款游戏停服，腾讯5款网易9款 | https://cgames.com/contents/2/12058.html
+- S0765 | www.gamelook.com.cn | 7月预计18款新游上线：网易《遗忘之海》,腾讯《失控进化》《舞力全开》登场 | http://www.gamelook.com.cn/2026/07/596458/
+- S0442 | www.youxituoluo.com | 阿里计划出售灵犀，腾讯拟出售日本工作室股份，《遗忘之海》7月9日PC公测 | 陀螺周报 | https://www.youxituoluo.com/534625.html
+- S0363 | youxichaguan.com | 从企鹅岛到火星基地，《失控进化》带着4000万人一起刷屏 | https://youxichaguan.com/archives/200945
+- S0766 | www.gamelook.com.cn | 《恋与深空》听劝！删除敖尹、承诺永不加新角色，叠纸将对造谣者追责 | http://www.gamelook.com.cn/2026/07/596474/
+- S0576 | www.gamelook.com.cn | 叠纸“渡劫”！《恋与深空》制作组致歉：承认新角色考虑不周、全服补偿20抽 | http://www.gamelook.com.cn/2026/06/596410/
+- S0571 | www.gcores.com | 《恋与深空》官方发布长文：取消新男主的上线与开发安排，此后不再推出新男主 | https://www.gcores.com/articles/216605
+- S0588 | www.youxituoluo.com | 出海首年营收超1亿美元，《闪耀！优俊少女》美国市场占比达七成 | https://www.youxituoluo.com/534633.html
+- S0465 | www.pocketgamer.biz | Umamusume: Pretty Derby races to $100m on mobile in one year overseas | https://www.pocketgamer.biz/umamusume-pretty-derby-races-to-100m-on-mobile-in-one-year-overseas/
+- S0790 | new.qq.com | 深圳厂商又挖到爆款苗子！新游挺进畅销榜TOP40 | https://new.qq.com/rain/a/20260701A08TNR00
+- S0767 | cgames.com | 六个人，一年时间，搓出了一款双榜第一的游戏 | https://cgames.com/contents/2/12085.html
+- S0762 | www.gamelook.com.cn | 二游公司多抽象？米哈游新公司起名“舒俱、公正之秤”，星铁玩家笑了 | http://www.gamelook.com.cn/2026/07/596513/
+- S0086 | www.pocketgamer.biz | Chinese developers file antitrust complaint against Apple over App Store fees | https://www.pocketgamer.biz/chinese-developers-file-antitrust-complaint-against-apple-over-app-store-fees/
+- S1003 | www.pocketgamer.biz | Google loses appeal against $4.7 billion Android antitrust fine | https://www.pocketgamer.biz/google-loses-appeal-against-47-billion-android-antitrust-fine/
+- S0050 | www.gamelook.com.cn | 游戏公司增收！Google Play商店“新分成方案、三方支付”6月30日起生效 | http://www.gamelook.com.cn/2026/06/596140/
+- S0474 | 36kr.com | 数据实锤：游戏用AI后，销量少52% | https://36kr.com/p/3873511355552772
+- S0018 | www.gcores.com | AI披露导致Steam游戏销量跌超50%，游戏调研公司警告「灾难性」后果 | https://www.gcores.com/articles/216351
+- S0080 | www.gamesindustry.biz | Epic's Sweeney claims Steam AI labels are "really irresponsible of Valve" | https://www.gamesindustry.biz/epics-sweeney-claims-steam-ai-labels-are-really-irresponsible-of-valve
+- S0101 | www.videogameschronicle.com | Epic Games CEO says it's 'really irresponsible' of Steam to make studios disclose AI use | https://www.videogameschronicle.com/news/epic-games-ceo-says-its-really-irresponsible-of-steam-to-make-studios-disclose-ai-use/
+- S0431 | www.gamelook.com.cn | Epic老板：“AI价值在于减少苦力活”！评价Steam“至今没有拳头和原神” | http://www.gamelook.com.cn/2026/06/596233/
+- S0956 | www.gamelook.com.cn | 受够“用AI帮倒忙” ！开源游戏引擎Godot发公告“不再接受AI代码贡献” | http://www.gamelook.com.cn/2026/07/596590/
+- S1006 | www.gamedeveloper.com | Godot to ban (almost all) AI coding contributions | https://www.gamedeveloper.com/business/godot-to-ban-almost-all-ai-coding-contributions
+- S0986 | www.gamesindustry.biz | Godot bans "autonomous AI agent use or vibe coded" contributions | https://www.gamesindustry.biz/godot-bans-autonomous-ai-agent-use-or-vibe-coded-contributions
+- S0111 | aihot.virxact.com | General Intuition 完成 3.2 亿美元融资，用游戏数据训练通用 AI 智能体 | https://aihot.virxact.com/items/cmqtq76j105ubsl0e8j4fy8se
+- S0627 | investgame.net | General Intuition: $320m Series A to Train AI Agents on Gameplay Data | https://investgame.net/news/general-intuition-320m-series-a-to-train-ai-agents-on-gameplay-data/
+- S0964 | m.sohu.com | AI 3D大模型与世界模型公司VAST完成超10亿元融资，4399贪玩巨人参投 | https://m.sohu.com/a/1044890696_204824
+- S0967 | www.youxituoluo.com | AI 3D大模型公司VAST 获10亿元融资，巨人、贪玩、4399 等联合参投 | https://www.youxituoluo.com/534640.html
+- S0961 | cgames.com | 腾讯、网易前员工组队，把蔡浩宇押注的AI世界成本砍下来80% | https://cgames.com/contents/2/12094.html
+- S0844 | www.16p.com | 选技大乱斗 - 上线 | https://www.16p.com/1869654.html
+- S0888 | www.taptap.cn | 选技大乱斗 - 首发 (10:00 开始) | https://www.taptap.cn/app/352408
+- S1032 | newgame.17173.com | 时空猎人·觉醒 - 公测 | https://newgame.17173.com/game-info-4077775.html
+- S1040 | www.16p.com | 时空猎人·觉醒 - 上线 | https://www.16p.com/1938211.html
+- S0851 | www.3839.com | 伊莫-开放世界抓宠 - 测试预下载开启，7月2日早10点开测 | https://www.3839.com/a/183580.htm
+- S1036 | www.16p.com | 伊莫-开放世界抓宠 - 限量删档计费 | https://www.16p.com/1932488.html
+- S0859 | www.3839.com | 代号：新生-动物搜打撤新游 - 10:30 测试预下载,7月2日开测 | https://www.3839.com/a/195725.htm
+- S1035 | www.16p.com | 代号：新生-动物搜打撤新游 - 限量删档测试 | https://www.16p.com/1952263.html
+- S0971 | youxichaguan.com | 破茧成神！张韶涵倾情推荐《斗罗大陆：传承》全平台上线 | https://youxichaguan.com/archives/201198
+- S0600 | new.qq.com | 胖布丁《力力普的工坊》移动版来了，曾拿下steam特别好评 | https://new.qq.com/rain/a/20260630A09DX200
+- S0071 | youxichaguan.com | 剑侠再启，江湖重逢｜虎牙×西山居匠心新作《剑侠情缘：重逢》正式启宣 | https://youxichaguan.com/archives/200882
+- S0716 | bbs.nga.cn | [新瓜]叠纸认输了 | https://bbs.nga.cn/read.php?tid=47079923
+- S0719 | bbs.nga.cn | [新瓜]敖尹取消上线后，欧美玩家开始炎上，国外市场恐收到巨大冲击 | https://bbs.nga.cn/read.php?tid=47080052
+- S0900 | bbs.nga.cn | [新瓜][叠纸]在国外的签名请愿网站下，此时已经有4w+名玩家要求敖尹回来了 | https://bbs.nga.cn/read.php?tid=47081094
+- S0911 | bbs.nga.cn | [新瓜](恋与深空)欧美集美似乎非常不满，正在进行请愿活动，并且声称可能会进行集体诉讼 | https://bbs.nga.cn/read.php?tid=47085910
+- S1171 | bbs.nga.cn | [新瓜] 欧美玩家给恋与深空的第六个男主做了维权网站 其中的全球声援活动正在趋势第三 | https://bbs.nga.cn/read.php?tid=47093222
+- S0912 | bbs.nga.cn | [新瓜]恋与深空731剧情原来是原本五位老男主中的剧情不是新男主的剧情 | https://bbs.nga.cn/read.php?tid=47081669
+- S0908 | bbs.nga.cn | [新瓜]恋与深空发布新微博 玩家竟全部遗忘731开始为主角维权 | https://bbs.nga.cn/read.php?tid=47083762
+- S0913 | bbs.nga.cn | [新瓜]恋与深空居然还有全新未发现的731内容 | https://bbs.nga.cn/read.php?tid=47087516
+- S0408 | bbs.nga.cn | [恋与深空]疑似有玩家开始前往叠纸大楼线下闹事 | https://bbs.nga.cn/read.php?tid=47066054
+- S0734 | bbs.nga.cn | [新瓜] 恋与深空在线下展会被封杀中，喜提英雄学院待遇 | https://bbs.nga.cn/read.php?tid=47075744
+- S0907 | bbs.nga.cn | [新瓜][瓜小味甜] 鸣潮首次单月手机端流水同时超越原崩 | https://bbs.nga.cn/read.php?tid=47087695
+- S0345 | bbs.nga.cn | 逆水寒手游微博再度喊话王者荣耀，并在天美楼下请卡车 | https://bbs.nga.cn/read.php?tid=47043505
+- S0095 | www.gamedeveloper.com | Meccha Chameleon sells 7M copies in first two weeks | https://www.gamedeveloper.com/business/meccha-chameleon-sells-7m-copies-in-first-two-weeks
+- S0929 | newsletter.gamediscover.co | Look, we have to talk about Meccha Chameleon.... | https://newsletter.gamediscover.co/p/look-we-have-to-talk-about-meccha
+- S0946 | www.gcores.com | Steam周销量排行榜:《超级变色龙》三连冠|2026年6月第4周 | https://www.gcores.com/articles/216655
+- S1182 | store.steampowered.com | Steam 官方周销量榜 TOP15（周 of 2026-06-23） | https://store.steampowered.com/charts/topselling/global
+- S0553 | www.deconstructoroffun.com | Does Merge-2 Monetize Better Than Match-3? | https://www.deconstructoroffun.com/blog/does-merge-2-monetize-better-than-match-3
