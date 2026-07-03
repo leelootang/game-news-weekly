@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-07-03T00:12:29+00:00",
+  "finished_at": "2026-07-03T00:13:05+00:00",
+  "consistency_mismatches": [],
+  "preset": "yesterday",
+  "since": "2026-06-26T00:00:00",
+  "until": "2026-07-02T00:00:00",
+  "out_root": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data",
+  "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\_collector_runs\\2026-06-26_to_2026-07-02",
+  "output_folder": "2026-06-26_to_2026-07-02",
+  "sections": [
+    "pc_rankings"
+  ],
+  "collectors": [
+    "steamdb_rankings"
+  ],
+  "results": [
+    {
+      "collector": "steamdb_rankings",
+      "section": "pc_rankings",
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\steamdb_rankings.py",
+        "--out",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-26_to_2026-07-02",
+        "--max-pages",
+        "1",
+        "--since",
+        "2026-06-26",
+        "--until",
+        "2026-07-02"
+      ],
+      "returncode": 0,
+      "status": "ok",
+      "health": "healthy",
+      "health_note": "saved one or more in-window items",
+      "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-26_to_2026-07-02",
+      "in_window_article_count": 1,
+      "in_window_titles": [
+        "Steam 官方周销量榜 TOP15（周 of 2026-06-23）"
+      ],
+      "stdout": "[config] window: 2026-06-26 00:00:00 <= collected < 2026-07-02 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\pc_rankings\\2026-06-26_to_2026-07-02\n[list] fetch weekly top sellers: https://store.steampowered.com/charts/topselling/global\n[list] weekly chart week of 2026-06-23 (Tuesday reset)\n[list] 30 chart entries before filtering (target TOP15)\n[row] #1 MECCHA CHAMELEON sales=1047.3万 revenue=$5002.2万\n[row] #2 Counter-Strike 2 sales=3.51亿 revenue=$121.26亿\n[row] #3 Warhammer 40,000: Darktide sales=363.9万 revenue=$8021.1万\n[row] #4 Dead by Daylight sales=1908.4万 revenue=$1.80亿\n[row] #5 Marvel Rivals sales=2639.2万 revenue=$4.12亿\n[skip] 1675200 Steam Deck: not a game (hardware/bundle)\n[row] #6 Cyberpunk 2077 sales=2365.4万 revenue=$7.32亿\n[row] #7 SAND: Raiders of Sophie sales=29.4万 revenue=$532.3万\n[row] #8 Destiny 2 sales=3834.9万 revenue=$9.65亿\n[row] #9 Warframe sales=4793.1万 revenue=$11.61亿\n[row] #10 Baldur's Gate 3 sales=1627.6万 revenue=$7.69亿\n[row] #11 The Binding of Isaac: Rebirth sales=998.9万 revenue=$5858.1万\n[row] #12 DELTARUNE sales=160.3万 revenue=$3483.4万\n[row] #13 War Thunder sales=3876.9万 revenue=$5.29亿\n[row] #14 Apex Legends™ sales=7711.8万 revenue=$19.19亿\n[row] #15 Forza Horizon 6 sales=284.9万 revenue=$1.69亿\n[done] ok=1 fail=0 mode=periodic rows=15 marked=1 elapsed=35.4s\n",
+      "stderr": ""
+    }
+  ]
+}
