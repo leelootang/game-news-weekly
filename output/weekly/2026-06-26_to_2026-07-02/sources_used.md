@@ -2,18 +2,20 @@
 
 ## Item Source Map
 
-- 《传奇》母公司娱美德约 9200 亿韩元易主，买方 Neopulse 疑似阿里系 - S0768, S0959
-- 微软 8 月起全球上调 Xbox 售价 $100–150，主机 5 月销量创历史新低 - S0078, S0102, S0109, S0093
+- 阿里拟出售灵犀互娱，腾讯拟出售日本工作室股份 - S0442
+- 《传奇》母公司娱美德约 9200 亿韩元易主，买方 Neopulse 疑似阿里系 - S0768, S0959, S0789
+- 《恋与深空》官方取消敖尹、承诺不再新增男主并追责造谣者 - S0766, S0576, S0571
+- 前《妮姬》核心主创组建新工作室 Control9，首款二次元新作曝光 - S0589, S0463
+- 原《奥拉星2》制作人新作《拉尼亚》首曝，主打回合制玩法 - S0452, S0528
+- 字节朝夕光年 Streetlamp Studio 发布横版动作 Roguelike 单机《SlashZero》 - S0453
+- 7 月预计 19 款新游扎堆，腾讯《失控进化》预约超 4000 万 - S0765, S0442, S0363
+- 《空格之境》挤进畅销榜 TOP40，《赵云与阿斗》登顶 IAA 双榜 - S0790, S0767
+- 《闪耀！优俊少女》出海首年海外营收破 1 亿美元，美国占七成 - S0588, S0465
+- 2026 上半年至少 28 款知名产品停服，网易占 9 款 - S0578
+- 2026 上半年大厂裁员逼近 2025 全年，育碧罢工、网易 Quantic Dream 拟裁 115 人 - S0770, S0608, S0764
+- 中国开发者告苹果反垄断，Google 输掉 47 亿欧元 Android 上诉 - S0086, S1003, S0050
 - 微软暂停新第三方 3A 入 XGP，传考虑关闭或出售 Arkane 等工作室 - S0761, S0808, S0793
 - 索尼 Bungie 裁员 292 人，宣布 2028 年起停产实体光盘 - S0079, S0797, S0814
-- 2026 上半年大厂裁员逼近 2025 全年，育碧罢工、网易 Quantic Dream 拟裁 115 人 - S0770, S0608, S0764
-- 2026 上半年至少 28 款知名产品停服，网易占 9 款 - S0578
-- 7 月预计 19 款新游扎堆，腾讯《失控进化》预约超 4000 万 - S0765, S0442, S0363
-- 《恋与深空》官方取消敖尹、承诺不再新增男主并追责造谣者 - S0766, S0576, S0571
-- 《闪耀！优俊少女》出海首年海外营收破 1 亿美元，美国占七成 - S0588, S0465
-- 《空格之境》挤进畅销榜 TOP40，《赵云与阿斗》登顶 IAA 双榜 - S0790, S0767
-- 米哈游同日成立两家子公司，阿里拟售灵犀、腾讯拟售日本工作室股份 - S0762, S0442
-- 中国开发者告苹果反垄断，Google 输掉 47 亿欧元 Android 上诉 - S0086, S1003, S0050
 - 研究称披露用 AI 的 Steam 游戏首月评论低 52.6%，Epic 批 Valve AI 标签 - S0474, S0018, S0080, S0101, S0431
 - 开源引擎 Godot 宣布不再接受 AI 生成代码与 vibe coding 贡献 - S0956, S1006, S0986
 - General Intuition 完成 3.2 亿美元 A 轮，用游戏数据训练通用 AI 智能体 - S0111, S0627
@@ -36,10 +38,12 @@
 
 - S0768 | m.sohu.com | 《传奇》IP母公司娱美德49亿易主，买方疑似阿里系？ | https://m.sohu.com/a/1044359593_204824
 - S0959 | www.gamelook.com.cn | 传奇版权易主！神秘中国资本40亿收购Wemade董事长全部股份，世纪华通否认参与 | http://www.gamelook.com.cn/2026/07/596542/
-- S0078 | www.gamesindustry.biz | Microsoft significantly increases Xbox prices worldwide and withdraws 2TB model citing "components crisis" | https://www.gamesindustry.biz/microsoft-significantly-increases-xbox-prices-worldwide-and-withdraws-2tb-model-citing-components-crisis
-- S0102 | www.videogameschronicle.com | Microsoft is raising the price of Xbox consoles by $100-$150 | https://www.videogameschronicle.com/news/microsoft-is-raising-the-price-of-xbox-consoles-by-100-150/
-- S0109 | www.videogameschronicle.com | Xbox hits worst US sales month on record, PS5 drops 58%, as hardware prices soar | https://www.videogameschronicle.com/news/xbox-hits-worst-us-sales-month-on-record-ps5-drops-58-as-hardware-prices-soar/
-- S0093 | www.gamedeveloper.com | Microsoft raises price of Xbox consoles once again, sunsets 2TB model | https://www.gamedeveloper.com/console/microsoft-raises-price-of-xbox-consoles-once-again-sunsets-2tb-model
+- S0789 | new.qq.com | 韩国MMO巨头娱美德转让股份，交易方疑似与阿里有关联 | https://new.qq.com/rain/a/20260701A08TNX00
+- S0589 | www.youxituoluo.com | 前《妮姬》核心主创出走创业，新工作室Control9首款二次元新作曝光 | https://www.youxituoluo.com/534632.html
+- S0463 | www.pocketgamer.biz | Former Goddess of Victory: Nikke devs form Control9 with new game on the way | https://www.pocketgamer.biz/former-goddess-of-victory-nikke-devs-form-control9-with-new-game-on-the-way/
+- S0452 | new.qq.com | 《奥拉星2》前制作人新作曝光，是回合制玩法 | https://new.qq.com/rain/a/20260629A09U2N00
+- S0528 | www.taptap.cn | 拉尼亚 - 测试招募 (10:00 开始) | https://www.taptap.cn/app/836285
+- S0453 | new.qq.com | 字节跳动居然偷偷做了一款单机动作Roguelike游戏？ | https://new.qq.com/rain/a/20260629A09U2H00
 - S0761 | www.gamelook.com.cn | 订阅制要完？微软XGP“没钱买新游入库”，苹果Arcade、EPIC商店也够呛 | http://www.gamelook.com.cn/2026/07/596487/
 - S0808 | www.gamedeveloper.com | Report: Xbox considering sale or closure of Arkane, other studios, as layoffs loom | https://www.gamedeveloper.com/business/report-xbox-considering-sales-or-closures-at-arkane-and-at-least-4-other-studios
 - S0793 | www.gamesindustry.biz | Xbox ends deal to fund and publish IO Interactive's Project Fantasy; redundancies expected | https://www.gamesindustry.biz/xbox-ends-deal-to-fund-and-publish-io-interactives-project-fantasy-redundancies-expected
@@ -60,7 +64,6 @@
 - S0465 | www.pocketgamer.biz | Umamusume: Pretty Derby races to $100m on mobile in one year overseas | https://www.pocketgamer.biz/umamusume-pretty-derby-races-to-100m-on-mobile-in-one-year-overseas/
 - S0790 | new.qq.com | 深圳厂商又挖到爆款苗子！新游挺进畅销榜TOP40 | https://new.qq.com/rain/a/20260701A08TNR00
 - S0767 | cgames.com | 六个人，一年时间，搓出了一款双榜第一的游戏 | https://cgames.com/contents/2/12085.html
-- S0762 | www.gamelook.com.cn | 二游公司多抽象？米哈游新公司起名“舒俱、公正之秤”，星铁玩家笑了 | http://www.gamelook.com.cn/2026/07/596513/
 - S0086 | www.pocketgamer.biz | Chinese developers file antitrust complaint against Apple over App Store fees | https://www.pocketgamer.biz/chinese-developers-file-antitrust-complaint-against-apple-over-app-store-fees/
 - S1003 | www.pocketgamer.biz | Google loses appeal against $4.7 billion Android antitrust fine | https://www.pocketgamer.biz/google-loses-appeal-against-47-billion-android-antitrust-fine/
 - S0050 | www.gamelook.com.cn | 游戏公司增收！Google Play商店“新分成方案、三方支付”6月30日起生效 | http://www.gamelook.com.cn/2026/06/596140/
