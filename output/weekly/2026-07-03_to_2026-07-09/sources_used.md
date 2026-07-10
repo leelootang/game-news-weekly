@@ -2,18 +2,18 @@
 
 ## Item Source Map
 
-- 微软 Xbox 重组：计划裁员 3200 人，剥离五家工作室 - S0371, S0517, S0527, S0536, S0675
-- 裁员波及 id Software 与 ZeniMax，合计数百人 - S0665, S0897
-- 黑曜石裁员约 25%，砍《宣誓》续作、转向《辐射》新作 - S0668, S0875, S0881, S0898, S0833
-- 索尼宣布 2028 年停产实体光盘，工厂转型且未提前告知合作伙伴 - S0022, S0510, S0342, S0661, S0830
-- Krafton 与《深海迷航2》开发商和解，奖金池超 2.5 亿美元 - S0020, S0034
-- 《赛博朋克2077》全球销量破 4000 万，CDPR 致谢鸣潮联动引流 - S0678
 - 6 月中国手游发行商全球收入榜：腾讯居冠，《王者荣耀》累计破千亿 - S0672, S0859, S0903, S0842
+- 米哈游终审胜诉拼多多「1 元抢一万原石」案，获赔 100 万元 - S0508, S0283
 - 巨人网络上半年预增 157%+，净利 20–22 亿元超去年全年 - S0687, S0845
-- 2026 胡润全球独角兽榜：米哈游第 25，多家国产厂商在列 - S0021
-- Q2 2026 游戏行业并购约 23 亿美元、54 笔，为 2022 年来最活跃季度 - S0892, S0904
 - 网易《诡影藏锋》首曝：中式志怪冷兵器搜打撤 - S0684, S0692, S0849
+- B 站游戏三国 SLG 手游《三国志：王道天下》开启付费删档限号测试 - S0418, S0929, S0966, S0920
+- 网易两家日本工作室大结局：名越工作室解散、前《赛马娘》主创团队获 Scopely 投资 - S0848, S0050
 - 腾讯游戏生态发展部试点「负责人制」，取消基层管理职级 - S0850
+- 2026 胡润全球独角兽榜：米哈游第 25，多家国产厂商在列 - S0021
+- 《赛博朋克2077》全球销量破 4000 万，CDPR 致谢鸣潮联动引流 - S0678
+- 微软 Xbox 大规模重组：裁员 3200 人、剥离五家工作室，id/ZeniMax 波及数百人 - S0371, S0517, S0527, S0536, S0675, S0665, S0897
+- 索尼宣布 2028 年停产实体光盘，工厂转型且未提前告知合作伙伴 - S0022, S0510, S0342, S0661, S0830
+- 黑曜石裁员约 25%，砍《宣誓》续作、转向《辐射》新作 - S0668, S0875, S0881, S0898, S0833
 - iOS 新游数量同比暴增 118%，AI 降本却加剧内卷 - S0509
 - 大型科技巨头与资本从游戏撤离，转向 AI - S0688
 - 产品日历 - 遗忘之海 - S0853, S0926, S0936, S0964, S1000
@@ -50,8 +50,10 @@
 - S0342 | gcores.com | “别杀死光盘”请愿书四天内获10万签名，要求索尼保留实体游戏 | https://www.gcores.com/articles/216803
 - S0661 | gcores.com | 索尼据称未提前告知合作伙伴停产光盘 | https://www.gcores.com/articles/216880
 - S0830 | gcores.com | 索尼据称未提前告知合作伙伴停产光盘 | https://www.gcores.com/articles/216880
-- S0020 | gamelook.com.cn | “奖金超17亿、三年分期付款”！《深海迷航2》团队人人有份、老板“光荣辞职” | http://www.gamelook.com.cn/2026/07/596635/
-- S0034 | youxituoluo.com | 创始人出局，团队分2.5亿美元奖金！Krafton与《深海迷航2》开发商和解 | https://www.youxituoluo.com/534645.html
+- S0508 | gamelook.com.cn | “1元抢一万原石”案大结局！米哈游终审胜诉、拼多多赔偿100万元 | http://www.gamelook.com.cn/2026/07/596898/
+- S0283 | m.sohu.com | 拼多多赔偿米哈游100万，因「一元抢原石」| 一周说「法」 | https://m.sohu.com/a/1046098455_204824
+- S0848 | gamelook.com.cn | 网易两家日本工作室大结局：前《赛马娘》主创团队获Scopely投资，名越工作室解散 | http://www.gamelook.com.cn/2026/07/597082/
+- S0050 | new.qq.com | 《赛马娘》内容总监创业，获Scopely注资 | https://new.qq.com/rain/a/20260703A05AH300
 - S0678 | gamelook.com.cn | CDPR总监致谢库洛：称赞“《鸣潮》联动引大流”，助攻《2077》破4000万套 | http://www.gamelook.com.cn/2026/07/597011/
 - S0672 | gamelook.com.cn | 6月中国手游发行商全球收入排行榜：腾讯稳居6月全球手游发行商收入冠军 | http://www.gamelook.com.cn/2026/07/597042/
 - S0859 | youxituoluo.com | 6月流水榜：《王者》累计收入破千亿，《Kingshot》破百亿，《三谋》暴涨 277% | https://www.youxituoluo.com/534658.html
@@ -60,8 +62,10 @@
 - S0687 | youxituoluo.com | 半年净利20亿，超去年全年总和，巨人网络靠《超自然行动组》赢麻了 | https://www.youxituoluo.com/534656.html
 - S0845 | gamelook.com.cn | 《超自然行动组》立大功：巨人网络上半年预增157%+，净利润20-22亿元 | http://www.gamelook.com.cn/2026/07/597057/
 - S0021 | gamelook.com.cn | 2026胡润全球独角兽榜：米哈游第25名，叠纸,库洛,莉莉丝,英雄,多益,波克在列 | http://www.gamelook.com.cn/2026/07/596641/
-- S0892 | pocketgamer.biz | Games industry M&A reaches $2.3bn in Q2 2026 | https://www.pocketgamer.biz/games-industry-manda-reaches-23bn-in-q2-2026/
-- S0904 | investgame.net | Aream & Co. Releases Q2 2026 Gaming Market Update | https://investgame.net/news/aream-co-releases-q2-2026-gaming-market-update/
+- S0418 | 3839.com | 三国志：王道天下 - 12:00 测试预下载,7月9日开测 | https://www.3839.com/a/195425.htm
+- S0929 | 16p.com | 三国志：王道天下 - 付费删档限号测试 | https://www.16p.com/1946038.html
+- S0966 | 3839.com | 三国志：王道天下 - 10:00 限量抢注测试 | https://www.3839.com/a/195425.htm
+- S0920 | 17173.com | 三国志：王道天下 - 内测（限量删档测试，bilibili游戏，Android/iOS） | https://newgame.17173.com/game-info-4077753.html
 - S0684 | m.sohu.com | 我玩到了网易刚首曝的中式微恐搜打撤：他们想吃下第一个螃蟹 | https://m.sohu.com/a/1047437725_204824
 - S0692 | new.qq.com | 网易搜打撤来了！是中式志怪题材 | https://new.qq.com/rain/a/20260708A08XME00
 - S0849 | gamelook.com.cn | “太对味了” ！《诡影藏锋》实机首曝直接炸场，“中式志怪搜打撤”这么灵？ | http://www.gamelook.com.cn/2026/07/597066/
