@@ -1,0 +1,116 @@
+# Sources Used｜2026-07-03_to_2026-07-09 weekly
+
+## Item Source Map
+
+- 微软 Xbox 重组：计划裁员 3200 人，剥离五家工作室 - S0371, S0517, S0527, S0536, S0675
+- 裁员波及 id Software 与 ZeniMax，合计数百人 - S0665, S0897
+- 黑曜石裁员约 25%，砍《宣誓》续作、转向《辐射》新作 - S0668, S0875, S0881, S0898, S0833
+- 索尼宣布 2028 年停产实体光盘，工厂转型且未提前告知合作伙伴 - S0022, S0510, S0342, S0661, S0830
+- Krafton 与《深海迷航2》开发商和解，奖金池超 2.5 亿美元 - S0020, S0034
+- 《赛博朋克2077》全球销量破 4000 万，CDPR 致谢鸣潮联动引流 - S0678
+- 6 月中国手游发行商全球收入榜：腾讯居冠，《王者荣耀》累计破千亿 - S0672, S0859, S0903, S0842
+- 巨人网络上半年预增 157%+，净利 20–22 亿元超去年全年 - S0687, S0845
+- 2026 胡润全球独角兽榜：米哈游第 25，多家国产厂商在列 - S0021
+- Q2 2026 游戏行业并购约 23 亿美元、54 笔，为 2022 年来最活跃季度 - S0892, S0904
+- 网易《诡影藏锋》首曝：中式志怪冷兵器搜打撤 - S0684, S0692, S0849
+- 腾讯游戏生态发展部试点「负责人制」，取消基层管理职级 - S0850
+- iOS 新游数量同比暴增 118%，AI 降本却加剧内卷 - S0509
+- 大型科技巨头与资本从游戏撤离，转向 AI - S0688
+- 产品日历 - 遗忘之海 - S0853, S0926, S0936, S0964, S1000
+- 产品日历 - 失控进化 - S0856, S0928, S0932, S0943, S1005, S0104, S0410
+- 产品日历 - 诡影藏锋 - S0737, S0766, S0443
+- 产品日历 - 刺客信条：黑旗 记忆重置 - S0940
+- 产品日历 - 崩坏：因缘精灵 - S0921, S0934, S0946
+- 产品日历 - 绝区零 - S0736
+- 产品日历 - 崩坏：星穹铁道 - S0090, S0123
+- 产品日历 - 恋与深空 - S0948
+- 《恋与深空》舆情全周升级：BW 撤展、请愿善款与官媒点评 - S0791, S0670, S0797, S0800, S0703, S0620, S0804, S0802, S0805, S1019
+- 「鸣潮鉴抄」事件全周发酵，联动《赛博朋克2077》带动在线破十万 - S0801, S1029, S0790, S0799, S1025
+- 《明日方舟》× 红山动物园联动，限量集章卡遭大量投诉 - S0467, S1030
+- 深拆《MECCHA CHAMELEON》：16 天卖出 1000 万份，两人赚了 4 个亿 - S0352, S0336
+- 《异环》1.2「异象桌游」：10 倍大地图，都市开放世界叠西幻 DND - S0346, S0052, S0362
+- Steam 官方周销量榜 TOP15 - S1049
+
+## Source Details
+
+- S0371 | gamesindustry.biz | Xbox announces plans to lay off 3,200 staff and divest five studios | https://www.gamesindustry.biz/xbox-to-reduce-workforce-by-3200-five-studios-to-be-divested
+- S0517 | youxituoluo.com | 裁员3200人，一口气剥离5大工作室！微软Xbox全面进入“紧日子” | https://www.youxituoluo.com/534654.html
+- S0527 | new.qq.com | 微软Xbox：计划裁3200人，14层管理缩减至5层内 | https://new.qq.com/rain/a/20260707A08YJN00
+- S0536 | gamesindustry.biz | "We simply spread ourselves too thin" – Xbox's Asha Sharma on firm's restructuring plans | https://www.gamesindustry.biz/we-simply-spread-ourselves-too-thin-xboxs-asha-sharma-on-firms-restructuring-plans
+- S0675 | gamelook.com.cn | 全球震惊！微软XBOX游戏裁员3200人，欧美游戏圈“天塌了” | http://www.gamelook.com.cn/2026/07/596962/
+- S0665 | gcores.com | id Software裁员近半数员工，业内人士称其「名存实亡」 | https://www.gcores.com/articles/216874
+- S0897 | gamedeveloper.com | Xbox has laid off 379 Zenimax workers in Maryland | https://www.gamedeveloper.com/business/xbox-had-laid-off-379-zenimax-workers-in-maryland
+- S0668 | gcores.com | 黑曜石裁员25%，《天外世界》美术总监离开公司 | https://www.gcores.com/articles/216896
+- S0875 | new.qq.com | 黑曜石《宣誓》续作被砍，转向《辐射》IP新作开发 | https://new.qq.com/rain/a/20260709A07HW800
+- S0881 | gamesindustry.biz | Report: Obsidian to work on Fallout title as unannounced projects cancelled | https://www.gamesindustry.biz/report-obsidian-to-work-on-fallout-title-as-unannounced-projects-cancelled
+- S0898 | gamedeveloper.com | Update: WARN notice confirms at least 52 Obsidian workers are being laid off | https://www.gamedeveloper.com/business/report-obsidian-losing-around-one-quarter-of-its-staff-to-xbox-reset-
+- S0833 | gcores.com | 彭博社：黑曜石着手《辐射》新作开发 | https://www.gcores.com/articles/216927
+- S0022 | gamelook.com.cn | “游戏光盘落幕”！索尼官宣2028年停售：玩家悲愤质疑，为何游戏业放弃？ | http://www.gamelook.com.cn/2026/07/596642/
+- S0510 | gamelook.com.cn | 玩家痛惜！索尼“300人光盘工厂转行”：原每天生产60万张光盘、累计264亿张 | http://www.gamelook.com.cn/2026/07/596897/
+- S0342 | gcores.com | “别杀死光盘”请愿书四天内获10万签名，要求索尼保留实体游戏 | https://www.gcores.com/articles/216803
+- S0661 | gcores.com | 索尼据称未提前告知合作伙伴停产光盘 | https://www.gcores.com/articles/216880
+- S0830 | gcores.com | 索尼据称未提前告知合作伙伴停产光盘 | https://www.gcores.com/articles/216880
+- S0020 | gamelook.com.cn | “奖金超17亿、三年分期付款”！《深海迷航2》团队人人有份、老板“光荣辞职” | http://www.gamelook.com.cn/2026/07/596635/
+- S0034 | youxituoluo.com | 创始人出局，团队分2.5亿美元奖金！Krafton与《深海迷航2》开发商和解 | https://www.youxituoluo.com/534645.html
+- S0678 | gamelook.com.cn | CDPR总监致谢库洛：称赞“《鸣潮》联动引大流”，助攻《2077》破4000万套 | http://www.gamelook.com.cn/2026/07/597011/
+- S0672 | gamelook.com.cn | 6月中国手游发行商全球收入排行榜：腾讯稳居6月全球手游发行商收入冠军 | http://www.gamelook.com.cn/2026/07/597042/
+- S0859 | youxituoluo.com | 6月流水榜：《王者》累计收入破千亿，《Kingshot》破百亿，《三谋》暴涨 277% | https://www.youxituoluo.com/534658.html
+- S0903 | mobilegamer.biz | June’s top grossing mobile games: Honor of Kings, Whiteout Survival, Royal Match, Gossip Harbor, more | https://mobilegamer.biz/junes-top-grossing-mobile-games-honor-of-kings-whiteout-survival-royal-match-gossip-harbor-more/
+- S0842 | gamelook.com.cn | 6月成功出海的中国手游：雷霆游戏《杖剑传说》登顶收入增长榜 | http://www.gamelook.com.cn/2026/07/597131/
+- S0687 | youxituoluo.com | 半年净利20亿，超去年全年总和，巨人网络靠《超自然行动组》赢麻了 | https://www.youxituoluo.com/534656.html
+- S0845 | gamelook.com.cn | 《超自然行动组》立大功：巨人网络上半年预增157%+，净利润20-22亿元 | http://www.gamelook.com.cn/2026/07/597057/
+- S0021 | gamelook.com.cn | 2026胡润全球独角兽榜：米哈游第25名，叠纸,库洛,莉莉丝,英雄,多益,波克在列 | http://www.gamelook.com.cn/2026/07/596641/
+- S0892 | pocketgamer.biz | Games industry M&A reaches $2.3bn in Q2 2026 | https://www.pocketgamer.biz/games-industry-manda-reaches-23bn-in-q2-2026/
+- S0904 | investgame.net | Aream & Co. Releases Q2 2026 Gaming Market Update | https://investgame.net/news/aream-co-releases-q2-2026-gaming-market-update/
+- S0684 | m.sohu.com | 我玩到了网易刚首曝的中式微恐搜打撤：他们想吃下第一个螃蟹 | https://m.sohu.com/a/1047437725_204824
+- S0692 | new.qq.com | 网易搜打撤来了！是中式志怪题材 | https://new.qq.com/rain/a/20260708A08XME00
+- S0849 | gamelook.com.cn | “太对味了” ！《诡影藏锋》实机首曝直接炸场，“中式志怪搜打撤”这么灵？ | http://www.gamelook.com.cn/2026/07/597066/
+- S0850 | cgames.com | 腾讯游戏试点不再使用组长、总监管理头衔，取消基干管理职级 | https://cgames.com/contents/2/12173.html
+- S0509 | gamelook.com.cn | “AI让游戏公司日子更苦”？iOS新手游数量狂增118%，降本增效却更卷了 | http://www.gamelook.com.cn/2026/07/596853/
+- S0688 | youxichaguan.com | “大型科技巨头和资本从游戏撤离，现在，他们更喜欢AI” | https://youxichaguan.com/archives/201464
+- S0853 | cgames.com | 今天，网易《遗忘之海》率先炸翻暑期档 | https://cgames.com/contents/2/12182.html
+- S0926 | 17173.com | 遗忘之海 - 公测 | https://newgame.17173.com/game-info-1037008.html
+- S0936 | 16p.com | 遗忘之海 - 上线 | https://www.16p.com/1930612.html
+- S0964 | 3839.com | 遗忘之海(官服)-7月23日上线 - 移动端定档7月23日正式上线 | https://www.3839.com/a/182416.htm
+- S1000 | taptap.cn | 遗忘之海 - 新游爆料 07月23日 首发 (00:00 开始) | https://www.taptap.cn/app/755604
+- S0856 | m.sohu.com | 腾讯今年最野的游戏空降Top 1：一切都太特么失控了…… | https://m.sohu.com/a/1048113862_204824
+- S0928 | 17173.com | 失控进化 - 公测 | https://newgame.17173.com/game-info-1037140.html
+- S0932 | 16p.com | 失控进化 - 上线 | https://www.16p.com/1925818.html
+- S0943 | 3839.com | 失控进化-爆款生存对抗 - 已开服上线,赢1888Q币 | https://www.3839.com/a/176451.htm
+- S1005 | taptap.cn | 失控进化 - 首发 (06:00 开始) | https://www.taptap.cn/app/733908
+- S0104 | 3839.com | 失控进化-7月9日上线 - 定档7月6日早9点资源包预下载 | https://www.3839.com/a/176451.htm
+- S0410 | 3839.com | 失控进化-预下载器 - 资源包预下载开启！7月9日上线 | https://www.3839.com/a/199861.htm
+- S0737 | 3839.com | 诡影藏锋-中式志怪搜打撤 招募中 - 参与招募赢8月7日首测资格 | https://www.3839.com/a/198320.htm
+- S0766 | taptap.cn | 诡影藏锋 - 测试招募 | https://www.taptap.cn/app/874444
+- S0443 | taptap.cn | 诡影藏锋 - 新游预约 | https://www.taptap.cn/app/874444
+- S0940 | 3839.com | 刺客信条：黑旗 记忆重置 PC/主机 - 正式发售 | https://www.3839.com/a/195283.htm
+- S0921 | 17173.com | 崩坏：因缘精灵 - 内测 | https://newgame.17173.com/game-info-1037119.html
+- S0934 | 16p.com | 崩坏：因缘精灵 - 限量删档测试 | https://www.16p.com/1942693.html
+- S0946 | 3839.com | 崩坏：因缘精灵-崩坏IP新作(官服) - 已开测！二测最新试玩报告出炉 | https://www.3839.com/a/182527.htm
+- S0736 | 3839.com | 绝区零(官服)-3.0版本 - 新角色【诺姆】登场 | https://www.3839.com/a/143516.htm
+- S0090 | 17173.com | 崩坏：星穹铁道 - 新版本 | https://newgame.17173.com/game-info-1035939.html
+- S0123 | 3839.com | 崩坏：星穹铁道-4.4版本 - 19:30 4.4版本前瞻直播 | https://www.3839.com/a/178694.htm
+- S0948 | 3839.com | 恋与深空 - 6.0版本「万籁俱起」上线 | https://www.3839.com/a/127616.htm
+- S0791 | bbs.nga.cn | [新瓜][厂商]恋与深空bw撤展 | https://bbs.nga.cn/read.php?tid=47130865&forder_by=postdatedesc
+- S0670 | gcores.com | 《恋与深空》取消BW2026参展计划，制作团队致歉并全额补偿玩家出行损失 | https://www.gcores.com/articles/216901
+- S0797 | bbs.nga.cn | [新瓜] 恋与深空在BiliBiliWorld取消出展 | https://bbs.nga.cn/read.php?tid=47125567&forder_by=postdatedesc
+- S0800 | bbs.nga.cn | [新瓜]bw停展同步，恋与深空日本活动也停了 | https://bbs.nga.cn/read.php?tid=47131178&forder_by=postdatedesc
+- S0703 | pocketgamer.biz | Love and Deepspace cancels Bilibili World 2026 appearance amid ongoing controversy | https://www.pocketgamer.biz/love-and-deepspace-cancels-bilibili-world-2026-appearance-amid-ongoing-controversy/
+- S0620 | bbs.nga.cn | [新瓜]恋与深空玩家以敖尹Valko名义为受灾群众筹集爱心善款 | https://bbs.nga.cn/read.php?tid=47124874&forder_by=postdatedesc
+- S0804 | bbs.nga.cn | [新瓜][小甜瓜]恋与深空的卡面把此前涉及到的数字731和其他全部修改，同时暂时下架了涉事731事件男主沈星回的与光同尘这一游戏章节 | https://bbs.nga.cn/read.php?tid=47133317&forder_by=postdatedesc
+- S0802 | bbs.nga.cn | [厂商]恋与深空今日早上6点发布公告，评论区瞬间出现大量要求第6位男主回归的评论 | https://bbs.nga.cn/read.php?tid=47136498&forder_by=postdatedesc
+- S0805 | bbs.nga.cn | [新瓜]人民日报讽刺与幽默点评《恋与深空》新角色事件 | https://bbs.nga.cn/read.php?tid=47119680&forder_by=postdatedesc
+- S1019 | bbs.nga.cn | [厂商] 司法部、公安部公众号发布恋与深空批评文章 | https://bbs.nga.cn/read.php?tid=47142837&forder_by=postdatedesc
+- S0801 | bbs.nga.cn | 由Claude梳理的7月6日鸣潮鉴抄事件始末 | https://bbs.nga.cn/read.php?tid=47130714&forder_by=postdatedesc
+- S1029 | bbs.nga.cn | 由Claude梳理的7月6日鸣潮鉴抄事件始末 | https://bbs.nga.cn/read.php?tid=47130714&forder_by=postdatedesc
+- S0790 | bbs.nga.cn | [新瓜][瓜小味甜] 鸣潮首次单月手机端流水同时超越原崩 | https://bbs.nga.cn/read.php?tid=47087695&_fp=2
+- S0799 | bbs.nga.cn | [新瓜]赛博朋克在线突破十万，总监X上感谢鸣潮联动 | https://bbs.nga.cn/read.php?tid=47119467&forder_by=postdatedesc
+- S1025 | bbs.nga.cn | [新瓜]赛博朋克在线突破十万，总监X上感谢鸣潮联动 | https://bbs.nga.cn/read.php?tid=47119467&_fp=2&forder_by=postdatedesc
+- S0467 | bbs.nga.cn | 明日方舟x红山动物园联动，每日限量1000集章卡被大量投诉 | https://bbs.nga.cn/read.php?tid=47119736&forder_by=postdatedesc
+- S1030 | bbs.nga.cn | 明日方舟x红山动物园联动，每日限量1000集章卡被大量投诉 | https://bbs.nga.cn/read.php?tid=47119736&_fp=2&forder_by=postdatedesc
+- S0352 | gamelook.com.cn | 今年最奇迹独立游戏！16天爆卖1000万份，两人赚了4个亿 | http://www.gamelook.com.cn/2026/07/596792/
+- S0336 | gcores.com | 《超级变色龙》销量突破1500万份，成为年内销售速度最快游戏之一 | https://www.gcores.com/articles/216783
+- S0346 | gamelook.com.cn | 真·拉爆产能的《异环》1.2，终于挺过自己的「奥德赛时期」 | http://www.gamelook.com.cn/2026/07/596730/
+- S0052 | new.qq.com | 新版本掏出了10倍大地图？异环开始「在游戏里做游戏」了 | https://new.qq.com/rain/a/20260703A05AG000
+- S0362 | youxichaguan.com | 我越来越看不懂《异环》了 | https://youxichaguan.com/archives/201380
+- S1049 | store.steampowered.com | Steam 官方周销量榜 TOP15（周 of 2026-06-30） | https://store.steampowered.com/charts/topselling/global
