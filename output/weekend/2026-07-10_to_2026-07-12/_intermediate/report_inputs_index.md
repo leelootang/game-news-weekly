@@ -1,0 +1,382 @@
+# Report Inputs Index｜2026-07-10_to_2026-07-12 (weekend)
+
+## pc_rankings (3)
+- S0001 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-07-10 日报 · 采集于 2026-07-11）
+- S0208 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-07-11 日报 · 采集于 2026-07-12）
+- S0300 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-07-12 日报 · 采集于 2026-07-13）
+
+## industry_news (90)
+- S0002 | gcores.com | BLG击败HLE，晋级《英雄联盟》MSI总决赛
+- S0003 | gcores.com | 价值330万日元，东京电玩展30周年纪念门票将于7月11日开始发售
+- S0004 | gcores.com | 《遗忘之海》PC端今日公测，移动端定档7月23日
+- S0005 | gcores.com | 《逃离塔科夫》：“拓展内容中心”及“塔币”将带来更多的游戏性！
+- S0006 | gcores.com | 《碧蓝幻想 Relink 无尽黄昏》现已发售，最终预告同步公开
+- S0007 | gcores.com | 《仁王3》官方实体典藏版预售于今日中午开启！
+- S0008 | gcores.com | 《致命躯壳2》现已开启预购，国区售价198元起
+- S0009 | gcores.com | 合作狩猎游戏《狩猎伙伴》定于7月25日发售
+- S0010 | gcores.com | 《幻兽帕鲁》玩家总数突破4000万,开发者表达感谢
+- S0011 | gcores.com | 彭博社：黑曜石着手《辐射》新作开发
+- S0012 | gcores.com | Epic喜加二：《新星群岛》《纹身大亨》免费领
+- S0013 | gcores.com | 《行会 - 欧洲1410》抢先体验版延期至9月发售
+- S0014 | gcores.com | 《CS2》迎来第五赛季，彻底重做炸弹伤害机制
+- S0015 | gcores.com | 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发
+- S0016 | gcores.com | PlayStation参展BW，信仰蓝特别版手柄同步官宣
+- S0017 | gcores.com | 《魔法少女的因习村》官方预告片第一弹公开
+- S0018 | gcores.com | 万智牌丨漫威超级英雄亮相BiliBiliWorld 2026
+- S0019 | gcores.com | 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场
+- S0020 | gamelook.com.cn | 暑期档开启，腾讯这款自带光环的年度爆款首日打出王炸！
+- S0021 | gamelook.com.cn | Sensor Tower广告变现报告：2025全球手游广告市场120亿美元
+- S0022 | gamelook.com.cn | “全村希望”遭背刺！育碧《刺客信条：黑旗》重制版，发售前两天遭破解
+- S0023 | gamelook.com.cn | 二游《深空之眼》宣布停更！“曾经的优等生”生不逢时？
+- S0024 | gamelook.com.cn | 独立游戏重大喜讯！“买断制手游”数量大增77%，过去5年收入已翻倍
+- S0025 | gamelook.com.cn | 暑期档游戏圈“集体玩水”？网易旗舰《遗忘之海》PC端发布、盛况空前
+- S0026 | gamelook.com.cn | 不去日本！中国游戏大厂“集体缺席”今年东京电玩展
+- S0027 | m.sohu.com | 一分钟生成开放世界，实时交互仅1秒延迟：国产开源世界模型全球爆火
+- S0028 | m.sohu.com | 《鸣潮》最冒险的一次
+- S0029 | m.sohu.com | BW上「最大」的二游被我找到了
+- S0030 | m.sohu.com | 6月PC榜：一款只卖四块八的游戏，抢跑暑期档？
+- S0031 | youxituoluo.com | 一哥带节奏，海外Rust主播集体上头，网易把路走宽了
+- S0032 | youxituoluo.com | 运营四年，《深空之眼》宣布停更，制作人阿尾致歉：团队实力不足
+- S0033 | youxituoluo.com | 1人8天打造《杀戮尖塔》？杭州黑马正在用AI量产“超级个体”
+- S0034 | youxichaguan.com | 连办八年，开发者为什么都该看看这场沙龙？
+- S0035 | youxichaguan.com | 2022年的最强新品二游，还是在今天官宣停更
+- S0036 | youxichaguan.com | 神力科莎 EVO 0.8版本更新：包含三款新车、全新基亚拉米赛道
+- S0037 | youxichaguan.com | 《OCTOPinbs》免费DLC今日上线！联动社交推理节限时7折
+- S0038 | youxichaguan.com | 《敢达决战》10.5周年庆典盛大开启！V2突击暴风加农敢达重磅登场
+- S0039 | youxichaguan.com | 《鸣潮》鸿蒙版开启不删档测试，同步更新3.5全新版本
+- S0040 | youxichaguan.com | 顶级IP改编战棋新游《三国火凤燎原》亮相BW2026 首测招募火热开启
+- S0041 | youxichaguan.com | 杀手少女终末行《井域：喀洛之血》8月18日发售
+- S0042 | youxichaguan.com | 2026光子游戏大赛人气投票通道开启，40款入围作品接受公众评选，好游戏由你来定义
+- S0043 | youxichaguan.com | 《伍六七》新世界首映 全新电影、剧集、游戏、出版及音乐巡演计划亮相BW2026
+- S0044 | new.qq.com | 字节AI应用《猫箱》，进入iOS畅销总榜前200名
+- S0045 | new.qq.com | 腾讯光子洛杉矶分部组建新团队，开发全新3A级别FPS新游
+- S0046 | new.qq.com | 2026年上半年50起游戏投融资，资本都在投些什么？
+- S0047 | gamesindustry.biz | Layoffs begin at Ubisoft Barcelona following Assassin's Creed Black Flag Resynced launch
+- S0048 | gamesindustry.biz | Why two games media veterans think a "classic old-school style multi-format video games website" will flourish in 2026
+- S0049 | gamesindustry.biz | Asha Sharma to co-lead US Federal Reserve's Productivity and Jobs task force
+- S0050 | gamesindustry.biz | Enginefall developer Red Rover Interactive to cut workforce by 22 roles
+- S0051 | gamesindustry.biz | "They want us to accept this as a done deal and quietly disappear" – Bethesda union members organise protest in response to Xbox layoffs
+- S0052 | gamesindustry.biz | Can a top-down, focused software strategy save Xbox? | Opinion
+- S0053 | pocketgamer.biz | PubMatic and Zynga partner to expand advertiser access to premium mobile games audiences
+- S0054 | pocketgamer.biz | New Zealand game studios grow revenue 17% to $829m with rebate support
+- S0055 | pocketgamer.biz | Vietnam's mobile games market hits 121m downloads and $23m in revenue during May 2026
+- S0056 | pocketgamer.biz | Habby's David Pan joins the 'Publishing in China' panel at PGC Summit Shanghai
+- S0057 | pocketgamer.biz | India's mobile games market set to reach $2.4bn by 2029
+- S0058 | pocketgamer.biz | D20 Labs to shut down Sugartown after failing to secure future for web3 gaming platform
+- S0059 | pocketgamer.biz | Xbox executive Asha Sharma joins US Federal Reserve task force on jobs and productivity
+- S0060 | pocketgamer.biz | New release roundup: Astro Arena, Beat Hazard Arcade, ZakuzakuSlash, and more
+- S0061 | pocketgamer.biz | The Top 30 China Game Makers of 2026
+- S0062 | pocketgamer.biz | The $17bn D2C market, the Esports World Cup and Pokémon Go's 10th anniversary | Week in Views
+- S0063 | gamedeveloper.com | Eurogamer and VG247 veterans launch new independent site
+- S0064 | gamedeveloper.com | Asha Sharma joins Federal Reserve advisory task force days after laying off thousands at Xbox
+- S0065 | gamedeveloper.com | 'We mean business:' Xbox union workers fighting back with 'Save Our Devs' rally on July 15
+- S0066 | gamedeveloper.com | Own goal specialist Xbox rifles another into the roof of the net - Patch Notes #60
+- S0067 | mobilegamer.biz | New game digest: The Walking Dead, Rust, Tencent’s take on GTA, another new Rollic game, Bleach, more
+- S0068 | 36kr.com | AI猎奇剧霸榜，海外短剧生态剧变？
+- S0209 | gcores.com | 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场
+- S0210 | gcores.com | 万智牌丨漫威超级英雄亮相BiliBiliWorld 2026
+- S0211 | gcores.com | 《魔法少女的因习村》官方预告片第一弹公开
+- S0212 | gcores.com | PlayStation参展BW，信仰蓝特别版手柄同步官宣
+- S0213 | gcores.com | Epic喜加二：《新星群岛》《纹身大亨》免费领
+- S0214 | gcores.com | 《行会 - 欧洲1410》抢先体验版延期至9月发售
+- S0215 | gcores.com | 《CS2》迎来第五赛季，彻底重做炸弹伤害机制
+- S0216 | gcores.com | 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发
+- S0217 | cgames.com | BW首日直击，一场无法被“速通”的展会
+- S0218 | cgames.com | 同一道题，《鸣潮》给出了第二种解法
+- S0219 | m.sohu.com | 《黑神话：悟空》音乐会被骂背后，是国产单机的IP困境
+- S0220 | m.sohu.com | 网易2026最新旗舰大作，太难了？
+- S0221 | gamesindustry.biz | Id claims it has "the crew we need to build the games and tech we're known for" following mass layoffs
+- S0222 | gamedeveloper.com | NexusMods CEO digs into the dynamics of video game modding ft. Victor Folmann
+- S0301 | gcores.com | 华硕主板点燃BW2026 ROG玩创宇宙引玩家狂欢
+- S0302 | gcores.com | BW2026邂逅ROG信仰殿堂 华硕主板硬核登场
+- S0303 | gcores.com | ROG玩创宇宙降临BW2026 华硕主板解锁次元超新星
+- S0304 | gcores.com | 七彩虹携全系硬件亮相BW2026，打造融合科技与潮玩的玩创空间
+- S0305 | gcores.com | HLE击败BLG，夺得《英雄联盟》MSI总冠军
+- S0306 | cgames.com | 20岁，第一次去BW
+- S0307 | m.sohu.com | 「停止杀死游戏」在美未通过立法；三七打击私服，涉案数百万 | 一周说「法」
+- S0308 | m.sohu.com | 网易最懂逆袭的项目：一年半，从题材已死到「全球第一」
+- S0309 | m.sohu.com | 我在上海这个世界二次元的中心哭了一夜
+
+## ai_trends (39)
+- S0069 | aihot.virxact.com | OpenAI 发布最强模型与最佳博文
+- S0070 | aihot.virxact.com | Google 推出 LiteRT.js：高性能 Web AI 推理运行时
+- S0071 | aihot.virxact.com | ChatGPT Sites将创意变可发布网站
+- S0072 | aihot.virxact.com | Cognition 推出 SWE-1.7，接近 GPT 5.5 与 Opus 智能水平
+- S0073 | aihot.virxact.com | 微软发布Flint：面向AI智能体的可视化语言
+- S0074 | aihot.virxact.com | Bun 被 Anthropic 收购后用 Rust 重写，月下载超 2200 万
+- S0075 | aihot.virxact.com | 社交媒体AI生成内容泛滥：LinkedIn超过40%长文为AI写作
+- S0076 | aihot.virxact.com | AI 能否回答 3 万亿美元的问题？
+- S0077 | aihot.virxact.com | Show HN： 如何在我的低配置电脑上运行 GLM-5.2
+- S0078 | aihot.virxact.com | Thinking Machines Lab：构建延伸人类意志与判断的 AI
+- S0079 | aihot.virxact.com | Claude Code v2.1.206 发布
+- S0080 | aihot.virxact.com | Elon Musk 转发用户称赞 Grok Build 的反馈
+- S0081 | aihot.virxact.com | 马斯克承认Anthropic是当前AI领导者
+- S0082 | aihot.virxact.com | 扎克伯格首度回应 Meta"算力过剩"：没人会嫌算力太多，但租出去更赚钱
+- S0083 | aihot.virxact.com | 小红书发布大模型新架构 PIPO
+- S0084 | aihot.virxact.com | 百度搭子在成都AI Day发布四项更新：个人版升级、自媒体套件、企业版及搭子联盟
+- S0085 | aihot.virxact.com | Perplexity 推出跨模型信用额度分析功能
+- S0223 | aihot.virxact.com | Claude Code桌面版新增应用内浏览器
+- S0224 | aihot.virxact.com | 宇树G1人形机器人完成首例活体微创手术
+- S0225 | aihot.virxact.com | OpenAI 论文：GPT-5.6 Sol Ultra 证明图论"循环双覆盖猜想"
+- S0226 | aihot.virxact.com | 博科圣地如何利用前沿AI技术
+- S0227 | aihot.virxact.com | 苹果起诉OpenAI窃取商业机密开发AI硬件
+- S0228 | aihot.virxact.com | Meta 关闭 Instagram 用户可基于公开账户生成 AI 深度伪造图片的功能
+- S0229 | aihot.virxact.com | Claude Code v2.1.207 发布
+- S0230 | aihot.virxact.com | OpenAI GPT-5.6-Sol 删光 AI 创业者 Matt Shumer 的 Mac 硬盘
+- S0231 | aihot.virxact.com | 11天Claude Fable 5写超100万行代码：Rust重构JavaScript运行时Bun
+- S0232 | aihot.virxact.com | 蚂蚁集团 Robbyant 发布 LingBot-VA 2.0，首个原生具身基础模型
+- S0310 | aihot.virxact.com | Ghost Font：一种人类能读懂但AI无法识别的反AI字体
+- S0311 | aihot.virxact.com | OpenAI 发布 GPT-5.6 系列医疗评估结果
+- S0312 | aihot.virxact.com | 研究：博科圣地已使用ChatGPT、Claude等主流AI聊天机器人用于袭击策划与武器开发
+- S0313 | aihot.virxact.com | 彭博社揭秘苹果起诉 OpenAI 内幕：前员工一句"哈哈"成窃密关键
+- S0314 | aihot.virxact.com | OpenAI GPT-5.6 Sol Ultra 一小时证明 50 年图论猜想
+- S0315 | aihot.virxact.com | Tibo 分享通过 CLIProxyAPI 将 Claude Code 后端模型切换为 GPT-5.6 Sol 的方法
+- S0316 | aihot.virxact.com | Mesh LLM：在 iroh 上进行分布式人工智能计算
+- S0317 | aihot.virxact.com | 苹果起诉OpenAI挖角窃密，分析师称即使指控未证实也可能重创其硬件计划
+- S0318 | aihot.virxact.com | xAI Grok Build CLI 网络流量分析：上传仓库全部文件及 git 历史
+- S0319 | aihot.virxact.com | OpenAI CEO Altman 改口称 AI 净创造就业，Anthropic CEO 也修正早期言论
+- S0320 | aihot.virxact.com | Mindwalk：在代码库 3D 地图上回放编码代理会话
+- S0321 | aihot.virxact.com | 纳德拉提出"反向信息悖论"：企业使用AI时需保护自身知识
+
+## release_calendar (147)
+- S0086 | 17173.com | 七日世界 - 新版本
+- S0087 | 17173.com | 三角洲行动 - 新版本
+- S0088 | 17173.com | 封神榜2 - 新版本
+- S0089 | 17173.com | 幻兽帕鲁 - 公测
+- S0090 | 17173.com | 梦幻西游 - 新版本
+- S0091 | 17173.com | 燕云十六声 - 新版本
+- S0092 | 17173.com | 蓝色星原：旅谣 - 内测
+- S0093 | 17173.com | 镭明闪击 - 新版本
+- S0094 | 17173.com | 桃花源记2 - 资料片
+- S0095 | 17173.com | 天龙八部·归来 - 新版本
+- S0096 | 16p.com | 上古河图 - 限量删档测试
+- S0097 | 16p.com | 二十四节气 - 限量删档测试
+- S0098 | 16p.com | 梦幻足球 - 删档计费测试
+- S0099 | 16p.com | 热力无限赛车 - 删档计费测试
+- S0100 | 16p.com | 狩之纪元 - 限量删档计费测试
+- S0101 | 16p.com | 盗梦英雄2：幻野 - 上线
+- S0102 | 3839.com | 七日世界(官服) - 二周年庆典【奇梦狂潮】开启
+- S0103 | 3839.com | 三角洲行动-裂变赛季 - 《彩虹六号：围攻》联动开启
+- S0104 | 3839.com | 世界启元-文明正版IP合作 - 二周年庆送80抽，自选S英雄
+- S0105 | 3839.com | 使命召唤手游 - 新武器永夜冥乡上线
+- S0106 | 3839.com | 元梦之星-喜羊羊联动 - 「红太狼」时装免费送
+- S0107 | 3839.com | 决胜巅峰(官服) - 免费领《街霸6》联动道具
+- S0108 | 3839.com | 和平精英-夏日探险 - 最新神装【幻音九尾-璃】上线
+- S0109 | 3839.com | 大头菜菜历险记 - 夏促限时9元折扣
+- S0110 | 3839.com | 天谕 - 幻翼系统更新，典藏外观上新
+- S0111 | 3839.com | 幻兽帕鲁 PC/主机 - 1.0正式版发售,快爆超史低折扣中
+- S0112 | 3839.com | 无畏契约：源能行动 - 夺球乱斗玩法上线
+- S0113 | 3839.com | 明日方舟 - 新干员【谬因】上线
+- S0114 | 3839.com | 暗区突围-四周年庆 - 全新「复古电波」主题系列军需上线
+- S0115 | 3839.com | 洛克王国：世界 - 嘟嘟煲大量出没,20-24点炫彩蛋限卖
+- S0116 | 3839.com | 火影忍者手游 - A忍佐助「兄弟之战」上线
+- S0117 | 3839.com | 燕云十六声(官服) - 《逃离塔科夫》联动开启
+- S0118 | 3839.com | 王牌竞速(官服) - 累计登录领1555纪念币
+- S0119 | 3839.com | 王者荣耀-S44赛季 - 大司命FMVP新皮肤上线
+- S0120 | 3839.com | 破烂水手 测试服 - 不限量测试开启
+- S0121 | 3839.com | 英雄联盟手游 - S6乐斗赛季开启
+- S0122 | 3839.com | 蓝色星原：旅谣(官服) 招募中 - 多种方式赢限量测试资格
+- S0123 | 3839.com | 蛋仔派对(官服)-四周年 - 登录领DongDong气球玩具
+- S0124 | 3839.com | 诡秘之主-8月21日上线 - 定档8月21日正式上线
+- S0125 | 3839.com | 超市经营模拟器-抖音热游 - 上线试玩
+- S0126 | 3839.com | 超能机器人 - 限时12元折扣
+- S0127 | 3839.com | 超自然行动组-联动鬼吹灯 - 星耀时装【兰-精绝女王】上线
+- S0128 | 3839.com | 部落冲突：皇室战争 - 新玩法混沌试炼上线
+- S0129 | 3839.com | 问剑长生-国风修仙 - 暑期版本【邪道独尊】
+- S0130 | 3839.com | 鸣潮-3.5版本(官服) - 新共鸣者「秧秧·玄翎」登场
+- S0131 | 3839.com | 梦幻足球 - 10:00 删档测试
+- S0132 | 3839.com | 热力无限赛车 - 10:00 删档测试
+- S0133 | 3839.com | 织梦冒险团 - 10:00 正式上线
+- S0134 | 3839.com | 西游神传 - 10:00 删档测试
+- S0135 | 3839.com | 明日方舟：终末地(官服) - 19:30 「向渊行」版本前瞻预告节目
+- S0136 | taptap.cn | 七日世界 - 新版本更新
+- S0137 | taptap.cn | 九洲傲天录 - 限量测试
+- S0138 | taptap.cn | 代号:幻彩乌托邦 - 测试招募
+- S0139 | taptap.cn | 冲刺大师 - 首发
+- S0140 | taptap.cn | 决战！平安京 - 新版本更新
+- S0141 | taptap.cn | 宝石战争 - 测试招募 (00:00 开始)
+- S0142 | taptap.cn | 山海仙宗录 - 新游预约
+- S0143 | taptap.cn | 帝国传奇：像素英雄 - 折扣
+- S0144 | taptap.cn | 异星祭坛 - 首发
+- S0145 | taptap.cn | 怪物潮汐软件V1.0 - 首发
+- S0146 | taptap.cn | 我在园区搜打撤 - 限量测试
+- S0147 | taptap.cn | 数合云台 - 首发
+- S0148 | taptap.cn | 斗神大地2 - 首发
+- S0149 | taptap.cn | 无尽之旅 - 不限量测试
+- S0150 | taptap.cn | 无限传奇大陆指南 - 首发
+- S0151 | taptap.cn | 末日流浪者 - 新游预约
+- S0152 | taptap.cn | 末日避难所 - 不限量测试
+- S0153 | taptap.cn | 机甲精英战士 - 首发
+- S0154 | taptap.cn | 梦幻足球 - 首发
+- S0155 | taptap.cn | 楚新钓 - 首发
+- S0156 | taptap.cn | 江湖挂机事（TapTap测试版） - 首发
+- S0157 | taptap.cn | 涂画捉迷藏 - 首发
+- S0158 | taptap.cn | 火影忍者 - 新版本更新
+- S0159 | taptap.cn | 热力无限赛车 - 不限量测试
+- S0160 | taptap.cn | 燕云十六声 - calendar event
+- S0161 | taptap.cn | 球球好心情 - 首发
+- S0162 | taptap.cn | 经典2048 - 首发
+- S0163 | taptap.cn | 西游志：山海战纪 - 不限量测试
+- S0164 | taptap.cn | 解忧梦幻岛 - 首发
+- S0165 | taptap.cn | 诡秘之主 - 新游爆料 官宣8月21日首发
+- S0166 | taptap.cn | 超时空街球对决 - 新游预约
+- S0167 | taptap.cn | 轮回之境 - 测试招募
+- S0168 | taptap.cn | 问剑长生 - 新版本更新
+- S0169 | taptap.cn | 魔兽练功房 - 首发
+- S0170 | taptap.cn | 鸣潮 - 新版本更新
+- S0171 | taptap.cn | 蓝色星原：旅谣 - 测试招募 (09:00 开始)
+- S0172 | gematsu.com | The Sinking City 2 pre-orders now available
+- S0173 | gematsu.com | No Case Should Remain Unsolved for PS5 launches August 19
+- S0233 | 17173.com | 心动小镇 - 新版本
+- S0234 | 16p.com | 巨龙之戒 - 上线
+- S0235 | 16p.com | 拉尼亚 - 限量删档测试
+- S0236 | 16p.com | 泞之翼3：玉碎篇 - 不删档测试
+- S0237 | 3839.com | 九牧之野(官服) - 爽战主题服登录领神将自选
+- S0238 | 3839.com | 光·遇(官服) - 免费领取「周年典礼鸭舌:帽」
+- S0239 | 3839.com | 无畏契约：源能行动 - 「夜市」开启，瓦友夏令营活动上线
+- S0240 | 3839.com | 极品飞车：集结-2周年庆 - 累登免费得传奇赛车
+- S0241 | 3839.com | 盲盒派对 - 新主题活动「仲夏悠游日」
+- S0242 | 3839.com | 泞之翼3：玉碎篇 - 10:00 不删档测试
+- S0243 | taptap.cn | 1024 - 首发
+- S0244 | taptap.cn | Melocube - 限量测试
+- S0245 | taptap.cn | PolygonRhythm - 测试招募
+- S0246 | taptap.cn | 代号：三国HD-2D - 新游预约
+- S0247 | taptap.cn | 伯吉的温馨厨房 - 新游预约 (00:00 开始)
+- S0248 | taptap.cn | 侠义无双 - 限量测试
+- S0249 | taptap.cn | 元素创造 - 首发
+- S0250 | taptap.cn | 公元 - 首发
+- S0251 | taptap.cn | 初音未来：缤纷舞台 - 新版本更新
+- S0252 | taptap.cn | 勇者记忆回廊 - 首发
+- S0253 | taptap.cn | 夜师傅快跑 - 首发
+- S0254 | taptap.cn | 彩色方块连连看 - 首发
+- S0255 | taptap.cn | 悬浮之境DORMIVEGLIA - 首发
+- S0256 | taptap.cn | 我主封神 - 首发
+- S0257 | taptap.cn | 我在末世当倒爷 - 首发
+- S0258 | taptap.cn | 我抢地我有钱 - 首发
+- S0259 | taptap.cn | 我的天赋无限叠加 - 不限量测试
+- S0260 | taptap.cn | 我靠搞钱翻身 - 首发
+- S0261 | taptap.cn | 战地英雄 - 限量测试
+- S0262 | taptap.cn | 星座大冒险 - 新游预约
+- S0263 | taptap.cn | 极速驰骋 - 首发
+- S0264 | taptap.cn | 梦想英雄 - 新游预约
+- S0265 | taptap.cn | 泞之翼3：玉碎篇 - 限量测试
+- S0266 | taptap.cn | 消完回家 - 首发
+- S0267 | taptap.cn | 猎魔物语（TapTap测试版） - 限量测试
+- S0268 | taptap.cn | 经典推箱子 - 首发
+- S0269 | taptap.cn | 萌回三国 - 首发
+- S0270 | taptap.cn | 谜之树迷失的森林 - 新游预约
+- S0271 | taptap.cn | 赛博修仙2066：灵网求生 - 首发
+- S0272 | taptap.cn | 超自然管理局 - 新游预约
+- S0322 | 3839.com | 植物大战僵尸融合版-3.8版本 - 3.8版更，新地图冬夜上线
+- S0323 | 3839.com | 纸嫁衣9罗浮梦-中式民俗解谜 - 定档7月15日开启预下载,7月16日上线
+- S0324 | taptap.cn | 人生蓝图模拟器 - 首发
+- S0325 | taptap.cn | 墨斩 - 首发
+- S0326 | taptap.cn | 奥德回环 - 新游预约
+- S0327 | taptap.cn | 女王防线 - 首发
+- S0328 | taptap.cn | 小儿垂钓 - 首发
+- S0329 | taptap.cn | 我家里有矿 - 首发
+- S0330 | taptap.cn | 我的魔法餐厅 - 首发
+- S0331 | taptap.cn | 无限修仙轮回 - 首发
+- S0332 | taptap.cn | 海上有座极极岛 - 新游预约
+- S0333 | taptap.cn | 点击狗头 - 首发
+- S0334 | taptap.cn | 牛顿摆模拟器 - 首发
+- S0335 | taptap.cn | 给猫铺窝 - 首发
+- S0336 | taptap.cn | 罐罐轰轰 - 首发
+- S0337 | taptap.cn | 背包闯江湖 - 新游预约
+- S0338 | taptap.cn | 解压24点 - 首发
+- S0339 | taptap.cn | 谜的树迷失之森林 - 首发
+- S0340 | taptap.cn | 跳跳无限工厂 - 首发
+
+## community_discourse (88)
+- S0174 | bbs.nga.cn | [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙
+- S0175 | bbs.nga.cn | [厂商] 黎洋判决书实锤商单
+- S0176 | bbs.nga.cn | [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福
+- S0177 | bbs.nga.cn | [米哈游] [崩铁]皮肤？本体+专武+命座！换装即sp时代唐唐来袭
+- S0178 | bbs.nga.cn | [新瓜][厂商]恋与深空bw撤展
+- S0179 | bbs.nga.cn | [原神]木偶节奏毫不意外的向集美滑轨加了布料
+- S0180 | bbs.nga.cn | [新瓜] APEX联动边缘行者，有露西和大卫
+- S0181 | bbs.nga.cn | [米哈游][恋与深空]深情乙女扩散中。。。
+- S0182 | bbs.nga.cn | [新瓜]bw停展同步，恋与深空日本活动也停了
+- S0183 | bbs.nga.cn | [厂商]做一个卡厄斯梦境的综合瓜
+- S0184 | bbs.nga.cn | [新瓜] [瓜小味甜]新捉宠游戏《伊莫》采用黑红拉踩路线进行宣发，官号下场骑脸洛手
+- S0185 | bbs.nga.cn | [厂商]恋与深空今日早上6点发布公告，评论区瞬间出现大量要求第6位男主回归的评论
+- S0186 | bbs.nga.cn | [米哈游]原神队长英配cv给散兵改名为敖尹
+- S0187 | bbs.nga.cn | [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉
+- S0188 | bbs.nga.cn | [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资
+- S0189 | bbs.nga.cn | [停服] 深空之眼停止更新
+- S0190 | bbs.nga.cn | [新闻相关]血族手游联动血族漫画
+- S0191 | bbs.nga.cn | [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎
+- S0192 | bbs.nga.cn | [新瓜] [岁月史书3] [恋与深空]关于微博上媒体首次参与恋与深空报道新闻的整理[范围：6月22日0点-7月1号0点]
+- S0193 | bbs.nga.cn | [英雄互娱] 二重螺旋反作弊封了自家云游戏机器码
+- S0194 | reddit.com | Steam sales reportedly topped $11 billion during H1 2026 due to shifting trends — staggering growth driven by influx of Chinese players and booming legacy catalogues
+- S0195 | reddit.com | Xbox needs to make a choice, says former PlayStation leader Shawn Layden: be a publisher or a platform, but you can't be both
+- S0196 | reddit.com | Cygames Revives Project Awakening a Decade After Reveal, Ditching Its Own Engine for Unreal Engine 5
+- S0197 | reddit.com | Ubisoft has added a cash shop and weekly challenges to its 'faithful' remake of the 13-year-old Black Flag, because of course it has
+- S0198 | reddit.com | Roughly 192 Subnautica 2 players have drowned every minute since launch
+- S0199 | reddit.com | TIL that this little robot in Metal Gear Solid 4 was made out of a PS3 and it has the CELL Processor in it, and Snake controls it with a DualShock 3 controller
+- S0200 | reddit.com | The most beautiful environments i've ever seen in a video game. (Death Stranding 2)
+- S0201 | reddit.com | Baltimore Business Journal- 379 employees laid off at Zenimax and Zenimax Online. "They basically crippled the art and design department" at ZeniMax Online
+- S0202 | reddit.com | My son got in trouble at school and as a parent of a child who doesn't get in trouble often, I didn't know exactly how to punish him, but I think I figured it out.
+- S0203 | reddit.com | Xbox CEO Asha Sharma named as adviser to US Federal Reserve on ‘Jobs and Productivity’ | VGC
+- S0204 | reddit.com | Windows Central: Microsoft has no plans to shelve iD Tech, iD Software is not being forced to move to Unreal Engine
+- S0205 | reddit.com | Which Easter eggs did YOU discover without a guide or already knowing about them?
+- S0206 | reddit.com | Xbox Layoffs Reduce id Tech Engine Team to 1 Developer, As Unreal Engine Dominance Is Set To Grip The Industry
+- S0273 | bbs.nga.cn | [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI
+- S0274 | bbs.nga.cn | [厂商] 司法部、公安部公众号发布恋与深空批评文章
+- S0275 | bbs.nga.cn | [停服]深空之眼，停止更新
+- S0276 | bbs.nga.cn | [原神]木偶节奏毫不意外的向集美滑轨加了布料
+- S0277 | bbs.nga.cn | 疑似小鸣汝窑削弱
+- S0278 | bbs.nga.cn | [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资
+- S0279 | bbs.nga.cn | [米哈游]原神队长英配cv给散兵改名为敖尹
+- S0280 | bbs.nga.cn | [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉
+- S0281 | bbs.nga.cn | [停服]深空之眼玩家展开自救运动
+- S0282 | bbs.nga.cn | [新瓜] 异环官方麻将宣传图疑似出老千
+- S0283 | bbs.nga.cn | [新闻相关]血族手游联动血族漫画
+- S0284 | bbs.nga.cn | [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎
+- S0285 | bbs.nga.cn | [米哈游]疑似米家下一代主机/pc游戏即将开始测试
+- S0286 | bbs.nga.cn | [1999]小甜瓜，历史过期兑换码可以再次兑换，官方大号半夜发公告修复
+- S0287 | reddit.com | I'm glad my younger self never traded or tossed any games
+- S0288 | reddit.com | A rare win for digital ownership: Chinese courts rule game accounts can be inherited
+- S0289 | reddit.com | my collection of all my ps4/5 games
+- S0290 | reddit.com | Which game has the worst cutscene to gameplay ration?
+- S0291 | reddit.com | AC black flag resynced - Skeleton Crew
+- S0292 | reddit.com | Doomslayer cosplay by DCWbuilds C2E2 Armor Division Champion
+- S0293 | reddit.com | Santa Monica officially confirms 'God of War Laufey' will be available as a physical edition with a disc - meaning it will release before January 2028
+- S0294 | reddit.com | Palworld revises some of its most egregious creature designs for its 1.0 release
+- S0295 | reddit.com | Bioshock Infinite had messages from the devs in the credits
+- S0296 | reddit.com | For the love of God if you haven't played the Dead Space Remake, go do it now!
+- S0297 | reddit.com | What's a game that gets reviewed poorly or mediocrely that you really enjoy?
+- S0298 | reddit.com | PlayStation Account Flaw Makes No Discs a Big Issue for Millions - PlayStation LifeStyle
+- S0299 | reddit.com | idSoftware confirm reporting from Windows Central
+- S0341 | bbs.nga.cn | [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙
+- S0342 | bbs.nga.cn | [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福
+- S0343 | bbs.nga.cn | [厂商] 司法部、公安部公众号发布恋与深空批评文章
+- S0344 | bbs.nga.cn | [米哈游] [崩铁]皮肤？本体+专武+命座！换装即sp时代唐唐来袭
+- S0345 | bbs.nga.cn | [明日方舟]官方asmr声优被要求不能有love的感觉
+- S0346 | bbs.nga.cn | 疑似小鸣汝窑削弱
+- S0347 | bbs.nga.cn | [停服]深空之眼玩家展开自救运动
+- S0348 | bbs.nga.cn | [新瓜]鸣潮游戏内图标撞中国交建logo
+- S0349 | bbs.nga.cn | [小瓜]崩铁知更鸟联动产品发成恋与深空
+- S0350 | bbs.nga.cn | [新瓜] [无限暖暖](瓜小微甜)前瞻直播中宣布：对不起，下版本要上的主线还没做完
+- S0351 | bbs.nga.cn | [米哈游]疑似米家下一代主机/pc游戏即将开始测试
+- S0352 | bbs.nga.cn | [星趴]吉星派对临时关闭下载渠道
+- S0353 | bbs.nga.cn | [少女前线][新瓜]以防你们不知道ym买的3dm商单编辑精选出俩个一瘸一拐来
+- S0354 | reddit.com | Halo Studios Head Accused Of Abuse And Mismanagement
+- S0355 | reddit.com | ‘Sony essentially destroys its own defense’ - Sony’s plan to phase out physical Playstation 5 discs by January 2028 has moved from a public relations problem to a legal one.
+- S0356 | reddit.com | Ubisoft Connect Went Down, Locking PC Players Out Of Playing Assassins Creed Black Flag Resynced
+- S0357 | reddit.com | What's the rarest item in a video game?
+- S0358 | reddit.com | Steam has raked in an estimated $11.1 billion gross revenue so far this year, says market analyst—its 'biggest-ever six months'
+- S0359 | reddit.com | Brazil is leading the charge in protecting gamers' rights with a new law and major court win looking out for the little guy
+- S0360 | reddit.com | 125 NEW GAMES INSIDE!
+- S0361 | reddit.com | Microsoft loses Brazilian court case after telling hacked Xbox user to re-purchase games — tech giant ordered to restore Xbox account with all games and pay $400 in damages
+- S0362 | reddit.com | Bithell Games Reveals Vampirium: 1997, An Immersive Sim Where You Work As An Assassin For Dracula
+- S0363 | reddit.com | Palworld 1.0 Breaks Into Steam's Top 15 Biggest All-Time Player Peaks With Over 722,000 Concurrent Players.
+- S0364 | reddit.com | Ryse: Son of Rome Had Plans To Be Xbox’s Assassin’s Creed
+- S0365 | reddit.com | Obsidian game director reacts to people "spouting off" about the studio and how it's not what it "used to be"
+- S0366 | reddit.com | TennoCon 2026: Everything Announced at the Warframe and Soulframe Fan Event
+- S0367 | reddit.com | Introduced my daughter to console gaming
+- S0368 | reddit.com | I really love physical media
+
+## deep_analysis (1)
+- S0207 | thegamebusiness.com | The State of Games: May 2026
+

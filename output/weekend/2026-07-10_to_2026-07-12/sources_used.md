@@ -1,0 +1,69 @@
+# Sources Used｜2026-07-10_to_2026-07-12 weekend
+
+## Item Source Map
+
+- Steam 全球热销榜 TOP10（2026-07-12 日报 · 实时榜采集于 2026-07-13） - S0300
+- 网易旗舰《遗忘之海》PC 端公测，暑期档「玩水」大作首日破圈 - S0004, S0025, S0220
+- 腾讯《失控进化》暑期档首日打出王炸，激活沉寂近一年的 SOC 赛道 - S0020
+- 腾讯光子洛杉矶分部组建新团队，开发全新 3A 级 FPS 原创 IP - S0045
+- 鹰角《明日方舟：终末地》举行「向渊行」版本前瞻，新干员即将登场 - S0019
+- 勇仕《深空之眼》宣布停更，制作人阿尾致歉「团队实力经验不足」 - S0023, S0032, S0035
+- 库洛《鸣潮》鸿蒙版开启不删档测试，3.5 版本题材大转向古风玄幻 - S0039, S0028, S0218
+- 三七互娱《英雄没有闪》打击私服，涉案数百万元 - S0307
+- 蚂蚁灵波开源世界模型全球爆火：一句话生成可反复交互的开放世界 - S0027
+- 杭州 SOON 平台涌现「超级个体」：1 人 8 天做出类《杀戮尖塔》 - S0033
+- 产品日历 - 幻兽帕鲁 - S0111, S0089, S0010
+- 产品日历 - 遗忘之海 - S0004, S0025
+- 产品日历 - 纸嫁衣9 罗浮梦 - S0323
+- 产品日历 - 泞之翼3：玉碎篇 - S0236, S0242
+- 产品日历 - 蓝色星原：旅谣 - S0092, S0171, S0122
+- 产品日历 - 鸣潮 - S0039
+- 《恋与深空》第六男主舆情续章：BW 撤展、司法部公安部点名、评论区集体要求「老六回归」 - S0178, S0182, S0343, S0274, S0185, S0192
+- 米哈游/库洛 B 站「7 天墙」互刷战：鸣潮台词争议引爆双社区 - S0174, S0341
+- 《深空之眼》停更引玩家惋惜与「陪伴」情绪 - S0189, S0275
+- 《鸣潮》游戏内图标撞中国交建 logo，玩家批「偷懒」发工单要整改 - S0348
+- 中国游戏大厂集体缺席 TGS2026，是中国厂商独有的退潮 - S0026
+- 2026 上半年 50 起游戏投融资：大厂资本冷静，AI+游戏成新风口 - S0046
+- 网易《燕云十六声》从「题材已死」到「全球第一武侠」 - S0308
+
+## Source Details
+
+- S0300 | store.steampowered.com | Steam 全球热销榜 TOP10（2026-07-12 日报 · 采集于 2026-07-13） | https://store.steampowered.com/search/?filter=topsellers
+- S0004 | gcores.com | 《遗忘之海》PC端今日公测，移动端定档7月23日 | https://www.gcores.com/articles/216951
+- S0025 | gamelook.com.cn | 暑期档游戏圈“集体玩水”？网易旗舰《遗忘之海》PC端发布、盛况空前 | http://www.gamelook.com.cn/2026/07/597215/
+- S0220 | m.sohu.com | 网易2026最新旗舰大作，太难了？ | https://m.sohu.com/a/1048956514_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.1783814566949j4e9iHR_324
+- S0020 | gamelook.com.cn | 暑期档开启，腾讯这款自带光环的年度爆款首日打出王炸！ | http://www.gamelook.com.cn/2026/07/597174/
+- S0045 | new.qq.com | 腾讯光子洛杉矶分部组建新团队，开发全新3A级别FPS新游 | https://new.qq.com/rain/a/20260710A0ADGG00
+- S0019 | gcores.com | 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场 | https://www.gcores.com/articles/217017
+- S0023 | gamelook.com.cn | 二游《深空之眼》宣布停更！“曾经的优等生”生不逢时？ | http://www.gamelook.com.cn/2026/07/597176/
+- S0032 | youxituoluo.com | 运营四年，《深空之眼》宣布停更，制作人阿尾致歉：团队实力不足 | https://www.youxituoluo.com/534663.html
+- S0035 | youxichaguan.com | 2022年的最强新品二游，还是在今天官宣停更 | https://youxichaguan.com/archives/201606
+- S0039 | youxichaguan.com | 《鸣潮》鸿蒙版开启不删档测试，同步更新3.5全新版本 | https://youxichaguan.com/archives/201665
+- S0028 | m.sohu.com | 《鸣潮》最冒险的一次 | https://m.sohu.com/a/1048593051_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1783728181996jBHRA1N_324
+- S0218 | cgames.com | 同一道题，《鸣潮》给出了第二种解法 | https://cgames.com/contents/2/12191.html
+- S0307 | m.sohu.com | 「停止杀死游戏」在美未通过立法；三七打击私服，涉案数百万 | 一周说「法」 | https://m.sohu.com/a/1049234157_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1783900952708LLp5bGc_324
+- S0027 | m.sohu.com | 一分钟生成开放世界，实时交互仅1秒延迟：国产开源世界模型全球爆火 | https://m.sohu.com/a/1048496092_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.4.1783728181996jBHRA1N_324
+- S0033 | youxituoluo.com | 1人8天打造《杀戮尖塔》？杭州黑马正在用AI量产“超级个体” | https://www.youxituoluo.com/534665.html
+- S0111 | 3839.com | 幻兽帕鲁 PC/主机 - 1.0正式版发售,快爆超史低折扣中 | https://www.3839.com/a/182806.htm
+- S0089 | newgame.17173.com | 幻兽帕鲁 - 公测 | https://newgame.17173.com/game-info-1035921.html
+- S0010 | gcores.com | 《幻兽帕鲁》玩家总数突破4000万,开发者表达感谢 | https://www.gcores.com/articles/216923
+- S0323 | 3839.com | 纸嫁衣9罗浮梦-中式民俗解谜 - 定档7月15日开启预下载,7月16日上线 | https://www.3839.com/a/197215.htm
+- S0236 | 16p.com | 泞之翼3：玉碎篇 - 不删档测试 | https://www.16p.com/1952280.html
+- S0242 | 3839.com | 泞之翼3：玉碎篇 - 10:00 不删档测试 | https://www.3839.com/a/198781.htm
+- S0092 | newgame.17173.com | 蓝色星原：旅谣 - 内测 | https://newgame.17173.com/game-info-1036113.html
+- S0171 | taptap.cn | 蓝色星原：旅谣 - 测试招募 (09:00 开始) | https://www.taptap.cn/app/593829
+- S0122 | 3839.com | 蓝色星原：旅谣(官服) 招募中 - 多种方式赢限量测试资格 | https://www.3839.com/a/164274.htm
+- S0178 | bbs.nga.cn | [新瓜][厂商]恋与深空bw撤展 | https://bbs.nga.cn/read.php?tid=47130865&_fp=2&forder_by=postdatedesc
+- S0182 | bbs.nga.cn | [新瓜]bw停展同步，恋与深空日本活动也停了 | https://bbs.nga.cn/read.php?tid=47131178&_fp=2&forder_by=postdatedesc
+- S0343 | bbs.nga.cn | [厂商] 司法部、公安部公众号发布恋与深空批评文章 | https://bbs.nga.cn/read.php?tid=47142837&forder_by=postdatedesc
+- S0274 | bbs.nga.cn | [厂商] 司法部、公安部公众号发布恋与深空批评文章 | https://bbs.nga.cn/read.php?tid=47142837&forder_by=postdatedesc
+- S0185 | bbs.nga.cn | [厂商]恋与深空今日早上6点发布公告，评论区瞬间出现大量要求第6位男主回归的评论 | https://bbs.nga.cn/read.php?tid=47136498&forder_by=postdatedesc
+- S0192 | bbs.nga.cn | [新瓜] [岁月史书3] [恋与深空]关于微博上媒体首次参与恋与深空报道新闻的整理[范围：6月22日0点-7月1号0点] | https://bbs.nga.cn/read.php?tid=47089925
+- S0174 | bbs.nga.cn | [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙 | https://bbs.nga.cn/read.php?tid=47125632&_fp=2&forder_by=postdatedesc
+- S0341 | bbs.nga.cn | [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙 | https://bbs.nga.cn/read.php?tid=47125632&_fp=2&forder_by=postdatedesc
+- S0189 | bbs.nga.cn | [停服] 深空之眼停止更新 | https://bbs.nga.cn/read.php?tid=47140950&forder_by=postdatedesc
+- S0275 | bbs.nga.cn | [停服]深空之眼，停止更新 | https://bbs.nga.cn/read.php?tid=47140962&forder_by=postdatedesc
+- S0348 | bbs.nga.cn | [新瓜]鸣潮游戏内图标撞中国交建logo | https://bbs.nga.cn/read.php?tid=47160919&forder_by=postdatedesc
+- S0026 | gamelook.com.cn | 不去日本！中国游戏大厂“集体缺席”今年东京电玩展 | http://www.gamelook.com.cn/2026/07/597168/
+- S0046 | new.qq.com | 2026年上半年50起游戏投融资，资本都在投些什么？ | https://new.qq.com/rain/a/20260710A0ADGA00
+- S0308 | m.sohu.com | 网易最懂逆袭的项目：一年半，从题材已死到「全球第一」 | https://m.sohu.com/a/1049234125_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1783900952708LLp5bGc_324
