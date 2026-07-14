@@ -8,8 +8,9 @@
 - 腾讯光子洛杉矶分部组建新团队，开发全新 3A 级 FPS 原创 IP - S0045
 - 鹰角《明日方舟：终末地》举行「向渊行」版本前瞻，新干员即将登场 - S0019
 - 勇仕《深空之眼》宣布停更，制作人阿尾致歉「团队实力经验不足」 - S0023, S0032, S0035
-- 库洛《鸣潮》鸿蒙版开启不删档测试，3.5 版本题材大转向古风玄幻 - S0039, S0028, S0218
 - 三七互娱《英雄没有闪》打击私服，涉案数百万元 - S0307
+- 微软 Xbox 大裁员余波：CEO 加入美联储工作组，Bethesda 工会发起抗议 - S0064, S0052, S0065, S0059
+- 育碧《刺客信条：黑旗》重制版发售即遇裁员与破解双重打击 - S0022, S0015, S0047
 - 蚂蚁灵波开源世界模型全球爆火：一句话生成可反复交互的开放世界 - S0027
 - 杭州 SOON 平台涌现「超级个体」：1 人 8 天做出类《杀戮尖塔》 - S0033
 - 产品日历 - 幻兽帕鲁 - S0111, S0089, S0010
@@ -39,9 +40,14 @@
 - S0032 | youxituoluo.com | 运营四年，《深空之眼》宣布停更，制作人阿尾致歉：团队实力不足 | https://www.youxituoluo.com/534663.html
 - S0035 | youxichaguan.com | 2022年的最强新品二游，还是在今天官宣停更 | https://youxichaguan.com/archives/201606
 - S0039 | youxichaguan.com | 《鸣潮》鸿蒙版开启不删档测试，同步更新3.5全新版本 | https://youxichaguan.com/archives/201665
-- S0028 | m.sohu.com | 《鸣潮》最冒险的一次 | https://m.sohu.com/a/1048593051_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1783728181996jBHRA1N_324
-- S0218 | cgames.com | 同一道题，《鸣潮》给出了第二种解法 | https://cgames.com/contents/2/12191.html
 - S0307 | m.sohu.com | 「停止杀死游戏」在美未通过立法；三七打击私服，涉案数百万 | 一周说「法」 | https://m.sohu.com/a/1049234157_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1783900952708LLp5bGc_324
+- S0064 | gamedeveloper.com | Asha Sharma joins Federal Reserve advisory task force days after laying off thousands at Xbox | https://www.gamedeveloper.com/business/asha-sharma-joins-federal-reserve-task-force-days-after-laying-off-thousands-at-xbox
+- S0052 | gamesindustry.biz | Can a top-down, focused software strategy save Xbox? | Opinion | https://www.gamesindustry.biz/can-a-top-down-focused-software-strategy-save-xbox-opinion
+- S0065 | gamedeveloper.com | 'We mean business:' Xbox union workers fighting back with 'Save Our Devs' rally on July 15 | https://www.gamedeveloper.com/business/-we-mean-business-xbox-union-workers-fighting-back-with-save-our-devs-rally-on-july-15
+- S0059 | pocketgamer.biz | Xbox executive Asha Sharma joins US Federal Reserve task force on jobs and productivity | https://www.pocketgamer.biz/xbox-executive-asha-sharma-joins-federal-reserve-task-force-on-ai-and-productivity/
+- S0022 | gamelook.com.cn | “全村希望”遭背刺！育碧《刺客信条：黑旗》重制版，发售前两天遭破解 | http://www.gamelook.com.cn/2026/07/597177/
+- S0015 | gcores.com | 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发 | https://www.gcores.com/articles/216977
+- S0047 | gamesindustry.biz | Layoffs begin at Ubisoft Barcelona following Assassin's Creed Black Flag Resynced launch | https://www.gamesindustry.biz/layoffs-begin-at-ubisoft-barcelona-following-assassins-creed-black-flag-resynced-launch
 - S0027 | m.sohu.com | 一分钟生成开放世界，实时交互仅1秒延迟：国产开源世界模型全球爆火 | https://m.sohu.com/a/1048496092_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.4.1783728181996jBHRA1N_324
 - S0033 | youxituoluo.com | 1人8天打造《杀戮尖塔》？杭州黑马正在用AI量产“超级个体” | https://www.youxituoluo.com/534665.html
 - S0111 | 3839.com | 幻兽帕鲁 PC/主机 - 1.0正式版发售,快爆超史低折扣中 | https://www.3839.com/a/182806.htm
