@@ -19,13 +19,12 @@ SITE_DATA = ROOT / "site_data"
 SHARED_LOGO = OUTPUT / "assets" / "moonton_logo.png"
 CHANGELOG_FILE = SITE_DATA / "changelog.jsonl"
 
-SECTION_ORDER = ("rankings", "industry", "ai", "release", "discourse", "deep")
+SECTION_ORDER = ("industry", "ai", "release", "discourse", "deep")
 
 SECTION_LABELS = {
     "industry": "行业新闻",
     "ai": "AI 动态",
     "release": "产品日历",
-    "rankings": "steam榜单",
     "discourse": "玩家舆论",
     "deep":     "深度观察",
 }
@@ -35,7 +34,6 @@ SECTION_COLORS = {
     "industry": "#4f7cff",
     "ai":       "#00b3d4",
     "release":  "#16b884",
-    "rankings": "#d05f3f",
     "discourse":"#f0a02a",
     "deep":     "#8b6df0",
 }
@@ -427,7 +425,6 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
       border-radius:18px;padding:22px 26px;margin-bottom:14px;box-shadow:var(--sh);
       transition:transform .18s,box-shadow .18s;}}
     .icard:hover{{transform:translateY(-2px);box-shadow:var(--sh-lg);}}
-    .icard.wide{{grid-column:1 / -1;}}
     .icard-top{{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap;}}
     .itag{{font-size:12px;font-weight:700;padding:3px 11px;border-radius:8px;}}
     .idate{{font-size:12px;color:var(--faint);}}
@@ -437,12 +434,6 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .ibody.rich p{{margin:0 0 14px;color:var(--ink2);font-size:14.5px;line-height:1.78;}}
     .ibody.rich ul{{margin:0 0 12px;padding-left:20px;color:var(--ink2);line-height:1.65;font-size:13.5px;}}
     .ibody.rich li{{margin:0 0 8px;}}
-    .ibody.rich .ranking-table-wrap{{width:100%;overflow-x:auto;border:1px solid var(--hair);border-radius:10px;background:rgba(255,255,255,.54);}}
-    .ibody.rich .ranking-table{{width:100%;min-width:680px;border-collapse:collapse;font-size:12.5px;}}
-    .ibody.rich .ranking-table th,.ibody.rich .ranking-table td{{padding:6px 10px;border-bottom:1px solid var(--hair);text-align:left;white-space:nowrap;}}
-    .ibody.rich .ranking-table th{{color:var(--ink);background:rgba(208,95,63,.08);font-weight:700;}}
-    .ibody.rich .ranking-table td:first-child,.ibody.rich .ranking-table th:first-child{{text-align:right;}}
-    .ibody.rich .ranking-table tbody tr:last-child td{{border-bottom:0;}}
     .imeta{{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}}
     .imetag{{font-size:12px;background:rgba(31,45,75,.06);color:var(--muted);padding:3px 10px;border-radius:8px;}}
     .imetag.bl{{background:rgba(240,160,42,.14);color:#a8680a;}}
@@ -525,14 +516,6 @@ def build_index(reports: list[dict], all_items: list[dict], changelog_entries: l
     .cl-title{{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;}}
     .cl-body{{margin-top:8px;font-size:14px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;}}
 
-    /* steam ranking table rendered inside a feed item's rich body */
-    .ibody .rank-table{{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px;}}
-    .ibody .rank-table th,.ibody .rank-table td{{padding:7px 10px;border-bottom:1px solid rgba(31,45,75,.10);text-align:center;white-space:nowrap;}}
-    .ibody .rank-table th{{color:#93402b;background:rgba(208,95,63,.10);font-weight:600;}}
-    .ibody .rank-table tbody tr:hover{{background:rgba(208,95,63,.05);}}
-    .ibody .new-tag{{display:inline-block;background:#d05f3f;color:#fff;padding:1px 7px;border-radius:7px;font-size:11px;white-space:nowrap;}}
-    .ibody .rank-table tr.hl td{{background:rgba(208,95,63,.13);}}
-    .ibody .rank-table tr.hl td strong{{color:#93402b;}}
     .ibody ul{{margin:0 0 12px 18px;}}
     .ibody li{{margin:5px 0;line-height:1.7;}}
 
@@ -717,7 +700,7 @@ function renderFeed() {{
           const bl = /borderline/i.test(m);
           return `<span class="imetag${{bl?' bl':''}}">${{escHtml(m)}}</span>`;
         }}).join('');
-        html.push(`<div class="icard${{richBody ? ' rich' : ''}}${{it.section === 'rankings' ? ' wide' : ''}}">
+        html.push(`<div class="icard${{richBody ? ' rich' : ''}}">
           <div class="icard-top">
             <span class="itag" style="${{tagStyle}}">${{SECTION_LABELS[it.section]}}</span>
           </div>

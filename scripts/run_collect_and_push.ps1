@@ -31,54 +31,30 @@ function Invoke-Checked {
     }
 }
 
-function Get-DotEnvValue {
+function Invoke-GitPullWithRetry {
     param(
-        [Parameter(Mandatory = $true)]
-        [string] $Path,
-
-        [Parameter(Mandatory = $true)]
-        [string] $Key
+        [int] $MaxAttempts = 3,
+        [int] $DelaySeconds = 30
     )
 
-    if (-not (Test-Path $Path)) {
-        return ""
-    }
-
-    foreach ($line in Get-Content $Path) {
-        $trimmed = $line.Trim()
-        if (-not $trimmed -or $trimmed.StartsWith("#")) {
-            continue
+    for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
+        git pull --ff-only
+        if ($LASTEXITCODE -eq 0) {
+            return $true
         }
-        $parts = $trimmed -split "=", 2
-        if ($parts.Count -ne 2) {
-            continue
-        }
-        if ($parts[0].Trim() -ne $Key) {
-            continue
-        }
-        return $parts[1].Trim().Trim("'`"")
-    }
-
-    return ""
-}
-
-function Resolve-GamalyticKey {
-    if ($env:GAMALYTIC_API_KEY) {
-        return $env:GAMALYTIC_API_KEY
-    }
-
-    foreach ($envFile in @(
-        (Join-Path $ProjectRoot ".env.local"),
-        (Join-Path $ProjectRoot ".env")
-    )) {
-        $value = Get-DotEnvValue -Path $envFile -Key "GAMALYTIC_API_KEY"
-        if ($value) {
-            $env:GAMALYTIC_API_KEY = $value
-            return $value
+        Write-Host "[scheduled] git pull attempt $attempt/$MaxAttempts failed (exit $LASTEXITCODE)."
+        if ($attempt -lt $MaxAttempts) {
+            Write-Host "[scheduled] retrying git pull in $DelaySeconds s..."
+            Start-Sleep -Seconds $DelaySeconds
         }
     }
 
-    return ""
+    # Pull is only to sync other machines' commits; collection does not depend on
+    # remote being current. Degrade to a warning and keep collecting so a transient
+    # network blip no longer wipes out a whole day of data. The commit lands locally
+    # and the push at the end (or the next scheduled run) will sync it upstream.
+    Write-Host "[scheduled] git pull failed after $MaxAttempts attempts; continuing with collection (data will be committed locally and pushed later)."
+    return $false
 }
 
 Write-Host "============================================================"
@@ -93,48 +69,25 @@ if ($dirtyNewsData) {
     exit 1
 }
 
-Invoke-Checked "git" @("pull", "--ff-only")
+$pullOk = Invoke-GitPullWithRetry -MaxAttempts 3 -DelaySeconds 30
 
 $collectorFailed = $false
-$gamalyticKey = Resolve-GamalyticKey
+# Steam 榜单板块已从日/周/月报下线,不再采集 pc_rankings(见 steamdb_rankings.py 保留但休眠)。
 $runnerArgs = @(
     "run_daily_collectors.py",
     "--preset",
     "yesterday",
+    "--sections",
+    "industry_news,ai_trends,release_calendar,community_discourse,deep_analysis",
     "--workers",
     "1",
     "--no-progress"
 )
 
-if (-not $gamalyticKey) {
-    Write-Host "[scheduled] GAMALYTIC_API_KEY not found in env/.env.local/.env; skipping pc_rankings for this run."
-    $runnerArgs += @("--sections", "industry_news,ai_trends,release_calendar,community_discourse,deep_analysis")
-}
-
 & $PythonExe @runnerArgs
 if ($LASTEXITCODE -ne 0) {
     $collectorFailed = $true
     Write-Host "[scheduled] collector runner exited with code $LASTEXITCODE; continuing to index and push collected data."
-}
-
-# 周五:在日榜快照之外,额外抓一次官方 Steam 周榜(IStoreTopSellersService/GetWeeklyTopSellers,
-# 周二重置的最近定稿周),供当天 9 点周报生成优先使用。日榜数据照常保留、各存各的。
-# 周榜窗口对齐周报 ID:start = 今天-7(上周五),end = 今天-1(本周四),
-# 多日窗口会让 steamdb_rankings 走 periodic 模式抓官方周榜。
-if ((Get-Date).DayOfWeek -eq [System.DayOfWeek]::Friday) {
-    if ($gamalyticKey) {
-        $weekStart = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
-        $weekEnd = (Get-Date).AddDays(-1).ToString("yyyy-MM-dd")
-        Write-Host "[scheduled] Friday: collecting official Steam weekly chart $weekStart..$weekEnd"
-        & $PythonExe "run_daily_collectors.py" "--collectors" "steamdb_rankings" "--since" $weekStart "--until" $weekEnd "--workers" "1" "--no-progress"
-        if ($LASTEXITCODE -ne 0) {
-            $collectorFailed = $true
-            Write-Host "[scheduled] weekly steam collector exited with code $LASTEXITCODE; continuing to index and push collected data."
-        }
-    }
-    else {
-        Write-Host "[scheduled] Friday weekly Steam chart skipped: GAMALYTIC_API_KEY not found."
-    }
 }
 
 Invoke-Checked $PythonExe @("scripts/build_article_indexes.py")
@@ -150,7 +103,20 @@ if ($LASTEXITCODE -eq 0) {
     } else {
         Invoke-Checked "git" @("commit", "-m", "Collect game news for $RunDate")
     }
-    Invoke-Checked "git" @("push")
+
+    # If the initial pull failed, the network may have recovered during the
+    # (multi-minute) collection; try once more so push can fast-forward.
+    if (-not $pullOk) {
+        Invoke-GitPullWithRetry -MaxAttempts 1 -DelaySeconds 0 | Out-Null
+    }
+
+    git push
+    if ($LASTEXITCODE -ne 0) {
+        # Do not hard-fail: the commit is safely on the local branch and the next
+        # scheduled run (which pulls first) will push it upstream.
+        Write-Host "[scheduled] git push failed (exit $LASTEXITCODE); commit retained locally and will be pushed on the next successful run."
+        $collectorFailed = $true
+    }
 } else {
     throw "git diff --cached --quiet failed with exit code $LASTEXITCODE"
 }

@@ -66,9 +66,8 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 
 - **卡片从 markdown 解析,不另写数据源**。改卡片内容 = 改 markdown 后重发,不要在卡片里手填文案。
 - **每节取每条的一句话**:`_item_one_liner` → `### N.` 标题取标题本身;`- ` bullet 用 `_first_clause` 截到第一个 `；` 前的主句。所以 markdown 里 bullet 的主信息要放在第一个分号前。
-- **Steam 榜单降噪**:`_STEAM_NOISE = ("长线产品","榜单主体","稳定主体","成熟产品","把住榜单","把持榜单")`,`_keep_steam_line` 在 🛒 节过滤掉这类"成熟产品稳居榜单"的总体叙述,只留新品与异动。完整叙述仍保留在网页/docx。**注意:卡片行只做加粗高亮,绝不裁剪/删改文字**(2026-06-24 我曾把 Steam 行按全角冒号裁短,被用户纠正:"我只需要加粗高亮,不需要删改"——`_emphasize` 只能插 `**`,不许动原文)。
-- **重点短句加粗 `_emphasize`**:每条卡片行自动加粗一个可扫读的关键短语,方便快速 get 重点,**只插入 `**` 标记、不删任何字符**。优先加粗行内**第一个《产品名》**(整体加粗,绝不在 `《X：Y》` 里截断);无《》则加粗**首个中文逗号前的主语短句**(长度 4–26 字);再不行就整行加粗(≤26 字);过长且无可锚定短语则原样返回。改动在 `feishu_common._emphasize`,验收:发卡前肉眼扫一遍,确认①每行有且仅有一处合理加粗、《》没被拆断;②对比原 markdown,卡片每行文字**一字不少**(只多了 `**`)。
-- **节的映射与取舍**在 `_section_meta`:rankings🛒 / industry📰 / ai🤖 / release🎮 / discourse💬 / deep🧠;含"深度/精选"关键词的节 `drop=True`,**卡片里整节略去**(只在网页/docx 出现)。
+- **重点短句加粗 `_emphasize`**:每条卡片行自动加粗一个可扫读的关键短语,方便快速 get 重点,**只插入 `**` 标记、不删任何字符**(2026-06-24 我曾按全角冒号裁短某行,被用户纠正:"我只需要加粗高亮,不需要删改"——`_emphasize` 只能插 `**`,不许动原文)。优先加粗行内**第一个《产品名》**(整体加粗,绝不在 `《X:Y》` 里截断);无《》则加粗**首个中文逗号前的主语短句**(长度 4–26 字);再不行就整行加粗(≤26 字);过长且无可锚定短语则原样返回。改动在 `feishu_common._emphasize`,验收:发卡前肉眼扫一遍,确认①每行有且仅有一处合理加粗、《》没被拆断;②对比原 markdown,卡片每行文字**一字不少**(只多了 `**`)。
+- **节的映射与取舍**在 `_section_meta`:industry📰 / ai🤖 / release🎮 / discourse💬 / deep🧠;含"深度/精选"关键词的节 `drop=True`,**卡片里整节略去**(只在网页/docx 出现)。(Steam 榜单板块已下线,`rankings` 节不再产生。)
 - **文档按钮**:传入 `doc_url` 时卡片底部加一个 primary 按钮"📄 查看完整日报",指向 docx。
 - **`per_section` / `--max-items`** 控制每节最多显示几条;见 Hard No #6,务必大于最长节的条目数。
 
@@ -78,7 +77,6 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 - **插入逻辑**(`feishu_common.build_docx_markdown`,按节走行):
   - 行业新闻 / AI / 玩家舆论 / 深度:每个 `### N. 标题` item 结束处插 `> 来源：[标题](url)`,标题→来源用 `sources_for(标题)` 查。
   - 产品日历:每条 `- ` bullet 后插来源;key 用 `产品日历 - <《》游戏名>`,回退到游戏名。
-  - Steam 榜单:整节一条来源,插在表格之后;查不到时回退 Steam 官方榜单链接。
 - **来源标签**:取 `sources_used.md` 的标题(`id_meta` 的 name),多源用「·」连接;无 url 的退化成纯文本。`[ ]`→`【 】` 防链接解析错乱(`_citation_md`)。
 - **验收(发文档后逐条看)**:① docx 里每条信息下方都有「来源」引用块且链接可点;② 引用块没有把 `[新瓜]` 这类括号显示成断裂链接;③ 原 `game_industry_daily_<date>.md` 的 `git diff` 为空(没被污染);④ `_intermediate/docx_import_<date>.md` 未被 git 跟踪。
 

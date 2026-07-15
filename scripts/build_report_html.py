@@ -4,15 +4,14 @@
 Parses a final report markdown (game_industry_<kind>_*.md) plus its sibling
 sources_used.md into the self-rendering report template (scripts/report_template.html),
 producing game_industry_<kind>_*.html that matches the current site template:
-section nav (steam/industry/ai/release/discourse/deep), search, density toggle,
-source drawer, and the steam ranking table with week-over-week delta + highlight rows.
+section nav (industry/ai/release/discourse/deep), search, density toggle,
+and source drawer.
 
 Usage:
     python scripts/build_report_html.py <path/to/game_industry_<kind>_*.md>
 
 The HTML is written next to the markdown. No AI/network needed; the markdown is the
-single source of truth (including which steam rows are highlighted via **bold** and
-the weekly 较上周 column), so the page always matches the report.
+single source of truth, so the page always matches the report.
 """
 from __future__ import annotations
 
@@ -25,17 +24,12 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = Path(__file__).resolve().parent / "report_template.html"
 
 SECTION_DESCS = {
-    "rankings": {"daily": "Steam 全球热销榜 TOP10 与近期新品。",
-                 "weekend": "Steam 全球热销榜 TOP10 与近期新品。",
-                 "weekly": "Steam 官方周销量榜 TOP15 与本周新上榜。",
-                 "monthly": "Steam 月度热销榜与本月新上榜。"},
     "industry": "公司、产品、市场与资本动作。",
     "ai": "游戏相关的 AI 与开发工具。",
     "release": "上线、测试、新版本与重点节点。",
     "discourse": "社区热点、争议与玩家情绪。",
     "deep": "值得内部团队继续跟踪的结构性变化。",
 }
-RANK_LABEL = {"daily": "steam当日榜单", "weekend": "steam当日榜单", "weekly": "steam周榜", "monthly": "steam月榜"}
 KIND_CN = {"daily": "日报", "weekend": "周末报", "weekly": "周报", "monthly": "月报"}
 BRAND_SUB = {
     "daily": "AI 生成 · 每日更新",
@@ -106,8 +100,6 @@ def derive_tags(title: str, body: str, max_tags: int = 3) -> list[str]:
 
 
 def heading_to_section(text: str) -> str | None:
-    if "steam" in text.lower():
-        return "rankings"
     if "行业新闻" in text:
         return "industry"
     if "AI" in text:
@@ -161,10 +153,10 @@ def parse_sources(sources_md: str):
             in_details = ("Source Details" in s or "来源明细" in s)
             continue
         if in_map and s and not s.startswith("#"):
-            m = re.match(r"^(?:[-*]\s*|\d+\.\s*)?(?P<title>.+?)\s*(?:——|—|-)\s*(?P<rest>(?:S\d{3,4}|steamdb_rankings)\b.*)$", s)
+            m = re.match(r"^(?:[-*]\s*|\d+\.\s*)?(?P<title>.+?)\s*(?:——|—|-)\s*(?P<rest>S\d{3,4}\b.*)$", s)
             if m:
                 title = m.group("title").strip().strip("`")
-                ids = re.findall(r"S\d{3,4}|steamdb_rankings[\w-]*", m.group("rest"))
+                ids = re.findall(r"S\d{3,4}", m.group("rest"))
                 if title and ids:
                     title_ids[title] = ids
         if in_details and s.startswith("- S"):
@@ -196,53 +188,6 @@ def sources_for(title: str, title_ids, id_meta):
     return out
 
 
-def build_rank_body_html(lines: list[str]) -> str:
-    """Build the steam body_html (note + bullets + rank-table) from md lines of the section."""
-    note_parts, bullets, table_lines = [], [], []
-    for ln in lines:
-        s = ln.rstrip()
-        if s.startswith(">"):
-            note_parts.append(md_inline(s.lstrip("> ").strip()))
-        elif s.startswith("- "):
-            bullets.append(md_inline(s[2:].strip()))
-        elif s.startswith("|"):
-            table_lines.append(s)
-    html = []
-    if note_parts:
-        html.append('<p style="color:var(--muted);font-size:13px;margin-bottom:10px;">' + " ".join(note_parts) + "</p>")
-    if bullets:
-        html.append('<ul style="margin:0 0 14px 18px;display:grid;gap:7px;">' + "".join(f"<li>{b}</li>" for b in bullets) + "</ul>")
-    if table_lines:
-        rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in table_lines]
-        header = rows[0]
-        body_rows = [r for r in rows[2:]] if len(rows) > 2 else []
-        name_idx = next((i for i, h in enumerate(header) if h.lower() == "name"), 2)
-        right_cols = {i for i, h in enumerate(header) if h in ("销量", "营收", "Sales", "Revenue")}
-        def th(i, h):
-            align = "left" if i == name_idx else ("right" if i in right_cols else "center")
-            return f'<th style="text-align:{align}">{md_inline(h)}</th>' if align != "center" else f"<th>{md_inline(h)}</th>"
-        thead = "<tr>" + "".join(th(i, h) for i, h in enumerate(header)) + "</tr>"
-        trs = []
-        for r in body_rows:
-            hl = any("**" in c for c in r)
-            tds = []
-            for i, c in enumerate(r):
-                cell = c
-                strong = "**" in cell
-                cell_html = md_inline(cell)
-                # marker / delta chips
-                if cell.strip() in ("★ 近期新品", "★ 新上榜") or cell.strip() == "新":
-                    cell_html = f'<span class="new-tag">{cell.strip()}</span>'
-                align = "left" if i == name_idx else ("right" if i in right_cols else "center")
-                style = f' style="text-align:{align}"' if align != "center" else ""
-                tds.append(f"<td{style}>{cell_html}</td>")
-            cls = ' class="hl"' if hl else ""
-            trs.append(f"<tr{cls}>" + "".join(tds) + "</tr>")
-        html.append('<div style="overflow-x:auto;"><table class="rank-table"><thead>' + thead +
-                    "</thead><tbody>" + "".join(trs) + "</tbody></table></div>")
-    return "".join(html)
-
-
 def parse_report(md: str, kind: str, title_ids, id_meta):
     items = []
     # split into sections by '## '
@@ -252,32 +197,7 @@ def parse_report(md: str, kind: str, title_ids, id_meta):
         sec = heading_to_section(head.strip())
         if not sec:
             continue
-        if sec == "rankings":
-            lines = rest.splitlines()
-            # drop a leading '### N. title' line, keep its text as item title
-            title = RANK_LABEL.get(kind, "steam榜单")
-            content = []
-            for ln in lines:
-                m = re.match(r"^###\s+\d+\.\s+(.+)$", ln)
-                if m:
-                    title = m.group(1).strip()
-                    continue
-                content.append(ln)
-            body_html = build_rank_body_html(content)
-            srcs = sources_for(title, title_ids, id_meta)
-            if not srcs:
-                # fall back: any steam map line
-                for k, v in title_ids.items():
-                    if "steam" in k.lower():
-                        srcs = [[i, *id_meta.get(i, ("Steam 官方榜单", "https://store.steampowered.com/charts/topselling/global"))] for i in v]
-                        break
-            if not srcs:
-                srcs = [["steam", "Steam 官方热销榜（+ Gamalytic 估算）", "https://store.steampowered.com/charts/topselling/global"]]
-            rank_meta = {"daily": ["Steam 当日榜", "TOP10"], "weekend": ["Steam 当日榜", "TOP10"], "weekly": ["Steam 周榜", "TOP15"],
-                         "monthly": ["Steam 月榜", "TOP15"]}.get(kind, ["Steam 榜单"])
-            items.append({"section": "rankings", "title": title, "body": title, "body_html": body_html,
-                          "meta": rank_meta, "sources": srcs})
-        elif sec == "release":
+        if sec == "release":
             for ln in rest.splitlines():
                 s = ln.strip()
                 if not s.startswith("- "):
@@ -327,17 +247,13 @@ def main() -> int:
     items = parse_report(md, kind, title_ids, id_meta)
 
     sections = [{"id": "all", "label": "全部", "desc": "浏览全部内容，或从左侧选择单个板块。"}]
-    order = ["rankings", "industry", "ai", "release", "discourse", "deep"]
+    order = ["industry", "ai", "release", "discourse", "deep"]
     present = {it["section"] for it in items}
     labels = {"industry": "行业新闻", "ai": "AI 新闻", "release": "产品日历", "discourse": "玩家舆论", "deep": "深度观察"}
     for sid in order:
         if sid not in present:
             continue
-        if sid == "rankings":
-            sections.append({"id": "rankings", "label": RANK_LABEL.get(kind, "steam榜单"),
-                             "desc": SECTION_DESCS["rankings"].get(kind, "Steam 榜单。")})
-        else:
-            sections.append({"id": sid, "label": labels[sid], "desc": SECTION_DESCS[sid]})
+        sections.append({"id": sid, "label": labels[sid], "desc": SECTION_DESCS[sid]})
 
     from collections import Counter
     c = Counter(it["section"] for it in items)
@@ -348,7 +264,7 @@ def main() -> int:
                f'<div class="metric"><span>采集记录</span><strong>{collected_records(md_path)}</strong></div></div>')
 
     h1 = f"游戏行业{KIND_CN[kind]}"
-    subtitle = f"{date_label} · {RANK_LABEL.get(kind,'steam榜单')}、行业新闻、AI、产品日历、玩家舆论与精选观察"
+    subtitle = f"{date_label} · 行业新闻、AI、产品日历、玩家舆论与精选观察"
     stat = f"{date_label} · {len(items)} 条动态"
 
     tpl = TEMPLATE.read_text(encoding="utf-8")

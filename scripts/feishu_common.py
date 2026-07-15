@@ -479,7 +479,7 @@ def build_docx_markdown(date: str) -> Path:
     Source lookup + title mapping reuse build_report_html so the docx
     citations match the same sources the webpage would show.
     """
-    import build_report_html as brh  # reuse parse_sources / sources_for / RANK_LABEL
+    import build_report_html as brh  # reuse parse_sources / sources_for
 
     md_path, _, report_dir = report_paths(date)
     md = md_path.read_text(encoding="utf-8")
@@ -489,30 +489,9 @@ def build_docx_markdown(date: str) -> Path:
     else:
         title_ids, id_meta = {}, {}
 
-    kind = "daily"
-    if "_weekly_" in md_path.name:
-        kind = "weekly"
-    elif "_weekend_" in md_path.name:
-        kind = "weekend"
-    elif "_monthly_" in md_path.name:
-        kind = "monthly"
-    rank_label = brh.RANK_LABEL.get(kind, "steam榜单")
-
-    def rankings_sources(title: str) -> list:
-        srcs = brh.sources_for(title, title_ids, id_meta)
-        if not srcs:
-            for k, v in title_ids.items():
-                if "steam" in k.lower():
-                    srcs = [[i, *id_meta.get(i, ("Steam 官方榜单", "https://store.steampowered.com/charts/topselling/global"))] for i in v]
-                    break
-        if not srcs:
-            srcs = [["steam", "Steam 官方热销榜", "https://store.steampowered.com/charts/topselling/global"]]
-        return srcs
-
     out: list[str] = []
     section_kind: str | None = None
     pending_title: str | None = None   # open news item awaiting its citation
-    rankings_title: str | None = None  # rankings item title awaiting its citation
 
     def flush_news() -> None:
         nonlocal pending_title
@@ -523,30 +502,15 @@ def build_docx_markdown(date: str) -> Path:
                 out.append(line)
         pending_title = None
 
-    def flush_rankings() -> None:
-        nonlocal rankings_title
-        if section_kind == "rankings" and rankings_title is not None:
-            line = _citation_md(rankings_sources(rankings_title))
-            if line:
-                out.append("")
-                out.append(line)
-        rankings_title = None
-
     for ln in md.splitlines():
         s = ln.strip()
         h2 = re.match(r"^##\s+(.+)$", s)
         if h2:
             flush_news()
-            flush_rankings()
             section_kind = brh.heading_to_section(h2.group(1).strip())
-            rankings_title = rank_label if section_kind == "rankings" else None
             out.append(ln)
             continue
         h3 = re.match(r"^###\s+(?:\d+\.\s+)?(.+)$", s)
-        if h3 and section_kind == "rankings":
-            rankings_title = h3.group(1).strip()
-            out.append(ln)
-            continue
         if h3 and section_kind in ("industry", "ai", "discourse", "deep"):
             flush_news()
             pending_title = h3.group(1).strip()
@@ -565,7 +529,6 @@ def build_docx_markdown(date: str) -> Path:
         out.append(ln)
 
     flush_news()
-    flush_rankings()
 
     augmented = "\n".join(out) + "\n"
     out_path = report_dir / "_intermediate" / f"docx_import_{date}.md"
@@ -581,7 +544,6 @@ _WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日
 
 def _section_meta(name: str) -> tuple[str, str, bool]:
     codes = {
-        "rankings": ("🛒", "Steam 榜单", False),
         "industry": ("📰", "行业新闻", False),
         "ai": ("🤖", "AI 动态", False),
         "release": ("🎮", "新游 / 产品", False),
@@ -593,8 +555,6 @@ def _section_meta(name: str) -> tuple[str, str, bool]:
     lowered = name.lower()
     if any(k in name for k in _DROP_KEYWORDS):
         return ("🧠", name, True)
-    if "榜单" in name or "steam" in lowered:
-        return ("🛒", "Steam 榜单", False)
     if "ai" in lowered:
         return ("🤖", "AI 动态", False)
     if any(k in name for k in ("新游", "产品", "发布", "日历")):
@@ -618,14 +578,6 @@ def _item_one_liner(item: dict[str, str]) -> str:
     if item.get("kind") == "bullet":
         return _first_clause(title)
     return _strip_item_number(title)
-
-
-# Steam 榜单里"长线/成熟产品稳定把持榜单"这类总体叙述,卡片不需要(只留新品与异动产品),完整叙述仍保留在 docs。
-_STEAM_NOISE = ("长线产品", "榜单主体", "稳定主体", "成熟产品", "把住榜单", "把持榜单")
-
-
-def _keep_steam_line(line: str) -> bool:
-    return not any(keyword in line for keyword in _STEAM_NOISE)
 
 
 def _emphasize(line: str) -> str:
@@ -664,8 +616,6 @@ def build_daily_card(
         if drop:
             continue
         one_liners = [line for line in (_item_one_liner(it) for it in section.get("items", [])) if line]
-        if emoji == "🛒":
-            one_liners = [line for line in one_liners if _keep_steam_line(line)]
         if not one_liners:
             continue
         lines = [f"**{emoji} {display}**"]

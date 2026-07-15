@@ -72,11 +72,12 @@ The report input extractor reads structured text first:
 news_data/<section>/YYYY-MM-DD/articles.jsonl
 ```
 
-When SteamDB rankings should appear in a report, include the ranking section in
-the extractor call:
+The Steam ranking section (`pc_rankings`) has been retired from daily/weekly/
+monthly reports; it is no longer extracted, rendered, or collected. To run the
+extractor explicitly, pass the active sections:
 
 ```powershell
-python <skill_root>\scripts\extract_report_inputs.py --workspace . --date 2026-06-04 --report-type daily --sections industry_news ai_trends release_calendar pc_rankings community_discourse deep_analysis
+python <skill_root>\scripts\extract_report_inputs.py --workspace . --date 2026-06-04 --report-type daily --sections industry_news ai_trends release_calendar community_discourse deep_analysis
 ```
 
 It also reads old PDFs from:
@@ -109,13 +110,15 @@ Collectors are registered under section keys:
 - `industry_news`: market, company, platform, and industry news
 - `ai_trends`: AI-specific news and tooling signals relevant to games
 - `release_calendar`: game launch, beta, update, and product-event tracking
-- `pc_rankings`: PC bestseller rankings and SteamDB market-signal snapshots
 - `deep_analysis`: newsletters, essays, and long-form industry analysis
 - `community_discourse`: player opinion, community incidents, and forum/social excerpts
 
+The `pc_rankings` section (PC bestseller / SteamDB snapshots) is retired and no
+longer part of report generation; the `steamdb_rankings` collector remains in the
+tree but is dormant (not invoked by the scheduled runner).
+
 The runner still accepts legacy aliases: `market_news`, `ai_news`,
-`product_launches`, `newsletter`, and `player_discourse`. It also accepts
-`rankings` as an alias for `pc_rankings`.
+`product_launches`, `newsletter`, and `player_discourse`.
 
 ## Daily Collection
 
@@ -205,6 +208,35 @@ Collector requirements:
 - Use PDF only when `NEWS_SAVE_PDF=1`, or when a future collector has no stable
   way to obtain readable text and explicitly documents that fallback.
 - Keep both normalized `published_at` and raw date fields in `extra` when useful.
+- If only a source-provided excerpt is available, set `fetch_status: partial` and
+  `fallback: source_excerpt`; do not present it as a fully extracted article.
+
+## Newly Registered Sources (2026-07-15)
+
+The following collectors were audited before registration. They use source RSS,
+official APIs/sitemaps, or server-rendered source pages; none relies on screenshots
+or generated summaries. All write through the existing `article_store.py` contract
+and inherit the runner's section/date output path and manifest handling.
+
+| Collector | Report section | Discovery / body method | Notes |
+| --- | --- | --- | --- |
+| `baoyu` | `ai_trends` | RSS + article page | Full post body from the source prose block. |
+| `chuapp` | `industry_news` | Full-text RSS | Source body is in RSS description. |
+| `gameoracle` | `deep_analysis` | Sitemap + JSON-LD/article page | Long-form Steam market analysis. |
+| `gameres` | `industry_news` | Homepage + article page | Limits discovery to GameRes original articles. |
+| `gamespot` | `industry_news` | RSS | Source exposes summaries only; records are explicitly `partial`. |
+| `ign_cn` | `industry_news` | RSS + article-page fallback | Short RSS teasers are replaced with the server-rendered article body. |
+| `indienova` | `industry_news` | News index + article page | Handles absolute and relative Chinese dates. |
+| `luosiji_sohu` | `industry_news` | Official Sohu account API + article page | Uses excerpt only when the page body cannot be read, and marks it. |
+| `matthewball` | `deep_analysis` | Full-text RSS | Long-form strategy and media-economics essays. |
+| `necromanov` | `deep_analysis` | Full-text WordPress RSS | Low-frequency game analysis. |
+| `pcgamer` | `industry_news` | Full-text RSS | High-volume source; editorial filtering happens downstream. |
+| `polygon` | `industry_news` | Full-text RSS | Games and adjacent entertainment coverage. |
+| `qimai_sohu` | `industry_news` | Official Sohu account API + article page | Uses excerpt only when the page body cannot be read, and marks it. |
+| `questmobile` | `deep_analysis` | Official report-list API | The source supplies report introductions, stored explicitly as `partial`. |
+| `sensortower` | `deep_analysis` | Chinese-blog sitemap + article page | Market intelligence reports. |
+| `unrealengine` | `ai_trends` | Full-text RSS | Official engine, tooling, and developer-tech signals. |
+| `yxrb` | `industry_news` | Mobile index + article page | Deduplicates repeated mobile-list titles within a run. |
 
 ## Collector List
 
@@ -223,33 +255,38 @@ Collector requirements:
 - `investgame`
 - `vgc`
 - `dataeye_36kr`
+- `chuapp`
+- `gameres`
+- `gamespot`
+- `ign_cn`
+- `indienova`
+- `luosiji_sohu`
+- `pcgamer`
+- `polygon`
+- `qimai_sohu`
+- `yxrb`
 - `aihot`
+- `baoyu`
+- `unrealengine`
 - `gamediscover`
 - `naavik_digest`
 - `thegamebusiness`
 - `deconstructor_deconstructions`
+- `gameoracle`
+- `matthewball`
+- `necromanov`
+- `questmobile`
+- `sensortower`
 - `ceshibiao_17173`
 - `wanjiang_16p_newgame`
 - `haoyou_kuaibao_3839`
 - `taptap_app_calendar`
 - `gematsu_release_dates`
-- `steamdb_rankings`
 - `nga_mobile_gossip`
 - `reddit_gaming_rising`
 
-## SteamDB Rankings
-
-`steamdb_rankings` writes one structured record to `pc_rankings` per run.
-Single-day windows crawl `https://steamdb.info/stats/globaltopsellers/`, keep
-the TOP10, and mark titles whose SteamDB release date falls in the current
-month. If the collection date is before the 10th day of the month, the previous
-month is included in that launch window.
-
-Multi-day windows crawl `https://steamdb.info/topsellers/`, keep the TOP10, and
-mark products whose Change value implies they were outside the previous week's
-TOP10. Marked products are enriched from their SteamDB app chart pages with
-publisher, release date, tags/genre, one preferred sales estimate, and
-review/rating text.
+`steamdb_rankings` still exists in the tree but is dormant — the Steam ranking
+section is retired, so the scheduled runner no longer invokes it.
 
 ## Adding A New Source
 
