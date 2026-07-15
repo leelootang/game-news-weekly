@@ -102,58 +102,64 @@ def _send_latest_report(client: FeishuClient, open_id: str, kind: str, label: st
 
 
 def build_subscription_card(preferences: dict[str, bool]) -> dict[str, Any]:
-    """Build a small preference card whose buttons toggle one report type each."""
+    """Build a CardKit 2.0 preference card for the long-connection callback.
+
+    ``card.action.trigger`` (the callback our listener receives) is the new
+    card callback.  Its long-connection transport does not support old 1.0
+    message-card callbacks, so this card must use the 2.0 schema as well.
+    """
     selected = [REPORT_LABELS[kind] for kind, enabled in preferences.items() if enabled]
     current = "、".join(selected) if selected else "未订阅（不会再主动推送）"
-    actions = []
+    report_buttons = []
     for kind, label in REPORT_LABELS.items():
         enabled = bool(preferences.get(kind))
-        actions.append(
+        report_buttons.append(
             {
                 "tag": "button",
+                "element_id": f"sub_{kind}",
                 "text": {"tag": "plain_text", "content": f"{'✅' if enabled else '⬜'} {label}"},
                 "type": "primary" if enabled else "default",
-                "value": {"action": "toggle_subscription", "kind": kind},
+                "behaviors": [
+                    {"type": "callback", "value": {"action": "toggle_subscription", "kind": kind}}
+                ],
             }
         )
-    actions.extend(
-        [
-            {
-                "tag": "button",
-                "text": {"tag": "plain_text", "content": "订阅全部"},
-                "value": {"action": "subscribe_all"},
-            },
-            {
-                "tag": "button",
-                "text": {"tag": "plain_text", "content": "全部退订"},
-                "type": "danger",
-                "value": {"action": "unsubscribe_all"},
-                "confirm": {
-                    "title": {"tag": "plain_text", "content": "确认全部退订？"},
-                    "text": {"tag": "plain_text", "content": "之后日报、周报、周末报都不会再主动推送。"},
-                    "confirm": {"tag": "plain_text", "content": "确认退订"},
-                    "cancel": {"tag": "plain_text", "content": "取消"},
-                },
-            },
-        ]
-    )
+
+    def button_column(button: dict[str, Any]) -> dict[str, Any]:
+        return {"tag": "column", "elements": [button]}
+
+    all_buttons = [
+        {
+            "tag": "button",
+            "element_id": "sub_all",
+            "text": {"tag": "plain_text", "content": "订阅全部"},
+            "behaviors": [{"type": "callback", "value": {"action": "subscribe_all"}}],
+        },
+        {
+            "tag": "button",
+            "element_id": "sub_none",
+            "text": {"tag": "plain_text", "content": "全部退订"},
+            "type": "danger",
+            "behaviors": [{"type": "callback", "value": {"action": "unsubscribe_all"}}],
+        },
+    ]
     return {
-        "config": {"wide_screen_mode": True},
+        "schema": "2.0",
         "header": {
             "template": "blue",
             "title": {"tag": "plain_text", "content": "🔔 修改订阅方式"},
         },
-        "elements": [
-            {
-                "tag": "div",
-                "text": {
-                    "tag": "lark_md",
+        "body": {
+            "elements": [
+                {
+                    "tag": "markdown",
                     "content": f"**当前接收：** {current}\n点击下方按钮即可增减对应推送类型。",
                 },
-            },
-            {"tag": "hr"},
-            {"tag": "action", "actions": actions},
-        ],
+                {"tag": "hr"},
+                {"tag": "column_set", "columns": [button_column(button) for button in report_buttons]},
+                {"tag": "column_set", "columns": [button_column(button) for button in all_buttons]},
+            ]
+        },
     }
 
 
