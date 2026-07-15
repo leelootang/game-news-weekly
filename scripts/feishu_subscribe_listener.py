@@ -5,12 +5,21 @@ import sys
 from datetime import datetime
 from typing import Any
 
-from feishu_common import FeishuClient, load_dotenv, upsert_subscriber
+from feishu_common import (
+    FeishuClient,
+    get_subscription_preferences,
+    load_dotenv,
+    set_subscription_preferences,
+    upsert_subscriber,
+)
 
 
 SUBSCRIBE_WORDS = {"订阅", "订阅日报", "开始订阅", "subscribe"}
 UNSUBSCRIBE_WORDS = {"退订", "退订日报", "取消订阅", "unsubscribe", "stop"}
-HELP_TEXT = "发送“订阅日报”即可收到游戏行业报告（工作日：日报 / 周五：周报 / 周一：周末报）；发送“退订日报”可取消。"
+HELP_TEXT = (
+    "发送“订阅日报”即可订阅日报、周报和周末报；发送“修改订阅方式”可按类型选择；"
+    "发送“退订日报”可全部退订。"
+)
 # 报告在 11 点群发；之后新订阅者已错过群发，立即给他补发今天群发的那份报告。
 BACKFILL_AFTER_HOUR = 11
 MENU_REPORTS = {
@@ -19,6 +28,9 @@ MENU_REPORTS = {
     "latest_weekend": ("weekend", "最新周末报"),
 }
 TEXT_REPORT_COMMANDS = {label: kind for kind, label in MENU_REPORTS.values()}
+MANAGE_SUBSCRIPTIONS_MENU_KEY = "manage_subscriptions"
+TEXT_PREFERENCES_COMMANDS = {"修改订阅方式", "订阅设置", "订阅偏好"}
+REPORT_LABELS = {"daily": "日报", "weekly": "周报", "weekend": "周末报"}
 
 
 def _attr(obj: Any, name: str, default: Any = None) -> Any:
@@ -89,6 +101,115 @@ def _send_latest_report(client: FeishuClient, open_id: str, kind: str, label: st
         print(f"[feishu] sent latest {kind}={identifier} to open_id={open_id}")
 
 
+def build_subscription_card(preferences: dict[str, bool]) -> dict[str, Any]:
+    """Build a small preference card whose buttons toggle one report type each."""
+    selected = [REPORT_LABELS[kind] for kind, enabled in preferences.items() if enabled]
+    current = "、".join(selected) if selected else "未订阅（不会再主动推送）"
+    actions = []
+    for kind, label in REPORT_LABELS.items():
+        enabled = bool(preferences.get(kind))
+        actions.append(
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": f"{'✅' if enabled else '⬜'} {label}"},
+                "type": "primary" if enabled else "default",
+                "value": {"action": "toggle_subscription", "kind": kind},
+            }
+        )
+    actions.extend(
+        [
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "订阅全部"},
+                "value": {"action": "subscribe_all"},
+            },
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "全部退订"},
+                "type": "danger",
+                "value": {"action": "unsubscribe_all"},
+                "confirm": {
+                    "title": {"tag": "plain_text", "content": "确认全部退订？"},
+                    "text": {"tag": "plain_text", "content": "之后日报、周报、周末报都不会再主动推送。"},
+                    "confirm": {"tag": "plain_text", "content": "确认退订"},
+                    "cancel": {"tag": "plain_text", "content": "取消"},
+                },
+            },
+        ]
+    )
+    return {
+        "config": {"wide_screen_mode": True},
+        "header": {
+            "template": "blue",
+            "title": {"tag": "plain_text", "content": "🔔 修改订阅方式"},
+        },
+        "elements": [
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "lark_md",
+                    "content": f"**当前接收：** {current}\n点击下方按钮即可增减对应推送类型。",
+                },
+            },
+            {"tag": "hr"},
+            {"tag": "action", "actions": actions},
+        ],
+    }
+
+
+def _send_subscription_card(client: FeishuClient, open_id: str) -> None:
+    client.send_interactive_card(open_id, build_subscription_card(get_subscription_preferences(open_id)))
+
+
+def _card_action_response(toast: str, preferences: dict[str, bool] | None = None) -> Any:
+    """Return the documented v2 callback response and optionally refresh the card."""
+    from lark_oapi.event.callback.model.p2_card_action_trigger import P2CardActionTriggerResponse
+
+    response: dict[str, Any] = {"toast": {"type": "success", "content": toast}}
+    if preferences is not None:
+        response["card"] = {"type": "raw", "data": build_subscription_card(preferences)}
+    return P2CardActionTriggerResponse(response)
+
+
+def handle_card_action_event(data: Any) -> Any:
+    """Persist subscription changes made from the preference card."""
+    event = _attr(data, "event", {})
+    operator = _attr(event, "operator", {})
+    open_id = _attr(operator, "open_id")
+    action = _attr(event, "action", {})
+    value = _attr(action, "value", {}) or {}
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError:
+            value = {}
+    if not open_id or not isinstance(value, dict):
+        return _card_action_response("订阅设置未保存，请重新打开菜单后再试。")
+
+    action_name = value.get("action")
+    preferences = get_subscription_preferences(open_id)
+    if action_name == "toggle_subscription":
+        kind = value.get("kind")
+        if kind not in REPORT_LABELS:
+            return _card_action_response("未知的订阅类型，请重新打开菜单后再试。", preferences)
+        preferences[kind] = not preferences[kind]
+        saved = set_subscription_preferences(open_id, preferences)
+        enabled = bool(saved["subscriptions"][kind])
+        toast = f"已{'订阅' if enabled else '取消订阅'}{REPORT_LABELS[kind]}"
+    elif action_name == "subscribe_all":
+        saved = set_subscription_preferences(open_id, {kind: True for kind in REPORT_LABELS})
+        toast = "已订阅日报、周报和周末报"
+    elif action_name == "unsubscribe_all":
+        saved = set_subscription_preferences(open_id, {kind: False for kind in REPORT_LABELS})
+        toast = "已全部退订"
+    else:
+        return _card_action_response("未知操作，请重新打开菜单后再试。", preferences)
+
+    updated_preferences = {kind: bool(saved["subscriptions"][kind]) for kind in REPORT_LABELS}
+    print(f"[feishu] subscription preferences updated open_id={open_id} preferences={updated_preferences}")
+    return _card_action_response(toast, updated_preferences)
+
+
 def handle_message_event(data: Any) -> None:
     event = _attr(data, "event", data)
     message = _attr(event, "message", {})
@@ -105,17 +226,19 @@ def handle_message_event(data: Any) -> None:
     if text in TEXT_REPORT_COMMANDS:
         kind = TEXT_REPORT_COMMANDS[text]
         _send_latest_report(client, open_id, kind, text)
+    elif text in TEXT_PREFERENCES_COMMANDS:
+        _send_subscription_card(client, open_id)
     elif normalized in SUBSCRIBE_WORDS:
         record = upsert_subscriber(
             open_id=open_id, user_id=ids["user_id"], union_id=ids["union_id"], subscribed=True
         )
         prev_pushed_date = record.get("last_pushed_date")
-        client.send_text(open_id, "已订阅游戏行业日报。每天日报生成后，我会私聊推送卡片和完整文档链接。")
+        client.send_text(open_id, "已订阅游戏行业报告：日报、周报和周末报都会私聊推送卡片和完整文档链接。")
         print(f"[feishu] subscribed open_id={open_id}")
         _maybe_backfill_today(client, open_id, prev_pushed_date)
     elif normalized in UNSUBSCRIBE_WORDS:
         upsert_subscriber(open_id=open_id, user_id=ids["user_id"], union_id=ids["union_id"], subscribed=False)
-        client.send_text(open_id, "已退订游戏行业日报。之后不会再主动推送。")
+        client.send_text(open_id, "已全部退订游戏行业报告。之后不会再主动推送。")
         print(f"[feishu] unsubscribed open_id={open_id}")
     else:
         client.send_text(open_id, HELP_TEXT)
@@ -132,11 +255,6 @@ def handle_bot_menu_event(data: Any) -> None:
     """
     event = _attr(data, "event", {})
     event_key = _attr(event, "event_key", "")
-    target = MENU_REPORTS.get(event_key)
-    if target is None:
-        print(f"[feishu] ignored unknown bot menu event_key={event_key!r}")
-        return
-
     operator = _attr(event, "operator", {})
     operator_id = _attr(operator, "operator_id", {})
     open_id = _attr(operator_id, "open_id")
@@ -144,8 +262,17 @@ def handle_bot_menu_event(data: Any) -> None:
         print(f"[feishu] ignored bot menu event without open_id event_key={event_key!r}")
         return
 
+    client = FeishuClient.from_env()
+    if event_key == MANAGE_SUBSCRIPTIONS_MENU_KEY:
+        _send_subscription_card(client, open_id)
+        return
+
+    target = MENU_REPORTS.get(event_key)
+    if target is None:
+        print(f"[feishu] ignored unknown bot menu event_key={event_key!r}")
+        return
     kind, label = target
-    _send_latest_report(FeishuClient.from_env(), open_id, kind, label)
+    _send_latest_report(client, open_id, kind, label)
 
 
 def main() -> int:
@@ -163,6 +290,7 @@ def main() -> int:
         lark.EventDispatcherHandler.builder("", "")
         .register_p2_im_message_receive_v1(lambda data: handle_message_event(data))
         .register_p2_application_bot_menu_v6(lambda data: handle_bot_menu_event(data))
+        .register_p2_card_action_trigger(lambda data: handle_card_action_event(data))
         .build()
     )
     ws_client = lark.ws.Client(

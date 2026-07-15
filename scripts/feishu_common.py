@@ -22,6 +22,7 @@ DATA_DIR = ROOT / "data" / "feishu"
 SUBSCRIBERS_PATH = DATA_DIR / "subscribers.json"
 PUBLISH_LOG_DIR = DATA_DIR / "publish_logs"
 OPEN_FEISHU_BASE = "https://open.feishu.cn/open-apis"
+REPORT_SUBSCRIPTION_KINDS = ("daily", "weekly", "weekend")
 
 
 def load_dotenv(path: Path | None = None) -> None:
@@ -69,6 +70,62 @@ def load_subscribers() -> dict[str, Any]:
     return data
 
 
+def subscription_preferences(subscriber: dict[str, Any] | None) -> dict[str, bool]:
+    """Return the three report preferences, including a safe legacy fallback.
+
+    Subscriber records written before preference controls only have the
+    ``subscribed`` boolean.  Treat an old active subscriber as subscribed to
+    all report types, so this rollout never drops an existing recipient.
+    """
+    if not subscriber:
+        return {kind: False for kind in REPORT_SUBSCRIPTION_KINDS}
+    stored = subscriber.get("subscriptions")
+    if isinstance(stored, dict):
+        return {kind: bool(stored.get(kind, False)) for kind in REPORT_SUBSCRIPTION_KINDS}
+    enabled = bool(subscriber.get("subscribed"))
+    return {kind: enabled for kind in REPORT_SUBSCRIPTION_KINDS}
+
+
+def get_subscription_preferences(open_id: str) -> dict[str, bool]:
+    data = load_subscribers()
+    subscriber = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    return subscription_preferences(subscriber)
+
+
+def set_subscription_preferences(open_id: str, preferences: dict[str, Any]) -> dict[str, Any]:
+    """Persist a user's selected report types and keep the legacy total flag.
+
+    An all-false choice is a full unsubscribe.  Creating a record here also
+    lets a new user configure their preferences before using the old text
+    subscribe command.
+    """
+    if not open_id:
+        raise ValueError("open_id is required")
+    normalized = {kind: bool(preferences.get(kind, False)) for kind in REPORT_SUBSCRIPTION_KINDS}
+    data = load_subscribers()
+    now = utc_now_iso()
+    existing = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    if existing is None:
+        existing = {
+            "open_id": open_id,
+            "user_id": None,
+            "union_id": None,
+            "name": None,
+            "created_at": now,
+            "last_pushed_date": None,
+        }
+        data["subscribers"].append(existing)
+    existing.update(
+        {
+            "subscriptions": normalized,
+            "subscribed": any(normalized.values()),
+            "updated_at": now,
+        }
+    )
+    write_json(SUBSCRIBERS_PATH, data)
+    return existing
+
+
 def upsert_subscriber(
     *,
     open_id: str,
@@ -98,6 +155,7 @@ def upsert_subscriber(
             "union_id": union_id or existing.get("union_id"),
             "name": name or existing.get("name"),
             "subscribed": subscribed,
+            "subscriptions": {kind: subscribed for kind in REPORT_SUBSCRIPTION_KINDS},
             "updated_at": now,
         }
     )
@@ -105,12 +163,21 @@ def upsert_subscriber(
     return existing
 
 
-def active_subscribers() -> list[dict[str, Any]]:
+def active_subscribers(kind: str | None = None) -> list[dict[str, Any]]:
+    """Return active recipients, optionally filtered to a report type."""
+    if kind is not None and kind not in REPORT_SUBSCRIPTION_KINDS:
+        raise ValueError(f"Unsupported subscription kind: {kind}")
     data = load_subscribers()
-    return [row for row in data["subscribers"] if row.get("subscribed") and row.get("open_id")]
+    return [
+        row
+        for row in data["subscribers"]
+        if row.get("open_id")
+        and row.get("subscribed")
+        and (kind is None or subscription_preferences(row)[kind])
+    ]
 
 
-def mark_subscriber_pushed(open_id: str, date: str) -> None:
+def mark_subscriber_pushed(open_id: str, date: str, kind: str | None = None) -> None:
     """Record that `open_id` already received `date`'s report so a same-day
     re-subscribe is not mistaken for a new subscriber and backfilled twice."""
     data = load_subscribers()
@@ -118,6 +185,10 @@ def mark_subscriber_pushed(open_id: str, date: str) -> None:
     if row is None:
         return
     row["last_pushed_date"] = date
+    if kind in REPORT_SUBSCRIPTION_KINDS:
+        pushed_by_kind = row.setdefault("last_pushed_by_kind", {})
+        if isinstance(pushed_by_kind, dict):
+            pushed_by_kind[kind] = date
     row["updated_at"] = utc_now_iso()
     write_json(SUBSCRIBERS_PATH, data)
 

@@ -159,7 +159,7 @@ def backfill_one(
             doc_url = resolve_doc_url(date, None)
     card = build_daily_card(summary, doc_url=doc_url, per_section=max_items)
     client.send_interactive_card(open_id, card)
-    mark_subscriber_pushed(open_id, date)
+    mark_subscriber_pushed(open_id, date, summary["kind"])
     return doc_url
 
 
@@ -169,7 +169,11 @@ def publish(args: argparse.Namespace) -> int:
     markdown_path, _, _ = report_paths(args.date)
     folder_token = resolve_folder_token(args.folder_token) if args.create_doc else None
 
-    subscribers = [{"open_id": args.to_open_id}] if args.to_open_id else active_subscribers()
+    subscribers = (
+        [{"open_id": args.to_open_id}]
+        if args.to_open_id
+        else active_subscribers(summary["kind"])
+    )
     if args.dry_run:
         print(f"[dry-run] date: {args.date}")
         print(f"[dry-run] title: {summary['title']}")
@@ -224,7 +228,7 @@ def publish(args: argparse.Namespace) -> int:
     if not args.to_open_id:
         for row in results:
             if row["ok"]:
-                mark_subscriber_pushed(row["open_id"], args.date)
+                mark_subscriber_pushed(row["open_id"], args.date, summary["kind"])
 
     log = {
         "date": args.date,
