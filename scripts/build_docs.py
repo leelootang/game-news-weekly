@@ -61,8 +61,9 @@ ATTRIBUTION_BAR = (
 )
 
 
-def _find_items_block(html: str) -> str | None:
-    start = html.find("const items = [")
+def _find_const_json_block(html: str, name: str) -> str | None:
+    """Return the JSON array assigned to a ``const`` in a report page."""
+    start = html.find(f"const {name} = [")
     if start == -1:
         return None
     idx = html.index("[", start)
@@ -91,6 +92,53 @@ def _find_items_block(html: str) -> str | None:
             if depth == 0:
                 return html[idx: i + 1]
     return None
+
+
+def _find_items_block(html: str) -> str | None:
+    return _find_const_json_block(html, "items")
+
+
+def _replace_const_json_block(html: str, name: str, value: list[dict]) -> str:
+    block = _find_const_json_block(html, name)
+    if block is None:
+        return html
+    replacement = json.dumps(value, ensure_ascii=False).replace("</", "<\\/")
+    return html.replace(block, replacement, 1)
+
+
+def remove_rankings_section(html: str) -> str:
+    """Remove the retired Steam ranking section from legacy report pages.
+
+    New reports do not generate this section, but old HTML pages remain in
+    ``output/`` and are republished by every site build.  Sanitising at the
+    publish boundary keeps the GitHub Pages archive consistent without
+    rewriting the source reports.
+    """
+    items_block = _find_const_json_block(html, "items")
+    sections_block = _find_const_json_block(html, "sections")
+    if not items_block and not sections_block:
+        return html
+
+    try:
+        items = json.loads(items_block) if items_block else []
+        sections = json.loads(sections_block) if sections_block else []
+    except json.JSONDecodeError:
+        return html
+
+    html = _replace_const_json_block(
+        html, "items", [item for item in items if item.get("section") != "rankings"]
+    )
+    html = _replace_const_json_block(
+        html, "sections", [section for section in sections if section.get("id") != "rankings"]
+    )
+    # Legacy page subtitles announced the ranking section.  Keep only the
+    # remaining editorial sections in that presentation-only line.
+    return re.sub(
+        r'(<div class="subtitle">[^<]*?)(?:steam(?:当日)?榜单|steam周榜|steam月榜)[、，]?\s*',
+        r'\1',
+        html,
+        flags=re.IGNORECASE,
+    )
 
 
 def extract_items_full(html: str, date_str: str, report_url: str) -> list[dict]:
@@ -135,14 +183,15 @@ def extract_metadata(html: str) -> tuple[int, dict]:
     return sum(counts.values()), {k: v for k, v in counts.items() if v > 0}
 
 
-def copy_report(html_path: Path, dest_dir: Path) -> None:
+def copy_report(html_path: Path, dest_dir: Path) -> str:
     dest_dir.mkdir(parents=True, exist_ok=True)
-    content = html_path.read_text(encoding="utf-8")
+    content = remove_rankings_section(html_path.read_text(encoding="utf-8"))
     if LOGO_URI:
         content = re.sub(r'src="[^"]*moonton_logo\.png"', f'src="{LOGO_URI}"', content)
     if 'class="sidebar-footer"' not in content:
         content = content.replace("<body>", f"<body>{ATTRIBUTION_BAR}", 1)
     (dest_dir / "index.html").write_text(content, encoding="utf-8")
+    return content
 
 
 def find_report_html(folder: Path, kind: str) -> Path | None:
@@ -860,8 +909,7 @@ def build_docs() -> None:
             continue
         date_str = folder.name
         report_url = f"daily/{date_str}/"
-        copy_report(html_path, DOCS / "daily" / date_str)
-        content = html_path.read_text(encoding="utf-8")
+        content = copy_report(html_path, DOCS / "daily" / date_str)
         total, counts = extract_metadata(content)
         items = extract_items_full(content, date_str, report_url)
         all_items.extend(items)
@@ -874,8 +922,8 @@ def build_docs() -> None:
             continue
         name = folder.name
         report_url = f"weekend/{name}/"
-        copy_report(html_path, DOCS / "weekend" / name)
-        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
+        content = copy_report(html_path, DOCS / "weekend" / name)
+        total, counts = extract_metadata(content)
         reports.append({"type": "weekend", "date": name, "url": report_url, "total": total, "counts": counts})
         print(f"  weekend/{name}  ({total} items)")
 
@@ -885,8 +933,8 @@ def build_docs() -> None:
             continue
         name = folder.name
         report_url = f"weekly/{name}/"
-        copy_report(html_path, DOCS / "weekly" / name)
-        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
+        content = copy_report(html_path, DOCS / "weekly" / name)
+        total, counts = extract_metadata(content)
         reports.append({"type": "weekly", "date": name, "url": report_url, "total": total, "counts": counts})
         print(f"  weekly/{name}  ({total} items)")
 
@@ -896,8 +944,8 @@ def build_docs() -> None:
             continue
         name = folder.name
         report_url = f"monthly/{name}/"
-        copy_report(html_path, DOCS / "monthly" / name)
-        total, counts = extract_metadata(html_path.read_text(encoding="utf-8"))
+        content = copy_report(html_path, DOCS / "monthly" / name)
+        total, counts = extract_metadata(content)
         reports.append({"type": "monthly", "date": name, "url": report_url, "total": total, "counts": counts})
         print(f"  monthly/{name}  ({total} items)")
 
