@@ -19,6 +19,7 @@ from feishu_common import (
     mark_subscriber_pushed,
     read_json,
     report_paths,
+    resolve_report,
     utc_now_iso,
     write_json,
 )
@@ -55,6 +56,55 @@ def latest_broadcast_today() -> tuple[str, dict] | None:
         if best is None or (log.get("published_at") or "") > (best[1].get("published_at") or ""):
             best = (identifier, log)
     return best
+
+
+def latest_published_report(kind: str) -> tuple[str, dict] | None:
+    """Return the most recently published report of *kind*.
+
+    The menu should replay a report that was actually published, so its card
+    keeps the same Feishu docx link as the original broadcast.  Publish logs
+    are the source of truth for that distinction; scanning output folders
+    alone could surface a report that has not been reviewed or sent yet.
+    """
+    if kind not in {"daily", "weekly", "weekend"}:
+        raise ValueError(f"Unsupported report kind: {kind}")
+
+    latest: tuple[str, dict] | None = None
+    for log_path in PUBLISH_LOG_DIR.glob("daily_*.json"):
+        log = read_json(log_path, None)
+        if not isinstance(log, dict):
+            continue
+        identifier = str(log.get("date", "")).strip()
+        if not identifier or not log.get("doc_url"):
+            continue
+        try:
+            report_kind, _report_dir, markdown_path = resolve_report(identifier)
+        except ValueError:
+            continue
+        if report_kind != kind or not markdown_path.exists():
+            continue
+        if latest is None or (log.get("published_at") or "", identifier) > (
+            latest[1].get("published_at") or "", latest[0]
+        ):
+            latest = (identifier, log)
+    return latest
+
+
+def send_latest_report(
+    client: FeishuClient, open_id: str, kind: str, *, max_items: int = 10
+) -> str | None:
+    """Send one user the latest already-published card of the requested kind."""
+    latest = latest_published_report(kind)
+    if latest is None:
+        labels = {"daily": "日报", "weekly": "周报", "weekend": "周末报"}
+        client.send_text(open_id, f"暂未找到可推送的最新{labels.get(kind, '报告')}。")
+        return None
+
+    identifier, log = latest
+    summary = load_report_summary(identifier)
+    card = build_daily_card(summary, doc_url=log["doc_url"], per_section=max_items)
+    client.send_interactive_card(open_id, card)
+    return identifier
 
 
 def resolve_doc_url(date: str, explicit: str | None) -> str | None:
