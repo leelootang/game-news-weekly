@@ -20,6 +20,8 @@ import re
 import sys
 from pathlib import Path
 
+from report_artifacts import validate_contract
+
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = Path(__file__).resolve().parent / "report_template.html"
 
@@ -234,6 +236,27 @@ def collected_records(md_path: Path) -> str:
     return "—"
 
 
+def preflight(md_path: Path, sources_path: Path) -> None:
+    """Fail before rendering if report evidence cannot close back to inputs."""
+    intermediate = md_path.parent / "_intermediate"
+    inputs = intermediate / "report_inputs.jsonl"
+    if not inputs.exists():
+        raise SystemExit(f"HTML preflight failed: missing report inputs: {inputs}")
+    errors, warnings = validate_contract(
+        md_path,
+        inputs,
+        intermediate / "report_items.json",
+        intermediate / "selection_decisions.json",
+        intermediate / "release_calendar_audit.json",
+        sources_path,
+        require_artifacts=False,
+    )
+    for message in warnings:
+        print(f"WARN: HTML preflight: {message}")
+    if errors:
+        raise SystemExit("HTML preflight failed:\n- " + "\n- ".join(errors))
+
+
 def main() -> int:
     if len(sys.argv) < 2:
         print(__doc__)
@@ -241,10 +264,14 @@ def main() -> int:
     md_path = Path(sys.argv[1]).resolve()
     md = md_path.read_text(encoding="utf-8")
     sources_path = md_path.parent / "sources_used.md"
+    preflight(md_path, sources_path)
     title_ids, id_meta = parse_sources(sources_path.read_text(encoding="utf-8")) if sources_path.exists() else ({}, {})
 
     kind, start, end, date_label, title = parse_meta(md_path)
     items = parse_report(md, kind, title_ids, id_meta)
+    missing_sources = [f"{item['section']}/{item['title']}" for item in items if not item["sources"]]
+    if missing_sources:
+        raise SystemExit("HTML preflight failed: rendered item has no usable source link: " + ", ".join(missing_sources))
 
     sections = [{"id": "all", "label": "全部", "desc": "浏览全部内容，或从左侧选择单个板块。"}]
     order = ["industry", "ai", "release", "discourse", "deep"]

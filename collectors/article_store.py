@@ -13,6 +13,13 @@ from typing import Any
 
 ARTICLE_JSONL_NAME = "articles.jsonl"
 ARTICLE_INDEX_NAME = "articles_index.md"
+_PREVIEW_MARKERS = (
+    "get the rest of this newsletter",
+    "subscribe to continue reading",
+    "sign in or subscribe to continue",
+    "become a paid subscriber to read the rest",
+    "this post is for paid subscribers",
+)
 
 # Each collector runs in its own subprocess (the runner launches them via
 # subprocess.Popen), and many of them share one per-section articles.jsonl.
@@ -136,6 +143,19 @@ def content_hash(text: str) -> str:
     return hashlib.sha1(text.encode("utf-8")).hexdigest()
 
 
+def infer_body_status(record: dict[str, Any], text: str) -> str:
+    """Conservatively distinguish full article text from an RSS/paywall teaser."""
+    declared = str(record.get("body_status") or "").strip()
+    if declared:
+        return declared
+    if not text:
+        return "empty"
+    compact = re.sub(r"\s+", " ", text).lower()
+    if any(marker in compact for marker in _PREVIEW_MARKERS):
+        return "snippet"
+    return "full"
+
+
 def shorten_text(value: Any, max_len: int = 96) -> str:
     text = re.sub(r"\s+", " ", str(value or "")).strip()
     if len(text) <= max_len:
@@ -236,6 +256,9 @@ def write_article_record(
         "html": record.get("html") or "",
         "content_sha1": record.get("content_sha1") or content_hash(text),
         "fetch_status": record.get("fetch_status") or "ok",
+        # Transport success and usable-body quality are distinct.  A collector
+        # may successfully obtain only an RSS teaser or a source excerpt.
+        "body_status": infer_body_status(record, text),
         "fallback": record.get("fallback") or "none",
         "saved_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "extra": record.get("extra") or {},
@@ -292,6 +315,7 @@ def write_article_record(
         "published_at": normalized["published_at"],
         "content_sha1": normalized["content_sha1"],
         "fetch_status": normalized["fetch_status"],
+        "body_status": normalized["body_status"],
         "fallback": normalized["fallback"],
         "saved_at": normalized["saved_at"],
     }

@@ -1,9 +1,9 @@
 """
 Fetch The Game Business posts from Substack RSS and export PDFs.
 
-Substack exposes stable full-text RSS at /feed with publication timestamps,
-authors, descriptions, and content:encoded HTML. A valid daily window may
-naturally contain zero posts.
+Substack RSS is used for post discovery only. Its ``content:encoded`` field can
+be a teaser even for a public full article, so in-window posts are read from
+their canonical article page before storage.
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ from urllib.request import Request, urlopen
 
 from article_store import html_to_text, save_pdf_enabled, write_article_record
 from manifest_paths import collector_manifest_path, collector_run_manifest_dir, legacy_manifest_paths
-from playwright.async_api import async_playwright
+from playwright.async_api import TimeoutError as PWTimeout, async_playwright
 
 
 RSS_URL = "https://www.thegamebusiness.com/feed"
@@ -240,6 +240,43 @@ def collect_feed_items(since: datetime, until: datetime, max_pages: int) -> list
     return items
 
 
+async def fetch_article_content(context, item: NewsItem) -> NewsItem:
+    """Read a public Substack post page instead of persisting the RSS teaser."""
+    page = await context.new_page()
+    try:
+        print(f"[{item.news_id}] open {item.url}")
+        await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        try:
+            await page.wait_for_selector("article", timeout=15_000)
+        except PWTimeout as exc:
+            raise RuntimeError("public article selector not found") from exc
+        meta = await page.evaluate(
+            """() => {
+                const root = document.querySelector('article .body.markup, .body.markup, article .post-content, article') || document.querySelector('main article') || document.querySelector('main');
+                if (root) {
+                    root.querySelectorAll('script, style, iframe, form, button, .subscription-widget, .subscribe-widget, [class*="paywall"]').forEach(el => el.remove());
+                    root.querySelectorAll('img').forEach(img => {
+                        const src = img.getAttribute('data-src') || img.getAttribute('src');
+                        if (src) img.setAttribute('src', new URL(src, location.href).href);
+                        img.removeAttribute('srcset'); img.removeAttribute('sizes');
+                    });
+                }
+                return {content_html: root?.innerHTML || ''};
+            }"""
+        )
+        content_html = clean_content_html(meta.get("content_html") or "")
+        if len(html_to_text(content_html)) < 500:
+            raise RuntimeError("public article body is too short; preserving RSS as snippet")
+        return NewsItem(
+            news_id=item.news_id, url=item.url, title=item.title,
+            author=item.author, description_html=item.description_html,
+            image_url=item.image_url, published_at=item.published_at,
+            raw_published_at=item.raw_published_at, content_html=content_html,
+        )
+    finally:
+        await page.close()
+
+
 def build_printable_html(item: NewsItem) -> str:
     title = html.escape(item.title)
     author = html.escape(item.author)
@@ -326,17 +363,26 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
         return True
 
     if not save_pdf_enabled():
-        write_article_record(out_dir, manifest, item.news_id, {
+        try:
+            stored_item = await fetch_article_content(context, item)
+            body_status, fallback, retrieval_error = "full", "none", ""
+        except Exception as exc:
+            stored_item = item
+            body_status, fallback, retrieval_error = "snippet", "source_excerpt", repr(exc)
+            print(f"[{item.news_id}] public page unavailable; saved RSS snippet: {retrieval_error}", file=sys.stderr)
+        write_article_record(out_dir, manifest, stored_item.news_id, {
             "source_key": SOURCE_KEY,
             "source": SOURCE_DOMAIN,
-            "title": item.title,
-            "url": item.url,
-            "published_at": item.published_at.isoformat(timespec="seconds"),
-            "author": item.author,
+            "title": stored_item.title,
+            "url": stored_item.url,
+            "published_at": stored_item.published_at.isoformat(timespec="seconds"),
+            "author": stored_item.author,
             "excerpt": html_to_text(item.description_html),
-            "text": html_to_text(item.content_html),
-            "html": item.content_html,
-            "extra": {"image_url": item.image_url, "raw_published_at": item.raw_published_at},
+            "text": html_to_text(stored_item.content_html),
+            "html": stored_item.content_html,
+            "body_status": body_status,
+            "fallback": fallback,
+            "extra": {"image_url": item.image_url, "raw_published_at": item.raw_published_at, "retrieval_error": retrieval_error},
         })
         save_manifest(out_dir, manifest)
         print(f"[{item.news_id}] saved text record")
@@ -349,11 +395,12 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
     page = await context.new_page()
     tmp_path = out_dir / f".tmp_{item.news_id}.pdf"
     try:
-        final_name = f"{FILE_PREFIX}_{item.published_at:%Y-%m-%d}_{item.news_id}_{sanitize_filename(item.title)}.pdf"
+        full_item = await fetch_article_content(context, item)
+        final_name = f"{FILE_PREFIX}_{full_item.published_at:%Y-%m-%d}_{full_item.news_id}_{sanitize_filename(full_item.title)}.pdf"
         final_path = out_dir / final_name
 
         print(f"[{item.news_id}] render {item.url}")
-        await page.set_content(build_printable_html(item), wait_until="networkidle", timeout=PAGE_TIMEOUT)
+        await page.set_content(build_printable_html(full_item), wait_until="networkidle", timeout=PAGE_TIMEOUT)
         await page.emulate_media(media="screen")
         await page.pdf(
             path=str(tmp_path),
@@ -367,13 +414,13 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
             "file": final_name,
             "source": SOURCE_DOMAIN,
             "source_key": SOURCE_KEY,
-            "title": item.title,
-            "url": item.url,
-            "author": item.author,
-            "published_at": item.published_at.isoformat(timespec="seconds"),
-            "raw_published_at": item.raw_published_at,
-            "description_html": item.description_html,
-            "image_url": item.image_url,
+            "title": full_item.title,
+            "url": full_item.url,
+            "author": full_item.author,
+            "published_at": full_item.published_at.isoformat(timespec="seconds"),
+            "raw_published_at": full_item.raw_published_at,
+            "description_html": full_item.description_html,
+            "image_url": full_item.image_url,
             "saved_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         }
         save_manifest(out_dir, manifest)

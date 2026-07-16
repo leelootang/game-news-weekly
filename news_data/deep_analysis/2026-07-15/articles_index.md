@@ -6,4 +6,4 @@
 
 | # | ID | Source | Published | Chars | Status | Title | URL |
 | ---: | --- | --- | --- | ---: | --- | --- | --- |
-| 1 | `how_paralives_sold_a_million_copies` | `gamediscover` | 2026-07-15T04:54:14 | 11518 | ok | How Paralives sold a million copies in its first month... | [link](https://newsletter.gamediscover.co/p/how-paralives-sold-a-million-copies) |
+| 1 | `how_paralives_sold_a_million_copies` | `gamediscover` | 2026-07-15T04:54:14 | 12150 | ok | How Paralives sold a million copies in its first month... | [link](https://newsletter.gamediscover.co/p/how-paralives-sold-a-million-copies) |

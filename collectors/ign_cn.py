@@ -256,7 +256,11 @@ def main() -> None:
         if not text:
             print(f"[{e['id']}] skipped: no readable RSS or article-page body", file=sys.stderr)
             continue
-        complete_body = len(text) >= 120
+        # Trailer and announcement pages can legitimately contain only a
+        # concise official description.  A non-empty article-page/RSS body is
+        # still a successful fetch; length alone must not turn it into an
+        # extraction failure.
+        complete_body = bool(text.strip())
         write_article_record(
             args.out,
             manifest,
@@ -271,6 +275,7 @@ def main() -> None:
                 "html": body_html,
                 "published_at": e["published_at"].isoformat(timespec="seconds"),
                 "fetch_status": "ok" if complete_body else "partial",
+                "body_status": "full" if complete_body else ("short_official" if text else "empty"),
                 "fallback": "none" if complete_body else "source_excerpt",
                 "extra": {"body_source": body_source},
             },

@@ -644,11 +644,76 @@ def _weekday_label(date: str) -> str:
         return ""
 
 
-def _item_one_liner(item: dict[str, str]) -> str:
+def _industry_card_detail(body: str) -> str:
+    """Return one non-redundant factual extension for an industry-card line."""
+    sentences = [
+        sentence.strip().rstrip("\u3002\uff01\uff1f")
+        for sentence in re.split(r"(?<=[\u3002\uff01\uff1f])", re.sub(r"\s+", " ", body or ""))
+        if sentence.strip()
+    ]
+    factual_markers = re.compile(r"(\d|《|计划|将|新增|测试|上线|发布|收入|玩家|市场|模式|系统)")
+    editorial_markers = ("值得", "仍是", "仍需", "需看", "能否", "有待", "取决于")
+
+    def trim_editorial_tail(candidate: str) -> str:
+        for marker in editorial_markers:
+            position = candidate.find(marker)
+            if position > 0:
+                cut = max(candidate.rfind("，", 0, position), candidate.rfind("；", 0, position))
+                return candidate[:cut].rstrip("，； ") if cut > 0 else ""
+        return candidate
+
+    def usable(candidate: str) -> bool:
+        return bool(factual_markers.search(candidate)) and not any(
+            marker in candidate for marker in editorial_markers
+        )
+
+    # Industry item titles already carry the lead event. Select the strongest
+    # non-lead clause with a concrete product, timing, market, or mechanism
+    # fact; never append a generic reporter conclusion just to make it longer.
+    clauses = [
+        clause.strip()
+        for sentence in sentences[1:]
+        for clause in re.split(r"[\uff1b;]", sentence)
+        if clause.strip()
+    ]
+
+    def detail_score(candidate: str) -> int:
+        weights = {
+            r"《": 6,
+            r"\d": 5,
+            r"计划|将": 4,
+            r"测试|上线|发布": 3,
+            r"收入|玩家|市场": 3,
+            r"模式|系统": 2,
+        }
+        return sum(weight for pattern, weight in weights.items() if re.search(pattern, candidate))
+
+    usable_clauses = [trim_editorial_tail(candidate) for candidate in clauses]
+    usable_clauses = [candidate for candidate in usable_clauses if usable(candidate)]
+    if not usable_clauses and sentences:
+        lead_clauses = [
+            clause.strip()
+            for clause in re.split(r"[\uff1b;]", sentences[0])[1:]
+            if clause.strip()
+        ]
+        usable_clauses = [trim_editorial_tail(candidate) for candidate in lead_clauses]
+        usable_clauses = [candidate for candidate in usable_clauses if usable(candidate)]
+    detail = max(usable_clauses, key=detail_score, default="")
+    if not detail:
+        return ""
+    if len(detail) <= 88:
+        return detail
+    breakpoint = max(detail.rfind(mark, 0, 88) for mark in ("，", "；", "、"))
+    return detail[: breakpoint if breakpoint >= 36 else 85].rstrip("，、；： ") + "…"
+
+
+def _item_one_liner(item: dict[str, str], *, industry_detail: bool = False) -> str:
     title = (item.get("title") or "").replace("\n", " ").strip()
     if item.get("kind") == "bullet":
         return _first_clause(title)
-    return _strip_item_number(title)
+    title = _strip_item_number(title)
+    detail = _industry_card_detail(item.get("body", "")) if industry_detail else ""
+    return f"{title}，{detail}" if detail else title
 
 
 def _emphasize(line: str) -> str:
@@ -686,7 +751,15 @@ def build_daily_card(
         emoji, display, drop = _section_meta(section.get("name", ""))
         if drop:
             continue
-        one_liners = [line for line in (_item_one_liner(it) for it in section.get("items", [])) if line]
+        industry_detail = display == "行业新闻"
+        one_liners = [
+            line
+            for line in (
+                _item_one_liner(item, industry_detail=industry_detail)
+                for item in section.get("items", [])
+            )
+            if line
+        ]
         if not one_liners:
             continue
         lines = [f"**{emoji} {display}**"]
@@ -723,6 +796,139 @@ def build_daily_card(
         },
         "elements": elements,
     }
+
+
+def build_deep_observation_card(
+    summary: dict[str, Any],
+    doc_url: str | None = None,
+    source_url: str | None = None,
+    max_items: int = 1,
+) -> dict[str, Any] | None:
+    """Build the standalone deep-observation card paired with a report card.
+
+    Keep this separate from ``build_daily_card``: the report card is a scan of
+    all sections, while this card gives one selected observation enough room
+    for a compact observation-and-analysis read.
+    """
+    items: list[dict[str, str]] = []
+    for section in summary.get("sections", []):
+        _emoji, _display, is_deep = _section_meta(section.get("name", ""))
+        if is_deep:
+            items.extend(section.get("items", []))
+    if not items:
+        return None
+
+    elements: list[dict[str, Any]] = []
+    for item in items[:max_items]:
+        title = _strip_item_number(item.get("title", ""))
+        body = re.sub(r"\s+", " ", item.get("body", "")).strip()
+        if len(body) > 900:
+            body = body[:897].rstrip("，、；： ") + "……"
+        # Cards intentionally keep the body compact, but the two analytical
+        # layers need visible hierarchy.  Do not let whitespace normalization
+        # flatten `观察：` / `分析：` into ordinary inline prose.
+        body = re.sub(r"(观察：|分析：)", r"**\1**", body)
+        body = re.sub(r"(?<!^)(\*\*(?:观察|分析)：\*\*)", r"\n\n\1", body)
+        body = re.sub(r"[ \t]+\n\n", "\n\n", body)
+        content = f"**{title}**"
+        if body:
+            content += f"\n\n{body}"
+        elements.append({"tag": "div", "text": {"tag": "lark_md", "content": content}})
+
+    actions: list[dict[str, Any]] = []
+    if doc_url:
+        noun = summary.get("noun") or "周报"
+        actions.append(
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": f"查看{noun}飞书文档"},
+                "type": "primary",
+                "url": doc_url,
+            }
+        )
+    if source_url:
+        actions.append(
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "查看原文链接"},
+                "type": "default",
+                "url": source_url,
+            }
+        )
+    if actions:
+        elements.append({"tag": "hr"})
+        elements.append(
+            {
+                "tag": "action",
+                "actions": actions,
+            }
+        )
+    elements.append(
+        {
+            "tag": "note",
+            "elements": [
+                {"tag": "plain_text", "content": "独立深度观察 · 观察与分析分层呈现"}
+            ],
+        }
+    )
+    return {
+        "config": {"wide_screen_mode": True},
+        "header": {
+            "template": "purple",
+            "title": {"tag": "plain_text", "content": f"🧠 {summary['title']}｜深度观察"},
+        },
+        "elements": elements,
+    }
+
+
+def _deep_item_source_url(summary: dict[str, Any], item: dict[str, str]) -> str | None:
+    """Find the first auditable source URL for one deep-observation item."""
+    markdown_path = Path(str(summary.get("markdown_path") or ""))
+    sources_path = markdown_path.parent / "sources_used.md"
+    if not sources_path.exists():
+        return None
+    try:
+        import build_report_html as brh
+
+        title_ids, id_meta = brh.parse_sources(sources_path.read_text(encoding="utf-8"))
+        title = _strip_item_number(item.get("title", ""))
+        for _source_id, _name, url in brh.sources_for(title, title_ids, id_meta):
+            if isinstance(url, str) and re.match(r"https?://", url):
+                return url
+    except (ImportError, OSError, ValueError):
+        return None
+    return None
+
+
+def build_deep_observation_cards(
+    summary: dict[str, Any], doc_url: str | None = None, max_items: int = 2
+) -> list[dict[str, Any]]:
+    """Build up to two standalone weekly cards, each with its own source link."""
+    if not doc_url:
+        return []
+    items: list[dict[str, str]] = []
+    deep_name = "深度观察"
+    for section in summary.get("sections", []):
+        _emoji, display, is_deep = _section_meta(section.get("name", ""))
+        if is_deep:
+            deep_name = section.get("name") or display
+            items.extend(section.get("items", []))
+
+    cards: list[dict[str, Any]] = []
+    for item in items[:max_items]:
+        source_url = _deep_item_source_url(summary, item)
+        if not source_url:
+            continue
+        card_summary = {**summary, "sections": [{"name": deep_name, "items": [item]}]}
+        card = build_deep_observation_card(
+            card_summary,
+            doc_url=doc_url,
+            source_url=source_url,
+            max_items=1,
+        )
+        if card:
+            cards.append(card)
+    return cards
 
 
 def content_hash(path: Path) -> str:

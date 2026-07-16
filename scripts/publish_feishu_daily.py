@@ -12,6 +12,7 @@ from feishu_common import (
     active_subscribers,
     add_date_arg,
     build_daily_card,
+    build_deep_observation_cards,
     build_docx_markdown,
     content_hash,
     load_dotenv,
@@ -104,6 +105,37 @@ def send_latest_report(
     summary = load_report_summary(identifier)
     card = build_daily_card(summary, doc_url=log["doc_url"], per_section=max_items)
     client.send_interactive_card(open_id, card)
+    if kind == "weekly":
+        for deep_card in build_deep_observation_cards(summary, doc_url=log["doc_url"]):
+            client.send_interactive_card(open_id, deep_card)
+    return identifier
+
+
+def send_latest_deep_observation(client: FeishuClient, open_id: str) -> str | None:
+    """Send standalone deep-observation cards from the latest weekly report only."""
+    latest: tuple[str, dict, dict] | None = None
+    for log_path in PUBLISH_LOG_DIR.glob("daily_*.json"):
+        log = read_json(log_path, None)
+        if not isinstance(log, dict) or not log.get("doc_url") or not log.get("date"):
+            continue
+        identifier = str(log["date"])
+        try:
+            summary = load_report_summary(identifier)
+        except (FileNotFoundError, ValueError):
+            continue
+        if summary.get("kind") != "weekly" or not build_deep_observation_cards(summary, doc_url=log["doc_url"]):
+            continue
+        if latest is None or (log.get("published_at") or "", identifier) > (
+            latest[1].get("published_at") or "", latest[0]
+        ):
+            latest = (identifier, log, summary)
+
+    if latest is None:
+        client.send_text(open_id, "暂未找到可预览的深度观察。")
+        return None
+    identifier, log, summary = latest
+    for card in build_deep_observation_cards(summary, doc_url=log["doc_url"]):
+        client.send_interactive_card(open_id, card)
     return identifier
 
 
@@ -159,6 +191,9 @@ def backfill_one(
             doc_url = resolve_doc_url(date, None)
     card = build_daily_card(summary, doc_url=doc_url, per_section=max_items)
     client.send_interactive_card(open_id, card)
+    if summary["kind"] == "weekly":
+        for deep_card in build_deep_observation_cards(summary, doc_url=doc_url):
+            client.send_interactive_card(open_id, deep_card)
     mark_subscriber_pushed(open_id, date, summary["kind"])
     return doc_url
 
@@ -214,11 +249,20 @@ def publish(args: argparse.Namespace) -> int:
         doc_url = resolve_doc_url(args.date, args.doc_url)
 
     card = build_daily_card(summary, doc_url=doc_url, per_section=args.max_items)
+    deep_cards = (
+        build_deep_observation_cards(summary, doc_url=doc_url)
+        if summary["kind"] == "weekly"
+        else []
+    )
     results = []
     for subscriber in subscribers:
         open_id = subscriber["open_id"]
         try:
-            response = client.send_interactive_card(open_id, card)
+            response = {"report_card": client.send_interactive_card(open_id, card)}
+            if deep_cards:
+                response["deep_cards"] = [
+                    client.send_interactive_card(open_id, deep_card) for deep_card in deep_cards
+                ]
             results.append({"open_id": open_id, "ok": True, "response": response})
             print(f"[sent] {open_id}")
         except Exception as exc:

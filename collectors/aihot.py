@@ -377,16 +377,23 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
         return True
 
     if not save_pdf_enabled():
-        text = "\n".join(
-            part
-            for part in [
-                item.title,
-                f"Source: {item.source_name}" if item.source_name else "",
-                f"Original URL: {item.url}",
-                item.summary,
-            ]
-            if part
-        )
+        page = await context.new_page()
+        try:
+            print(f"[{item.news_id}] open external {item.url}")
+            await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+            await page.wait_for_timeout(1800)
+            text = await page.locator("body").inner_text(timeout=5_000)
+            if len(text.strip()) < 300:
+                raise RuntimeError("external page body too short")
+            body_status, fallback, retrieval_error = "full", "none", ""
+        except Exception as exc:
+            text = "\n".join(
+                part for part in [item.title, f"Source: {item.source_name}" if item.source_name else "", f"Original URL: {item.url}", item.summary] if part
+            )
+            body_status, fallback, retrieval_error = "snippet", "source_excerpt", repr(exc)
+            print(f"[{item.news_id}] external failed; saved summary snippet: {retrieval_error}", file=sys.stderr)
+        finally:
+            await page.close()
         write_article_record(
             out_dir,
             manifest,
@@ -400,10 +407,12 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
                 "excerpt": item.summary,
                 "text": text,
                 "published_at": item.published_at.isoformat(timespec="seconds"),
-                "fallback": "source_excerpt",
+                "body_status": body_status,
+                "fallback": fallback,
                 "extra": {
                     "source_name": item.source_name,
                     "raw_published_at": item.raw_published_at,
+                    "retrieval_error": retrieval_error,
                 },
             },
         )

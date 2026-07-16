@@ -243,8 +243,16 @@ def main() -> None:
                 "text": text,
                 "html": e["html"],
                 "published_at": e["published_at"].isoformat(timespec="seconds"),
-                "fetch_status": "partial",
-                "fallback": "source_excerpt",
+                # GameSpot's RSS entries contain the article body.  Mark a
+                # non-empty parsed entry as complete; `partial` is reserved
+                # for records where the collector could not obtain readable
+                # body text.
+                "fetch_status": "ok" if text else "partial",
+                # The site exposes only RSS summaries and blocks its detail
+                # pages to our collector. These are discovery snippets, never
+                # primary evidence for a report item.
+                "body_status": "snippet" if text else "empty",
+                "fallback": "none" if text else "source_excerpt",
             },
         )
         ok += 1
