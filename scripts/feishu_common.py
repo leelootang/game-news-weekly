@@ -378,6 +378,59 @@ class FeishuClient:
             query={"type": doc_type},
         )
 
+    def get_all_blocks(self, doc_id: str) -> list[dict[str, Any]]:
+        """Return every block in a docx (paginated). Each block carries its
+        block_id / block_type / children plus type-specific content."""
+        blocks: list[dict[str, Any]] = []
+        page_token: str | None = None
+        while True:
+            query = {"page_size": "500", "document_revision_id": "-1"}
+            if page_token:
+                query["page_token"] = page_token
+            data = self._request(
+                "GET", f"/docx/v1/documents/{doc_id}/blocks", query=query
+            ).get("data", {})
+            blocks.extend(data.get("items", []))
+            if not data.get("has_more"):
+                break
+            page_token = data.get("page_token")
+            if not page_token:
+                break
+        return blocks
+
+    @staticmethod
+    def _bullet_text(block: dict[str, Any]) -> str:
+        elems = (block.get("bullet") or {}).get("elements") or []
+        return "".join(
+            (e.get("text_run") or {}).get("content", "") for e in elems
+        )
+
+    def fold_source_bullets(self, doc_id: str) -> int:
+        """Collapse every bullet whose child is a `来源：...` bullet, so sources
+        hide by default. Returns the number of parents folded."""
+        blocks = self.get_all_blocks(doc_id)
+        by_id = {b.get("block_id"): b for b in blocks}
+        folded = 0
+        for block in blocks:
+            if block.get("block_type") != 12:  # bullet
+                continue
+            children = block.get("children") or []
+            has_source_child = any(
+                (child := by_id.get(cid)) is not None
+                and child.get("block_type") == 12
+                and self._bullet_text(child).lstrip().startswith("来源")
+                for cid in children
+            )
+            if not has_source_child:
+                continue
+            self._request(
+                "PATCH",
+                f"/docx/v1/documents/{doc_id}/blocks/{block['block_id']}",
+                {"update_text_style": {"style": {"folded": True}, "fields": [3]}},
+            )
+            folded += 1
+        return folded
+
 
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _RANGE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_to_\d{4}-\d{2}-\d{2}$")
@@ -521,30 +574,59 @@ def load_report_summary(date: str, max_items: int | None = None) -> dict[str, An
     }
 
 
-def _citation_md(srcs: list | None) -> str | None:
-    """Render a Feishu quote line `> 来源：[标题](url) · ...` for a list of
-    [sid, name, url] entries. Returns None when there is nothing to cite."""
+def _citation_parts(srcs: list | None) -> list[str]:
+    """Render each [sid, name, url] source as a markdown link `[标题](url)`
+    (or a plain label when there is no url), deduped by url (falling back to
+    label). Order is preserved. Brackets are full-widthed and `$` is escaped so
+    a source title can never break the markdown link text or trigger Feishu's
+    LaTeX math rendering."""
     parts: list[str] = []
+    seen: set[str] = set()
     for entry in srcs or []:
         sid = entry[0] if len(entry) > 0 else ""
         name = entry[1] if len(entry) > 1 else ""
         url = entry[2] if len(entry) > 2 else ""
         label = str(name or sid or "来源").strip()
-        # full-width the brackets so they can't break the markdown link text
         label = label.replace("[", "【").replace("]", "】")
-        if re.match(r"https?://", str(url or "")):
+        label = label.replace("$", "\\$")
+        url = str(url or "").strip()
+        key = url or label
+        if key in seen:
+            continue
+        seen.add(key)
+        if re.match(r"https?://", url):
             parts.append(f"[{label}]({url})")
         else:
             parts.append(label)
+    return parts
+
+
+def _citation_md(srcs: list | None) -> str | None:
+    """Feishu quote line `> 来源：[标题](url) · ...`. None when nothing to cite."""
+    parts = _citation_parts(srcs)
     if not parts:
         return None
     return "> 来源：" + " · ".join(parts)
 
 
+def _citation_child_bullet(srcs: list | None) -> str | None:
+    """A 2-space-indented child bullet `  - 来源：...` so the source nests under
+    its news-item bullet (folded by default after import). None when empty."""
+    parts = _citation_parts(srcs)
+    if not parts:
+        return None
+    return "  - 来源：" + " · ".join(parts)
+
+
 def build_docx_markdown(date: str) -> Path:
-    """Produce a markdown variant for Feishu docx import that appends a
-    `> 来源：[标题](url)` quote line after each item. The canonical report
-    markdown stays untouched; the augmented file is written under
+    """Produce a markdown variant for Feishu docx import.
+
+    行业新闻 / AI / 舆论 items become an unordered-list bullet (the item body)
+    with its `来源：...` nested as a child bullet, so the source folds away by
+    default after import. 产品日历 bullets get the same child-bullet source.
+    深度观察 keeps its multi-paragraph prose and a `> 来源：...` quote (long-form,
+    few sources — nothing to fold). The canonical report markdown stays
+    untouched; the augmented file is written under
     `_intermediate/docx_import_<date>.md` and its path is returned.
 
     Source lookup + title mapping reuse build_report_html so the docx
@@ -562,9 +644,10 @@ def build_docx_markdown(date: str) -> Path:
 
     out: list[str] = []
     section_kind: str | None = None
-    pending_title: str | None = None   # open news item awaiting its citation
+    pending_title: str | None = None   # open 深度观察 item awaiting its > 来源 quote
+    capture_body: str | None = None    # industry/ai/discourse item awaiting its body line
 
-    def flush_news() -> None:
+    def flush_deep() -> None:
         nonlocal pending_title
         if pending_title:
             line = _citation_md(brh.sources_for(pending_title, title_ids, id_meta))
@@ -577,15 +660,28 @@ def build_docx_markdown(date: str) -> Path:
         s = ln.strip()
         h2 = re.match(r"^##\s+(.+)$", s)
         if h2:
-            flush_news()
+            flush_deep()
+            capture_body = None
             section_kind = brh.heading_to_section(h2.group(1).strip())
             out.append(ln)
             continue
         h3 = re.match(r"^###\s+(?:\d+\.\s+)?(.+)$", s)
         if h3 and section_kind in ("industry", "ai", "discourse", "deep"):
-            flush_news()
-            pending_title = h3.group(1).strip()
+            flush_deep()
+            title = h3.group(1).strip()
             out.append(ln)
+            if section_kind == "deep":
+                pending_title = title
+            else:
+                capture_body = title
+            continue
+        # first prose line after an industry/ai/discourse heading → body bullet + source child
+        if capture_body and s:
+            out.append(f"- {s}")
+            child = _citation_child_bullet(brh.sources_for(capture_body, title_ids, id_meta))
+            if child:
+                out.append(child)
+            capture_body = None
             continue
         if section_kind == "release" and s.startswith("- "):
             out.append(ln)
@@ -593,13 +689,13 @@ def build_docx_markdown(date: str) -> Path:
             gm = re.search(r"《([^》]+)》", body)
             gname = gm.group(1) if gm else body[:24]
             srcs = brh.sources_for(f"产品日历 - {gname}", title_ids, id_meta) or brh.sources_for(gname, title_ids, id_meta)
-            line = _citation_md(srcs)
-            if line:
-                out.append(line)
+            child = _citation_child_bullet(srcs)
+            if child:
+                out.append(child)
             continue
         out.append(ln)
 
-    flush_news()
+    flush_deep()
 
     augmented = "\n".join(out) + "\n"
     out_path = report_dir / "_intermediate" / f"docx_import_{date}.md"

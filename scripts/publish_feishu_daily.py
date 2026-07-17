@@ -160,6 +160,10 @@ def create_daily_doc(
     ticket = client.create_import_task(file_token, doc_name, folder_token)
     result = client.poll_import_task(ticket)
     client.set_doc_public_permission(result["token"], doc_type="docx")
+    try:
+        client.fold_source_bullets(result["token"])
+    except Exception as exc:  # folding is cosmetic — never fail the publish over it
+        print(f"[warn] fold_source_bullets failed: {exc}")
     return result
 
 

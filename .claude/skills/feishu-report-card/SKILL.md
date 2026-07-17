@@ -24,7 +24,7 @@ description: 把已生成好的游戏行业日报/周报/月报 markdown 发布�
 9. **同一时间只能有一个 `feishu_subscribe_listener` 实例在跑**(订阅靠长连接捕获)。不要为了测试再起第二个。
 10. **正文里的禁区词照样适用到卡片**(卡片是 markdown 的子集,不会引入新词,但若手工编辑卡片文案要遵守):不得提及 Moonton / 沐瞳 / Mobile Legends / 决胜巅峰;不得有业务建议性语言(对我司启发/建议动作/值得借鉴/启示);产品日历不得有流程语言(本地证据/多源记录/source ids/JSONL/pipeline)。
 11. **docs 改动是本地的**。`build_docs.py` 只改本地 `docs/`,不会自动 commit/push 到 GitHub Pages。是否提交推送要**先问用户**,不要擅自 git push。
-12. **飞书文档(docx)每条信息后必须带引用格式来源链接**。`--create-doc` 会先用 `build_docx_markdown(date)` 生成 `_intermediate/docx_import_<date>.md`(在每个 item 后插一行 `> 来源：[标题](url)` 引用块),再导入这份、**不是原报告 markdown**。来源取自 `sources_used.md`(`parse_sources` + `sources_for`,复用 `build_report_html`)。两条铁律:① **绝不把引用行写回原报告 markdown**——原 md 是 lint / 网页 / 卡片的唯一真相源,污染它会破坏 lint 和字数检查;② 来源标题里的 `[ ]` 方括号(NGA 标题常见 `[新瓜]`/`[英雄互娱]`)必须转全角 `【 】`,否则会破坏 markdown 链接文字解析。`docx_import_*.md` 是生成物,已加入 .gitignore,不提交。
+12. **飞书文档(docx)每条信息必须带引用格式来源链接,且默认折叠**。`--create-doc` 会先用 `build_docx_markdown(date)` 生成 `_intermediate/docx_import_<date>.md`(把正文改成无序列表、来源作为**子级 bullet** 嵌在正文下),再导入这份、**不是原报告 markdown**;导入后 `create_daily_doc` 调 `fold_source_bullets` 用 docx blocks API 把带「来源」子块的父 bullet **默认折叠**(还原用户附图 3/4:点三角才展开来源)。来源取自 `sources_used.md`(`parse_sources` + `sources_for`,复用 `build_report_html`)。四条铁律:① **绝不把引用行写回原报告 markdown**——原 md 是 lint / 网页 / 卡片的唯一真相源,污染它会破坏 lint 和字数检查;② 来源标题里的 `[ ]` 方括号(NGA 标题常见 `[新瓜]`/`[英雄互娱]`)必须转全角 `【 】`,否则会破坏 markdown 链接文字解析;③ 来源标题里的 `$` 必须转义成 `\$`(`_citation_parts` 已处理)——否则成对 `$...$` 会被飞书当 LaTeX 渲染成黑色斜体乱码(附图1 根因,典型是 Steam 收入类含 `$11.1bn` 的英文来源);④ 来源按 url(回退 label)去重,避免同一条挂一长串重复源(附图2)。`docx_import_*.md` 是生成物,已加入 .gitignore,不提交。
 
 13. **每个日期只保留一篇 docx**。`publish_feishu_daily.py` 不再每次推送都新建文档——`existing_doc_for_date(date)` 先查 `publish_logs/daily_<date>.json` 的 `doc_token`/`doc_url`,**有则复用同一篇**(dry-run 会打印 `would REUSE existing docx`,正式跑打印 `[doc] reusing existing docx`)。用户要求:同一天内容要改就**在原文档里手改**(飞书有编辑历史),不要堆一堆新文档。只有 `--new-doc` 才强制新建。注意复用意味着文档内容停留在首次创建那一版,后续改报告正文不会自动回灌进 docx——这是有意为之(用户手动维护)。验收:同一天重复推送后,飞书云空间该日期下**只有一篇** docx,链接不变。
 
@@ -72,14 +72,17 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 - **文档按钮**:传入 `doc_url` 时卡片底部加一个 primary 按钮"📄 查看完整日报",指向 docx。
 - **`per_section` / `--max-items`** 控制每节最多显示几条;见 Hard No #6,务必大于最长节的条目数。
 
-## 飞书文档(docx)来源引用(`build_docx_markdown`)
+## 飞书文档(docx)来源引用 + 默认折叠(`build_docx_markdown` + `fold_source_bullets`)
 
-- **触发**:`publish_feishu_daily.py --create-doc` → `create_daily_doc` 调 `build_docx_markdown(date)` 生成带引用的 markdown,导入这份生成 docx。**原报告 markdown 不动**。
-- **插入逻辑**(`feishu_common.build_docx_markdown`,按节走行):
-  - 行业新闻 / AI / 玩家舆论 / 深度:每个 `### N. 标题` item 结束处插 `> 来源：[标题](url)`,标题→来源用 `sources_for(标题)` 查。
-  - 产品日历:每条 `- ` bullet 后插来源;key 用 `产品日历 - <《》游戏名>`,回退到游戏名。
-- **来源标签**:取 `sources_used.md` 的标题(`id_meta` 的 name),多源用「·」连接;无 url 的退化成纯文本。`[ ]`→`【 】` 防链接解析错乱(`_citation_md`)。
-- **验收(发文档后逐条看)**:① docx 里每条信息下方都有「来源」引用块且链接可点;② 引用块没有把 `[新瓜]` 这类括号显示成断裂链接;③ 原 `game_industry_daily_<date>.md` 的 `git diff` 为空(没被污染);④ `_intermediate/docx_import_<date>.md` 未被 git 跟踪。
+- **触发**:`publish_feishu_daily.py --create-doc` → `create_daily_doc` 依次:`build_docx_markdown(date)` 生成带引用的 markdown → 导入生成 docx → `set_doc_public_permission` → `fold_source_bullets` 折叠来源。**原报告 markdown 不动**。
+- **结构与插入逻辑**(`feishu_common.build_docx_markdown`,按节走行):
+  - 行业新闻 / AI / 玩家舆论:保留 `### N. 标题` 标题;正文段改成一个 `- ` 无序列表项;来源作为 **2 空格缩进的子 bullet** `  - 来源：...` 嵌在正文下。标题→来源用 `sources_for(标题)` 查。
+  - 产品日历:每条 `- ` bullet 后跟一个 `  - 来源：...` 子 bullet;key 用 `产品日历 - <《》游戏名>`,回退到游戏名。
+  - 深度观察:**保持多段正文原样**(观察/分析长文),来源用 `> 来源：...` 引用块,**不折叠**(长文少源,折叠无意义)。
+- **来源渲染**(`_citation_parts` / `_citation_md` / `_citation_child_bullet`):取 `sources_used.md` 的标题(`id_meta` 的 name),多源用「·」连接;无 url 的退化成纯文本。三重清洗:`[ ]`→`【 】` 防链接解析错乱;`$`→`\$` 防 LaTeX 公式渲染(见 Hard No #12③);按 url(回退 label)去重(见 Hard No #12④)。
+- **折叠**(`FeishuClient.fold_source_bullets`):导入后遍历全部块(`get_all_blocks` 分页),找到"子块是 `来源` bullet"的父 bullet,逐个 PATCH `{"update_text_style":{"style":{"folded":true},"fields":[3]}}` 折叠。折叠是锦上添花,失败只打 `[warn]` 不阻断发卡。
+- **所需 scope**:折叠要读+写 docx 块,pipeline 应用(`cli_a94978ff48f89cd5`)须开 `docx:document:readonly` + `docx:document:write_only`(均为免审)。缺 scope 会在 `fold_source_bullets` 报 `Access denied`,此时文档已建好、只是来源不折叠。
+- **验收(发文档后逐条看)**:① 每条新闻正文是列表项、来源作为子级**默认折叠**(点三角才展开);② 深度观察保持多段正文 + `> 来源` 引用;③ 无 `[新瓜]` 断裂链接、无 `$...$` 黑色斜体乱码、无重复来源;④ 原 `game_industry_*.md` 的 `git diff` 为空(没被污染);⑤ `_intermediate/docx_import_<date>.md` 未被 git 跟踪。
 
 ## 常见问题速查
 
@@ -90,3 +93,5 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 - 网页和卡片内容对不上 → 漏了 `build_report_html.py` 或 `build_docs.py`,或两者基于不同 markdown(Hard No #3)。
 - docx 里某条没有来源引用 → 该 item 标题在 `sources_used.md` 的 Item Source Map 里查不到(标题对不上,或 release 没用 `产品日历 - 名称` key)。
 - docx 引用链接断裂/显示成纯文本 → 标题里有未转全角的 `[ ]`,或 `sources_used.md` 的 Source Details 缺 URL(Hard No #12)。
+- docx 来源没折叠(全展开) → `fold_source_bullets` 报错(看发布日志 `[warn]`):多半是 pipeline 应用缺 `docx:document:readonly`/`write_only` scope;或来源子 bullet 文本没以「来源」开头(改过 `_citation_child_bullet` 前缀就会漏折)。
+- docx 某条来源显示成黑色斜体公式 → 来源标题含成对 `$`(如英文收入报道 `$11.1bn ... $11 billion`)未转义;`_citation_parts` 应已 `$`→`\$`,若复现检查该函数是否被绕过。
