@@ -1,227 +1,1366 @@
 # Report Inputs Index
 
+- Total records: 1344
+- 本文件列出每个 section 的**全部**记录（无截断）；表头计数 == 该节列出的行数。
+- 用途：生成阶段先扫这里做全局标题/来源/日期覆盖，再按 source_id 下钻 JSONL 细节。
+- **禁止截断**：任何一节的行数少于表头计数即为漏召回缺陷。
+
 ## ai_trends (99 records)
 
-- S0068 | 2026-07-10 | N/A | OpenAI 发布最强模型与最佳博文
-- S0069 | 2026-07-10 | N/A | Google 推出 LiteRT.js：高性能 Web AI 推理运行时
-- S0070 | 2026-07-10 | N/A | ChatGPT Sites将创意变可发布网站
-- S0071 | 2026-07-10 | N/A | Cognition 推出 SWE-1.7，接近 GPT 5.5 与 Opus 智能水平
-- S0072 | 2026-07-10 | N/A | 微软发布Flint：面向AI智能体的可视化语言
-- S0073 | 2026-07-10 | N/A | Bun 被 Anthropic 收购后用 Rust 重写，月下载超 2200 万
-- S0074 | 2026-07-10 | N/A | 社交媒体AI生成内容泛滥：LinkedIn超过40%长文为AI写作
-- S0075 | 2026-07-10 | N/A | AI 能否回答 3 万亿美元的问题？
-- S0076 | 2026-07-10 | N/A | Show HN： 如何在我的低配置电脑上运行 GLM-5.2
-- S0077 | 2026-07-10 | N/A | Thinking Machines Lab：构建延伸人类意志与判断的 AI
-- S0078 | 2026-07-10 | N/A | Claude Code v2.1.206 发布
-- S0079 | 2026-07-10 | N/A | Elon Musk 转发用户称赞 Grok Build 的反馈
-- S0080 | 2026-07-10 | N/A | 马斯克承认Anthropic是当前AI领导者
-- S0081 | 2026-07-10 | N/A | 扎克伯格首度回应 Meta"算力过剩"：没人会嫌算力太多，但租出去更赚钱
-- S0082 | 2026-07-10 | N/A | 小红书发布大模型新架构 PIPO
-- S0083 | 2026-07-10 | N/A | 百度搭子在成都AI Day发布四项更新：个人版升级、自媒体套件、企业版及搭子联盟
-- S0084 | 2026-07-10 | N/A | Perplexity 推出跨模型信用额度分析功能
-- S0221 | 2026-07-11 | N/A | Claude Code桌面版新增应用内浏览器
-- S0222 | 2026-07-11 | N/A | 宇树G1人形机器人完成首例活体微创手术
-- S0223 | 2026-07-11 | N/A | OpenAI 论文：GPT-5.6 Sol Ultra 证明图论"循环双覆盖猜想"
-- S0224 | 2026-07-11 | N/A | 博科圣地如何利用前沿AI技术
-- S0225 | 2026-07-11 | N/A | 苹果起诉OpenAI窃取商业机密开发AI硬件
-- S0226 | 2026-07-11 | N/A | Meta 关闭 Instagram 用户可基于公开账户生成 AI 深度伪造图片的功能
-- S0227 | 2026-07-11 | N/A | Claude Code v2.1.207 发布
-- S0228 | 2026-07-11 | N/A | OpenAI GPT-5.6-Sol 删光 AI 创业者 Matt Shumer 的 Mac 硬盘
-- S0229 | 2026-07-11 | N/A | 11天Claude Fable 5写超100万行代码：Rust重构JavaScript运行时Bun
-- S0230 | 2026-07-11 | N/A | 蚂蚁集团 Robbyant 发布 LingBot-VA 2.0，首个原生具身基础模型
-- S0307 | 2026-07-12 | N/A | Ghost Font：一种人类能读懂但AI无法识别的反AI字体
-- S0308 | 2026-07-12 | N/A | OpenAI 发布 GPT-5.6 系列医疗评估结果
-- S0309 | 2026-07-12 | N/A | 研究：博科圣地已使用ChatGPT、Claude等主流AI聊天机器人用于袭击策划与武器开发
-- S0310 | 2026-07-12 | N/A | 彭博社揭秘苹果起诉 OpenAI 内幕：前员工一句"哈哈"成窃密关键
-- S0311 | 2026-07-12 | N/A | OpenAI GPT-5.6 Sol Ultra 一小时证明 50 年图论猜想
-- S0312 | 2026-07-12 | N/A | Tibo 分享通过 CLIProxyAPI 将 Claude Code 后端模型切换为 GPT-5.6 Sol 的方法
-- S0313 | 2026-07-12 | N/A | Mesh LLM：在 iroh 上进行分布式人工智能计算
-- S0314 | 2026-07-12 | N/A | 苹果起诉OpenAI挖角窃密，分析师称即使指控未证实也可能重创其硬件计划
-- S0315 | 2026-07-12 | N/A | xAI Grok Build CLI 网络流量分析：上传仓库全部文件及 git 历史
-- S0316 | 2026-07-12 | N/A | OpenAI CEO Altman 改口称 AI 净创造就业，Anthropic CEO 也修正早期言论
-- S0317 | 2026-07-12 | N/A | Mindwalk：在代码库 3D 地图上回放编码代理会话
-- S0318 | 2026-07-12 | N/A | 纳德拉提出"反向信息悖论"：企业使用AI时需保护自身知识
-- S0434 | 2026-07-13 | N/A | 腾讯混元发布Hy3模型：295B参数MoE架构，Agent向LLM定位，已集成微信服务10亿+用户
-- S0435 | 2026-07-13 | N/A | Codex与ChatGPT Work多项更新：取消5小时限制
-- S0436 | 2026-07-13 | N/A | Ploy 将 AI 智能体默认模型从 Claude Opus 4.8 切换至 GPT-5.6 Sol
-- S0437 | 2026-07-13 | N/A | xAI 官方 Grok CLI 被曝静默上传整个代码库及用户密钥
-- S0438 | 2026-07-13 | N/A | 黄仁勋：英伟达季度收入逼近千亿美元，Rubin Ultra 架构未延期
-- S0439 | 2026-07-13 | N/A | Seedream 5.0 Pro 测评：图像编辑门槛爆降
-- S0440 | 2026-07-13 | N/A | Meta 宣布扩建路易斯安那州数据中心至 5GW，总投资超 500 亿美元
-- S0441 | 2026-07-13 | N/A | 腾讯混元发布 HyOCR-1.5：端到端 OCR 大模型全栈开源，推理提速 6.37 倍
-- S0442 | 2026-07-13 | N/A | 德国AI协会发布开源模型Soofi S，在英语和德语基准测试中领先
-- S0597 | 2026-07-14 | N/A | OpenAI 面向普通用户发布提示词指南：从结果出发，少写步骤
-- S0598 | 2026-07-14 | N/A | 前沿模型实际成本：tokenizer 差异导致隐性涨价
-- ... and 49 more
+- `S0068` [2026-07-10] (aihot.virxact.com) OpenAI 发布最强模型与最佳博文 — 310 chars, body=full
+- `S0069` [2026-07-10] (aihot.virxact.com) Google 推出 LiteRT.js：高性能 Web AI 推理运行时 — 468 chars, body=full
+- `S0070` [2026-07-10] (aihot.virxact.com) ChatGPT Sites将创意变可发布网站 — 349 chars, body=full
+- `S0071` [2026-07-10] (aihot.virxact.com) Cognition 推出 SWE-1.7，接近 GPT 5.5 与 Opus 智能水平 — 577 chars, body=full
+- `S0072` [2026-07-10] (aihot.virxact.com) 微软发布Flint：面向AI智能体的可视化语言 — 476 chars, body=full
+- `S0073` [2026-07-10] (aihot.virxact.com) Bun 被 Anthropic 收购后用 Rust 重写，月下载超 2200 万 — 496 chars, body=full
+- `S0074` [2026-07-10] (aihot.virxact.com) 社交媒体AI生成内容泛滥：LinkedIn超过40%长文为AI写作 — 519 chars, body=full
+- `S0075` [2026-07-10] (aihot.virxact.com) AI 能否回答 3 万亿美元的问题？ — 587 chars, body=full
+- `S0076` [2026-07-10] (aihot.virxact.com) Show HN： 如何在我的低配置电脑上运行 GLM-5.2 — 396 chars, body=full
+- `S0077` [2026-07-10] (aihot.virxact.com) Thinking Machines Lab：构建延伸人类意志与判断的 AI — 497 chars, body=full
+- `S0078` [2026-07-10] (aihot.virxact.com) Claude Code v2.1.206 发布 — 640 chars, body=full
+- `S0079` [2026-07-10] (aihot.virxact.com) Elon Musk 转发用户称赞 Grok Build 的反馈 — 566 chars, body=full
+- `S0080` [2026-07-10] (aihot.virxact.com) 马斯克承认Anthropic是当前AI领导者 — 465 chars, body=full
+- `S0081` [2026-07-10] (aihot.virxact.com) 扎克伯格首度回应 Meta"算力过剩"：没人会嫌算力太多，但租出去更赚钱 — 534 chars, body=full
+- `S0082` [2026-07-10] (aihot.virxact.com) 小红书发布大模型新架构 PIPO — 512 chars, body=full
+- `S0083` [2026-07-10] (aihot.virxact.com) 百度搭子在成都AI Day发布四项更新：个人版升级、自媒体套件、企业版及搭子联盟 — 443 chars, body=full
+- `S0084` [2026-07-10] (aihot.virxact.com) Perplexity 推出跨模型信用额度分析功能 — 350 chars, body=full
+- `S0221` [2026-07-11] (aihot.virxact.com) Claude Code桌面版新增应用内浏览器 — 378 chars, body=full
+- `S0222` [2026-07-11] (aihot.virxact.com) 宇树G1人形机器人完成首例活体微创手术 — 393 chars, body=full
+- `S0223` [2026-07-11] (aihot.virxact.com) OpenAI 论文：GPT-5.6 Sol Ultra 证明图论"循环双覆盖猜想" — 525 chars, body=full
+- `S0224` [2026-07-11] (aihot.virxact.com) 博科圣地如何利用前沿AI技术 — 512 chars, body=full
+- `S0225` [2026-07-11] (aihot.virxact.com) 苹果起诉OpenAI窃取商业机密开发AI硬件 — 430 chars, body=full
+- `S0226` [2026-07-11] (aihot.virxact.com) Meta 关闭 Instagram 用户可基于公开账户生成 AI 深度伪造图片的功能 — 469 chars, body=full
+- `S0227` [2026-07-11] (aihot.virxact.com) Claude Code v2.1.207 发布 — 736 chars, body=full
+- `S0228` [2026-07-11] (aihot.virxact.com) OpenAI GPT-5.6-Sol 删光 AI 创业者 Matt Shumer 的 Mac 硬盘 — 644 chars, body=full
+- `S0229` [2026-07-11] (aihot.virxact.com) 11天Claude Fable 5写超100万行代码：Rust重构JavaScript运行时Bun — 441 chars, body=full
+- `S0230` [2026-07-11] (aihot.virxact.com) 蚂蚁集团 Robbyant 发布 LingBot-VA 2.0，首个原生具身基础模型 — 543 chars, body=full
+- `S0307` [2026-07-12] (aihot.virxact.com) Ghost Font：一种人类能读懂但AI无法识别的反AI字体 — 572 chars, body=full
+- `S0308` [2026-07-12] (aihot.virxact.com) OpenAI 发布 GPT-5.6 系列医疗评估结果 — 519 chars, body=full
+- `S0309` [2026-07-12] (aihot.virxact.com) 研究：博科圣地已使用ChatGPT、Claude等主流AI聊天机器人用于袭击策划与武器开发 — 591 chars, body=full
+- `S0310` [2026-07-12] (aihot.virxact.com) 彭博社揭秘苹果起诉 OpenAI 内幕：前员工一句"哈哈"成窃密关键 — 489 chars, body=full
+- `S0311` [2026-07-12] (aihot.virxact.com) OpenAI GPT-5.6 Sol Ultra 一小时证明 50 年图论猜想 — 517 chars, body=full
+- `S0312` [2026-07-12] (aihot.virxact.com) Tibo 分享通过 CLIProxyAPI 将 Claude Code 后端模型切换为 GPT-5.6 Sol 的方法 — 506 chars, body=full
+- `S0313` [2026-07-12] (aihot.virxact.com) Mesh LLM：在 iroh 上进行分布式人工智能计算 — 488 chars, body=full
+- `S0314` [2026-07-12] (aihot.virxact.com) 苹果起诉OpenAI挖角窃密，分析师称即使指控未证实也可能重创其硬件计划 — 428 chars, body=full
+- `S0315` [2026-07-12] (aihot.virxact.com) xAI Grok Build CLI 网络流量分析：上传仓库全部文件及 git 历史 — 808 chars, body=full
+- `S0316` [2026-07-12] (aihot.virxact.com) OpenAI CEO Altman 改口称 AI 净创造就业，Anthropic CEO 也修正早期言论 — 619 chars, body=full
+- `S0317` [2026-07-12] (aihot.virxact.com) Mindwalk：在代码库 3D 地图上回放编码代理会话 — 529 chars, body=full
+- `S0318` [2026-07-12] (aihot.virxact.com) 纳德拉提出"反向信息悖论"：企业使用AI时需保护自身知识 — 475 chars, body=full
+- `S0434` [2026-07-13] (aihot.virxact.com) 腾讯混元发布Hy3模型：295B参数MoE架构，Agent向LLM定位，已集成微信服务10亿+用户 — 544 chars, body=full
+- `S0435` [2026-07-13] (aihot.virxact.com) Codex与ChatGPT Work多项更新：取消5小时限制 — 444 chars, body=full
+- `S0436` [2026-07-13] (aihot.virxact.com) Ploy 将 AI 智能体默认模型从 Claude Opus 4.8 切换至 GPT-5.6 Sol — 647 chars, body=full
+- `S0437` [2026-07-13] (aihot.virxact.com) xAI 官方 Grok CLI 被曝静默上传整个代码库及用户密钥 — 604 chars, body=full
+- `S0438` [2026-07-13] (aihot.virxact.com) 黄仁勋：英伟达季度收入逼近千亿美元，Rubin Ultra 架构未延期 — 475 chars, body=full
+- `S0439` [2026-07-13] (aihot.virxact.com) Seedream 5.0 Pro 测评：图像编辑门槛爆降 — 486 chars, body=full
+- `S0440` [2026-07-13] (aihot.virxact.com) Meta 宣布扩建路易斯安那州数据中心至 5GW，总投资超 500 亿美元 — 392 chars, body=full
+- `S0441` [2026-07-13] (aihot.virxact.com) 腾讯混元发布 HyOCR-1.5：端到端 OCR 大模型全栈开源，推理提速 6.37 倍 — 541 chars, body=full
+- `S0442` [2026-07-13] (aihot.virxact.com) 德国AI协会发布开源模型Soofi S，在英语和德语基准测试中领先 — 656 chars, body=full
+- `S0597` [2026-07-14] (aihot.virxact.com) OpenAI 面向普通用户发布提示词指南：从结果出发，少写步骤 — 576 chars, body=full
+- `S0598` [2026-07-14] (aihot.virxact.com) 前沿模型实际成本：tokenizer 差异导致隐性涨价 — 676 chars, body=full
+- `S0599` [2026-07-14] (aihot.virxact.com) 视频生成创企 PixVerse 完成 4.39 亿美元 C 轮扩展融资，估值超 20 亿美元 — 552 chars, body=full
+- `S0600` [2026-07-14] (aihot.virxact.com) 商汤开源 SenseNova-Vision-7B-MoT 多任务视觉模型 — 459 chars, body=full
+- `S0601` [2026-07-14] (aihot.virxact.com) 面壁智能CTO曾国洋专访：端侧模型是AI落地关键路径 — 526 chars, body=full
+- `S0602` [2026-07-14] (aihot.virxact.com) 普林斯顿教授 Narayanan 在 ICML 2026 发表主旨演讲：AI 作为正常技术，人类应主动适应而非躺平 — 526 chars, body=full
+- `S0603` [2026-07-14] (aihot.virxact.com) 高德发布通用世界模型工坊 ABot-WorldStudio，已开放测试 — 455 chars, body=full
+- `S0604` [2026-07-14] (aihot.virxact.com) 腾讯混元 Hy3 量化版发布：1bit 版本单卡可部署，4bit 版本接近满血性能 — 544 chars, body=full
+- `S0605` [2026-07-14] (aihot.virxact.com) 实测LibTV Agent：100个AI视频工作流重组为Skill，实现创意自由 — 519 chars, body=full
+- `S0606` [2026-07-14] (aihot.virxact.com) Demis Hassabis：AGI 数年可至，影响达工业革命10倍 — 554 chars, body=full
+- `S0607` [2026-07-14] (aihot.virxact.com) Anthropic 经济指数：加拿大 Claude 使用情况分析 — 566 chars, body=full
+- `S0608` [2026-07-14] (aihot.virxact.com) Anthropic 推出 Claude for Teachers — 628 chars, body=full
+- `S0609` [2026-07-14] (aihot.virxact.com) Google AI 发布 Gemini 3.5 Live Translate，支持 70+ 语言近实时语音到语音翻译 — 661 chars, body=full
+- `S0610` [2026-07-14] (aihot.virxact.com) 纽约州暂停所有新建大型数据中心项目 — 535 chars, body=full
+- `S0891` [2026-07-15] (aihot.virxact.com) 如何让 Claude 不再说"honest takes"和"load-bearing seams" — 609 chars, body=full
+- `S0892` [2026-07-15] (aihot.virxact.com) Google 在 I/O Connect India 展示由 Tensor SoC 和 TPU 驱动的 Pixel 10 端侧 AI 未来 — 584 chars, body=full
+- `S0893` [2026-07-15] (aihot.virxact.com) Google 因 AI 训练再遭出版商集体诉讼 — 565 chars, body=full
+- `S0894` [2026-07-15] (aihot.virxact.com) Bonsai 27B：首款可在手机上运行的27B级多模态模型 — 515 chars, body=full
+- `S0895` [2026-07-15] (aihot.virxact.com) Cursor IDE 0day 漏洞：打开恶意仓库即可自动执行任意代码 — 609 chars, body=full
+- `S0896` [2026-07-15] (aihot.virxact.com) OpenAI GPT-5.6 Sol 被曝自行删除用户文件与数据库 — 680 chars, body=full
+- `S0897` [2026-07-15] (aihot.virxact.com) Codex 周活超700万，两月更新150+项 — 421 chars, body=full
+- `S0898` [2026-07-15] (aihot.virxact.com) 每天Vibe Coding 16小时，作者分享Fable 5与GPT-5.6 Sol的AI开发流程 — 422 chars, body=full
+- `S0899` [2026-07-15] (aihot.virxact.com) 开源 LLM TODO Skill"阿福"：用 Claude Code 和 Codex 实现知识管理到排期自动化 — 462 chars, body=full
+- `S0900` [2026-07-15] (aihot.virxact.com) Airtap iMessage 新功能：发条短信让 AI 替你操作手机 — 473 chars, body=full
+- `S0901` [2026-07-15] (aihot.virxact.com) 阿里发布 Qwen-Audio-3.0-Realtime，在 Artificial Analysis 语音推理子项中综合排名第一 — 407 chars, body=full
+- `S0902` [2026-07-15] (aihot.virxact.com) 数据中心已使美国公众电费增加230亿美元，回收成本困难重重 — 435 chars, body=full
+- `S0903` [2026-07-15] (aihot.virxact.com) 金山办公推出 WPS Comate AI 办公客户端 — 347 chars, body=full
+- `S0904` [2026-07-15] (aihot.virxact.com) 国行 Apple 智能完成备案，阿里千问将集成至苹果 AI 能力 — 396 chars, body=full
+- `S0905` [2026-07-15] (aihot.virxact.com) OpenAI 发布 GPT-Red：通过自动化红队测试提升模型鲁棒性 — 464 chars, body=full
+- `S0906` [2026-07-15] (aihot.virxact.com) 阿里Qwen将集成至Apple Intelligence服务中国用户 — 454 chars, body=full
+- `S0907` [2026-07-15] (aihot.virxact.com) Telegram 无服务器架构 — 414 chars, body=full
+- `S1195` [2026-07-16] (aihot.virxact.com) AI语音诈骗：退休老人因合成女儿哭声被骗1.5万美元 — 13657 chars, body=full
+- `S1196` [2026-07-16] (aihot.virxact.com) Anthropic 研究：AI 智能体模拟中行为偏差 — 602 chars, body=full
+- `S1197` [2026-07-16] (aihot.virxact.com) Thinking Machines 发布多模态模型 Inkling — 738 chars, body=full
+- `S1198` [2026-07-16] (aihot.virxact.com) 前谷歌DeepMind研究员因公司签署无限制军事AI协议而离职 — 29350 chars, body=full
+- `S1199` [2026-07-16] (aihot.virxact.com) Claude Code 新增 MCP 连接器调用功能 — 561 chars, body=full
+- `S1200` [2026-07-16] (aihot.virxact.com) 开源编程智能体内存方案发布，通过 SSH 同步 — 415 chars, body=full
+- `S1201` [2026-07-16] (aihot.virxact.com) 远程操控Agent干活方案：Codex主力 + UU远程兜底 — 568 chars, body=full
+- `S1202` [2026-07-16] (aihot.virxact.com) xAI 开源 Grok CLI 代码库中发现 Mermaid 转 Unicode 框图工具 — 480 chars, body=full
+- `S1203` [2026-07-16] (aihot.virxact.com) MiniMax Code 2.0 桌面端焕新：底层架构全面升级，金融模块即将上线 — 504 chars, body=full
+- `S1204` [2026-07-16] (aihot.virxact.com) 天工短剧工作台发布"Agent智能分镜+无限画布"双轨创作模式 — 451 chars, body=full
+- `S1205` [2026-07-16] (aihot.virxact.com) 千问APP联合武汉发布举办AI求职实战课，演示简历诊断与办公自动化 — 446 chars, body=full
+- `S1206` [2026-07-16] (aihot.virxact.com) Patter SDK 教程：构建餐厅预订电话智能体，支持动态变量、护栏、延迟仪表盘与评估检查 — 22388 chars, body=full
+- `S1207` [2026-07-16] (aihot.virxact.com) 台积电上调2026年资本支出预测至600~640亿美元，A14制程进展顺利 — 997 chars, body=full
+- `S1208` [2026-07-16] (aihot.virxact.com) Gemini Enterprise Agent Platform 新增 Parallel Web Search 网络接地提供商 — 794 chars, body=full
+- `S1209` [2026-07-16] (aihot.virxact.com) HYPIC：小红书联合北大、上交提出首个混合注意力大模型位置无关缓存系统 — 474 chars, body=full
+- `S1210` [2026-07-16] (aihot.virxact.com) 欧盟裁定 Google 必须向竞争对手开放 Android 和 Search，影响 Gemini 等 AI 服务 — 721 chars, body=full
+- `S1211` [2026-07-16] (aihot.virxact.com) 秒哒 3.5 全球首发 iOS App，无代码开发与多端共享后端能力升级 — 509 chars, body=full
+- `S1212` [2026-07-16] (aihot.virxact.com) 面壁智能开源企业AI数字员工平台StaffDeck — 669 chars, body=full
+- `S1213` [2026-07-16] (aihot.virxact.com) 在 Claude Cowork 中使用 Claude Fable 5 — 6677 chars, body=full
+- `S1214` [2026-07-16] (aihot.virxact.com) 世界人工智能合作组织协定签署仪式在上海举行，总部设中国上海 — 1023 chars, body=full
 
 ## community_discourse (219 records)
 
-- S0173 | 2026-07-10 | N/A | [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙
-- S0174 | 2026-07-10 | N/A | [厂商] 黎洋判决书实锤商单
-- S0175 | 2026-07-10 | N/A | [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福
-- S0176 | 2026-07-10 | N/A | [米哈游] [崩铁]皮肤？本体+专武+命座！换装即sp时代唐唐来袭
-- S0177 | 2026-07-10 | N/A | [新瓜][厂商]恋与深空bw撤展
-- S0178 | 2026-07-10 | N/A | [原神]木偶节奏毫不意外的向集美滑轨加了布料
-- S0179 | 2026-07-10 | N/A | [新瓜] APEX联动边缘行者，有露西和大卫
-- S0180 | 2026-07-10 | N/A | [米哈游][恋与深空]深情乙女扩散中。。。
-- S0181 | 2026-07-10 | N/A | [新瓜]bw停展同步，恋与深空日本活动也停了
-- S0182 | 2026-07-10 | N/A | [厂商]做一个卡厄斯梦境的综合瓜
-- S0183 | 2026-07-10 | N/A | [新瓜] [瓜小味甜]新捉宠游戏《伊莫》采用黑红拉踩路线进行宣发，官号下场骑脸洛手
-- S0184 | 2026-07-10 | N/A | [厂商]恋与深空今日早上6点发布公告，评论区瞬间出现大量要求第6位男主回归的评论
-- S0185 | 2026-07-10 | N/A | [米哈游]原神队长英配cv给散兵改名为敖尹
-- S0186 | 2026-07-10 | N/A | [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉
-- S0187 | 2026-07-10 | N/A | [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资
-- S0188 | 2026-07-10 | N/A | [停服] 深空之眼停止更新
-- S0189 | 2026-07-10 | N/A | [新闻相关]血族手游联动血族漫画
-- S0190 | 2026-07-10 | N/A | [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎
-- S0191 | 2026-07-10 | N/A | [新瓜] [岁月史书3] [恋与深空]关于微博上媒体首次参与恋与深空报道新闻的整理[范围：6月22日0点-7月1号0点]
-- S0192 | 2026-07-10 | N/A | [英雄互娱] 二重螺旋反作弊封了自家云游戏机器码
-- S0193 | 2026-07-10 | N/A | Steam sales reportedly topped $11 billion during H1 2026 due to shifting trends 
-- S0194 | 2026-07-10 | N/A | Xbox needs to make a choice, says former PlayStation leader Shawn Layden: be a p
-- S0195 | 2026-07-10 | N/A | Cygames Revives Project Awakening a Decade After Reveal, Ditching Its Own Engine
-- S0196 | 2026-07-10 | N/A | Ubisoft has added a cash shop and weekly challenges to its 'faithful' remake of 
-- S0197 | 2026-07-10 | N/A | Roughly 192 Subnautica 2 players have drowned every minute since launch
-- S0198 | 2026-07-10 | N/A | TIL that this little robot in Metal Gear Solid 4 was made out of a PS3 and it ha
-- S0199 | 2026-07-10 | N/A | The most beautiful environments i've ever seen in a video game. (Death Stranding
-- S0200 | 2026-07-10 | N/A | Baltimore Business Journal- 379 employees laid off at Zenimax and Zenimax Online
-- S0201 | 2026-07-10 | N/A | My son got in trouble at school and as a parent of a child who doesn't get in tr
-- S0202 | 2026-07-10 | N/A | Xbox CEO Asha Sharma named as adviser to US Federal Reserve on ‘Jobs and Product
-- S0203 | 2026-07-10 | N/A | Windows Central: Microsoft has no plans to shelve iD Tech, iD Software is not be
-- S0204 | 2026-07-10 | N/A | Which Easter eggs did YOU discover without a guide or already knowing about them
-- S0205 | 2026-07-10 | N/A | Xbox Layoffs Reduce id Tech Engine Team to 1 Developer, As Unreal Engine Dominan
-- S0271 | 2026-07-11 | N/A | [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI
-- S0272 | 2026-07-11 | N/A | [厂商] 司法部、公安部公众号发布恋与深空批评文章
-- S0273 | 2026-07-11 | N/A | [停服]深空之眼，停止更新
-- S0274 | 2026-07-11 | N/A | [原神]木偶节奏毫不意外的向集美滑轨加了布料
-- S0275 | 2026-07-11 | N/A | 疑似小鸣汝窑削弱
-- S0276 | 2026-07-11 | N/A | [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资
-- S0277 | 2026-07-11 | N/A | [米哈游]原神队长英配cv给散兵改名为敖尹
-- S0278 | 2026-07-11 | N/A | [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉
-- S0279 | 2026-07-11 | N/A | [停服]深空之眼玩家展开自救运动
-- S0280 | 2026-07-11 | N/A | [新瓜] 异环官方麻将宣传图疑似出老千
-- S0281 | 2026-07-11 | N/A | [新闻相关]血族手游联动血族漫画
-- S0282 | 2026-07-11 | N/A | [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎
-- S0283 | 2026-07-11 | N/A | [米哈游]疑似米家下一代主机/pc游戏即将开始测试
-- S0284 | 2026-07-11 | N/A | [1999]小甜瓜，历史过期兑换码可以再次兑换，官方大号半夜发公告修复
-- S0285 | 2026-07-11 | N/A | I'm glad my younger self never traded or tossed any games
-- S0286 | 2026-07-11 | N/A | A rare win for digital ownership: Chinese courts rule game accounts can be inher
-- S0287 | 2026-07-11 | N/A | my collection of all my ps4/5 games
-- ... and 169 more
+- `S0173` [2026-07-10] (bbs.nga.cn) [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙 — 1802 chars, body=full
+- `S0174` [2026-07-10] (bbs.nga.cn) [厂商] 黎洋判决书实锤商单 — 1888 chars, body=full
+- `S0175` [2026-07-10] (bbs.nga.cn) [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福 — 2185 chars, body=full
+- `S0176` [2026-07-10] (bbs.nga.cn) [米哈游] [崩铁]皮肤？本体+专武+命座！换装即sp时代唐唐来袭 — 2295 chars, body=full
+- `S0177` [2026-07-10] (bbs.nga.cn) [新瓜][厂商]恋与深空bw撤展 — 1491 chars, body=full
+- `S0178` [2026-07-10] (bbs.nga.cn) [原神]木偶节奏毫不意外的向集美滑轨加了布料 — 1272 chars, body=full
+- `S0179` [2026-07-10] (bbs.nga.cn) [新瓜] APEX联动边缘行者，有露西和大卫 — 1673 chars, body=full
+- `S0180` [2026-07-10] (bbs.nga.cn) [米哈游][恋与深空]深情乙女扩散中。。。 — 1384 chars, body=full
+- `S0181` [2026-07-10] (bbs.nga.cn) [新瓜]bw停展同步，恋与深空日本活动也停了 — 3025 chars, body=full
+- `S0182` [2026-07-10] (bbs.nga.cn) [厂商]做一个卡厄斯梦境的综合瓜 — 3831 chars, body=full
+- `S0183` [2026-07-10] (bbs.nga.cn) [新瓜] [瓜小味甜]新捉宠游戏《伊莫》采用黑红拉踩路线进行宣发，官号下场骑脸洛手 — 1877 chars, body=full
+- `S0184` [2026-07-10] (bbs.nga.cn) [厂商]恋与深空今日早上6点发布公告，评论区瞬间出现大量要求第6位男主回归的评论 — 1637 chars, body=full
+- `S0185` [2026-07-10] (bbs.nga.cn) [米哈游]原神队长英配cv给散兵改名为敖尹 — 1094 chars, body=full
+- `S0186` [2026-07-10] (bbs.nga.cn) [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉 — 1914 chars, body=full
+- `S0187` [2026-07-10] (bbs.nga.cn) [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资 — 1920 chars, body=full
+- `S0188` [2026-07-10] (bbs.nga.cn) [停服] 深空之眼停止更新 — 3284 chars, body=full
+- `S0189` [2026-07-10] (bbs.nga.cn) [新闻相关]血族手游联动血族漫画 — 1910 chars, body=full
+- `S0190` [2026-07-10] (bbs.nga.cn) [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎 — 1529 chars, body=full
+- `S0191` [2026-07-10] (bbs.nga.cn) [新瓜] [岁月史书3] [恋与深空]关于微博上媒体首次参与恋与深空报道新闻的整理[范围：6月22日0点-7月1号0点] — 4914 chars, body=full
+- `S0192` [2026-07-10] (bbs.nga.cn) [英雄互娱] 二重螺旋反作弊封了自家云游戏机器码 — 1239 chars, body=full
+- `S0193` [2026-07-10] (reddit.com) Steam sales reportedly topped $11 billion during H1 2026 due to shifting trends — staggering growth driven by influx of Chinese players and booming legacy catalogues — 46106 chars, body=full
+- `S0194` [2026-07-10] (reddit.com) Xbox needs to make a choice, says former PlayStation leader Shawn Layden: be a publisher or a platform, but you can't be both — 13507 chars, body=full
+- `S0195` [2026-07-10] (reddit.com) Cygames Revives Project Awakening a Decade After Reveal, Ditching Its Own Engine for Unreal Engine 5 — 8413 chars, body=full
+- `S0196` [2026-07-10] (reddit.com) Ubisoft has added a cash shop and weekly challenges to its 'faithful' remake of the 13-year-old Black Flag, because of course it has — 47757 chars, body=full
+- `S0197` [2026-07-10] (reddit.com) Roughly 192 Subnautica 2 players have drowned every minute since launch — 1426 chars, body=full
+- `S0198` [2026-07-10] (reddit.com) TIL that this little robot in Metal Gear Solid 4 was made out of a PS3 and it has the CELL Processor in it, and Snake controls it with a DualShock 3 controller — 21495 chars, body=full
+- `S0199` [2026-07-10] (reddit.com) The most beautiful environments i've ever seen in a video game. (Death Stranding 2) — 4549 chars, body=full
+- `S0200` [2026-07-10] (reddit.com) Baltimore Business Journal- 379 employees laid off at Zenimax and Zenimax Online. "They basically crippled the art and design department" at ZeniMax Online — 25319 chars, body=full
+- `S0201` [2026-07-10] (reddit.com) My son got in trouble at school and as a parent of a child who doesn't get in trouble often, I didn't know exactly how to punish him, but I think I figured it out. — 2099 chars, body=full
+- `S0202` [2026-07-10] (reddit.com) Xbox CEO Asha Sharma named as adviser to US Federal Reserve on ‘Jobs and Productivity’ | VGC — 4745 chars, body=full
+- `S0203` [2026-07-10] (reddit.com) Windows Central: Microsoft has no plans to shelve iD Tech, iD Software is not being forced to move to Unreal Engine — 7231 chars, body=full
+- `S0204` [2026-07-10] (reddit.com) Which Easter eggs did YOU discover without a guide or already knowing about them? — 3560 chars, body=full
+- `S0205` [2026-07-10] (reddit.com) Xbox Layoffs Reduce id Tech Engine Team to 1 Developer, As Unreal Engine Dominance Is Set To Grip The Industry — 17208 chars, body=full
+- `S0271` [2026-07-11] (bbs.nga.cn) [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI — 1581 chars, body=full
+- `S0272` [2026-07-11] (bbs.nga.cn) [厂商] 司法部、公安部公众号发布恋与深空批评文章 — 1603 chars, body=full
+- `S0273` [2026-07-11] (bbs.nga.cn) [停服]深空之眼，停止更新 — 999 chars, body=full
+- `S0274` [2026-07-11] (bbs.nga.cn) [原神]木偶节奏毫不意外的向集美滑轨加了布料 — 1275 chars, body=full
+- `S0275` [2026-07-11] (bbs.nga.cn) 疑似小鸣汝窑削弱 — 2978 chars, body=full
+- `S0276` [2026-07-11] (bbs.nga.cn) [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资 — 1565 chars, body=full
+- `S0277` [2026-07-11] (bbs.nga.cn) [米哈游]原神队长英配cv给散兵改名为敖尹 — 1416 chars, body=full
+- `S0278` [2026-07-11] (bbs.nga.cn) [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉 — 1581 chars, body=full
+- `S0279` [2026-07-11] (bbs.nga.cn) [停服]深空之眼玩家展开自救运动 — 1902 chars, body=full
+- `S0280` [2026-07-11] (bbs.nga.cn) [新瓜] 异环官方麻将宣传图疑似出老千 — 1597 chars, body=full
+- `S0281` [2026-07-11] (bbs.nga.cn) [新闻相关]血族手游联动血族漫画 — 2439 chars, body=full
+- `S0282` [2026-07-11] (bbs.nga.cn) [游卡]三国杀玩家冰冷的钞票变成了温暖的人妖兔男郎 — 1639 chars, body=full
+- `S0283` [2026-07-11] (bbs.nga.cn) [米哈游]疑似米家下一代主机/pc游戏即将开始测试 — 1023 chars, body=full
+- `S0284` [2026-07-11] (bbs.nga.cn) [1999]小甜瓜，历史过期兑换码可以再次兑换，官方大号半夜发公告修复 — 875 chars, body=full
+- `S0285` [2026-07-11] (reddit.com) I'm glad my younger self never traded or tossed any games — 9805 chars, body=full
+- `S0286` [2026-07-11] (reddit.com) A rare win for digital ownership: Chinese courts rule game accounts can be inherited — 27483 chars, body=full
+- `S0287` [2026-07-11] (reddit.com) my collection of all my ps4/5 games — 2140 chars, body=full
+- `S0288` [2026-07-11] (reddit.com) Which game has the worst cutscene to gameplay ration? — 15658 chars, body=full
+- `S0289` [2026-07-11] (reddit.com) AC black flag resynced - Skeleton Crew — 1648 chars, body=full
+- `S0290` [2026-07-11] (reddit.com) Doomslayer cosplay by DCWbuilds C2E2 Armor Division Champion — 1474 chars, body=full
+- `S0291` [2026-07-11] (reddit.com) Santa Monica officially confirms 'God of War Laufey' will be available as a physical edition with a disc - meaning it will release before January 2028 — 9315 chars, body=full
+- `S0292` [2026-07-11] (reddit.com) Palworld revises some of its most egregious creature designs for its 1.0 release — 18600 chars, body=full
+- `S0293` [2026-07-11] (reddit.com) Bioshock Infinite had messages from the devs in the credits — 9711 chars, body=full
+- `S0294` [2026-07-11] (reddit.com) For the love of God if you haven't played the Dead Space Remake, go do it now! — 12924 chars, body=full
+- `S0295` [2026-07-11] (reddit.com) What's a game that gets reviewed poorly or mediocrely that you really enjoy? — 6341 chars, body=full
+- `S0296` [2026-07-11] (reddit.com) PlayStation Account Flaw Makes No Discs a Big Issue for Millions - PlayStation LifeStyle — 32655 chars, body=full
+- `S0297` [2026-07-11] (reddit.com) idSoftware confirm reporting from Windows Central — 19009 chars, body=full
+- `S0338` [2026-07-12] (bbs.nga.cn) [米哈游][库洛]b站将原神和鸣潮评论区发图功能禁用了，最新消息米库全家桶均开启7天墙 — 2967 chars, body=full
+- `S0339` [2026-07-12] (bbs.nga.cn) [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福 — 2133 chars, body=full
+- `S0340` [2026-07-12] (bbs.nga.cn) [厂商] 司法部、公安部公众号发布恋与深空批评文章 — 2545 chars, body=full
+- `S0341` [2026-07-12] (bbs.nga.cn) [米哈游] [崩铁]皮肤？本体+专武+命座！换装即sp时代唐唐来袭 — 2549 chars, body=full
+- `S0342` [2026-07-12] (bbs.nga.cn) [明日方舟]官方asmr声优被要求不能有love的感觉 — 1426 chars, body=full
+- `S0343` [2026-07-12] (bbs.nga.cn) 疑似小鸣汝窑削弱 — 2428 chars, body=full
+- `S0344` [2026-07-12] (bbs.nga.cn) [停服]深空之眼玩家展开自救运动 — 1541 chars, body=full
+- `S0345` [2026-07-12] (bbs.nga.cn) [新瓜]鸣潮游戏内图标撞中国交建logo — 1700 chars, body=full
+- `S0346` [2026-07-12] (bbs.nga.cn) [小瓜]崩铁知更鸟联动产品发成恋与深空 — 1593 chars, body=full
+- `S0347` [2026-07-12] (bbs.nga.cn) [新瓜] [无限暖暖](瓜小微甜)前瞻直播中宣布：对不起，下版本要上的主线还没做完 — 2059 chars, body=full
+- `S0348` [2026-07-12] (bbs.nga.cn) [米哈游]疑似米家下一代主机/pc游戏即将开始测试 — 1104 chars, body=full
+- `S0349` [2026-07-12] (bbs.nga.cn) [星趴]吉星派对临时关闭下载渠道 — 1425 chars, body=full
+- `S0350` [2026-07-12] (bbs.nga.cn) [少女前线][新瓜]以防你们不知道ym买的3dm商单编辑精选出俩个一瘸一拐来 — 925 chars, body=full
+- `S0351` [2026-07-12] (reddit.com) Halo Studios Head Accused Of Abuse And Mismanagement — 18718 chars, body=full
+- `S0352` [2026-07-12] (reddit.com) ‘Sony essentially destroys its own defense’ - Sony’s plan to phase out physical Playstation 5 discs by January 2028 has moved from a public relations problem to a legal one. — 65759 chars, body=full
+- `S0353` [2026-07-12] (reddit.com) Ubisoft Connect Went Down, Locking PC Players Out Of Playing Assassins Creed Black Flag Resynced — 6047 chars, body=full
+- `S0354` [2026-07-12] (reddit.com) What's the rarest item in a video game? — 9271 chars, body=full
+- `S0355` [2026-07-12] (reddit.com) Steam has raked in an estimated $11.1 billion gross revenue so far this year, says market analyst—its 'biggest-ever six months' — 39941 chars, body=full
+- `S0356` [2026-07-12] (reddit.com) Brazil is leading the charge in protecting gamers' rights with a new law and major court win looking out for the little guy — 17128 chars, body=full
+- `S0357` [2026-07-12] (reddit.com) 125 NEW GAMES INSIDE! — 3791 chars, body=full
+- `S0358` [2026-07-12] (reddit.com) Microsoft loses Brazilian court case after telling hacked Xbox user to re-purchase games — tech giant ordered to restore Xbox account with all games and pay $400 in damages — 29557 chars, body=full
+- `S0359` [2026-07-12] (reddit.com) Bithell Games Reveals Vampirium: 1997, An Immersive Sim Where You Work As An Assassin For Dracula — 4280 chars, body=full
+- `S0360` [2026-07-12] (reddit.com) Palworld 1.0 Breaks Into Steam's Top 15 Biggest All-Time Player Peaks With Over 722,000 Concurrent Players. — 42914 chars, body=full
+- `S0361` [2026-07-12] (reddit.com) Ryse: Son of Rome Had Plans To Be Xbox’s Assassin’s Creed — 32061 chars, body=full
+- `S0362` [2026-07-12] (reddit.com) Obsidian game director reacts to people "spouting off" about the studio and how it's not what it "used to be" — 30191 chars, body=full
+- `S0363` [2026-07-12] (reddit.com) TennoCon 2026: Everything Announced at the Warframe and Soulframe Fan Event — 5981 chars, body=full
+- `S0364` [2026-07-12] (reddit.com) Introduced my daughter to console gaming — 5462 chars, body=full
+- `S0365` [2026-07-12] (reddit.com) I really love physical media — 4498 chars, body=full
+- `S0488` [2026-07-13] (bbs.nga.cn) [新瓜]原定6.19更新的尘白禁区现发公告下版本延期更新 — 2219 chars, body=full
+- `S0489` [2026-07-13] (bbs.nga.cn) [停服]深空之眼，停止更新 — 1220 chars, body=full
+- `S0490` [2026-07-13] (bbs.nga.cn) [新瓜]请谅解，只有终末地韩服才能享受大号道歉(楼里有翻译) — 2112 chars, body=full
+- `S0491` [2026-07-13] (bbs.nga.cn) [鹰角]终末地或许是头部二游里首个过半周年庆的 — 1607 chars, body=full
+- `S0492` [2026-07-13] (bbs.nga.cn) 鸣潮剧情中英文剧情区别对待 — 1629 chars, body=full
+- `S0493` [2026-07-13] (bbs.nga.cn) [新瓜]bw停展同步，恋与深空日本活动也停了 — 2153 chars, body=full
+- `S0494` [2026-07-13] (bbs.nga.cn) 疑似小鸣汝窑削弱 — 3511 chars, body=full
+- `S0495` [2026-07-13] (bbs.nga.cn) [米哈游]原神队长英配cv给散兵改名为敖尹 — 1567 chars, body=full
+- `S0496` [2026-07-13] (bbs.nga.cn) [小瓜]崩铁知更鸟联动产品发成恋与深空 — 1203 chars, body=full
+- `S0497` [2026-07-13] (bbs.nga.cn) [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉 — 1656 chars, body=full
+- `S0498` [2026-07-13] (bbs.nga.cn) [新瓜]恋与深空?高赞评论用户大批注销，疑水军自导自演 — 1432 chars, body=full
+- `S0499` [2026-07-13] (bbs.nga.cn) [星趴]吉星派对临时关闭下载渠道 — 2208 chars, body=full
+- `S0500` [2026-07-13] (bbs.nga.cn) [崩坏星穹铁道]经过多版本洗白，集美最爱的星期日哥哥终于成功取舍将主角踢出了主角团 — 1731 chars, body=full
+- `S0501` [2026-07-13] (bbs.nga.cn) [新瓜] [无限暖暖](瓜小微甜)前瞻直播中宣布：对不起，下版本要上的主线还没做完 — 2702 chars, body=full
+- `S0502` [2026-07-13] (bbs.nga.cn) [洛克王国世界]喜欢做题就有做不完的题，洛克王国世界又因为服装问题被炎上了 — 1273 chars, body=full
+- `S0503` [2026-07-13] (bbs.nga.cn) [新瓜] 无人在意的角落，王者荣耀世界世界观出现李白的原创白月光女cp，梦女炎上中 — 1122 chars, body=full
+- `S0504` [2026-07-13] (bbs.nga.cn) [腾讯]洛克王国世界新时装男号爪子5个手指，女号爪子四个手指 — 766 chars, body=full
+- `S0505` [2026-07-13] (bbs.nga.cn) [明日方舟] 时隔四年，yj仍没有在b站动态释出羽毛笔的皮肤立绘 — 935 chars, body=full
+- `S0506` [2026-07-13] (reddit.com) The Assassin’s Creed franchise surpasses 250 million sales following Black Flag Resynced’s launch — 18250 chars, body=full
+- `S0507` [2026-07-13] (reddit.com) What’s a game that was a 10/10 when you first played it, but doesn’t hold up nearly as well today? — 9336 chars, body=full
+- `S0508` [2026-07-13] (reddit.com) Consumer group argues Sony's end of physical discs proves players don't truly own digital games. — 26472 chars, body=full
+- `S0509` [2026-07-13] (reddit.com) Ubisoft Barcelona will ne holding a strike for three days — 23092 chars, body=full
+- `S0510` [2026-07-13] (reddit.com) Both ‘Palworld’ And ‘Palworld 1.0’ Are In Steam’s Best-Ever Playercount List — 26414 chars, body=full
+- `S0511` [2026-07-13] (reddit.com) What sits among your all time greatest accomplishments in gaming? — 5691 chars, body=full
+- `S0512` [2026-07-13] (reddit.com) After 30 + years, it appears Need for Speed is dead, as EA Confirms Fate of Criterion, Leaving the franchise on Life Support. — 27689 chars, body=full
+- `S0513` [2026-07-13] (reddit.com) I was cleaning out some old t-shirts and found this piece of weird gaming history — 9377 chars, body=full
+- `S0514` [2026-07-13] (reddit.com) My handheld gaming collection so far. — 4948 chars, body=full
+- `S0515` [2026-07-13] (reddit.com) For those who feel boycotting is futile, CFB27 content creators just forced EA's hand in removing microtransactions. — 28209 chars, body=full
+- `S0516` [2026-07-13] (reddit.com) With this all digital world future, we need more control of our purchases. — 2381 chars, body=full
+- `S0681` [2026-07-14] (bbs.nga.cn) [新瓜]原定6.19更新的尘白禁区现发公告下版本延期更新 — 885 chars, body=full
+- `S0682` [2026-07-14] (bbs.nga.cn) [少女前线]2026年了还有从上到下全是二手屎的顶级媒体 — 1827 chars, body=full
+- `S0683` [2026-07-14] (bbs.nga.cn) [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福 — 2247 chars, body=full
+- `S0684` [2026-07-14] (bbs.nga.cn) [停服]深空之眼，停止更新 — 1516 chars, body=full
+- `S0685` [2026-07-14] (bbs.nga.cn) [厂商] 司法部、公安部公众号发布恋与深空批评文章 — 2695 chars, body=full
+- `S0686` [2026-07-14] (bbs.nga.cn) [鹰角] [字节跳动] 抖音所属字节跳动为“咕咕嘎嘎”申请作品著作权(补充：包含刀盾狗，香蕉猫，耄耋等meme) — 2019 chars, body=full
+- `S0687` [2026-07-14] (bbs.nga.cn) [新瓜]恋与深空玩家以敖尹Valko名义为受灾群众筹集爱心善款 — 1136 chars, body=full
+- `S0688` [2026-07-14] (bbs.nga.cn) [鹰角]终末地或许是头部二游里首个过半周年庆的 — 1785 chars, body=full
+- `S0689` [2026-07-14] (bbs.nga.cn) [新瓜]鸣潮游戏内图标撞中国交建logo — 2340 chars, body=full
+- `S0690` [2026-07-14] (bbs.nga.cn) 鸣潮剧情中英文剧情区别对待 — 1930 chars, body=full
+- `S0691` [2026-07-14] (bbs.nga.cn) [厂商]做一个卡厄斯梦境的综合瓜 — 3337 chars, body=full
+- `S0692` [2026-07-14] (bbs.nga.cn) [米哈游] 米哈游起诉b站 — 1897 chars, body=full
+- `S0693` [2026-07-14] (bbs.nga.cn) [小瓜]崩铁知更鸟联动产品发成恋与深空 — 1764 chars, body=full
+- `S0694` [2026-07-14] (bbs.nga.cn) [周边] 英伟达BW展会发布二游联动显卡，但是你个浓眉大眼的家伙怎么联动的是技嘉 — 1903 chars, body=full
+- `S0695` [2026-07-14] (bbs.nga.cn) [厂商]完美这个业绩怎么说 — 2164 chars, body=full
+- `S0696` [2026-07-14] (bbs.nga.cn) [终末地][瓜小味甜]在诸多角色语音电话预热宣发之后，出现了给角色打电话 — 1939 chars, body=full
+- `S0697` [2026-07-14] (bbs.nga.cn) [新闻相关] 白猫即将在2027年于Switch发售 — 958 chars, body=full
+- `S0698` [2026-07-14] (bbs.nga.cn) [腾讯]洛克王国世界新时装男号爪子5个手指，女号爪子四个手指 — 885 chars, body=full
+- `S0699` [2026-07-14] (bbs.nga.cn) [洛克王国世界]喜欢做题就有做不完的题，洛克王国世界又因为服装问题被炎上了 — 1579 chars, body=full
+- `S0700` [2026-07-14] (bbs.nga.cn) [小瓜]codm新武器皮肤几把刀 — 849 chars, body=full
+- `S0701` [2026-07-14] (reddit.com) Sony faces an anti-trust complaint in Mexico over ending PlayStation physical media — 12904 chars, body=full
+- `S0702` [2026-07-14] (reddit.com) Dying Light The Beast Cancelled For PS4 And Xbox One, Refunds Will Be Offered — 17989 chars, body=full
+- `S0703` [2026-07-14] (reddit.com) Microsoft Deletes Users 25 Year Old Account With Thousands Spent On Games And His Sons Baby Pictures After It Was Hacked — 30786 chars, body=full
+- `S0704` [2026-07-14] (reddit.com) Battlefield 6 Season 4 Naval Warfare Official Gameplay Trailer — 2597 chars, body=full
+- `S0705` [2026-07-14] (reddit.com) Which game to show someone how artistically beautiful or moving games can be? — 3162 chars, body=full
+- `S0706` [2026-07-14] (reddit.com) Black Flag Resynced is a step up in many ways, but falls short on its cutscenes where the acting is not correctly mapped to the new character models. — 19433 chars, body=full
+- `S0707` [2026-07-14] (reddit.com) Only Kojima could make war survivors who suffer from extreme trauma look like this — 6983 chars, body=full
+- `S0708` [2026-07-14] (reddit.com) AC Black Flag Resynced Breaks Franchise Steam Concurrent Player Record — 24291 chars, body=full
+- `S0709` [2026-07-14] (reddit.com) Palworld devs have "a few other little secret things in development" amid plans to "keep expanding" the survival game's universe — 16424 chars, body=full
+- `S0710` [2026-07-14] (reddit.com) MOUSE: P.I. for Hire sales top one million — 21456 chars, body=full
+- `S0711` [2026-07-14] (reddit.com) What game soundtrack actually made you feel something? — 4067 chars, body=full
+- `S0712` [2026-07-14] (reddit.com) The current yearly salary of the 4 men at the top of Nintendo. Together they earned a total of 5,73 Million Dollar last year — 13251 chars, body=full
+- `S0713` [2026-07-14] (reddit.com) Abiotic Factor is a hidden gem that you should play (seriously, please) — 14519 chars, body=full
+- `S0714` [2026-07-14] (reddit.com) Some nostalgia 1992 Computer + Video Games - issue 124 — 2392 chars, body=full
+- `S0715` [2026-07-14] (reddit.com) Some Ubisoft Montreal corporate screenshots from December 2019 — 3833 chars, body=full
+- `S0989` [2026-07-15] (bbs.nga.cn) [厂商] 司法部、公安部公众号发布恋与深空批评文章 — 2569 chars, body=full
+- `S0990` [2026-07-15] (bbs.nga.cn) 鸣潮剧情中英文剧情区别对待 — 1387 chars, body=full
+- `S0991` [2026-07-15] (bbs.nga.cn) [疑似内容][尘白禁区]尘白禁区持续维持静默状态 — 1842 chars, body=full
+- `S0992` [2026-07-15] (bbs.nga.cn) [乙游瓜]光与夜之恋在音乐会播放结婚进行曲引起大量玩家不满 — 1949 chars, body=full
+- `S0993` [2026-07-15] (bbs.nga.cn) 疑似小鸣汝窑削弱 — 3635 chars, body=full
+- `S0994` [2026-07-15] (bbs.nga.cn) [白银之城]吐舌小男孩三代目降临 — 1976 chars, body=full
+- `S0995` [2026-07-15] (bbs.nga.cn) [停服]深空之眼玩家展开自救运动 — 2380 chars, body=full
+- `S0996` [2026-07-15] (bbs.nga.cn) [鹰角] [厂商] 鹰角网络向台风“美莎克”受灾地区捐赠一批应急物资 — 1968 chars, body=full
+- `S0997` [2026-07-15] (bbs.nga.cn) [小瓜]崩铁知更鸟联动产品发成恋与深空 — 1918 chars, body=full
+- `S0998` [2026-07-15] (bbs.nga.cn) [新瓜]贴吧宝可梦相关全部和谐 — 1466 chars, body=full
+- `S0999` [2026-07-15] (bbs.nga.cn) [厂商]完美这个业绩怎么说 — 2091 chars, body=full
+- `S1000` [2026-07-15] (bbs.nga.cn) [新瓜] 改革网发表评论文章，反对叠纸粗暴下架恋与深空第六男主 — 3595 chars, body=full
+- `S1001` [2026-07-15] (bbs.nga.cn) [米哈游] 米哈游起诉b站 — 1890 chars, body=full
+- `S1002` [2026-07-15] (bbs.nga.cn) [新瓜] 新版枪神动画致敬少女前线2 — 1759 chars, body=full
+- `S1003` [2026-07-15] (bbs.nga.cn) [终末地][瓜小味甜]在诸多角色语音电话预热宣发之后，出现了给角色打电话 — 2087 chars, body=full
+- `S1004` [2026-07-15] (bbs.nga.cn) [新瓜] 无人在意的角落，王者荣耀世界世界观出现李白的原创白月光女cp，梦女炎上中 — 1644 chars, body=full
+- `S1005` [2026-07-15] (bbs.nga.cn) [腾讯]洛克王国世界新时装男号爪子5个手指，女号爪子四个手指 — 1457 chars, body=full
+- `S1006` [2026-07-15] (bbs.nga.cn) [瓜小味甜]三国杀把良子做进游戏里了 — 1109 chars, body=full
+- `S1007` [2026-07-15] (bbs.nga.cn) [新瓜] 异环官方麻将宣传图疑似出老千 — 1622 chars, body=full
+- `S1008` [2026-07-15] (bbs.nga.cn) [深空之眼]《深空之眼》陪伴服最短开放时间为5年 — 1498 chars, body=full
+- `S1009` [2026-07-15] (reddit.com) A network test for The Duskbloods on Nintendo Switch 2 will be hosted from August 21st - 24th. Participant application begins on July 22nd — 9954 chars, body=full
+- `S1010` [2026-07-15] (reddit.com) What’s the biggest “I should’ve played this sooner” game? — 7153 chars, body=full
+- `S1011` [2026-07-15] (reddit.com) Emberville - Voice Cast Reveal — 5306 chars, body=full
+- `S1012` [2026-07-15] (reddit.com) What are some games where you can get nigh game breaking items, or progress really fast by grinding or doing something hard in the early game? — 14964 chars, body=full
+- `S1013` [2026-07-15] (reddit.com) What is the most disappointing boss in any game you've played? — 11768 chars, body=full
+- `S1014` [2026-07-15] (reddit.com) 62 Percent Of Countries Won't Have Access To The PlayStation Store On Digital-Exclusive PS6 — 50446 chars, body=full
+- `S1015` [2026-07-15] (reddit.com) Layoffs might offer better short-term financial results, late Nintendo president Satoru Iwata admitted in 2013, but employees who fear that they may be laid off will never produce the same results — 33502 chars, body=full
+- `S1016` [2026-07-15] (reddit.com) I found the SPORE expansion CD on the bookshelf! — 10148 chars, body=full
+- `S1017` [2026-07-15] (reddit.com) Steve Buscemi Has Been Cast Alongside Lizzy Caplan in the 'Far Cry' TV Series. Created By Noah Hawley and Rob McElhenney — 31381 chars, body=full
+- `S1018` [2026-07-15] (reddit.com) Monster Hunter Wilds Is Getting A Permanent Base Price Reduction — 6609 chars, body=full
+- `S1019` [2026-07-15] (reddit.com) Just bought an Xbox from CEX, opened the disk drive and saw this :) — 2728 chars, body=full
+- `S1020` [2026-07-15] (reddit.com) Ubisoft Barcelona's workers clarify their role in Assassin's Creed Black Flag Resynced ahead of day two of strike over 51 proposed layoffs — 14246 chars, body=full
+- `S1021` [2026-07-15] (reddit.com) Weekly Game Release Calendar July Week 4 — 3613 chars, body=full
+- `S1022` [2026-07-15] (reddit.com) Which game has the best opening hour? — 5294 chars, body=full
+- `S1023` [2026-07-15] (reddit.com) Can't believe I got the new Battlefield to run on my old pc, had to turn settings to low, but its worth it — 5170 chars, body=full
+- `S1311` [2026-07-16] (bbs.nga.cn) [杂谈][茶摊]实验型瓜田自动灌溉装置MK-VI — 2201 chars, body=full
+- `S1312` [2026-07-16] (bbs.nga.cn) [厂商]多益网络董事长徐波发帖痛斥司法不作为，并晒出百子全家福 — 2158 chars, body=full
+- `S1313` [2026-07-16] (bbs.nga.cn) [新瓜]请谅解，只有终末地韩服才能享受大号道歉(楼里有翻译) — 1859 chars, body=full
+- `S1314` [2026-07-16] (bbs.nga.cn) [厂商] 司法部、公安部公众号发布恋与深空批评文章 — 2154 chars, body=full
+- `S1315` [2026-07-16] (bbs.nga.cn) [白银之城]吐舌小男孩三代目降临 — 1351 chars, body=full
+- `S1316` [2026-07-16] (bbs.nga.cn) [新瓜] 改革网发表评论文章，反对叠纸粗暴下架恋与深空第六男主 — 3732 chars, body=full
+- `S1317` [2026-07-16] (bbs.nga.cn) [新瓜]贴吧宝可梦相关全部和谐 — 1752 chars, body=full
+- `S1318` [2026-07-16] (bbs.nga.cn) [厂商]完美这个业绩怎么说 — 1979 chars, body=full
+- `S1319` [2026-07-16] (bbs.nga.cn) [终末地][瓜小味甜]在诸多角色语音电话预热宣发之后，出现了给角色打电话 — 1667 chars, body=full
+- `S1320` [2026-07-16] (bbs.nga.cn) [新瓜] 新版枪神动画致敬少女前线2 — 994 chars, body=full
+- `S1321` [2026-07-16] (bbs.nga.cn) [米哈游] 米哈游起诉b站 — 1944 chars, body=full
+- `S1322` [2026-07-16] (bbs.nga.cn) [新闻相关]血族手游联动血族漫画 — 1803 chars, body=full
+- `S1323` [2026-07-16] (bbs.nga.cn) [新瓜] [边狱巴士] 什么叫万众瞩目的新主线没有配音 — 2362 chars, body=full
+- `S1324` [2026-07-16] (bbs.nga.cn) [新瓜]燕云十六声经过多次女拳事件之后，设计逐渐雌雄难辨 — 2027 chars, body=full
+- `S1325` [2026-07-16] (bbs.nga.cn) [新瓜]鸣潮演唱会超绝照射打光，山顶位看完变成迪迦 — 960 chars, body=full
+- `S1326` [2026-07-16] (bbs.nga.cn) [小瓜]codm新武器皮肤几把刀 — 1744 chars, body=full
+- `S1327` [2026-07-16] (bbs.nga.cn) [深空之眼]《深空之眼》陪伴服最短开放时间为5年 — 1614 chars, body=full
+- `S1328` [2026-07-16] (bbs.nga.cn) [疑似内容][新瓜]改革网(fg委)文章疑似被乙太妹冲下架 — 927 chars, body=full
+- `S1329` [2026-07-16] (reddit.com) Hundreds rally at Bethesda HQ to protest Xbox layoffs, and Ars was there - Ars Technica — 29990 chars, body=full
+- `S1330` [2026-07-16] (reddit.com) For those who came after us: We had disks for PC — 23811 chars, body=full
+- `S1331` [2026-07-16] (reddit.com) Microsoft Is “Working” To Restore Player’s 25-Year-Old Xbox Account It Deleted — 26383 chars, body=full
+- `S1332` [2026-07-16] (reddit.com) The Digital Ownership Debate Just Got Bigger: EFF Takes Aim at Sony — 50626 chars, body=full
+- `S1333` [2026-07-16] (reddit.com) [OC] It's Super Effective! 🩷 — 2200 chars, body=full
+- `S1334` [2026-07-16] (reddit.com) The whole Resident Evil series for $50 — 3430 chars, body=full
+- `S1335` [2026-07-16] (reddit.com) Nvidia and Sega celebrate 30 years after famous 1995 bankruptcy rescue — 2854 chars, body=full
+- `S1336` [2026-07-16] (reddit.com) Negative reactions to God of War Laufey don't bother star Deborah Ann Woll: "I just know it's great" — 32192 chars, body=full
+- `S1337` [2026-07-16] (reddit.com) What’s a game that doesn’t reinvent the wheel, but absolutely nails the formula? — 13258 chars, body=full
+- `S1338` [2026-07-16] (reddit.com) "Blackmesa. Home..." — 2219 chars, body=full
+- `S1339` [2026-07-16] (reddit.com) Can’t beat a CRT for retro games — 2708 chars, body=full
+- `S1340` [2026-07-16] (reddit.com) Final Fantasy Resonance- Pixel Trailer — 4203 chars, body=full
+- `S1341` [2026-07-16] (reddit.com) LYNX ☆ Atari Handheld / 1989 ☆ USA Ad, 1991 — 7295 chars, body=full
+- `S1342` [2026-07-16] (reddit.com) Dispatch Is Finally Releasing On Xbox This Month — 14631 chars, body=full
 
 ## deep_analysis (7 records)
 
-- S0206 | 2026-07-10 | N/A | The State of Games: May 2026
-- S0517 | 2026-07-13 | N/A | The AI Boom Is Repricing Gaming Hardware and Rewiring the Console Business
-- S0518 | 2026-07-13 | N/A | Retail trade body condemns PlayStation’s plan to kill the disc – The Game Busine
-- S0716 | 2026-07-14 | N/A | Interview: Netflix wants to become the ‘place to play a story’
-- S1024 | 2026-07-15 | N/A | How Paralives sold a million copies in its first month...
-- S1343 | 2026-07-16 | N/A | EA: Console game makers should consider in-game ads during development
-- S1344 | 2026-07-16 | N/A | 2026年第二季度移动应用(非游戏)出海排行榜
+- `S0206` [2026-07-10] (thegamebusiness.com) The State of Games: May 2026 — 347 chars, body=full
+- `S0517` [2026-07-13] (naavik.co) The AI Boom Is Repricing Gaming Hardware and Rewiring the Console Business — 19314 chars, body=full
+- `S0518` [2026-07-13] (thegamebusiness.com) Retail trade body condemns PlayStation’s plan to kill the disc – The Game Business Micro — 920 chars, body=full
+- `S0716` [2026-07-14] (thegamebusiness.com) Interview: Netflix wants to become the ‘place to play a story’ — 10065 chars, body=full
+- `S1024` [2026-07-15] (newsletter.gamediscover.co) How Paralives sold a million copies in its first month... — 12150 chars, body=full
+- `S1343` [2026-07-16] (thegamebusiness.com) EA: Console game makers should consider in-game ads during development — 12504 chars, body=full
+- `S1344` [2026-07-16] (sensortower.com) 2026年第二季度移动应用(非游戏)出海排行榜 — 3993 chars, body=full
 
 ## industry_news (580 records)
 
-- S0001 | 2026-07-10 | N/A | BLG击败HLE，晋级《英雄联盟》MSI总决赛
-- S0002 | 2026-07-10 | N/A | 价值330万日元，东京电玩展30周年纪念门票将于7月11日开始发售
-- S0003 | 2026-07-10 | N/A | 《遗忘之海》PC端今日公测，移动端定档7月23日
-- S0004 | 2026-07-10 | N/A | 《逃离塔科夫》：“拓展内容中心”及“塔币”将带来更多的游戏性！
-- S0005 | 2026-07-10 | N/A | 《碧蓝幻想 Relink 无尽黄昏》现已发售，最终预告同步公开
-- S0006 | 2026-07-10 | N/A | 《仁王3》官方实体典藏版预售于今日中午开启！
-- S0007 | 2026-07-10 | N/A | 《致命躯壳2》现已开启预购，国区售价198元起
-- S0008 | 2026-07-10 | N/A | 合作狩猎游戏《狩猎伙伴》定于7月25日发售
-- S0009 | 2026-07-10 | N/A | 《幻兽帕鲁》玩家总数突破4000万,开发者表达感谢
-- S0010 | 2026-07-10 | N/A | 彭博社：黑曜石着手《辐射》新作开发
-- S0011 | 2026-07-10 | N/A | Epic喜加二：《新星群岛》《纹身大亨》免费领
-- S0012 | 2026-07-10 | N/A | 《行会 - 欧洲1410》抢先体验版延期至9月发售
-- S0013 | 2026-07-10 | N/A | 《CS2》迎来第五赛季，彻底重做炸弹伤害机制
-- S0014 | 2026-07-10 | N/A | 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发
-- S0015 | 2026-07-10 | N/A | PlayStation参展BW，信仰蓝特别版手柄同步官宣
-- S0016 | 2026-07-10 | N/A | 《魔法少女的因习村》官方预告片第一弹公开
-- S0017 | 2026-07-10 | N/A | 万智牌丨漫威超级英雄亮相BiliBiliWorld 2026
-- S0018 | 2026-07-10 | N/A | 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场
-- S0019 | 2026-07-10 | N/A | 暑期档开启，腾讯这款自带光环的年度爆款首日打出王炸！
-- S0020 | 2026-07-10 | N/A | Sensor Tower广告变现报告：2025全球手游广告市场120亿美元
-- S0021 | 2026-07-10 | N/A | “全村希望”遭背刺！育碧《刺客信条：黑旗》重制版，发售前两天遭破解
-- S0022 | 2026-07-10 | N/A | 二游《深空之眼》宣布停更！“曾经的优等生”生不逢时？
-- S0023 | 2026-07-10 | N/A | 独立游戏重大喜讯！“买断制手游”数量大增77%，过去5年收入已翻倍
-- S0024 | 2026-07-10 | N/A | 暑期档游戏圈“集体玩水”？网易旗舰《遗忘之海》PC端发布、盛况空前
-- S0025 | 2026-07-10 | N/A | 不去日本！中国游戏大厂“集体缺席”今年东京电玩展
-- S0026 | 2026-07-10 | N/A | 一分钟生成开放世界，实时交互仅1秒延迟：国产开源世界模型全球爆火
-- S0027 | 2026-07-10 | N/A | 《鸣潮》最冒险的一次
-- S0028 | 2026-07-10 | N/A | BW上「最大」的二游被我找到了
-- S0029 | 2026-07-10 | N/A | 6月PC榜：一款只卖四块八的游戏，抢跑暑期档？
-- S0030 | 2026-07-10 | N/A | 一哥带节奏，海外Rust主播集体上头，网易把路走宽了
-- S0031 | 2026-07-10 | N/A | 运营四年，《深空之眼》宣布停更，制作人阿尾致歉：团队实力不足
-- S0032 | 2026-07-10 | N/A | 1人8天打造《杀戮尖塔》？杭州黑马正在用AI量产“超级个体”
-- S0033 | 2026-07-10 | N/A | 连办八年，开发者为什么都该看看这场沙龙？
-- S0034 | 2026-07-10 | N/A | 2022年的最强新品二游，还是在今天官宣停更
-- S0035 | 2026-07-10 | N/A | 神力科莎 EVO 0.8版本更新：包含三款新车、全新基亚拉米赛道
-- S0036 | 2026-07-10 | N/A | 《OCTOPinbs》免费DLC今日上线！联动社交推理节限时7折
-- S0037 | 2026-07-10 | N/A | 《敢达决战》10.5周年庆典盛大开启！V2突击暴风加农敢达重磅登场
-- S0038 | 2026-07-10 | N/A | 《鸣潮》鸿蒙版开启不删档测试，同步更新3.5全新版本
-- S0039 | 2026-07-10 | N/A | 顶级IP改编战棋新游《三国火凤燎原》亮相BW2026 首测招募火热开启
-- S0040 | 2026-07-10 | N/A | 杀手少女终末行《井域：喀洛之血》8月18日发售
-- S0041 | 2026-07-10 | N/A | 2026光子游戏大赛人气投票通道开启，40款入围作品接受公众评选，好游戏由你来定义
-- S0042 | 2026-07-10 | N/A | 《伍六七》新世界首映 全新电影、剧集、游戏、出版及音乐巡演计划亮相BW2026
-- S0043 | 2026-07-10 | N/A | 字节AI应用《猫箱》，进入iOS畅销总榜前200名
-- S0044 | 2026-07-10 | N/A | 腾讯光子洛杉矶分部组建新团队，开发全新3A级别FPS新游
-- S0045 | 2026-07-10 | N/A | 2026年上半年50起游戏投融资，资本都在投些什么？
-- S0046 | 2026-07-10 | N/A | Layoffs begin at Ubisoft Barcelona following Assassin's Creed Black Flag Resynce
-- S0047 | 2026-07-10 | N/A | Why two games media veterans think a "classic old-school style multi-format vide
-- S0048 | 2026-07-10 | N/A | Asha Sharma to co-lead US Federal Reserve's Productivity and Jobs task force
-- S0049 | 2026-07-10 | N/A | Enginefall developer Red Rover Interactive to cut workforce by 22 roles
-- S0050 | 2026-07-10 | N/A | "They want us to accept this as a done deal and quietly disappear" – Bethesda un
-- ... and 530 more
+- `S0001` [2026-07-10] (gcores.com) BLG击败HLE，晋级《英雄联盟》MSI总决赛 — 43 chars, body=full
+- `S0002` [2026-07-10] (gcores.com) 价值330万日元，东京电玩展30周年纪念门票将于7月11日开始发售 — 37 chars, body=full
+- `S0003` [2026-07-10] (gcores.com) 《遗忘之海》PC端今日公测，移动端定档7月23日 — 46 chars, body=full
+- `S0004` [2026-07-10] (gcores.com) 《逃离塔科夫》：“拓展内容中心”及“塔币”将带来更多的游戏性！ — 37 chars, body=full
+- `S0005` [2026-07-10] (gcores.com) 《碧蓝幻想 Relink 无尽黄昏》现已发售，最终预告同步公开 — 45 chars, body=full
+- `S0006` [2026-07-10] (gcores.com) 《仁王3》官方实体典藏版预售于今日中午开启！ — 36 chars, body=full
+- `S0007` [2026-07-10] (gcores.com) 《致命躯壳2》现已开启预购，国区售价198元起 — 34 chars, body=full
+- `S0008` [2026-07-10] (gcores.com) 合作狩猎游戏《狩猎伙伴》定于7月25日发售 — 31 chars, body=full
+- `S0009` [2026-07-10] (gcores.com) 《幻兽帕鲁》玩家总数突破4000万,开发者表达感谢 — 32 chars, body=full
+- `S0010` [2026-07-10] (gcores.com) 彭博社：黑曜石着手《辐射》新作开发 — 26 chars, body=full
+- `S0011` [2026-07-10] (gcores.com) Epic喜加二：《新星群岛》《纹身大亨》免费领 — 29 chars, body=full
+- `S0012` [2026-07-10] (gcores.com) 《行会 - 欧洲1410》抢先体验版延期至9月发售 — 36 chars, body=full
+- `S0013` [2026-07-10] (gcores.com) 《CS2》迎来第五赛季，彻底重做炸弹伤害机制 — 38 chars, body=full
+- `S0014` [2026-07-10] (gcores.com) 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发 — 48 chars, body=full
+- `S0015` [2026-07-10] (gcores.com) PlayStation参展BW，信仰蓝特别版手柄同步官宣 — 38 chars, body=full
+- `S0016` [2026-07-10] (gcores.com) 《魔法少女的因习村》官方预告片第一弹公开 — 71 chars, body=full
+- `S0017` [2026-07-10] (gcores.com) 万智牌丨漫威超级英雄亮相BiliBiliWorld 2026 — 36 chars, body=full
+- `S0018` [2026-07-10] (gcores.com) 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场 — 54 chars, body=full
+- `S0019` [2026-07-10] (gamelook.com.cn) 暑期档开启，腾讯这款自带光环的年度爆款首日打出王炸！ — 4380 chars, body=full
+- `S0020` [2026-07-10] (gamelook.com.cn) Sensor Tower广告变现报告：2025全球手游广告市场120亿美元 — 8592 chars, body=full
+- `S0021` [2026-07-10] (gamelook.com.cn) “全村希望”遭背刺！育碧《刺客信条：黑旗》重制版，发售前两天遭破解 — 2546 chars, body=full
+- `S0022` [2026-07-10] (gamelook.com.cn) 二游《深空之眼》宣布停更！“曾经的优等生”生不逢时？ — 2176 chars, body=full
+- `S0023` [2026-07-10] (gamelook.com.cn) 独立游戏重大喜讯！“买断制手游”数量大增77%，过去5年收入已翻倍 — 4800 chars, body=full
+- `S0024` [2026-07-10] (gamelook.com.cn) 暑期档游戏圈“集体玩水”？网易旗舰《遗忘之海》PC端发布、盛况空前 — 2297 chars, body=full
+- `S0025` [2026-07-10] (gamelook.com.cn) 不去日本！中国游戏大厂“集体缺席”今年东京电玩展 — 1868 chars, body=full
+- `S0026` [2026-07-10] (m.sohu.com) 一分钟生成开放世界，实时交互仅1秒延迟：国产开源世界模型全球爆火 — 4459 chars, body=full
+- `S0027` [2026-07-10] (m.sohu.com) 《鸣潮》最冒险的一次 — 5145 chars, body=full
+- `S0028` [2026-07-10] (m.sohu.com) BW上「最大」的二游被我找到了 — 3955 chars, body=full
+- `S0029` [2026-07-10] (m.sohu.com) 6月PC榜：一款只卖四块八的游戏，抢跑暑期档？ — 939 chars, body=full
+- `S0030` [2026-07-10] (youxituoluo.com) 一哥带节奏，海外Rust主播集体上头，网易把路走宽了 — 3523 chars, body=full
+- `S0031` [2026-07-10] (youxituoluo.com) 运营四年，《深空之眼》宣布停更，制作人阿尾致歉：团队实力不足 — 1284 chars, body=full
+- `S0032` [2026-07-10] (youxituoluo.com) 1人8天打造《杀戮尖塔》？杭州黑马正在用AI量产“超级个体” — 4591 chars, body=full
+- `S0033` [2026-07-10] (youxichaguan.com) 连办八年，开发者为什么都该看看这场沙龙？ — 3613 chars, body=full
+- `S0034` [2026-07-10] (youxichaguan.com) 2022年的最强新品二游，还是在今天官宣停更 — 1093 chars, body=full
+- `S0035` [2026-07-10] (youxichaguan.com) 神力科莎 EVO 0.8版本更新：包含三款新车、全新基亚拉米赛道 — 2023 chars, body=full
+- `S0036` [2026-07-10] (youxichaguan.com) 《OCTOPinbs》免费DLC今日上线！联动社交推理节限时7折 — 1760 chars, body=full
+- `S0037` [2026-07-10] (youxichaguan.com) 《敢达决战》10.5周年庆典盛大开启！V2突击暴风加农敢达重磅登场 — 1083 chars, body=full
+- `S0038` [2026-07-10] (youxichaguan.com) 《鸣潮》鸿蒙版开启不删档测试，同步更新3.5全新版本 — 180 chars, body=full
+- `S0039` [2026-07-10] (youxichaguan.com) 顶级IP改编战棋新游《三国火凤燎原》亮相BW2026 首测招募火热开启 — 1814 chars, body=full
+- `S0040` [2026-07-10] (youxichaguan.com) 杀手少女终末行《井域：喀洛之血》8月18日发售 — 788 chars, body=full
+- `S0041` [2026-07-10] (youxichaguan.com) 2026光子游戏大赛人气投票通道开启，40款入围作品接受公众评选，好游戏由你来定义 — 1767 chars, body=full
+- `S0042` [2026-07-10] (youxichaguan.com) 《伍六七》新世界首映 全新电影、剧集、游戏、出版及音乐巡演计划亮相BW2026 — 2651 chars, body=full
+- `S0043` [2026-07-10] (new.qq.com) 字节AI应用《猫箱》，进入iOS畅销总榜前200名 — 656 chars, body=full
+- `S0044` [2026-07-10] (new.qq.com) 腾讯光子洛杉矶分部组建新团队，开发全新3A级别FPS新游 — 604 chars, body=full
+- `S0045` [2026-07-10] (new.qq.com) 2026年上半年50起游戏投融资，资本都在投些什么？ — 6447 chars, body=full
+- `S0046` [2026-07-10] (gamesindustry.biz) Layoffs begin at Ubisoft Barcelona following Assassin's Creed Black Flag Resynced launch — 2480 chars, body=full
+- `S0047` [2026-07-10] (gamesindustry.biz) Why two games media veterans think a "classic old-school style multi-format video games website" will flourish in 2026 — 6956 chars, body=full
+- `S0048` [2026-07-10] (gamesindustry.biz) Asha Sharma to co-lead US Federal Reserve's Productivity and Jobs task force — 1756 chars, body=full
+- `S0049` [2026-07-10] (gamesindustry.biz) Enginefall developer Red Rover Interactive to cut workforce by 22 roles — 1945 chars, body=full
+- `S0050` [2026-07-10] (gamesindustry.biz) "They want us to accept this as a done deal and quietly disappear" – Bethesda union members organise protest in response to Xbox layoffs — 2377 chars, body=full
+- `S0051` [2026-07-10] (gamesindustry.biz) Can a top-down, focused software strategy save Xbox? | Opinion — 11147 chars, body=full
+- `S0052` [2026-07-10] (pocketgamer.biz) PubMatic and Zynga partner to expand advertiser access to premium mobile games audiences — 2003 chars, body=full
+- `S0053` [2026-07-10] (pocketgamer.biz) New Zealand game studios grow revenue 17% to $829m with rebate support — 2034 chars, body=full
+- `S0054` [2026-07-10] (pocketgamer.biz) Vietnam's mobile games market hits 121m downloads and $23m in revenue during May 2026 — 2352 chars, body=full
+- `S0055` [2026-07-10] (pocketgamer.biz) Habby's David Pan joins the 'Publishing in China' panel at PGC Summit Shanghai — 1807 chars, body=full
+- `S0056` [2026-07-10] (pocketgamer.biz) India's mobile games market set to reach $2.4bn by 2029 — 3090 chars, body=full
+- `S0057` [2026-07-10] (pocketgamer.biz) D20 Labs to shut down Sugartown after failing to secure future for web3 gaming platform — 2171 chars, body=full
+- `S0058` [2026-07-10] (pocketgamer.biz) Xbox executive Asha Sharma joins US Federal Reserve task force on jobs and productivity — 2784 chars, body=full
+- `S0059` [2026-07-10] (pocketgamer.biz) New release roundup: Astro Arena, Beat Hazard Arcade, ZakuzakuSlash, and more — 3046 chars, body=full
+- `S0060` [2026-07-10] (pocketgamer.biz) The Top 30 China Game Makers of 2026 — 2603 chars, body=full
+- `S0061` [2026-07-10] (pocketgamer.biz) The $17bn D2C market, the Esports World Cup and Pokémon Go's 10th anniversary | Week in Views — 5674 chars, body=full
+- `S0062` [2026-07-10] (gamedeveloper.com) Eurogamer and VG247 veterans launch new independent site — 2645 chars, body=full
+- `S0063` [2026-07-10] (gamedeveloper.com) Asha Sharma joins Federal Reserve advisory task force days after laying off thousands at Xbox — 2516 chars, body=full
+- `S0064` [2026-07-10] (gamedeveloper.com) 'We mean business:' Xbox union workers fighting back with 'Save Our Devs' rally on July 15 — 3666 chars, body=full
+- `S0065` [2026-07-10] (gamedeveloper.com) Own goal specialist Xbox rifles another into the roof of the net - Patch Notes #60 — 5559 chars, body=full
+- `S0066` [2026-07-10] (mobilegamer.biz) New game digest: The Walking Dead, Rust, Tencent’s take on GTA, another new Rollic game, Bleach, more — 3692 chars, body=full
+- `S0067` [2026-07-10] (36kr.com) AI猎奇剧霸榜，海外短剧生态剧变？ — 4214 chars, body=full
+- `S0207` [2026-07-11] (gcores.com) 《明日方舟：终末地》举行相伴庆典&「向渊行」版本前瞻特别节目，全新干员「诀」「梨诺」即将登场 — 54 chars, body=full
+- `S0208` [2026-07-11] (gcores.com) 万智牌丨漫威超级英雄亮相BiliBiliWorld 2026 — 36 chars, body=full
+- `S0209` [2026-07-11] (gcores.com) 《魔法少女的因习村》官方预告片第一弹公开 — 71 chars, body=full
+- `S0210` [2026-07-11] (gcores.com) PlayStation参展BW，信仰蓝特别版手柄同步官宣 — 38 chars, body=full
+- `S0211` [2026-07-11] (gcores.com) Epic喜加二：《新星群岛》《纹身大亨》免费领 — 29 chars, body=full
+- `S0212` [2026-07-11] (gcores.com) 《行会 - 欧洲1410》抢先体验版延期至9月发售 — 36 chars, body=full
+- `S0213` [2026-07-11] (gcores.com) 《CS2》迎来第五赛季，彻底重做炸弹伤害机制 — 38 chars, body=full
+- `S0214` [2026-07-11] (gcores.com) 育碧巴塞罗那工作室裁员51人，此前大多深度参与《刺客信条：黑旗记忆重置》开发 — 48 chars, body=full
+- `S0215` [2026-07-11] (cgames.com) BW首日直击，一场无法被“速通”的展会 — 8857 chars, body=full
+- `S0216` [2026-07-11] (cgames.com) 同一道题，《鸣潮》给出了第二种解法 — 6263 chars, body=full
+- `S0217` [2026-07-11] (m.sohu.com) 《黑神话：悟空》音乐会被骂背后，是国产单机的IP困境 — 4167 chars, body=full
+- `S0218` [2026-07-11] (m.sohu.com) 网易2026最新旗舰大作，太难了？ — 4630 chars, body=full
+- `S0219` [2026-07-11] (gamesindustry.biz) Id claims it has "the crew we need to build the games and tech we're known for" following mass layoffs — 2310 chars, body=full
+- `S0220` [2026-07-11] (gamedeveloper.com) NexusMods CEO digs into the dynamics of video game modding ft. Victor Folmann — 1568 chars, body=full
+- `S0298` [2026-07-12] (gcores.com) 华硕主板点燃BW2026 ROG玩创宇宙引玩家狂欢 — 37 chars, body=full
+- `S0299` [2026-07-12] (gcores.com) BW2026邂逅ROG信仰殿堂 华硕主板硬核登场 — 51 chars, body=full
+- `S0300` [2026-07-12] (gcores.com) ROG玩创宇宙降临BW2026 华硕主板解锁次元超新星 — 34 chars, body=full
+- `S0301` [2026-07-12] (gcores.com) 七彩虹携全系硬件亮相BW2026，打造融合科技与潮玩的玩创空间 — 48 chars, body=full
+- `S0302` [2026-07-12] (gcores.com) HLE击败BLG，夺得《英雄联盟》MSI总冠军 — 30 chars, body=full
+- `S0303` [2026-07-12] (cgames.com) 20岁，第一次去BW — 4891 chars, body=full
+- `S0304` [2026-07-12] (m.sohu.com) 「停止杀死游戏」在美未通过立法；三七打击私服，涉案数百万 | 一周说「法」 — 3082 chars, body=full
+- `S0305` [2026-07-12] (m.sohu.com) 网易最懂逆袭的项目：一年半，从题材已死到「全球第一」 — 5168 chars, body=full
+- `S0306` [2026-07-12] (m.sohu.com) 我在上海这个世界二次元的中心哭了一夜 — 3260 chars, body=full
+- `S0366` [2026-07-13] (gcores.com) HLE击败BLG，夺得《英雄联盟》MSI总冠军 — 30 chars, body=full
+- `S0367` [2026-07-13] (gcores.com) 七彩虹携全系硬件亮相BW2026，打造融合科技与潮玩的玩创空间 — 48 chars, body=full
+- `S0368` [2026-07-13] (gcores.com) 华硕主板点燃BW2026 ROG玩创宇宙引玩家狂欢 — 37 chars, body=full
+- `S0369` [2026-07-13] (gcores.com) BW2026邂逅ROG信仰殿堂 华硕主板硬核登场 — 51 chars, body=full
+- `S0370` [2026-07-13] (gcores.com) ROG玩创宇宙降临BW2026 华硕主板解锁次元超新星 — 34 chars, body=full
+- `S0371` [2026-07-13] (gcores.com) 育碧就《刺客信条：黑旗 记忆重置》创作者抢先体验及游戏问题致歉 — 39 chars, body=full
+- `S0372` [2026-07-13] (gcores.com) 《英雄联盟》国服经典模式定档7月30日 — 34 chars, body=full
+- `S0373` [2026-07-13] (gcores.com) 《英菲尼迪：六角穹顶竞技场》定于9月11日发售 — 29 chars, body=full
+- `S0374` [2026-07-13] (gcores.com) 《全面战争：战锤40K》公布最新实机演示 — 30 chars, body=full
+- `S0375` [2026-07-13] (gcores.com) 【抽奖】双主角幻想 ARPG《星之旅》将于7 月 29 日登陆 PC，一同踏上星之旅 — 67 chars, body=full
+- `S0376` [2026-07-13] (gcores.com) 《女神异闻录４ Revival》公布中文语音宣传片 — 25 chars, body=full
+- `S0377` [2026-07-13] (gcores.com) 《黑帮霸主：地下帝国》揭晓新鲜血液大更新详情 — 47 chars, body=full
+- `S0378` [2026-07-13] (gcores.com) 【抽奖】土耳其教授单人研发5年，历史4X游戏《帝国的夙愿》今日正式发售 — 48 chars, body=full
+- `S0379` [2026-07-13] (gcores.com) 纪念《女神异闻录3》发售20周年&《女神异闻录3 Reload》销量破300万份，Atlus公布副岛成记贺图 — 66 chars, body=full
+- `S0380` [2026-07-13] (gcores.com) 第三阵营单人战役来袭,《风暴崛起》全新维提战役Demo与地图编辑器同步上线 — 46 chars, body=full
+- `S0381` [2026-07-13] (gcores.com) 《零秒：时光的归途》现已发售 首发折后38.4元 — 35 chars, body=full
+- `S0382` [2026-07-13] (gcores.com) 电影《侏罗纪公园》系列博士演员山姆·尼尔去世，享年78岁 — 43 chars, body=full
+- `S0383` [2026-07-13] (gamelook.com.cn) 《七日世界》主机版定档8月26日，中国游戏出海挺入最后的“圈地战争” — 4971 chars, body=full
+- `S0384` [2026-07-13] (gamelook.com.cn) BW现场不看coser，扎堆NVIDIA展台看 DLSS4.5如何撑腰国产二游 — 3642 chars, body=full
+- `S0385` [2026-07-13] (gamelook.com.cn) SLG标杆对话国漫顶流：一场关于“三国”的同频共振 — 4814 chars, body=full
+- `S0386` [2026-07-13] (gamelook.com.cn) 玩家惋惜！拳头《云顶之弈》游戏总监Mortdog离职、《金铲铲之战》情绪稳定 — 2643 chars, body=full
+- `S0387` [2026-07-13] (gamelook.com.cn) “风雨同舟、驰援广西”！多家游戏公司捐款捐物助力灾区 — 2125 chars, body=full
+- `S0388` [2026-07-13] (gamelook.com.cn) MiniMax“解禁日”暴跌，米哈游阿里表态“长期持有”也没托住 — 2452 chars, body=full
+- `S0389` [2026-07-13] (gamelook.com.cn) 《崩坏：因缘精灵》二测大变样，米哈游上演“拿手好戏”？ — 4110 chars, body=full
+- `S0390` [2026-07-13] (gamelook.com.cn) 四年豪赌10亿！《诡秘之主》火速定档8月发布，生死玩家说了算 — 3239 chars, body=full
+- `S0391` [2026-07-13] (gamelook.com.cn) 育碧看到希望！《刺客信条：黑旗》Steam首日在线近10万，中外评价两极分化 — 2689 chars, body=full
+- `S0392` [2026-07-13] (gamelook.com.cn) 热爱不畏强风，BW2026线下体验，果然大就是好 — 2445 chars, body=full
+- `S0393` [2026-07-13] (cgames.com) 重回畅销榜top3之后，它又来了个行业首创 — 6027 chars, body=full
+- `S0394` [2026-07-13] (m.sohu.com) 试玩宫崎英高做不出的印度神游：想装逼，但装不动…… — 1896 chars, body=full
+- `S0395` [2026-07-13] (m.sohu.com) 巨型显卡现身BW，NVIDIA正在解决国产二游的PC端技术焦虑 — 2240 chars, body=full
+- `S0396` [2026-07-13] (m.sohu.com) 米哈游的Steam新作不好玩，但这可能不重要 — 1616 chars, body=full
+- `S0397` [2026-07-13] (youxituoluo.com) 逛完这届BW，我看到游戏行业真的变了 — 5565 chars, body=full
+- `S0398` [2026-07-13] (youxituoluo.com) 暑期档新作扎堆，BW2026全球人气火爆，微软XBOX大裁员|陀螺周报 — 2876 chars, body=full
+- `S0399` [2026-07-13] (youxichaguan.com) BW展台被围成铁桶，过渡版本的《卡厄思梦境》凭什么？ — 5434 chars, body=full
+- `S0400` [2026-07-13] (youxichaguan.com) 这场BW“蓝色星原大派对”，牌面大到有点夸张 — 2880 chars, body=full
+- `S0401` [2026-07-13] (youxichaguan.com) 《鸣潮》怎么做“国风”？ — 6291 chars, body=full
+- `S0402` [2026-07-13] (youxichaguan.com) 土耳其教授单人研发5年，历史4X游戏《帝国的夙愿》7月13日正式发售 — 855 chars, body=full
+- `S0403` [2026-07-13] (youxichaguan.com) HyperX 游戏家族亮相BiliBiliWorld 2026，全系装备解锁多元游戏体验 — 3369 chars, body=full
+- `S0404` [2026-07-13] (youxichaguan.com) 硬核互动尽显潮玩实力 BW2026落幕 ROG成“集邮”标记点 — 1859 chars, body=full
+- `S0405` [2026-07-13] (youxichaguan.com) 第三阵营单人战役来袭，《风暴崛起》全新维提战役Demo与地图编辑器同步上线！ — 1260 chars, body=full
+- `S0406` [2026-07-13] (youxichaguan.com) 信仰玩家旗舰臻品 ROG20周年典藏版正式发布 — 1279 chars, body=full
+- `S0407` [2026-07-13] (yystv.net) 黑夜女神现身，《诡秘之主》游戏宣布定档8月21日 — 1758 chars, body=full
+- `S0408` [2026-07-13] (new.qq.com) 《吉星派对》移动版关闭下载通道，疑因立绘问题 — 849 chars, body=full
+- `S0409` [2026-07-13] (new.qq.com) 世纪华通1.5亿做大LP，这家投资基金又募资了 — 1377 chars, body=full
+- `S0410` [2026-07-13] (new.qq.com) 神仙打架的假期档，这款做爆赛道的游戏还在领跑？ — 4198 chars, body=full
+- `S0411` [2026-07-13] (gamesindustry.biz) EA removes microtransactions from EA Sports College Football 27 following backlash — 1250 chars, body=full
+- `S0412` [2026-07-13] (gamesindustry.biz) Alinea: Steam revenue reaches $11.1bn, marking highest half-year on record — 1801 chars, body=full
+- `S0413` [2026-07-13] (gamesindustry.biz) Welcome to ExDev Week — 1718 chars, body=full
+- `S0414` [2026-07-13] (gamesindustry.biz) What does the future of external development look like? — 17423 chars, body=full
+- `S0415` [2026-07-13] (gamesindustry.biz) Analyst: Game console shipments expected to decline 19.5% to 33.9m units in 2026 — 4360 chars, body=full
+- `S0416` [2026-07-13] (pocketgamer.biz) IndieLight vice president Tony Shong to speak at PGC Summit Shanghai — 1658 chars, body=full
+- `S0417` [2026-07-13] (pocketgamer.biz) Atari appoints Andreas Deptolla as president of Atari Europe — 2004 chars, body=full
+- `S0418` [2026-07-13] (pocketgamer.biz) Hot Five: 10 years of Pokémon Go, Bold Games raises $6m, and Xbox to cut 3,200 jobs — 1729 chars, body=full
+- `S0419` [2026-07-13] (pocketgamer.biz) Pokémon Go marks 10 years with 800m players and a trillion Pokémon caught — 3058 chars, body=full
+- `S0420` [2026-07-13] (pocketgamer.biz) EA releases College Football Mobile as paid progression is removed from College Football 27 — 1840 chars, body=full
+- `S0421` [2026-07-13] (pocketgamer.biz) Apple updates App Store age rating questionnaire with social media questions — 1705 chars, body=full
+- `S0422` [2026-07-13] (pocketgamer.biz) Xsolla partners with Sabah.hub to support Azerbaijan's games ecosystem — 2269 chars, body=full
+- `S0423` [2026-07-13] (pocketgamer.biz) ToBid: Helping global mobile games unlock growth opportunities in China — 7026 chars, body=full
+- `S0424` [2026-07-13] (pocketgamer.biz) Zenless Zone Zero hits over $600m on mobile in two years - but it's just 17% of Genshin Impact — 3110 chars, body=full
+- `S0425` [2026-07-13] (pocketgamer.biz) What’s going on during this month’s Shanghai Games Week? — 4419 chars, body=full
+- `S0426` [2026-07-13] (pocketgamer.biz) Cadence: Musical Playgrounds is a "time capsule to how games used to be" 13 years in the making — 9093 chars, body=full
+- `S0427` [2026-07-13] (pocketgamer.biz) What Burny Games learned about building puzzle games over four years and 65 million downloads — 7555 chars, body=full
+- `S0428` [2026-07-13] (pocketgamer.biz) Xbox's big reset | Week in Mobile Games podcast — 1197 chars, body=full
+- `S0429` [2026-07-13] (gamedeveloper.com) 'A kick in the teeth:' Game workers protest alleged misconduct at MindsEye developer Build A Rocket Boy — 3506 chars, body=full
+- `S0430` [2026-07-13] (gamedeveloper.com) Games Done Quick apologizes for partnering with Saudi-owned studio SNK — 1946 chars, body=full
+- `S0431` [2026-07-13] (gamedeveloper.com) The Alters and Frostpunk developer 11 Bit Studios is laying off 20 employees — 2068 chars, body=full
+- `S0432` [2026-07-13] (mobilegamer.biz) Jobs digest: moves and promotions at Sega-Rovio, Scopely, Supercell, King, Kwalee and more — 3547 chars, body=full
+- `S0433` [2026-07-13] (mobilegamer.biz) Google on its new Play Store fees and that new Level Up program — 4051 chars, body=full
+- `S0519` [2026-07-14] (gcores.com) 第三阵营单人战役来袭,《风暴崛起》全新维提战役Demo与地图编辑器同步上线 — 46 chars, body=full
+- `S0520` [2026-07-14] (gcores.com) 《零秒：时光的归途》现已发售 首发折后38.4元 — 35 chars, body=full
+- `S0521` [2026-07-14] (gcores.com) 电影《侏罗纪公园》系列博士演员山姆·尼尔去世，享年78岁 — 43 chars, body=full
+- `S0522` [2026-07-14] (gcores.com) 纪念《女神异闻录3》发售20周年&《女神异闻录3 Reload》销量破300万份，Atlus公布副岛成记贺图 — 66 chars, body=full
+- `S0523` [2026-07-14] (gcores.com) 【抽奖】土耳其教授单人研发5年，历史4X游戏《帝国的夙愿》今日正式发售 — 48 chars, body=full
+- `S0524` [2026-07-14] (gcores.com) 【抽奖】双主角幻想 ARPG《星之旅》将于7 月 29 日登陆 PC，一同踏上星之旅 — 67 chars, body=full
+- `S0525` [2026-07-14] (gcores.com) 《女神异闻录４ Revival》公布中文语音宣传片 — 25 chars, body=full
+- `S0526` [2026-07-14] (gcores.com) 《黑帮霸主：地下帝国》揭晓新鲜血液大更新详情 — 47 chars, body=full
+- `S0527` [2026-07-14] (gcores.com) 《全面战争：战锤40K》公布最新实机演示 — 30 chars, body=full
+- `S0528` [2026-07-14] (gcores.com) 《英菲尼迪：六角穹顶竞技场》定于9月11日发售 — 29 chars, body=full
+- `S0529` [2026-07-14] (gcores.com) 《英雄联盟》国服经典模式定档7月30日 — 34 chars, body=full
+- `S0530` [2026-07-14] (gcores.com) 育碧就《刺客信条：黑旗 记忆重置》创作者抢先体验及游戏问题致歉 — 39 chars, body=full
+- `S0531` [2026-07-14] (gcores.com) 《GTA5》在线模式现已实装“科兹中心豪劫”更新 — 56 chars, body=full
+- `S0532` [2026-07-14] (gcores.com) 《恶霸鲁尼》精神续作《阿吉菲尔德高中：震撼校园》定于8月12日发售 — 43 chars, body=full
+- `S0533` [2026-07-14] (gcores.com) 《守望先锋》“璀璨排位赛”第二赛季将于7月15日正式开赛 — 41 chars, body=full
+- `S0534` [2026-07-14] (gcores.com) Steam社交推理游戏节现已隆重开幕 — 29 chars, body=full
+- `S0535` [2026-07-14] (gcores.com) 联机打铁新游《幻想铁匠铺模拟器》今日公开，Steam首轮测试同步开启 — 40 chars, body=full
+- `S0536` [2026-07-14] (gcores.com) 《多重人生》全新DLC“最终变量”现已上线 — 32 chars, body=full
+- `S0537` [2026-07-14] (gamelook.com.cn) Steam再破收入记录！上半年收入111亿美元，中国玩家疯狂涌入是主因 — 3060 chars, body=full
+- `S0538` [2026-07-14] (gamelook.com.cn) 《幻兽帕鲁》上线1.0版本，在线人数突破85万，亲自验证高管发言 — 1372 chars, body=full
+- `S0539` [2026-07-14] (gamelook.com.cn) 独游开发者分享：“因玩家作弊怒删排行榜”，同行鼓掌：做得太对了！ — 1519 chars, body=full
+- `S0540` [2026-07-14] (gamelook.com.cn) 又一个3A灾难？《极品飞车》系列难以为继，开发团队转向战地 — 2609 chars, body=full
+- `S0541` [2026-07-14] (gamelook.com.cn) 为何二合比三消更赚钱？《浪漫餐厅》对比《Royal Match》，变现不是一个物种 — 4627 chars, body=full
+- `S0542` [2026-07-14] (gamelook.com.cn) BW和BML圆满收官，国际范儿、成就上海新名片！ — 3631 chars, body=full
+- `S0543` [2026-07-14] (gamelook.com.cn) “顺风为王，逆风翻车”！“高周转”的买量游戏会集体雪崩么？ — 4858 chars, body=full
+- `S0544` [2026-07-14] (cgames.com) 再掀中式微恐热度，《超自然行动组》解释了何谓赛道Top1 — 4316 chars, body=full
+- `S0545` [2026-07-14] (cgames.com) 在上海，我看见了不一样的魔方 — 5495 chars, body=full
+- `S0546` [2026-07-14] (m.sohu.com) 《异环》2个月流水超14亿，但完美世界H1预亏至少8000万？ — 1187 chars, body=full
+- `S0547` [2026-07-14] (m.sohu.com) 全球畅销Top 3：手游大厂苦熬10年做3A，赚了吗？赢了！ — 6578 chars, body=full
+- `S0548` [2026-07-14] (m.sohu.com) 中国单机游戏行业真的好起来了？ — 2160 chars, body=full
+- `S0549` [2026-07-14] (youxituoluo.com) 深圳南山：打造游戏创业的“黄金生态” — 4280 chars, body=full
+- `S0550` [2026-07-14] (youxichaguan.com) 当人人都能用AI做游戏之后 — 5816 chars, body=full
+- `S0551` [2026-07-14] (youxichaguan.com) 数万魔石稀有坐骑！魔域口袋版服务器争霸赛今日开启 — 2123 chars, body=full
+- `S0552` [2026-07-14] (youxichaguan.com) 索尼×《魔法少女小圆》15周年联名活动正式开启 — 1402 chars, body=full
+- `S0553` [2026-07-14] (youxichaguan.com) 2026 ChinaJoy 京东美妆薅羊毛攻略 — 0 chars, body=empty
+- `S0554` [2026-07-14] (youxichaguan.com) 不卖数值，只拼脑力，10分钟定胜负《三国志BOND》EA发售 — 1255 chars, body=full
+- `S0555` [2026-07-14] (youxichaguan.com) 暑期宅家游戏季 畅快开黑先人一步 — 1305 chars, body=full
+- `S0556` [2026-07-14] (youxichaguan.com) E7 馆 S201！迈从 God 60 凡人动画联名款磁轴键盘与重磅嘉宾再度引爆 2026 ChinaJoy！ — 669 chars, body=full
+- `S0557` [2026-07-14] (youxichaguan.com) MOSHOWTOYS模寿亮相2026 ChinaJoy BTOC！热爱永不独行！ — 957 chars, body=full
+- `S0558` [2026-07-14] (youxichaguan.com) 朝夕光年确认参展2026 ChinaJoy BTOC互动娱乐馆，携多款重磅产品再度强势亮相！ — 944 chars, body=full
+- `S0559` [2026-07-14] (youxichaguan.com) 当ChinaJoy变成一场国风灯会——专访联名数字纪念票创作者玉玉卿 — 1662 chars, body=full
+- `S0560` [2026-07-14] (youxichaguan.com) 电竞世俱杯女子赛事开赛，决胜巅峰中国战队亮相揭幕战 — 671 chars, body=full
+- `S0561` [2026-07-14] (youxichaguan.com) 全球首场DOTA2交响音乐会圆满落幕，为TI上海之夏奏响序曲 — 2498 chars, body=full
+- `S0562` [2026-07-14] (youxichaguan.com) 完美世界确认参展 2026ChinaJoy — 348 chars, body=full
+- `S0563` [2026-07-14] (youxichaguan.com) 以面板技术赋能终端品牌，HKC惠科携手显示器生态合作伙伴亮相ChinaJoy — 1331 chars, body=full
+- `S0564` [2026-07-14] (youxichaguan.com) 这次，我们因你而来！暴雪游戏确认参展2026 ChinaJoy — 228 chars, body=full
+- `S0565` [2026-07-14] (youxichaguan.com) 华硕高性能游戏主机 六边形战士来袭 畅玩全系3A大作 — 1243 chars, body=full
+- `S0566` [2026-07-14] (youxichaguan.com) 2026年俄罗斯移动应用与游戏变现指南：行之有效的策略与盈利方向 — 3822 chars, body=full
+- `S0567` [2026-07-14] (youxichaguan.com) 高颜高能实力派 质价比电竞首选 — 1446 chars, body=full
+- `S0568` [2026-07-14] (youxichaguan.com) 完美世界2026中报预告：《异环》市场表现良好 多元储备后劲充足 — 1356 chars, body=full
+- `S0569` [2026-07-14] (yystv.net) 一群波兰人，正计划把失传的中国老游戏保护起来 — 5364 chars, body=full
+- `S0570` [2026-07-14] (yystv.net) 一张巨型RTX显卡，成了BW的“二次元中心” — 1886 chars, body=full
+- `S0571` [2026-07-14] (yystv.net) BW最“大”的游戏，把玩家心率干到了150 — 3008 chars, body=full
+- `S0572` [2026-07-14] (yystv.net) 当下炙手可热的日本游戏制作人，被中国的二次元圣地“刺激”到了 — 5086 chars, body=full
+- `S0573` [2026-07-14] (yystv.net) 《赛博朋克：边缘行者2》主创解释了大卫不会回归的原因 — 1784 chars, body=full
+- `S0574` [2026-07-14] (yystv.net) 全球首场DOTA2交响音乐会圆满落幕，为TI上海之夏奏响序曲 — 2498 chars, body=full
+- `S0575` [2026-07-14] (new.qq.com) 道歉声明 — 86 chars, body=full
+- `S0576` [2026-07-14] (new.qq.com) 一场盗号误会，一群“不玩游戏”的玩家｜小游戏九周年 — 5524 chars, body=full
+- `S0577` [2026-07-14] (new.qq.com) 连续3年海外收入超50%，50人+成都团队有了更大的野心 — 4782 chars, body=full
+- `S0578` [2026-07-14] (gamesindustry.biz) Ubisoft pivots to "selective model" to reduce reliance on individual game launches — 2719 chars, body=full
+- `S0579` [2026-07-14] (gamesindustry.biz) Former Epic Games VP Steve Allison appointed chief business officer at Saber Interactive — 2424 chars, body=full
+- `S0580` [2026-07-14] (gamesindustry.biz) How Evil Trout aims to turn a cult free game into a Steam hit – again — 10444 chars, body=full
+- `S0581` [2026-07-14] (gamesindustry.biz) "It's not like the Eye of Sauron is looking at everything we're doing" – Silent Hill F developer NeoBards on why trust is essential for co-dev — 11162 chars, body=full
+- `S0582` [2026-07-14] (gamesindustry.biz) Compulsion Games seeks new partnerships following spin-out from from Xbox — 1914 chars, body=full
+- `S0583` [2026-07-14] (gamesindustry.biz) Aream & Co: Gaming M&A hits $2.3bn in Q2, highest level since 2022 — 1932 chars, body=full
+- `S0584` [2026-07-14] (pocketgamer.biz) Angry Birds Dream Blast event features scenes from The Angry Birds Movie in transmedia promotion — 1848 chars, body=full
+- `S0585` [2026-07-14] (pocketgamer.biz) Left to Survive surpasses 85m installs as My.Games marks eighth anniversary — 1841 chars, body=full
+- `S0586` [2026-07-14] (pocketgamer.biz) 11 Bit Studios lays off 20 employees as it prepares for new production cycle — 1502 chars, body=full
+- `S0587` [2026-07-14] (pocketgamer.biz) GDAI launches Supernova to support India's next generation of game studios — 2404 chars, body=full
+- `S0588` [2026-07-14] (pocketgamer.biz) California-led coalition seeks to block Paramount-Warner Bros. merger — 2243 chars, body=full
+- `S0589` [2026-07-14] (pocketgamer.biz) Royal Kingdom surpasses $750m with 42% of all revenue made in H1 2026 — 2558 chars, body=full
+- `S0590` [2026-07-14] (pocketgamer.biz) My.Games' $50m a year benchmark for new forever franchises — 7588 chars, body=full
+- `S0591` [2026-07-14] (pocketgamer.biz) The race to 2030: How MENA governments turned games into a national ambition — 14122 chars, body=full
+- `S0592` [2026-07-14] (pocketgamer.biz) Two new lawsuits accuse Roblox of failing to protect girls from online predators — 1951 chars, body=full
+- `S0593` [2026-07-14] (gamedeveloper.com) Spin Master lays off Paw Patrol: The Game devs two days after launch — 4198 chars, body=full
+- `S0594` [2026-07-14] (mobilegamer.biz) Even Destiny 2’s demise won’t save Rising — 3352 chars, body=full
+- `S0595` [2026-07-14] (investgame.net) Microsoft: Xbox Restructuring Cuts 3,200 Jobs, Divests Studios — 378 chars, body=full
+- `S0596` [2026-07-14] (36kr.com) 2026年H1海外短剧&AI剧百强榜：NetShort、DramaWave包揽AI剧榜TOP10 — 2105 chars, body=full
+- `S0717` [2026-07-15] (gcores.com) 联机打铁新游《幻想铁匠铺模拟器》今日公开，Steam首轮测试同步开启 — 40 chars, body=full
+- `S0718` [2026-07-15] (gcores.com) 《多重人生》全新DLC“最终变量”现已上线 — 32 chars, body=full
+- `S0719` [2026-07-15] (gcores.com) Steam社交推理游戏节现已隆重开幕 — 29 chars, body=full
+- `S0720` [2026-07-15] (gcores.com) 《守望先锋》“璀璨排位赛”第二赛季将于7月15日正式开赛 — 41 chars, body=full
+- `S0721` [2026-07-15] (gcores.com) 《GTA5》在线模式现已实装“科兹中心豪劫”更新 — 56 chars, body=full
+- `S0722` [2026-07-15] (gcores.com) 《恶霸鲁尼》精神续作《阿吉菲尔德高中：震撼校园》定于8月12日发售 — 43 chars, body=full
+- `S0723` [2026-07-15] (gcores.com) 《远征军：武士》定于8月7日以抢先体验发售 — 27 chars, body=full
+- `S0724` [2026-07-15] (gcores.com) Steam周销量排行榜:《刺客信条：黑旗 记忆重置》登顶|2026年7月第2周 — 39 chars, body=full
+- `S0725` [2026-07-15] (gcores.com) 真人电影《蓦然回首》公布正式预告片，9月11日上映 — 39 chars, body=full
+- `S0726` [2026-07-15] (gcores.com) 二战卡牌游戏《Kards》“击剑节”现已隆重开幕 — 39 chars, body=full
+- `S0727` [2026-07-15] (gcores.com) 《鬼武者》现已推出性能测试软件 — 31 chars, body=full
+- `S0728` [2026-07-15] (gcores.com) 《湮灭之潮》成都线下试玩会招募开启，主创团队携成都特色邀玩家赴约 — 61 chars, body=full
+- `S0729` [2026-07-15] (gcores.com) 【抽奖】开放世界四人合作联机新作《灵伴世界》现已登陆Steam抢先体验 — 51 chars, body=full
+- `S0730` [2026-07-15] (gcores.com) 《死亡空间》之父Glen Schofield宣布退休，结束35年游戏开发生涯 — 42 chars, body=full
+- `S0731` [2026-07-15] (gcores.com) 元RPG《Attack Only: 唯有战斗》Steam 商店页面公开 — 52 chars, body=full
+- `S0732` [2026-07-15] (gcores.com) 【抽奖】真人互动影游《主角》今日上线：入局谎言戏台 — 30 chars, body=full
+- `S0733` [2026-07-15] (gamelook.com.cn) 6月全球手游收入与下载量排行榜TOP10：《Whiteout Survival》跃升至全球手游收入榜榜首 — 2987 chars, body=full
+- `S0734` [2026-07-15] (gamelook.com.cn) “游戏史上罕见”！AI成灾：重构主机游戏市场、游戏硬件价格飙升 — 4580 chars, body=full
+- `S0735` [2026-07-15] (gamelook.com.cn) “钢铁直男”最想要恋爱游戏？《黎明杀机》《守望先锋》《星际战甲》真做了！ — 3051 chars, body=full
+- `S0736` [2026-07-15] (gamelook.com.cn) “传奇大佬发威”！恺英预计上半年净利润最高15.6亿元、最高同比大增64% — 1075 chars, body=full
+- `S0737` [2026-07-15] (gamelook.com.cn) 米哈游的新烦恼：如何让AI游戏“没有AI味”？ — 3670 chars, body=full
+- `S0738` [2026-07-15] (gamelook.com.cn) “真是黑马”？老外对腾讯自研二游集体上头，直呼：“想要甜甜的恋爱” — 2849 chars, body=full
+- `S0739` [2026-07-15] (gamelook.com.cn) 完美世界亏损太意外！《异环》Q2流水14亿表现稳健，同行评价“真UE高手” — 3713 chars, body=full
+- `S0740` [2026-07-15] (cgames.com) 腾讯新作霸榜Steam预约榜一周，制作人回应：我们诚惶诚恐 — 8001 chars, body=full
+- `S0741` [2026-07-15] (m.sohu.com) 三人全女团队手搓的AI快穿乙游，背后藏着前叠纸CTO、天美发行制作人 — 6612 chars, body=full
+- `S0742` [2026-07-15] (m.sohu.com) 这款大DAU派对游戏，如何持续创造玩家价值？ — 2703 chars, body=full
+- `S0743` [2026-07-15] (m.sohu.com) 6月全球手游收入榜：《无尽冬日》登顶，《王者荣耀》第三 — 3084 chars, body=full
+- `S0744` [2026-07-15] (youxituoluo.com) 米哈游用「活人感」拯救世界 — 3492 chars, body=full
+- `S0745` [2026-07-15] (youxituoluo.com) 《异环》流水破14亿，会计“错配”致完美世界上半年预亏最高1.2亿 — 1610 chars, body=full
+- `S0746` [2026-07-15] (youxituoluo.com) 恺英净利超13亿，吉比特净利逾10亿，冰川预亏上千万｜半年报预告 — 2364 chars, body=full
+- `S0747` [2026-07-15] (youxichaguan.com) 地产老哥、生物学硕士、专业游戏团队扎堆创业，这片乐园“燃”起来了 — 5179 chars, body=full
+- `S0748` [2026-07-15] (youxichaguan.com) 《杖剑传说》贡献多，吉比特上半年净利润超10亿 — 891 chars, body=full
+- `S0749` [2026-07-15] (youxichaguan.com) 游族网络发布2026年上半年业绩预告，净利润预计2亿元-3亿元 — 863 chars, body=full
+- `S0750` [2026-07-15] (youxichaguan.com) 十里平湖，再遇小倩！《仙遇》 X 电影《倩女幽魂》正式开启 — 1335 chars, body=full
+- `S0751` [2026-07-15] (youxichaguan.com) 《仙遇》携手广东粤剧院，以数字仙侠焕新岭南戏曲之美 — 1584 chars, body=full
+- `S0752` [2026-07-15] (youxichaguan.com) 2026 ChinaJoy BTOB 展馆图正式公布 — 0 chars, body=empty
+- `S0753` [2026-07-15] (youxichaguan.com) 合作类搜打撤大作《黑纱掠袭》公开最新更新，两位全新英雄加入起义军 — 1338 chars, body=full
+- `S0754` [2026-07-15] (youxichaguan.com) 2026ChinaJoy《我的花园世界》参展确认！ — 110 chars, body=full
+- `S0755` [2026-07-15] (youxichaguan.com) JOYTOY确认参加2026 ChinaJoy，将携全系产品及新品亮相E5-FM404！ — 1198 chars, body=full
+- `S0756` [2026-07-15] (youxichaguan.com) LightX光帆动力将亮相ChinaJoy，共探AI驱动下泛娱出海新增长 — 1069 chars, body=full
+- `S0757` [2026-07-15] (youxichaguan.com) 4000万玩家之后，网易《漫威争锋》为何主动求变 — 2546 chars, body=full
+- `S0758` [2026-07-15] (youxichaguan.com) 东方战争建造模拟游戏《烽沙》定档8月12日，将于Steam开启抢先体验 — 2951 chars, body=full
+- `S0759` [2026-07-15] (youxichaguan.com) 重返云端秘境，魔女与龙正式启程——肉鸽策略新作《魔女与龙：元素的祈望》Demo现已开放 — 1443 chars, body=full
+- `S0760` [2026-07-15] (new.qq.com) 研发超4年，这款机甲PvP游戏终于放出第一个实机视频 — 983 chars, body=full
+- `S0761` [2026-07-15] (new.qq.com) 外媒采访《三国：火凤燎原》制作人：为什么是赛季制SRPG — 1243 chars, body=full
+- `S0762` [2026-07-15] (new.qq.com) 世界杯决赛在即，今年的足球游戏又赚翻了 — 5881 chars, body=full
+- `S0763` [2026-07-15] (gamesindustry.biz) 11 Bit Studios lays off 20 workers as it "adjusts new project teams to current needs" — 1242 chars, body=full
+- `S0764` [2026-07-15] (gamesindustry.biz) What lessons have developers learned from external development? — 13634 chars, body=full
+- `S0765` [2026-07-15] (gamesindustry.biz) "I had a front row seat to one of the greatest creative explosions in history" – Glen Schofield announces retirement — 2254 chars, body=full
+- `S0766` [2026-07-15] (gamesindustry.biz) "We thought, well, how would we reinvent this wheel?" – Minecraft specialists 4J Studios on building a new sandbox crafting game from first principles — 12037 chars, body=full
+- `S0767` [2026-07-15] (pocketgamer.biz) Save up to $80 before PGC Summit Shanghai mid-term rate ends this week! — 2015 chars, body=full
+- `S0768` [2026-07-15] (pocketgamer.biz) Vote for Best Developer at the Pocket Gamer Mobile Games Awards 2026 — 1010 chars, body=full
+- `S0769` [2026-07-15] (pocketgamer.biz) Why your boss will want you to attend this year's Pocket Gamer Connects Nordics — 5835 chars, body=full
+- `S0770` [2026-07-15] (pocketgamer.biz) Vote for Leading App Store Experience at the Pocket Gamer Mobile Games Awards 2026 — 995 chars, body=full
+- `S0771` [2026-07-15] (pocketgamer.biz) Who's coming to this month's PG Connects Summit Shanghai? — 3238 chars, body=full
+- `S0772` [2026-07-15] (pocketgamer.biz) Saber Interactive appoints former Epic Games executive Steve Allison as chief business officer — 2299 chars, body=full
+- `S0773` [2026-07-15] (pocketgamer.biz) Savvy Games Group partners with King Salman Science Oasis to expand games education — 1717 chars, body=full
+- `S0774` [2026-07-15] (pocketgamer.biz) Nativex on what AI gets wrong about marketing your game in China — 6625 chars, body=full
+- `S0775` [2026-07-15] (pocketgamer.biz) Most UK games industry workers are proud of the sector, but only 38% would recommend it as a place to work — 3881 chars, body=full
+- `S0776` [2026-07-15] (pocketgamer.biz) Pokémon Go revenue skyrockets towards a record high during Go Fest 2026: Global — 3997 chars, body=full
+- `S0777` [2026-07-15] (pocketgamer.biz) Inside Poki's vision for the future of browser gaming — 18355 chars, body=full
+- `S0778` [2026-07-15] (pocketgamer.biz) July's Collabs Corner: The Odyssey in Fortnite, One Punch Man meets Blood Strike, and more — 7934 chars, body=full
+- `S0779` [2026-07-15] (pocketgamer.biz) Wemade founder sells controlling stake to NeoPulse in $593m deal — 2288 chars, body=full
+- `S0780` [2026-07-15] (pocketgamer.biz) Why Ustwo Games shifted from mobile to PC and the "mind-boggling" discovery problem — 2742 chars, body=full
+- `S0781` [2026-07-15] (pocketgamer.biz) Ukie welcomes UK government's IP-backed lending plans for games studios — 2437 chars, body=full
+- `S0782` [2026-07-15] (gamedeveloper.com) Studio founded by former Star Wars: Galaxy of Heroes GM lays off staff — 2224 chars, body=full
+- `S0783` [2026-07-15] (gamedeveloper.com) Compulsion Games posts call for business partners after Xbox spinoff — 2694 chars, body=full
+- `S0784` [2026-07-15] (gamedeveloper.com) Paramount confirms Mike Zaimont is employed by Avatar Legends dev — 3281 chars, body=full
+- `S0785` [2026-07-15] (gamedeveloper.com) Assassin's Creed Black Flag Resynced crosses 2 million in sales as studio strikes over proposed layoffs — 4039 chars, body=full
+- `S0786` [2026-07-15] (gamedeveloper.com) 'The entire thing is going to fall apart:' Inside the latest round of mass layoffs at Xbox — 11425 chars, body=full
+- `S0787` [2026-07-15] (gamedeveloper.com) IWGB Game Workers union forms 'redundancy taskforce' to defend workers' rights — 2925 chars, body=full
+- `S0788` [2026-07-15] (gamedeveloper.com) UK union launches free resource to decode video game writing contracts — 2487 chars, body=full
+- `S0789` [2026-07-15] (gamedeveloper.com) NYU opens incubator applications for New York City-area devs — 2280 chars, body=full
+- `S0790` [2026-07-15] (mobilegamer.biz) King escapes Xbox cuts – for now — 3287 chars, body=full
+- `S0791` [2026-07-15] (mobilegamer.biz) Platforms are “not doing their job” when it comes to discoverability, says Ustwo Games boss — 2921 chars, body=full
+- `S0792` [2026-07-15] (mobilegamer.biz) Data digest: Pokémon Go, Rust, Mihoyo and Bluey stats plus funding news, puzzle market analysis and more — 5461 chars, body=full
+- `S0793` [2026-07-15] (36kr.com) 海外短剧开投网页端，低价获量引流到网赚，或滋生灰产？惊动警方 — 3021 chars, body=full
+- `S0794` [2026-07-15] (chuapp.com) 上线近两年后，“三角洲”突然推出爆破玩法？ — 3255 chars, body=full
+- `S0795` [2026-07-15] (chuapp.com) 触乐怪话：索尼取消实体光盘令人无奈，但它早晚会来 — 2283 chars, body=full
+- `S0796` [2026-07-15] (chuapp.com) 如何成为《蓝色星原》的“不在编工作人员” — 6622 chars, body=full
+- `S0797` [2026-07-15] (gameres.com) 《异环》两个月流水超14亿，都市开放世界游戏真的可以！ — 1056 chars, body=full
+- `S0798` [2026-07-15] (gameres.com) 卷！2026年进度条过半，独立游戏区佳作大爆发 — 4340 chars, body=full
+- `S0799` [2026-07-15] (gameres.com) 世纪华通2026上半年净利润同比预增61.87% — 1309 chars, body=full
+- `S0800` [2026-07-15] (gameres.com) 《拳皇全明星》官网预约开启！7月24日「拳魂测试」即将来袭 — 1238 chars, body=full
+- `S0801` [2026-07-15] (gameres.com) 合作类搜打撤大作《黑纱掠袭》公开最新更新，两位全新英雄加入起义军 — 1419 chars, body=full
+- `S0802` [2026-07-15] (gameres.com) 五元素自由搭配，体验不一样的肉鸽奇幻RPG——《魔女与龙：元素的祈望》Demo现已上线 — 1373 chars, body=full
+- `S0803` [2026-07-15] (gameres.com) Annapurna Interactive 正式推出《D-Topia》，一场探索 AI 与人类未来的科幻叙事冒险 — 1300 chars, body=full
+- `S0804` [2026-07-15] (gameres.com) 新作 《黑墙》，一场关于观察与未知的心理恐怖迷宫之旅 — 1223 chars, body=full
+- `S0805` [2026-07-15] (gameres.com) 4000万玩家之后，网易《漫威争锋》为何主动求变 — 2597 chars, body=full
+- `S0806` [2026-07-15] (gamespot.com) Assassin’s Creed Creator’s New Game Channels Fine Art And Slasher Cinema — 2664 chars, body=full
+- `S0807` [2026-07-15] (gamespot.com) Witcher 3 Director Says Next-Gen Console Delay Would Not Be Such A Bad Thing — 2842 chars, body=full
+- `S0808` [2026-07-15] (gamespot.com) Xbox’s Console Future Looks Bleak In New Industry Forecast — 3407 chars, body=full
+- `S0809` [2026-07-15] (gamespot.com) Exclusive: Mondo Reveals Masters Of The Universe 2002 Keldor And Flocked Panthor Figures — 3074 chars, body=full
+- `S0810` [2026-07-15] (gamespot.com) Beast Of Reincarnation’s Perfect Parry Ping Makes Me Want To Git Gud — 2071 chars, body=full
+- `S0811` [2026-07-15] (gamespot.com) Baseball’s Best Pitcher Put A Charizard Card In His Glove — 1578 chars, body=full
+- `S0812` [2026-07-15] (gamespot.com) Star Of 2026’s Biggest Movie Will Talk Call Of Duty: MW4 This Weekend — 1351 chars, body=full
+- `S0813` [2026-07-15] (gamespot.com) You Can Earn A $15,000 A Year For Mastering Your Favorite Game — 4121 chars, body=full
+- `S0814` [2026-07-15] (gamespot.com) EA Is Finally Trying to Save Your Sims 4 Saves — 3058 chars, body=full
+- `S0815` [2026-07-15] (gamespot.com) Why Are There So Many Benedict Cumberbatch Cards In Magic: The Gathering? — 2458 chars, body=full
+- `S0816` [2026-07-15] (gamespot.com) GOG Wants You To Make Your Own Physical Games — 1929 chars, body=full
+- `S0817` [2026-07-15] (gamespot.com) Path Of Titans Players Say Goodbye To Sam Neill With A Dinosaur March — 2594 chars, body=full
+- `S0818` [2026-07-15] (gamespot.com) Tony Hawk’s Pro Skater 1+2 Has Disappeared From Game Pass Without Explanation — 2135 chars, body=full
+- `S0819` [2026-07-15] (gamespot.com) Far Cry TV Show Adds Iconic, Veteran Actor Steve Buscemi — 1711 chars, body=full
+- `S0820` [2026-07-15] (gamespot.com) You Can Now Order Games And Consoles From GameStop With Uber Eats — 1630 chars, body=full
+- `S0821` [2026-07-15] (gamespot.com) PUBG Is Finally Fixing One Of Its Biggest New Player Hurdles — 2202 chars, body=full
+- `S0822` [2026-07-15] (gamespot.com) PlayStation Plus Extra/Premium Games For July 2026 Revealed — 3376 chars, body=full
+- `S0823` [2026-07-15] (ign.com.cn) 游戏所有权之争：为何拥有游戏愈发重要 — 3465 chars, body=full
+- `S0824` [2026-07-15] (ign.com.cn) Falcom 社长访谈：除了“轨迹”与“伊苏”，还有尚未发表的完全新作 — 5611 chars, body=full
+- `S0825` [2026-07-15] (ign.com.cn) 《消逝的光芒：困兽》取消PS4和XBOX One版 — 530 chars, body=full
+- `S0826` [2026-07-15] (ign.com.cn) 育碧庆《黑旗》大卖的同时却裁掉巴塞罗那团队 — 1110 chars, body=full
+- `S0827` [2026-07-15] (ign.com.cn) PlayStation FlexStrike无线格斗手柄因「意外生产延迟」推迟发布 — 699 chars, body=full
+- `S0828` [2026-07-15] (ign.com.cn) Steam半年利润110亿美元，老游戏占近八成 — 682 chars, body=full
+- `S0829` [2026-07-15] (ign.com.cn) 《湮灭之潮》线下试玩招募宣传视频 — 99 chars, body=full
+- `S0830` [2026-07-15] (ign.com.cn) 《湮灭之潮》首次线下试玩会成都站招募开启 — 184 chars, body=full
+- `S0831` [2026-07-15] (ign.com.cn) DLC为《刺客信条：黑旗 记忆重置》在Steam创收百万美元 — 979 chars, body=full
+- `S0832` [2026-07-15] (ign.com.cn) 一款新《光环》多人游戏已被取消 — 833 chars, body=full
+- `S0833` [2026-07-15] (ign.com.cn) 《死亡空间》创始人Glen Schofield宣布退休 — 843 chars, body=full
+- `S0834` [2026-07-15] (ign.com.cn) 《异形：火力小队2》「掠夺者」预告 — 255 chars, body=full
+- `S0835` [2026-07-15] (ign.com.cn) 《绝地潜兵2》「极速拦截」宣传视频 — 89 chars, body=full
+- `S0836` [2026-07-15] (ign.com.cn) 《战地风云6》第四赛季预告 — 75 chars, body=full
+- `S0837` [2026-07-15] (ign.com.cn) 《极限竞速：地平线6》「意大利超跑季」宣传视频 — 224 chars, body=full
+- `S0838` [2026-07-15] (ign.com.cn) 电影《指环王：猎捕咕噜》「开始制作」幕后花絮 — 172 chars, body=full
+- `S0839` [2026-07-15] (ign.com.cn) 《吸血鬼爬行者》1.5版本更新宣传视频 — 135 chars, body=full
+- `S0840` [2026-07-15] (ign.com.cn) 《逃生：试炼》第七赛季宣传视频 — 87 chars, body=full
+- `S0841` [2026-07-15] (ign.com.cn) 《Warhounds》发售日预告 — 148 chars, body=full
+- `S0842` [2026-07-15] (ign.com.cn) 《黑潮：黑胡子的诅咒》公布预告 — 254 chars, body=full
+- `S0843` [2026-07-15] (ign.com.cn) 《绯色侍女》35分钟实机演示 — 248 chars, body=full
+- `S0844` [2026-07-15] (ign.com.cn) 泄露信息表明，iPad mini 8或配备60Hz OLED面板 — 292 chars, body=full
+- `S0845` [2026-07-15] (ign.com.cn) 《艾恩葛朗特 回荡新声》评测 — 77 chars, body=full
+- `S0846` [2026-07-15] (ign.com.cn) 《电车炫客》游戏评测｜IGN 中国 — 2621 chars, body=full
+- `S0847` [2026-07-15] (ign.com.cn) 《电车炫客》发售宣传视频 — 197 chars, body=full
+- `S0848` [2026-07-15] (indienova.com) NOVA海外独立游戏见闻 Vol.143 — 8420 chars, body=full
+- `S0849` [2026-07-15] (indienova.com) 本周 Steam 值得关注的游戏 07.13 - 07.19（三） — 3770 chars, body=full
+- `S0850` [2026-07-15] (pcgamer.com) Ubisoft promises new Assassin's Creed, Far Cry, and Ghost Recon games are coming, but says this year will be 'quieter' than most — 3730 chars, body=full
+- `S0851` [2026-07-15] (pcgamer.com) This DIY 'OpenPuck' project allows the Steam Controller to emulate Xbox, Switch, and PlayStation controllers, but no wireless charging for you — 2956 chars, body=full
+- `S0852` [2026-07-15] (pcgamer.com) I've helped 100 cats mail parcels in Cat Mail Co. which is why I can safely say it's one of the best management sims I've played in a very long time — 3917 chars, body=full
+- `S0853` [2026-07-15] (pcgamer.com) George Lucas says rejecting AI is like rejecting cars in favour of horses: 'There's nothing you can do about it… it's the future' — 2775 chars, body=full
+- `S0854` [2026-07-15] (pcgamer.com) The PC Gaming Show Tokyo Direct returns September 20 — 1692 chars, body=full
+- `S0855` [2026-07-15] (pcgamer.com) A forgotten dungeon crawler from the Baldur's Gate era is coming to Steam and GOG for the first time ever — 3220 chars, body=full
+- `S0856` [2026-07-15] (pcgamer.com) After releasing a bummer of a Diablo 4 season, Blizzard swoops in with an update that fixes some of its worst issues — 2890 chars, body=full
+- `S0857` [2026-07-15] (pcgamer.com) Hollywood still has time to avoid the gaming industry's disastrous consolidation endgame — 5116 chars, body=full
+- `S0858` [2026-07-15] (pcgamer.com) Dragon's Dogma 2: Dark Arisen's new region and dungeons sound great, but I'm more excited to finally high-five my Pawn on command — 2718 chars, body=full
+- `S0859` [2026-07-15] (pcgamer.com) The best Palworld 1.0 base locations for early game builds, resource-rich farms, or raid safe havens — 5649 chars, body=full
+- `S0860` [2026-07-15] (pcgamer.com) Epic Games Store boss quits after 8 years to take up new role at Saber Interactive — 3399 chars, body=full
+- `S0861` [2026-07-15] (pcgamer.com) Future Games Show returns to Gamescom with 3 shows — 1164 chars, body=full
+- `S0862` [2026-07-15] (pcgamer.com) Steve Buscemi joins the Far Cry TV series cast and now we're all wondering: will he be a weird, helpful NPC, or a weirdly charismatic villain? — 3913 chars, body=full
+- `S0863` [2026-07-15] (pcgamer.com) Fighting game developer previously accused of sexual harassment confirmed to be working on Avatar Legends a week before release — 3596 chars, body=full
+- `S0864` [2026-07-15] (pcgamer.com) How to get Nightstar Sand in Palworld — 3136 chars, body=full
+- `S0865` [2026-07-15] (pcgamer.com) Dead Space creator and Call of Duty veteran Glen Schofield announces retirement: 'I had a front row seat to one of the greatest creative explosions in history' — 3406 chars, body=full
+- `S0866` [2026-07-15] (pcgamer.com) Latest Microsoft Patch Tuesday updates stamp out a record 622 security vulnerabilities, as the company's AI-enhanced bug hunt looks to bear fruit — 2188 chars, body=full
+- `S0867` [2026-07-15] (pcgamer.com) That annoying day one DLC in Assassin's Creed Black Flag Resynced was less than 3% of its initial Steam sales, but hey, $1 million is $1 million — 2024 chars, body=full
+- `S0868` [2026-07-15] (pcgamer.com) GTA 6 isn't on PC at launch because it's 'always better to start with the constraints', suggests former Rockstar producer — 2746 chars, body=full
+- `S0869` [2026-07-15] (pcgamer.com) HWMonitor now shows you thermal hotspot data for RTX 50-series graphics cards, so I thought I'd give one of ours a quick test — 2095 chars, body=full
+- `S0870` [2026-07-15] (pcgamer.com) The devil works hard but AI ripoffs work harder as Meccha Chameleon falls victim to hordes of copycats coming out of the woodwork — 2458 chars, body=full
+- `S0871` [2026-07-15] (pcgamer.com) Monster Hunter Wilds is getting a permanent price cut less than 18 months after launch — 2401 chars, body=full
+- `S0872` [2026-07-15] (pcgamer.com) 'Yes, that's Counter-Strike on a PSP!': Modder gets favorite PC FPS working on Sony's 22-year-old handheld console — 2893 chars, body=full
+- `S0873` [2026-07-15] (pcgamer.com) Pathfinder 2e creators Paizo end partnership with Archives of Nethys, which offers most of the D&D alternative's ruleset for free — 3117 chars, body=full
+- `S0874` [2026-07-15] (pcgamer.com) NY governor orders a pause on large AI data center construction, to ensure that 'when companies succeed because of New York, New Yorkers succeed too' — 3459 chars, body=full
+- `S0875` [2026-07-15] (pcgamer.com) Minecraft promo codes for Jul 2026 | — 7535 chars, body=full
+- `S0876` [2026-07-15] (pcgamer.com) Thief gets a mini-remaster ahead of its actual Nightdive remaster, courtesy of the GOG Preservation Program — 2803 chars, body=full
+- `S0877` [2026-07-15] (pcgamer.com) Poll finds 100% of Japanese online game developers are using AI, though mostly for 'user preference analysis' and 'user behavior prediction' — 2388 chars, body=full
+- `S0878` [2026-07-15] (pcgamer.com) Denshattack! review — 6450 chars, body=full
+- `S0879` [2026-07-15] (mp.sohu.com) 全球多国App Store财务畅销榜释放出关键风向，金融赛道增量藏在这些垂直细分场景里，出海开发者快来解锁落地运营新思路啦 — 2058 chars, body=full
+- `S0880` [2026-07-15] (mp.sohu.com) 中东App Store畅销榜释放出新的信号：市场增量依旧可观，这三大综合能力决定手游上限！游戏出海开发者可复用实操策略来啦！ — 2630 chars, body=full
+- `S0881` [2026-07-15] (yxrb.net) 抢先试玩LOL经典模式，对话拳头游戏：请回老设计师做“回家”的感觉 — 3353 chars, body=full
+- `S0882` [2026-07-15] (yxrb.net) “蜕变”中的BW：第9年，走出二次元 — 4009 chars, body=full
+- `S0883` [2026-07-15] (yxrb.net) NVIDIA 与世嘉共庆 30 年创新合作，将《VR战士：十字路口》及其他世嘉经典游戏带到 RTX Spark — 897 chars, body=full
+- `S0884` [2026-07-15] (yxrb.net) 《KAGE》Steam愿望单突破10万，今夏开启封闭测试 — 1304 chars, body=full
+- `S0885` [2026-07-15] (yxrb.net) 《三角洲行动》的“第三个大模式”要来了？ — 3651 chars, body=full
+- `S0886` [2026-07-15] (yxrb.net) 时光荏苒始终如一｜八位堂13 周年，让每个游戏瞬间永不褪色 — 1232 chars, body=full
+- `S0887` [2026-07-15] (yxrb.net) 4.3亿用户，30%女性玩家，这款SLG怎么就火了两年？ — 2453 chars, body=full
+- `S0888` [2026-07-15] (yxrb.net) 《拳皇全明星》官网预约开启！7月24日「拳魂测试」即将来袭 — 1176 chars, body=full
+- `S0889` [2026-07-15] (yxrb.net) 合作类搜打撤大作《黑纱掠袭》公开最新更新，两位全新英雄加入起义军 — 1409 chars, body=full
+- `S0890` [2026-07-15] (yxrb.net) 十里平湖，再遇小倩！《仙遇》 X 电影《倩女幽魂》正式开启 — 1335 chars, body=full
+- `S1025` [2026-07-16] (gcores.com) 【抽奖】真人互动影游《主角》今日上线：入局谎言戏台 — 30 chars, body=full
+- `S1026` [2026-07-16] (gcores.com) 元RPG《Attack Only: 唯有战斗》Steam 商店页面公开 — 52 chars, body=full
+- `S1027` [2026-07-16] (gcores.com) 《死亡空间》之父Glen Schofield宣布退休，结束35年游戏开发生涯 — 42 chars, body=full
+- `S1028` [2026-07-16] (gcores.com) 【抽奖】开放世界四人合作联机新作《灵伴世界》现已登陆Steam抢先体验 — 51 chars, body=full
+- `S1029` [2026-07-16] (gcores.com) 《湮灭之潮》成都线下试玩会招募开启，主创团队携成都特色邀玩家赴约 — 61 chars, body=full
+- `S1030` [2026-07-16] (gcores.com) Steam周销量排行榜:《刺客信条：黑旗 记忆重置》登顶|2026年7月第2周 — 39 chars, body=full
+- `S1031` [2026-07-16] (gcores.com) 真人电影《蓦然回首》公布正式预告片，9月11日上映 — 39 chars, body=full
+- `S1032` [2026-07-16] (gcores.com) 二战卡牌游戏《Kards》“击剑节”现已隆重开幕 — 39 chars, body=full
+- `S1033` [2026-07-16] (gcores.com) 《鬼武者》现已推出性能测试软件 — 31 chars, body=full
+- `S1034` [2026-07-16] (gcores.com) 《远征军：武士》定于8月7日以抢先体验发售 — 27 chars, body=full
+- `S1035` [2026-07-16] (gcores.com) 《刺客信条：黑旗 重制版》确认正在开发新游戏+模式 — 31 chars, body=full
+- `S1036` [2026-07-16] (gcores.com) 《The Duskbloods》网络测试宣布将于 2026 年 8 月举行 — 43 chars, body=full
+- `S1037` [2026-07-16] (gcores.com) 能玩特技空翻的电车来了！《电车炫客》今日正式发售，登陆 PC 与主机平台 — 45 chars, body=full
+- `S1038` [2026-07-16] (gcores.com) 《红色沙漠》荣获 Develop:Star Awards 最佳技术创新奖 — 41 chars, body=full
+- `S1039` [2026-07-16] (gcores.com) 多结局美少女养成模拟游戏《火山的女儿》将追加全新内容，并于2026年7月30日登陆iOS、Android、Nintendo Switch™及PlayStation®5平台！ — 126 chars, body=full
+- `S1040` [2026-07-16] (gcores.com) 治愈放置游戏《鸟语森林》现已在Steam发售 — 41 chars, body=full
+- `S1041` [2026-07-16] (gcores.com) 【抽奖】三年打磨收官！《星球田园诗》1.0 正式版即将推出 — 42 chars, body=full
+- `S1042` [2026-07-16] (gcores.com) 微星笔记本暑促晒单有礼：40周年礼盒、魔龙姬契约礼盒等你来拿 — 38 chars, body=full
+- `S1043` [2026-07-16] (gamelook.com.cn) 2026“指尖星图”游戏创新大赛结果正式揭晓 — 5719 chars, body=full
+- `S1044` [2026-07-16] (gamelook.com.cn) “墨西哥人率先不服”！索尼“取消光盘”将被反垄断诉讼，全球玩家不嫌事大 — 1404 chars, body=full
+- `S1045` [2026-07-16] (gamelook.com.cn) 游族预告上半年净利润最高增5倍！AI增效初见成效 — 735 chars, body=full
+- `S1046` [2026-07-16] (gamelook.com.cn) 任天堂CEO年薪才200万美元？“低薪高能”的游戏巨头，再次震惊全球玩家 — 3098 chars, body=full
+- `S1047` [2026-07-16] (gamelook.com.cn) 《深空之眼》停更后，玩家与官方上演“温存自救”！ — 2274 chars, body=full
+- `S1048` [2026-07-16] (gamelook.com.cn) 6000万美金研发、团队200人，“印度黑神话”要兑现印度3A游戏梦！ — 4392 chars, body=full
+- `S1049` [2026-07-16] (gamelook.com.cn) 国内二游厂商“集体扩张团队”！好日子继续，还是赶赴“最后盛宴”？ — 4116 chars, body=full
+- `S1050` [2026-07-16] (gamelook.com.cn) 世纪华通预告上半年净利近50亿：顺风三年，接下来如何演？ — 6029 chars, body=full
+- `S1051` [2026-07-16] (cgames.com) 我在上海，见证了一场属于国产二游的TGA — 3788 chars, body=full
+- `S1052` [2026-07-16] (cgames.com) 刚刚登顶榜一，它突破了网易巨人包围圈 — 3616 chars, body=full
+- `S1053` [2026-07-16] (cgames.com) 网易不下桌，搜打撤钉子户够硬 — 2981 chars, body=full
+- `S1054` [2026-07-16] (m.sohu.com) 鹰角慢了 — 4754 chars, body=full
+- `S1055` [2026-07-16] (youxituoluo.com) 游戏出海进入深水区，“游戏+IP”正在成为新红利 — 5965 chars, body=full
+- `S1056` [2026-07-16] (youxichaguan.com) 超萌寿司竞速！《Wabisabi SushiDerby》登录双平台，限时9折！ — 2651 chars, body=full
+- `S1057` [2026-07-16] (youxichaguan.com) 18年，畅销榜第2：《三国杀》的“破而不破”哲学 — 6689 chars, body=full
+- `S1058` [2026-07-16] (youxichaguan.com) 不玩二游、不看日漫，我仍然爱上了BW — 6264 chars, body=full
+- `S1059` [2026-07-16] (youxichaguan.com) 《纸嫁衣9罗浮梦》现已上线，益昌镇欢欢欢迎您一探迷梦！ — 289 chars, body=full
+- `S1060` [2026-07-16] (youxichaguan.com) 《梦幻模拟战》全新一代作品！新王道幻想战略RPG《梦战：剑之海》全球首曝，预约正式开启 — 776 chars, body=full
+- `S1061` [2026-07-16] (youxichaguan.com) 招揽门客诛灭妖邪《春秋异闻录》正式发售 — 838 chars, body=full
+- `S1062` [2026-07-16] (youxichaguan.com) 猫师傅的打工日常，《喵喵工坊》正式发售 — 878 chars, body=full
+- `S1063` [2026-07-16] (youxichaguan.com) 游戏行业的“财报关”：为何新游流水好看，企业利润却不好看？ — 1486 chars, body=full
+- `S1064` [2026-07-16] (yystv.net) 黑旗重制一天卖200万套，育碧最需要补的课不再是“怎么做游戏” — 5163 chars, body=full
+- `S1065` [2026-07-16] (yystv.net) 《空之轨迹the 2nd》上线前，Falcom社长谈如何兼顾还原与创新 — 4364 chars, body=full
+- `S1066` [2026-07-16] (yystv.net) LOL“怀旧服”上线前，我们和拳头聊了聊过去的《英雄联盟》是怎么回归的 — 7642 chars, body=full
+- `S1067` [2026-07-16] (yystv.net) 《黑神话：悟空》把音乐会开到美国，何尝不是另一种“西游” — 1729 chars, body=full
+- `S1068` [2026-07-16] (yystv.net) 一款双人游戏，把“追番昭和动画”做成了通关目标 — 1657 chars, body=full
+- `S1069` [2026-07-16] (yystv.net) 《梦幻模拟战》全新一代作品！新王道幻想战略RPG《梦战：剑之海》全球首曝，预约正式开启 — 758 chars, body=full
+- `S1070` [2026-07-16] (new.qq.com) 紫龙「梦战」IP新一代作品首曝，近期将公布实机PV — 483 chars, body=full
+- `S1071` [2026-07-16] (new.qq.com) 9人团队开发四年，做了一款96%好评的类魂游戏！ — 6347 chars, body=full
+- `S1072` [2026-07-16] (gamesindustry.biz) Should you work on your own games as an external development studio? — 11076 chars, body=full
+- `S1073` [2026-07-16] (gamesindustry.biz) ZeniMax Online Studios leadership impacted by latest Xbox layoffs — 1970 chars, body=full
+- `S1074` [2026-07-16] (gamesindustry.biz) Looney Tunes: World of Mayhem to be taken offline in October 2026 — 1147 chars, body=full
+- `S1075` [2026-07-16] (gamesindustry.biz) Clair Obscur: Expedition 33 wins Best Game at Develop:Star Awards 2026 — 2490 chars, body=full
+- `S1076` [2026-07-16] (gamesindustry.biz) "If I work on that, my kids will think I'm Gandalf" – Blackbird Interactive on the highs and lows of external development — 13488 chars, body=full
+- `S1077` [2026-07-16] (pocketgamer.biz) Vote for Best Development Partner at the Pocket Gamer Mobile Games Awards 2026 — 942 chars, body=full
+- `S1078` [2026-07-16] (pocketgamer.biz) Who's coming to this month's PG Connects Summit Shanghai? — 3553 chars, body=full
+- `S1079` [2026-07-16] (pocketgamer.biz) Gaming financings surpass $2.5bn in strongest quarter of the past 12 months — 2380 chars, body=full
+- `S1080` [2026-07-16] (pocketgamer.biz) Nodwin Gaming appoints Teemu Koski as CEO of MENA business — 2509 chars, body=full
+- `S1081` [2026-07-16] (pocketgamer.biz) The winning portfolio strategies of 2026 with two and a half gamers — 5690 chars, body=full
+- `S1082` [2026-07-16] (pocketgamer.biz) Learn all about China’s games industry in our free region report — 1196 chars, body=full
+- `S1083` [2026-07-16] (pocketgamer.biz) Vgames raises $500m to launch growth financing platform for gaming companies — 2166 chars, body=full
+- `S1084` [2026-07-16] (pocketgamer.biz) In the Hot Seat: Stefan Lampinen on why Chinese publishers are outpacing the West in European market intelligence — 1918 chars, body=full
+- `S1085` [2026-07-16] (pocketgamer.biz) Lessons from building an AI-assisted Unreal Engine tool — 15273 chars, body=full
+- `S1086` [2026-07-16] (pocketgamer.biz) Lingokids surpasses 500m plays across Disney activities — 1664 chars, body=full
+- `S1087` [2026-07-16] (pocketgamer.biz) H1 2026 genre analysis: strategy stumbles, RPGs fall, and puzzle revenue ramps up — 7916 chars, body=full
+- `S1088` [2026-07-16] (pocketgamer.biz) Google and Epic withdraw settlement as Play Store overhaul moves ahead — 3520 chars, body=full
+- `S1089` [2026-07-16] (pocketgamer.biz) Netflix launches minigolf party game inspired by hit series — 1554 chars, body=full
+- `S1090` [2026-07-16] (gamedeveloper.com) Dead Space co-creator Glen Schofield retires — 2201 chars, body=full
+- `S1091` [2026-07-16] (gamedeveloper.com) Former Epic Games VP appointed Saber Interactive's chief business officer — 3108 chars, body=full
+- `S1092` [2026-07-16] (gamedeveloper.com) Pokemon Go owner Scopely 'reorganizes' Stumble Guys team — 3437 chars, body=full
+- `S1093` [2026-07-16] (gamedeveloper.com) ZeniMax Online Studios leadership included in Xbox mass layoffs — 3669 chars, body=full
+- `S1094` [2026-07-16] (gamedeveloper.com) 'The goal of design is to efficiently communicate ideas' — 4684 chars, body=full
+- `S1095` [2026-07-16] (mobilegamer.biz) On the podcast: King dodges Xbox cuts, Destiny Rising, Google’s store fees, Ustwo slams platforms, June’s top games, more — 1646 chars, body=full
+- `S1096` [2026-07-16] (mobilegamer.biz) Google Play opens up to third party app stores from next week — 2063 chars, body=full
+- `S1097` [2026-07-16] (mobilegamer.biz) Scopely’s Looney Tunes World of Mayhem is shutting down in October — 1332 chars, body=full
+- `S1098` [2026-07-16] (chuapp.com) 2026“指尖星图”游戏创新大赛结果正式揭晓 — 5743 chars, body=full
+- `S1099` [2026-07-16] (chuapp.com) 触乐怪话：脑子会了，手还不会 — 1499 chars, body=full
+- `S1100` [2026-07-16] (chuapp.com) 到中国去——波兰游戏开发者的中国探索之路 — 8732 chars, body=full
+- `S1101` [2026-07-16] (gameres.com) 如何从零开始设计一款 TRPG？ — 2501 chars, body=full
+- `S1102` [2026-07-16] (gameres.com) 超萌寿司竞速！《Wabisabi SushiDerby》登录双平台，限时9折！ — 2725 chars, body=full
+- `S1103` [2026-07-16] (gameres.com) 脑洞打开！重庆独游团队正在全速开发一个鲜活“地府” — 4048 chars, body=full
+- `S1104` [2026-07-16] (gameres.com) 赴一场国风盛景！BW2026 以闪亮之名画卷屏展台惊艳亮相 — 890 chars, body=full
+- `S1105` [2026-07-16] (gameres.com) 《Go-Go Town!》今日正式开启 Steam 1.0 版本与 Nintendo Switch 版上市庆典！ — 2102 chars, body=full
+- `S1106` [2026-07-16] (gameres.com) KRAFTON公布科隆国际游戏展2026展台活动内容 — 820 chars, body=full
+- `S1107` [2026-07-16] (gameres.com) Gamirror Games宣布发行《沉星之序》，制作人“吹哥”来中国和大家见面了 — 934 chars, body=full
+- `S1108` [2026-07-16] (gameres.com) 招揽门客诛灭妖邪《春秋异闻录》正式发售 — 884 chars, body=full
+- `S1109` [2026-07-16] (gameres.com) 猫师傅的打工日常，《喵喵工坊》正式发售 — 924 chars, body=full
+- `S1110` [2026-07-16] (gamespot.com) Shrek Plays Soccer Now, Sort Of — 829 chars, body=snippet
+- `S1111` [2026-07-16] (gamespot.com) Glen Schofield Talks $200 Million Call Of Duty Games, Canceled Vietnam Game, And How Dead Space Came To Be — 3415 chars, body=snippet
+- `S1112` [2026-07-16] (gamespot.com) World Of Warcraft’s Haranir Lore Reveal Has Players Scratching Their Heads — 4916 chars, body=snippet
+- `S1113` [2026-07-16] (gamespot.com) Overwatch’s Barely-A-Year-Old Stadium Mode Is Going On Life Support — 2482 chars, body=snippet
+- `S1114` [2026-07-16] (gamespot.com) A Warner Bros. Looney Tunes Game Is Shutting Down Soon — 2186 chars, body=snippet
+- `S1115` [2026-07-16] (gamespot.com) Sony-Owned Crunchyroll Is Now Kneecapping Physical Anime Sales — 2757 chars, body=snippet
+- `S1116` [2026-07-16] (gamespot.com) Your First Chance To Play The Duskbloods Early Is Next Month — 1289 chars, body=snippet
+- `S1117` [2026-07-16] (gamespot.com) Call Of Duty: Modern Warfare 4 Will Probably Look Best On The Console That Costs The Most — 2062 chars, body=snippet
+- `S1118` [2026-07-16] (gamespot.com) Microsoft Says Id Tech Is Safe, Former Staffers Say They’ve Fired Everyone Who Could Save It — 3114 chars, body=snippet
+- `S1119` [2026-07-16] (gamespot.com) Xbox Support Pledges To Help Customer Reclaim His Hacked Account — 1983 chars, body=snippet
+- `S1120` [2026-07-16] (gamespot.com) GTA 6 Just Got A Jaw-Dropping Sales Prediction — 3444 chars, body=snippet
+- `S1121` [2026-07-16] (gamespot.com) God Of War Laufey Star Doesn’t Care What The Trolls Think: “I Just Know It’s Great” — 1831 chars, body=snippet
+- `S1122` [2026-07-16] (gamespot.com) Upcoming Souls-Like So Popular It Sells Out Of PS5 Preorders — 2350 chars, body=snippet
+- `S1123` [2026-07-16] (gamespot.com) Hasbro Announces Partnership With Nintendo For Zelda Toys, First Will Be Revealed Soon — 1656 chars, body=snippet
+- `S1124` [2026-07-16] (gamespot.com) These Fortnite Swimsuit Skins Better Not Awaken Anything In Me — 2156 chars, body=snippet
+- `S1125` [2026-07-16] (gamespot.com) Former Rockstar Dev Explains GTA 6’s Console-First Approach — 2295 chars, body=snippet
+- `S1126` [2026-07-16] (gamespot.com) Call Of Duty: MW4 Features A Car Created By Iconic Brand That Looks Like A Halo Warthog With A Roof — 1208 chars, body=snippet
+- `S1127` [2026-07-16] (gamespot.com) Steam Malware Allegedly Helped Florida Man Steal Over $220,000 In Crypto — 2318 chars, body=snippet
+- `S1128` [2026-07-16] (ign.com.cn) 《大世界之旅》九月回归，新主持阵容亮相 — 599 chars, body=full
+- `S1129` [2026-07-16] (ign.com.cn) 乔治·卢卡斯力挺AI：拒绝它就像拒绝汽车选马车 — 974 chars, body=full
+- `S1130` [2026-07-16] (ign.com.cn) 《电车炫客》39分钟实机演示 — 246 chars, body=full
+- `S1131` [2026-07-16] (ign.com.cn) 微软临时从XGP中撤下《托尼·霍克：职业滑板手1+2》 — 793 chars, body=full
+- `S1132` [2026-07-16] (ign.com.cn) 《卧龙 2：凤火连天》试玩前瞻：飞天遁地，化解群魔 | IGN 中国 — 2585 chars, body=full
+- `S1133` [2026-07-16] (ign.com.cn) 罗伯特·帕丁森《新蝙蝠侠2》再延期，2028年上映 — 1043 chars, body=full
+- `S1134` [2026-07-16] (ign.com.cn) 前Rockstar制作人：《GTA6》PC版延期非因贪婪 — 904 chars, body=full
+- `S1135` [2026-07-16] (ign.com.cn) 《生化危机 安魂曲》里昂配音演员自曝被卡普空删掉的「最爱」台词 — 723 chars, body=full
+- `S1136` [2026-07-16] (ign.com.cn) 《余烬之镇》抢先体验版发售日预告 — 163 chars, body=full
+- `S1137` [2026-07-16] (ign.com.cn) 《战争机器：事变日》「Exfil Dom」预告 — 205 chars, body=full
+- `S1138` [2026-07-16] (ign.com.cn) 电影《新蝙蝠侠2》「摄像机测试」先导预告 — 104 chars, body=full
+- `S1139` [2026-07-16] (ign.com.cn) 《使命召唤：现代战争4》「欢迎来到演习场」预告 — 100 chars, body=full
+- `S1140` [2026-07-16] (ign.com.cn) 《雷曼：起源 增强版》游戏玩法预告 — 181 chars, body=full
+- `S1141` [2026-07-16] (ign.com.cn) 《最终幻想 RESONANCE》宣传视频 — 231 chars, body=full
+- `S1142` [2026-07-16] (ign.com.cn) 《漫威斗魂》「星爵」角色指南 — 215 chars, body=full
+- `S1143` [2026-07-16] (ign.com.cn) 《荣耀战魂》「Arakure」角色预告 — 111 chars, body=full
+- `S1144` [2026-07-16] (ign.com.cn) 手游《瑞奇与叮当：游侠乱斗》预注册宣传视频 — 223 chars, body=full
+- `S1145` [2026-07-16] (ign.com.cn) 电影《猫鼬》预告 — 208 chars, body=full
+- `S1146` [2026-07-16] (ign.com.cn) 《机械狂欢》发售日预告 — 130 chars, body=full
+- `S1147` [2026-07-16] (ign.com.cn) 《辐射：新维加斯》首席设计师坦言被剧集对话尴尬到 — 1052 chars, body=full
+- `S1148` [2026-07-16] (ign.com.cn) Zach Cregger版《生化危机》片长曝光 — 701 chars, body=full
+- `S1149` [2026-07-16] (ign.com.cn) 《亰都幻都 -樱花幻舞-》发售宣传视频 — 204 chars, body=full
+- `S1150` [2026-07-16] (ign.com.cn) 《卧龙2：凤火连天》制作人给玩家的讯息 — 187 chars, body=full
+- `S1151` [2026-07-16] (ign.com.cn) 《马力欧网球 狂热》免费更新宣传视频 — 127 chars, body=full
+- `S1152` [2026-07-16] (ign.com.cn) 《毁灭战士：黑暗时代 Revelations》评测 — 106 chars, body=full
+- `S1153` [2026-07-16] (indienova.com) 诺娃独立游戏通讯 2026-#28 — 3506 chars, body=full
+- `S1154` [2026-07-16] (indienova.com) 本周 Steam 值得关注的游戏 07.13 - 07.19（四） — 3728 chars, body=full
+- `S1155` [2026-07-16] (mp.sohu.com) 半年1.2万款新游上线，Steam还能给中小团队机会吗？ — 3608 chars, body=full
+- `S1156` [2026-07-16] (mp.sohu.com) 12年没融资、逆势扩招到300人：这家小游戏公司为何All in二合？ — 4004 chars, body=full
+- `S1157` [2026-07-16] (pcgamer.com) Valve to send iFixIt more Steam Deck LCD batteries, replacements will be back in stock next week — 2178 chars, body=full
+- `S1158` [2026-07-16] (pcgamer.com) Dell Pro 5 Webcam review — 6505 chars, body=full
+- `S1159` [2026-07-16] (pcgamer.com) Another Spiderweb RPG that looks like it was made in 1993 drops on Kickstarter and immediately crushes its goal — 3316 chars, body=full
+- `S1160` [2026-07-16] (pcgamer.com) RPG players are conditioned to think they're 'built different', says Josh Sawyer, so some of them hate it when games like Pillars of Eternity tell them they can't do something — 2884 chars, body=full
+- `S1161` [2026-07-16] (pcgamer.com) Black Flag Resynced is missing iconic combat mechanics simply because they were 'lower priority' — 2369 chars, body=full
+- `S1162` [2026-07-16] (pcgamer.com) I'm officially obsolete because this robot can operate an Xbox controller, open unhealthy snacks, and make clumsy sexual passes — 3671 chars, body=full
+- `S1163` [2026-07-16] (pcgamer.com) A year after its debut, Blizzard is done adding new heroes and maps to Overwatch's MOBA-inspired Stadium mode — 3812 chars, body=full
+- `S1164` [2026-07-16] (pcgamer.com) As Sony prepares to end game disc production, GOG jumps up to remind PC gamers that you can just make your own — 2739 chars, body=full
+- `S1165` [2026-07-16] (pcgamer.com) Moonlight Peaks review — 6273 chars, body=full
+- `S1166` [2026-07-16] (pcgamer.com) Original Witcher dev says remaking it as an open world won't be easy: 'As a player, I might be happy about that, but as a designer, I'm starting to get gray' — 3034 chars, body=full
+- `S1167` [2026-07-16] (pcgamer.com) Steam reveals all the sale dates and themed events for the first half of 2027 — 2405 chars, body=full
+- `S1168` [2026-07-16] (pcgamer.com) If The Odyssey film is anything like The Odyssey adventure game from 2012, Matt Damon will spend the entire first hour trying to solve a single loom puzzle — 8273 chars, body=full
+- `S1169` [2026-07-16] (pcgamer.com) The Washington Post selects Doom as one of the 25 'most influential works of American culture' — 4226 chars, body=full
+- `S1170` [2026-07-16] (pcgamer.com) Was Assassin's Creed Origins' Egypt the best open world in the series? — 2911 chars, body=full
+- `S1171` [2026-07-16] (pcgamer.com) The future of the Elder Scrolls Online looks rocky after culling of leadership team — 2241 chars, body=full
+- `S1172` [2026-07-16] (pcgamer.com) Two utterly unique and long lost '90s PC horror classics have been exhumed, and they're coming to Steam soon — 2689 chars, body=full
+- `S1173` [2026-07-16] (pcgamer.com) Against a backdrop of advancing Chinese production, TSMC announces another $100 billion worth of chipmaking will be invested in the US — 2279 chars, body=full
+- `S1174` [2026-07-16] (pcgamer.com) Secretlab Atlas review — 13287 chars, body=full
+- `S1175` [2026-07-16] (pcgamer.com) Report contradicts Microsoft's statements that id Software hasn't been shoved onto Unreal from id Tech: 'It's most likely going to end up in the trash can' — 3018 chars, body=full
+- `S1176` [2026-07-16] (pcgamer.com) Redditor fashions a 'game cartridge' system for their Steam library out of cheap SATA SSDs — 2675 chars, body=full
+- `S1177` [2026-07-16] (pcgamer.com) Marvel Rivals is making some big visual changes to 'cut down on battlefield chaos' which is wonderful because my old brain can't handle that level of overstimulation — 2496 chars, body=full
+- `S1178` [2026-07-16] (pcgamer.com) Modern Warfare 4 lead isn't scared of the GTA 6 black hole: 'It’s a little head-to-head, that’s great' — 2119 chars, body=full
+- `S1179` [2026-07-16] (pcgamer.com) Desktop Explorer is a mystery/horror game about the last time when computers were good — 3179 chars, body=full
+- `S1180` [2026-07-16] (pcgamer.com) The company that makes all the West's chipmaking machines says it's selling more than it expected thanks to 'very strong momentum in both DRAM and advanced logic' — 3145 chars, body=full
+- `S1181` [2026-07-16] (pcgamer.com) Infinity Ward aims to make MW4 even 'more immersive,' and it's already proving divisive: 'Mouse and keyboard is OFFICIALLY DEAD' — 3645 chars, body=full
+- `S1182` [2026-07-16] (pcgamer.com) Forget Black Flag Resynced, the best pirate game of 2026 might be a logistics-heavy city builder — 7479 chars, body=full
+- `S1183` [2026-07-16] (pcgamer.com) Report paints a picture of brutal cord-cutting inside Xbox layoffs: 'Many of us did not know what was happening for weeks' — 2780 chars, body=full
+- `S1184` [2026-07-16] (pcgamer.com) Turns out Microsoft's Secure Boot was little better than a busted lock for about a decade — 2879 chars, body=full
+- `S1185` [2026-07-16] (pcgamer.com) This AliExpress-sourced $5 USB hub has been described as 'mildly dangerous' for your PC, thanks to a nasty power issue — 2882 chars, body=full
+- `S1186` [2026-07-16] (pcgamer.com) PC Gamer magazine's new issue is on sale now: Duke Nukem special anniversary celebration — 6372 chars, body=full
+- `S1187` [2026-07-16] (pcgamer.com) Where to find the Nangan region Treasure Hunt in Forza Horizon 6 — 1712 chars, body=full
+- `S1188` [2026-07-16] (pcgamer.com) Where to find Shikisai-no-Oka in Forza Horizon 6 — 1667 chars, body=full
+- `S1189` [2026-07-16] (mp.sohu.com) 海外电商平台Whatnot并购案例释放行业新信号：电商的下一轮竞争力，或藏在搜索、推荐与实时匹配能力里！ — 2196 chars, body=full
+- `S1190` [2026-07-16] (yxrb.net) 鹰角“大胆”的答案，有了？ — 6052 chars, body=full
+- `S1191` [2026-07-16] (yxrb.net) 适乐肤携手《时光代理人》空降 BilibiliWorld ，开启破次元的“修护时光”委托 — 2659 chars, body=full
+- `S1192` [2026-07-16] (yxrb.net) 2026“指尖星图”游戏创新大赛结果正式揭晓 — 5719 chars, body=full
+- `S1193` [2026-07-16] (yxrb.net) “我上我也行”，在这个游戏中实现了 — 5494 chars, body=full
+- `S1194` [2026-07-16] (yxrb.net) 超萌寿司竞速！《Wabisabi SushiDerby》登录双平台，限时9折！ — 2651 chars, body=full
 
 ## release_calendar (439 records)
 
-- S0085 | 2026-07-10 | N/A | 七日世界 - 新版本
-- S0086 | 2026-07-10 | N/A | 三角洲行动 - 新版本
-- S0087 | 2026-07-10 | N/A | 封神榜2 - 新版本
-- S0088 | 2026-07-10 | N/A | 幻兽帕鲁 - 公测
-- S0089 | 2026-07-10 | N/A | 梦幻西游 - 新版本
-- S0090 | 2026-07-10 | N/A | 燕云十六声 - 新版本
-- S0091 | 2026-07-10 | N/A | 蓝色星原：旅谣 - 内测
-- S0092 | 2026-07-10 | N/A | 镭明闪击 - 新版本
-- S0093 | 2026-07-10 | N/A | 桃花源记2 - 资料片
-- S0094 | 2026-07-10 | N/A | 天龙八部·归来 - 新版本
-- S0095 | 2026-07-10 | N/A | 上古河图 - 限量删档测试
-- S0096 | 2026-07-10 | N/A | 二十四节气 - 限量删档测试
-- S0097 | 2026-07-10 | N/A | 梦幻足球 - 删档计费测试
-- S0098 | 2026-07-10 | N/A | 热力无限赛车 - 删档计费测试
-- S0099 | 2026-07-10 | N/A | 狩之纪元 - 限量删档计费测试
-- S0100 | 2026-07-10 | N/A | 盗梦英雄2：幻野 - 上线
-- S0101 | 2026-07-10 | N/A | 七日世界(官服) - 二周年庆典【奇梦狂潮】开启
-- S0102 | 2026-07-10 | N/A | 三角洲行动-裂变赛季 - 《彩虹六号：围攻》联动开启
-- S0103 | 2026-07-10 | N/A | 世界启元-文明正版IP合作 - 二周年庆送80抽，自选S英雄
-- S0104 | 2026-07-10 | N/A | 使命召唤手游 - 新武器永夜冥乡上线
-- S0105 | 2026-07-10 | N/A | 元梦之星-喜羊羊联动 - 「红太狼」时装免费送
-- S0106 | 2026-07-10 | N/A | 决胜巅峰(官服) - 免费领《街霸6》联动道具
-- S0107 | 2026-07-10 | N/A | 和平精英-夏日探险 - 最新神装【幻音九尾-璃】上线
-- S0108 | 2026-07-10 | N/A | 大头菜菜历险记 - 夏促限时9元折扣
-- S0109 | 2026-07-10 | N/A | 天谕 - 幻翼系统更新，典藏外观上新
-- S0110 | 2026-07-10 | N/A | 幻兽帕鲁 PC/主机 - 1.0正式版发售,快爆超史低折扣中
-- S0111 | 2026-07-10 | N/A | 无畏契约：源能行动 - 夺球乱斗玩法上线
-- S0112 | 2026-07-10 | N/A | 明日方舟 - 新干员【谬因】上线
-- S0113 | 2026-07-10 | N/A | 暗区突围-四周年庆 - 全新「复古电波」主题系列军需上线
-- S0114 | 2026-07-10 | N/A | 洛克王国：世界 - 嘟嘟煲大量出没,20-24点炫彩蛋限卖
-- S0115 | 2026-07-10 | N/A | 火影忍者手游 - A忍佐助「兄弟之战」上线
-- S0116 | 2026-07-10 | N/A | 燕云十六声(官服) - 《逃离塔科夫》联动开启
-- S0117 | 2026-07-10 | N/A | 王牌竞速(官服) - 累计登录领1555纪念币
-- S0118 | 2026-07-10 | N/A | 王者荣耀-S44赛季 - 大司命FMVP新皮肤上线
-- S0119 | 2026-07-10 | N/A | 破烂水手 测试服 - 不限量测试开启
-- S0120 | 2026-07-10 | N/A | 英雄联盟手游 - S6乐斗赛季开启
-- S0121 | 2026-07-10 | N/A | 蓝色星原：旅谣(官服) 招募中 - 多种方式赢限量测试资格
-- S0122 | 2026-07-10 | N/A | 蛋仔派对(官服)-四周年 - 登录领DongDong气球玩具
-- S0123 | 2026-07-10 | N/A | 诡秘之主-8月21日上线 - 定档8月21日正式上线
-- S0124 | 2026-07-10 | N/A | 超市经营模拟器-抖音热游 - 上线试玩
-- S0125 | 2026-07-10 | N/A | 超能机器人 - 限时12元折扣
-- S0126 | 2026-07-10 | N/A | 超自然行动组-联动鬼吹灯 - 星耀时装【兰-精绝女王】上线
-- S0127 | 2026-07-10 | N/A | 部落冲突：皇室战争 - 新玩法混沌试炼上线
-- S0128 | 2026-07-10 | N/A | 问剑长生-国风修仙 - 暑期版本【邪道独尊】
-- S0129 | 2026-07-10 | N/A | 鸣潮-3.5版本(官服) - 新共鸣者「秧秧·玄翎」登场
-- S0130 | 2026-07-10 | N/A | 梦幻足球 - 10:00 删档测试
-- S0131 | 2026-07-10 | N/A | 热力无限赛车 - 10:00 删档测试
-- S0132 | 2026-07-10 | N/A | 织梦冒险团 - 10:00 正式上线
-- S0133 | 2026-07-10 | N/A | 西游神传 - 10:00 删档测试
-- S0134 | 2026-07-10 | N/A | 明日方舟：终末地(官服) - 19:30 「向渊行」版本前瞻预告节目
-- ... and 389 more
+- `S0085` [2026-07-10] (17173.com) 七日世界 - 新版本 — 252 chars, body=full
+- `S0086` [2026-07-10] (17173.com) 三角洲行动 - 新版本 — 255 chars, body=full
+- `S0087` [2026-07-10] (17173.com) 封神榜2 - 新版本 — 243 chars, body=full
+- `S0088` [2026-07-10] (17173.com) 幻兽帕鲁 - 公测 — 267 chars, body=full
+- `S0089` [2026-07-10] (17173.com) 梦幻西游 - 新版本 — 252 chars, body=full
+- `S0090` [2026-07-10] (17173.com) 燕云十六声 - 新版本 — 232 chars, body=full
+- `S0091` [2026-07-10] (17173.com) 蓝色星原：旅谣 - 内测 — 224 chars, body=full
+- `S0092` [2026-07-10] (17173.com) 镭明闪击 - 新版本 — 235 chars, body=full
+- `S0093` [2026-07-10] (17173.com) 桃花源记2 - 资料片 — 239 chars, body=full
+- `S0094` [2026-07-10] (17173.com) 天龙八部·归来 - 新版本 — 267 chars, body=full
+- `S0095` [2026-07-10] (16p.com) 上古河图 - 限量删档测试 — 159 chars, body=full
+- `S0096` [2026-07-10] (16p.com) 二十四节气 - 限量删档测试 — 195 chars, body=full
+- `S0097` [2026-07-10] (16p.com) 梦幻足球 - 删档计费测试 — 175 chars, body=full
+- `S0098` [2026-07-10] (16p.com) 热力无限赛车 - 删档计费测试 — 175 chars, body=full
+- `S0099` [2026-07-10] (16p.com) 狩之纪元 - 限量删档计费测试 — 175 chars, body=full
+- `S0100` [2026-07-10] (16p.com) 盗梦英雄2：幻野 - 上线 — 159 chars, body=full
+- `S0101` [2026-07-10] (3839.com) 七日世界(官服) - 二周年庆典【奇梦狂潮】开启 — 183 chars, body=full
+- `S0102` [2026-07-10] (3839.com) 三角洲行动-裂变赛季 - 《彩虹六号：围攻》联动开启 — 184 chars, body=full
+- `S0103` [2026-07-10] (3839.com) 世界启元-文明正版IP合作 - 二周年庆送80抽，自选S英雄 — 186 chars, body=full
+- `S0104` [2026-07-10] (3839.com) 使命召唤手游 - 新武器永夜冥乡上线 — 176 chars, body=full
+- `S0105` [2026-07-10] (3839.com) 元梦之星-喜羊羊联动 - 「红太狼」时装免费送 — 184 chars, body=full
+- `S0106` [2026-07-10] (3839.com) 决胜巅峰(官服) - 免费领《街霸6》联动道具 — 182 chars, body=full
+- `S0107` [2026-07-10] (3839.com) 和平精英-夏日探险 - 最新神装【幻音九尾-璃】上线 — 184 chars, body=full
+- `S0108` [2026-07-10] (3839.com) 大头菜菜历险记 - 夏促限时9元折扣 — 175 chars, body=full
+- `S0109` [2026-07-10] (3839.com) 天谕 - 幻翼系统更新，典藏外观上新 — 175 chars, body=full
+- `S0110` [2026-07-10] (3839.com) 幻兽帕鲁 PC/主机 - 1.0正式版发售,快爆超史低折扣中 — 203 chars, body=full
+- `S0111` [2026-07-10] (3839.com) 无畏契约：源能行动 - 夺球乱斗玩法上线 — 178 chars, body=full
+- `S0112` [2026-07-10] (3839.com) 明日方舟 - 新干员【谬因】上线 — 173 chars, body=full
+- `S0113` [2026-07-10] (3839.com) 暗区突围-四周年庆 - 全新「复古电波」主题系列军需上线 — 190 chars, body=full
+- `S0114` [2026-07-10] (3839.com) 洛克王国：世界 - 嘟嘟煲大量出没,20-24点炫彩蛋限卖 — 189 chars, body=full
+- `S0115` [2026-07-10] (3839.com) 火影忍者手游 - A忍佐助「兄弟之战」上线 — 177 chars, body=full
+- `S0116` [2026-07-10] (3839.com) 燕云十六声(官服) - 《逃离塔科夫》联动开启 — 183 chars, body=full
+- `S0117` [2026-07-10] (3839.com) 王牌竞速(官服) - 累计登录领1555纪念币 — 180 chars, body=full
+- `S0118` [2026-07-10] (3839.com) 王者荣耀-S44赛季 - 大司命FMVP新皮肤上线 — 185 chars, body=full
+- `S0119` [2026-07-10] (3839.com) 破烂水手 测试服 - 不限量测试开启 — 190 chars, body=full
+- `S0120` [2026-07-10] (3839.com) 英雄联盟手游 - S6乐斗赛季开启 — 178 chars, body=full
+- `S0121` [2026-07-10] (3839.com) 蓝色星原：旅谣(官服) 招募中 - 多种方式赢限量测试资格 — 199 chars, body=full
+- `S0122` [2026-07-10] (3839.com) 蛋仔派对(官服)-四周年 - 登录领DongDong气球玩具 — 192 chars, body=full
+- `S0123` [2026-07-10] (3839.com) 诡秘之主-8月21日上线 - 定档8月21日正式上线 — 186 chars, body=full
+- `S0124` [2026-07-10] (3839.com) 超市经营模拟器-抖音热游 - 上线试玩 — 165 chars, body=full
+- `S0125` [2026-07-10] (3839.com) 超能机器人 - 限时12元折扣 — 177 chars, body=full
+- `S0126` [2026-07-10] (3839.com) 超自然行动组-联动鬼吹灯 - 星耀时装【兰-精绝女王】上线 — 188 chars, body=full
+- `S0127` [2026-07-10] (3839.com) 部落冲突：皇室战争 - 新玩法混沌试炼上线 — 180 chars, body=full
+- `S0128` [2026-07-10] (3839.com) 问剑长生-国风修仙 - 暑期版本【邪道独尊】 — 180 chars, body=full
+- `S0129` [2026-07-10] (3839.com) 鸣潮-3.5版本(官服) - 新共鸣者「秧秧·玄翎」登场 — 188 chars, body=full
+- `S0130` [2026-07-10] (3839.com) 梦幻足球 - 10:00 删档测试 — 163 chars, body=full
+- `S0131` [2026-07-10] (3839.com) 热力无限赛车 - 10:00 删档测试 — 165 chars, body=full
+- `S0132` [2026-07-10] (3839.com) 织梦冒险团 - 10:00 正式上线 — 164 chars, body=full
+- `S0133` [2026-07-10] (3839.com) 西游神传 - 10:00 删档测试 — 161 chars, body=full
+- `S0134` [2026-07-10] (3839.com) 明日方舟：终末地(官服) - 19:30 「向渊行」版本前瞻预告节目 — 194 chars, body=full
+- `S0135` [2026-07-10] (taptap.cn) 七日世界 - 新版本更新 — 137 chars, body=full
+- `S0136` [2026-07-10] (taptap.cn) 九洲傲天录 - 限量测试 — 125 chars, body=full
+- `S0137` [2026-07-10] (taptap.cn) 代号:幻彩乌托邦 - 测试招募 — 118 chars, body=full
+- `S0138` [2026-07-10] (taptap.cn) 冲刺大师 - 首发 — 112 chars, body=full
+- `S0139` [2026-07-10] (taptap.cn) 决战！平安京 - 新版本更新 — 139 chars, body=full
+- `S0140` [2026-07-10] (taptap.cn) 宝石战争 - 测试招募 (00:00 开始) — 156 chars, body=full
+- `S0141` [2026-07-10] (taptap.cn) 山海仙宗录 - 新游预约 — 113 chars, body=full
+- `S0142` [2026-07-10] (taptap.cn) 帝国传奇：像素英雄 - 折扣 — 138 chars, body=full
+- `S0143` [2026-07-10] (taptap.cn) 异星祭坛 - 首发 — 110 chars, body=full
+- `S0144` [2026-07-10] (taptap.cn) 怪物潮汐软件V1.0 - 首发 — 116 chars, body=full
+- `S0145` [2026-07-10] (taptap.cn) 我在园区搜打撤 - 限量测试 — 133 chars, body=full
+- `S0146` [2026-07-10] (taptap.cn) 数合云台 - 首发 — 110 chars, body=full
+- `S0147` [2026-07-10] (taptap.cn) 斗神大地2 - 首发 — 123 chars, body=full
+- `S0148` [2026-07-10] (taptap.cn) 无尽之旅 - 不限量测试 — 115 chars, body=full
+- `S0149` [2026-07-10] (taptap.cn) 无限传奇大陆指南 - 首发 — 126 chars, body=full
+- `S0150` [2026-07-10] (taptap.cn) 末日流浪者 - 新游预约 — 137 chars, body=full
+- `S0151` [2026-07-10] (taptap.cn) 末日避难所 - 不限量测试 — 114 chars, body=full
+- `S0152` [2026-07-10] (taptap.cn) 机甲精英战士 - 首发 — 112 chars, body=full
+- `S0153` [2026-07-10] (taptap.cn) 梦幻足球 - 首发 — 134 chars, body=full
+- `S0154` [2026-07-10] (taptap.cn) 楚新钓 - 首发 — 131 chars, body=full
+- `S0155` [2026-07-10] (taptap.cn) 江湖挂机事（TapTap测试版） - 首发 — 145 chars, body=full
+- `S0156` [2026-07-10] (taptap.cn) 涂画捉迷藏 - 首发 — 123 chars, body=full
+- `S0157` [2026-07-10] (taptap.cn) 火影忍者 - 新版本更新 — 133 chars, body=full
+- `S0158` [2026-07-10] (taptap.cn) 热力无限赛车 - 不限量测试 — 127 chars, body=full
+- `S0159` [2026-07-10] (taptap.cn) 燕云十六声 - calendar event — 120 chars, body=full
+- `S0160` [2026-07-10] (taptap.cn) 球球好心情 - 首发 — 111 chars, body=full
+- `S0161` [2026-07-10] (taptap.cn) 经典2048 - 首发 — 112 chars, body=full
+- `S0162` [2026-07-10] (taptap.cn) 西游志：山海战纪 - 不限量测试 — 153 chars, body=full
+- `S0163` [2026-07-10] (taptap.cn) 解忧梦幻岛 - 首发 — 114 chars, body=full
+- `S0164` [2026-07-10] (taptap.cn) 诡秘之主 - 新游爆料 官宣8月21日首发 — 152 chars, body=full
+- `S0165` [2026-07-10] (taptap.cn) 超时空街球对决 - 新游预约 — 137 chars, body=full
+- `S0166` [2026-07-10] (taptap.cn) 轮回之境 - 测试招募 — 112 chars, body=full
+- `S0167` [2026-07-10] (taptap.cn) 问剑长生 - 新版本更新 — 135 chars, body=full
+- `S0168` [2026-07-10] (taptap.cn) 魔兽练功房 - 首发 — 122 chars, body=full
+- `S0169` [2026-07-10] (taptap.cn) 鸣潮 - 新版本更新 — 137 chars, body=full
+- `S0170` [2026-07-10] (taptap.cn) 蓝色星原：旅谣 - 测试招募 (09:00 开始) — 163 chars, body=full
+- `S0171` [2026-07-10] (gematsu.com) The Sinking City 2 pre-orders now available — 412 chars, body=full
+- `S0172` [2026-07-10] (gematsu.com) No Case Should Remain Unsolved for PS5 launches August 19 — 526 chars, body=full
+- `S0231` [2026-07-11] (17173.com) 心动小镇 - 新版本 — 227 chars, body=full
+- `S0232` [2026-07-11] (16p.com) 巨龙之戒 - 上线 — 151 chars, body=full
+- `S0233` [2026-07-11] (16p.com) 拉尼亚 - 限量删档测试 — 168 chars, body=full
+- `S0234` [2026-07-11] (16p.com) 泞之翼3：玉碎篇 - 不删档测试 — 164 chars, body=full
+- `S0235` [2026-07-11] (3839.com) 九牧之野(官服) - 爽战主题服登录领神将自选 — 181 chars, body=full
+- `S0236` [2026-07-11] (3839.com) 光·遇(官服) - 免费领取「周年典礼鸭舌:帽」 — 183 chars, body=full
+- `S0237` [2026-07-11] (3839.com) 无畏契约：源能行动 - 「夜市」开启，瓦友夏令营活动上线 — 186 chars, body=full
+- `S0238` [2026-07-11] (3839.com) 极品飞车：集结-2周年庆 - 累登免费得传奇赛车 — 183 chars, body=full
+- `S0239` [2026-07-11] (3839.com) 盲盒派对 - 新主题活动「仲夏悠游日」 — 177 chars, body=full
+- `S0240` [2026-07-11] (3839.com) 泞之翼3：玉碎篇 - 10:00 不删档测试 — 170 chars, body=full
+- `S0241` [2026-07-11] (taptap.cn) 1024 - 首发 — 110 chars, body=full
+- `S0242` [2026-07-11] (taptap.cn) Melocube - 限量测试 — 128 chars, body=full
+- `S0243` [2026-07-11] (taptap.cn) PolygonRhythm - 测试招募 — 121 chars, body=full
+- `S0244` [2026-07-11] (taptap.cn) 代号：三国HD-2D - 新游预约 — 118 chars, body=full
+- `S0245` [2026-07-11] (taptap.cn) 伯吉的温馨厨房 - 新游预约 (00:00 开始) — 148 chars, body=full
+- `S0246` [2026-07-11] (taptap.cn) 侠义无双 - 限量测试 — 126 chars, body=full
+- `S0247` [2026-07-11] (taptap.cn) 元素创造 - 首发 — 110 chars, body=full
+- `S0248` [2026-07-11] (taptap.cn) 公元 - 首发 — 131 chars, body=full
+- `S0249` [2026-07-11] (taptap.cn) 初音未来：缤纷舞台 - 新版本更新 — 143 chars, body=full
+- `S0250` [2026-07-11] (taptap.cn) 勇者记忆回廊 - 首发 — 112 chars, body=full
+- `S0251` [2026-07-11] (taptap.cn) 夜师傅快跑 - 首发 — 111 chars, body=full
+- `S0252` [2026-07-11] (taptap.cn) 彩色方块连连看 - 首发 — 113 chars, body=full
+- `S0253` [2026-07-11] (taptap.cn) 悬浮之境DORMIVEGLIA - 首发 — 134 chars, body=full
+- `S0254` [2026-07-11] (taptap.cn) 我主封神 - 首发 — 124 chars, body=full
+- `S0255` [2026-07-11] (taptap.cn) 我在末世当倒爷 - 首发 — 124 chars, body=full
+- `S0256` [2026-07-11] (taptap.cn) 我抢地我有钱 - 首发 — 125 chars, body=full
+- `S0257` [2026-07-11] (taptap.cn) 我的天赋无限叠加 - 不限量测试 — 129 chars, body=full
+- `S0258` [2026-07-11] (taptap.cn) 我靠搞钱翻身 - 首发 — 134 chars, body=full
+- `S0259` [2026-07-11] (taptap.cn) 战地英雄 - 限量测试 — 126 chars, body=full
+- `S0260` [2026-07-11] (taptap.cn) 星座大冒险 - 新游预约 — 124 chars, body=full
+- `S0261` [2026-07-11] (taptap.cn) 极速驰骋 - 首发 — 110 chars, body=full
+- `S0262` [2026-07-11] (taptap.cn) 梦想英雄 - 新游预约 — 112 chars, body=full
+- `S0263` [2026-07-11] (taptap.cn) 泞之翼3：玉碎篇 - 限量测试 — 138 chars, body=full
+- `S0264` [2026-07-11] (taptap.cn) 消完回家 - 首发 — 110 chars, body=full
+- `S0265` [2026-07-11] (taptap.cn) 猎魔物语（TapTap测试版） - 限量测试 — 137 chars, body=full
+- `S0266` [2026-07-11] (taptap.cn) 经典推箱子 - 首发 — 111 chars, body=full
+- `S0267` [2026-07-11] (taptap.cn) 萌回三国 - 首发 — 134 chars, body=full
+- `S0268` [2026-07-11] (taptap.cn) 谜之树迷失的森林 - 新游预约 — 116 chars, body=full
+- `S0269` [2026-07-11] (taptap.cn) 赛博修仙2066：灵网求生 - 首发 — 119 chars, body=full
+- `S0270` [2026-07-11] (taptap.cn) 超自然管理局 - 新游预约 — 114 chars, body=full
+- `S0319` [2026-07-12] (3839.com) 植物大战僵尸融合版-3.8版本 - 3.8版更，新地图冬夜上线 — 189 chars, body=full
+- `S0320` [2026-07-12] (3839.com) 纸嫁衣9罗浮梦-中式民俗解谜 - 定档7月15日开启预下载,7月16日上线 — 194 chars, body=full
+- `S0321` [2026-07-12] (taptap.cn) 人生蓝图模拟器 - 首发 — 113 chars, body=full
+- `S0322` [2026-07-12] (taptap.cn) 墨斩 - 首发 — 110 chars, body=full
+- `S0323` [2026-07-12] (taptap.cn) 奥德回环 - 新游预约 — 112 chars, body=full
+- `S0324` [2026-07-12] (taptap.cn) 女王防线 - 首发 — 110 chars, body=full
+- `S0325` [2026-07-12] (taptap.cn) 小儿垂钓 - 首发 — 110 chars, body=full
+- `S0326` [2026-07-12] (taptap.cn) 我家里有矿 - 首发 — 134 chars, body=full
+- `S0327` [2026-07-12] (taptap.cn) 我的魔法餐厅 - 首发 — 124 chars, body=full
+- `S0328` [2026-07-12] (taptap.cn) 无限修仙轮回 - 首发 — 124 chars, body=full
+- `S0329` [2026-07-12] (taptap.cn) 海上有座极极岛 - 新游预约 — 122 chars, body=full
+- `S0330` [2026-07-12] (taptap.cn) 点击狗头 - 首发 — 110 chars, body=full
+- `S0331` [2026-07-12] (taptap.cn) 牛顿摆模拟器 - 首发 — 112 chars, body=full
+- `S0332` [2026-07-12] (taptap.cn) 给猫铺窝 - 首发 — 123 chars, body=full
+- `S0333` [2026-07-12] (taptap.cn) 罐罐轰轰 - 首发 — 121 chars, body=full
+- `S0334` [2026-07-12] (taptap.cn) 背包闯江湖 - 新游预约 — 125 chars, body=full
+- `S0335` [2026-07-12] (taptap.cn) 解压24点 - 首发 — 111 chars, body=full
+- `S0336` [2026-07-12] (taptap.cn) 谜的树迷失之森林 - 首发 — 114 chars, body=full
+- `S0337` [2026-07-12] (taptap.cn) 跳跳无限工厂 - 首发 — 134 chars, body=full
+- `S0443` [2026-07-13] (17173.com) 元气骑士 - 新版本 — 255 chars, body=full
+- `S0444` [2026-07-13] (16p.com) 王座守护者 - 删档计费测试 — 160 chars, body=full
+- `S0445` [2026-07-13] (3839.com) BSide：Olivia Lin-米哈游新作 PC/主机 - 米哈游AI新作上线，快爆支持免费入库 — 222 chars, body=full
+- `S0446` [2026-07-13] (3839.com) The Weavers-神秘次时代动作新游 PC/主机 招募中 - 测试资格招募开启,神秘次时代动作新游 — 231 chars, body=full
+- `S0447` [2026-07-13] (3839.com) 三角洲行动体验服-黑潮爆破玩法 招募中 - 黑潮爆破玩法体验服资格追加！ — 205 chars, body=full
+- `S0448` [2026-07-13] (3839.com) 元气骑士 - 新版本「机甲觉醒，骑士防线」开启 — 187 chars, body=full
+- `S0449` [2026-07-13] (3839.com) 苍蓝避风港(官服) 招募中 - 参与招募赢7月27日首测资格 — 198 chars, body=full
+- `S0450` [2026-07-13] (3839.com) 王座守护者 - 10:00 删档测试 — 169 chars, body=full
+- `S0451` [2026-07-13] (taptap.cn) 云海雀跃 - 首发 — 121 chars, body=full
+- `S0452` [2026-07-13] (taptap.cn) 侦探数独 - 首发 — 112 chars, body=full
+- `S0453` [2026-07-13] (taptap.cn) 元气骑士 - 新版本更新 — 141 chars, body=full
+- `S0454` [2026-07-13] (taptap.cn) 剧盈 - 首发 — 108 chars, body=full
+- `S0455` [2026-07-13] (taptap.cn) 动物排排队 - 新游预约 — 113 chars, body=full
+- `S0456` [2026-07-13] (taptap.cn) 可可嫑嫑星际探险 - 首发 — 114 chars, body=full
+- `S0457` [2026-07-13] (taptap.cn) 嘟嘟大闯关 - 首发 — 111 chars, body=full
+- `S0458` [2026-07-13] (taptap.cn) 夜师傅快跑 - 首发 — 111 chars, body=full
+- `S0459` [2026-07-13] (taptap.cn) 大战僵尸 - 首发 — 121 chars, body=full
+- `S0460` [2026-07-13] (taptap.cn) 大武林 - 测试招募 — 123 chars, body=full
+- `S0461` [2026-07-13] (taptap.cn) 巧克力益智切 - 首发 — 112 chars, body=full
+- `S0462` [2026-07-13] (taptap.cn) 异世界神谕重构 - 新游预约 — 115 chars, body=full
+- `S0463` [2026-07-13] (taptap.cn) 彩弹爆爆 - 首发 — 110 chars, body=full
+- `S0464` [2026-07-13] (taptap.cn) 忍者切水果 - 首发 — 122 chars, body=full
+- `S0465` [2026-07-13] (taptap.cn) 悠闲铁匠铺 - 首发 — 123 chars, body=full
+- `S0466` [2026-07-13] (taptap.cn) 斩西邪 - 首发 — 109 chars, body=full
+- `S0467` [2026-07-13] (taptap.cn) 无限冒险：次元刷装 - 首发 — 129 chars, body=full
+- `S0468` [2026-07-13] (taptap.cn) 明日试映会 - 首发 — 123 chars, body=full
+- `S0469` [2026-07-13] (taptap.cn) 星光小队 - 限量测试 — 138 chars, body=full
+- `S0470` [2026-07-13] (taptap.cn) 次元召唤师 - 新游预约 — 113 chars, body=full
+- `S0471` [2026-07-13] (taptap.cn) 沪上创富录 - 首发 — 123 chars, body=full
+- `S0472` [2026-07-13] (taptap.cn) 滚滚堂 - 限量测试 — 125 chars, body=full
+- `S0473` [2026-07-13] (taptap.cn) 王国之锋 - 测试招募 — 112 chars, body=full
+- `S0474` [2026-07-13] (taptap.cn) 王座守护者 - 不限量测试 — 126 chars, body=full
+- `S0475` [2026-07-13] (taptap.cn) 真灵传说 - 新游预约 — 112 chars, body=full
+- `S0476` [2026-07-13] (taptap.cn) 箭头迷宫 - 首发 — 110 chars, body=full
+- `S0477` [2026-07-13] (taptap.cn) 精英部队 - 新游预约 — 114 chars, body=full
+- `S0478` [2026-07-13] (taptap.cn) 老板别催了 - 首发 — 122 chars, body=full
+- `S0479` [2026-07-13] (taptap.cn) 跳槽人生 - 首发 — 121 chars, body=full
+- `S0480` [2026-07-13] (taptap.cn) 轮回试炼 - 新游预约 — 112 chars, body=full
+- `S0481` [2026-07-13] (taptap.cn) 软糖益智消除 - 首发 — 112 chars, body=full
+- `S0482` [2026-07-13] (taptap.cn) 下一站江湖Ⅱ - 折扣 (00:04 开始) — 158 chars, body=full
+- `S0483` [2026-07-13] (taptap.cn) 苍蓝避风港 - 测试招募 (11:00 开始) — 157 chars, body=full
+- `S0484` [2026-07-13] (taptap.cn) 迷失岛外传南瓜镇 - 折扣 (15:01 开始) — 157 chars, body=full
+- `S0485` [2026-07-13] (taptap.cn) 芯链战线 - 新游预约 (18:52 开始) — 146 chars, body=full
+- `S0486` [2026-07-13] (gematsu.com) Octopath Traveler and Octopath Traveler II coming to Switch 2 — 480 chars, body=full
+- `S0487` [2026-07-13] (gematsu.com) Lunarium launches July 29 — 401 chars, body=full
+- `S0611` [2026-07-14] (17173.com) 土豆兄弟(Brotato) - 内测 — 250 chars, body=full
+- `S0612` [2026-07-14] (17173.com) 梦幻西游 - 新版本 — 255 chars, body=full
+- `S0613` [2026-07-14] (17173.com) 仙侠世界2 - 资料片 — 272 chars, body=full
+- `S0614` [2026-07-14] (16p.com) 一梦九霄 - 上线 — 153 chars, body=full
+- `S0615` [2026-07-14] (16p.com) 現代  FPS  戰爭：戰鬥  打擊 - 上线 — 231 chars, body=full
+- `S0616` [2026-07-14] (3839.com) ChinaJoy - 快爆确认参展2026CJ，赢CJ门票！ — 167 chars, body=full
+- `S0617` [2026-07-14] (3839.com) 三角洲行动体验服-黑潮爆破玩法 招募中 - 体验服已开服，资格现已追加！ — 205 chars, body=full
+- `S0618` [2026-07-14] (3839.com) 圣垣 - 00:00 预下载，7月15日开测 — 186 chars, body=full
+- `S0619` [2026-07-14] (3839.com) 崩坏：因缘精灵-崩坏IP新作(官服) - 开启玩家兴趣调研问卷 — 189 chars, body=full
+- `S0620` [2026-07-14] (3839.com) 新三国：荣耀再起 招募中 - 参与招募赢7月30日测试资格 — 199 chars, body=full
+- `S0621` [2026-07-14] (3839.com) 王者万象棋 - 快爆福利上新！预约赢王者热门皮肤 — 180 chars, body=full
+- `S0622` [2026-07-14] (3839.com) 王者荣耀体验服-免费送黄忠皮肤 - 资格追加！免费送黄忠皮肤 — 188 chars, body=full
+- `S0623` [2026-07-14] (3839.com) 一梦九霄 - 10:00 正式上线 — 162 chars, body=full
+- `S0624` [2026-07-14] (3839.com) 世界之光-预下载(官服) - 10:00 预下载，7月15日上线 — 187 chars, body=full
+- `S0625` [2026-07-14] (3839.com) 土豆兄弟-Brotato - 10:00 限量抢注不删档测试 — 195 chars, body=full
+- `S0626` [2026-07-14] (3839.com) 王牌机甲-预下载 - 10:00 预下载，7月15日上线 — 173 chars, body=full
+- `S0627` [2026-07-14] (taptap.cn) 100把剑打BOSS - 首发 — 127 chars, body=full
+- `S0628` [2026-07-14] (taptap.cn) 404号房：怪谈 - 首发 — 114 chars, body=full
+- `S0629` [2026-07-14] (taptap.cn) TapTap制造模拟器 - 首发 — 140 chars, body=full
+- `S0630` [2026-07-14] (taptap.cn) 一梦九霄 - 首发 — 112 chars, body=full
+- `S0631` [2026-07-14] (taptap.cn) 万法道树 - 首发 — 110 chars, body=full
+- `S0632` [2026-07-14] (taptap.cn) 世界之光 - 预下载 — 133 chars, body=full
+- `S0633` [2026-07-14] (taptap.cn) 云剑问道 - 首发 — 110 chars, body=full
+- `S0634` [2026-07-14] (taptap.cn) 今天我也熬夜了 - 新游预约 — 115 chars, body=full
+- `S0635` [2026-07-14] (taptap.cn) 元素链 - 首发 — 109 chars, body=full
+- `S0636` [2026-07-14] (taptap.cn) 剑隐侠踪录 - 测试招募 (00:00 开始) — 156 chars, body=full
+- `S0637` [2026-07-14] (taptap.cn) 勇者锻造2048 - 首发 — 114 chars, body=full
+- `S0638` [2026-07-14] (taptap.cn) 啪啪坦克 - 限量测试 — 124 chars, body=full
+- `S0639` [2026-07-14] (taptap.cn) 圣垣 - 不限量测试 — 137 chars, body=full
+- `S0640` [2026-07-14] (taptap.cn) 女神之光 - 新游预约 — 112 chars, body=full
+- `S0641` [2026-07-14] (taptap.cn) 如影随形 - 首发 — 121 chars, body=full
+- `S0642` [2026-07-14] (taptap.cn) 宇宙战争 - 新游预约 — 112 chars, body=full
+- `S0643` [2026-07-14] (taptap.cn) 宝石特攻队（TapTap测试版） - 限量测试 — 149 chars, body=full
+- `S0644` [2026-07-14] (taptap.cn) 小冰冰斗蛐蛐 - 新游预约 — 114 chars, body=full
+- `S0645` [2026-07-14] (taptap.cn) 我的修仙宗门 - 首发 — 112 chars, body=full
+- `S0646` [2026-07-14] (taptap.cn) 放置勇者：异界人生 - 首发 — 126 chars, body=full
+- `S0647` [2026-07-14] (taptap.cn) 新三国：荣耀再起 - 测试招募 — 128 chars, body=full
+- `S0648` [2026-07-14] (taptap.cn) 无限桌宠 - 首发 — 110 chars, body=full
+- `S0649` [2026-07-14] (taptap.cn) 星耀小夜曲 - 首发 — 111 chars, body=full
+- `S0650` [2026-07-14] (taptap.cn) 暗黑挂机 - 首发 — 122 chars, body=full
+- `S0651` [2026-07-14] (taptap.cn) 格斗天下 - 新游预约 — 114 chars, body=full
+- `S0652` [2026-07-14] (taptap.cn) 汉字宇宙：诸界皆梦 - 首发 — 128 chars, body=full
+- `S0653` [2026-07-14] (taptap.cn) 汉末乡野村 - 首发 — 111 chars, body=full
+- `S0654` [2026-07-14] (taptap.cn) 潮声之岛 - 首发 — 112 chars, body=full
+- `S0655` [2026-07-14] (taptap.cn) 点点大师 - 新游预约 — 114 chars, body=full
+- `S0656` [2026-07-14] (taptap.cn) 点点按钮 - 首发 — 135 chars, body=full
+- `S0657` [2026-07-14] (taptap.cn) 猫公牌 - 首发 — 112 chars, body=full
+- `S0658` [2026-07-14] (taptap.cn) 猫猫队冲鸭 - 首发 — 123 chars, body=full
+- `S0659` [2026-07-14] (taptap.cn) 玄魂塔 - 首发 — 121 chars, body=full
+- `S0660` [2026-07-14] (taptap.cn) 王牌机甲 - 预下载 — 111 chars, body=full
+- `S0661` [2026-07-14] (taptap.cn) 畅朗云雀合集 - 首发 — 112 chars, body=full
+- `S0662` [2026-07-14] (taptap.cn) 盲摸麻将 - 首发 — 110 chars, body=full
+- `S0663` [2026-07-14] (taptap.cn) 符文暴走 - 首发 — 110 chars, body=full
+- `S0664` [2026-07-14] (taptap.cn) 线影 - 首发 — 121 chars, body=full
+- `S0665` [2026-07-14] (taptap.cn) 荒野速递 - 首发 — 110 chars, body=full
+- `S0666` [2026-07-14] (taptap.cn) 蔚蓝勇士：全力开炮 - 首发 — 115 chars, body=full
+- `S0667` [2026-07-14] (taptap.cn) 表情大拼图 - 首发 — 122 chars, body=full
+- `S0668` [2026-07-14] (taptap.cn) 衾暖晨曦合集 - 首发 — 112 chars, body=full
+- `S0669` [2026-07-14] (taptap.cn) 请别影响我修炼 - 折扣 — 137 chars, body=full
+- `S0670` [2026-07-14] (taptap.cn) 赛几传说 - 新游预约 — 112 chars, body=full
+- `S0671` [2026-07-14] (taptap.cn) 赛博狼人杀 - 首发 — 134 chars, body=full
+- `S0672` [2026-07-14] (taptap.cn) 超级变色龙捉迷藏画画躲猫猫 - 首发 — 121 chars, body=full
+- `S0673` [2026-07-14] (taptap.cn) 超维进化 - 首发 — 134 chars, body=full
+- `S0674` [2026-07-14] (taptap.cn) 车车大改装 - 首发 — 111 chars, body=full
+- `S0675` [2026-07-14] (taptap.cn) 转生之路 - 首发 — 122 chars, body=full
+- `S0676` [2026-07-14] (taptap.cn) 邪修 - 首发 — 108 chars, body=full
+- `S0677` [2026-07-14] (taptap.cn) 重生修仙记：点击屏幕获取灵气 - 首发 — 120 chars, body=full
+- `S0678` [2026-07-14] (taptap.cn) 镜渡 - 首发 — 119 chars, body=full
+- `S0679` [2026-07-14] (gematsu.com) Capy Castaway launches August 6 — 425 chars, body=full
+- `S0680` [2026-07-14] (gematsu.com) Expeditions: Samurai launches in Early Access on August 7 — 524 chars, body=full
+- `S0908` [2026-07-15] (17173.com) 三国：百将牌 - 新版本 — 218 chars, body=full
+- `S0909` [2026-07-15] (17173.com) 崩坏：星穹铁道 - 新版本 — 260 chars, body=full
+- `S0910` [2026-07-15] (17173.com) 王国大作战：前线 - 公测 — 232 chars, body=full
+- `S0911` [2026-07-15] (17173.com) 现代战舰 - 新版本 — 255 chars, body=full
+- `S0912` [2026-07-15] (16p.com) 三国：战策长河 - 限量删档测试 — 160 chars, body=full
+- `S0913` [2026-07-15] (16p.com) 世界之光 - 上线 — 159 chars, body=full
+- `S0914` [2026-07-15] (16p.com) 斗破苍穹：斗帝之路 - 限量删档计费 — 162 chars, body=full
+- `S0915` [2026-07-15] (16p.com) 无畏骑士 - 上线 — 153 chars, body=full
+- `S0916` [2026-07-15] (16p.com) 最终的梦幻岛 - 上线 — 155 chars, body=full
+- `S0917` [2026-07-15] (16p.com) 王国大作战：前线 - 上线 — 173 chars, body=full
+- `S0918` [2026-07-15] (16p.com) 王牌机甲 - 上线 — 169 chars, body=full
+- `S0919` [2026-07-15] (16p.com) 疯狂之旅 - 计费删档内测 — 148 chars, body=full
+- `S0920` [2026-07-15] (16p.com) 龙魂大陆 - 删档计费测试 — 157 chars, body=full
+- `S0921` [2026-07-15] (16p.com) I Am Swimming Pool Cleaner 3D - 上线 — 198 chars, body=full
+- `S0922` [2026-07-15] (16p.com) Police Drone Crime Patrol Sim - 上线 — 184 chars, body=full
+- `S0923` [2026-07-15] (16p.com) Wrestling 3D: Fighting Game - 上线 — 194 chars, body=full
+- `S0924` [2026-07-15] (3839.com) Project BFA - 已于海外开启测试 — 168 chars, body=full
+- `S0925` [2026-07-15] (3839.com) 三国：百将牌 - 新赛季开启，2V2模式上线 — 180 chars, body=full
+- `S0926` [2026-07-15] (3839.com) 不倒英雄 招募中 - 参与招募赢7月22日测试资格 — 188 chars, body=full
+- `S0927` [2026-07-15] (3839.com) 世界之光(官服) - 已正式上线！抢先下载赢Switch — 183 chars, body=full
+- `S0928` [2026-07-15] (3839.com) 地下城与勇士：起源 - 新养成玩法时空秘境上线 — 177 chars, body=full
+- `S0929` [2026-07-15] (3839.com) 妄想山海-涿鹿之战 - 快爆独家联名腰饰登场 — 181 chars, body=full
+- `S0930` [2026-07-15] (3839.com) 崩坏：星穹铁道(官服)-4.4版本 - 新角色【姬子•启行】登场 — 192 chars, body=full
+- `S0931` [2026-07-15] (3839.com) 怪物猎人：旅人 招募中 - 赢体验团资格；启明测试资格招募中 — 201 chars, body=full
+- `S0932` [2026-07-15] (3839.com) 战争前线：突围 PC/主机 - 国服首曝预约;10~12月开启测试 — 204 chars, body=full
+- `S0933` [2026-07-15] (3839.com) 拳皇·命运 - 开启删档测试 — 169 chars, body=full
+- `S0934` [2026-07-15] (3839.com) 明日特攻队2 - 开启预约，上线时间待定 — 164 chars, body=full
+- `S0935` [2026-07-15] (3839.com) 湮灭之潮 PC/主机 招募中 - 参与招募赢8月15日线下试玩资格 — 210 chars, body=full
+- `S0936` [2026-07-15] (3839.com) 现代战舰-国服(官服) - 0.106版本“机械之心”开启 — 189 chars, body=full
+- `S0937` [2026-07-15] (3839.com) 纸嫁衣9罗浮梦-预下载 - 预下载已开启，7月16日早10点上线 — 189 chars, body=full
+- `S0938` [2026-07-15] (3839.com) 镇邪人-预下载 - 00:00 预下载，7月16日上线 — 187 chars, body=full
+- `S0939` [2026-07-15] (3839.com) 饥饿派画家2：迷失-正版手游 - 夏促限时券后10.9元折扣 — 196 chars, body=full
+- `S0940` [2026-07-15] (3839.com) 鹅鸭杀(官服) - 新鹅/鸭阵营角色登场 — 181 chars, body=full
+- `S0941` [2026-07-15] (3839.com) 三国：战策长河 - 10:00 限量抢注测试 — 180 chars, body=full
+- `S0942` [2026-07-15] (3839.com) 圣垣 - 10:00 删档测试 — 179 chars, body=full
+- `S0943` [2026-07-15] (3839.com) 无畏骑士 - 10:00 正式上线 — 161 chars, body=full
+- `S0944` [2026-07-15] (3839.com) 最终的梦幻岛 - 10:00 正式上线 — 178 chars, body=full
+- `S0945` [2026-07-15] (3839.com) 王牌机甲 - 10:00 正式上线 — 162 chars, body=full
+- `S0946` [2026-07-15] (3839.com) 情感反诈模拟器-预下载 - 11:00 预下载，7月16日上线 — 194 chars, body=full
+- `S0947` [2026-07-15] (3839.com) 未定事件簿 - 11:00 六周年联动活动开启 — 182 chars, body=full
+- `S0948` [2026-07-15] (3839.com) 追逐卡蕾多 - 14:00 预下载,7月16日10点限量首测 — 187 chars, body=full
+- `S0949` [2026-07-15] (taptap.cn) 三国：百将牌 - 新版本更新 — 137 chars, body=full
+- `S0950` [2026-07-15] (taptap.cn) 不倒英雄 - 测试招募 — 123 chars, body=full
+- `S0951` [2026-07-15] (taptap.cn) 世界之光 - 首发 — 132 chars, body=full
+- `S0952` [2026-07-15] (taptap.cn) 仙剑苍穹 - 新游预约 — 114 chars, body=full
+- `S0953` [2026-07-15] (taptap.cn) 命契拓印 - 首发 — 110 chars, body=full
+- `S0954` [2026-07-15] (taptap.cn) 啸风密林 - 首发 — 110 chars, body=full
+- `S0955` [2026-07-15] (taptap.cn) 塑时者 - 首发 — 109 chars, body=full
+- `S0956` [2026-07-15] (taptap.cn) 天堂：血统 - 新游预约 — 115 chars, body=full
+- `S0957` [2026-07-15] (taptap.cn) 妄想山海 - 新版本更新 — 137 chars, body=full
+- `S0958` [2026-07-15] (taptap.cn) 小鱼吃大鱼 - 首发 — 111 chars, body=full
+- `S0959` [2026-07-15] (taptap.cn) 山海志异 - 首发 — 132 chars, body=full
+- `S0960` [2026-07-15] (taptap.cn) 拳皇·命运 - 限量测试 — 116 chars, body=full
+- `S0961` [2026-07-15] (taptap.cn) 拳皇全明星 - 测试招募 — 137 chars, body=full
+- `S0962` [2026-07-15] (taptap.cn) 斗破苍穹：斗帝之路 - 限量测试 — 145 chars, body=full
+- `S0963` [2026-07-15] (taptap.cn) 最终的梦幻岛 - 首发 — 136 chars, body=full
+- `S0964` [2026-07-15] (taptap.cn) 梦幻驯龙记 - 首发 — 125 chars, body=full
+- `S0965` [2026-07-15] (taptap.cn) 武道风云 - 测试招募 — 134 chars, body=full
+- `S0966` [2026-07-15] (taptap.cn) 毁灭星球 - 首发 — 110 chars, body=full
+- `S0967` [2026-07-15] (taptap.cn) 点球解谜挑战 - 首发 — 112 chars, body=full
+- `S0968` [2026-07-15] (taptap.cn) 王国大作战：前线 - 首发 — 143 chars, body=full
+- `S0969` [2026-07-15] (taptap.cn) 王牌机甲 - 首发 — 122 chars, body=full
+- `S0970` [2026-07-15] (taptap.cn) 玛雅纪元 - 限量测试 — 124 chars, body=full
+- `S0971` [2026-07-15] (taptap.cn) 素雅紫藤合集 - 首发 — 112 chars, body=full
+- `S0972` [2026-07-15] (taptap.cn) 自在小仙 - 新游预约 — 114 chars, body=full
+- `S0973` [2026-07-15] (taptap.cn) 英雄迷宫冒险 - 折扣 — 135 chars, body=full
+- `S0974` [2026-07-15] (taptap.cn) 重生这一世 - 新游预约 — 113 chars, body=full
+- `S0975` [2026-07-15] (taptap.cn) 饥饿派画家2：迷失 - 首发预购开启 — 131 chars, body=full
+- `S0976` [2026-07-15] (taptap.cn) 黑暗领域 - 首发 — 134 chars, body=full
+- `S0977` [2026-07-15] (taptap.cn) 塔塔冒险队 - 新游预约 (11:00 开始) — 144 chars, body=full
+- `S0978` [2026-07-15] (taptap.cn) 情感反诈模拟器 - 预下载 (11:00 开始) — 164 chars, body=full
+- `S0979` [2026-07-15] (gematsu.com) Dispatch for Xbox Series launches July 29 — 463 chars, body=full
+- `S0980` [2026-07-15] (gematsu.com) Ratchet & Clank: Ranger Rumble pre-registration now available — 474 chars, body=full
+- `S0981` [2026-07-15] (gematsu.com) Machine Party launches July 30 — 421 chars, body=full
+- `S0982` [2026-07-15] (gematsu.com) Hard Edge: War Zone launches July 23 — 442 chars, body=full
+- `S0983` [2026-07-15] (gematsu.com) Farming Camp launches September 24 — 440 chars, body=full
+- `S0984` [2026-07-15] (gematsu.com) Console Archives Hercules no Eikou II: Taitan no Metsubou launches July 16 — 586 chars, body=full
+- `S0985` [2026-07-15] (gematsu.com) Arcade Archives Syvalion launches July 16 — 463 chars, body=full
+- `S0986` [2026-07-15] (gematsu.com) Digimon UP now available — 339 chars, body=full
+- `S0987` [2026-07-15] (gematsu.com) The Dream Of A Cockspur launches July 22 — 458 chars, body=full
+- `S0988` [2026-07-15] (gematsu.com) Castlevania: Belmont’s Curse for Switch launches October 15 — 531 chars, body=full
+- `S1215` [2026-07-16] (17173.com) 三国杀：天命棋局 - 内测 — 252 chars, body=full
+- `S1216` [2026-07-16] (17173.com) 明日方舟：终末地 - 新版本 — 233 chars, body=full
+- `S1217` [2026-07-16] (17173.com) 洛克王国：世界 - 新版本 — 262 chars, body=full
+- `S1218` [2026-07-16] (17173.com) 第五人格 - 新版本 — 244 chars, body=full
+- `S1219` [2026-07-16] (17173.com) 龙之谷 - 新版本 — 249 chars, body=full
+- `S1220` [2026-07-16] (16p.com) 猫猫钓游记 - 上线 — 156 chars, body=full
+- `S1221` [2026-07-16] (16p.com) 纸嫁衣9罗浮梦 - 上线 — 156 chars, body=full
+- `S1222` [2026-07-16] (16p.com) 追逐卡蕾多 - 限量删档首测 — 180 chars, body=full
+- `S1223` [2026-07-16] (16p.com) 镇邪人 - 上线 — 152 chars, body=full
+- `S1224` [2026-07-16] (16p.com) Eat Hot Dog: Street Night Game - 上线 — 191 chars, body=full
+- `S1225` [2026-07-16] (3839.com) 三国杀：天命棋局 - 快爆独家测试资格放送中！ — 180 chars, body=full
+- `S1226` [2026-07-16] (3839.com) 云·终末地(官服) - 官方云游戏正式上线 — 169 chars, body=full
+- `S1227` [2026-07-16] (3839.com) 像素火影-次世代 - 新角色李洛克上线 — 176 chars, body=full
+- `S1228` [2026-07-16] (3839.com) 塔塔冒险队 - 删档测试 — 156 chars, body=full
+- `S1229` [2026-07-16] (3839.com) 奥特曼：超时空英雄(官服) - 周年庆典开启 — 178 chars, body=full
+- `S1230` [2026-07-16] (3839.com) 巅峰极速 - 26S5新赛季“竞野无疆”开启 — 178 chars, body=full
+- `S1231` [2026-07-16] (3839.com) 忍者必须死3 - 新SSR神兵「赤芒」上线 — 177 chars, body=full
+- `S1232` [2026-07-16] (3839.com) 无畏契约：源能行动 - 【狂翼掠空】系列皮肤上线 — 182 chars, body=full
+- `S1233` [2026-07-16] (3839.com) 明日方舟：终末地(官服) - 新干员【诀】登场 — 183 chars, body=full
+- `S1234` [2026-07-16] (3839.com) 机械启元-机械兽生存新游 - 定档7月22日开启限量抢注测试 — 187 chars, body=full
+- `S1235` [2026-07-16] (3839.com) 杖剑传说 - 洛天依二次联动开启 — 171 chars, body=full
+- `S1236` [2026-07-16] (3839.com) 永劫无间手游(官服)-二周年 - 侠影夺金新地图【大风歌·上篇】上线 — 192 chars, body=full
+- `S1237` [2026-07-16] (3839.com) 汤姆猫跑酷 - 免费领十周年角色派对汤姆猫 — 175 chars, body=full
+- `S1238` [2026-07-16] (3839.com) 洛克王国：世界-S3新赛季 - 开启S3新赛季,送炫彩精灵蛋 — 190 chars, body=full
+- `S1239` [2026-07-16] (3839.com) 皇帝成长计划2 - 八周年「天命攸归」版本开启 — 184 chars, body=full
+- `S1240` [2026-07-16] (3839.com) 穿越火线-超能爆破 - 嘉年华·钻石储蓄罐活动 — 179 chars, body=full
+- `S1241` [2026-07-16] (3839.com) 第五人格(官服)-1v4对抗 - 《盗墓笔记》联动第一弹 — 188 chars, body=full
+- `S1242` [2026-07-16] (3839.com) 纸嫁衣9罗浮梦-中式民俗解谜 - 已上线！下载分享赢京东卡 — 186 chars, body=full
+- `S1243` [2026-07-16] (3839.com) 荒野乱斗 - 《纳米面条》主题季开启 — 177 chars, body=full
+- `S1244` [2026-07-16] (3839.com) 荒野行动(官服) - 免费领金品水枪【95式：粉浪萌鲨】 — 184 chars, body=full
+- `S1245` [2026-07-16] (3839.com) 蔚蓝档案 - 3星成员 堇（打工）登场 — 179 chars, body=full
+- `S1246` [2026-07-16] (3839.com) 噗噗的冒险乐园 - 10:00 删档测试 — 179 chars, body=full
+- `S1247` [2026-07-16] (3839.com) 城主别慌张-预下载 - 10:00 预下载，7月17日上线 — 173 chars, body=full
+- `S1248` [2026-07-16] (3839.com) 情感反诈模拟器 - 10:00 移动端上线 — 184 chars, body=full
+- `S1249` [2026-07-16] (3839.com) 放开那妖怪-预下载 - 10:00 预下载，7月17日上线 — 173 chars, body=full
+- `S1250` [2026-07-16] (3839.com) 追逐卡蕾多 - 10:00 限量首测 — 175 chars, body=full
+- `S1251` [2026-07-16] (3839.com) 镇邪人 - 10:00 正式上线 — 175 chars, body=full
+- `S1252` [2026-07-16] (3839.com) 指尖魔兽-预下载 - 11:00 预下载，7月18日上线 — 190 chars, body=full
+- `S1253` [2026-07-16] (taptap.cn) 下一车有客 - 首发 — 122 chars, body=full
+- `S1254` [2026-07-16] (taptap.cn) 仙剑苍穹 - 不限量测试 — 127 chars, body=full
+- `S1255` [2026-07-16] (taptap.cn) 余烬列车 - 首发 — 123 chars, body=full
+- `S1256` [2026-07-16] (taptap.cn) 元素远征：狂潮 - 首发 — 113 chars, body=full
+- `S1257` [2026-07-16] (taptap.cn) 全民抽卡求生 - 首发 — 123 chars, body=full
+- `S1258` [2026-07-16] (taptap.cn) 化学之键 - 首发 — 122 chars, body=full
+- `S1259` [2026-07-16] (taptap.cn) 噗噗的冒险乐园 - 限量测试 — 139 chars, body=full
+- `S1260` [2026-07-16] (taptap.cn) 圣战传说 - 新游预约 — 112 chars, body=full
+- `S1261` [2026-07-16] (taptap.cn) 地心钻探者 - 首发 — 122 chars, body=full
+- `S1262` [2026-07-16] (taptap.cn) 城主别慌张 - 预下载 — 134 chars, body=full
+- `S1263` [2026-07-16] (taptap.cn) 大唐小商贩 - 新游预约 — 113 chars, body=full
+- `S1264` [2026-07-16] (taptap.cn) 大武林 - 限量测试 — 123 chars, body=full
+- `S1265` [2026-07-16] (taptap.cn) 守住宗门 - 首发 — 110 chars, body=full
+- `S1266` [2026-07-16] (taptap.cn) 对峙：交锋时刻 - 新游预约 — 115 chars, body=full
+- `S1267` [2026-07-16] (taptap.cn) 小小英杰：合战天下 - 测试招募 — 108 chars, body=full
+- `S1268` [2026-07-16] (taptap.cn) 小说网站模拟器 - 首发 — 113 chars, body=full
+- `S1269` [2026-07-16] (taptap.cn) 恶龙别嚣张 - 新游预约 — 113 chars, body=full
+- `S1270` [2026-07-16] (taptap.cn) 抓住老鼠 - 首发 — 110 chars, body=full
+- `S1271` [2026-07-16] (taptap.cn) 掌天道 - 首发 — 109 chars, body=full
+- `S1272` [2026-07-16] (taptap.cn) 放开那妖怪 - 限量测试 — 137 chars, body=full
+- `S1273` [2026-07-16] (taptap.cn) 方块物语 - 首发 — 110 chars, body=full
+- `S1274` [2026-07-16] (taptap.cn) 无尽之秘 - 不限量测试 — 125 chars, body=full
+- `S1275` [2026-07-16] (taptap.cn) 无限挂机修仙 - 首发 — 112 chars, body=full
+- `S1276` [2026-07-16] (taptap.cn) 明日方舟：终末地 - 新版本更新 — 144 chars, body=full
+- `S1277` [2026-07-16] (taptap.cn) 暗黑无限：搜打撤 - 首发 — 116 chars, body=full
+- `S1278` [2026-07-16] (taptap.cn) 暴走植物园 - 新游预约 — 124 chars, body=full
+- `S1279` [2026-07-16] (taptap.cn) 束魂人 - 首发 — 121 chars, body=full
+- `S1280` [2026-07-16] (taptap.cn) 梦幻三界 - 首发 — 112 chars, body=full
+- `S1281` [2026-07-16] (taptap.cn) 梦战：剑之海 - 新游预约 — 138 chars, body=full
+- `S1282` [2026-07-16] (taptap.cn) 汤姆猫跑酷 - 新版本更新 — 130 chars, body=full
+- `S1283` [2026-07-16] (taptap.cn) 洛克王国：世界 - 新版本更新 — 141 chars, body=full
+- `S1284` [2026-07-16] (taptap.cn) 清泠萱草合集 - 首发 — 112 chars, body=full
+- `S1285` [2026-07-16] (taptap.cn) 王国传承 - 首发 — 122 chars, body=full
+- `S1286` [2026-07-16] (taptap.cn) 电子塔防 - 首发 — 110 chars, body=full
+- `S1287` [2026-07-16] (taptap.cn) 皇帝成长计划2 - 新版本更新 — 140 chars, body=full
+- `S1288` [2026-07-16] (taptap.cn) 镇邪人 - 首发 — 132 chars, body=full
+- `S1289` [2026-07-16] (taptap.cn) 集装箱盲盒 - 新游预约 — 113 chars, body=full
+- `S1290` [2026-07-16] (taptap.cn) 马公子 - 首发 — 109 chars, body=full
+- `S1291` [2026-07-16] (taptap.cn) 魔塔二十四层 - 首发 — 112 chars, body=full
+- `S1292` [2026-07-16] (taptap.cn) 龟兔赛跑游戏 - 首发 — 122 chars, body=full
+- `S1293` [2026-07-16] (taptap.cn) 劫后公司 - 首发 (10:00 开始) — 161 chars, body=full
+- `S1294` [2026-07-16] (taptap.cn) 情感反诈模拟器 - 首发 (10:00 开始) — 163 chars, body=full
+- `S1295` [2026-07-16] (taptap.cn) 猫猫钓游记 - 首发 (10:00 开始) — 159 chars, body=full
+- `S1296` [2026-07-16] (taptap.cn) 纸嫁衣9罗浮梦 - 首发 (10:00 开始) — 156 chars, body=full
+- `S1297` [2026-07-16] (taptap.cn) 塔塔冒险队 - 限量测试 (11:00 开始) — 156 chars, body=full
+- `S1298` [2026-07-16] (gematsu.com) Wilderdark launches November 3 — 424 chars, body=full
+- `S1299` [2026-07-16] (gematsu.com) Goblin Cleanup coming to PS5, Xbox Series, and Switch 2 in 2027 — 508 chars, body=full
+- `S1300` [2026-07-16] (gematsu.com) Cozy Marbles launches August 20 — 426 chars, body=full
+- `S1301` [2026-07-16] (gematsu.com) Hot Wheels Infinite Rush release date moved up to September 10 — 548 chars, body=full
+- `S1302` [2026-07-16] (gematsu.com) Hela: of Mice & Magic launches in Q4 2026 — 422 chars, body=full
+- `S1303` [2026-07-16] (gematsu.com) Arcade comedy sports game Pro Jank Footy launches August 12 for PS5, Xbox Series, Switch 2, Switch, and PC — 704 chars, body=full
+- `S1304` [2026-07-16] (gematsu.com) OBAKEIDORO 2: Chase & Seek launches August 6 worldwide — 508 chars, body=full
+- `S1305` [2026-07-16] (gematsu.com) Prinny Party: Going Overboard! launches November 12 in Japan and Asia, coming west — 617 chars, body=full
+- `S1306` [2026-07-16] (gematsu.com) Volcano Princess coming to PS5, Switch, iOS, and Android on July 30 — 556 chars, body=full
+- `S1307` [2026-07-16] (gematsu.com) Neko Odyssey coming to Switch on July 30 — 458 chars, body=full
+- `S1308` [2026-07-16] (gematsu.com) IRA for Switch 2 launches July 30 — 432 chars, body=full
+- `S1309` [2026-07-16] (gematsu.com) Mario Tennis Fever version 1.1.0 update now available, adds new court, racket, special match, and more — 628 chars, body=full
+- `S1310` [2026-07-16] (gematsu.com) BlazBlue: Entropy Effect X coming to Switch 2 on August 13 alongside major content update — 645 chars, body=full
+
