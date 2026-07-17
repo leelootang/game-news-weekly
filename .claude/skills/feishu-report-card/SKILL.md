@@ -68,6 +68,7 @@ python scripts/publish_feishu_daily.py --date $DATE --create-doc --max-items 10
 - **每节取每条的一句话**:`_item_one_liner` → `### N.` 标题取标题本身;`- ` bullet 用 `_first_clause` 截到第一个 `；` 前的主句。所以 markdown 里 bullet 的主信息要放在第一个分号前。
 - **重点短句加粗 `_emphasize`**:每条卡片行自动加粗一个可扫读的关键短语,方便快速 get 重点,**只插入 `**` 标记、不删任何字符**(2026-06-24 我曾按全角冒号裁短某行,被用户纠正:"我只需要加粗高亮,不需要删改"——`_emphasize` 只能插 `**`,不许动原文)。优先加粗行内**第一个《产品名》**(整体加粗,绝不在 `《X:Y》` 里截断);无《》则加粗**首个中文逗号前的主语短句**(长度 4–26 字);再不行就整行加粗(≤26 字);过长且无可锚定短语则原样返回。改动在 `feishu_common._emphasize`,验收:发卡前肉眼扫一遍,确认①每行有且仅有一处合理加粗、《》没被拆断;②对比原 markdown,卡片每行文字**一字不少**(只多了 `**`)。
 - **节的映射与取舍**在 `_section_meta`:industry📰 / ai🤖 / release🎮 / discourse💬 / deep🧠;含"深度/精选"关键词的节 `drop=True`,**卡片里整节略去**(只在网页/docx 出现)。(Steam 榜单板块已下线,`rankings` 节不再产生。)
+- **独立深度观察卡(仅周报)由人工筛选门控**:`build_deep_observation_cards` 只推报告目录下 `deep_card_choice.txt` 指定标题的那 1 条(周五生成环节据周四人工选择写入该 sidecar)。**没有 `deep_card_choice.txt` 就不推深度卡**(周报其余卡照发);排查"深度卡没发/发错条"先看这个文件在不在、内容标题是否与正文 `### N.` 逐字一致。
 - **文档按钮**:传入 `doc_url` 时卡片底部加一个 primary 按钮"📄 查看完整日报",指向 docx。
 - **`per_section` / `--max-items`** 控制每节最多显示几条;见 Hard No #6,务必大于最长节的条目数。
 

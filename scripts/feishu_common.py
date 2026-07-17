@@ -827,8 +827,12 @@ def build_deep_observation_card(
         # Cards intentionally keep the body compact, but the two analytical
         # layers need visible hierarchy.  Do not let whitespace normalization
         # flatten `观察：` / `分析：` into ordinary inline prose.
-        body = re.sub(r"(观察：|分析：)", r"**\1**", body)
+        body = re.sub(r"\*{0,2}(观察：|分析：)\*{0,2}", r"**\1**", body)
         body = re.sub(r"(?<!^)(\*\*(?:观察|分析)：\*\*)", r"\n\n\1", body)
+        # The 分析 layer often carries an ①②③… enumeration crammed into one
+        # block; break each point onto its own line so it reads as a list.
+        body = re.sub(r"\s*([①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])", r"\n\1", body)
+        body = re.sub(r"[ \t]+\n", "\n", body)
         body = re.sub(r"[ \t]+\n\n", "\n\n", body)
         content = f"**{title}**"
         if body:
@@ -900,12 +904,40 @@ def _deep_item_source_url(summary: dict[str, Any], item: dict[str, str]) -> str 
     return None
 
 
+def _designated_deep_card_title(summary: dict[str, Any]) -> str | None:
+    """Read the human-designated deep-observation card title, if any.
+
+    The Thursday human-curation step decides which single deep observation
+    becomes a card; the Friday generation writes that title to
+    ``deep_card_choice.txt`` in the report directory. Absent file → no card is
+    pushed (the deep card is human-gated, there is no auto-fallback).
+    """
+    markdown_path = summary.get("markdown_path")
+    if not markdown_path:
+        return None
+    choice_path = Path(str(markdown_path)).parent / "deep_card_choice.txt"
+    try:
+        title = choice_path.read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    return _strip_item_number(title) or None
+
+
 def build_deep_observation_cards(
-    summary: dict[str, Any], doc_url: str | None = None, max_items: int = 2
+    summary: dict[str, Any], doc_url: str | None = None, max_cards: int = 1
 ) -> list[dict[str, Any]]:
-    """Build up to two standalone weekly cards, each with its own source link."""
+    """Build the single human-designated weekly deep-observation card.
+
+    The report body may carry two or three deep-observation items, but only the
+    one the user designated on Thursday (recorded in ``deep_card_choice.txt``)
+    becomes a card. If no designation exists, no deep card is pushed.
+    """
     if not doc_url:
         return []
+    chosen_title = _designated_deep_card_title(summary)
+    if not chosen_title:
+        return []
+
     items: list[dict[str, str]] = []
     deep_name = "深度观察"
     for section in summary.get("sections", []):
@@ -915,7 +947,9 @@ def build_deep_observation_cards(
             items.extend(section.get("items", []))
 
     cards: list[dict[str, Any]] = []
-    for item in items[:max_items]:
+    for item in items:
+        if _strip_item_number(item.get("title", "")) != chosen_title:
+            continue
         source_url = _deep_item_source_url(summary, item)
         if not source_url:
             continue
@@ -928,6 +962,8 @@ def build_deep_observation_cards(
         )
         if card:
             cards.append(card)
+        if len(cards) >= max_cards:
+            break
     return cards
 
 
