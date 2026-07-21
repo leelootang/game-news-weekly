@@ -803,13 +803,34 @@ def _industry_card_detail(body: str) -> str:
     return detail[: breakpoint if breakpoint >= 36 else 85].rstrip("，、；： ") + "…"
 
 
-def _item_one_liner(item: dict[str, str], *, industry_detail: bool = False) -> str:
+def _discourse_card_line(title: str, body: str) -> str:
+    """Render a 玩家舆论 card line as the section body's own ~100-char summary,
+    shown verbatim.
+
+    The 舆论 body is written as a self-contained ≤100-char account (前情一句带过
+    + 近期进展为主). The card shows it as-is — whitespace normalized and the
+    trailing 句号 dropped — and NEVER truncates at a fixed length or a
+    punctuation mark, so the reader never sees a cut-off clause or an ellipsis.
+    Keeping each line within ~100 chars is the job of writing the body short at
+    generation time, not of the card. Falls back to the headline when the body
+    is empty."""
+    body = re.sub(r"\s+", " ", body or "").strip()
+    return body.rstrip("。") if body else title
+
+
+def _item_one_liner(
+    item: dict[str, str], *, industry_detail: bool = False, discourse_detail: bool = False
+) -> str:
     title = (item.get("title") or "").replace("\n", " ").strip()
     if item.get("kind") == "bullet":
         return _first_clause(title)
     title = _strip_item_number(title)
-    detail = _industry_card_detail(item.get("body", "")) if industry_detail else ""
-    return f"{title}，{detail}" if detail else title
+    if industry_detail:
+        detail = _industry_card_detail(item.get("body", ""))
+        return f"{title}，{detail}" if detail else title
+    if discourse_detail:
+        return _discourse_card_line(title, item.get("body", ""))
+    return title
 
 
 def _emphasize(line: str) -> str:
@@ -848,10 +869,13 @@ def build_daily_card(
         if drop:
             continue
         industry_detail = display == "行业新闻"
+        discourse_detail = display == "玩家舆论"
         one_liners = [
             line
             for line in (
-                _item_one_liner(item, industry_detail=industry_detail)
+                _item_one_liner(
+                    item, industry_detail=industry_detail, discourse_detail=discourse_detail
+                )
                 for item in section.get("items", [])
             )
             if line

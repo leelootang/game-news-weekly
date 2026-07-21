@@ -83,11 +83,11 @@ class ReportArtifactContractTests(unittest.TestCase):
         ]
         self.items.write_text(json.dumps({"items": items}, ensure_ascii=False), encoding="utf-8")
         decisions = [
-            {"candidate_id": "C1", "section": "industry", "source_ids": ["S0001"], "entities": ["公司"], "event": "业绩披露", "decision": "include", "reason": "重要", "scores": {"event": 2, "entity": 2, "region": 2, "hook": 1, "total": 7}},
-            *[{"candidate_id": f"C{i}", "section": section, "source_ids": [f"S{i:04d}"], "entities": ["主体"], "event": "单一事件", "decision": "include", "reason": "可核验"} for i, section in [(2, "ai"), (3, "release_calendar"), (4, "community"), (5, "deep")]],
+            {"candidate_id": "C1", "section": "industry", "source_ids": ["S0001"], "entities": ["公司"], "event": "业绩披露", "decision": "include", "reason": "重要", "scores": {"event": 3, "relevance": 2, "hook": 1, "total": 7}},
+            *[{"candidate_id": f"C{i}", "section": section, "source_ids": [f"S{i:04d}"], "entities": ["主体"], "event": "单一事件", "decision": "include", "reason": "可核验", **({"ai_tier": "direct_application", "game_stage": ["development"], "industry_reverse_scan": False} if section == "ai" else {"scores": {"relevance": 2, "insight": 2, "evidence": 2, "card": 2, "total": 8}} if section == "deep" else {"scores": {"event": 3, "source": 2, "total": 6}} if section == "release_calendar" else {})} for i, section in [(2, "ai"), (3, "release_calendar"), (4, "community"), (5, "deep")]],
         ]
         self.decisions.write_text(json.dumps({"decisions": decisions}, ensure_ascii=False), encoding="utf-8")
-        self.audit.write_text(json.dumps({"schema_version": 1, "nodes": []}), encoding="utf-8")
+        self.audit.write_text(json.dumps({"schema_version": 3, "nodes": [{"candidate_id": "C3", "signal_type": "new_game_launch", "event_type_score": 3, "source_strength_score": 2, "priority_score": 6, "appearance_count": 2}]}), encoding="utf-8")
         ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
 
     def tearDown(self) -> None:
@@ -117,6 +117,48 @@ class ReportArtifactContractTests(unittest.TestCase):
         self.sources.write_text(self.sources.read_text(encoding="utf-8").replace("原文 1", "过期标题", 1), encoding="utf-8")
         errors, _ = self.validate()
         self.assertTrue(any("Source Details drift" in error for error in errors))
+
+    def test_industry_score_must_equal_e_times_r_plus_m(self) -> None:
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["scores"]["total"] = 8
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("total must equal E×R+M" in error for error in errors))
+
+    def test_weekly_deep_below_nine_requires_manual_card_designation(self) -> None:
+        weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"
+        self.report.rename(weekly)
+        self.report = weekly
+        errors, _ = self.validate()
+        self.assertTrue(any("below 9 without manual card designation" in error for error in errors))
+
+    def test_weekly_manual_card_designation_overrides_deep_threshold(self) -> None:
+        weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"
+        self.report.rename(weekly)
+        self.report = weekly
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][-1]["card_designated"] = True
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("below 9 without manual card designation" in error for error in errors))
+
+    def test_community_does_not_require_disclaimer_without_official_source(self) -> None:
+        text = self.report.read_text(encoding="utf-8")
+        self.report.write_text(text.replace("论坛帖围绕更新内容展开讨论，", "围绕更新内容，"), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("visibly attributed" in error for error in errors))
+
+    def test_multi_source_candidate_requires_strict_cluster_basis(self) -> None:
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["source_ids"] = ["S0001", "S0002"]
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("strict same-subject/product/date/event" in error for error in errors))
+
+    def test_release_audit_rejects_version_signal(self) -> None:
+        self.audit.write_text(json.dumps({"nodes": [{"candidate_id": "C3", "title": "旧游新版本", "signal_type": "version_update"}]}, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("non-new-game signal" in error for error in errors))
 
     def test_industry_title_rejects_promotional_shorthand(self) -> None:
         original = self.report.read_text(encoding="utf-8")
