@@ -49,6 +49,9 @@
     .sidebar-toggle .icon-close { display:none; }
     .app.collapsed .sidebar-toggle .icon-open { display:none; }
     .app.collapsed .sidebar-toggle .icon-close { display:inline; }
+    .back-home { width:max-content; display:inline-flex; align-items:center; gap:7px; margin:0 2px 18px; padding:7px 10px; border-radius:9px; color:var(--ink-soft); text-decoration:none; font-size:13px; font-weight:600; transition:background .14s,color .14s,transform .14s; }
+    .back-home:hover { background:rgba(255,255,255,.62); color:var(--accent); transform:translateX(-2px); }
+    .back-home:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
     .brand { display:flex; align-items:center; gap:12px; padding:0 2px 20px; border-bottom:1px solid var(--line); }
     .brand-mark { width:40px; height:40px; display:grid; place-items:center; border-radius:11px; background:#fff; padding:7px; box-shadow:0 3px 10px rgba(31,45,75,.10); }
     .brand-mark img { width:100%; height:100%; display:block; object-fit:contain; }
@@ -84,7 +87,6 @@
     .search input::placeholder { color:var(--faint); }
     .icon-btn { border:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--ink-soft); cursor:pointer; width:40px; height:40px; border-radius:12px; transition:all .14s; }
     .icon-btn:hover { color:var(--accent); border-color:var(--accent); }
-    .home-link { width:auto; padding:0 14px; display:inline-flex; align-items:center; gap:7px; text-decoration:none; white-space:nowrap; font-size:13.5px; font-weight:600; }
 
     /* Metrics */
     .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:30px; }
@@ -190,6 +192,7 @@
 <body>
   <div class="app" id="app">
     <aside class="sidebar">
+      <a class="back-home" href="../../" aria-label="返回情报站首页">← 返回首页</a>
       <div class="brand" aria-label="沐瞳科技">
         <div class="brand-mark" aria-hidden="true"><img src="../../assets/moonton_logo.png" alt=""></div>
         <div><strong>游戏行业情报站</strong><span>__BRAND_SUB__</span></div>
@@ -206,7 +209,6 @@
       <div class="topbar">
         <div><h1>__H1__</h1><div class="subtitle">__SUBTITLE__</div></div>
         <div class="actions">
-          <a class="icon-btn home-link" href="../../" aria-label="返回情报站首页">⌂ 首页</a>
           <button class="sidebar-toggle" id="sidebarToggle" type="button" title="折叠 / 展开侧栏" aria-label="切换侧栏">
             <span class="icon-open">«</span><span class="icon-close">»</span>
           </button>

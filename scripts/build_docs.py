@@ -188,20 +188,28 @@ def copy_report(html_path: Path, dest_dir: Path) -> str:
     content = remove_rankings_section(html_path.read_text(encoding="utf-8"))
     # Keep already-generated historical reports navigable without requiring
     # every source HTML file to be regenerated from the latest template.
-    if 'class="icon-btn home-link"' not in content:
+    content = re.sub(
+        r'\s*<a class="icon-btn home-link"[^>]*>.*?</a>', "", content, count=1
+    )
+    content = re.sub(r'\n\s*\.home-link \{[^}]+\}', "", content, count=1)
+    if 'class="back-home"' not in content:
         content = content.replace(
-            '<div class="actions">',
-            '<div class="actions">\n'
-            '          <a class="icon-btn home-link" href="../../" '
-            'aria-label="返回情报站首页">⌂ 首页</a>',
+            '<aside class="sidebar">',
+            '<aside class="sidebar">\n'
+            '      <a class="back-home" href="../../" '
+            'aria-label="返回情报站首页">← 返回首页</a>',
             1,
         )
         content = content.replace(
-            '.icon-btn:hover { color:var(--accent); border-color:var(--accent); }',
-            '.icon-btn:hover { color:var(--accent); border-color:var(--accent); }\n'
-            '    .home-link { width:auto; padding:0 14px; display:inline-flex; '
-            'align-items:center; gap:7px; text-decoration:none; white-space:nowrap; '
-            'font-size:13.5px; font-weight:600; }',
+            '.brand { display:flex;',
+            '.back-home { width:max-content; display:inline-flex; align-items:center; '
+            'gap:7px; margin:0 2px 18px; padding:7px 10px; border-radius:9px; '
+            'color:var(--ink-soft); text-decoration:none; font-size:13px; font-weight:600; '
+            'transition:background .14s,color .14s,transform .14s; }\n'
+            '    .back-home:hover { background:rgba(255,255,255,.62); color:var(--accent); '
+            'transform:translateX(-2px); }\n'
+            '    .back-home:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }\n'
+            '    .brand { display:flex;',
             1,
         )
     if LOGO_URI:
