@@ -186,6 +186,24 @@ def extract_metadata(html: str) -> tuple[int, dict]:
 def copy_report(html_path: Path, dest_dir: Path) -> str:
     dest_dir.mkdir(parents=True, exist_ok=True)
     content = remove_rankings_section(html_path.read_text(encoding="utf-8"))
+    # Keep already-generated historical reports navigable without requiring
+    # every source HTML file to be regenerated from the latest template.
+    if 'class="icon-btn home-link"' not in content:
+        content = content.replace(
+            '<div class="actions">',
+            '<div class="actions">\n'
+            '          <a class="icon-btn home-link" href="../../" '
+            'aria-label="返回情报站首页">⌂ 首页</a>',
+            1,
+        )
+        content = content.replace(
+            '.icon-btn:hover { color:var(--accent); border-color:var(--accent); }',
+            '.icon-btn:hover { color:var(--accent); border-color:var(--accent); }\n'
+            '    .home-link { width:auto; padding:0 14px; display:inline-flex; '
+            'align-items:center; gap:7px; text-decoration:none; white-space:nowrap; '
+            'font-size:13.5px; font-weight:600; }',
+            1,
+        )
     if LOGO_URI:
         content = re.sub(r'src="[^"]*moonton_logo\.png"', f'src="{LOGO_URI}"', content)
     if 'class="sidebar-footer"' not in content:
