@@ -229,11 +229,13 @@ and inherit the runner's section/date output path and manifest handling.
 | `indienova` | `industry_news` | News index + article page | Handles absolute and relative Chinese dates. |
 | `luosiji_sohu` | `industry_news` | Official Sohu account API + article page | Uses excerpt only when the page body cannot be read, and marks it. |
 | `matthewball` | `deep_analysis` | Full-text RSS | Long-form strategy and media-economics essays. |
+| `nadianshi` | `industry_news` | 今日关注 category + article page | Full-text Chinese mobile-game industry reporting. |
 | `necromanov` | `deep_analysis` | Full-text WordPress RSS | Low-frequency game analysis. |
 | `pcgamer` | `industry_news` | Full-text RSS | High-volume source; editorial filtering happens downstream. |
 | `polygon` | `industry_news` | Full-text RSS | Games and adjacent entertainment coverage. |
 | `qimai_sohu` | `industry_news` | Official Sohu account API + article page | Uses excerpt only when the page body cannot be read, and marks it. |
 | `questmobile` | `deep_analysis` | Official report-list API | The source supplies report introductions, stored explicitly as `partial`. |
+| `roblox_newsroom` | `industry_news` | Server-rendered catalog + article page | Official Roblox announcements with full article text and metadata. |
 | `sensortower` | `deep_analysis` | Chinese-blog sitemap + article page | Market intelligence reports. |
 | `unrealengine` | `ai_trends` | Full-text RSS | Official engine, tooling, and developer-tech signals. |
 | `yxrb` | `industry_news` | Mobile index + article page | Deduplicates repeated mobile-list titles within a run. |
@@ -265,6 +267,8 @@ and inherit the runner's section/date output path and manifest handling.
 - `polygon`
 - `qimai_sohu`
 - `yxrb`
+- `roblox_newsroom`
+- `nadianshi`
 - `aihot`
 - `baoyu`
 - `unrealengine`

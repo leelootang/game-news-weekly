@@ -52,6 +52,8 @@ USER_AGENT = (
 )
 CONTENT_NS = "{http://purl.org/rss/1.0/modules/content/}"
 DC_NS = "{http://purl.org/dc/elements/1.1/}"
+_DIAGNOSTIC_EMITTED = False
+_STRUCTURED_ENDPOINT_AVAILABLE: bool | None = None
 
 
 @dataclass(frozen=True)
@@ -66,6 +68,21 @@ class NewsItem:
     published_at: datetime
     raw_published_at: str
     content_html: str = ""
+
+
+class ArticleBlockedError(RuntimeError):
+    """The detail endpoint returned an anti-bot/interstitial response."""
+
+    def __init__(self, reason: str, diagnostic: dict[str, object]) -> None:
+        super().__init__(reason)
+        self.diagnostic = diagnostic
+
+
+@dataclass(frozen=True)
+class SaveResult:
+    saved: bool
+    body_status: str
+    reason: str = ""
 
 
 def parse_date(value: str, *, end_of_day: bool = False) -> datetime:
@@ -308,7 +325,26 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
     page = await context.new_page()
     try:
         print(f"[{item.news_id}] open {item.url}")
-        await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        response = await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        status = response.status if response else None
+        title = (await page.title()).strip()
+        final_url = page.url
+        challenge = (
+            status in {401, 403, 429, 503}
+            or "just a moment" in title.lower()
+            or "__cf_chl_" in final_url
+            or "cf-chl-" in (await page.locator("html").get_attribute("class") or "").lower()
+        )
+        if challenge:
+            body_preview = re.sub(r"\s+", " ", (await page.locator("body").inner_text())[:240]).strip()
+            diagnostic = {
+                "kind": "blocked_cloudflare" if "__cf_chl_" in final_url or "just a moment" in title.lower() else "blocked_http",
+                "status": status,
+                "title": title[:120],
+                "final_url": final_url[:500],
+                "body_preview": body_preview,
+            }
+            raise ArticleBlockedError(str(diagnostic["kind"]), diagnostic)
         try:
             await page.wait_for_selector("#content_body, .post__content-body, article .entry-content, .entry-content", timeout=15_000)
         except PWTimeout as exc:
@@ -354,6 +390,92 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
         )
     finally:
         await page.close()
+
+
+async def fetch_structured_content(context, item: NewsItem) -> NewsItem | None:
+    """Try the public WordPress JSON endpoint once before falling back to RSS."""
+    global _STRUCTURED_ENDPOINT_AVAILABLE
+    if _STRUCTURED_ENDPOINT_AVAILABLE is False:
+        return None
+    slug = urlparse(item.url).path.strip("/").split("/")[-1]
+    api_url = f"{BASE}/wp-json/wp/v2/posts?slug={slug}&_fields=title,excerpt,content"
+    try:
+        response = await context.request.get(api_url, timeout=PAGE_TIMEOUT, fail_on_status_code=False)
+        if response.status != 200:
+            if response.status in {401, 403, 429, 503}:
+                _STRUCTURED_ENDPOINT_AVAILABLE = False
+            return None
+        payload = await response.json()
+        if not isinstance(payload, list) or not payload:
+            return None
+        row = payload[0]
+        content_html = clean_content_html(str((row.get("content") or {}).get("rendered") or ""))
+        if not html_to_text(content_html):
+            return None
+        _STRUCTURED_ENDPOINT_AVAILABLE = True
+        title = html_to_text(str((row.get("title") or {}).get("rendered") or "")) or item.title
+        summary = html_to_text(str((row.get("excerpt") or {}).get("rendered") or "")) or item.summary
+        return NewsItem(
+            news_id=item.news_id, url=item.url, title=title, author=item.author,
+            categories=item.categories, summary=summary, image_url=item.image_url,
+            published_at=item.published_at, raw_published_at=item.raw_published_at,
+            content_html=content_html,
+        )
+    except Exception as exc:
+        print(f"[{item.news_id}] structured endpoint unavailable: {exc!r}", file=sys.stderr)
+        return None
+
+
+def emit_diagnostic_once(item: NewsItem, exc: Exception) -> None:
+    global _DIAGNOSTIC_EMITTED
+    if _DIAGNOSTIC_EMITTED:
+        return
+    if isinstance(exc, ArticleBlockedError):
+        diagnostic = exc.diagnostic
+    else:
+        diagnostic = {
+            "kind": "detail_retrieval_error",
+            "error_type": type(exc).__name__,
+            "message": str(exc)[:240],
+            "url": item.url[:500],
+        }
+    print(f"[{item.news_id}] diagnostic {json.dumps(diagnostic, ensure_ascii=False)}", file=sys.stderr)
+    _DIAGNOSTIC_EMITTED = True
+
+
+def rss_fallback_html(item: NewsItem, reason: str) -> str:
+    summary = html.escape(item.summary or "No RSS summary was supplied.")
+    return (
+        f'<p class="summary">{summary}</p>\n'
+        f'<p><em>Full article retrieval unavailable ({html.escape(reason)}); '
+        f'<a href="{html.escape(item.url)}">open the source article</a>.</em></p>'
+    )
+
+
+def write_text_record(out_dir: Path, manifest: dict, item: NewsItem, *, body_status: str,
+                      fallback: str, reason: str = "") -> None:
+    content_html = item.content_html if body_status == "full" else rss_fallback_html(item, reason)
+    write_article_record(out_dir, manifest, item.news_id, {
+        "source_key": SOURCE_KEY,
+        "source": SOURCE_DOMAIN,
+        "title": item.title,
+        "url": item.url,
+        "published_at": item.published_at.isoformat(timespec="seconds"),
+        "author": item.author,
+        "excerpt": item.summary,
+        "text": html_to_text(content_html),
+        "html": content_html,
+        "fetch_status": "ok" if body_status == "full" else "partial",
+        "body_status": body_status,
+        "fallback": fallback,
+        "extra": {
+            "categories": item.categories,
+            "image_url": item.image_url,
+            "raw_published_at": item.raw_published_at,
+            "retrieval_error": reason,
+        },
+    })
+    save_manifest(out_dir, manifest)
 
 
 def build_printable_html(item: NewsItem) -> str:
@@ -438,36 +560,36 @@ def build_printable_html(item: NewsItem) -> str:
 </html>"""
 
 
-async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dict) -> bool:
+async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dict) -> SaveResult:
     if not save_pdf_enabled():
         try:
             full_item = await fetch_article_content(context, item)
-            write_article_record(out_dir, manifest, full_item.news_id, {
-                "source_key": SOURCE_KEY,
-                "source": SOURCE_DOMAIN,
-                "title": full_item.title,
-                "url": full_item.url,
-                "published_at": full_item.published_at.isoformat(timespec="seconds"),
-                "author": full_item.author,
-                "excerpt": full_item.summary,
-                "text": html_to_text(full_item.content_html),
-                "html": full_item.content_html,
-                "extra": {"categories": full_item.categories, "image_url": full_item.image_url, "raw_published_at": full_item.raw_published_at},
-            })
-            save_manifest(out_dir, manifest)
+            write_text_record(out_dir, manifest, full_item, body_status="full", fallback="none")
             print(f"[{full_item.news_id}] saved text record")
-            return True
+            return SaveResult(True, "full")
         except Exception as exc:
-            print(f"[{item.news_id}] failed: {exc!r}", file=sys.stderr)
-            return False
+            emit_diagnostic_once(item, exc)
+            structured_item = await fetch_structured_content(context, item)
+            if structured_item is not None:
+                write_text_record(out_dir, manifest, structured_item, body_status="full", fallback="wordpress_json")
+                print(f"[{item.news_id}] detail unavailable; saved structured endpoint record")
+                return SaveResult(True, "full", repr(exc))
+            reason = str(exc) or type(exc).__name__
+            try:
+                write_text_record(out_dir, manifest, item, body_status="rss_summary", fallback="rss_summary", reason=reason)
+                print(f"[{item.news_id}] detail unavailable; saved RSS summary fallback")
+                return SaveResult(True, "rss_summary", reason)
+            except Exception as fallback_exc:
+                print(f"[{item.news_id}] RSS fallback failed: {fallback_exc!r}", file=sys.stderr)
+                return SaveResult(False, "empty", repr(fallback_exc))
 
     recorded = manifest.setdefault("items", {}).get(item.news_id)
     if recorded and recorded.get("data_file"):
         print(f"[{item.news_id}] already saved, skip")
-        return True
+        return SaveResult(True, recorded.get("body_status") or "full")
     if save_pdf_enabled() and recorded and recorded.get("file") and (out_dir / recorded["file"]).exists():
         print(f"[{item.news_id}] already saved, skip")
-        return True
+        return SaveResult(True, "full")
 
     page = await context.new_page()
     tmp_path = out_dir / f".tmp_{item.news_id}.pdf"
@@ -501,12 +623,48 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
         }
         save_manifest(out_dir, manifest)
         print(f"[{full_item.news_id}] saved {final_name}")
-        return True
+        return SaveResult(True, "full")
     except Exception as exc:
-        print(f"[{item.news_id}] failed: {exc!r}", file=sys.stderr)
-        if tmp_path.exists():
-            tmp_path.unlink(missing_ok=True)
-        return False
+        emit_diagnostic_once(item, exc)
+        structured_item = await fetch_structured_content(context, item)
+        body_status = "full" if structured_item is not None else "rss_summary"
+        fallback_name = "wordpress_json" if structured_item is not None else "rss_summary"
+        reason = str(exc) or type(exc).__name__
+        render_item = structured_item or NewsItem(
+            news_id=item.news_id, url=item.url, title=item.title, author=item.author,
+            categories=item.categories, summary=item.summary, image_url=item.image_url,
+            published_at=item.published_at, raw_published_at=item.raw_published_at,
+            content_html=rss_fallback_html(item, reason),
+        )
+        try:
+            final_name = f"{FILE_PREFIX}_{render_item.published_at:%Y-%m-%d}_{render_item.news_id}_{sanitize_filename(render_item.title)}.pdf"
+            final_path = out_dir / final_name
+            await page.set_content(build_printable_html(render_item), wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+            await page.emulate_media(media="screen")
+            await page.pdf(
+                path=str(tmp_path), format="A4", print_background=True,
+                margin={"top": "12mm", "right": "10mm", "bottom": "12mm", "left": "10mm"},
+            )
+            tmp_path.replace(final_path)
+            manifest["items"][render_item.news_id] = {
+                "file": final_name, "source": SOURCE_DOMAIN, "source_key": SOURCE_KEY,
+                "title": render_item.title, "url": render_item.url, "author": render_item.author,
+                "categories": render_item.categories,
+                "published_at": render_item.published_at.isoformat(timespec="seconds"),
+                "raw_published_at": render_item.raw_published_at,
+                "fetch_status": "ok" if body_status == "full" else "partial",
+                "body_status": body_status, "fallback": fallback_name,
+                "retrieval_error": reason,
+                "saved_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            }
+            save_manifest(out_dir, manifest)
+            print(f"[{item.news_id}] detail unavailable; saved {fallback_name} PDF fallback")
+            return SaveResult(True, body_status, reason)
+        except Exception as fallback_exc:
+            print(f"[{item.news_id}] PDF fallback failed: {fallback_exc!r}", file=sys.stderr)
+            if tmp_path.exists():
+                tmp_path.unlink(missing_ok=True)
+            return SaveResult(False, "empty", repr(fallback_exc))
     finally:
         await page.close()
 
@@ -559,10 +717,17 @@ async def main() -> None:
         )
 
         ok = 0
+        full = 0
+        fallback = 0
         fail = 0
         for item in items:
-            if await save_article_pdf(context, item, args.out, manifest):
+            result = await save_article_pdf(context, item, args.out, manifest)
+            if result.saved:
                 ok += 1
+                if result.body_status == "full":
+                    full += 1
+                else:
+                    fallback += 1
             else:
                 fail += 1
             await asyncio.sleep(PER_ARTICLE_DELAY)
@@ -570,7 +735,9 @@ async def main() -> None:
         await context.close()
         await browser.close()
 
-    print(f"[done] ok={ok} fail={fail} output={args.out.resolve()}")
+    if fallback:
+        print(f"[health] degraded reason=detail_unavailable full={full} rss_summary={fallback}")
+    print(f"[done] ok={ok} full={full} fallback={fallback} fail={fail} output={args.out.resolve()}")
     if fail:
         raise SystemExit(1)
 

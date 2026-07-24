@@ -213,6 +213,24 @@ COLLECTORS: dict[str, Collector] = {
         section="industry_news",
         default_max_pages=2,
     ),
+    "roblox_newsroom": Collector(
+        key="roblox_newsroom",
+        script=ROOT / "collectors" / "roblox_newsroom.py",
+        section="industry_news",
+        default_max_pages=1,
+    ),
+    "nadianshi": Collector(
+        key="nadianshi",
+        script=ROOT / "collectors" / "nadianshi.py",
+        section="industry_news",
+        default_max_pages=3,
+    ),
+    "cubox": Collector(
+        key="cubox",
+        script=ROOT / "collectors" / "cubox.py",
+        section="industry_news",
+        default_max_pages=1,
+    ),
     "aihot": Collector(
         key="aihot",
         script=ROOT / "collectors" / "aihot.py",
@@ -800,6 +818,8 @@ def collector_health(result_status: str, section: str, article_count: int, outpu
     output_lower = output.lower()
     if result_status != "ok":
         return "failed", "collector exited with a non-zero status"
+    if "[health] degraded" in output_lower:
+        return "degraded", first_matching_line(output, "[health] degraded") or "collector saved fallback records"
     if "warning" in output_lower:
         return "warning", first_matching_line(output, "warning") or "collector reported a warning"
     if article_count == 0:
