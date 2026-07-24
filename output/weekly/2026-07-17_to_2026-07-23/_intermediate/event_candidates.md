@@ -507,3 +507,28 @@
 - 行业新闻、AI、玩家舆论的未成候选记录已按事件门槛、相关性、正文完整度和重复聚类逐条回扫；空正文4条与非完整正文91条全部排除为最终证据。
 - 产品日历完整反查 industry_news 与 release_calendar，两类来源按同产品、同事件日期合并；完整节点以 release_calendar_audit.json 的444个节点为准。
 - 深度观察输入9条已读取；人工 selection 文件不存在，因此本周不形成深度候选和正文条目。
+
+
+## deep-selection-001 - 自研引擎的价值边界正在收缩
+- section: deep_analysis
+- status: candidate
+- source_ids: S0028, S0481
+- entities: 云顶之弈 / 古剑 / 虚幻5
+- event_date: 2026-07-17 to 2026-07-19
+- facts: 用户周四选择的引擎迁移主题。
+
+## deep-selection-002 - 小游戏的增长瓶颈转向投放密度与复制效率
+- section: deep_analysis
+- status: candidate
+- source_ids: S1145, S1194, S1278
+- entities: 微信小游戏 / 掌上谈兵 / 西游降妖记
+- event_date: 2026-07-22
+- facts: 用户周四选择并指定为唯一深度卡片。
+
+## deep-selection-003 - Xbox 从订阅飞轮转向资产拆分
+- section: deep_analysis
+- status: candidate
+- source_ids: S0825
+- entities: Xbox / Mojang / King
+- event_date: 2026-07-20
+- facts: 用户周四选择的资产拆分主题。

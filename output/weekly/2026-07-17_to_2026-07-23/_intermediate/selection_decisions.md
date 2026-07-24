@@ -4,33 +4,33 @@
 
 ## 行业新闻 E×R+M
 
-- industry-candidate-001｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0621,S0623,S0663,S0668
-- industry-candidate-002｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0880,S0891
-- industry-candidate-003｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1142,S1458
-- industry-candidate-004｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1244,S1275
-- industry-candidate-005｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0327,S0328,S1197
-- industry-candidate-006｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0853
-- industry-candidate-007｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0869
-- industry-candidate-008｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0870
-- industry-candidate-009｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1139
-- industry-candidate-010｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1164
-- industry-candidate-011｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1496
-- industry-candidate-012｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0059
-- industry-candidate-013｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1522
-- industry-candidate-014｜include｜事件2×相关3+钩子2 = 8｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0033,S0851
-- industry-candidate-015｜include｜事件3×相关2+钩子2 = 8｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1165,S1172,S1180,S1187
-- industry-candidate-016｜include｜事件2×相关3+钩子2 = 8｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1520,S1526
-- industry-candidate-017｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0615
-- industry-candidate-018｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0617
-- industry-candidate-019｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0645
-- industry-candidate-020｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0867
-- industry-candidate-021｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1194
-- industry-candidate-022｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1467
-- industry-candidate-023｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1494
-- industry-candidate-024｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0659
-- industry-candidate-025｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1174
-- industry-candidate-026｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S1518
-- industry-candidate-027｜include｜事件2×相关3+钩子1 = 7｜E×R+M终分达到7分入选线，按终分降序进入正文｜S0332
+- industry-candidate-001｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0621,S0623,S0663,S0668
+- industry-candidate-002｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0880,S0891
+- industry-candidate-003｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1142,S1458
+- industry-candidate-004｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1244,S1275
+- industry-candidate-005｜include｜事件3×相关3+钩子2 = 11｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0327,S0328,S1197
+- industry-candidate-006｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0853
+- industry-candidate-007｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0869
+- industry-candidate-008｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0870
+- industry-candidate-009｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1139
+- industry-candidate-010｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1164
+- industry-candidate-011｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1496
+- industry-candidate-012｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0059
+- industry-candidate-013｜include｜事件3×相关3+钩子1 = 10｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1522
+- industry-candidate-014｜include｜事件2×相关3+钩子2 = 8｜E×R+M终分达到8分入选线，按终分降序进入正文｜S0033,S0851
+- industry-candidate-015｜include｜事件3×相关2+钩子2 = 8｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1165,S1172,S1180,S1187
+- industry-candidate-016｜include｜事件2×相关3+钩子2 = 8｜E×R+M终分达到8分入选线，按终分降序进入正文｜S1520,S1526
+- industry-candidate-017｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0615
+- industry-candidate-018｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0617
+- industry-candidate-019｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0645
+- industry-candidate-020｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0867
+- industry-candidate-021｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S1194
+- industry-candidate-022｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S1467
+- industry-candidate-023｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S1494
+- industry-candidate-024｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0659
+- industry-candidate-025｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S1174
+- industry-candidate-026｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S1518
+- industry-candidate-027｜exclude｜事件2×相关3+钩子1 = 7｜E×R+M终分为7，低于周报8分入选线｜S0332
 - industry-exclude-001｜exclude｜事件2×相关3+钩子0 = 6｜缺少窗口内新动作或新数据｜S0027
 - industry-exclude-002｜exclude｜事件2×相关3+钩子0 = 6｜核心公告发生在窗口外｜S0028
 - industry-exclude-003｜exclude｜事件2×相关2+钩子2 = 6｜对中国手游和优先赛道的直接相关度不足｜S0649
@@ -64,16 +64,16 @@
 - release-candidate-005｜include｜割据天下｜事件3×来源3=9｜多源优先级前缀｜S0991,S1006,S1029
 - release-candidate-006｜include｜魔刻猎手｜事件3×来源3=9｜多源优先级前缀｜S1658,S1777,S1664
 - release-candidate-007｜include｜千里山河录｜事件3×来源3=9｜多源优先级前缀｜S0044,S0076
-- release-candidate-008｜include｜放开那妖怪｜事件3×来源2=6｜多源优先级前缀｜S0197,S0231
-- release-candidate-009｜include｜宝石战争｜事件3×来源2=6｜多源优先级前缀｜S0229,S0276
-- release-candidate-010｜include｜小小武神｜事件3×来源2=6｜多源优先级前缀｜S0230,S0247
-- release-candidate-011｜exclude｜涂鸦地牢｜事件3×来源2=6｜超过周报10条上限｜S0417,S0418
-- release-candidate-012｜exclude｜神明也没猜到结局｜事件3×来源2=6｜超过周报10条上限｜S0747,S0799
-- release-candidate-013｜exclude｜防线守卫战｜事件3×来源2=6｜超过周报10条上限｜S0994,S1071
-- release-candidate-014｜exclude｜机械启元｜事件3×来源2=6｜超过周报10条上限｜S1075,S1002
-- release-candidate-015｜exclude｜海上有座极极岛｜事件3×来源2=6｜超过周报10条上限｜S1312,S1359
-- release-candidate-016｜exclude｜筑梦事务所｜事件3×来源2=6｜超过周报10条上限｜S1313,S1371
-- release-candidate-017｜exclude｜集合！浆果镇｜事件3×来源2=6｜超过周报10条上限｜S1663,S1700
+- release-candidate-008｜exclude｜放开那妖怪｜事件3×来源2=6｜超过周报7条上限｜S0197,S0231
+- release-candidate-009｜exclude｜宝石战争｜事件3×来源2=6｜超过周报7条上限｜S0229,S0276
+- release-candidate-010｜exclude｜小小武神｜事件3×来源2=6｜超过周报7条上限｜S0230,S0247
+- release-candidate-011｜exclude｜涂鸦地牢｜事件3×来源2=6｜超过周报7条上限｜S0417,S0418
+- release-candidate-012｜exclude｜神明也没猜到结局｜事件3×来源2=6｜超过周报7条上限｜S0747,S0799
+- release-candidate-013｜exclude｜防线守卫战｜事件3×来源2=6｜超过周报7条上限｜S0994,S1071
+- release-candidate-014｜exclude｜机械启元｜事件3×来源2=6｜超过周报7条上限｜S1075,S1002
+- release-candidate-015｜exclude｜海上有座极极岛｜事件3×来源2=6｜超过周报7条上限｜S1312,S1359
+- release-candidate-016｜exclude｜筑梦事务所｜事件3×来源2=6｜超过周报7条上限｜S1313,S1371
+- release-candidate-017｜exclude｜集合！浆果镇｜事件3×来源2=6｜超过周报7条上限｜S1663,S1700
 - release-candidate-018｜exclude｜鸟语森林｜事件3×来源2=6｜单源不具正文资格｜S0002
 - release-candidate-019｜exclude｜电车炫客｜事件3×来源2=6｜单源不具正文资格｜S0006
 - release-candidate-020｜exclude｜裂隙远征｜事件3×来源2=6｜单源不具正文资格｜S0019
@@ -105,9 +105,9 @@
 - release-candidate-046｜exclude｜机械狂欢｜事件3×来源2=6｜单源不具正文资格｜S1446
 - release-candidate-047｜exclude｜午夜轮班｜事件3×来源2=6｜单源不具正文资格｜S1447
 - release-candidate-048｜exclude｜潜行者2｜事件3×来源2=6｜单源不具正文资格｜S1564
-- release-candidate-049｜exclude｜DCKO｜事件2×来源3=6｜超过周报10条上限｜S0880,S0891
-- release-candidate-050｜exclude｜遗忘之海｜事件2×来源2=4｜超过周报10条上限｜S1004,S1074
-- release-candidate-051｜exclude｜盗梦英雄2：幻野｜事件2×来源2=4｜超过周报10条上限｜S1699,S1756
+- release-candidate-049｜exclude｜DCKO｜事件2×来源3=6｜超过周报7条上限｜S0880,S0891
+- release-candidate-050｜exclude｜遗忘之海｜事件2×来源2=4｜超过周报7条上限｜S1004,S1074
+- release-candidate-051｜exclude｜盗梦英雄2：幻野｜事件2×来源2=4｜超过周报7条上限｜S1699,S1756
 - release-candidate-052｜exclude｜风火轮 无限冲刺｜事件2×来源2=4｜单源不具正文资格｜S0011
 - release-candidate-053｜exclude｜使命召唤：现代战争4｜事件2×来源2=4｜单源不具正文资格｜S0013
 - release-candidate-054｜exclude｜辐射5｜事件2×来源2=4｜单源不具正文资格｜S0021
@@ -485,7 +485,7 @@
 - release-candidate-426｜exclude｜霓虹打砖块｜事件3×来源1=3｜单源不具正文资格｜S1772
 - release-candidate-427｜exclude｜风云世界｜事件3×来源1=3｜单源不具正文资格｜S1773
 - release-candidate-428｜exclude｜飞剑除妖记｜事件3×来源1=3｜单源不具正文资格｜S1774
-- release-candidate-429｜exclude｜Heave Ho 2｜事件1×来源3=3｜超过周报10条上限｜S0047,S0168
+- release-candidate-429｜exclude｜Heave Ho 2｜事件1×来源3=3｜超过周报7条上限｜S0047,S0168
 - release-candidate-430｜exclude｜小鸡与小马：超级派对-超级鸡马｜事件2×来源1=2｜单源不具正文资格｜S0208
 - release-candidate-431｜exclude｜遗忘之海(官服)-7月23日上线｜事件2×来源1=2｜单源不具正文资格｜S0227
 - release-candidate-432｜exclude｜三角洲行动体验服-黑潮爆破玩法｜事件2×来源1=2｜单源不具正文资格｜S0749
@@ -510,4 +510,8 @@
 
 ## 深度观察
 
-- 未发现 output/deep_observation_review/2026-07-17_to_2026-07-23_selection.md；不自动选择卡片，不生成第五栏或 deep_card_choice.txt。
+| candidate | decision | target_section | reason |
+| --- | --- | --- | --- |
+| deep-selection-001 | include | 深度观察 | 用户周四选择，R/I/E/C=3/3/3/3 |
+| deep-selection-002 | include | 深度观察 | 用户周四选择并指定唯一卡片，R/I/E/C=3/3/3/3 |
+| deep-selection-003 | include | 深度观察 | 用户周四选择，R/I/E/C=1/3/2/3 |

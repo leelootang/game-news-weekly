@@ -125,6 +125,30 @@ class ReportArtifactContractTests(unittest.TestCase):
         errors, _ = self.validate()
         self.assertTrue(any("total must equal E×R+M" in error for error in errors))
 
+    def test_weekly_industry_requires_eight_points(self) -> None:
+        weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"
+        self.report.rename(weekly)
+        self.report = weekly
+        errors, _ = self.validate()
+        self.assertTrue(any("required >= 8" in error and "C1" in error for error in errors))
+
+    def test_weekly_industry_accepts_eight_points(self) -> None:
+        weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"
+        self.report.rename(weekly)
+        self.report = weekly
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["scores"] = {"event": 3, "relevance": 2, "hook": 2, "total": 8}
+        data["decisions"][-1]["card_designated"] = True
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("industry include fails" in error for error in errors))
+
+    def test_release_calendar_caps_by_report_type(self) -> None:
+        self.assertEqual(4, ARTIFACTS.release_cap_for_report(Path("game_industry_daily_2026-07-15.md")))
+        self.assertEqual(4, ARTIFACTS.release_cap_for_report(Path("game_industry_weekend_2026-07-10_to_2026-07-12.md")))
+        self.assertEqual(7, ARTIFACTS.release_cap_for_report(Path("game_industry_weekly_2026-07-09_to_2026-07-15.md")))
+        self.assertEqual(12, ARTIFACTS.release_cap_for_report(Path("game_industry_monthly_2026-07.md")))
+
     def test_weekly_deep_below_nine_requires_manual_card_designation(self) -> None:
         weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"
         self.report.rename(weekly)

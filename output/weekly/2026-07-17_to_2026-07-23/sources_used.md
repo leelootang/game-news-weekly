@@ -18,6 +18,8 @@
 - `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-07-23\articles.jsonl`
 - `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-07-19\articles.jsonl`
 - `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-07-20\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-07-19\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-07-20\articles.jsonl`
 
 ## Item Source Map
 
@@ -39,17 +41,6 @@
 - 《最终幻想14：水晶世界》宣布9月30日停运 — S0033, S0851
 - Alpha Dog 创始人从微软回购工作室并恢复独立运营 — S1165, S1172, S1180, S1187
 - 欧盟因 Google Play 与搜索违规对谷歌罚款8.9亿欧元 — S1520, S1526
-- Google Play 在美国向第三方安卓商店开放应用列表 — S0615
-- 《失控进化》上线首周注册用户突破1000万 — S0617
-- 深圳魔力数娱取消《我的勇者：末影城》开发 — S0645
-- B站网页互动部署平台 Toy 内测半月互动量突破850万 — S0867
-- 上半年小游戏买量日耗超过1.76亿元 — S1194
-- 《无畏契约：源能行动》注册用户突破1亿 — S1467
-- 完美世界重启《航海王：集结》，8月6日开启测试 — S1494
-- 《Pokémon Sleep》三年移动端收入超过2.3亿美元 — S0659
-- 《Pokémon Champions》移动端首月收入720万美元 — S1174
-- 莉莉丝《Clash of Critters》上线两月收入1600万美元 — S1518
-- 《三国：冰河时代》两周年累计用户突破4.3亿 — S0332
 ### AI 新闻
 
 - 字节AI修仙RPG《不问凡尘》发布世界观PV — S0048
@@ -66,14 +57,16 @@
 - 产品日历 - 割据天下 — S0991, S1006, S1029
 - 产品日历 - 魔刻猎手 — S1658, S1777, S1664
 - 产品日历 - 千里山河录 — S0044, S0076
-- 产品日历 - 放开那妖怪 — S0197, S0231
-- 产品日历 - 宝石战争 — S0229, S0276
-- 产品日历 - 小小武神 — S0230, S0247
 ### 玩家舆论
 
 - 《卡厄思梦境》新赛季削弱成型卡组，投入回报成为争议焦点 — S1088, S1095, S1407, S1413, S1459, S1799
 - 《白银之城》短裤卫兵设计与禁言指控叠加发酵 — S0575, S0804, S1788, S1791, S1807
 - 《恋与深空》央视评论删除后，玩家围绕媒介定性继续分化 — S1080, S1400, S1414, S1416
+### 行业精选
+
+- 自研引擎的价值边界正在收缩：从《云顶之弈》迁移到《古剑》押注 UE5 — S0028, S0481
+- 小游戏的增长瓶颈从用户规模转向投放密度与产品复制效率 — S1145, S1194, S1278
+- Xbox 从订阅飞轮转向资产拆分，内部交叉补贴开始退场 — S0825
 
 ## Source Details
 
@@ -106,17 +99,6 @@
 - S1187 | mobilegamer.biz | Mighty Doom dev Alpha Dog is back as an independent studio | https://mobilegamer.biz/mighty-doom-dev-alpha-dog-is-back-as-an-independent-studio/
 - S1520 | pocketgamer.biz | European Commission fines Google €890m over Digital Markets Act breaches | https://www.pocketgamer.biz/european-commission-fines-google-890m-over-digital-markets-act-breaches/
 - S1526 | mobilegamer.biz | Google hit with $1bn EU fine for Play Store and search shenanigans | https://mobilegamer.biz/google-hit-with-1bn-eu-fine-for-restricting-play-store-payments-and-search-shenanigans/
-- S0615 | gamelook.com.cn | TapTap们的福音？Google Play下周“开放三方商店”：“不弹窗拦截、但要交抽成” | http://www.gamelook.com.cn/2026/07/597844/
-- S0617 | gamelook.com.cn | “半夜拆家如偷菜”？《失控进化》首周玩家喜破1000万，项目组玩家“都没睡好觉” | http://www.gamelook.com.cn/2026/07/597888/
-- S0645 | new.qq.com | 多次测试数据不达标，这家深圳公司砍掉了一款重要在研游戏 | https://new.qq.com/rain/a/20260720A091FE00
-- S0867 | new.qq.com | B站内测网页部署平台「Toy」，内测半月点击量突破850万 | https://new.qq.com/rain/a/20260721A09PPC00
-- S1194 | 36kr.com | 上半年小游戏买量数据：日耗超1.76亿，9377、大梦龙途领投，超4.3万款小游参投 | https://36kr.com/p/3906056959825027
-- S1467 | m.sohu.com | 今日官宣：上线不到一年，手瓦用户已破1亿 | https://m.sohu.com/a/1053982523_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.17848514765188CylRFX_324
-- S1494 | new.qq.com | 完美世界《航海王：集结》项目重启，由全新的团队开发 | https://new.qq.com/rain/a/20260723A0AE2U00
-- S0659 | pocketgamer.biz | Pokémon Sleep surpasses $230m in three years | https://www.pocketgamer.biz/pokmon-sleep-surpasses-230m-in-three-years/
-- S1174 | pocketgamer.biz | Pokémon Champions makes $7.2m in first month on mobile | https://www.pocketgamer.biz/pokemon-champions-makes-72m-in-first-month-on-mobile/
-- S1518 | pocketgamer.biz | Lilith Games’ Clash of Critters makes $16m in two months | https://www.pocketgamer.biz/lilith-games-clash-of-critters-makes-16m-in-two-months/
-- S0332 | youxichaguan.com | 小游戏赛道“三个月定生死”？这款4.3亿用户的产品说：未必 | https://youxichaguan.com/archives/202318
 - S0048 | new.qq.com | 字节的AI修仙游戏，释出世界观首曝PV | https://new.qq.com/rain/a/20260717A09K8J00
 - S0064 | pocketgamer.biz | Roblox unveils mobile-first AI game creation with new Build tool | https://www.pocketgamer.biz/roblox-unveils-mobile-first-ai-game-creation-with-new-build-tool/
 - S0505 | aihot.virxact.com | 昆仑万维宣布2026为"世界模型元年"，发布Matrix-Game 3.5等模型 | https://aihot.virxact.com/items/cmrrt03gx00mkbi5qtoim4wvo
@@ -146,12 +128,6 @@
 - S1664 | 16p.com | 魔刻猎手-代号moco - 限量删档测试 | https://www.16p.com/1932491.html
 - S0044 | youxichaguan.com | 胸中藏丘壑，笔走绘丹青！《千里山河录》正式发售 | https://youxichaguan.com/archives/202270
 - S0076 | gameres.com | 胸中藏丘壑，笔走绘丹青！《千里山河录》正式发售 | https://www.gameres.com/901202186.html
-- S0197 | 16p.com | 放开那妖怪 - 上线 | https://www.16p.com/1952298.html
-- S0231 | 3839.com | 放开那妖怪 - 10:00 正式上线 | https://www.3839.com/a/197620.htm
-- S0229 | 3839.com | 宝石战争 - 10:00 删档测试 | https://www.3839.com/a/185354.htm
-- S0276 | taptap.cn | 宝石战争 - 限量测试 (10:01 开始) | https://www.taptap.cn/app/766061
-- S0230 | 3839.com | 小小武神 - 10:00 删档测试 | https://www.3839.com/a/188313.htm
-- S0247 | taptap.cn | 小小武神 - 不限量测试 | https://www.taptap.cn/app/859382
 - S1088 | bbs.nga.cn | [新瓜] 卡厄思梦境新赛季，大削玩家成型卡组，导致辛苦刷的存档全部退环境 | https://bbs.nga.cn/read.php?tid=47230591&forder_by=postdatedesc
 - S1095 | bbs.nga.cn | [卡厄斯梦境]再次公然削弱大量角色和装备，仅补偿10抽普池和一点道具 | https://bbs.nga.cn/read.php?tid=47231222&forder_by=postdatedesc
 - S1407 | bbs.nga.cn | [新瓜] 卡厄思梦境新赛季，大削玩家成型卡组，导致辛苦刷的存档全部退环境 | https://bbs.nga.cn/read.php?tid=47230591&forder_by=postdatedesc
@@ -167,3 +143,9 @@
 - S1400 | bbs.nga.cn | [新瓜] 恋与深空喜提央视了，标题为《“乙女游戏”虚拟甜蜜背后的成长陷阱》 | https://bbs.nga.cn/read.php?tid=47227899&forder_by=postdatedesc
 - S1414 | bbs.nga.cn | [恋与深空]微博央视发文#乙女游戏含半裸性暗示内容#已删除，只留下微博集美疯狂辱骂男性 | https://bbs.nga.cn/read.php?tid=47236389&forder_by=postdatedesc
 - S1416 | bbs.nga.cn | [恋与深空][合订本/岁月史书]稍微整理了一下整个瓜的始末 | https://bbs.nga.cn/read.php?tid=47082946
+- S0028 | gamelook.com.cn | 拳头受不了自研引擎了？《云顶之奕》8月切换虚幻5引擎、新项目都用虚幻5 | http://www.gamelook.com.cn/2026/07/597801/
+- S0481 | ign.com.cn | IGN 中国《古剑》试玩前瞻：烛龙的答卷，比想象中更能打 | https://www.ign.com.cn/gujian4/61412/ign-zhong-guo-gu-jian-shi-wan-qian-zhan-zhu-long-de-da-juan-bi-xiang-xiang-zhong-geng-neng-da
+- S1145 | youxituoluo.com | 小游戏MAU逼近手游APP，“存量之战”更焦灼了 | https://www.youxituoluo.com/534687.html
+- S1194 | 36kr.com | 上半年小游戏买量数据：日耗超1.76亿，9377、大梦龙途领投，超4.3万款小游参投 | https://36kr.com/p/3906056959825027
+- S1278 | nadianshi.com | 原创｜两个月连发两款Top1爆款：广州公司太狠了 | http://www.nadianshi.com/2026/07/415486
+- S0825 | naavik.co | The Memo That Undid 10 Years of XBOX Strategy | https://naavik.co/digest/the-memo-that-undid-10-years-of-xbox-strategy/

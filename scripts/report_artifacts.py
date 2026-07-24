@@ -14,11 +14,25 @@ cannot drift from ``report_inputs.jsonl`` through copy/paste.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+
+try:
+    from deep_observation_handoff import validate_weekly_handoff
+except ModuleNotFoundError:  # Imported as scripts.report_artifacts in tests/tools.
+    _handoff_path = Path(__file__).with_name("deep_observation_handoff.py")
+    _handoff_spec = importlib.util.spec_from_file_location("deep_observation_handoff", _handoff_path)
+    if not _handoff_spec or not _handoff_spec.loader:
+        raise
+    _handoff_module = importlib.util.module_from_spec(_handoff_spec)
+    sys.modules[_handoff_spec.name] = _handoff_module
+    _handoff_spec.loader.exec_module(_handoff_module)
+    validate_weekly_handoff = _handoff_module.validate_weekly_handoff
 
 
 SCHEMA_VERSION = 1
@@ -74,6 +88,14 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
             raise ValueError(f"{path}:{line_no}: record must be an object")
         rows.append(row)
     return rows
+
+
+def release_cap_for_report(report_path: Path) -> int:
+    if "game_industry_weekly_" in report_path.name:
+        return 7
+    if "game_industry_monthly_" in report_path.name:
+        return 12
+    return 4
 
 
 def inputs_by_id(inputs_path: Path) -> dict[str, dict[str, Any]]:
@@ -251,6 +273,8 @@ def validate_contract(
     report_items = parse_report_items(report_path.read_text(encoding="utf-8"))
     inputs = inputs_by_id(inputs_path)
     errors.extend(validate_editorial_titles(report_items))
+    errors.extend(validate_weekly_handoff(report_path))
+    industry_threshold = 8 if "game_industry_weekly_" in report_path.name else 7
     if sources_path and sources_path.exists():
         errors.extend(validate_sources(report_items, sources_path.read_text(encoding="utf-8"), inputs))
 
@@ -382,8 +406,11 @@ def validate_contract(
                         errors.append(f"industry E×R+M score out of range: {cid}")
                     if total != event * relevance + hook:
                         errors.append(f"industry total must equal E×R+M: {cid}")
-                    if decision.get("decision") == "include" and (event == 0 or total < 7):
-                        errors.append(f"industry include fails E×R+M threshold: {cid}")
+                    if decision.get("decision") == "include" and (event == 0 or total < industry_threshold):
+                        errors.append(
+                            f"industry include fails E×R+M threshold "
+                            f"(required >= {industry_threshold}): {cid}"
+                        )
         if canonical_section(str(decision.get("section") or "")) == "ai":
             tier = decision.get("ai_tier")
             stages = decision.get("game_stage")
@@ -472,12 +499,7 @@ def validate_contract(
         str(d.get("candidate_id") or "") for d in decisions_by_id.values()
         if canonical_section(str(d.get("section") or "")) == "release_calendar" and d.get("decision") == "include"
     ]
-    if "game_industry_weekly_" in report_path.name:
-        release_cap = 10
-    elif "game_industry_monthly_" in report_path.name:
-        release_cap = 12
-    else:
-        release_cap = 5
+    release_cap = release_cap_for_report(report_path)
     if len(release_includes) > release_cap:
         errors.append(f"release calendar exceeds report cap {release_cap}: {len(release_includes)}")
     eligible_order = [
