@@ -1,0 +1,475 @@
+# Report Input Extraction Summary
+
+- Records: 1825
+- Extraction failures: 0
+- Empty text records: 4
+- Non-full body records: 91
+
+## By Section
+
+- `ai_trends`: 89
+- `community_discourse`: 221
+- `deep_analysis`: 9
+- `industry_news`: 904
+- `release_calendar`: 602
+
+## Records Needing Attention
+
+- `S1152` `industry_news` 一图看懂2026 ChinaJoy主舞台全流程节目单，这份观演指南请收好 - fetch=ok body=empty (0 chars)
+- `S1474` `industry_news` 2026 ChinaJoy官方晚宴亚马逊云科技之夜，少量尊享席位火热预约中 - fetch=ok body=empty (0 chars)
+- `S1477` `industry_news` 2026 CJArena启动！你的ChinaJoy探索指南已上线，携手支付宝碰一下开启探索之旅！ - fetch=ok body=empty (0 chars)
+- `S1484` `industry_news` 2026 ChinaJoy参展游戏曝光！ - fetch=ok body=empty (0 chars)
+
+## 产品日历候选（按事件类型 × 来源强度排序，必须逐条决策）
+
+> 只列新品上线与新品测试；新版本、资料片、赛季、联动和老品运营不入队。按来源出现次数降序；次数相同时，行业新闻+产品日历 > 仅行业新闻 > 仅产品日历。
+
+- **城主别慌张** [new_game_launch] — priority=9 (event=3 × source=3) | count=3 | coverage=release_only | sources: S0194, S0228, S0244
+- **航海奇兵** [new_game_test] — priority=9 (event=3 × source=3) | count=3 | coverage=release_only | sources: S0748, S0753, S0793
+- **割据天下** [new_game_launch] — priority=9 (event=3 × source=3) | count=3 | coverage=release_only | sources: S0991, S1006, S1029
+- **遗忘之海** [new_game_launch] — priority=9 (event=3 × source=3) | count=3 | coverage=release_only | sources: S1654, S1662, S1776
+- **千里山河录** [new_game_launch] — priority=9 (event=3 × source=3) | count=2 | coverage=industry_only | sources: S0044, S0076
+- **放开那妖怪** [new_game_launch] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0197, S0231
+- **宝石战争** [new_game_test] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0229, S0276
+- **小小武神** [new_game_test] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0230, S0247
+- **涂鸦地牢** [new_game_launch] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0417, S0418
+- **神明也没猜到结局** [new_game_launch] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0747, S0799
+- **防线守卫战** [new_game_test] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S0994, S1071
+- **海上有座极极岛** [new_game_launch] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S1312, S1359
+- **筑梦事务所** [new_game_launch] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S1313, S1371
+- **魔刻猎手** [new_game_test] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S1658, S1777
+- **集合！浆果镇** [new_game_test] — priority=6 (event=3 × source=2) | count=2 | coverage=release_only | sources: S1663, S1700
+- **鸟语森林** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0002
+- **电车炫客** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0006
+- **裂隙远征** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0019
+- **最终幻想14** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0033
+- **地狱公主** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0041
+- **梦境护卫队** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0042
+- **Moss： The Forgotten Relic** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0079
+- **漫威斗魂** [new_game_test] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0113
+- **星之海洋 第二段故事 R** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0114
+- **渊舟蚀影** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0124
+- **DayZ** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0129
+- **桌面探索者** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0311
+- **裂隙远征** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0318
+- **AetherCycle** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0694
+- **地狱仆从2：神罚降临** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0696
+- **MXGP 26** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0837
+- **使命召唤：现代战争4** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0841
+- **喵出法随** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0842
+- **Elements Destiny** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0845
+- **战意：三国** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S0968
+- **Elements Destiny** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1119
+- **喵出法随** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1121
+- **使命召唤：现代战争4** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1123
+- **MXGP 26** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1127
+- **巨像：蚀世之灾** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1132
+- **巨像：蚀世之灾** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1434
+- **双点医院：满血痊愈典藏版** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1441
+- **异界宿帐** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1443
+- **机械狂欢** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1446
+- **午夜轮班** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1447
+- **潜行者2** [new_game_launch] — priority=6 (event=3 × source=2) | count=1 | coverage=industry_only | sources: S1564
+- **风火轮 无限冲刺** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0011
+- **使命召唤：现代战争4** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0013
+- **辐射5** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0021
+- **Vision Quench / 幻饮迷境** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0082
+- **辐射5** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0312
+- **使命召唤：现代战争4** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0321
+- **风火轮 无限冲刺** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0323
+- **追逐卡蕾多** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0336
+- **权力的游戏：征战维斯特洛** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0605
+- **梦战：剑之海** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0616
+- **权力的游戏：征战维斯特洛** [new_game_schedule] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S0834
+- **梦幻模拟战** [new_game_first_reveal] — priority=4 (event=2 × source=2) | count=1 | coverage=industry_only | sources: S1143
+- **传奇之梦黄金版** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0193
+- **Fun Super Stick Golf Play Game** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0198
+- **Phira** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0199
+- **无悔华夏** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0210
+- **沙雕营地** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0215
+- **破烂水手-正版移植手游** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0221
+- **超阈限空间-付费下载版** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0226
+- **龙魂大陆** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0232
+- **2048联机对战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0233
+- **Block & Veil** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0234
+- **GAME ID 玩家人格档案** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0235
+- **三国地牢冒险** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0238
+- **别炸！我的猫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0240
+- **匡扶汉室** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0241
+- **厨房战争** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0242
+- **召唤师模拟器：史莱姆军团** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0243
+- **小鸡突围队** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0248
+- **峡谷小兵打英雄** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0249
+- **幻想进度条** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0250
+- **摇摆运球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0253
+- **救救阿瑶** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0254
+- **料理大师** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0255
+- **旮旯给木之神** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0258
+- **末日避难所** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0259
+- **浮生录：疑案** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0261
+- **清浅梅花合集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0262
+- **王国之锋** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0263
+- **矿石粉碎工厂** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0264
+- **穿越1980：亿万富翁之路** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0265
+- **糟糕！我被女忍包围了！2** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0266
+- **紫色小精灵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0267
+- **草跃** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0269
+- **赛几传说** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0271
+- **重生这一世** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0272
+- **重生：新婚旧梦** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0273
+- **繁盛时代** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0275
+- **万象灵途** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0389
+- **伐木工模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0391
+- **会反弹的果冻** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0392
+- **你来嘛英雄** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0393
+- **元素组合塔防** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0394
+- **克米利亚大陆** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0395
+- **全民玩一玩** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0396
+- **八百喵兵奔北坡** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0397
+- **凝聚之星** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0399
+- **列车调度员** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0400
+- **创世勇者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0401
+- **台球餐厅** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0402
+- **喵趣人格图鉴** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0403
+- **围城挂机塔防** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0404
+- **屠魔西游** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0406
+- **异世界神谕重构** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0407
+- **弹！弹！弹！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0408
+- **我的天赋无限叠加** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0409
+- **扮演天道** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0410
+- **救赎之塔** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0411
+- **文字肉鸽** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0412
+- **无尽宝石山** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0413
+- **次元召唤师** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0415
+- **武林侠客传** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0416
+- **深空收割者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0419
+- **疯狂保卫战** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0422
+- **绵羊益智数** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0423
+- **翡翠大亨** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0424
+- **艾琳护士3D** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0425
+- **茬点搜查** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0427
+- **菇菇种植日记** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0428
+- **诡异调查局** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0429
+- **转世修仙模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0430
+- **这就是功夫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0431
+- **连连看** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0432
+- **逆命蛊途 H5** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0433
+- **陨石猎人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0434
+- **魔方达人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0437
+- **麻将大乱斗** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0438
+- **黑盒** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0439
+- **奥术扳机** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0440
+- **植物大战僵尸杂交版-手机重制版 测试** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0510
+- **空境旋律** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0511
+- **MeowJump** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0514
+- **Riff Bounce** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0515
+- **Sekimio** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0516
+- **一切都会反弹** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0517
+- **三炮十五兵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0518
+- **仙途：万象修真** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0520
+- **修真万年** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0521
+- **光迹渲染器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0522
+- **出发唐宁号** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0524
+- **击击BALL！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0525
+- **功夫点球王** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0527
+- **勇士大作战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0528
+- **卡厄斯的玻璃球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0529
+- **双界守门** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0530
+- **合成星核** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0531
+- **同桌游戏** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0532
+- **哈基米弹球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0533
+- **回应一切的堡垒** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0534
+- **墓底回响** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0535
+- **太空球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0536
+- **应援1v1** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0538
+- **弹射世界** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0539
+- **弹射协议** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0540
+- **律动** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0541
+- **我的伪人同事** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0542
+- **我的刀盾** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0543
+- **我的天使** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0544
+- **敢说我的马** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0545
+- **敢骂我！？反弹！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0546
+- **星辉连线** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0547
+- **暗黑刷宝增量幸存者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0548
+- **最后的龙骑** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0549
+- **杀杀杀** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0550
+- **深海吞噬大鱼吃小鱼** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0551
+- **滑冻** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0552
+- **灯下之国** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0553
+- **烤串还债日记** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0554
+- **牛顿棋** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0555
+- **猫猫翡翠经营模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0556
+- **画画躲猫猫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0557
+- **碰碰炸弹** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0558
+- **超震-HYPERSHOCK** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0560
+- **跌落之后** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0561
+- **都市武者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0562
+- **野钓传说** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0563
+- **钉木条** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0564
+- **链动迷踪** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0565
+- **锅来锅往** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0566
+- **问题处理部** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0567
+- **雾松镇** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0568
+- **项目炸了？反弹！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0569
+- **魔塔地牢外传：刺客守则** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0570
+- **麻酱乐乐消** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0571
+- **10子棋** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0758
+- **24点挑战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0759
+- **侦探智力赛** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0760
+- **光之契合，你是谁的人间体?** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0761
+- **全村最会塔防的神** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0762
+- **动物排排队** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0763
+- **快递侠：烦恼消消消** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0767
+- **恶搞炸弹蛇** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0769
+- **我在海底摸海洋之泪** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0770
+- **我开了个翡翠厅** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0771
+- **找谜实验室** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0772
+- **放置数独** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0773
+- **数学小王子** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0774
+- **方圆棋局** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0775
+- **明媚锦鲤合集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0777
+- **星海战机** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0778
+- **星海远征：无限星穹** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0779
+- **杀杀杀** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0780
+- **汪数独** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0782
+- **测测你的灵魂像什么食物** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0783
+- **深不可测衣帽间** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0784
+- **玩梗寻差** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0785
+- **玩梗竞速** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0786
+- **生米抢票大作战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0787
+- **真的分不清** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0788
+- **箭头了箭2** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0789
+- **细节大作战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0790
+- **脑力奇案组** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0791
+- **自定义抽卡模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0792
+- **草根足球经理** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0794
+- **西部追猎：赏金猎人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0795
+- **诗词贪吃蛇** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0796
+- **闭校后禁止广播** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0797
+- **斗阵骑士** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0992
+- **钢琴小镇** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0993
+- **三角洲行动体验服-黑潮爆破玩法** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0995
+- **乱涂彩世界-海蓝狂欢节** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0996
+- **仙境传说3 招募中** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0997
+- **以闪亮之名** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S0998
+- **饥荒联机版手游-资讯服务** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1005
+- **秘境佣兵团** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1007
+- **万法仙尊** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1008
+- **三国与小兵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1009
+- **乱数王** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1011
+- **云墟修仙录** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1012
+- **五行棋阵：混沌之境** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1013
+- **今天不营业** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1014
+- **今天要飞升** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1015
+- **仙战西游** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1017
+- **代号：转生成为魔塔** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1018
+- **修仙道法** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1021
+- **倒水排序大师** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1022
+- **像素捕兽师** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1023
+- **冒险公会物语** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1024
+- **决胜 ALL-IN** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1025
+- **刮石经营模拟器2** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1026
+- **制作你的周嫑嫑** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1027
+- **力学名校模拟** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1030
+- **动物守卫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1031
+- **合成大星球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1032
+- **团战不能输** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1033
+- **地摊淘货王** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1034
+- **大模型公司：AI创业时代** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1035
+- **屯屯鼠的日常** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1038
+- **弹射古墓** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1039
+- **愤怒的牛顿** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1040
+- **我在天宫捡钱的日子** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1041
+- **我在江湖搜打撤** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1042
+- **我的仙侣日常** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1043
+- **打爆果龙：救救孩子** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1044
+- **拼字词汇训练** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1045
+- **数回** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1046
+- **新家园建造** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1048
+- **星界无限刷** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1050
+- **星轨牌** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1051
+- **未来战线（TapTap 测试版）** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1052
+- **末日信使** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1053
+- **枪火幸存者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1054
+- **桃源挂机传说** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1055
+- **棋牌地牢** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1056
+- **欢迎来到幸福小区** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1057
+- **流浪星球毁灭吞噬星球星噬** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1058
+- **温柔晚霞合集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1059
+- **王朝崛起：天下** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1061
+- **痛扁山海** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1062
+- **百万撤离** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1063
+- **程序员失业送外卖模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1064
+- **立体拼豆** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1065
+- **绿茵人生** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1066
+- **落点消消块** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1067
+- **足球投资人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1069
+- **跳绳大师** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1070
+- **机械启元** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1075
+- **不倒英雄** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1297
+- **机械启元** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1298
+- **Be a Teacher Pencil Pundit** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1300
+- **梦战：剑之海** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1305
+- **饥困荒野-26年内上线 招募中** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1310
+- **鲁特里一家死了** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1311
+- **佣兵突击队** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1314
+- **M78星云打工人日常** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1315
+- **一鸣旧游闲趣集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1316
+- **云上征途** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1317
+- **云栖酒店** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1318
+- **五千元创业** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1319
+- **什么！？这不科学！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1320
+- **你能撑到第几关** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1321
+- **全球冰封末日生存系统** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1322
+- **公式对决** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1323
+- **冒险幸存者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1324
+- **决斗学院** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1325
+- **前世今生大测试** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1326
+- **剑啸江湖** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1327
+- **占星学** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1328
+- **原始守卫战** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1329
+- **反牛顿人生** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1330
+- **反牛顿弹球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1331
+- **咖啡店整理** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1332
+- **圆滚滚大作战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1334
+- **塔罗心语** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1335
+- **塞大饼** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1336
+- **墨境伏妖** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1337
+- **奇境扭蛋屋：英雄集结** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1338
+- **幻世轩辕** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1339
+- **开局攻击只有1** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1340
+- **弦影幸存者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1341
+- **恐龙手稿** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1342
+- **我真的记不住啊！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1344
+- **战斗细胞** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1345
+- **技能2048** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1346
+- **拯金瓯** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1347
+- **拼一把** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1348
+- **放置修仙录：灵珠破劫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1349
+- **放置挂机两年半** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1350
+- **方圆之战** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1351
+- **星轨弹球** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1352
+- **星陨神域** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1353
+- **暗影议局** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1354
+- **未央仙途** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1355
+- **杀死塔罗牌** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1356
+- **武道风云** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1358
+- **深海吞噬者** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1360
+- **清冷茶盏合集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1361
+- **渔场经营模拟** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1362
+- **源灵界** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1363
+- **物理三国杀** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1364
+- **猎头经营模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1365
+- **班后钓鱼** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1366
+- **生死问道** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1367
+- **甩锅生存指南** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1368
+- **疯狂骑车手** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1369
+- **科学家崩坏大乱斗！** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1370
+- **绿色循环圈TD** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1372
+- **羊神牧场** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1373
+- **西游镇妖** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1375
+- **该拼就拼一把** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1376
+- **轮回之境** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1378
+- **这茬我能找一天** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1380
+- **迷你地下城锻造** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1381
+- **造梦神话** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1383
+- **铸剑录** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1384
+- **集换大亨** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1385
+- **霓虹蛇群争霸** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1386
+- **骰子•DICE** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1387
+- **魔足学院** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1390
+- **白银之城** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1660
+- **超级洞洞乐** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1661
+- **魔刻猎手-代号moco** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1664
+- **如果猫的愿望能实现** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1668
+- **如鸢(官服)** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1669
+- **巅峰极速** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1670
+- **影之刃零-10月29日正式发售 PC/主机** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1672
+- **王者荣耀世界** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1681
+- **莉莉的冒险衣橱-代号：可爱衣橱** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1686
+- **遗忘之海(官服)-奇遇海洋开放世界** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1690
+- **巅峰激战** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1697
+- **白银之城(官服)** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1698
+- **Land.io** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1702
+- **三国：穿越版** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1703
+- **三炮十五兵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1704
+- **东汉末年** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1705
+- **乌托邦的钥匙-The key of Utopia** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1706
+- **乞丐模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1707
+- **光路谜局** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1710
+- **兵马俑之战** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1711
+- **几何防线** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1713
+- **创造修仙模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1714
+- **噗哟气泡** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1715
+- **四季城与多米糯** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1716
+- **回声地宫** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1717
+- **墟界漫游** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1719
+- **墨迹诡谈·困兽阵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1720
+- **大鱼吃小鱼** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1721
+- **天道挂机** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1722
+- **女侠拼一拼** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1723
+- **守护我方公主** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1724
+- **异物清扫局** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1726
+- **我在市场上淘玉** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1727
+- **我的修仙门派** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1728
+- **我靠钓鱼成仙** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1729
+- **拳皇全明星** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1731
+- **拼豆时光** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1732
+- **放置：无尽之海** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1733
+- **无限天赋塔防** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1734
+- **无限瞬步：破绽连刺** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1735
+- **最后的德库拉** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1736
+- **来点操作** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1737
+- **涂鸦卡牌无限升级** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1740
+- **深夜便利店：最后一班客人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1741
+- **深海成长** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1742
+- **混乱三国** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1743
+- **渔港大亨** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1744
+- **滚滚堂** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1745
+- **滴彩小岛** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1746
+- **潮汐成长赛** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1747
+- **烈焰少年** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1748
+- **牛顿的审判日** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1749
+- **猫爪益智棉池** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1750
+- **甜心追捕计划** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1751
+- **画圈战阵** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1753
+- **疏朗兰花合集** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1754
+- **百兽大酒店** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1755
+- **直播帝国** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1757
+- **神奇闯关** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1759
+- **神明模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1760
+- **积木人越狱记** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1761
+- **积木智堆堆** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1762
+- **算力都市** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1763
+- **经营达人** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1764
+- **翡翠开石模拟器** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1765
+- **菜就别叫** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1766
+- **记忆闪回** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1767
+- **词章异闻录** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1768
+- **超自然博物馆避难所** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1769
+- **酷酷拼武侠** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1770
+- **霓虹打砖块** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1772
+- **风云世界** [new_game_test] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1773
+- **飞剑除妖记** [new_game_launch] — priority=3 (event=3 × source=1) | count=1 | coverage=release_only | sources: S1774
+- **Heave Ho 2** [old_cross_platform_launch] — priority=3 (event=1 × source=3) | count=2 | coverage=industry_only | sources: S0047, S0168
+- **小鸡与小马：超级派对-超级鸡马** [new_game_schedule] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S0208
+- **遗忘之海(官服)-7月23日上线** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S0227
+- **三角洲行动体验服-黑潮爆破玩法** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S0749
+- **白银之城(官服)** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S0752
+- **割据天下-预下载** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S0757
+- **机械启元-预下载** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1002
+- **遗忘之海(官服)-预下载** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1004
+- **遗忘之海** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1074
+- **元夜十二谈 招募中** [new_game_schedule] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1665
+- **盗梦英雄2：幻野-预下载** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1699
+- **盗梦英雄2：幻野** [new_game_preload] — priority=2 (event=2 × source=1) | count=1 | coverage=release_only | sources: S1756
+- **佩图尼亚的炼狱** [old_cross_platform_launch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S0016
+- **地狱仆从II：神罚降临** [old_cross_platform_launch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S0078
+- **佩图尼亚的炼狱** [old_cross_platform_launch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S0315
+- **刀锋战士** [old_relaunch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S0926
+- **神之一手** [old_cross_platform_launch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S1445
+- **梅莫莉：治愈物语** [old_cross_platform_launch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S1449
+- **航海王：集结** [old_relaunch] — priority=2 (event=1 × source=2) | count=1 | coverage=industry_only | sources: S1494
+- **创世战车-沙盒载具竞技** [old_relaunch] — priority=1 (event=1 × source=1) | count=1 | coverage=release_only | sources: S0205
+- **指尖魔兽** [old_relaunch] — priority=1 (event=1 × source=1) | count=1 | coverage=release_only | sources: S0388
