@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data" / "feishu"
 SUBSCRIBERS_PATH = DATA_DIR / "subscribers.json"
 PUBLISH_LOG_DIR = DATA_DIR / "publish_logs"
+REPORT_FEEDBACK_PATH = DATA_DIR / "report_feedback.jsonl"
 OPEN_FEISHU_BASE = "https://open.feishu.cn/open-apis"
 REPORT_SUBSCRIPTION_KINDS = ("daily", "weekly", "weekend")
 
@@ -371,10 +372,14 @@ class FeishuClient:
             )
 
     def set_doc_public_permission(self, token: str, doc_type: str = "docx") -> dict[str, Any]:
+        """Allow anyone on the internet with the link to read the document."""
         return self._request(
             "PATCH",
             f"/drive/v2/permissions/{token}/public",
-            {"link_share_entity": "tenant_readable"},
+            {
+                "external_access": True,
+                "link_share_entity": "anyone_readable",
+            },
             query={"type": doc_type},
         )
 
@@ -546,6 +551,62 @@ def _sections_from_json(data: dict[str, Any]) -> list[dict[str, Any]]:
     return [groups[section] for section in order]
 
 
+def _card_title_key(value: str) -> str:
+    value = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", value or "").replace("**", "")
+    return re.sub(r"\s+", " ", _strip_item_number(value)).strip()
+
+
+def _attach_industry_scores(
+    sections: list[dict[str, Any]], report_dir: Path
+) -> None:
+    """Attach audited industry totals to card items without displaying scores."""
+    items_path = report_dir / "_intermediate" / "report_items.json"
+    decisions_path = report_dir / "_intermediate" / "selection_decisions.json"
+    if not items_path.exists() or not decisions_path.exists():
+        return
+    try:
+        items_data = json.loads(items_path.read_text(encoding="utf-8"))
+        decisions_data = json.loads(decisions_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+
+    report_items = items_data.get("items", items_data) if isinstance(items_data, dict) else items_data
+    decisions = (
+        decisions_data.get("decisions", decisions_data)
+        if isinstance(decisions_data, dict)
+        else decisions_data
+    )
+    if not isinstance(report_items, list) or not isinstance(decisions, list):
+        return
+
+    total_by_candidate: dict[str, int | float] = {}
+    for decision in decisions:
+        if not isinstance(decision, dict) or decision.get("section") not in ("industry", "industry_news"):
+            continue
+        total = (decision.get("scores") or {}).get("total")
+        candidate_id = str(decision.get("candidate_id") or "")
+        if candidate_id and isinstance(total, (int, float)):
+            total_by_candidate[candidate_id] = total
+
+    total_by_title: dict[str, int | float] = {}
+    for item in report_items:
+        if not isinstance(item, dict) or item.get("section") not in ("industry", "industry_news"):
+            continue
+        total = total_by_candidate.get(str(item.get("candidate_id") or ""))
+        key = _card_title_key(str(item.get("title") or ""))
+        if key and total is not None:
+            total_by_title[key] = total
+
+    for section in sections:
+        name = str(section.get("name") or "")
+        if "行业" not in name or "AI" in name.upper():
+            continue
+        for item in section.get("items", []):
+            total = total_by_title.get(_card_title_key(str(item.get("title") or "")))
+            if total is not None:
+                item["score_total"] = total
+
+
 def load_report_summary(date: str, max_items: int | None = None) -> dict[str, Any]:
     kind, report_dir, markdown_path = resolve_report(date)
     data_path = report_dir / "report_page_data.json"
@@ -563,6 +624,7 @@ def load_report_summary(date: str, max_items: int | None = None) -> dict[str, An
         title = data.get("title") or f"游戏行业{noun} | {date}"
     else:
         raise FileNotFoundError(f"Report markdown not found: {markdown_path}")
+    _attach_industry_scores(sections, report_dir)
     return {
         "date": date,
         "kind": kind,
@@ -818,45 +880,48 @@ def _discourse_card_line(title: str, body: str) -> str:
     return body.rstrip("。") if body else title
 
 
-def _item_one_liner(
-    item: dict[str, str], *, industry_detail: bool = False, discourse_detail: bool = False
-) -> str:
+def _item_one_liner(item: dict[str, str]) -> str:
     title = (item.get("title") or "").replace("\n", " ").strip()
     if item.get("kind") == "bullet":
         return _first_clause(title)
     title = _strip_item_number(title)
-    if industry_detail:
-        detail = _industry_card_detail(item.get("body", ""))
-        return f"{title}，{detail}" if detail else title
-    if discourse_detail:
-        return _discourse_card_line(title, item.get("body", ""))
     return title
 
 
-def _emphasize(line: str) -> str:
-    """Bold the scannable key phrase of a card line so readers get the point
-    fast. Prefer a leading 《产品名》 title; else bold the lead clause before
-    the first Chinese comma; else bold a short whole line. Never split inside
-    a 《...》 (titles can contain ：), so we bold the bracketed span as a unit."""
-    m = re.search(r"《[^》]+》", line)
-    if m and m.start() <= 24 and (m.end() - m.start()) <= 26:
-        s, e = m.start(), m.end()
-        return f"{line[:s]}**{line[s:e]}**{line[e:]}"
-    idx = -1
-    for sep in ("，", ","):
-        pos = line.find(sep)
-        if pos > 0 and (idx < 0 or pos < idx):
-            idx = pos
-    if 4 <= idx <= 26:
-        return f"**{line[:idx]}**{line[idx:]}"
-    if len(line) <= 26:
-        return f"**{line}**"
-    return line
+def _plain_card_text(value: str) -> str:
+    """Normalize upstream prose before applying card-owned, single-line styling."""
+    value = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", value or "").replace("**", "")
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _product_card_line(item: dict[str, str]) -> str:
+    """Keep the report sentence order while applying the card's compact wording."""
+    line = _plain_card_text(_item_one_liner(item))
+    return re.sub(r"(《[^》]+》)于(?=\d{1,2}月)", r"\1", line)
+
+
+def _emphasize_lead_clause(line: str) -> str:
+    """Bold only the first short clause of an industry headline."""
+    line = _plain_card_text(line)
+    boundaries = [line.find(sep) for sep in ("，", ",", "；", ";", "。") if line.find(sep) > 0]
+    end = min(boundaries, default=len(line))
+    return f"**{line[:end]}**{line[end:]}"
 
 
 def build_daily_card(
-    summary: dict[str, Any], doc_url: str | None = None, per_section: int = 6
+    summary: dict[str, Any],
+    doc_url: str | None = None,
+    per_section: int = 6,
+    *,
+    feedback_expanded: bool = False,
 ) -> dict[str, Any]:
+    """Build the compact Feishu report card.
+
+    The report Markdown deliberately keeps headings and prose separate for
+    auditability. The card is a different presentation layer: every industry
+    and product-calendar item must occupy exactly one bullet/Markdown line.
+    玩家舆论 keeps its intentional headline + summary hierarchy.
+    """
     noun = summary.get("noun", "日报")
     weekday = _weekday_label(summary["date"])
     header_title = f"🤖 {summary['title']}"
@@ -868,53 +933,176 @@ def build_daily_card(
         emoji, display, drop = _section_meta(section.get("name", ""))
         if drop:
             continue
-        industry_detail = display == "行业新闻"
-        discourse_detail = display == "玩家舆论"
-        one_liners = [
-            line
-            for line in (
-                _item_one_liner(
-                    item, industry_detail=industry_detail, discourse_detail=discourse_detail
-                )
-                for item in section.get("items", [])
-            )
-            if line
-        ]
-        if not one_liners:
+        items = section.get("items", [])[:per_section]
+        if not items:
             continue
         lines = [f"**{emoji} {display}**"]
-        lines.extend(f"• {_emphasize(line)}" for line in one_liners[:per_section])
-        elements.append({"tag": "div", "text": {"tag": "lark_md", "content": "\n".join(lines)}})
+        for index, item in enumerate(items):
+            title = _plain_card_text(_strip_item_number(item.get("title", "")))
+            if not title:
+                continue
+            if display == "行业新闻":
+                detail = _plain_card_text(_industry_card_detail(item.get("body", "")))
+                suffix = f"；{detail}" if detail else ""
+                headline = (
+                    _emphasize_lead_clause(title)
+                    if item.get("score_total") == 11
+                    else title
+                )
+                lines.append(f"• {headline}{suffix}")
+            elif display.startswith("AI"):
+                lines.append(f"• {title}")
+            elif display == "新游 / 产品":
+                line = _product_card_line(item)
+                if index < 2:
+                    line = f"**{line}**"
+                lines.append(f"• {line}")
+            elif display == "玩家舆论":
+                lines.append(f"• **{title}**")
+                detail = _plain_card_text(_discourse_card_line(title, item.get("body", "")))
+                if detail:
+                    lines.append(f"  {detail}")
+            else:
+                lines.append(f"• {title}")
+        elements.append({"tag": "markdown", "content": "\n".join(lines)})
 
     if doc_url:
         elements.append({"tag": "hr"})
         elements.append(
             {
-                "tag": "action",
-                "actions": [
+                "tag": "column_set",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "text": {"tag": "plain_text", "content": f"📄 查看完整{noun}"},
+                                "type": "primary",
+                                "behaviors": [{"type": "open_url", "default_url": doc_url}],
+                            }
+                        ],
+                    }
+                ],
+            }
+        )
+
+    feedback_context = {
+        "report_kind": str(summary.get("kind") or "daily"),
+        "report_date": str(summary.get("date") or ""),
+        "report_title": str(summary.get("title") or ""),
+    }
+    elements.extend(
+        [
+            {"tag": "hr"},
+            {"tag": "markdown", "content": "**这份报告对你有帮助吗？**", "text_size": "notation"},
+            {
+                "tag": "column_set",
+                "flex_mode": "bisect",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "element_id": "report_feedback_helpful",
+                                "text": {"tag": "plain_text", "content": "😊 很有帮助！"},
+                                "type": "danger_filled",
+                                "width": "fill",
+                                "behaviors": [
+                                    {
+                                        "type": "callback",
+                                        "value": {
+                                            "action": "report_feedback_helpful",
+                                            **feedback_context,
+                                        },
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                    {
+                        "tag": "column",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "element_id": "report_feedback_suggest",
+                                "text": {"tag": "plain_text", "content": "😑 我有建议！"},
+                                "type": "default",
+                                "width": "fill",
+                                "behaviors": [
+                                    {
+                                        "type": "callback",
+                                        "value": {
+                                            "action": "report_feedback_expand",
+                                            **feedback_context,
+                                        },
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                ],
+            },
+        ]
+    )
+    if feedback_expanded:
+        elements.append(
+            {
+                "tag": "form",
+                "name": "report_feedback_form",
+                "elements": [
+                    {
+                        "tag": "input",
+                        "name": "feedback_text",
+                        "input_type": "multiline_text",
+                        "rows": 3,
+                        "auto_resize": True,
+                        "max_rows": 6,
+                        "max_length": 500,
+                        "required": True,
+                        "width": "fill",
+                        "placeholder": {
+                            "tag": "plain_text",
+                            "content": "哪里可以做得更好？请告诉我（最多 500 字）",
+                        },
+                    },
                     {
                         "tag": "button",
-                        "text": {"tag": "plain_text", "content": f"📄 查看完整{noun}"},
+                        "name": "submit_feedback",
+                        "form_action_type": "submit",
+                        "text": {"tag": "plain_text", "content": "提交建议"},
                         "type": "primary",
-                        "url": doc_url,
-                    }
+                        "behaviors": [
+                            {
+                                "type": "callback",
+                                "value": {
+                                    "action": "report_feedback_submit",
+                                    **feedback_context,
+                                },
+                            }
+                        ],
+                    },
                 ],
             }
         )
     elements.append(
         {
-            "tag": "note",
-            "elements": [{"tag": "plain_text", "content": f"AI 自动整理 · 每条详情见完整{noun}"}],
+            "tag": "markdown",
+            "content": f"AI 自动整理 · 每条详情见完整{noun}",
+            "text_size": "notation",
         }
     )
 
     return {
-        "config": {"wide_screen_mode": True},
+        "schema": "2.0",
+        "config": {"width_mode": "fill"},
         "header": {
             "template": "blue",
             "title": {"tag": "plain_text", "content": header_title},
         },
-        "elements": elements,
+        "body": {"elements": elements},
     }
 
 

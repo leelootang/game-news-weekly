@@ -6,6 +6,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from deep_observation_handoff import validate_weekly_handoff
 from feishu_common import (
     FeishuClient,
     PUBLISH_LOG_DIR,
@@ -186,6 +187,7 @@ def backfill_one(
     summary = load_report_summary(date)
     existing = existing_doc_for_date(date)
     if existing:
+        client.set_doc_public_permission(existing["token"], doc_type="docx")
         doc_url = existing["url"]
     else:
         folder_token = resolve_folder_token(None)
@@ -206,6 +208,11 @@ def publish(args: argparse.Namespace) -> int:
     load_dotenv()
     summary = load_report_summary(args.date)
     markdown_path, _, _ = report_paths(args.date)
+    handoff_errors = validate_weekly_handoff(markdown_path)
+    if handoff_errors:
+        for error in handoff_errors:
+            print(f"[blocked] {error}")
+        return 1
     folder_token = resolve_folder_token(args.folder_token) if args.create_doc else None
 
     subscribers = (
@@ -240,6 +247,7 @@ def publish(args: argparse.Namespace) -> int:
         if existing:
             doc_url = existing["url"]
             doc_token = existing["token"]
+            client.set_doc_public_permission(doc_token, doc_type="docx")
             print(f"[doc] reusing existing docx token={doc_token} url={doc_url}")
         else:
             if not folder_token:
@@ -258,6 +266,9 @@ def publish(args: argparse.Namespace) -> int:
         if summary["kind"] == "weekly"
         else []
     )
+    if summary["kind"] == "weekly" and (markdown_path.parent / "deep_card_choice.txt").exists() and not deep_cards:
+        print("[blocked] designated deep card could not be built from the weekly report and sources")
+        return 1
     results = []
     for subscriber in subscribers:
         open_id = subscriber["open_id"]

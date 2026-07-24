@@ -2,13 +2,19 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime
+import uuid
+from datetime import datetime, timezone
 from typing import Any
 
 from feishu_common import (
+    PUBLISH_LOG_DIR,
+    REPORT_FEEDBACK_PATH,
     FeishuClient,
+    build_daily_card,
     get_subscription_preferences,
+    load_report_summary,
     load_dotenv,
+    read_json,
     set_subscription_preferences,
     upsert_subscriber,
 )
@@ -167,14 +173,39 @@ def _send_subscription_card(client: FeishuClient, open_id: str) -> None:
     client.send_interactive_card(open_id, build_subscription_card(get_subscription_preferences(open_id)))
 
 
-def _card_action_response(toast: str, preferences: dict[str, bool] | None = None) -> Any:
+def _card_action_response(
+    toast: str,
+    preferences: dict[str, bool] | None = None,
+    card: dict[str, Any] | None = None,
+) -> Any:
     """Return the documented v2 callback response and optionally refresh the card."""
     from lark_oapi.event.callback.model.p2_card_action_trigger import P2CardActionTriggerResponse
 
     response: dict[str, Any] = {"toast": {"type": "success", "content": toast}}
     if preferences is not None:
         response["card"] = {"type": "raw", "data": build_subscription_card(preferences)}
+    elif card is not None:
+        response["card"] = {"type": "raw", "data": card}
     return P2CardActionTriggerResponse(response)
+
+
+def _save_report_feedback(
+    *, open_id: str, value: dict[str, Any], rating: str, feedback_text: str = ""
+) -> None:
+    """Append one auditable report-feedback event to the local backend."""
+    REPORT_FEEDBACK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    record = {
+        "feedback_id": uuid.uuid4().hex,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "open_id": open_id,
+        "rating": rating,
+        "feedback_text": feedback_text.strip(),
+        "report_kind": str(value.get("report_kind") or ""),
+        "report_date": str(value.get("report_date") or ""),
+        "report_title": str(value.get("report_title") or ""),
+    }
+    with REPORT_FEEDBACK_PATH.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
 def handle_card_action_event(data: Any) -> Any:
@@ -193,6 +224,53 @@ def handle_card_action_event(data: Any) -> Any:
         return _card_action_response("订阅设置未保存，请重新打开菜单后再试。")
 
     action_name = value.get("action")
+    if action_name == "report_feedback_helpful":
+        _save_report_feedback(open_id=open_id, value=value, rating="helpful")
+        print(
+            f"[feishu] report feedback saved rating=helpful "
+            f"open_id={open_id} report={value.get('report_kind')}:{value.get('report_date')}"
+        )
+        return _card_action_response("谢谢你的认可，已收到！")
+    if action_name == "report_feedback_expand":
+        report_date = str(value.get("report_date") or "")
+        try:
+            summary = load_report_summary(report_date)
+            log = read_json(PUBLISH_LOG_DIR / f"daily_{report_date}.json", {})
+            expanded_card = build_daily_card(
+                summary,
+                doc_url=log.get("doc_url"),
+                per_section=10,
+                feedback_expanded=True,
+            )
+        except Exception as exc:
+            print(f"[feishu] failed to expand report feedback form: {exc}", flush=True)
+            return _card_action_response("输入框暂时无法展开，请稍后重试。")
+        return _card_action_response("欢迎提出建议", card=expanded_card)
+    if action_name == "report_feedback_submit":
+        form_value = _attr(action, "form_value", {}) or {}
+        if isinstance(form_value, str):
+            try:
+                form_value = json.loads(form_value)
+            except json.JSONDecodeError:
+                form_value = {}
+        feedback_text = str(
+            _attr(form_value, "feedback_text", "")
+            or _attr(action, "feedback_text", "")
+        ).strip()
+        if not feedback_text:
+            return _card_action_response("请先填写建议再提交。")
+        _save_report_feedback(
+            open_id=open_id,
+            value=value,
+            rating="needs_improvement",
+            feedback_text=feedback_text[:500],
+        )
+        print(
+            f"[feishu] report feedback saved rating=needs_improvement "
+            f"open_id={open_id} report={value.get('report_kind')}:{value.get('report_date')}"
+        )
+        return _card_action_response("建议已提交，谢谢你帮助我们改进！")
+
     preferences = get_subscription_preferences(open_id)
     if action_name == "toggle_subscription":
         kind = value.get("kind")
