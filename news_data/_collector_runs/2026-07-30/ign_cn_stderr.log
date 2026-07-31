@@ -1,0 +1,37 @@
+# industry_news/ign_cn failed at 2026-07-31T00:06:05.055880+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-07-30 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-07-30 00:00:00 <= published < 2026-07-31 00:00:00
+[feed] parsed 40 item(s)
+[feed] in-window=24
+[61647] saved  2026-07-30  《战锤40K：战争黎明4》「太空死灵」预告
+[61650] saved  2026-07-30  《GTA Online》赌场玩法在澳大利亚突然禁用
+[61616] saved  2026-07-30  IGN 中国《空之轨迹 the 2nd》试玩前瞻：最好的轨迹，最稳的重制
+[61646] saved  2026-07-30  《灰境行者》宣传视频
+[61651] saved  2026-07-30  推论：亨利·卡维尔或在《战锤40K》中出演艾森霍恩
+[61652] saved  2026-07-30  希腊总理致电克里斯托弗·诺兰赞《奥德赛》
+[61653] saved  2026-07-30  前负责人称《龙腾世纪》重制几乎无望
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 291, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 249, in main
+    page_html = http_get(e["url"])
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 69, in http_get
+    return resp.read().decode("utf-8", "replace")
+           ~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 500, in read
+    s = self._safe_read(self.length)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 648, in _safe_read
+    data = self.fp.read(cursize)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 729, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
