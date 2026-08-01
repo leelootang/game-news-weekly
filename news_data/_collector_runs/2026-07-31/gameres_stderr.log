@@ -1,0 +1,49 @@
+# industry_news/gameres failed at 2026-08-01T00:06:11.568906+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\gameres.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-07-31 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-07-31 00:00:00 <= published < 2026-08-01 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-07-31
+[home] 21 article url(s); 0 already seen
+[skip] no date: https://www.gameres.com/901202224.html
+[skip] no date: https://www.gameres.com/901202259.html
+[skip] no date: https://www.gameres.com/901202274.html
+[skip] no date: https://www.gameres.com/901202276.html
+[skip] no date: https://www.gameres.com/901202293.html
+[skip] no date: https://www.gameres.com/901202294.html
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\gameres.py", line 278, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\gameres.py", line 228, in main
+    html = http_get(url)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\gameres.py", line 60, in http_get
+    with urlopen(req, timeout=HTTP_TIMEOUT) as resp:
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 487, in open
+    response = self._open(req, data)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 504, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+                              '_open', req)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 464, in _call_chain
+    result = func(*args)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 1369, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        context=self._context)
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 1325, in do_open
+    r = h.getresponse()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1459, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+http.client.RemoteDisconnected: Remote end closed connection without response
