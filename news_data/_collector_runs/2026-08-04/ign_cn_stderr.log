@@ -1,0 +1,54 @@
+# industry_news/ign_cn failed at 2026-08-05T00:07:19.251776+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-08-04 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-08-04 00:00:00 <= published < 2026-08-05 00:00:00
+[feed] parsed 40 item(s)
+[feed] in-window=22
+[61733] saved  2026-08-04  《轮回之兽》原创评测：8 分 | IGN 中国
+[61736] saved  2026-08-04  ESRB评级显示《漫威金刚狼》将短暂露出角色臀部
+[61737] saved  2026-08-04  《战锤40K》动画将拍死亡守望，亨利·卡维尔担任制片人
+[61738] saved  2026-08-04  欧洲XBOX主机涨价超三成
+[61739] saved  2026-08-04  微软拟将XBOX 360游戏带到新一代平台
+[61741] saved  2026-08-04  Steam Frame可能比Steam Machine还贵
+[61745] saved  2026-08-04  Shift Up CEO回应《剑星：血雨》AI宣传片争议
+[61734] saved  2026-08-04  《进击的巨人3》实机预告
+[61743] saved  2026-08-04  《轮回之兽》发售宣传视频
+[61744] saved  2026-08-04  《漫威斗魂》「钢铁侠经典服装」宣传视频
+[61746] saved  2026-08-04  《古墓丽影：亚特兰蒂斯遗迹》开发幕后
+[61747] saved  2026-08-04  《漫威斗魂》「浩克」角色指南
+[61748] saved  2026-08-04  《异形：火力小队2》「猎人」职业预告
+[61749] saved  2026-08-04  《光环：战役进化》媒体赞誉宣传视频
+[61750] saved  2026-08-04  《共鸣：瘟疫传说传承》「知己知彼」预告
+[61751] saved  2026-08-04  《鹰派大统领》抢先体验版发售宣传视频
+[61753] saved  2026-08-04  凯文·费奇回应为何严守萨迪·辛克角色秘密
+[61758] saved  2026-08-04  戴夫·巴蒂斯塔或将饰演《战神》真人剧奎托斯
+[61759] saved  2026-08-04  索尼《蜘蛛侠》衍生宇宙或已终结
+[61760] saved  2026-08-04  《幻兽帕鲁》将推出移动端开放世界MMORPG
+[61740] saved  2026-08-04  《轮回之兽》37分钟实机演示
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 291, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 264, in main
+    write_article_record(
+    ~~~~~~~~~~~~~~~~~~~~^
+        args.out,
+        ^^^^^^^^^
+    ...<15 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 307, in write_article_record
+    _retry_io(_flush)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 105, in _retry_io
+    return fn()
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 302, in _flush
+    with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-08-04\\articles.jsonl'

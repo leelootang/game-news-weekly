@@ -1,0 +1,36 @@
+# industry_news/pcgamer failed at 2026-08-05T00:08:38.749117+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pcgamer.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-08-04 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-08-04 00:00:00 <= published < 2026-08-05 00:00:00
+[feed] parsed 50 item(s)
+[feed] in-window=25
+[macbook-neo-outperforms-dell-xps-13-in-c] saved  2026-08-04  MacBook Neo outperforms Dell XPS 13 in C
+[microsoft-is-reportedly-planning-to-brin] saved  2026-08-04  Microsoft is planning to bring Xbox 360 
+[i-would-die-obsession-star-inde-navarret] saved  2026-08-04  'I would die': Obsession star Inde Navar
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pcgamer.py", line 260, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pcgamer.py", line 236, in main
+    write_article_record(
+    ~~~~~~~~~~~~~~~~~~~~^
+        args.out,
+        ^^^^^^^^^
+    ...<12 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 307, in write_article_record
+    _retry_io(_flush)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 105, in _retry_io
+    return fn()
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 302, in _flush
+    with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-08-04\\articles.jsonl'
