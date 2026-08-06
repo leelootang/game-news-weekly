@@ -1,0 +1,44 @@
+# industry_news/ign_cn failed at 2026-08-06T00:07:06.362820+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-08-05 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-08-05 00:00:00 <= published < 2026-08-06 00:00:00
+[feed] parsed 40 item(s)
+[feed] in-window=26
+[61763] saved  2026-08-05  《Big Walk》发售宣传视频
+[61742] saved  2026-08-05  《不朽遗志》开发者专访：你玩过魔改版拿破仑魂游吗？| IGN 中国
+[61764] saved  2026-08-05  《万智牌》推出初音未来新联动套牌
+[61752] saved  2026-08-05  《杀死影子》发售宣传视频
+[61765] saved  2026-08-05  XBOX据称将继续支持实体光盘
+[61766] saved  2026-08-05  《蜘蛛侠：崭新之日》删减了一个MCU角色的戏份
+[61767] saved  2026-08-05  《权力的游戏》作者谈健康近况
+[61768] saved  2026-08-05  《最终幻想7 Revelation》将整合系列衍生作
+[61769] saved  2026-08-05  《光环：战役进化》开发问题重重
+[61773] saved  2026-08-05  阿德斯·贝将在《木乃伊4》中回归
+[61774] saved  2026-08-05  主板或成为内存危机下的又一个受害者
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 291, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\ign_cn.py", line 264, in main
+    write_article_record(
+    ~~~~~~~~~~~~~~~~~~~~^
+        args.out,
+        ^^^^^^^^^
+    ...<15 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 307, in write_article_record
+    _retry_io(_flush)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 105, in _retry_io
+    return fn()
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\article_store.py", line 302, in _flush
+    with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-08-05\\articles.jsonl'
