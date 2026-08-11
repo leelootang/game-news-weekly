@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import errno
 import hashlib
 import html
 import json
@@ -23,10 +24,10 @@ _PREVIEW_MARKERS = (
 
 # Each collector runs in its own subprocess (the runner launches them via
 # subprocess.Popen), and many of them share one per-section articles.jsonl.
-# write_article_record does a non-atomic read-modify-write of that shared file,
-# so concurrent collectors would clobber each other's rows. A threading.Lock is
-# useless here because the writers are separate processes, so guard the
-# read-modify-write with a cross-process lockfile keyed by the jsonl path.
+# write_article_record performs a read-modify-write of that shared file. Atomic
+# replacement prevents torn files, but without serialization concurrent writers
+# could still overwrite each other's rows. Guard the whole transaction with a
+# cross-process lockfile keyed by the jsonl path.
 _LOCK_STALE_SECONDS = 120.0
 _LOCK_WAIT_SECONDS = 300.0
 
@@ -81,17 +82,22 @@ _IO_RETRY_ATTEMPTS = 6
 _IO_RETRY_BASE_DELAY = 0.05
 
 
-def _is_sharing_violation(exc: OSError) -> bool:
-    """True for transient Windows file-sharing / access-denied errors."""
+def _is_transient_io_error(exc: OSError) -> bool:
+    """True for short-lived Windows filesystem errors worth retrying."""
     if isinstance(exc, PermissionError):
         return True
-    if getattr(exc, "winerror", None) in (5, 32, 33):  # ACCESS_DENIED, SHARING/LOCK_VIOLATION
+    if getattr(exc, "winerror", None) in (5, 32, 33, 87):
+        # ERROR_INVALID_PARAMETER (87) has occasionally surfaced while several
+        # collector processes replace the same section files. The exact same
+        # payload succeeds immediately in isolation, so treat it as transient.
         return True
-    return exc.errno == 13  # EACCES
+    if exc.errno == errno.EACCES:
+        return True
+    return os.name == "nt" and exc.errno == errno.EINVAL
 
 
 def _retry_io(fn):
-    """Run a file op, retrying transient Windows sharing violations.
+    """Run a file operation, retrying transient Windows failures.
 
     Collectors in the same section rewrite a shared articles.jsonl / index. The
     cross-process lockfile serializes intent, but on Windows the OS or AV can
@@ -104,12 +110,28 @@ def _retry_io(fn):
         try:
             return fn()
         except OSError as exc:
-            if not _is_sharing_violation(exc):
+            if not _is_transient_io_error(exc):
                 raise
             last = exc
             time.sleep(_IO_RETRY_BASE_DELAY * (attempt + 1))
     assert last is not None
     raise last
+
+
+def _atomic_write_text(path: Path, value: str) -> None:
+    """Replace a UTF-8 text file atomically without sharing temp filenames."""
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{time.time_ns()}.tmp")
+    try:
+        with tmp.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(value)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(tmp, path)
+    finally:
+        try:
+            tmp.unlink(missing_ok=True)
+        except OSError:
+            pass
 
 
 def save_pdf_enabled() -> bool:
@@ -228,7 +250,7 @@ def write_article_index(data_dir: Path) -> Path:
             f"{url_cell} |"
         )
 
-    index_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    _retry_io(lambda: _atomic_write_text(index_path, "\n".join(lines).rstrip() + "\n"))
     return index_path
 
 
@@ -299,9 +321,8 @@ def write_article_record(
         records.append(row)
 
         def _flush() -> None:
-            with jsonl_path.open("w", encoding="utf-8", newline="\n") as handle:
-                for item in records:
-                    handle.write(json.dumps(item, ensure_ascii=False) + "\n")
+            payload = "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in records)
+            _atomic_write_text(jsonl_path, payload)
             write_article_index(data_dir)
 
         _retry_io(_flush)

@@ -1,7 +1,9 @@
 ﻿"""
 Fetch PocketGamer.biz articles from the public RSS feed and export PDFs.
 
-The feed is available at /rss and redirects to /index.rss. It provides stable
+The canonical feed is available at /index.rss. The legacy /rss route can be
+blocked by Cloudflare before it redirects, so it is retained only as a backup.
+The feed provides stable
 article URLs, titles, categories, images, and publication timestamps; detail
 pages are opened for full article body extraction before rendering local PDFs.
 """
@@ -33,7 +35,10 @@ from playwright.async_api import TimeoutError as PWTimeout
 from playwright.async_api import async_playwright
 
 
-RSS_URL = "https://www.pocketgamer.biz/rss"
+RSS_URLS = (
+    "https://www.pocketgamer.biz/index.rss",
+    "https://www.pocketgamer.biz/rss",
+)
 SOURCE_DOMAIN = "pocketgamer.biz"
 SOURCE_KEY = "pocketgamer"
 FILE_PREFIX = f"{SOURCE_KEY}_{SOURCE_DOMAIN}"
@@ -61,6 +66,13 @@ class NewsItem:
     published_at: datetime
     raw_published_at: str
     content_html: str = ""
+
+
+@dataclass(frozen=True)
+class SaveResult:
+    saved: bool
+    body_status: str
+    error: str = ""
 
 
 def parse_date(value: str, *, end_of_day: bool = False) -> datetime:
@@ -124,6 +136,18 @@ def fetch_text(url: str) -> str:
                 print(f"[rss] retry {attempt}/3 after PocketGamer.biz RSS error: {exc}", file=sys.stderr)
                 time.sleep(1.5 * attempt)
     raise RuntimeError(f"failed to fetch PocketGamer.biz RSS: {url}: {last_exc}") from last_exc
+
+
+def fetch_feed_text() -> tuple[str, str]:
+    errors: list[str] = []
+    for url in RSS_URLS:
+        print(f"[rss] open {url}")
+        try:
+            return fetch_text(url), url
+        except Exception as exc:
+            errors.append(f"{url}: {exc}")
+            print(f"[rss] endpoint unavailable: {url}: {exc}", file=sys.stderr)
+    raise RuntimeError("all PocketGamer.biz RSS endpoints failed: " + "; ".join(errors))
 
 
 def parse_rss_datetime(value: str) -> datetime | None:
@@ -197,8 +221,9 @@ def collect_feed_items(since: datetime, until: datetime, max_pages: int) -> list
     if max_pages != 1:
         print("[rss] PocketGamer.biz RSS is a single feed; --max-pages is accepted for runner compatibility")
 
-    print(f"[rss] open {RSS_URL}")
-    root = ET.fromstring(fetch_text(RSS_URL))
+    feed_text, feed_url = fetch_feed_text()
+    root = ET.fromstring(feed_text)
+    print(f"[rss] using {feed_url}")
     items: list[NewsItem] = []
     older = 0
     skipped_future = 0
@@ -243,7 +268,16 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
     page = await context.new_page()
     try:
         print(f"[{item.news_id}] open {item.url}")
-        await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        response = await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+        status = response.status if response else None
+        title = (await page.title()).strip()
+        final_url = page.url
+        if (
+            status in {401, 403, 429, 503}
+            or "just a moment" in title.lower()
+            or "__cf_chl_" in final_url
+        ):
+            raise RuntimeError(f"detail blocked by Cloudflare/HTTP status={status} title={title!r}")
         try:
             await page.wait_for_selector("article .content .main .body, article .body", timeout=15_000)
         except PWTimeout as exc:
@@ -379,36 +413,90 @@ def build_printable_html(item: NewsItem) -> str:
 </html>"""
 
 
-async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dict) -> bool:
+def rss_fallback_html(item: NewsItem, reason: str) -> str:
+    description = clean_content_html(item.description_html)
+    if not html_to_text(description):
+        raise RuntimeError("RSS item did not include a usable description")
+    return (
+        f"{description}\n"
+        f'<p><em>Full article retrieval unavailable ({html.escape(reason)}); '
+        f'<a href="{html.escape(item.url)}">open the source article</a>.</em></p>'
+    )
+
+
+def write_text_record(
+    out_dir: Path,
+    manifest: dict,
+    item: NewsItem,
+    *,
+    body_status: str,
+    fallback: str,
+    reason: str = "",
+) -> None:
+    content_html = item.content_html if body_status == "full" else rss_fallback_html(item, reason)
+    write_article_record(
+        out_dir,
+        manifest,
+        item.news_id,
+        {
+            "source_key": SOURCE_KEY,
+            "source": SOURCE_DOMAIN,
+            "title": item.title,
+            "url": item.url,
+            "published_at": item.published_at.isoformat(timespec="seconds"),
+            "author": item.author,
+            "excerpt": html_to_text(item.description_html),
+            "text": html_to_text(content_html),
+            "html": content_html,
+            "fetch_status": "ok" if body_status == "full" else "partial",
+            "body_status": body_status,
+            "fallback": fallback,
+            "extra": {
+                "categories": item.categories,
+                "image_url": item.image_url,
+                "raw_published_at": item.raw_published_at,
+                "retrieval_error": reason,
+            },
+        },
+    )
+    save_manifest(out_dir, manifest)
+
+
+async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dict) -> SaveResult:
     if not save_pdf_enabled():
         try:
             full_item = await fetch_article_content(context, item)
-            write_article_record(out_dir, manifest, full_item.news_id, {
-                "source_key": SOURCE_KEY,
-                "source": SOURCE_DOMAIN,
-                "title": full_item.title,
-                "url": full_item.url,
-                "published_at": full_item.published_at.isoformat(timespec="seconds"),
-                "author": full_item.author,
-                "excerpt": html_to_text(full_item.description_html),
-                "text": html_to_text(full_item.content_html),
-                "html": full_item.content_html,
-                "extra": {"categories": full_item.categories, "image_url": full_item.image_url, "raw_published_at": full_item.raw_published_at},
-            })
-            save_manifest(out_dir, manifest)
-            print(f"[{full_item.news_id}] saved text record")
-            return True
         except Exception as exc:
-            print(f"[{item.news_id}] failed: {exc!r}", file=sys.stderr)
-            return False
+            reason = str(exc) or type(exc).__name__
+            try:
+                write_text_record(
+                    out_dir,
+                    manifest,
+                    item,
+                    body_status="rss_summary",
+                    fallback="rss_summary",
+                    reason=reason,
+                )
+                print(f"[{item.news_id}] detail unavailable; saved RSS summary fallback")
+                return SaveResult(True, "rss_summary", reason)
+            except Exception as fallback_exc:
+                print(f"[{item.news_id}] RSS fallback failed: {fallback_exc!r}", file=sys.stderr)
+                return SaveResult(False, "empty", repr(fallback_exc))
+        try:
+            write_text_record(out_dir, manifest, full_item, body_status="full", fallback="none")
+            print(f"[{full_item.news_id}] saved text record")
+            return SaveResult(True, "full")
+        except Exception as exc:
+            print(f"[{item.news_id}] full record write failed: {exc!r}", file=sys.stderr)
+            return SaveResult(False, "empty", repr(exc))
 
     recorded = manifest.setdefault("items", {}).get(item.news_id)
     if recorded and recorded.get("data_file"):
         print(f"[{item.news_id}] already saved, skip")
-        return True
+        return SaveResult(True, recorded.get("body_status") or "full")
     if save_pdf_enabled() and recorded and recorded.get("file") and (out_dir / recorded["file"]).exists():
         print(f"[{item.news_id}] already saved, skip")
-        return True
+        return SaveResult(True, "full")
 
     page = await context.new_page()
     tmp_path = out_dir / f".tmp_{item.news_id}.pdf"
@@ -442,12 +530,12 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
         }
         save_manifest(out_dir, manifest)
         print(f"[{full_item.news_id}] saved {final_name}")
-        return True
+        return SaveResult(True, "full")
     except Exception as exc:
         print(f"[{item.news_id}] failed: {exc!r}", file=sys.stderr)
         if tmp_path.exists():
             tmp_path.unlink(missing_ok=True)
-        return False
+        return SaveResult(False, "empty", repr(exc))
     finally:
         await page.close()
 
@@ -499,10 +587,17 @@ async def main() -> None:
         )
 
         ok = 0
+        full = 0
+        fallback = 0
         fail = 0
         for item in items:
-            if await save_article_pdf(context, item, args.out, manifest):
+            result = await save_article_pdf(context, item, args.out, manifest)
+            if result.saved:
                 ok += 1
+                if result.body_status == "full":
+                    full += 1
+                else:
+                    fallback += 1
             else:
                 fail += 1
             await asyncio.sleep(PER_ARTICLE_DELAY)
@@ -510,7 +605,9 @@ async def main() -> None:
         await context.close()
         await browser.close()
 
-    print(f"[done] ok={ok} fail={fail} output={args.out.resolve()}")
+    if fallback:
+        print(f"[health] degraded reason=detail_unavailable full={full} rss_summary={fallback}")
+    print(f"[done] ok={ok} full={full} fallback={fallback} fail={fail} output={args.out.resolve()}")
     if fail:
         raise SystemExit(1)
 

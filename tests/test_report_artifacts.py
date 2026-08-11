@@ -87,7 +87,26 @@ class ReportArtifactContractTests(unittest.TestCase):
             *[{"candidate_id": f"C{i}", "section": section, "source_ids": [f"S{i:04d}"], "entities": ["主体"], "event": "单一事件", "decision": "include", "reason": "可核验", **({"ai_tier": "direct_application", "game_stage": ["development"], "industry_reverse_scan": False} if section == "ai" else {"scores": {"relevance": 2, "insight": 2, "evidence": 2, "card": 2, "total": 8}} if section == "deep" else {"scores": {"event": 3, "source": 2, "total": 6}} if section == "release_calendar" else {})} for i, section in [(2, "ai"), (3, "release_calendar"), (4, "community"), (5, "deep")]],
         ]
         self.decisions.write_text(json.dumps({"decisions": decisions}, ensure_ascii=False), encoding="utf-8")
-        self.audit.write_text(json.dumps({"schema_version": 3, "nodes": [{"candidate_id": "C3", "signal_type": "new_game_launch", "event_type_score": 3, "source_strength_score": 2, "priority_score": 6, "appearance_count": 2}]}), encoding="utf-8")
+        self.audit.write_text(
+            json.dumps(
+                {
+                    "schema_version": 3,
+                    "nodes": [
+                        {
+                            "candidate_id": "C3",
+                            "signal_type": "new_game_launch",
+                            "event_date": "2026-07-15",
+                            "source_ids": ["S0003", "S0001"],
+                            "event_type_score": 3,
+                            "source_strength_score": 2,
+                            "priority_score": 6,
+                            "appearance_count": 2,
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
         ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
 
     def tearDown(self) -> None:
@@ -184,6 +203,209 @@ class ReportArtifactContractTests(unittest.TestCase):
         errors, _ = self.validate()
         self.assertTrue(any("non-new-game signal" in error for error in errors))
 
+    def test_include_decision_must_be_published(self) -> None:
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"].append(
+            {
+                "candidate_id": "C6",
+                "section": "community",
+                "source_ids": ["S0004"],
+                "event": "另一个事件",
+                "decision": "include",
+                "reason": "错误地漏入正文",
+            }
+        )
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertIn("include decision is missing from final report: C6", errors)
+
+    def test_daily_community_discourse_cap_is_blocking(self) -> None:
+        current_report = self.root / "game_industry_daily_2026-08-11.md"
+        self.report.replace(current_report)
+        self.report = current_report
+        text = self.report.read_text(encoding="utf-8")
+        self.report.write_text(
+            text.replace(
+                "## 五、行业精选",
+                "### 2. 社区事件二\n\n8月1日玩家质疑更新说明。\n\n"
+                "### 3. 社区事件三\n\n8月2日玩家质疑活动规则。\n\n"
+                "## 五、行业精选",
+            ),
+            encoding="utf-8",
+        )
+        errors, _ = self.validate()
+        self.assertIn("community discourse exceeds report cap 2: 3", errors)
+
+    def test_community_cap_grandfathers_older_reports(self) -> None:
+        self.assertFalse(ARTIFACTS.community_cap_is_enforced(self.report))
+
+    def test_community_caps_are_defined_by_report_kind(self) -> None:
+        self.assertEqual(2, ARTIFACTS.community_cap_for_report(Path("game_industry_daily_2026-08-11.md")))
+        self.assertEqual(
+            2,
+            ARTIFACTS.community_cap_for_report(
+                Path("game_industry_weekend_2026-08-08_to_2026-08-09.md")
+            ),
+        )
+        self.assertEqual(
+            3,
+            ARTIFACTS.community_cap_for_report(
+                Path("game_industry_weekly_2026-08-07_to_2026-08-13.md")
+            ),
+        )
+
+    def test_release_date_must_be_evidenced_and_in_window(self) -> None:
+        data = json.loads(self.audit.read_text(encoding="utf-8"))
+        data["nodes"][0]["event_date"] = "2026-08-13"
+        self.audit.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("date is not evidenced" in error for error in errors))
+        self.assertTrue(any("outside report window" in error for error in errors))
+
+    def test_pipeline_metadata_in_published_body_is_blocking(self) -> None:
+        text = self.report.read_text(encoding="utf-8")
+        self.report.write_text(
+            text.replace("公司公布关键数据。", "【GameLook专稿，禁止转载！】公司公布关键数据。"),
+            encoding="utf-8",
+        )
+        errors, _ = self.validate()
+        self.assertTrue(any("leaks source/pipeline metadata" in error for error in errors))
+
+    def test_internal_carryover_label_in_published_title_is_blocking(self) -> None:
+        text = self.report.read_text(encoding="utf-8")
+        self.report.write_text(
+            text.replace("### 1. 行业事件", "### 1. 【上期卡片未展示】行业事件"),
+            encoding="utf-8",
+        )
+        errors, _ = self.validate()
+        self.assertTrue(any("leaks source/pipeline metadata" in error for error in errors))
+
+    def test_deep_item_must_start_with_observation(self) -> None:
+        text = self.report.read_text(encoding="utf-8")
+        self.report.write_text(
+            text.replace("**观察：** 产品团队开始改变流程。", "原文摘要。\n\n**观察：** 产品团队开始改变流程。"),
+            encoding="utf-8",
+        )
+        errors, _ = self.validate()
+        self.assertTrue(any("deep item must start with 观察" in error for error in errors))
+
+    def test_duplicate_source_set_in_one_section_is_blocking(self) -> None:
+        self.report.write_text(
+            self.report.read_text(encoding="utf-8").replace(
+                "工具进入游戏流程。\n\n## 三、新游发布",
+                "工具进入游戏流程。\n\n### 2. AI 重复事件\n\n工具进入游戏流程。\n\n## 三、新游发布",
+            ),
+            encoding="utf-8",
+        )
+        item_data = json.loads(self.items.read_text(encoding="utf-8"))
+        item_data["items"].append(self.item("ai", "AI 重复事件", "C6", "S0002", "工具进入游戏流程。"))
+        self.items.write_text(json.dumps(item_data, ensure_ascii=False), encoding="utf-8")
+        decision_data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        decision_data["decisions"].append(
+            {
+                "candidate_id": "C6",
+                "section": "ai",
+                "source_ids": ["S0002"],
+                "event": "重复事件",
+                "decision": "include",
+                "reason": "错误重复",
+                "ai_tier": "direct_application",
+                "game_stage": ["development"],
+                "industry_reverse_scan": False,
+            }
+        )
+        self.decisions.write_text(json.dumps(decision_data, ensure_ascii=False), encoding="utf-8")
+        ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
+        errors, _ = self.validate()
+        self.assertTrue(any("duplicate source set in ai" in error for error in errors))
+
+    def test_industry_items_must_be_sorted_by_score(self) -> None:
+        self.report.write_text(
+            self.report.read_text(encoding="utf-8").replace(
+                "公司公布关键数据。\n\n## 二、AI 新闻",
+                "公司公布关键数据。\n\n### 2. 更高分行业事件\n\n第二家公司公布关键数据。\n\n## 二、AI 新闻",
+            ),
+            encoding="utf-8",
+        )
+        with self.inputs.open("a", encoding="utf-8") as handle:
+            handle.write(
+                json.dumps(
+                    {
+                        "source_id": "S0006",
+                        "source": "source6.example",
+                        "title": "原文 6",
+                        "url": "https://source6.example/article",
+                        "path": "news/6.jsonl",
+                        "text": "第二家公司公布关键数据。",
+                        "fetch_status": "ok",
+                        "body_status": "full",
+                        "text_chars": 11,
+                    },
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
+        item_data = json.loads(self.items.read_text(encoding="utf-8"))
+        item_data["items"].append(
+            self.item("industry", "更高分行业事件", "C6", "S0006", "第二家公司公布关键数据。")
+        )
+        self.items.write_text(json.dumps(item_data, ensure_ascii=False), encoding="utf-8")
+        decision_data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        decision_data["decisions"].append(
+            {
+                "candidate_id": "C6",
+                "section": "industry",
+                "source_ids": ["S0006"],
+                "event": "更高分事件",
+                "decision": "include",
+                "reason": "达到入选线",
+                "scores": {"event": 3, "relevance": 2, "hook": 2, "total": 8},
+            }
+        )
+        self.decisions.write_text(json.dumps(decision_data, ensure_ascii=False), encoding="utf-8")
+        ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
+        errors, _ = self.validate()
+        self.assertTrue(any("industry items are not sorted by score" in error for error in errors))
+
+    def test_schema_four_release_company_bonus_is_validated(self) -> None:
+        audit = json.loads(self.audit.read_text(encoding="utf-8"))
+        audit.update({"schema_version": 4, "focus_company_bonus": 3})
+        audit["nodes"][0].update(
+            {
+                "focus_companies": ["网易"],
+                "company_evidence_ids": ["S0003"],
+                "company_bonus": 3,
+                "priority_score": 9,
+                "industry_bonus": 0,
+                "first_seen_order": 0,
+            }
+        )
+        self.audit.write_text(json.dumps(audit, ensure_ascii=False), encoding="utf-8")
+        decisions = json.loads(self.decisions.read_text(encoding="utf-8"))
+        release_decision = next(
+            decision for decision in decisions["decisions"]
+            if decision["candidate_id"] == "C3"
+        )
+        release_decision["scores"] = {"event": 3, "source": 2, "company": 3, "total": 9}
+        self.decisions.write_text(json.dumps(decisions, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("release" in error and "company" in error for error in errors))
+
+        audit["nodes"][0]["company_evidence_ids"] = []
+        self.audit.write_text(json.dumps(audit, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("company bonus lacks company evidence" in error for error in errors))
+
+    def test_source_details_title_may_contain_pipe(self) -> None:
+        _items, details = ARTIFACTS.parse_sources_used(
+            "# Sources Used\n\n## Source Details\n\n"
+            "- S0001 | example.test | 原创 | 标题正文 | https://example.test/a\n"
+        )
+        self.assertEqual(
+            ("example.test", "原创 | 标题正文", "https://example.test/a"),
+            details["S0001"],
+        )
+
     def test_industry_title_rejects_promotional_shorthand(self) -> None:
         original = self.report.read_text(encoding="utf-8")
         title = "".join(map(chr, [0x884c, 0x4e1a, 0x4e8b, 0x4ef6]))
@@ -198,6 +420,22 @@ class ReportArtifactContractTests(unittest.TestCase):
         self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
         errors, _ = self.validate()
         self.assertTrue(any("unknown priority_tracks" in error for error in errors))
+
+    def test_roblox_industry_subject_requires_highest_relevance(self) -> None:
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        industry = data["decisions"][0]
+        industry["entities"] = ["Roblox Corporation"]
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertIn(
+            "Roblox industry subject must receive highest relevance R=3: C1",
+            errors,
+        )
+
+        industry["scores"] = {"event": 3, "relevance": 3, "hook": 1, "total": 10}
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("Roblox industry subject" in error for error in errors))
 
     def test_article_store_preserves_body_quality(self) -> None:
         out = self.root / "news_data" / "deep_analysis" / "2026-07-15"

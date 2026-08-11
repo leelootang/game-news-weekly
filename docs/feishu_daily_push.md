@@ -75,6 +75,18 @@ Send to all active subscribers:
 python scripts/publish_feishu_daily.py --date 2026-06-20 --create-doc
 ```
 
+The report card uses a shared default limit of 10 items per section across
+broadcast, backfill, menu replay, and feedback expansion. Player discourse has
+a stricter cap: 2 items for daily/weekend reports and 3 for weekly reports.
+AI news uses the same compact information density as industry news: headline
+plus one factual extension on the same line. Industry decisions marked
+`card_carryover=true` are guaranteed one of those ten positions but render
+exactly like ordinary industry items. Carryover is internal selection metadata
+and must not appear in the card or Feishu document. The publish log records the exact rendered
+`card_items`, the limit, audience scope, and whether a majority of the
+subscriber broadcast succeeded.  Only that successful subscriber broadcast
+counts as global card exposure; dry-runs and single-user tests do not.
+
 `--create-doc` imports `output/daily/<date>/game_industry_daily_<date>.md` into a
 Feishu docx (in `FEISHU_DAILY_FOLDER_TOKEN`, overridable with `--folder-token`),
 sets it to organization link-readable, and attaches its URL to the card. The

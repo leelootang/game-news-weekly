@@ -32,6 +32,9 @@ SOURCE_KEY = "youxiputao_sohu"
 FILE_PREFIX = f"{SOURCE_KEY}_{SOURCE_DOMAIN}"
 PAGE_TIMEOUT = 30_000
 PER_ARTICLE_DELAY = 1.0
+NAVIGATION_ATTEMPTS = 3
+LIST_SELECTOR = '.FeedImgTextItem a[href*="/a/"], a.FeedImgTextItemContainer[href*="/a/"]'
+ARTICLE_SELECTOR = "h1, #articleContent, .article-content"
 MANIFEST_NAME = f"{FILE_PREFIX}_manifest.json"
 MANIFEST_DIR_NAME = "_collector_manifests"
 USER_AGENT = (
@@ -149,33 +152,72 @@ def save_manifest(out_dir: Path, manifest: dict) -> None:
     tmp.replace(path)
 
 
+async def page_diagnostic(page) -> dict[str, object]:
+    try:
+        return await page.evaluate(
+            r"""() => ({
+                title: document.title || '',
+                url: location.href,
+                body_preview: (document.body?.innerText || '').replace(/\s+/g, ' ').slice(0, 240)
+            })"""
+        )
+    except Exception as exc:
+        return {"url": page.url, "diagnostic_error": repr(exc)}
+
+
+async def open_with_retries(page, url: str, selector: str, label: str) -> None:
+    last_exc: Exception | None = None
+    for attempt in range(1, NAVIGATION_ATTEMPTS + 1):
+        try:
+            response = await page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+            status = response.status if response else None
+            if status in {401, 403, 429, 503}:
+                raise RuntimeError(f"HTTP {status}")
+            try:
+                await page.wait_for_load_state("networkidle", timeout=10_000)
+            except PWTimeout:
+                # Sohu keeps background requests open on some page variants.
+                pass
+            await page.wait_for_selector(selector, state="attached", timeout=15_000)
+            if attempt > 1:
+                print(f"[{label}] recovered on attempt {attempt}")
+            return
+        except Exception as exc:
+            last_exc = exc
+            diagnostic = await page_diagnostic(page)
+            print(
+                f"[{label}] attempt {attempt}/{NAVIGATION_ATTEMPTS} failed: {exc!r}; "
+                f"diagnostic={json.dumps(diagnostic, ensure_ascii=False)}",
+                file=sys.stderr,
+            )
+            if attempt < NAVIGATION_ATTEMPTS:
+                await page.wait_for_timeout(1_000 * attempt)
+    raise RuntimeError(f"{label} unavailable after {NAVIGATION_ATTEMPTS} attempts: {last_exc}") from last_exc
+
+
 async def collect_news_items(page, since: datetime, until: datetime, max_pages: int) -> list[NewsItem]:
     items: list[NewsItem] = []
     seen: set[str] = set()
 
     print(f"[list] open {LIST_URL}")
-    await page.goto(LIST_URL, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-    await page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
+    await open_with_retries(page, LIST_URL, LIST_SELECTOR, "list")
 
     for _ in range(max(0, max_pages - 1)):
         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         await page.wait_for_timeout(800)
 
-    try:
-        await page.wait_for_selector('.FeedImgTextItem a[href*="/a/"]', timeout=15_000)
-    except PWTimeout as exc:
-        raise RuntimeError("no Sohu media article results found; source structure may have changed") from exc
-
     rows = await page.evaluate(
-        """() => [...document.querySelectorAll('.FeedImgTextItem')].map(item => {
-            const link = item.querySelector('a[href*="/a/"]');
-            const title = item.querySelector('.title');
-            const time = item.querySelector('.extra-info-item-text');
+        """() => [...document.querySelectorAll(
+            '.FeedImgTextItem a[href*="/a/"], a.FeedImgTextItemContainer[href*="/a/"]'
+        )].map(link => {
+            const item = link.closest('.FeedImgTextItem, .FeedImgTextItemContainerWrap') || link.parentElement;
+            const title = item?.querySelector('.title') || link;
+            const time = item?.querySelector('.extra-info-item-text');
             return {
-                href: link ? link.href : '',
+                href: link.href || '',
                 title: title ? title.innerText.trim() : '',
                 time: time ? time.innerText.trim() : '',
-                text: item.innerText || item.textContent || ''
+                text: item ? (item.innerText || item.textContent || '') : ''
             };
         })"""
     )
@@ -317,9 +359,7 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
     tmp_path = out_dir / f".tmp_{item.news_id}.pdf"
     try:
         print(f"[{item.news_id}] open {item.url}")
-        await page.goto(item.url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
-        await page.wait_for_load_state("networkidle", timeout=PAGE_TIMEOUT)
-        await page.wait_for_selector("h1, #articleContent, .article-content", timeout=15_000)
+        await open_with_retries(page, item.url, ARTICLE_SELECTOR, item.news_id)
         await scroll_for_lazy_images(page)
         meta = await fetch_article_meta(page)
         if not meta.get("content_html"):

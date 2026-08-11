@@ -24,6 +24,12 @@ PUBLISH_LOG_DIR = DATA_DIR / "publish_logs"
 REPORT_FEEDBACK_PATH = DATA_DIR / "report_feedback.jsonl"
 OPEN_FEISHU_BASE = "https://open.feishu.cn/open-apis"
 REPORT_SUBSCRIPTION_KINDS = ("daily", "weekly", "weekend")
+CARD_ITEMS_PER_SECTION = 10
+COMMUNITY_CARD_ITEMS_BY_REPORT_KIND = {
+    "daily": 2,
+    "weekend": 2,
+    "weekly": 3,
+}
 
 
 def load_dotenv(path: Path | None = None) -> None:
@@ -525,8 +531,13 @@ def _parse_markdown_sections(text: str) -> list[dict[str, Any]]:
             cur["items"].append({"title": bullet.group(1).strip(), "body": "", "kind": "bullet"})
             continue
         stripped = line.strip()
-        if pending is not None and stripped and not stripped.startswith("|"):
-            pending["body"] = (pending["body"] + " " + stripped).strip()
+        if pending is not None:
+            if not stripped:
+                if pending["body"] and not pending["body"].endswith("\n\n"):
+                    pending["body"] = pending["body"].rstrip() + "\n\n"
+            elif not stripped.startswith("|"):
+                separator = "" if pending["body"].endswith("\n") else " "
+                pending["body"] = (pending["body"] + separator + stripped).strip()
     flush()
     return sections
 
@@ -559,7 +570,7 @@ def _card_title_key(value: str) -> str:
 def _attach_industry_scores(
     sections: list[dict[str, Any]], report_dir: Path
 ) -> None:
-    """Attach audited industry totals to card items without displaying scores."""
+    """Attach audited industry/card metadata without displaying raw scores."""
     items_path = report_dir / "_intermediate" / "report_items.json"
     decisions_path = report_dir / "_intermediate" / "selection_decisions.json"
     if not items_path.exists() or not decisions_path.exists():
@@ -579,32 +590,71 @@ def _attach_industry_scores(
     if not isinstance(report_items, list) or not isinstance(decisions, list):
         return
 
-    total_by_candidate: dict[str, int | float] = {}
+    decision_by_candidate: dict[str, dict[str, Any]] = {}
     for decision in decisions:
         if not isinstance(decision, dict) or decision.get("section") not in ("industry", "industry_news"):
             continue
-        total = (decision.get("scores") or {}).get("total")
         candidate_id = str(decision.get("candidate_id") or "")
-        if candidate_id and isinstance(total, (int, float)):
-            total_by_candidate[candidate_id] = total
+        if candidate_id:
+            decision_by_candidate[candidate_id] = decision
 
-    total_by_title: dict[str, int | float] = {}
+    audit_by_title: dict[str, dict[str, Any]] = {}
     for item in report_items:
         if not isinstance(item, dict) or item.get("section") not in ("industry", "industry_news"):
             continue
-        total = total_by_candidate.get(str(item.get("candidate_id") or ""))
+        candidate_id = str(item.get("candidate_id") or "")
+        decision = decision_by_candidate.get(candidate_id, {})
+        total = (decision.get("scores") or {}).get("total")
         key = _card_title_key(str(item.get("title") or ""))
-        if key and total is not None:
-            total_by_title[key] = total
+        if key:
+            audit_by_title[key] = {
+                "candidate_id": candidate_id,
+                "score_total": total if isinstance(total, (int, float)) else None,
+                "card_carryover": decision.get("card_carryover") is True,
+            }
 
     for section in sections:
         name = str(section.get("name") or "")
         if "行业" not in name or "AI" in name.upper():
             continue
         for item in section.get("items", []):
-            total = total_by_title.get(_card_title_key(str(item.get("title") or "")))
-            if total is not None:
-                item["score_total"] = total
+            audit = audit_by_title.get(_card_title_key(str(item.get("title") or "")))
+            if not audit:
+                continue
+            if audit["candidate_id"]:
+                item["candidate_id"] = audit["candidate_id"]
+            if audit["score_total"] is not None:
+                item["score_total"] = audit["score_total"]
+            if audit["card_carryover"]:
+                item["card_carryover"] = True
+
+
+def _validate_card_report_artifacts(report_dir: Path, markdown_path: Path) -> None:
+    """Run the full report contract before any card reads structured reports."""
+    intermediate = report_dir / "_intermediate"
+    items_path = intermediate / "report_items.json"
+    decisions_path = intermediate / "selection_decisions.json"
+    release_audit_path = intermediate / "release_calendar_audit.json"
+    structured_paths = (items_path, decisions_path, release_audit_path)
+    if not any(path.exists() for path in structured_paths):
+        return
+    inputs_path = intermediate / "report_inputs.jsonl"
+    sources_path = report_dir / "sources_used.md"
+    try:
+        from report_artifacts import validate_contract
+    except ModuleNotFoundError:
+        from scripts.report_artifacts import validate_contract
+    errors, _warnings = validate_contract(
+        markdown_path,
+        inputs_path,
+        items_path,
+        decisions_path,
+        release_audit_path,
+        sources_path,
+        require_artifacts=True,
+    )
+    if errors:
+        raise ValueError("card report preflight failed:\n- " + "\n- ".join(errors))
 
 
 def load_report_summary(date: str, max_items: int | None = None) -> dict[str, Any]:
@@ -614,6 +664,7 @@ def load_report_summary(date: str, max_items: int | None = None) -> dict[str, An
     if not report_dir.exists():
         raise FileNotFoundError(f"Report folder not found: {report_dir}")
     if markdown_path.exists():
+        _validate_card_report_artifacts(report_dir, markdown_path)
         text = markdown_path.read_text(encoding="utf-8")
         sections = _parse_markdown_sections(text)
         title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
@@ -802,6 +853,30 @@ def _weekday_label(date: str) -> str:
         return ""
 
 
+_CARD_PIPELINE_LEAK = re.compile(
+    r"(?:GameLook专稿|禁止转载|GameLook报道/|"
+    r"\bSource\s*:\s*|回复\s*[：:]\s*\d+|页数\s*[：:]\s*\d+|"
+    r"收录依据\s*[：:]|created\s*@|综合热度分|本周该信号聚焦|"
+    r"(?:【|\[)\s*(?:补位|上期卡片未展示)\s*(?:】|\])|"
+    r"上期卡片未展示|card_carryover)",
+    re.IGNORECASE,
+)
+
+
+def _validate_card_source_text(title: str, body: str, *, deep: bool = False) -> None:
+    """Block report-generation residue before it reaches a Feishu card."""
+    combined = f"{title}\n{body}"
+    matched = _CARD_PIPELINE_LEAK.search(combined)
+    if matched:
+        raise ValueError(f"card source contains pipeline/source metadata: {matched.group(0)}")
+    if deep:
+        plain = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", body or "").strip()
+        if not plain.startswith("观察：") or "分析：" not in plain:
+            raise ValueError("deep-observation card source must start with 观察： and contain 分析：")
+        if len([part for part in re.split(r"\n\s*\n", plain.split("分析：", 1)[1]) if part.strip()]) < 2:
+            raise ValueError("deep-observation card source needs at least two analysis paragraphs")
+
+
 def _industry_card_detail(body: str) -> str:
     """Return one non-redundant factual extension for an industry-card line."""
     sentences = [
@@ -823,7 +898,7 @@ def _industry_card_detail(body: str) -> str:
     def usable(candidate: str) -> bool:
         return bool(factual_markers.search(candidate)) and not any(
             marker in candidate for marker in editorial_markers
-        )
+        ) and not _CARD_PIPELINE_LEAK.search(candidate)
 
     # Industry item titles already carry the lead event. Select the strongest
     # non-lead clause with a concrete product, timing, market, or mechanism
@@ -908,10 +983,64 @@ def _emphasize_lead_clause(line: str) -> str:
     return f"**{line[:end]}**{line[end:]}"
 
 
+def _select_section_card_items(
+    section: dict[str, Any],
+    per_section: int,
+    *,
+    report_kind: str = "",
+) -> list[dict[str, Any]]:
+    """Apply section caps and guarantee the one audited industry carryover slot."""
+    if per_section <= 0:
+        return []
+    items = list(section.get("items", []))
+    name = str(section.get("name") or "")
+    section_limit = per_section
+    if any(keyword in name for keyword in ("舆论", "社区")):
+        community_limit = COMMUNITY_CARD_ITEMS_BY_REPORT_KIND.get(report_kind)
+        if community_limit is not None:
+            section_limit = min(section_limit, community_limit)
+    selected = items[:section_limit]
+    if "行业" not in name or "AI" in name.upper():
+        return selected
+    carryover = next((item for item in items if item.get("card_carryover") is True), None)
+    if carryover is None or carryover in selected:
+        return selected
+    return selected[: max(0, per_section - 1)] + [carryover]
+
+
+def card_item_manifest(
+    summary: dict[str, Any], per_section: int = CARD_ITEMS_PER_SECTION
+) -> list[dict[str, Any]]:
+    """Return the exact report items rendered by the main subscriber card."""
+    manifest: list[dict[str, Any]] = []
+    for section in summary.get("sections", []):
+        _emoji, display, drop = _section_meta(section.get("name", ""))
+        if drop:
+            continue
+        for position, item in enumerate(
+            _select_section_card_items(
+                section,
+                per_section,
+                report_kind=str(summary.get("kind") or ""),
+            ),
+            1,
+        ):
+            manifest.append(
+                {
+                    "section": "industry" if display == "行业新闻" else display,
+                    "candidate_id": str(item.get("candidate_id") or ""),
+                    "title": _card_title_key(str(item.get("title") or "")),
+                    "position": position,
+                    "card_carryover": item.get("card_carryover") is True,
+                }
+            )
+    return manifest
+
+
 def build_daily_card(
     summary: dict[str, Any],
     doc_url: str | None = None,
-    per_section: int = 6,
+    per_section: int = CARD_ITEMS_PER_SECTION,
     *,
     feedback_expanded: bool = False,
 ) -> dict[str, Any]:
@@ -933,11 +1062,20 @@ def build_daily_card(
         emoji, display, drop = _section_meta(section.get("name", ""))
         if drop:
             continue
-        items = section.get("items", [])[:per_section]
+        items = _select_section_card_items(
+            section,
+            per_section,
+            report_kind=str(summary.get("kind") or ""),
+        )
         if not items:
             continue
         lines = [f"**{emoji} {display}**"]
         for index, item in enumerate(items):
+            _validate_card_source_text(
+                item.get("title", ""),
+                item.get("body", ""),
+                deep=False,
+            )
             title = _plain_card_text(_strip_item_number(item.get("title", "")))
             if not title:
                 continue
@@ -951,7 +1089,9 @@ def build_daily_card(
                 )
                 lines.append(f"• {headline}{suffix}")
             elif display.startswith("AI"):
-                lines.append(f"• {title}")
+                detail = _plain_card_text(_industry_card_detail(item.get("body", "")))
+                suffix = f"；{detail}" if detail else ""
+                lines.append(f"• {title}{suffix}")
             elif display == "新游 / 产品":
                 line = _product_card_line(item)
                 if index < 2:
@@ -1129,67 +1269,65 @@ def build_deep_observation_card(
     elements: list[dict[str, Any]] = []
     for item in items[:max_items]:
         title = _strip_item_number(item.get("title", ""))
-        body = re.sub(r"\s+", " ", item.get("body", "")).strip()
-        if len(body) > 900:
-            body = body[:897].rstrip("，、；： ") + "……"
-        # Cards intentionally keep the body compact, but the two analytical
-        # layers need visible hierarchy.  Do not let whitespace normalization
-        # flatten `观察：` / `分析：` into ordinary inline prose.
+        body = re.sub(r"[ \t]+", " ", item.get("body", "")).strip()
+        body = re.sub(r"\n{3,}", "\n\n", body)
+        _validate_card_source_text(title, body, deep=True)
         body = re.sub(r"\*{0,2}(观察：|分析：)\*{0,2}", r"**\1**", body)
-        body = re.sub(r"(?<!^)(\*\*(?:观察|分析)：\*\*)", r"\n\n\1", body)
-        # The 分析 layer often carries an ①②③… enumeration crammed into one
-        # block; break each point onto its own line so it reads as a list.
-        body = re.sub(r"\s*([①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])", r"\n\1", body)
-        body = re.sub(r"[ \t]+\n", "\n", body)
-        body = re.sub(r"[ \t]+\n\n", "\n\n", body)
         content = f"**{title}**"
         if body:
             content += f"\n\n{body}"
-        elements.append({"tag": "div", "text": {"tag": "lark_md", "content": content}})
+        elements.append({"tag": "markdown", "content": content})
 
-    actions: list[dict[str, Any]] = []
+    buttons: list[dict[str, Any]] = []
     if doc_url:
         noun = summary.get("noun") or "周报"
-        actions.append(
+        buttons.append(
             {
                 "tag": "button",
                 "text": {"tag": "plain_text", "content": f"查看{noun}飞书文档"},
                 "type": "primary",
-                "url": doc_url,
+                "behaviors": [{"type": "open_url", "default_url": doc_url}],
             }
         )
     if source_url:
-        actions.append(
+        buttons.append(
             {
                 "tag": "button",
                 "text": {"tag": "plain_text", "content": "查看原文链接"},
                 "type": "default",
-                "url": source_url,
+                "behaviors": [{"type": "open_url", "default_url": source_url}],
             }
         )
-    if actions:
+    if buttons:
         elements.append({"tag": "hr"})
         elements.append(
             {
-                "tag": "action",
-                "actions": actions,
+                "tag": "column_set",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [button],
+                    }
+                    for button in buttons
+                ],
             }
         )
     elements.append(
         {
-            "tag": "note",
-            "elements": [
-                {"tag": "plain_text", "content": "独立深度观察 · 观察与分析分层呈现"}
-            ],
+            "tag": "markdown",
+            "content": "独立深度观察 · 观察与分析分层呈现",
+            "text_size": "notation",
         }
     )
     return {
-        "config": {"wide_screen_mode": True},
+        "schema": "2.0",
+        "config": {"width_mode": "fill"},
         "header": {
             "template": "purple",
             "title": {"tag": "plain_text", "content": f"🧠 {summary['title']}｜深度观察"},
         },
-        "elements": elements,
+        "body": {"elements": elements},
     }
 
 

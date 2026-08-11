@@ -34,17 +34,25 @@ def build_release_decision(node: dict[str, Any], include: bool) -> dict[str, Any
         "event": f"{event_date} {event}".strip(),
         "decision": "include" if include else "exclude",
         "reason": (
-            "多源候选按事件类型×来源强度排序进入报告上限"
+            "多源候选按事件类型×来源强度+重点公司加分排序进入报告上限"
             if include
+            else "事件日期不在报告窗口"
+            if node.get("window_eligible") is False
             else "单源不具备正文资格" if int(node.get("appearance_count") or 0) < 2
             else "超过本报告产品日历条数上限"
         ),
         "scores": {
             "event": int(node.get("event_type_score") or 0),
             "source": int(node.get("source_strength_score") or 0),
+            "company": int(node.get("company_bonus") or 0),
             "total": int(node.get("priority_score") or 0),
         },
     }
+    focus_companies = [
+        str(value) for value in node.get("focus_companies", []) if str(value)
+    ]
+    if focus_companies:
+        decision["focus_companies"] = focus_companies
     if len(sources) > 1:
         decision["cluster_basis"] = {
             "subject": product,
@@ -65,7 +73,11 @@ def sync(audit_path: Path, decisions_path: Path, max_items: int) -> None:
     eligible_seen = 0
     release: list[dict[str, Any]] = []
     for node in nodes:
-        eligible = int(node.get("appearance_count") or 0) >= 2
+        eligible = (
+            bool(node.get("publish_eligible"))
+            if "publish_eligible" in node
+            else int(node.get("appearance_count") or 0) >= 2
+        )
         include = eligible and eligible_seen < max_items
         if eligible:
             eligible_seen += 1

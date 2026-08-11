@@ -8,6 +8,7 @@ from pathlib import Path
 
 from deep_observation_handoff import validate_weekly_handoff
 from feishu_common import (
+    CARD_ITEMS_PER_SECTION,
     FeishuClient,
     PUBLISH_LOG_DIR,
     active_subscribers,
@@ -15,6 +16,7 @@ from feishu_common import (
     build_daily_card,
     build_deep_observation_cards,
     build_docx_markdown,
+    card_item_manifest,
     content_hash,
     load_dotenv,
     load_report_summary,
@@ -93,7 +95,7 @@ def latest_published_report(kind: str) -> tuple[str, dict] | None:
 
 
 def send_latest_report(
-    client: FeishuClient, open_id: str, kind: str, *, max_items: int = 10
+    client: FeishuClient, open_id: str, kind: str, *, max_items: int = CARD_ITEMS_PER_SECTION
 ) -> str | None:
     """Send one user the latest already-published card of the requested kind."""
     latest = latest_published_report(kind)
@@ -175,7 +177,11 @@ def resolve_folder_token(explicit: str | None) -> str | None:
 
 
 def backfill_one(
-    client: FeishuClient, open_id: str, date: str | None = None, *, max_items: int = 6
+    client: FeishuClient,
+    open_id: str,
+    date: str | None = None,
+    *,
+    max_items: int = CARD_ITEMS_PER_SECTION,
 ) -> str | None:
     """Send a single subscriber the card+doc for `date` (default: today),
     reusing the docx already created for that date. Used to immediately catch up
@@ -221,10 +227,15 @@ def publish(args: argparse.Namespace) -> int:
         else active_subscribers(summary["kind"])
     )
     if args.dry_run:
+        manifest = card_item_manifest(summary, args.max_items)
         print(f"[dry-run] date: {args.date}")
         print(f"[dry-run] title: {summary['title']}")
         print(f"[dry-run] subscribers: {len(subscribers)}")
         print(f"[dry-run] markdown: {markdown_path}")
+        print(f"[dry-run] card items: {len(manifest)}; per-section limit: {args.max_items}")
+        carryovers = [row["title"] for row in manifest if row.get("card_carryover")]
+        if carryovers:
+            print(f"[dry-run] card carryover: {'; '.join(carryovers)}")
         if args.create_doc:
             existing = None if args.new_doc else existing_doc_for_date(args.date)
             if existing:
@@ -261,6 +272,7 @@ def publish(args: argparse.Namespace) -> int:
         doc_url = resolve_doc_url(args.date, args.doc_url)
 
     card = build_daily_card(summary, doc_url=doc_url, per_section=args.max_items)
+    manifest = card_item_manifest(summary, args.max_items)
     deep_cards = (
         build_deep_observation_cards(summary, doc_url=doc_url)
         if summary["kind"] == "weekly"
@@ -289,6 +301,14 @@ def publish(args: argparse.Namespace) -> int:
             if row["ok"]:
                 mark_subscriber_pushed(row["open_id"], args.date, summary["kind"])
 
+    success_count = sum(1 for row in results if row["ok"])
+    audience_scope = "single_test" if args.to_open_id else "subscribers"
+    card_delivery_succeeded = (
+        audience_scope == "subscribers"
+        and bool(results)
+        and success_count > len(results) / 2
+    )
+
     log = {
         "date": args.date,
         "published_at": utc_now_iso(),
@@ -296,6 +316,11 @@ def publish(args: argparse.Namespace) -> int:
         "doc_token": doc_token,
         "content_hash": content_hash(Path(summary["markdown_path"])) if markdown_path.exists() else None,
         "subscriber_count": len(subscribers),
+        "audience_scope": audience_scope,
+        "card_exposure_schema_version": 1,
+        "card_max_items_per_section": args.max_items,
+        "card_delivery_succeeded": card_delivery_succeeded,
+        "card_items": manifest,
         "results": results,
     }
     write_json(PUBLISH_LOG_DIR / f"daily_{args.date}.json", log)
@@ -322,7 +347,12 @@ def main() -> int:
         help="Force a brand-new docx even if one already exists for the date (default: reuse).",
     )
     parser.add_argument("--to-open-id", help="Send to one open_id for testing instead of all subscribers.")
-    parser.add_argument("--max-items", type=int, default=6, help="Max items shown per section in the card.")
+    parser.add_argument(
+        "--max-items",
+        type=int,
+        default=CARD_ITEMS_PER_SECTION,
+        help="Max items shown per section in the card (default: 10).",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Preview without sending anything.")
     return publish(parser.parse_args())
 

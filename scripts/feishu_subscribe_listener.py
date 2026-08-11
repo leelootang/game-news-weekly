@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from feishu_common import (
+    CARD_ITEMS_PER_SECTION,
     PUBLISH_LOG_DIR,
     REPORT_FEEDBACK_PATH,
     FeishuClient,
@@ -239,7 +240,7 @@ def handle_card_action_event(data: Any) -> Any:
             expanded_card = build_daily_card(
                 summary,
                 doc_url=log.get("doc_url"),
-                per_section=10,
+                per_section=CARD_ITEMS_PER_SECTION,
                 feedback_expanded=True,
             )
         except Exception as exc:

@@ -9,6 +9,9 @@ from pathlib import Path
 
 
 WEEKLY_ID_RE = re.compile(r"(?P<start>\d{4}-\d{2}-\d{2})_to_(?P<end>\d{4}-\d{2}-\d{2})")
+WEEKLY_REPORT_RE = re.compile(
+    r"game_industry_weekly_(?P<weekly_id>\d{4}-\d{2}-\d{2}_to_\d{4}-\d{2}-\d{2})\.md"
+)
 ITEM_HEADING_RE = re.compile(r"(?m)^###\s+\d+\.\s+(?P<title>.+?)\s*$")
 
 
@@ -24,10 +27,17 @@ def selection_windows(thursday: date) -> tuple[str, str]:
 
 
 def weekly_id_from_report(report_path: Path) -> str | None:
-    match = WEEKLY_ID_RE.search(report_path.name)
+    """Return the ID only for canonical reports under output/weekly/<ID>/."""
+    match = WEEKLY_REPORT_RE.fullmatch(report_path.name)
     if not match:
-        match = WEEKLY_ID_RE.fullmatch(report_path.parent.name)
-    return match.group(0) if match else None
+        return None
+    if report_path.parent.name != match.group("weekly_id"):
+        return None
+    if report_path.parent.parent.name != "weekly":
+        return None
+    if report_path.parent.parent.parent.name != "output":
+        return None
+    return match.group("weekly_id")
 
 
 def workspace_from_report(report_path: Path) -> Path:

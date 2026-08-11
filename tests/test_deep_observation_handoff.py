@@ -97,6 +97,18 @@ class DeepObservationHandoffTests(unittest.TestCase):
             errors = HANDOFF.validate_weekly_handoff(report)
             self.assertTrue(any("legacy candidate-window selection" in error for error in errors))
 
+    def test_weekend_report_does_not_require_weekly_selection(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            report_dir = root / "output" / "weekend" / "2026-07-24_to_2026-07-26"
+            report_dir.mkdir(parents=True)
+            report = report_dir / "game_industry_weekend_2026-07-24_to_2026-07-26.md"
+            report.write_text(
+                "# 周末报\n\n## 五、行业精选 / 深度观察\n\n### 1. 周末观察\n\n观察：变化。\n\n分析：机制。\n",
+                encoding="utf-8",
+            )
+            self.assertEqual([], HANDOFF.validate_weekly_handoff(report))
+
 
 if __name__ == "__main__":
     unittest.main()

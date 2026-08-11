@@ -17,6 +17,7 @@ import json
 import re
 import sys
 import time
+import traceback
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -581,6 +582,7 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
                 return SaveResult(True, "rss_summary", reason)
             except Exception as fallback_exc:
                 print(f"[{item.news_id}] RSS fallback failed: {fallback_exc!r}", file=sys.stderr)
+                print(traceback.format_exc(), file=sys.stderr)
                 return SaveResult(False, "empty", repr(fallback_exc))
 
     recorded = manifest.setdefault("items", {}).get(item.news_id)

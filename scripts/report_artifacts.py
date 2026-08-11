@@ -36,6 +36,7 @@ except ModuleNotFoundError:  # Imported as scripts.report_artifacts in tests/too
 
 
 SCHEMA_VERSION = 1
+COMMUNITY_CAP_ENFORCEMENT_START = "2026-08-11"
 SOURCE_ID_RE = re.compile(r"\bS\d{4}\b")
 SECTION_HEADINGS = {
     "industry": "行业新闻",
@@ -56,9 +57,22 @@ SECTION_ALIASES = {
     "deep_analysis": "deep",
     "deep": "deep",
 }
-COMMUNITY_COUNT = re.compile(r"(?:\d+\s*(?:条)?回复|\d+\s*页|浏览(?:量)?\s*\d+|热度\s*\d+)")
+COMMUNITY_COUNT = re.compile(
+    r"(?:\d+\s*(?:条)?回复|\d+\s*页|浏览(?:量)?\s*\d+|热度\s*\d+|"
+    r"回复\s*[：:]\s*\d+|页数\s*[：:]\s*\d+|综合热度分|收录依据|created\s*@)",
+    re.IGNORECASE,
+)
+PIPELINE_LEAK = re.compile(
+    r"(?:GameLook专稿|禁止转载|GameLook报道/|"
+    r"\bSource\s*:\s*|回复\s*[：:]\s*\d+|页数\s*[：:]\s*\d+|"
+    r"收录依据\s*[：:]|created\s*@|发布于\s+\S+\s+游戏新知|"
+    r"(?:【|\[)\s*(?:补位|上期卡片未展示)\s*(?:】|\])|"
+    r"上期卡片未展示|card_carryover)",
+    re.IGNORECASE,
+)
 RELEASE_EVENT = re.compile(r"上线|公测|内测|首测|删档测试|不删档|付费测试|测试|抢先体验|EA|发售|发布|预约|开测|定档|上市|开服|重启|复活|停运|延期|跳票", re.I)
 PRIORITY_TRACKS = {"pvp_competitive", "strategy_card_rpg", "life_simulation"}
+ROBLOX_SUBJECT = re.compile(r"^(?:roblox(?: corporation)?|罗布乐思)$", re.IGNORECASE)
 # 新闻标题应陈述可核验事实，而非复用来源的宣传性修辞。具体规模
 # 应以销量、预约量、榜单名次等数据写出；这些词不应作为事实替身。
 PROMOTIONAL_INDUSTRY_TITLE_TERMS = ("爆红", "霸榜", "横扫", "席卷", "封神", "现象级", "杀疯了")
@@ -98,6 +112,22 @@ def release_cap_for_report(report_path: Path) -> int:
     return 4
 
 
+def community_cap_for_report(report_path: Path) -> int | None:
+    """Return the hard player-discourse cap for report kinds that define one."""
+    name = report_path.name
+    if "game_industry_weekly_" in name:
+        return 3
+    if "game_industry_daily_" in name or "game_industry_weekend_" in name:
+        return 2
+    return None
+
+
+def community_cap_is_enforced(report_path: Path) -> bool:
+    """Grandfather reports whose covered window ended before this rule shipped."""
+    report_dates = re.findall(r"\d{4}-\d{2}-\d{2}", report_path.name)
+    return bool(report_dates and max(report_dates) >= COMMUNITY_CAP_ENFORCEMENT_START)
+
+
 def inputs_by_id(inputs_path: Path) -> dict[str, dict[str, Any]]:
     records: dict[str, dict[str, Any]] = {}
     for record in load_jsonl(inputs_path):
@@ -112,6 +142,15 @@ def inputs_by_id(inputs_path: Path) -> dict[str, dict[str, Any]]:
 
 def canonical_section(value: str) -> str:
     return SECTION_ALIASES.get(value.strip().lower(), value.strip().lower())
+
+
+def is_roblox_industry_subject(decision: dict[str, Any]) -> bool:
+    """Return true when Roblox is explicitly named as a candidate subject."""
+    entities = decision.get("entities", [])
+    return isinstance(entities, list) and any(
+        isinstance(entity, str) and ROBLOX_SUBJECT.fullmatch(entity.strip())
+        for entity in entities
+    )
 
 
 def parse_report_items(report_text: str) -> list[ReportItem]:
@@ -196,9 +235,16 @@ def parse_sources_used(text: str) -> tuple[dict[str, list[str]], dict[str, tuple
         elif "source details" in section or "来源明细" in section:
             if not line.startswith("- S"):
                 continue
-            parts = [part.strip() for part in line[2:].split("|")]
-            if len(parts) >= 4 and SOURCE_ID_RE.fullmatch(parts[0]):
-                details[parts[0]] = (parts[1], parts[2], parts[3])
+            detail_match = re.match(
+                r"^-\s+(S\d{4})\s+\|\s+(.*?)\s+\|\s+(.*?)\s+\|\s+(https?://\S+)\s*$",
+                line,
+            )
+            if detail_match:
+                details[detail_match.group(1)] = (
+                    detail_match.group(2),
+                    detail_match.group(3),
+                    detail_match.group(4),
+                )
     return item_map, details
 
 
@@ -258,6 +304,56 @@ def validate_editorial_titles(report_items: list[ReportItem]) -> list[str]:
     return errors
 
 
+def validate_industry_history_check(
+    decision: dict[str, Any],
+    candidate_id: str,
+    require_card_exposure: bool = False,
+) -> list[str]:
+    """Validate the semantic audit gate used with industry_history_14d.json."""
+    errors: list[str] = []
+    check = decision.get("history_check")
+    required = {"history_match", "novelty", "prior_occurrences", "new_facts"}
+    if require_card_exposure:
+        required.add("prior_card_exposed")
+    if not isinstance(check, dict) or not required.issubset(check):
+        return [f"industry decision lacks 14-day history_check: {candidate_id}"]
+    if not isinstance(check.get("history_match"), bool):
+        errors.append(f"history_check.history_match must be boolean: {candidate_id}")
+    novelty = check.get("novelty")
+    if novelty not in {"new_event", "repeat_only", "material_update", "card_carryover"}:
+        errors.append(f"history_check.novelty is invalid: {candidate_id}")
+    prior = check.get("prior_occurrences")
+    new_facts = check.get("new_facts")
+    if not isinstance(prior, list) or not all(isinstance(value, str) and value.strip() for value in prior):
+        errors.append(f"history_check.prior_occurrences must be a string list: {candidate_id}")
+    if not isinstance(new_facts, list) or not all(isinstance(value, str) and value.strip() for value in new_facts):
+        errors.append(f"history_check.new_facts must be a string list: {candidate_id}")
+    if check.get("history_match") is True and isinstance(prior, list) and not prior:
+        errors.append(f"history match must cite prior occurrences: {candidate_id}")
+    if require_card_exposure:
+        prior_card_exposed = check.get("prior_card_exposed")
+        if check.get("history_match") is True and not isinstance(prior_card_exposed, bool):
+            errors.append(f"history match must record boolean prior_card_exposed: {candidate_id}")
+        if check.get("history_match") is False and prior_card_exposed is not None:
+            errors.append(f"new event prior_card_exposed must be null: {candidate_id}")
+    if novelty == "repeat_only" and decision.get("decision") == "include":
+        errors.append(f"repeat-only industry event cannot be included: {candidate_id}")
+    if novelty == "material_update" and decision.get("decision") == "include" and isinstance(new_facts, list) and not new_facts:
+        errors.append(f"material-update include must identify new facts: {candidate_id}")
+    if novelty == "card_carryover":
+        if decision.get("decision") != "include":
+            errors.append(f"card-carryover decision must be included: {candidate_id}")
+        if decision.get("card_carryover") is not True:
+            errors.append(f"card-carryover include must set card_carryover=true: {candidate_id}")
+        if check.get("history_match") is not True:
+            errors.append(f"card-carryover must match report history: {candidate_id}")
+        if check.get("prior_card_exposed") is not False:
+            errors.append(f"card-carryover requires prior_card_exposed=false: {candidate_id}")
+    elif decision.get("card_carryover") is True:
+        errors.append(f"card_carryover=true requires novelty=card_carryover: {candidate_id}")
+    return errors
+
+
 def validate_contract(
     report_path: Path,
     inputs_path: Path,
@@ -272,6 +368,32 @@ def validate_contract(
     warnings: list[str] = []
     report_items = parse_report_items(report_path.read_text(encoding="utf-8"))
     inputs = inputs_by_id(inputs_path)
+    community_cap = community_cap_for_report(report_path)
+    community_count = sum(item.section == "community" for item in report_items)
+    if (
+        community_cap is not None
+        and community_cap_is_enforced(report_path)
+        and community_count > community_cap
+    ):
+        errors.append(
+            f"community discourse exceeds report cap {community_cap}: {community_count}"
+        )
+    history_path = inputs_path.parent / "industry_history_14d.json"
+    industry_history_required = False
+    card_exposure_required = False
+    if history_path.exists():
+        history_data = read_json(history_path)
+        industry_history_required = (
+            isinstance(history_data, dict)
+            and history_data.get("enforce_history_check") is True
+        )
+        card_exposure_required = (
+            isinstance(history_data, dict)
+            and history_data.get("enforce_card_exposure_check") is True
+        )
+    for item in report_items:
+        if PIPELINE_LEAK.search(f"{item.title}\n{item.body}"):
+            errors.append(f"published item leaks source/pipeline metadata: {item.section}/{item.title}")
     errors.extend(validate_editorial_titles(report_items))
     errors.extend(validate_weekly_handoff(report_path))
     industry_threshold = 8 if "game_industry_weekly_" in report_path.name else 7
@@ -295,6 +417,10 @@ def validate_contract(
     items = _items_list(read_json(items_path))
     decisions = _decisions_list(read_json(decisions_path))
     audit = read_json(release_audit_path)
+    try:
+        audit_schema_version = int(audit.get("schema_version") or 0) if isinstance(audit, dict) else 0
+    except (TypeError, ValueError):
+        audit_schema_version = 0
     audit_nodes = audit.get("nodes", []) if isinstance(audit, dict) else []
     if not isinstance(audit_nodes, list):
         errors.append("release_calendar_audit.json nodes must be a list")
@@ -303,6 +429,9 @@ def validate_contract(
     visible = [(item.section, item.title) for item in report_items]
     visible_by_key = {(item.section, item.title): item for item in report_items}
     structured: dict[tuple[str, str], dict[str, Any]] = {}
+    structured_by_candidate: dict[str, dict[str, Any]] = {}
+    source_signatures: dict[tuple[str, tuple[str, ...]], str] = {}
+    claim_lengths: list[int] = []
     for item in items:
         section = canonical_section(str(item.get("section") or ""))
         title = str(item.get("title") or "").strip()
@@ -313,9 +442,22 @@ def validate_contract(
         if key in structured:
             errors.append(f"duplicate report_items identity: {section}/{title}")
         structured[key] = item
+        candidate_id = str(item.get("candidate_id") or "").strip()
+        if candidate_id:
+            if candidate_id in structured_by_candidate:
+                errors.append(f"duplicate published candidate_id: {candidate_id}")
+            structured_by_candidate[candidate_id] = item
         source_ids = _ids(item.get("source_ids"))
         if not source_ids:
             errors.append(f"report item has no source_ids: {section}/{title}")
+        source_signature = (section, tuple(sorted(source_ids)))
+        if source_ids and source_signature in source_signatures:
+            errors.append(
+                f"duplicate source set in {section}: "
+                f"{source_signatures[source_signature]} / {title}"
+            )
+        elif source_ids:
+            source_signatures[source_signature] = title
         for sid in source_ids:
             record = inputs.get(sid)
             if not record:
@@ -333,6 +475,8 @@ def validate_contract(
                 sid = str(claim.get("source_id") or "")
                 claim_text = str(claim.get("claim") or "").strip()
                 evidence = str(claim.get("evidence") or "").strip()
+                if claim_text:
+                    claim_lengths.append(len(claim_text))
                 if not claim_text or claim_text not in visible_by_key[key].body:
                     errors.append(f"claim text is not present in final item: {title}")
                 if sid not in source_ids:
@@ -351,6 +495,14 @@ def validate_contract(
             elif len(source_ids) < 2:
                 errors.append(f"release calendar item needs multi-source evidence: {title}")
 
+    if len(claim_lengths) >= 5:
+        dominant = max(set(claim_lengths), key=claim_lengths.count)
+        if dominant >= 60 and claim_lengths.count(dominant) / len(claim_lengths) >= 0.8:
+            errors.append(
+                "claim evidence appears mechanically truncated: "
+                f"{claim_lengths.count(dominant)}/{len(claim_lengths)} claims are exactly {dominant} characters"
+            )
+
     if set(visible) != set(structured):
         for section, title in sorted(set(visible) - set(structured)):
             errors.append(f"published item missing report_items entry: {section}/{title}")
@@ -358,6 +510,7 @@ def validate_contract(
             errors.append(f"report_items entry not in final markdown: {section}/{title}")
 
     decisions_by_id: dict[str, dict[str, Any]] = {}
+    included_card_carryovers: list[str] = []
     for decision in decisions:
         cid = str(decision.get("candidate_id") or "").strip()
         if not cid:
@@ -390,6 +543,16 @@ def validate_contract(
             if unknown_tracks:
                 errors.append(f"decision has unknown priority_tracks {unknown_tracks}: {cid}")
         if canonical_section(str(decision.get("section") or "")) == "industry":
+            if industry_history_required:
+                errors.extend(
+                    validate_industry_history_check(
+                        decision,
+                        cid,
+                        require_card_exposure=card_exposure_required,
+                    )
+                )
+            if decision.get("decision") == "include" and decision.get("card_carryover") is True:
+                included_card_carryovers.append(cid)
             scores = decision.get("scores")
             if not isinstance(scores, dict) or not {"event", "relevance", "hook", "total"}.issubset(scores):
                 errors.append(f"industry decision lacks E×R+M scores: {cid}")
@@ -406,6 +569,10 @@ def validate_contract(
                         errors.append(f"industry E×R+M score out of range: {cid}")
                     if total != event * relevance + hook:
                         errors.append(f"industry total must equal E×R+M: {cid}")
+                    if is_roblox_industry_subject(decision) and relevance != 3:
+                        errors.append(
+                            f"Roblox industry subject must receive highest relevance R=3: {cid}"
+                        )
                     if decision.get("decision") == "include" and (event == 0 or total < industry_threshold):
                         errors.append(
                             f"industry include fails E×R+M threshold "
@@ -450,6 +617,11 @@ def validate_contract(
                     is_weekly = "game_industry_weekly_" in report_path.name
                     if is_weekly and decision.get("decision") == "include" and total < 9 and decision.get("card_designated") is not True:
                         errors.append(f"weekly deep include below 9 without manual card designation: {cid}")
+    if len(included_card_carryovers) > 1:
+        errors.append(
+            "at most one industry card_carryover may be included per report: "
+            + ", ".join(included_card_carryovers)
+        )
     for key, item in structured.items():
         cid = str(item.get("candidate_id") or "")
         decision = decisions_by_id.get(cid)
@@ -457,6 +629,45 @@ def validate_contract(
             errors.append(f"published item has no selection decision: {key[0]}/{key[1]}")
         elif decision.get("decision") != "include":
             errors.append(f"published item maps to non-include decision {cid}: {key[1]}")
+
+    published_candidate_ids = set(structured_by_candidate)
+    for cid, decision in decisions_by_id.items():
+        if decision.get("decision") == "include" and cid not in published_candidate_ids:
+            errors.append(f"include decision is missing from final report: {cid}")
+
+    industry_sources: dict[str, str] = {}
+    ai_sources: dict[str, str] = {}
+    for (section, title), item in structured.items():
+        destination = industry_sources if section == "industry" else ai_sources if section == "ai" else None
+        if destination is not None:
+            for sid in _ids(item.get("source_ids")):
+                destination[sid] = title
+    for sid in sorted(set(industry_sources) & set(ai_sources)):
+        errors.append(
+            f"same source is published in both industry and AI: "
+            f"{sid} ({industry_sources[sid]} / {ai_sources[sid]})"
+        )
+
+    industry_score_order: list[tuple[str, int]] = []
+    for report_item in report_items:
+        if report_item.section != "industry":
+            continue
+        structured_item = structured.get((report_item.section, report_item.title), {})
+        decision = decisions_by_id.get(str(structured_item.get("candidate_id") or ""), {})
+        scores = decision.get("scores") if isinstance(decision, dict) else None
+        if isinstance(scores, dict):
+            try:
+                industry_score_order.append((report_item.title, int(scores.get("total"))))
+            except (TypeError, ValueError):
+                pass
+    for (previous_title, previous_score), (title, score) in zip(
+        industry_score_order, industry_score_order[1:]
+    ):
+        if score > previous_score:
+            errors.append(
+                f"industry items are not sorted by score: "
+                f"{previous_title} ({previous_score}) before {title} ({score})"
+            )
 
     for node in audit_nodes:
         if not isinstance(node, dict):
@@ -475,25 +686,126 @@ def validate_contract(
         }
         if node.get("signal_type") not in allowed_calendar_signals:
             errors.append(f"release audit contains non-new-game signal: {node.get('title') or cid}")
+        if audit_schema_version >= 4:
+            company_bonus = int(node.get("company_bonus") or 0)
+            configured_bonus = int(audit.get("focus_company_bonus") or 0)
+            focus_companies = node.get("focus_companies")
+            company_evidence_ids = _ids(node.get("company_evidence_ids"))
+            if company_bonus not in {0, configured_bonus}:
+                errors.append(f"release company bonus is not configured value: {cid}/{company_bonus}")
+            if company_bonus:
+                if not isinstance(focus_companies, list) or not all(
+                    isinstance(value, str) and value.strip() for value in focus_companies
+                ):
+                    errors.append(f"release company bonus lacks focus_companies: {cid}")
+                if not company_evidence_ids:
+                    errors.append(f"release company bonus lacks company evidence: {cid}")
+                elif not set(company_evidence_ids).issubset(set(_ids(node.get("source_ids")))):
+                    errors.append(f"release company evidence is outside node sources: {cid}")
+                if not str(node.get("signal_type") or "").startswith("new_game_"):
+                    errors.append(f"old-product release signal cannot receive company bonus: {cid}")
         if decision:
             scores = decision.get("scores")
-            if not isinstance(scores, dict) or not {"event", "source", "total"}.issubset(scores):
-                errors.append(f"release decision lacks event×source scores: {cid}")
+            required_release_scores = {"event", "source", "total"}
+            if audit_schema_version >= 4:
+                required_release_scores.add("company")
+            if not isinstance(scores, dict) or not required_release_scores.issubset(scores):
+                errors.append(f"release decision lacks event×source+company scores: {cid}")
             else:
                 expected_event = int(node.get("event_type_score") or 0)
                 expected_source = int(node.get("source_strength_score") or 0)
+                expected_company = int(node.get("company_bonus") or 0)
                 expected_total = int(node.get("priority_score") or 0)
                 try:
-                    actual = (int(scores["event"]), int(scores["source"]), int(scores["total"]))
+                    actual_event = int(scores["event"])
+                    actual_source = int(scores["source"])
+                    actual_company = int(scores.get("company") or 0)
+                    actual_total = int(scores["total"])
                 except (TypeError, ValueError):
-                    errors.append(f"release event×source scores must be integers: {cid}")
+                    errors.append(f"release event×source+company scores must be integers: {cid}")
                 else:
-                    if actual != (expected_event, expected_source, expected_total):
-                        errors.append(f"release event×source scores drift from audit: {cid}")
-                    if actual[2] != actual[0] * actual[1]:
-                        errors.append(f"release total must equal event×source: {cid}")
+                    expected = (
+                        expected_event,
+                        expected_source,
+                        expected_company if audit_schema_version >= 4 else 0,
+                        expected_total,
+                    )
+                    actual = (actual_event, actual_source, actual_company, actual_total)
+                    if actual != expected:
+                        errors.append(f"release event×source+company scores drift from audit: {cid}")
+                    expected_formula_total = actual_event * actual_source + (
+                        actual_company if audit_schema_version >= 4 else 0
+                    )
+                    if actual_total != expected_formula_total:
+                        errors.append(f"release total must equal event×source+company: {cid}")
             if decision.get("decision") == "include" and int(node.get("appearance_count") or 0) < 2:
                 errors.append(f"release include must have multi-source evidence: {cid}")
+            if decision.get("decision") == "include":
+                event_date = str(node.get("event_date") or "").strip()
+                date_match = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", event_date)
+                if not date_match:
+                    errors.append(f"release include has invalid event_date: {cid}/{event_date}")
+                else:
+                    _year, month, day = date_match.groups()
+                    date_forms = (
+                        event_date,
+                        f"{int(month)}月{int(day)}日",
+                        f"{int(month)} 月 {int(day)} 日",
+                    )
+                    source_texts = [
+                        str(inputs.get(sid, {}).get("text") or "")
+                        for sid in _ids(node.get("source_ids"))
+                    ]
+                    if not any(
+                        any(date_form in source_text for date_form in date_forms)
+                        for source_text in source_texts
+                    ):
+                        errors.append(
+                            f"release include date is not evidenced by any source: "
+                            f"{cid}/{event_date}"
+                        )
+                    report_window = re.search(
+                        r"(\d{4}-\d{2}-\d{2})_to_(\d{4}-\d{2}-\d{2})",
+                        str(report_path),
+                    )
+                    if report_window:
+                        window_start, window_end = report_window.groups()
+                    else:
+                        daily_window = re.search(
+                            r"game_industry_daily_(\d{4}-\d{2}-\d{2})\.md$",
+                            report_path.name,
+                        )
+                        window_start = window_end = daily_window.group(1) if daily_window else ""
+                    signal_type = str(node.get("signal_type") or "")
+                    if (
+                        window_start
+                        and signal_type not in {"new_game_schedule", "new_game_first_reveal"}
+                        and not (window_start <= event_date <= window_end)
+                    ):
+                        errors.append(
+                            f"release include event is outside report window: "
+                            f"{cid}/{event_date}/{signal_type}"
+                        )
+
+    if audit_schema_version >= 4:
+        expected_audit_order = sorted(
+            audit_nodes,
+            key=lambda node: (
+                -int(bool(node.get("publish_eligible"))),
+                -int(node.get("priority_score") or 0),
+                -int(node.get("event_type_score") or 0),
+                -int(node.get("company_bonus") or 0),
+                -int(node.get("appearance_count") or 0),
+                -int(node.get("industry_bonus") or 0),
+                int(node.get("first_seen_order") or 0),
+            ),
+        )
+        if [
+            str(node.get("candidate_id") or "") for node in audit_nodes
+        ] != [
+            str(node.get("candidate_id") or "") for node in expected_audit_order
+        ]:
+            errors.append("release audit nodes are not sorted by the configured priority rule")
 
     release_includes = [
         str(d.get("candidate_id") or "") for d in decisions_by_id.values()
@@ -504,7 +816,11 @@ def validate_contract(
         errors.append(f"release calendar exceeds report cap {release_cap}: {len(release_includes)}")
     eligible_order = [
         str(node.get("candidate_id") or "") for node in audit_nodes
-        if int(node.get("appearance_count") or 0) >= 2
+        if (
+            bool(node.get("publish_eligible"))
+            if "publish_eligible" in node
+            else int(node.get("appearance_count") or 0) >= 2
+        )
     ]
     if release_includes != eligible_order[:len(release_includes)]:
         errors.append("release includes must be a priority-ranked prefix of multi-source candidates")
@@ -513,6 +829,13 @@ def validate_contract(
         if item.section == "community" and COMMUNITY_COUNT.search(item.body):
             errors.append(f"community item contains reply/page/heat count: {item.title}")
         if item.section == "deep":
+            normalized_deep = re.sub(
+                r"^\*{0,2}(观察：)\*{0,2}",
+                r"\1",
+                item.body.lstrip(),
+            )
+            if not normalized_deep.startswith("观察："):
+                errors.append(f"deep item must start with 观察： {item.title}")
             if "观察：" not in item.body or "分析：" not in item.body:
                 errors.append(f"deep item lacks 观察：/分析： labels: {item.title}")
             analysis = item.body.split("分析：", 1)[1] if "分析：" in item.body else ""
