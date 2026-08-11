@@ -1,0 +1,53 @@
+# industry_news/pocketgamer failed at 2026-08-11T00:04:16.625703+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-08-10 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[rss] retry 1/3 after PocketGamer.biz RSS error: HTTP Error 403: Forbidden
+[rss] retry 2/3 after PocketGamer.biz RSS error: HTTP Error 403: Forbidden
+[config] window: 2026-08-10 00:00:00 <= published < 2026-08-11 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-08-10
+[rss] open https://www.pocketgamer.biz/rss
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py", line 116, in fetch_text
+    with urlopen(request, timeout=30) as response:
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 493, in open
+    response = meth(req, response)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 464, in _call_chain
+    result = func(*args)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py", line 519, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py", line 487, in main
+    items = collect_feed_items(since, until, args.max_pages)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py", line 201, in collect_feed_items
+    root = ET.fromstring(fetch_text(RSS_URL))
+                         ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\pocketgamer.py", line 126, in fetch_text
+    raise RuntimeError(f"failed to fetch PocketGamer.biz RSS: {url}: {last_exc}") from last_exc
+RuntimeError: failed to fetch PocketGamer.biz RSS: https://www.pocketgamer.biz/rss: HTTP Error 403: Forbidden
