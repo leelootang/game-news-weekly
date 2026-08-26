@@ -1,0 +1,870 @@
+# 行业新闻双周历史记忆
+
+- 历史窗口: 2026-08-11 至 2026-08-24
+- 已发布行业条目: 108
+- 判定: 换来源或补背景不算新进展；只有事件状态或关键事实发生实质变化才可再次入选。
+- 卡片曝光: 历史正文已收录但订阅卡片未展示的同一事件，可按当前分数线竞争一次 card_carryover；每期最多 1 条。
+
+## H001 - 7月全球手游支出达66亿美元，《王者荣耀》与Roblox分列收入、下载榜首
+- report: daily 2026-08-11 to 2026-08-11
+- event: Sensor Tower发布2026年7月全球手游收入与下载数据
+- entities: Sensor Tower, 王者荣耀, Roblox, 全球手游市场
+- claims: 66亿美元；环比增长7.7%；中国仅计iOS端，占全球收入16.7%；《王者荣耀》升至全球手游收入榜首；《Roblox》位居下载榜首；37.2亿次
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H002 - 7月抖音小游戏畅销榜换血率达29%，RPG包揽前两名
+- report: daily 2026-08-11 to 2026-08-11
+- event: 2026年7月抖音小游戏畅销榜结构变化
+- entities: 抖音小游戏, 灵画师, 兵器王者, 三七互娱
+- claims: 换血率为29%；《灵画师》升至榜首；第78名升至第2名；RPG入榜数量由26款增至31款；三七互娱以5款产品
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H003 - 《卡拉彼丘》用户规模较低谷期增至三倍，并首次开放搜打撤试玩
+- report: daily 2026-08-11 to 2026-08-11
+- event: 卡拉彼丘披露用户回升与新模式试玩
+- entities: 创梦天地, 卡拉彼丘
+- claims: 低谷期的三倍；ARPU增长41%；增长接近30%；8月8日；至多8队、24人
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H004 - 《向末日开炮》上线首周升至微信小游戏畅销榜第13名
+- report: daily 2026-08-11 to 2026-08-11
+- event: 国产新品上线首周进入微信小游戏畅销榜前列
+- entities: 大梦龙途, 向末日开炮, 微信小游戏
+- claims: 8月3日；第13名；App版约于8月4日登陆iOS
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H005 - 《无畏契约：源能行动》一周年注册用户破亿
+- report: daily 2026-08-11 to 2026-08-11
+- event: 手游一周年披露注册用户里程碑
+- entities: 腾讯, 无畏契约：源能行动
+- claims: 一周年；注册用户突破1亿；新增7名；101所高校
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H006 - 北京团队《Foodstars》累计下载超500万、收入超1000万美元
+- report: daily 2026-08-11 to 2026-08-11
+- event: 国产合成手游披露全球下载与收入里程碑
+- entities: 天天玩家, Foodstars
+- claims: 累计下载超过500万次；收入超过1000万美元；北京团队天天玩家；全球二合赛道Top 10
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H007 - 昆仑万维拟以7.5亿元出售闲徕互娱99%股权
+- report: daily 2026-08-11 to 2026-08-11
+- event: 昆仑万维拟出售闲徕互娱控股权
+- entities: 昆仑万维, 闲徕互娱, 北京星澜互娱
+- claims: 8月10日晚；99%股权；7.5亿元；3.16亿元；7220万元；5812万元
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H008 - 莉莉丝《塔塔冒险队》海外上线两个月流水达2亿元
+- report: daily 2026-08-11 to 2026-08-11
+- event: 塔塔冒险队海外上线两个月收入与留存表现
+- entities: 莉莉丝, 塔塔冒险队
+- claims: 约40人；海外上线两个月流水达到2亿元；DAU保持稳定
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-11\_intermediate\report_items.json
+
+## H009 - Epic将ArtStation和Sketchfab出售给KitBash
+- report: daily 2026-08-12 to 2026-08-12
+- event: Epic出售两项创作者平台资产
+- entities: Epic Games, ArtStation, Sketchfab, KitBash
+- claims: ArtStation；Sketchfab；KitBash；Unreal Engine 6
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H010 - Roblox与Digital Schoolhouse合作，把游戏开发课程带入英国课堂
+- report: daily 2026-08-12 to 2026-08-12
+- event: Roblox推出课堂游戏开发资源
+- entities: Roblox, Digital Schoolhouse, Roblox Studio
+- claims: Roblox；Digital Schoolhouse；Roblox Studio；Luau；AI
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H011 - 北京墨犬科技停业清盘，前《白夜极光》制作人核心团队离职
+- report: daily 2026-08-12 to 2026-08-12
+- event: 国产游戏创业团队停业并遣散
+- entities: 北京墨犬科技, 巡回犬, 白夜极光
+- claims: 北京墨犬科技；停业；全员遣散；清盘状态；《白夜极光》
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H012 - 完美世界出资5亿元认购35亿元新兴科技创投基金
+- report: daily 2026-08-12 to 2026-08-12
+- event: 完美世界认购新兴科技创投基金
+- entities: 完美世界, 深圳市机智登月贰号创业投资企业
+- claims: 5亿元；35亿元；14.29%；新兴科技领域
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H013 - 腾讯Q2游戏收入659亿元，《洛克王国：世界》成今年本土新手游第一
+- report: daily 2026-08-12 to 2026-08-12
+- event: 腾讯发布2026年第二季度游戏业务数据
+- entities: 腾讯, 洛克王国：世界, 三角洲行动, Miniclip
+- claims: 659亿元；473亿元；186亿元；平均日活和流水均排名第一；《Arrows-Puzzle Escape》
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H014 - 腾讯与Smilegate公开《穿越火线：潜伏》，补齐CF单人叙事产品线
+- report: daily 2026-08-12 to 2026-08-12
+- event: 穿越火线IP首次公开买断制3A叙事单机
+- entities: 腾讯, Smilegate, That's No Moon, 穿越火线：潜伏
+- claims: 《穿越火线：潜伏》；买断制3A叙事单机；That's No Moon；第三人称战术潜行射击体验
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H015 - 莉莉丝集中测试三款SLG并上线《Warline: Sniper Strike》
+- report: daily 2026-08-12 to 2026-08-12
+- event: 莉莉丝披露多个在研与上线产品节点
+- entities: 莉莉丝, Beboo Bash, Rangelords: Last Stand, Warline: Sniper Strike
+- claims: 《Beboo Bash》；《Warline: Sniper Strike》；欧美和东南亚
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-12\_intermediate\report_items.json
+
+## H016 - 7月全球手游支出达66亿美元，《王者荣耀》与Roblox分列收入、下载榜首
+- report: weekly 2026-08-07 to 2026-08-13
+- event: Sensor Tower发布2026年7月全球手游收入与下载数据
+- entities: Sensor Tower, 王者荣耀, Roblox, 全球手游市场
+- claims: 66亿美元；环比增长7.7%；中国仅计iOS端，占全球收入16.7%；《王者荣耀》升至全球手游收入榜首；《Roblox》位居下载榜首；37.2亿次
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H017 - Roblox与Digital Schoolhouse合作，把游戏开发课程带入英国课堂
+- report: weekly 2026-08-07 to 2026-08-13
+- event: Roblox推出课堂游戏开发资源
+- entities: Roblox, Digital Schoolhouse, Roblox Studio
+- claims: Roblox；Digital Schoolhouse；Roblox Studio；Luau；AI
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H018 - Tripledot以4000万美元收购Unity旗下手游发行商Supersonic
+- report: weekly 2026-08-07 to 2026-08-13
+- event: Tripledot收购Supersonic
+- entities: Tripledot, Supersonic, Unity
+- claims: 以4000万美元；作为Tripledot Group旗下独立公司继续运营；保留现有管理团队和特拉维夫团队
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H019 - 《抵抗者》完成首次公开试玩，70人团队将研发重心转向AI与关卡
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 国产单机项目首次公开试玩并切换研发阶段
+- entities: 浩汤科技, 抵抗者
+- claims: 70人
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H020 - 公开履历显示《尘白禁区》发行制作人林增鸿6月离开西山居，官方尚未回应
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 核心发行人员任职状态变化
+- entities: 西山居, 尘白禁区, 林增鸿
+- claims: 6月
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H021 - 前《疑案追声》主创魏嘉组建四人团队推进《声探疑云》，剧本完成并于8月启动中文版配音
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 国产叙事独立游戏进入配音与测试准备阶段
+- entities: Suspense Games, 声探疑云, 魏嘉
+- claims: 中文版配音
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H022 - 厦门泡游《代号：城中村》启动测试，以微恐题材切入模拟经营
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 国产微恐模拟经营新作进入测试
+- entities: 厦门泡游, 代号：城中村
+- claims: 《代号：城中村》；启动测试；末日、生存、模拟经营
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H023 - 嘉耀控股拟以约4.3亿港元收购九万里科技80%股权
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 上市公司收购游戏公司控股权并设置业绩承诺
+- entities: 嘉耀控股, 九万里科技
+- claims: 8月12日；80%股权；约4.3亿港元；净利润约31万元；不少于5000万港元
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H024 - 完美世界出资5亿元认购35亿元新兴科技创投基金
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 完美世界认购新兴科技创投基金
+- entities: 完美世界, 深圳市机智登月贰号创业投资企业
+- claims: 5亿元；35亿元；14.29%；新兴科技领域
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H025 - 工长君公开确认《剑心雕龙》终止研发，项目状态进入当事人确认阶段
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 核心主创公开确认项目终止研发
+- entities: 网易, 剑心雕龙, 工长君
+- claims: 8月6日晚；终止研发；60余人
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H026 - 搜狐取消1.5亿美元ADS回购计划截止日，已执行约1.24亿美元
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 董事会修改ADS回购计划期限
+- entities: 搜狐
+- claims: 1.5亿美元；2026年11月10日；1.24亿美元
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H027 - 昆仑万维拟以7.5亿元出售闲徕互娱99%股权
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 昆仑万维拟出售闲徕互娱控股权
+- entities: 昆仑万维, 闲徕互娱, 北京星澜互娱
+- claims: 8月10日晚；99%股权；7.5亿元；3.16亿元；7220万元；5812万元
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H028 - 网易《雾海之下》首次官宣并开启首测招募
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 新品首次公开并开启首测招募
+- entities: 网易, 雾海之下
+- claims: 8月5日正式官宣；开启首测招募；由前《王者荣耀》主创艾露带队制作
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H029 - 腾讯Q2游戏收入659亿元，《洛克王国：世界》成今年本土新手游第一
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 腾讯发布2026年第二季度游戏业务数据
+- entities: 腾讯, 洛克王国：世界, 三角洲行动, Miniclip
+- claims: 659亿元；473亿元；186亿元；平均日活和流水均排名第一；《Arrows-Puzzle Escape》
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H030 - 腾讯与Smilegate公开《穿越火线：潜伏》，补齐CF单人叙事产品线
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 穿越火线IP首次公开买断制3A叙事单机
+- entities: 腾讯, Smilegate, That's No Moon, 穿越火线：潜伏
+- claims: 《穿越火线：潜伏》；买断制3A叙事单机；That's No Moon；第三人称战术潜行射击体验
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H031 - 莉莉丝集中测试三款SLG并上线《Warline: Sniper Strike》
+- report: weekly 2026-08-07 to 2026-08-13
+- event: 莉莉丝披露多个在研与上线产品节点
+- entities: 莉莉丝, Beboo Bash, Rangelords: Last Stand, Warline: Sniper Strike
+- claims: 《Beboo Bash》；《Warline: Sniper Strike》；欧美和东南亚
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-07_to_2026-08-13\_intermediate\report_items.json
+
+## H032 - 《湮灭之潮》举行首次大规模线下试玩，研发团队已扩至150人
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 国产动作新作首次面向千人规模玩家试玩
+- entities: 日蚀边缘, 湮灭之潮, 腾讯
+- claims: 8月15日；150人
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H033 - 三七互娱《镇邪人》一度冲入微信小游戏畅销榜前三，近期回落至第12名
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 镇邪人榜单与投放状态更新
+- entities: 三七互娱, 镇邪人, 微信小游戏
+- claims: 第12名；2000组
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H034 - 多家媒体称信宸资本拟以超15亿美元收购灵犀互娱，交易尚待官方确认
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 信宸资本在灵犀互娱竞购中占据优势且交易待确认
+- entities: 信宸资本, 灵犀互娱, 阿里巴巴
+- claims: 15亿美元；尚未得到官方证实
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H035 - 快手与星竞威武达成一年战略合作，电竞战队与主播资源将进入平台生态
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 游戏直播与电竞内容战略合作
+- entities: 快手, 星竞威武, eStar, NIP
+- claims: 未来一年；战略合作
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H036 - 掌趣《Titan Rush: Survival》双端下载破320万，累计内购收入超410万美元
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 国产融合SLG披露海外下载与收入表现
+- entities: 掌趣科技, Titan Rush: Survival
+- claims: 320万；410万美元
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H037 - 美国参议院启动Roblox儿童安全调查，要求8月底前提交平台记录
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 美国参议院启动Roblox儿童安全调查
+- entities: Roblox, 美国参议院
+- claims: 8月底；65,381
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H038 - 美泰组建近300人全球游戏工作室，杭州团队参与《UNO Wild》等自研产品
+- report: weekend 2026-08-14 to 2026-08-16
+- event: 美泰成立全球游戏研发组织
+- entities: 美泰, Mattel Game Studios, 杭州, UNO Wild
+- claims: 近300；杭州
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-14_to_2026-08-16\_intermediate\report_items.json
+
+## H039 - Newzoo称中国贡献2025年全球游戏收入增量32%，手游仍是主要驱动力
+- report: daily 2026-08-17 to 2026-08-17
+- event: Newzoo披露全球增长来源与平台结构
+- entities: Newzoo, 中国游戏市场, 全球游戏市场
+- claims: 超过2000亿美元；约170亿美元；32%；71%；手游仍是全球收入增长的主要驱动力
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H040 - WEBTOON战略投资RI Games Holdings，首批约3320万美元取得约20%股权
+- report: daily 2026-08-17 to 2026-08-17
+- event: 全球内容平台收购游戏工作室控股权
+- entities: WEBTOON Entertainment, RI Games Holdings, GrayGames, Offbeat
+- claims: WEBTOON Entertainment；RI Games Holdings；约3320万美元；约20%股权
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H041 - 《Block Blast!+》将进入Apple Arcade，以无广告无内购版本扩展订阅渠道
+- report: daily 2026-08-17 to 2026-08-17
+- event: 移动休闲爆款扩展至苹果订阅渠道
+- entities: Block Blast!+, Apple Arcade, Hungry Studio
+- claims: Block Blast!+；9月3日；无广告、无应用内购买；不收集用户数据
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H042 - 《Pokémon Pokopia》全球销量突破500万，约占Switch 2装机量五分之一
+- report: daily 2026-08-17 to 2026-08-17
+- event: 生活模拟产品披露全球销量里程碑
+- entities: Pokémon Pokopia, Nintendo, The Pokémon Company
+- claims: Pokémon Pokopia；突破500万份；3月5日；2368万台；约每五名主机用户中就有一名购买
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H043 - 国产动作肉鸽《墨境》累计销量接近30万份，愿望单接近50万
+- report: daily 2026-08-17 to 2026-08-17
+- event: 国产动作肉鸽披露累计销量与愿望单
+- entities: 犁浦工作室, 墨境
+- claims: 墨境；接近30万份；接近50万；下架两个多月
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H044 - 报道将前叠纸成员创业团队与2D乙游《失乐枷锁》关联
+- report: daily 2026-08-17 to 2026-08-17
+- event: 前叠纸成员创业团队关联的新乙游项目曝光
+- entities: 上海月环网络, 失乐枷锁, 叠纸
+- claims: 四名男性角色立绘；失乐枷锁；创始人曾在叠纸任职；今年1月获得《失乐枷锁》版号；7月完成APP备案
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H045 - 暴雪移动端英雄射击《Overwatch Rush》进入早期测试
+- report: daily 2026-08-17 to 2026-08-17
+- event: 守望先锋IP移动英雄射击进入早期测试
+- entities: Blizzard, Overwatch Rush
+- claims: Overwatch Rush；移动端独占；早期开发阶段；超过1万次下载
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H046 - 腾讯与Krafton公布《PUBG Mobile Light》，账号、道具与好友关系可继承
+- report: daily 2026-08-17 to 2026-08-17
+- event: 低设备占用版PUBG Mobile正式公布
+- entities: 腾讯, Krafton, PUBG Mobile Light
+- claims: PUBG Mobile Light；较小设备占用版本；已有账号、道具和好友列表可以继承；与现有应用并行运行
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H047 - 腾讯间接控股团队首曝《Waste The Fallen》，9月4日开启北美Alpha测试
+- report: daily 2026-08-17 to 2026-08-17
+- event: 腾讯间接控股的韩国团队首次公开微恐搜打撤新作
+- entities: 腾讯, Royal Crow, Waste The Fallen
+- claims: 8月14日0时；Waste The Fallen；播放量已近300万；9月4日；为期四天的Alpha封闭测试
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H048 - 阿里与信宸正式达成灵犀互娱交易，现有管理团队继续留任
+- report: daily 2026-08-17 to 2026-08-17
+- event: 灵犀互娱股权交易由竞购传闻推进至正式协议
+- entities: 阿里巴巴, 信宸资本, 灵犀互娱, 周炳枢
+- claims: 8月17日；已正式达成交易协议；管理团队将继续留任；交易金额、交付时间与方式未披露
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-17\_intermediate\report_items.json
+
+## H049 - G-STAR首批核心展商由中国厂商与海外平台占据多数
+- report: daily 2026-08-18 to 2026-08-18
+- event: G-STAR公布首批核心展商结构
+- entities: G-STAR, 网易, 世纪华通, 哔哩哔哩
+- claims: 11月19日至22日；Lutien；Crack；Webzen；Team42；米哈游；网易JokerStudio；世纪华通；Bilibili；完整名单与展位图要到9月才会发布
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H050 - 上海10人团队首曝卡牌建造自走棋《王国棋境》
+- report: daily 2026-08-18 to 2026-08-18
+- event: 王国棋境首次公开并开放Steam Playtest申请
+- entities: FrontierCraft, 王国棋境, 田嘉
+- claims: 8月17日；FrontierCraft；正式公开首支PV；Steam Playtest也已开放申请；奇幻题材的卡牌建造自走棋；团队现在10个人；历史阵容快照
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H051 - 世纪华通第一大股东提前终止减持计划
+- report: daily 2026-08-18 to 2026-08-18
+- event: 世纪华通第一大股东及一致行动人提前终止减持
+- entities: 世纪华通, 王佶, 吉运盛
+- claims: 8月13日；提前终止减持计划；5259.61万股；0.71%；14.73%；14.01%；7.13亿元；2.2亿股
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H052 - 勇仕网络半年报首度亏损，主力产品衰退且暂无新游接替
+- report: daily 2026-08-18 to 2026-08-18
+- event: 勇仕网络披露挂牌以来首份亏损半年报
+- entities: 勇仕网络, 碧蓝航线, 深空之眼
+- claims: 营收为9736万元；同比下滑约25%；归母净利润为-479万元；上年同期的2590万元；半年报首度出现亏损；主力产品进入衰退期、暂无新游接替
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H053 - 电竞国家杯延期至2027年末
+- report: daily 2026-08-18 to 2026-08-18
+- event: 首届电竞国家杯延期一年
+- entities: Esports World Cup Foundation, Esports Nations Cup, 沙特
+- claims: 延期至2027年末举办；中东局势动荡
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H054 - 紫龙《梦战：剑之海》定档8月20日首测
+- report: daily 2026-08-18 to 2026-08-18
+- event: 梦战剑之海公布首次测试安排
+- entities: 紫龙, 梦战：剑之海, 梦幻模拟战
+- claims: 8月20日开启首测；18位可操作角色；不包含抽卡；没有循环任务及商业化模块；至少10来个小时
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H055 - 网易《诡影藏锋》完成首次限号测试
+- report: daily 2026-08-18 to 2026-08-18
+- event: 诡影藏锋于8月7日开启首次限号测试
+- entities: 网易, 雷火工作室, 诡影藏锋
+- claims: 8月7日；开启了首次限号测试；内测时间只有短短4天；千万级别播放；17种怪物；三排PvPvE模式单局最高参与人数仅12人
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H056 - 网易《雾海之下》由首曝招募推进至首次测试
+- report: daily 2026-08-18 to 2026-08-18
+- event: 雾海之下于8月17日开启首次测试
+- entities: 网易, 织屋工作室, 雾海之下
+- claims: 8月17日；开启了首测；研发历经三年时间；前《王者荣耀》主创艾露（elu）担任制作人；八种魔法料理、十种武器以及两张地图；15分钟左右结束
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H057 - 莉莉丝独游布局新增《生存日志》，上线后进入Steam国区热销前15
+- report: daily 2026-08-18 to 2026-08-18
+- event: 生存日志上线并披露莉莉丝独游投资布局
+- entities: 莉莉丝, 生存日志, Steam
+- claims: 上线后一度冲入Steam国区热销榜前15；稳定在畅销榜前20；上线5天；600多条玩家评论；游戏部分2D视觉由AI生成；由他本人牵头
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-18\_intermediate\report_items.json
+
+## H058 - AppMagic：二季度中度手游仅射击品类收入同比增长
+- report: daily 2026-08-19 to 2026-08-19
+- event: AppMagic披露中度手游品类收入结构变化
+- entities: AppMagic, 全球移动游戏市场
+- claims: 增幅为13.9%；RPG下降16.9%；策略下降10.2%；模拟下降14.8%
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H059 - Arkane老将组建26人工作室Black Pony，回归单机沉浸式模拟
+- report: daily 2026-08-19 to 2026-08-19
+- event: Arkane老将成立工作室并推进单机沉浸式模拟新作
+- entities: Black Pony Immersive, Harvey Smith, Ben Horne
+- claims: Black Pony Immersive；26人；单机；沉浸式模拟
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H060 - 《异环》全球累计流水突破20亿元，官方渠道占比近六成
+- report: daily 2026-08-19 to 2026-08-19
+- event: 完美世界披露异环上线后的累计流水与渠道结构
+- entities: 完美世界, 异环
+- claims: 截至8月18日；全球累计流水超20亿元；截至6月30日；全球官方渠道累计流水占比超60%
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H061 - 上海寻愿网络申请破产清算，女性向合成游戏未完成国内正式发行
+- report: daily 2026-08-19 to 2026-08-19
+- event: 女性向游戏研发公司申请破产清算
+- entities: 上海寻愿网络, 幸福甜品屋, 海南元年科技
+- claims: 8月18日；破产清算；2020年；《幸福甜品屋》
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H062 - 凉屋《魂坠深境》进入韩国卡牌免费榜前十
+- report: daily 2026-08-19 to 2026-08-19
+- event: 国产卡牌肉鸽上线后获得韩国榜单早期反馈
+- entities: 凉屋游戏, 魂坠深境, 韩国移动游戏市场
+- claims: 上线不到两周；韩国卡牌免费榜Top 10；同时推进约10个移动项目和3个PC/主机项目
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H063 - 微信小游戏降低IAA激励门槛，长线分成周期延至180天
+- report: daily 2026-08-19 to 2026-08-19
+- event: 微信小游戏升级IAA买量与长线激励方案
+- entities: 微信小游戏, IAA, 腾讯广告
+- claims: 累计超过3分钟；180天；广告流水的35%；8月20日
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H064 - 点点互动二合产品《Hotel Legacy》7月预估流水环比增长200%
+- report: daily 2026-08-19 to 2026-08-19
+- event: 国产出海二合产品披露测试期流水增长
+- entities: 世纪华通, 点点互动, Hotel Legacy: Merge Game
+- claims: 6月预估流水约1000万元；7月环比增长200%；3000万元
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H065 - 盛趣《云海之下》停止充值，将于10月20日关闭全部区服
+- report: daily 2026-08-19 to 2026-08-19
+- event: 国内放置RPG宣布停运
+- entities: 盛趣游戏, 上海那朵花, 云海之下
+- claims: 8月19日；停止充值通道；10月20日关闭所有区服
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H066 - 苹果重订欧盟App Store费率，外部商店交易佣金降至5%
+- report: daily 2026-08-19 to 2026-08-19
+- event: 苹果公布欧盟App Store新费率与替代支付规则
+- entities: Apple, App Store, 欧盟
+- claims: 10月1日；26%；20%；15%；5%
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H067 - 鹰角投资《人类一败涂地》老将创办的英国工作室Pretty Cool Games
+- report: daily 2026-08-19 to 2026-08-19
+- event: 鹰角投资英国新工作室并支持首款物理玩法项目
+- entities: 鹰角网络, Coreblazer, Pretty Cool Games
+- claims: 鹰角；Pretty Cool Games；4名全职员工；扩至10人
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-19\_intermediate\report_items.json
+
+## H068 - Arkane老将组建26人工作室Black Pony，回归单机沉浸式模拟
+- report: weekly 2026-08-14 to 2026-08-20
+- event: Arkane老将成立工作室并推进单机沉浸式模拟新作
+- entities: Black Pony Immersive, Harvey Smith, Ben Horne
+- claims: Black Pony Immersive；26人；单机；沉浸式模拟
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H069 - Makers Fund募得2.5亿美元第四期基金，资产管理规模达15亿美元
+- report: weekly 2026-08-14 to 2026-08-20
+- event: Makers Fund完成第四期游戏与互动娱乐基金募资
+- entities: Makers Fund
+- claims: Makers Fund；2.5亿美元；第四期；15亿美元
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H070 - 《异环》全球累计流水突破20亿元，官方渠道占比近六成
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 完美世界披露异环上线后的累计流水与渠道结构
+- entities: 完美世界, 异环
+- claims: 截至8月18日；全球累计流水超20亿元；截至6月30日；全球官方渠道累计流水占比超60%
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H071 - 《湮灭之潮》举行首次大规模线下试玩，研发团队已扩至150人
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 国产动作新作首次面向千人规模玩家试玩
+- entities: 日蚀边缘, 湮灭之潮, 腾讯
+- claims: 8月15日；150人
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H072 - 上海10人团队首曝卡牌建造自走棋《王国棋境》
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 王国棋境首次公开并开放Steam Playtest申请
+- entities: FrontierCraft, 王国棋境, 田嘉
+- claims: 8月17日；FrontierCraft；正式公开首支PV；Steam Playtest也已开放申请；奇幻题材的卡牌建造自走棋；团队现在10个人；历史阵容快照
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H073 - 上海寻愿网络申请破产清算，女性向合成游戏未完成国内正式发行
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 女性向游戏研发公司申请破产清算
+- entities: 上海寻愿网络, 幸福甜品屋, 海南元年科技
+- claims: 8月18日；破产清算；2020年；《幸福甜品屋》
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H074 - 世纪华通第一大股东提前终止减持计划
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 世纪华通第一大股东及一致行动人提前终止减持
+- entities: 世纪华通, 王佶, 吉运盛
+- claims: 8月13日；提前终止减持计划；5259.61万股；0.71%；14.73%；14.01%；7.13亿元；2.2亿股
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H075 - 勇仕网络半年报首度亏损，主力产品衰退且暂无新游接替
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 勇仕网络披露挂牌以来首份亏损半年报
+- entities: 勇仕网络, 碧蓝航线, 深空之眼
+- claims: 营收为9736万元；同比下滑约25%；归母净利润为-479万元；上年同期的2590万元；半年报首度出现亏损；主力产品进入衰退期、暂无新游接替
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H076 - 微信小游戏降低IAA激励门槛，长线分成周期延至180天
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 微信小游戏升级IAA买量与长线激励方案
+- entities: 微信小游戏, IAA, 腾讯广告
+- claims: 累计超过3分钟；180天；广告流水的35%；8月20日
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H077 - 快手与星竞威武达成一年战略合作，电竞战队与主播资源将进入平台生态
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 游戏直播与电竞内容战略合作
+- entities: 快手, 星竞威武, eStar, NIP
+- claims: 未来一年；战略合作
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H078 - 报道将前叠纸成员创业团队与2D乙游《失乐枷锁》关联
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 前叠纸成员创业团队关联的新乙游项目曝光
+- entities: 上海月环网络, 失乐枷锁, 叠纸
+- claims: 四名男性角色立绘；失乐枷锁；创始人曾在叠纸任职；今年1月获得《失乐枷锁》版号；7月完成APP备案
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H079 - 暴雪移动端英雄射击《Overwatch Rush》进入早期测试
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 守望先锋IP移动英雄射击进入早期测试
+- entities: Blizzard, Overwatch Rush
+- claims: Overwatch Rush；移动端独占；早期开发阶段；超过1万次下载
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H080 - 灵犀互娱曝光捉宠模拟经营新作《代号咘咘》，同步开启测试招募
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 灵犀互娱曝光捉宠模拟经营新作并开启测试招募
+- entities: 灵犀互娱, 代号咘咘
+- claims: 灵犀互娱；代号咘咘；测试招募；模拟经营
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H081 - 美国参议院启动Roblox儿童安全调查，要求8月底前提交平台记录
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 美国参议院启动Roblox儿童安全调查
+- entities: Roblox, 美国参议院
+- claims: 8月底；65,381
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H082 - 美泰组建近300人全球游戏工作室，杭州团队参与《UNO Wild》等自研产品
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 美泰成立全球游戏研发组织
+- entities: 美泰, Mattel Game Studios, 杭州, UNO Wild
+- claims: 近300；杭州
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H083 - 腾讯Level Infinite扩大《Gangstar Mirage City》区域上线，覆盖拉美、中东与东南亚
+- report: weekly 2026-08-14 to 2026-08-20
+- event: Gangstar Mirage City扩大区域上线
+- entities: 腾讯, Gangstar Mirage City, Level Infinite
+- claims: 腾讯；Level Infinite；Gangstar Mirage City；8月20日；iOS与Android
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H084 - 腾讯与Krafton公布《PUBG Mobile Light》，账号、道具与好友关系可继承
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 低设备占用版PUBG Mobile正式公布
+- entities: 腾讯, Krafton, PUBG Mobile Light
+- claims: PUBG Mobile Light；较小设备占用版本；已有账号、道具和好友列表可以继承；与现有应用并行运行
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H085 - 腾讯间接控股团队首曝《Waste The Fallen》，9月4日开启北美Alpha测试
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 腾讯间接控股的韩国团队首次公开微恐搜打撤新作
+- entities: 腾讯, Royal Crow, Waste The Fallen
+- claims: 8月14日0时；Waste The Fallen；播放量已近300万；9月4日；为期四天的Alpha封闭测试
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H086 - 苹果重订欧盟App Store费率，外部商店交易佣金降至5%
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 苹果公布欧盟App Store新费率与替代支付规则
+- entities: Apple, App Store, 欧盟
+- claims: 10月1日；26%；20%；15%；5%
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H087 - 莉莉丝独游布局新增《生存日志》，上线后进入Steam国区热销前15
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 生存日志上线并披露莉莉丝独游投资布局
+- entities: 莉莉丝, 生存日志, Steam
+- claims: 上线后一度冲入Steam国区热销榜前15；稳定在畅销榜前20；上线5天；600多条玩家评论；游戏部分2D视觉由AI生成；由他本人牵头
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H088 - 阿里与信宸正式达成灵犀互娱交易，现有管理团队继续留任
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 灵犀互娱股权交易由竞购传闻推进至正式协议
+- entities: 阿里巴巴, 信宸资本, 灵犀互娱, 周炳枢
+- claims: 8月17日；已正式达成交易协议；管理团队将继续留任；交易金额、交付时间与方式未披露
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H089 - 鹰角投资《人类一败涂地》老将创办的英国工作室Pretty Cool Games
+- report: weekly 2026-08-14 to 2026-08-20
+- event: 鹰角投资英国新工作室并支持首款物理玩法项目
+- entities: 鹰角网络, Coreblazer, Pretty Cool Games
+- claims: 鹰角；Pretty Cool Games；4名全职员工；扩至10人
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-08-14_to_2026-08-20\_intermediate\report_items.json
+
+## H090 - 《Arc Raiders》远征系统暂停至2027年初重做
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 高强度生命周期系统暂停并重做
+- entities: Embark Studios, Arc Raiders
+- claims: 2027年初；紧凑离场窗口、奖励结构和新玩家可及性；第五次远征；既有连续增益会保留；Caravan；Ermal券
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H091 - 《Hollywood Merge》累计IAP收入2470万美元，日流水超30万美元
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 国产出海女性二合产品进入收入增长阶段
+- entities: 点点互动, Hollywood Merge
+- claims: 1200万；IAP收入2470万美元；日流水已超过30万美元；近90天；日均1500至2000条
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H092 - 《绝区零》首席美术离职，转向独立开发种田模拟游戏
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 核心美术离职并启动独立种田模拟项目
+- entities: 米哈游, 绝区零, 阿兔朋友
+- claims: 8月20日；《绝区零》首席美术设计师“阿兔朋友”宣布已从米哈游离职；负责了大量角色设计；计划开发一款种田模拟游戏；仍处于早期阶段并在寻找前期队友
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H093 - 《诡秘之主》公测两日近500万玩家进入，iOS收入仅占15%
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 项目组披露公测早期用户、榜单与渠道收入结构
+- entities: 弹指宇宙, 诡秘之主, 快手
+- claims: 8月21日；近500万玩家；iOS游戏畅销榜最高第15名；iOS收入约占总收入15%；其余来自PC端和安卓官包；9月17日；200元以下外观可用的1折券
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H094 - 上海10人团队把30万日活小游戏接入微信小店
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 小游戏与微信小店形成实物电商闭环
+- entities: 上海剪枝, 手心斗地主, 微信小游戏
+- claims: 上海剪枝；《手心斗地主》；日活30多万；累计用户数百万；微信蓝包；约10人；4万多单水果；超过八成订单来自游戏内；广告收入
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H095 - 天津首个线下游戏专业孵化器落地，8人以内团队可免费入驻
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 天津首个线下游戏专业孵化器落地运营
+- entities: 九河游创, 天津游戏产业
+- claims: 九河游创；天津首个线下游戏专业孵化器；超1500平方米；8人及以内；免费入驻；研发辅助、发行资源对接与投融资对接
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H096 - 拳头将在12月停止《2XKO》主动开发，并启动退款
+- report: weekend 2026-08-21 to 2026-08-23
+- event: 2XKO停止主动开发并调整长期运行方案
+- entities: Riot Games, 2XKO
+- claims: 12月；结束免费格斗游戏《2XKO》的主动开发；服务器将在2026年之后继续运行；运营成本远高于收入；关闭KO Points购买；退还8月20日前的消费
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-08-21_to_2026-08-23\_intermediate\report_items.json
+
+## H097 - Paradox意外泄露末世大战略新作《Afterworld》
+- report: daily 2026-08-24 to 2026-08-24
+- event: 未公开末世大战略新作被论坛与Discord配置提前曝光
+- entities: Paradox, Afterworld
+- claims: Paradox；Afterworld；末世生存大战略游戏；部落生存、古代科技、废土定居点和政治斗争；8月25日；尚未正式确认
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H098 - Roblox上线实验早期预警与实时配置，创作者可按玩家分群更新体验
+- report: daily 2026-08-24 to 2026-08-24
+- event: Roblox分析与LiveOps平台新增实验和实时更新能力
+- entities: Roblox, Analytics, Experiments, Configs
+- claims: Roblox；实时性能警报；玩家分群；实验早期伤害预警；游玩时长、ARPU或转化率；Configs；不重启服务器
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H099 - 《ARC Raiders》累计销量接近1600万份，腾讯中国服强调“撤离冒险”定位
+- report: daily 2026-08-24 to 2026-08-24
+- event: PVP产品披露全球销量与中国服本地化定位
+- entities: Nexon, ARC Raiders, 腾讯
+- claims: Nexon；ARC Raiders；去年10月；累计销量接近1600万份；Circana；2025年Steam上游玩人数最多的新游戏；腾讯中国服；撤离冒险
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H100 - 《The Witcher IV》发行日期指向2028年
+- report: daily 2026-08-24 to 2026-08-24
+- event: 重点RPG项目明确2028年发行日期
+- entities: CD Projekt Red, The Witcher IV
+- claims: 8月24日；The Witcher IV；2028年
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H101 - 《三角洲行动》日活突破5000万，进入高基数长线运营阶段
+- report: daily 2026-08-24 to 2026-08-24
+- event: 长青射击产品披露5000万DAU新事实
+- entities: 腾讯, 三角洲行动
+- claims: GameLook；三角洲行动；DAU稳破5000万；腾讯Q2财报；平均日活跃账户数创季度新高；版本产能；反作弊
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H102 - 《太吾绘卷》1.0上线后累计销量超过300万份
+- report: daily 2026-08-24 to 2026-08-24
+- event: 国产独立游戏1.0上线后披露累计销量里程碑
+- entities: 螺舟工作室, 太吾绘卷：天幕心帷
+- claims: 太吾绘卷：天幕心帷；6月17日；1.0；累计销量超过300万份；螺舟工作室；十余次补丁；不是开发终点
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H103 - 《无畏契约：源能行动》升至iOS畅销榜第二，女性玩家占比接近50%
+- report: daily 2026-08-24 to 2026-08-24
+- event: 周年节点披露新榜单表现与用户构成
+- entities: 腾讯, 无畏契约：源能行动
+- claims: 无畏契约：源能行动；iOS畅销榜前15；第2名；腾讯游戏副总裁黄凌冬；女性玩家占比接近50%；约一半此前没有玩过射击手游
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H104 - 《沙金工业》EA发售8天销量破10万，Steam好评率保持97%
+- report: daily 2026-08-24 to 2026-08-24
+- event: 自动化模拟建造新品EA上线并披露首周销量
+- entities: Erik Lantto, 沙金工业, Hooded Horse
+- claims: Erik Lantto；沙金工业；EA版发售8天；销量突破10万份；近2800条评价；97%好评；Hooded Horse
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H105 - 《生存日志》Steam国区畅销排名升至Top 10，四人团队持续日更修复
+- report: daily 2026-08-24 to 2026-08-24
+- event: 生存日志上线后畅销排名进一步提升
+- entities: 莉莉丝, 生存日志, Steam
+- claims: 莉莉丝；生存日志；Steam国区畅销排名；Top 10；四人用一年；连续日更几十条优化
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H106 - 《超自然行动组》DAU突破1200万，抖音小游戏带来单日百万新增
+- report: daily 2026-08-24 to 2026-08-24
+- event: 国产手游披露DAU与新增用户里程碑
+- entities: 巨人网络, 超自然行动组, 抖音小游戏
+- claims: 巨人网络；超自然行动组；DAU突破1200万；今年2月；约半年；7月；抖音小游戏；单日新增用户突破100万；平台榜单前三
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H107 - 微信小游戏升级IAP首发激励，首1000万流水最高170%综合分成
+- report: daily 2026-08-24 to 2026-08-24
+- event: 微信小游戏升级IAP首发分成与广告金规则
+- entities: 微信小游戏, IAP首发新游激励金
+- claims: 微信小游戏；2026年；IAP首发新游激励；首1000万流水；170%综合分成；后续4000万流水；130%；9月22日；同一IAP小游戏
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
+
+## H108 - 韩国策略塔防续作《Random Dice 2》取消角色抽卡，上线后最高达iOS畅销榜第26名
+- report: daily 2026-08-24 to 2026-08-24
+- event: 策略塔防续作上线并重构角色获取商业化
+- entities: 111%, Random Dice 2, 韩国移动游戏市场
+- claims: 111%；8月13日；Random Dice 2；韩国iOS畅销榜第26名；取消常规抽卡获取角色
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-08-24\_intermediate\report_items.json
