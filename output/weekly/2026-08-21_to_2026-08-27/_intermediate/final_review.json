@@ -1,0 +1,123 @@
+{
+  "run_at": "2026-08-28T09:35:36+08:00",
+  "report_id": "2026-08-21_to_2026-08-27",
+  "report_type": "weekly",
+  "sections": {
+    "industry": 35,
+    "ai": 6,
+    "release_calendar": 7,
+    "community": 3,
+    "deep": 3
+  },
+  "input_records": 1465,
+  "used_source_records": 90,
+  "reviewed_source_records": 1465,
+  "decision_records": 1517,
+  "history_window": {
+    "start": "2026-08-07",
+    "end": "2026-08-20",
+    "occurrences": 98
+  },
+  "repeat_only_excluded": 11,
+  "material_update_included": 0,
+  "material_update_excluded": [
+    {
+      "candidate_id": "X008",
+      "title": "《生存日志》进入Steam中国畅销榜前十",
+      "new_facts": [
+        "当前报道进入Steam中国畅销榜前十，早前历史为前十五。"
+      ]
+    },
+    {
+      "candidate_id": "X009",
+      "title": "《无畏契约手游》畅销榜升至第二",
+      "new_facts": [
+        "当前报道国区iOS游戏畅销榜第二。"
+      ]
+    },
+    {
+      "candidate_id": "X010",
+      "title": "Newzoo发布2026年市场预测",
+      "new_facts": [
+        "2026年全球市场预测2139亿美元、增长6.1%；移动预测1211亿美元、增长6.8%。"
+      ]
+    },
+    {
+      "candidate_id": "B005",
+      "title": "《三角洲行动》日活突破5000万，进入高基数长线运营阶段",
+      "new_facts": [
+        "本期报道《三角洲行动》日活超过5000万。"
+      ]
+    }
+  ],
+  "card_carryover_included": 0,
+  "deep_choice": "绕渠道直充正在改写手游收入判断：商店下滑不等于总收入下滑",
+  "reader_facing_forbidden_matches": 0,
+  "validation": {
+    "run_at": "2026-08-28T09:33:29.869690+08:00",
+    "passed": true,
+    "checks": [
+      {
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "scripts/report_artifacts.py",
+          "generate-sources",
+          "--report",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\game_industry_weekly_2026-08-21_to_2026-08-27.md",
+          "--inputs",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\report_inputs.jsonl",
+          "--items",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\report_items.json",
+          "--output",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\sources_used.md"
+        ],
+        "exit_code": 0,
+        "output": "wrote C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\sources_used.md\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+          "--report",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\game_industry_weekly_2026-08-21_to_2026-08-27.md",
+          "--sources",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\sources_used.md",
+          "--inputs",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\report_inputs.jsonl",
+          "--report-type",
+          "weekly"
+        ],
+        "exit_code": 0,
+        "output": "WARN: input extraction has 192 short/snippet records; they are forbidden as final-item evidence\nReport lint passed with warnings.\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "scripts/report_artifacts.py",
+          "validate",
+          "--report",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\game_industry_weekly_2026-08-21_to_2026-08-27.md",
+          "--sources",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\sources_used.md",
+          "--inputs",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\report_inputs.jsonl",
+          "--items",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\report_items.json",
+          "--decisions",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\selection_decisions.json",
+          "--release-audit",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-08-21_to_2026-08-27\\_intermediate\\release_calendar_audit.json",
+          "--require-artifacts"
+        ],
+        "exit_code": 0,
+        "output": ""
+      }
+    ]
+  },
+  "file_sha256": {
+    "game_industry_weekly_2026-08-21_to_2026-08-27.md": "70a81f09c96ffca8c308ee546d68ef8077fb08c0d041c49b3487760c773621ba",
+    "sources_used.md": "11ee6806c86d7c41f73fc344f3851aebd7a2655b4131039d1fb6b177bcc3a115",
+    "report_items.json": "45b7f7bf46a28225803ed880a81993e683cf82d595bca257ca2355fd5bfe2700",
+    "selection_decisions.json": "d4283d33ad775d2d9aebd69dc29459ad2aa9bc0bb2b09890a6b36e9f9532f37a"
+  }
+}
