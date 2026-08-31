@@ -1,0 +1,91 @@
+# Article Index - release_calendar / 2026-08-30
+
+- Records: 83
+- By source: `haoyou_kuaibao_3839` 1, `taptap_app_calendar` 82
+- Raw JSONL: `articles.jsonl`
+
+| # | ID | Source | Published | Chars | Status | Title | URL |
+| ---: | --- | --- | --- | ---: | --- | --- | --- |
+| 1 | `app_920729_20260830_5444bec141` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 齿轮工坊 - 不限量测试 | [link](https://www.taptap.cn/app/920729) |
+| 2 | `app_898394_20260830_430347350a` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 137 | ok | 高中模拟器 - 不限量测试 | [link](https://www.taptap.cn/app/898394) |
+| 3 | `app_920469_20260830_a6f93359ea` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 风回电激 - 不限量测试 | [link](https://www.taptap.cn/app/920469) |
+| 4 | `app_911122_20260830_e144df799f` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 120 | ok | 非妖哉 - 首发 | [link](https://www.taptap.cn/app/911122) |
+| 5 | `app_920695_20260830_45e1265251` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 127 | ok | 青云宗掌门 - 不限量测试 | [link](https://www.taptap.cn/app/920695) |
+| 6 | `app_921281_20260830_1adefb155d` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 110 | ok | 逻辑回溯 - 首发 | [link](https://www.taptap.cn/app/921281) |
+| 7 | `app_918451_20260830_2112bc4a4a` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 140 | ok | 跑外卖暴富模拟器 - 不限量测试 | [link](https://www.taptap.cn/app/918451) |
+| 8 | `app_906117_20260830_802d0d1385` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 141 | ok | 血脉衍仙：代代成神 - 不限量测试 | [link](https://www.taptap.cn/app/906117) |
+| 9 | `app_912723_20260830_91e4120c70` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 121 | ok | 英雄战场 - 首发 | [link](https://www.taptap.cn/app/912723) |
+| 10 | `app_921218_20260830_ff7271cdfb` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 112 | ok | 胡萝卜消消乐 - 首发 | [link](https://www.taptap.cn/app/921218) |
+| 11 | `app_921192_20260830_2e57470e12` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 111 | ok | 老铁炸炸堂 - 首发 | [link](https://www.taptap.cn/app/921192) |
+| 12 | `app_895798_20260830_8f48748dc4` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 137 | ok | 绿林志 - 不限量测试 | [link](https://www.taptap.cn/app/895798) |
+| 13 | `app_917650_20260830_63c9d8db8b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 123 | ok | 纸格纷争 - 新游预约 | [link](https://www.taptap.cn/app/917650) |
+| 14 | `app_921370_20260830_f49bca5b6e` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 符镇山海 - 不限量测试 | [link](https://www.taptap.cn/app/921370) |
+| 15 | `app_828773_20260830_f34ceb27c5` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 134 | ok | 神魔传 - 不限量测试 | [link](https://www.taptap.cn/app/828773) |
+| 16 | `app_914629_20260830_3bf2fad34e` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 125 | ok | 相亲模拟器 - 不限量测试 | [link](https://www.taptap.cn/app/914629) |
+| 17 | `app_913992_20260830_20586095ac` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 125 | ok | 百业老板：产业链 - 首发 | [link](https://www.taptap.cn/app/913992) |
+| 18 | `app_882553_20260830_b202359056` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 140 | ok | 疯狂集装箱模拟器 - 不限量测试 | [link](https://www.taptap.cn/app/882553) |
+| 19 | `app_909320_20260830_61d524da09` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 112 | ok | 玛法之路 - 限量测试 | [link](https://www.taptap.cn/app/909320) |
+| 20 | `app_919737_20260830_154cc52e6c` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 灵异事务所 - 新游预约 | [link](https://www.taptap.cn/app/919737) |
+| 21 | `app_838386_20260830_8c30ca84f9` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 136 | ok | 火柴人 - 新游预约 | [link](https://www.taptap.cn/app/838386) |
+| 22 | `app_838386_20260830_6fa4d3a1fb` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 137 | ok | 火柴人 - 不限量测试 | [link](https://www.taptap.cn/app/838386) |
+| 23 | `app_915871_20260830_79048b9021` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 125 | ok | 洞潜探险记 - 不限量测试 | [link](https://www.taptap.cn/app/915871) |
+| 24 | `app_920927_20260830_be5b01137a` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 123 | ok | 水晶战纪 - 首发 | [link](https://www.taptap.cn/app/920927) |
+| 25 | `app_913301_20260830_3d26105de8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 131 | ok | 模拟运输之运输帝国的崛起 - 新游预约 | [link](https://www.taptap.cn/app/913301) |
+| 26 | `app_913301_20260830_beb45112ee` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 132 | ok | 模拟运输之运输帝国的崛起 - 不限量测试 | [link](https://www.taptap.cn/app/913301) |
+| 27 | `app_921182_20260830_ca6c70efc5` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 113 | ok | 机械造物：进化 - 首发 | [link](https://www.taptap.cn/app/921182) |
+| 28 | `app_916491_20260830_542e67d125` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 131 | ok | 末日：坚持七天变成超人 - 不限量测试 | [link](https://www.taptap.cn/app/916491) |
+| 29 | `app_898500_20260830_c5f2e0f652` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 136 | ok | 末日第一天 - 新游预约 | [link](https://www.taptap.cn/app/898500) |
+| 30 | `app_898500_20260830_51a7918d86` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 137 | ok | 末日第一天 - 不限量测试 | [link](https://www.taptap.cn/app/898500) |
+| 31 | `app_920988_20260830_20d6e5d4cf` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 117 | ok | 末日囤货：躺平求生 - 新游预约 | [link](https://www.taptap.cn/app/920988) |
+| 32 | `app_920993_20260830_3ae0bb0af4` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 112 | ok | 星球挖掘公司 - 首发 | [link](https://www.taptap.cn/app/920993) |
+| 33 | `app_893448_20260830_d851375743` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 143 | ok | 无尽破界：血色残响 - 不限量测试 | [link](https://www.taptap.cn/app/893448) |
+| 34 | `app_919627_20260830_55a7ffd9d9` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 斗宠传说 - 不限量测试 | [link](https://www.taptap.cn/app/919627) |
+| 35 | `app_906964_20260830_9540ef82e0` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 138 | ok | 掌门我来啦 - 新游预约 | [link](https://www.taptap.cn/app/906964) |
+| 36 | `app_906964_20260830_f3427bc30c` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 139 | ok | 掌门我来啦 - 不限量测试 | [link](https://www.taptap.cn/app/906964) |
+| 37 | `app_901040_20260830_8b8e9970ea` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 140 | ok | 指尖江湖：重活一世 - 首发 | [link](https://www.taptap.cn/app/901040) |
+| 38 | `app_846568_20260830_e000d06695` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 144 | ok | 挂机修仙三千年 - 不限量测试 | [link](https://www.taptap.cn/app/846568) |
+| 39 | `app_920037_20260830_042cf8e09a` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 打烊后，别回头 - 新游预约 | [link](https://www.taptap.cn/app/920037) |
+| 40 | `app_918981_20260830_0ae5ccfe4b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 127 | ok | 我要成为漫画家 - 不限量测试 | [link](https://www.taptap.cn/app/918981) |
+| 41 | `app_915692_20260830_4ddb762cc5` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 116 | ok | 我的末世废土基地 - 限量测试 | [link](https://www.taptap.cn/app/915692) |
+| 42 | `app_915692_20260830_fd16076ff8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 116 | ok | 我的末世废土基地 - 测试招募 | [link](https://www.taptap.cn/app/915692) |
+| 43 | `app_917021_20260830_ba3869c22b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 133 | ok | 我的攻击力无上线 - 不限量测试 | [link](https://www.taptap.cn/app/917021) |
+| 44 | `app_921398_20260830_f7e061f6ac` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 111 | ok | 我爱消方块 - 首发 | [link](https://www.taptap.cn/app/921398) |
+| 45 | `app_911399_20260830_93639d81fa` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 128 | ok | 我当阎王爷那些年 - 不限量测试 | [link](https://www.taptap.cn/app/911399) |
+| 46 | `app_911313_20260830_262d504a3d` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 我在昆仓山找龙 - 首发 | [link](https://www.taptap.cn/app/911313) |
+| 47 | `app_898794_20260830_809379bc77` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 我在仙界养神马 - 新游预约 | [link](https://www.taptap.cn/app/898794) |
+| 48 | `app_898794_20260830_c2e1dfb8e0` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 127 | ok | 我在仙界养神马 - 不限量测试 | [link](https://www.taptap.cn/app/898794) |
+| 49 | `app_921206_20260830_5132cd9dd8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 127 | ok | 情侣真心话大闯关 - 新游预约 | [link](https://www.taptap.cn/app/921206) |
+| 50 | `app_921206_20260830_6ae5144248` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 128 | ok | 情侣真心话大闯关 - 不限量测试 | [link](https://www.taptap.cn/app/921206) |
+| 51 | `app_920976_20260830_a03ee7467a` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 116 | ok | 心动连连看-她的城市 - 首发 | [link](https://www.taptap.cn/app/920976) |
+| 52 | `app_911539_20260830_7336610e0d` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 123 | ok | 彼面之下 - 首发 | [link](https://www.taptap.cn/app/911539) |
+| 53 | `app_921308_20260830_869120f0fa` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 山海灵境 - 不限量测试 | [link](https://www.taptap.cn/app/921308) |
+| 54 | `app_920978_20260830_0f126879b8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 110 | ok | 山海小馆 - 首发 | [link](https://www.taptap.cn/app/920978) |
+| 55 | `app_920848_20260830_08ef86e600` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 121 | ok | 宗门世家 - 首发 | [link](https://www.taptap.cn/app/920848) |
+| 56 | `app_860980_20260830_bf6628d498` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 144 | ok | 大唐风华录 - 不限量测试 | [link](https://www.taptap.cn/app/860980) |
+| 57 | `app_918749_20260830_6c533503e5` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 123 | ok | 增量克隆帝国 - 首发 | [link](https://www.taptap.cn/app/918749) |
+| 58 | `app_916708_20260830_7b03e12912` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 116 | ok | 堆叠末日：废土避难所 - 首发 | [link](https://www.taptap.cn/app/916708) |
+| 59 | `app_884696_20260830_474088cf23` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 141 | ok | 城主攻守道 - 新游预约 | [link](https://www.taptap.cn/app/884696) |
+| 60 | `app_884696_20260830_188f7c42f2` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 142 | ok | 城主攻守道 - 不限量测试 | [link](https://www.taptap.cn/app/884696) |
+| 61 | `app_915598_20260830_674d5151bb` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 129 | ok | 在废土求生的那一年 - 不限量测试 | [link](https://www.taptap.cn/app/915598) |
+| 62 | `app_921236_20260830_0896c6a46f` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 圆阵骑士 - 不限量测试 | [link](https://www.taptap.cn/app/921236) |
+| 63 | `app_911067_20260830_ca183945dc` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 124 | ok | 和平审核官 - 新游预约 | [link](https://www.taptap.cn/app/911067) |
+| 64 | `app_911067_20260830_0d0b3694d7` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 125 | ok | 和平审核官 - 不限量测试 | [link](https://www.taptap.cn/app/911067) |
+| 65 | `app_911604_20260830_fc0fef3c70` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 125 | ok | 千禧年录像厅 - 新游预约 | [link](https://www.taptap.cn/app/911604) |
+| 66 | `app_911604_20260830_b675b18bbc` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 千禧年录像厅 - 不限量测试 | [link](https://www.taptap.cn/app/911604) |
+| 67 | `app_913608_20260830_befeeac107` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 113 | ok | 列国风云 - 不限量测试 | [link](https://www.taptap.cn/app/913608) |
+| 68 | `app_838027_20260830_f68cb0871b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 142 | ok | 凡兵屠仙界 - 不限量测试 | [link](https://www.taptap.cn/app/838027) |
+| 69 | `app_921260_20260830_112b6e0d1b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 110 | ok | 军需行动 - 首发 | [link](https://www.taptap.cn/app/921260) |
+| 70 | `app_836355_20260830_6a420fea40` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 143 | ok | 修仙中传 - 不限量测试 | [link](https://www.taptap.cn/app/836355) |
+| 71 | `app_903902_20260830_bd46602d02` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 123 | ok | 侠义江湖 - 首发 | [link](https://www.taptap.cn/app/903902) |
+| 72 | `app_889262_20260830_323985f3b8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 110 | ok | 代码随笔 - 首发 | [link](https://www.taptap.cn/app/889262) |
+| 73 | `app_920891_20260830_c3e6c8547b` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 仙界大陆 - 不限量测试 | [link](https://www.taptap.cn/app/920891) |
+| 74 | `app_915839_20260830_94858ebba8` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 128 | ok | 他逃，她追，他插翅难飞 - 首发 | [link](https://www.taptap.cn/app/915839) |
+| 75 | `app_919504_20260830_e91b6208ca` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 127 | ok | 从零开始无敌3 - 首发 | [link](https://www.taptap.cn/app/919504) |
+| 76 | `app_920974_20260830_f00af5634e` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 115 | ok | 从细胞开始填满宇宙 - 首发 | [link](https://www.taptap.cn/app/920974) |
+| 77 | `app_899802_20260830_4cbe00e0ef` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 乱世布衣 - 不限量测试 | [link](https://www.taptap.cn/app/899802) |
+| 78 | `app_851437_20260830_3e57c3742e` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 136 | ok | 东汉末年 - 不限量测试 | [link](https://www.taptap.cn/app/851437) |
+| 79 | `app_912398_20260830_c6d23271cf` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 126 | ok | 不正经的实习生 - 首发 | [link](https://www.taptap.cn/app/912398) |
+| 80 | `app_913692_20260830_81819d49d4` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 146 | ok | 七宗罪与七美德测试 - 不限量测试 | [link](https://www.taptap.cn/app/913692) |
+| 81 | `app_894491_20260830_12285aaf11` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 136 | ok | 一刀就富 - 不限量测试 | [link](https://www.taptap.cn/app/894491) |
+| 82 | `app_915838_20260830_36770a15a3` | `taptap_app_calendar` | 2026-08-30T00:00:00 | 117 | ok | 3D翡翠赌石模拟器 - 新游预约 | [link](https://www.taptap.cn/app/915838) |
+| 83 | `114071_20260830_4f123ae0d9` | `haoyou_kuaibao_3839` | 2026-08-30T00:00:00 | 220 | ok | 金铲铲之战 - 开宝箱保底必得英雄级小小英雄 | [link](https://www.3839.com/a/114071.htm) |
