@@ -1,0 +1,156 @@
+# Report Input Extraction Summary
+
+- Records: 517
+- Extraction failures: 0
+- Empty text records: 0
+- Non-full body records: 61
+
+## By Section
+
+- `ai_trends`: 23
+- `community_discourse`: 54
+- `deep_analysis`: 2
+- `industry_news`: 323
+- `release_calendar`: 115
+
+## 产品日历候选（按事件类型 × 来源强度排序，必须逐条决策）
+
+> 只列新品上线与新品测试；新版本、资料片、赛季、联动和老品运营不入队。按来源出现次数降序；次数相同时，行业新闻+产品日历 > 仅行业新闻 > 仅产品日历。
+
+- **王者万象棋** [new_game_schedule] — priority=11 (event=2 × source=4 + company=3) | count=6 | focus=腾讯 | coverage=industry_only | sources: S0045, S0047, S0049, S0060, S0063, S0210, S0216
+- **无限大** [new_game_schedule] — priority=11 (event=2 × source=4 + company=3) | count=3 | focus=网易 | coverage=industry_only | sources: S0039, S0050, S0213
+- **遗忘之海** [new_game_schedule] — priority=9 (event=2 × source=3 + company=3) | count=2 | focus=网易 | coverage=industry_only | sources: S0050, S0213
+- **GTA6** [new_game_launch] — priority=9 (event=3 × source=3 + company=0) | count=2 | focus=- | coverage=industry_only | sources: S0141, S0149
+- **无限大** [new_game_launch] — priority=12 (event=3 × source=3 + company=3) | count=2 | focus=网易 | coverage=industry_only | sources: S0050, S0213
+- **三体** [new_game_test] — priority=9 (event=3 × source=2 + company=3) | count=1 | focus=腾讯 | coverage=industry_only | sources: S0073
+- **燕云十六声** [new_game_launch] — priority=9 (event=3 × source=2 + company=3) | count=1 | focus=网易 | coverage=industry_only | sources: S0111
+- **代号：Craft** [new_game_launch] — priority=9 (event=3 × source=2 + company=3) | count=1 | focus=腾讯 | coverage=industry_only | sources: S0211
+- **白银之城** [new_game_launch] — priority=9 (event=3 × source=2 + company=3) | count=1 | focus=腾讯,网易,米哈游 | coverage=industry_only | sources: S0301
+- **遥遥西土** [new_game_launch] — priority=9 (event=3 × source=3 + company=0) | count=2 | focus=- | coverage=industry_only | sources: S0027, S0058, S0295
+- **Albion Online** [new_game_schedule] — priority=7 (event=2 × source=2 + company=3) | count=1 | focus=腾讯 | coverage=industry_only | sources: S0033
+- **Albion Online** [new_game_schedule] — priority=7 (event=2 × source=2 + company=3) | count=1 | focus=腾讯 | coverage=industry_only | sources: S0350
+- **共鸣：瘟疫传说传承** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0003
+- **卢湖采风** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0010
+- **霓虹深渊2** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0011
+- **破坏领主2** [new_game_test] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0020
+- **雪夜枪声** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0028
+- **TombBusters** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0037
+- **逃离鸭科夫** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0048
+- **凡应** [new_game_test] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0057
+- **征服纪：臣民之心** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0059
+- **剑网3** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0065
+- **Zomline Survival** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0073
+- **艾尔登法环** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0138
+- **腐烂国度3** [new_game_test] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0140
+- **绝地潜兵2** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0142
+- **Blackwood** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0154
+- **磁带妖怪2002** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0160
+- **Son of Thanjai** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0162
+- **阿玛塔斯** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0163
+- **斗罗大陆：传承** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0217
+- **雪夜枪声** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0294
+- **王者荣耀世界** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0302
+- **暴走植物园** [new_game_launch] — priority=6 (event=3 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0410
+- **守墓人2** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0007
+- **碧蓝幻想Versus -RISING** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0018
+- **警察模拟器** [new_game_first_reveal] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0024
+- **征服纪：臣民之心** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0059
+- **警察模拟器** [new_game_first_reveal] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0299
+- **王者万象棋** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0302
+- **剑网3** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0308
+- **粒粒的小人国** [new_game_schedule] — priority=4 (event=2 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0391
+- **石器时代** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0235
+- **决战神仙牌** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0245
+- **山海大冒险** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0246
+- **英雄联盟手游** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0255
+- **超自然行动组-送高泰明时装** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0258
+- **重制十七岁** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0260
+- **龙泡泡快跑！-玩家自制版** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0261
+- **卧龙三国** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0262
+- **变形金刚：新纪元** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0263
+- **格斗对决** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0264
+- **破晓之前** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0265
+- **芙娅之魂-代号：魂游大世界** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0266
+- **乱弹三国志** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0361
+- **一刀就富** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0429
+- **七宗罪与七美德测试** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0430
+- **不正经的实习生** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0431
+- **东汉末年** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0432
+- **乱世布衣** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0433
+- **从细胞开始填满宇宙** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0434
+- **从零开始无敌3** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0435
+- **他逃，她追，他插翅难飞** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0436
+- **仙界大陆** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0437
+- **代码随笔** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0438
+- **侠义江湖** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0439
+- **修仙中传** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0440
+- **军需行动** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0441
+- **凡兵屠仙界** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0442
+- **列国风云** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0443
+- **千禧年录像厅** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0444
+- **和平审核官** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0445
+- **圆阵骑士** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0446
+- **在废土求生的那一年** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0447
+- **城主攻守道** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0448
+- **堆叠末日：废土避难所** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0449
+- **增量克隆帝国** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0450
+- **大唐风华录** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0451
+- **宗门世家** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0452
+- **山海小馆** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0453
+- **山海灵境** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0454
+- **彼面之下** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0455
+- **心动连连看-她的城市** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0456
+- **我在昆仓山找龙** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0459
+- **我当阎王爷那些年** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0460
+- **我爱消方块** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0461
+- **我的攻击力无上线** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0462
+- **我的末世废土基地** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0463
+- **我要成为漫画家** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0464
+- **挂机修仙三千年** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0466
+- **指尖江湖：重活一世** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0467
+- **斗宠传说** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0469
+- **无尽破界：血色残响** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0470
+- **星球挖掘公司** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0471
+- **末日第一天** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0473
+- **末日：坚持七天变成超人** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0474
+- **机械造物：进化** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0475
+- **水晶战纪** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0477
+- **洞潜探险记** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0478
+- **火柴人** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0479
+- **玛法之路** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0481
+- **疯狂集装箱模拟器** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0482
+- **百业老板：产业链** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0483
+- **相亲模拟器** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0484
+- **神魔传** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0485
+- **符镇山海** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0486
+- **绿林志** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0488
+- **老铁炸炸堂** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0489
+- **胡萝卜消消乐** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0490
+- **英雄战场** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0491
+- **血脉衍仙：代代成神** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0492
+- **跑外卖暴富模拟器** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0493
+- **逻辑回溯** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0494
+- **青云宗掌门** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0495
+- **非妖哉** [new_game_launch] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0496
+- **风回电激** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0497
+- **高中模拟器** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0498
+- **齿轮工坊** [new_game_test] — priority=3 (event=3 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0499
+- **代号U1** [new_game_schedule] — priority=2 (event=2 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0241
+- **王者万象棋-抢先下载资源** [new_game_schedule] — priority=2 (event=2 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0252
+- **蓝色星原：旅谣** [new_game_schedule] — priority=2 (event=2 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0256
+- **乱弹三国志** [new_game_schedule] — priority=2 (event=2 × source=1 + company=0) | count=1 | focus=- | coverage=release_only | sources: S0267
+- **山河旅探** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0009
+- **JOIN US** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0016
+- **Holstin** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0031
+- **GTA 6** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0072
+- **艾尔登法环 褪色者版** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0138
+- **GTA6** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0149
+- **空战奇兵8 希孚之翼** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0150
+- **最终幻想 RESONANCE** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0155
+- **恶魔城：贝尔蒙特的诅咒（Castlevania： Belmont‘s Curse）** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0171
+- **Holstin** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0293
+- **Out of Hand： Deluxe** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0334
+- **漫威金刚狼** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0394
+- **异于天堂（STRANGER THAN HEAVEN）** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0395
+- **苍穹浩瀚：奥西里斯重生** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0397
+- **Join Us** [old_cross_platform_launch] — priority=2 (event=1 × source=2 + company=0) | count=1 | focus=- | coverage=industry_only | sources: S0400
