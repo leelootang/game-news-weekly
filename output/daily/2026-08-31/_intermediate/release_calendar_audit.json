@@ -15,12 +15,12 @@
   "focus_company_investment_bonus": 2,
   "nodes": [
     {
-      "product": "气球塔防6",
+      "product": "地城狩猎",
       "event_date": "2026-08-31",
       "signal_type": "new_game_launch",
       "event": "正式上线",
       "event_type_score": 3,
-      "first_seen_order": 1,
+      "first_seen_order": 30,
       "observed_signal_types": [
         "new_game_launch"
       ],
@@ -28,20 +28,20 @@
         "正式上线"
       ],
       "industry_ids": [
-        "S0007",
-        "S0045"
+        "S0077"
       ],
-      "release_ids": [],
+      "release_ids": [
+        "S0151"
+      ],
       "source_fingerprints": [
-        "804ff0251b423a0eb7c7298afb5b7c0461b4b444",
-        "7d76fc620300ac1a4c3f656249011645b46b276b"
+        "f4b363ff1ac755db5302f4a8dae02062b8ea0137"
       ],
       "focus_companies": [],
       "focus_company_relationships": {},
       "company_evidence_ids": [],
       "source_ids": [
-        "S0007",
-        "S0045"
+        "S0077",
+        "S0151"
       ],
       "appearance_count": 2,
       "appearance_score": 2,
@@ -55,56 +55,11 @@
       "window_eligible": true,
       "window_scope": "report_window",
       "publish_eligible": true,
-      "coverage": "industry_only",
-      "coverage_rank": 2,
+      "coverage": "both",
+      "coverage_rank": 3,
       "status": "pending_decision",
-      "candidate_id": "release-candidate-001"
-    },
-    {
-      "product": "BUZZ or DIE",
-      "event_date": "2026-08-31",
-      "signal_type": "new_game_launch",
-      "event": "正式上线",
-      "event_type_score": 3,
-      "first_seen_order": 10,
-      "observed_signal_types": [
-        "new_game_launch"
-      ],
-      "observed_events": [
-        "正式上线"
-      ],
-      "industry_ids": [
-        "S0043",
-        "S0132"
-      ],
-      "release_ids": [],
-      "source_fingerprints": [
-        "7df97880edc77beebd311d7f8cc727c2e61e5068",
-        "5417cd216e7b8bef1afa3afa2ae9109b444a1d49"
-      ],
-      "focus_companies": [],
-      "focus_company_relationships": {},
-      "company_evidence_ids": [],
-      "source_ids": [
-        "S0043",
-        "S0132"
-      ],
-      "appearance_count": 2,
-      "appearance_score": 2,
-      "industry_bonus": 1,
-      "source_strength_score": 3,
-      "base_priority_score": 9,
-      "company_relationship": "none",
-      "company_bonus": 0,
-      "priority_score": 9,
-      "multi_source_eligible": true,
-      "window_eligible": true,
-      "window_scope": "report_window",
-      "publish_eligible": true,
-      "coverage": "industry_only",
-      "coverage_rank": 2,
-      "status": "pending_decision",
-      "candidate_id": "release-candidate-002"
+      "candidate_id": "release-candidate-027",
+      "audit_correction": "合并GameRes周开测表S0077与3839产品日历S0151。"
     },
     {
       "product": "奔奔王国",
@@ -731,6 +686,53 @@
       "candidate_id": "release-candidate-016"
     },
     {
+      "product": "BUZZ or DIE",
+      "event_date": "2026-08-31",
+      "signal_type": "new_game_schedule",
+      "event": "计划年内发售",
+      "event_type_score": 2,
+      "first_seen_order": 10,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0043",
+        "S0132"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "7df97880edc77beebd311d7f8cc727c2e61e5068",
+        "5417cd216e7b8bef1afa3afa2ae9109b444a1d49"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0043",
+        "S0132"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "excluded_audit_repair",
+      "candidate_id": "release-candidate-002",
+      "audit_correction": "两篇为同稿转载，且“年内发售”不能解析为8月31日上线。"
+    },
+    {
       "product": "王者万象棋",
       "event_date": "2026-08-27",
       "signal_type": "new_game_schedule",
@@ -905,8 +907,9 @@
       "publish_eligible": false,
       "coverage": "release_only",
       "coverage_rank": 1,
-      "status": "pending_decision",
-      "candidate_id": "release-candidate-020"
+      "status": "excluded_cross_history",
+      "candidate_id": "release-candidate-020",
+      "audit_correction": "相同早期测试状态已在8月17日日报与8月14—20日周报曝光，无新状态。"
     },
     {
       "product": "我独自升级：崛起-国服",
@@ -1165,49 +1168,6 @@
       "coverage_rank": 1,
       "status": "pending_decision",
       "candidate_id": "release-candidate-026"
-    },
-    {
-      "product": "地城狩猎",
-      "event_date": "2026-08-31",
-      "signal_type": "new_game_launch",
-      "event": "正式上线",
-      "event_type_score": 3,
-      "first_seen_order": 30,
-      "observed_signal_types": [
-        "new_game_launch"
-      ],
-      "observed_events": [
-        "正式上线"
-      ],
-      "industry_ids": [],
-      "release_ids": [
-        "S0151"
-      ],
-      "source_fingerprints": [
-        "f4b363ff1ac755db5302f4a8dae02062b8ea0137"
-      ],
-      "focus_companies": [],
-      "focus_company_relationships": {},
-      "company_evidence_ids": [],
-      "source_ids": [
-        "S0151"
-      ],
-      "appearance_count": 1,
-      "appearance_score": 1,
-      "industry_bonus": 0,
-      "source_strength_score": 1,
-      "base_priority_score": 3,
-      "company_relationship": "none",
-      "company_bonus": 0,
-      "priority_score": 3,
-      "multi_source_eligible": false,
-      "window_eligible": true,
-      "window_scope": "report_window",
-      "publish_eligible": false,
-      "coverage": "release_only",
-      "coverage_rank": 1,
-      "status": "pending_decision",
-      "candidate_id": "release-candidate-027"
     },
     {
       "product": "星眠",
