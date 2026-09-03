@@ -1,0 +1,1430 @@
+{
+  "schema_version": 5,
+  "report_window": {
+    "start": "2026-09-02",
+    "end": "2026-09-02"
+  },
+  "release_lookahead_days": 1,
+  "release_window": {
+    "start": "2026-09-02",
+    "end": "2026-09-03"
+  },
+  "ranking": "publish_eligible desc, priority_score desc; tie company_bonus desc, event_type_score desc, appearance_count desc, industry_bonus desc, first_seen_order asc",
+  "formula": "priority_score = event_type_score * source_strength_score + company_bonus",
+  "focus_company_bonus": 3,
+  "focus_company_investment_bonus": 2,
+  "nodes": [
+    {
+      "product": "仙逆：本尊",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "公测",
+      "event_type_score": 3,
+      "first_seen_order": 19,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "公测",
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0166",
+        "S0184"
+      ],
+      "source_fingerprints": [
+        "9f8befad92afa718c8acbf11588f26dfbf229280",
+        "0802f75142702beda90a795befa625ec5780f341"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0166",
+        "S0184"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 0,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": true,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-004"
+    },
+    {
+      "product": "王者万象棋",
+      "event_date": "2026-09-10",
+      "signal_type": "new_game_schedule",
+      "event": "9月10日公测定档",
+      "event_type_score": 2,
+      "first_seen_order": 4,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月10日公测定档"
+      ],
+      "industry_ids": [
+        "S0019",
+        "S0143"
+      ],
+      "release_ids": [
+        "S0181"
+      ],
+      "source_fingerprints": [
+        "4c776b149d4dca2f72df2ec475e6da13aa4485b1",
+        "4afd88595aa20bceea80864bdeddd38bdd208db0",
+        "986949a808d16b291ba3b1ac1a8227e38a1cd1cf"
+      ],
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_evidence_ids": [
+        "S0019"
+      ],
+      "source_ids": [
+        "S0019",
+        "S0143",
+        "S0181"
+      ],
+      "appearance_count": 3,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 8,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 11,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_and_release",
+      "coverage_rank": 2,
+      "status": "cross_report_duplicate",
+      "candidate_id": "release-candidate-001"
+    },
+    {
+      "product": "双轮成行",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 0,
+      "observed_signal_types": [
+        "old_cross_platform_launch",
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线",
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0004",
+        "S0107"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "782b2b625485156316f1193b13ebdeb37fcbb3c5",
+        "a1b8a244bd71ad0bc2843ed928c8dcec137429f1"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0004",
+        "S0107"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 9,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 9,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "insufficient_absolute_date_evidence",
+      "candidate_id": "release-candidate-002"
+    },
+    {
+      "product": "王者荣耀",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "9月10日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 5,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月10日上线定档"
+      ],
+      "industry_ids": [
+        "S0019"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "4c776b149d4dca2f72df2ec475e6da13aa4485b1"
+      ],
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_evidence_ids": [
+        "S0019"
+      ],
+      "source_ids": [
+        "S0019"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 7,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "false_positive_product_name",
+      "candidate_id": "release-candidate-005"
+    },
+    {
+      "product": "伊莫",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "9月23日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 6,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月23日上线定档"
+      ],
+      "industry_ids": [
+        "S0019"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "4c776b149d4dca2f72df2ec475e6da13aa4485b1"
+      ],
+      "focus_companies": [
+        "腾讯",
+        "哔哩哔哩"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct",
+        "哔哩哔哩": "direct"
+      },
+      "company_evidence_ids": [
+        "S0019"
+      ],
+      "source_ids": [
+        "S0019"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 7,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-006"
+    },
+    {
+      "product": "庄园领主",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 1,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0007"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "cf70cc3ee675c7c4998b78adfa3c57fa085d26d9"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0007"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-007"
+    },
+    {
+      "product": "魔兽大作战",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 8,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0023"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "616dc667c5410d06c5401e7e0447778f733eb626"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0023"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-008"
+    },
+    {
+      "product": "四叶草深渊",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 9,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0025"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "08552b677409fe9d51228b9ea6cc707b80cb949c"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0025"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-009"
+    },
+    {
+      "product": "使命召唤：现代战争4",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_test",
+      "event": "公开测试",
+      "event_type_score": 3,
+      "first_seen_order": 16,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "公开测试"
+      ],
+      "industry_ids": [
+        "S0111"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "0a286535b4b1d32f84bdc18d1be1299548eaf87f"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0111"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-010"
+    },
+    {
+      "product": "永泉",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "11月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 3,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "11月上线定档"
+      ],
+      "industry_ids": [
+        "S0014"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "14953bbd074a04c54b6131943517511cbc5e617d"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0014"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-011"
+    },
+    {
+      "product": "漫威金刚狼",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "9月15日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 10,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月15日上线定档"
+      ],
+      "industry_ids": [
+        "S0092"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "8c7fa5b774540e33edf55ed9c56975a8ba2ed9bd"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0092"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-012"
+    },
+    {
+      "product": "战神：劳菲",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "2027年2月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 11,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "2027年2月上线定档"
+      ],
+      "industry_ids": [
+        "S0092"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "8c7fa5b774540e33edf55ed9c56975a8ba2ed9bd"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0092"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-013"
+    },
+    {
+      "product": "无血",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 22,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0174"
+      ],
+      "source_fingerprints": [
+        "ee6528f587d3e7ee1b5ae6c160266c82fd938ec2"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0174"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-014"
+    },
+    {
+      "product": "明日方舟：终末地",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 23,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0176"
+      ],
+      "source_fingerprints": [
+        "a8d8944ad385baec111a1ca21b942112244e2c22"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0176"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-015"
+    },
+    {
+      "product": "晶核",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 24,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0177"
+      ],
+      "source_fingerprints": [
+        "70a9ba16304e71a82bebc3656a2286ea8904173b"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0177"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-016"
+    },
+    {
+      "product": "开个龙虾馆",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 27,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0185"
+      ],
+      "source_fingerprints": [
+        "ae48a5e88f5b60967699796664fdf2fecb58f864"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0185"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-017"
+    },
+    {
+      "product": "我叫MT：崛起",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_test",
+      "event": "不限量测试",
+      "event_type_score": 3,
+      "first_seen_order": 28,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "不限量测试"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0186"
+      ],
+      "source_fingerprints": [
+        "21869b1ebb891c7977e978181f5c2bcc21a29408"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0186"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-018"
+    },
+    {
+      "product": "龙魂大陆",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_test",
+      "event": "删档测试",
+      "event_type_score": 3,
+      "first_seen_order": 29,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "删档测试"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0187"
+      ],
+      "source_fingerprints": [
+        "e961993efbc7493760f2cc6189ff83c63f457607"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0187"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-019"
+    },
+    {
+      "product": "The Conveni 2",
+      "event_date": "2026-09-03",
+      "signal_type": "new_game_launch",
+      "event": "次日上线",
+      "event_type_score": 3,
+      "first_seen_order": 133,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "次日上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0190"
+      ],
+      "source_fingerprints": [
+        "8a772b66d02d34d2626155fb3751b128eb4d8619"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0190"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-033"
+    },
+    {
+      "product": "Wiz",
+      "event_date": "2026-09-03",
+      "signal_type": "new_game_launch",
+      "event": "次日上线",
+      "event_type_score": 3,
+      "first_seen_order": 134,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "次日上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0191"
+      ],
+      "source_fingerprints": [
+        "dd764b0f341cc75601a1b01021d3efcd6b9da18f"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0191"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-034"
+    },
+    {
+      "product": "无畏契约：源能行动-",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_preload",
+      "event": "新品预下载",
+      "event_type_score": 2,
+      "first_seen_order": 21,
+      "observed_signal_types": [
+        "new_game_preload"
+      ],
+      "observed_events": [
+        "新品预下载"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0173"
+      ],
+      "source_fingerprints": [
+        "84612e1b41782dca5ab9eff415538afe1b6020bd"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0173"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-020"
+    },
+    {
+      "product": "深色黎明：无垠",
+      "event_date": "2026-09-02",
+      "signal_type": "new_game_schedule",
+      "event": "9月14日测试定档",
+      "event_type_score": 2,
+      "first_seen_order": 25,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月14日测试定档"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0179"
+      ],
+      "source_fingerprints": [
+        "5bb2fc45ade64f34f11dfd30ce991c13e964a34e"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0179"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-021"
+    },
+    {
+      "product": "Fangtopia",
+      "event_date": "2026-10-26",
+      "signal_type": "new_game_schedule",
+      "event": "10月26日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 131,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "10月26日上线定档"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0188"
+      ],
+      "source_fingerprints": [
+        "5a5c2f878844c944cc9b6d2bc11e7e9f33badd65"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0188"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-031"
+    },
+    {
+      "product": "Port of Jumanah",
+      "event_date": "2026-09-07",
+      "signal_type": "new_game_schedule",
+      "event": "9月7日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 132,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "9月7日上线定档"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0189"
+      ],
+      "source_fingerprints": [
+        "2a292f9740f9bbaac82218dc86ca1a44e8cfeb21"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0189"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-032"
+    },
+    {
+      "product": "星球大战：零号连队",
+      "event_date": "2026-08-27",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 7,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0020"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "68a79142bcc16322a81b8551beb62c2daff8b029"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0020"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-023"
+    },
+    {
+      "product": "恶意不息",
+      "event_date": "2026-09-02",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 12,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0095"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "926fe6bf96ece5acde0f53558c0ffcd2e334de61"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0095"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-024"
+    },
+    {
+      "product": "EA SPORTS FC 27",
+      "event_date": "2026-09-25",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 13,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0105"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "4676ec3b5759c53fca9149632deae88902f04e07"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0105"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-025"
+    },
+    {
+      "product": "月光光心慌慌（Halloween）",
+      "event_date": "2026-09-08",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 14,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0106"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "60de0be7136565e0a6b1545f1ae245956e2eca2b"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0106"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-026"
+    },
+    {
+      "product": "鬼武者 剑之道",
+      "event_date": "2026-09-04",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 15,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0108"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "af261c29b1f290d6c5cb491da1592f77cd34166c"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0108"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-027"
+    },
+    {
+      "product": "空战奇兵8 希孚之翼",
+      "event_date": "2026-10-02",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 17,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0117"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "1e451ba33fbec8b1ffe986545b0515f505a4796d"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0117"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-028"
+    },
+    {
+      "product": "风火轮：无限狂飙",
+      "event_date": "2026-09-10",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 18,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0124"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "b516fa83cda73d5908d032eed7ff8a7ee1e35730"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0124"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-029"
+    },
+    {
+      "product": "和平精英-龙狮城归来",
+      "event_date": "2026-09-02",
+      "signal_type": "old_relaunch",
+      "event": "老品重启回归",
+      "event_type_score": 1,
+      "first_seen_order": 20,
+      "observed_signal_types": [
+        "old_relaunch"
+      ],
+      "observed_events": [
+        "老品重启回归"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0172"
+      ],
+      "source_fingerprints": [
+        "039cc09ea0c59900d603f3bee7065f59e3201336"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0172"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 1,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-030"
+    }
+  ]
+}
