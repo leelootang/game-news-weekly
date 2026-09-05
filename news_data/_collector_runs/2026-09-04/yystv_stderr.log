@@ -1,0 +1,27 @@
+# industry_news/yystv failed at 2026-09-05T00:05:33.636428+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\yystv.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-04 --max-pages 5 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-09-04 00:00:00 <= published < 2026-09-05 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-04
+[rss] 游研社 RSS is a single feed; --max-pages is accepted for runner compatibility
+[rss] open https://www.yystv.cn/rss/feed
+[rss] collected 12 article(s), older=0, future_or_today=0
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\yystv.py", line 431, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\yystv.py", line 399, in main
+    items = collect_news_items(since, until, args.max_pages)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\yystv.py", line 221, in collect_news_items
+    raise RuntimeError("RSS did not include an item older than --since; cannot prove completeness")
+RuntimeError: RSS did not include an item older than --since; cannot prove completeness
