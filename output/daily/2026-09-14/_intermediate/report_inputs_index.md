@@ -1,0 +1,204 @@
+# Report Inputs Index
+
+- Total records: 182
+- 本文件列出每个 section 的**全部**记录（无截断）；表头计数 == 该节列出的行数。
+- 用途：生成阶段先扫这里做全局标题/来源/日期覆盖，再按 source_id 下钻 JSONL 细节。
+- **禁止截断**：任何一节的行数少于表头计数即为漏召回缺陷。
+
+## ai_trends (4 records)
+
+- `S0148` [2026-09-14] (aihot.virxact.com) Tomer Tunguz 解析 Amodei 放缓前沿提议背后的五派立场与算力监管难题 — 2987 chars, body=full
+- `S0149` [2026-09-14] (aihot.virxact.com) 小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先 — 489 chars, body=full
+- `S0150` [2026-09-14] (aihot.virxact.com) 恶意 AI 智能体攻击 RubyGems.org：YARD 执行任意代码与 Fastly 缓存密钥利用分析 — 925 chars, body=full
+- `S0151` [2026-09-14] (aihot.virxact.com) Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值 — 966 chars, body=full
+
+## community_discourse (14 records)
+
+- `S0167` [2026-09-14] (bbs.nga.cn) [周边] [小瓜微甜]万代做原神周边，但是没写散兵名字，写了个等，目前被绝赞冲锋中 — 1547 chars, body=full
+- `S0168` [2026-09-14] (bbs.nga.cn) [新瓜] 群里看到的，妮姬这是？ — 1918 chars, body=full
+- `S0169` [2026-09-14] (bbs.nga.cn) [紫龙] 梦幻模拟战开服8年联动20个日本ACG领域IP合集瓜汇总兼个人吐槽(若有因此想入坑的小伙伴请注意前十九个联动已绝版) — 7656 chars, body=full
+- `S0170` [2026-09-14] (bbs.nga.cn) [新瓜] "旅行青蛙"停服内幕：日方索要八位数版权费，95%收入归版权方 — 1756 chars, body=full
+- `S0171` [2026-09-14] (bbs.nga.cn) [米哈游]脉脉米哈游同事圈有员工diss崩坏系列新作 — 2273 chars, body=full
+- `S0172` [2026-09-14] (bbs.nga.cn) [厂商] [库洛]库洛新作NAMI疑似正式注册为《不完全燃烧》(BurnNorBlaze) — 1773 chars, body=full
+- `S0173` [2026-09-14] (bbs.nga.cn) 异环刮刮乐玩法在韩服下架 — 2547 chars, body=full
+- `S0174` [2026-09-14] (bbs.nga.cn) [米哈游] [瓜小味甜]崩铁水温节奏后新视频对白似乎意有所指，且视频评论区被b站标记提示 — 2058 chars, body=full
+- `S0175` [2026-09-14] (bbs.nga.cn) [米哈游] [崩坏：星穹铁道]帽子戏法！崩铁短期内迎来第三次膨胀，虚构叙事三间血量已经达到两亿六千万，崩铁知名平民up主墨色长安表示他也打不过了 — 2569 chars, body=full
+- `S0176` [2026-09-14] (bbs.nga.cn) [米哈游] 原神日服历史首次飞榜，韩服历史首次飞游戏榜 — 2424 chars, body=full
+- `S0177` [2026-09-14] (bbs.nga.cn) [米哈游]《原神》角色声音被“偷”获赔75万元，上海首例涉AI声音仿冒不正当竞争案宣判 — 2284 chars, body=full
+- `S0178` [2026-09-14] (bbs.nga.cn) [米哈游] [崩坏：星穹铁道]石少半波流水78一路高歌猛进 — 2406 chars, body=full
+- `S0179` [2026-09-14] (bbs.nga.cn) [新瓜] 千年战争新角色疑似成为赛马娘玩家代餐 — 1936 chars, body=full
+- `S0180` [2026-09-14] (bbs.nga.cn) [碧蓝航线]碧蓝航线官方出手，下架大量抱枕等商品 — 1031 chars, body=full
+
+## deep_analysis (2 records)
+
+- `S0181` [2026-09-14] (thegamebusiness.com) Can Hideo Kojima make Xbox ‘cool’ – Here’s The Dring — 2673 chars, body=full
+- `S0182` [2026-09-14] (sensortower.com) 2026年消费电子市场洞察报告 — 3057 chars, body=full
+
+## industry_news (147 records)
+
+- `S0001` [2026-09-14] (gcores.com) AL夺得《英雄联盟》LPL 2026总冠军 — 27 chars, body=full
+- `S0002` [2026-09-14] (gcores.com) 彭博社透露索尼与小岛秀夫“分手”原因，工作室痛失Decima引擎 — 46 chars, body=full
+- `S0003` [2026-09-14] (gcores.com) 《寻星者：余晖‌》现已开启试玩Demo — 29 chars, body=full
+- `S0004` [2026-09-14] (gcores.com) VR《Moss》系列开发商Polyarc Games宣布关闭 — 41 chars, body=full
+- `S0005` [2026-09-14] (gcores.com) 韩国击败沙特，夺得2026《守望先锋》世界杯冠军 — 30 chars, body=full
+- `S0006` [2026-09-14] (gcores.com) 小红花夺得《炉石传说》世界冠军赛冠军 — 27 chars, body=full
+- `S0007` [2026-09-14] (gcores.com) 《守望先锋》将与《赛博朋克：边缘行者》展开联动 — 41 chars, body=full
+- `S0008` [2026-09-14] (gcores.com) 肉鸽DBG《愚者接龙》正式亮相，首次内测同步开启 — 35 chars, body=full
+- `S0009` [2026-09-14] (gcores.com) 映泰推广12年前显卡GT 730，四路HDMI成最大卖点 — 38 chars, body=full
+- `S0010` [2026-09-14] (gcores.com) 自带91个职业的像素JRPG新游《幻想放置远征队》定档10月9日 — 40 chars, body=full
+- `S0011` [2026-09-14] (gcores.com) 直抵内心的“共情型心理悬疑 ADV”《中二病咨询室：第二现实译者》公布发售时间及定价 — 61 chars, body=full
+- `S0012` [2026-09-14] (gamelook.com.cn) 从全面和解到间接参股：恺英网络的跨国纠纷解法与长远棋局 — 1437 chars, body=full
+- `S0013` [2026-09-14] (gamelook.com.cn) 金铲铲五年，如何成为自走棋赛道的“标准答案”？ — 3651 chars, body=full
+- `S0014` [2026-09-14] (gamelook.com.cn) TapTap在上海把玩家与创作者，“聚”在了一起 — 5198 chars, body=full
+- `S0015` [2026-09-14] (gamelook.com.cn) 当MMO集体焦虑蔓延，这款游戏却把“战斗爽”做成了另一种答案 — 3452 chars, body=full
+- `S0016` [2026-09-14] (gamelook.com.cn) “投降还是另辟蹊径”？二游大厂《赛马娘》开发商Cygames要做小体量游戏 — 1470 chars, body=full
+- `S0017` [2026-09-14] (gamelook.com.cn) 游戏圈天价离婚案：《穿越火线》开发商老板“分割财产”，前妻获得127亿元 — 1175 chars, body=full
+- `S0018` [2026-09-14] (gamelook.com.cn) 中年人发文：“42岁读研做游戏怎么样”？网友纷纷劝退：做游戏不认学历 — 1939 chars, body=full
+- `S0019` [2026-09-14] (gamelook.com.cn) “游戏火了、却不是自己的”？Epic阻止UGC开发者注册商标：“不允许霸占类型名” — 1769 chars, body=full
+- `S0020` [2026-09-14] (gamelook.com.cn) 分析：柠檬微趣 VS 点点互动，二合游戏谁做的更好？ — 7879 chars, body=full
+- `S0021` [2026-09-14] (gamelook.com.cn) 腾讯不要的团队做出爆款：《Wardogs》Steam首日34万在线、服务器挤爆 — 3739 chars, body=full
+- `S0022` [2026-09-14] (gamelook.com.cn) 王俊凯、Uzi领衔明星赛，AL夺冠，英雄联盟15周年盛典落幕 — 3308 chars, body=full
+- `S0023` [2026-09-14] (cgames.com) 必凡火树蓝飞闷声发大财，叠纸腾讯都掉队了 — 5258 chars, body=full
+- `S0024` [2026-09-14] (cgames.com) 上亿玩家走过15年，腾讯少有的现象级游戏难以复制 — 4050 chars, body=full
+- `S0025` [2026-09-14] (m.sohu.com) 失业后自学游戏引擎，他一人用AI做游戏，在Steam新品节打败八成对手 — 3501 chars, body=full
+- `S0026` [2026-09-14] (m.sohu.com) 64家游戏公司半年报：薪酬成本下降9亿，亏损的公司翻了一倍 — 5296 chars, body=full
+- `S0027` [2026-09-14] (youxituoluo.com) 恺英网络参股娱美德，传奇IP权属重构在即 — 1471 chars, body=full
+- `S0028` [2026-09-14] (youxituoluo.com) 独立创作者借AI发力，TapTap热门榜前十闯入3款“AI制作”游戏 — 3616 chars, body=full
+- `S0029` [2026-09-14] (youxituoluo.com) 暴雪嘉年华：“魔兽世界2”、星际IP开放世界射击游戏、暗黑5全来了 — 2529 chars, body=full
+- `S0030` [2026-09-14] (youxituoluo.com) 流浪地球IP射击新游曝光，旅行青蛙停运，《王者万象棋》畅销top5 | 陀螺周报 — 2654 chars, body=full
+- `S0031` [2026-09-14] (youxichaguan.com) 2026LPL总决赛落幕，AL勇夺赛季总冠军！ — 2175 chars, body=full
+- `S0032` [2026-09-14] (youxichaguan.com) 参股娱美德卡位版权源头，恺英网络重构传奇IP产业布局 — 1471 chars, body=full
+- `S0033` [2026-09-14] (youxichaguan.com) 二次元的“内容”周期结束了吗 — 2868 chars, body=full
+- `S0034` [2026-09-14] (youxichaguan.com) 恺英21亿元间接入股娱美德，后者持有传奇IP授权的80%收益 — 1015 chars, body=full
+- `S0035` [2026-09-14] (youxichaguan.com) 一家被腾讯“抛弃”的小工作室，做出了一个日流水超3.4亿的超级爆款 — 4349 chars, body=full
+- `S0036` [2026-09-14] (youxichaguan.com) 《伊莫》PC端预下载今日开启，9月16日，和3000万预约玩家“伊齐出发” — 1569 chars, body=full
+- `S0037` [2026-09-14] (youxichaguan.com) 机甲动作射击游戏《DARK MACHINE THE GAME》确认参展“东京电玩展2026”！ — 4570 chars, body=full
+- `S0038` [2026-09-14] (youxichaguan.com) 恺英成为娱美德大股东，传奇IP生态实现“统一”闭环 — 1592 chars, body=full
+- `S0039` [2026-09-14] (youxichaguan.com) 王俊凯、Uzi领衔明星赛，AL夺冠，英雄联盟15周年盛典落幕 — 3308 chars, body=full
+- `S0040` [2026-09-14] (youxichaguan.com) 这波“江湖局”太会了！恺英双国风IP把三国和古龙搬进黄浦街头 — 1370 chars, body=full
+- `S0041` [2026-09-14] (youxichaguan.com) Has the "Content" Cycle in the Anime and Manga World Come to an End? — 11385 chars, body=full
+- `S0042` [2026-09-14] (youxichaguan.com) Kaiying has indirectly invested 2.1 billion yuan in Yumede, which holds 80% of the revenue from the Legend IP license. — 4145 chars, body=full
+- `S0043` [2026-09-14] (youxichaguan.com) A small studio that was "abandoned" by Tencent created a smash hit generating over 340 million yuan in daily revenue. — 14388 chars, body=full
+- `S0044` [2026-09-14] (youxichaguan.com) 制霸校园·战至巅峰｜AGA CS（北京）高校争霸赛开启招募！ — 1837 chars, body=full
+- `S0045` [2026-09-14] (youxichaguan.com) 不只是挂机！自带91个职业的像素JRPG新游《幻想放置远征队》定档10月9日 — 1814 chars, body=full
+- `S0046` [2026-09-14] (youxichaguan.com) 逐渐崩坏的童话冒险 ！《爱丽丝与彼岸》定档10月16日 — 759 chars, body=full
+- `S0047` [2026-09-14] (youxichaguan.com) 解锁九月新玩法，AppGallery本月最佳应用和游戏盘点 — 900 chars, body=full
+- `S0048` [2026-09-14] (new.qq.com) 恺英斥资20亿元参股娱美德，约定促成传奇IP独家授权协议 — 1536 chars, body=full
+- `S0049` [2026-09-14] (new.qq.com) 首发登上Steam畅销榜第二，《东方》IP新作让STG再次伟大 — 3361 chars, body=full
+- `S0050` [2026-09-14] (new.qq.com) 下载破亿！字节在短剧继续卷，新APP冲到全球第7！ — 3400 chars, body=full
+- `S0051` [2026-09-14] (gamesindustry.biz) Moss developer Polyarc Games announces closure — 1968 chars, body=full
+- `S0052` [2026-09-14] (gamesindustry.biz) New StarCraft title to launch in 2030, will be an open-world FPS — 2351 chars, body=full
+- `S0053` [2026-09-14] (gamesindustry.biz) "What's the harm in asking?" – Dlala Studios on taking a big swing to get comedy legend Bob Mortimer for the upcoming game Murals — 10707 chars, body=full
+- `S0054` [2026-09-14] (gamesindustry.biz) Roblox creators will soon be able to publish games on multiple platforms as standalone apps — 2906 chars, body=full
+- `S0055` [2026-09-14] (gamesindustry.biz) PlayStation allegedly had "concerns over budget, potential profitability, and exclusivity" over Kojima Productions' Physint — 1977 chars, body=full
+- `S0056` [2026-09-14] (pocketgamer.biz) Why PG Connects Nordics is essential for developers, publishers and investors — 675 chars, body=snippet
+- `S0057` [2026-09-14] (pocketgamer.biz) Hot Five: LEGO Digital Play acquires Offroad Games, Unity launches Claude Code plugin, and Pokémon Go is top grossing mobile game of early September — 368 chars, body=snippet
+- `S0058` [2026-09-14] (pocketgamer.biz) Roblox reveals 2026 Innovation Awards winners — 465 chars, body=snippet
+- `S0059` [2026-09-14] (pocketgamer.biz) Report: 35% of game founders have decided against hiring because AI can do the work — 531 chars, body=snippet
+- `S0060` [2026-09-14] (pocketgamer.biz) Diablo animated series in development at Netflix — 444 chars, body=snippet
+- `S0061` [2026-09-14] (pocketgamer.biz) Take-Two's former head of AI Dr Luke Dicken to speak at PGC Nordics — 522 chars, body=snippet
+- `S0062` [2026-09-14] (pocketgamer.biz) Monster Hunter Now makes $336.9m in three years on mobile — 377 chars, body=snippet
+- `S0063` [2026-09-14] (pocketgamer.biz) Roblox unveils new play, creation and monetisation tools at RDC 2026 — 501 chars, body=snippet
+- `S0064` [2026-09-14] (gamedeveloper.com) Worker-run studio KO_OP confirms layoffs — 1361 chars, body=full
+- `S0065` [2026-09-14] (gamedeveloper.com) Moss developer Polyarc has shut down — 1247 chars, body=full
+- `S0066` [2026-09-14] (mobilegamer.biz) The soft launch games you need to know about from Blizzard, Supercell, EA, Moon Active, Zynga and more — 8379 chars, body=full
+- `S0067` [2026-09-14] (mobilegamer.biz) Roblox plans to let creators turn their games into standalone apps — 2627 chars, body=full
+- `S0068` [2026-09-14] (investgame.net) Devolver Digital leaves AIM at £0.16 a share, five years after a £1.57 IPO, at ~0.6x revenue — 353 chars, body=full
+- `S0069` [2026-09-14] (videogameschronicle.com) Last of Us Part 2 multiplayer mod ‘canceled by Sony’ — 172 chars, body=snippet
+- `S0070` [2026-09-14] (videogameschronicle.com) Video: Check out the multiplayer modes in Crazy Taxi World Tour in our PC footage — 157 chars, body=snippet
+- `S0071` [2026-09-14] (videogameschronicle.com) Resident Evil film director says he ‘stripped out as much of the jokes as possible’ after test screenings — 134 chars, body=snippet
+- `S0072` [2026-09-14] (videogameschronicle.com) The other Xbox 360 exclusive JRPG from the creator of Final Fantasy now has a PC port — 164 chars, body=snippet
+- `S0073` [2026-09-14] (videogameschronicle.com) The Blizzard X CD Projekt Red collaboration continues with Cyberpunk outfits in Overwatch — 170 chars, body=snippet
+- `S0074` [2026-09-14] (chuapp.com) 15年后，《英雄联盟》继续穿越周期 — 5133 chars, body=full
+- `S0075` [2026-09-14] (chuapp.com) 专访《洛克王国：世界》叙事负责人：为什么我们想要和精灵之间发生故事？ — 7663 chars, body=full
+- `S0076` [2026-09-14] (chuapp.com) 触乐怪话：再疯狂一次 — 1405 chars, body=full
+- `S0077` [2026-09-14] (chuapp.com) Poncle工作室群访：把“吸血鬼”系列变成大杂烩IP — 3930 chars, body=full
+- `S0078` [2026-09-14] (gameres.com) 从多元体验走向连接！TapTap玩聚节打通了玩家与开发者之间无形的墙 — 4467 chars, body=full
+- `S0079` [2026-09-14] (gameres.com) 9月14日—9月20日共有29款游戏开测｜GameRes — 1801 chars, body=full
+- `S0080` [2026-09-14] (gamespot.com) Blizzard Explains Why The StarCraft Shooter Coming In 2030 Was Announced Now — 5614 chars, body=snippet
+- `S0081` [2026-09-14] (gamespot.com) StarCraft Reboot Is “Focusing On Single-Player,” Creative Director Says — 2473 chars, body=snippet
+- `S0082` [2026-09-14] (gamespot.com) The StarCraft Shooter Is A Third-Person Game, And Blizzard Insists That You Have To Feel “Powerful” — 3177 chars, body=snippet
+- `S0083` [2026-09-14] (gamespot.com) You’ll Fight The Protoss In StarCraft, Too, Don’t Worry — 2605 chars, body=snippet
+- `S0084` [2026-09-14] (gamespot.com) First GTA 6 Actor Officially Confirmed, And It’s A Big Name — 1900 chars, body=snippet
+- `S0085` [2026-09-14] (gamespot.com) Resident Evil Movie Director Comments On Physical Media Debate — 1965 chars, body=snippet
+- `S0086` [2026-09-14] (gamespot.com) StarCraft: Release Date, Gameplay, And Everything We Know — 4138 chars, body=snippet
+- `S0087` [2026-09-14] (gamespot.com) Release The Resident Evil: Whitest Kids ‘U Know Cut — 3181 chars, body=snippet
+- `S0088` [2026-09-14] (gamespot.com) Resident Evil Movies Were On Ice Until Zach Cregger Came Along — 2979 chars, body=snippet
+- `S0089` [2026-09-14] (gamespot.com) Diablo 5 Will Have The Most Classes Of Any Game In The Series — 2028 chars, body=snippet
+- `S0090` [2026-09-14] (gamespot.com) Lies Of P’s Wizard Of Oz Tease May Have Just Gotten A Lot More Interesting — 2069 chars, body=snippet
+- `S0091` [2026-09-14] (gamespot.com) Red Dead 2 Actor Shares A Gross Secret About The Game — 1881 chars, body=snippet
+- `S0092` [2026-09-14] (gamespot.com) The Last Of Us 2 Multiplayer Mod Canceled “On Behalf Of Sony,” Dev Says — 1991 chars, body=snippet
+- `S0093` [2026-09-14] (ign.com.cn) 报道称PlayStation因预算与延期问题放弃《Physint》 — 1231 chars, body=full
+- `S0094` [2026-09-14] (ign.com.cn) Rockstar为防止泄露采取了极为严格的措施 — 3769 chars, body=full
+- `S0095` [2026-09-14] (ign.com.cn) Insomniac回应金刚狼气味轨迹争议 — 1099 chars, body=full
+- `S0096` [2026-09-14] (ign.com.cn) 《雷顿教授》开发商回应游戏使用生成式AI — 1461 chars, body=full
+- `S0097` [2026-09-14] (ign.com.cn) 印达·纳瓦雷特已有计划练好罗刹女的南方口音 — 835 chars, body=full
+- `S0098` [2026-09-14] (ign.com.cn) 开发者称没必要推出《魔兽世界2》 — 1672 chars, body=full
+- `S0099` [2026-09-14] (ign.com.cn) 《守望先锋》开发者确认猎空仍是游戏吉祥物 — 1297 chars, body=full
+- `S0100` [2026-09-14] (ign.com.cn) 《暗黑破坏神》开发者对Netflix动画剧集感到非常兴奋 — 1599 chars, body=full
+- `S0101` [2026-09-14] (ign.com.cn) 杰洛特皮肤将登陆《暗黑破坏神4》 — 1785 chars, body=full
+- `S0102` [2026-09-14] (ign.com.cn) 《暗黑破坏神4》「地狱遗赠」赛季实机演示 — 124 chars, body=full
+- `S0103` [2026-09-14] (ign.com.cn) 《战争机器：事变日》宣传视频 — 95 chars, body=full
+- `S0104` [2026-09-14] (ign.com.cn) 《暗黑破坏神4》「地狱遗赠」赛季预告 — 124 chars, body=full
+- `S0105` [2026-09-14] (ign.com.cn) 《End of Abyss》开发幕后 — 151 chars, body=full
+- `S0106` [2026-09-14] (ign.com.cn) 《黎明行者之血》媒体赞誉宣传视频 — 174 chars, body=full
+- `S0107` [2026-09-14] (ign.com.cn) 《猎杀：对决 1896》「血魔」预告 — 176 chars, body=full
+- `S0108` [2026-09-14] (ign.com.cn) 《间谍密令外传》实机预告 — 157 chars, body=full
+- `S0109` [2026-09-14] (ign.com.cn) 《编年史：中世纪》「战斗」概览预告 — 201 chars, body=full
+- `S0110` [2026-09-14] (ign.com.cn) 《怪物猎人 荒野：凌越》「斩斧」武器介绍视频 — 213 chars, body=full
+- `S0111` [2026-09-14] (ign.com.cn) 《暗黑破坏神5》已进入全面开发阶段，这里有6个新细节 — 3331 chars, body=full
+- `S0112` [2026-09-14] (ign.com.cn) 《新蝙蝠侠2》片场照暗示猫头鹰法庭将出现 — 1114 chars, body=full
+- `S0113` [2026-09-14] (ign.com.cn) 《异形：火力小队2》最终前瞻 — 93 chars, body=full
+- `S0114` [2026-09-14] (ign.com.cn) 《空战奇兵8 希孚之翼》剧情预告 — 101 chars, body=full
+- `S0115` [2026-09-14] (indienova.com) 本周 Steam 值得关注的游戏 09.14 - 09.20（一） — 3663 chars, body=full
+- `S0116` [2026-09-14] (pcgamer.com) I've got a soft spot for cozy games with flying in them and these are my 4 favorites — 2357 chars, body=full
+- `S0117` [2026-09-14] (pcgamer.com) After more than 400 hours of Valheim in early access, I love the journey from naked adventurer to godly Viking now more than ever — 4790 chars, body=full
+- `S0118` [2026-09-14] (pcgamer.com) My favourite soundtrack of 2026 so far is tucked in one of this year's biggest sleeper hits — 3761 chars, body=full
+- `S0119` [2026-09-14] (pcgamer.com) YouTuber runs onto the stage at Roblox Developers Conference shouting 'We deserve better,' gets tackled and ejected from show — 2619 chars, body=full
+- `S0120` [2026-09-14] (pcgamer.com) Fallout dev Tim Cain says the games industry's volatility is 'always gonna be around': 'What's happening now isn't novel, it isn't new' — 2792 chars, body=full
+- `S0121` [2026-09-14] (pcgamer.com) Discussing 20 years of Company of Heroes with the team carrying its torch into the future — 12558 chars, body=full
+- `S0122` [2026-09-14] (pcgamer.com) StarCraft is a narrative-driven shooter with 'a definitive ending' and 'not a seasonal game' — 2790 chars, body=full
+- `S0123` [2026-09-14] (pcgamer.com) World of Warcraft Forever hype dampened by $30 elves: New Skyborne race locked behind expansion-tier purchase — 1873 chars, body=full
+- `S0124` [2026-09-14] (pcgamer.com) Warcraft 3: Reforged adds always-online requirement, removes LAN mode — 2000 chars, body=full
+- `S0125` [2026-09-14] (pcgamer.com) 10 big World of Warcraft Forever details from BlizzCon: No separate realms, optional transmog, and massively improved items — 2739 chars, body=full
+- `S0126` [2026-09-14] (pcgamer.com) Cyberpunk 2077 is coming to Battle.net for some reason, and Geralt will be in Diablo 4 — 1487 chars, body=full
+- `S0127` [2026-09-14] (pcgamer.com) Diablo 5 will fully support multiplayer, but Blizzard won't say how similar to Diablo 4 it'll be — 2157 chars, body=full
+- `S0128` [2026-09-14] (pcgamer.com) World of Warcraft: Forever devs say a direct sequel like Guild Wars 2 is unlikely: 'Why would you throw that away and start over?' — 3069 chars, body=full
+- `S0129` [2026-09-14] (pcgamer.com) We tested the simple Windows 11 account bypass and it works. Just no-one tell Microsoft — 2903 chars, body=full
+- `S0130` [2026-09-14] (pcgamer.com) Talent calculators have already been assembled for World of Warcraft: Forever, and there's some real interesting stuff in here — 2830 chars, body=full
+- `S0131` [2026-09-14] (pcgamer.com) Thief designer Randy Smith Evergreen refused to work for Xbox because it would be like 'walking past some stakes with human skulls on them' and pretending 'it's probably fine in this direction' — 9459 chars, body=full
+- `S0132` [2026-09-14] (pcgamer.com) Overwatch's newest hero is yet another example of how Team 4 is on a generational run — 2500 chars, body=full
+- `S0133` [2026-09-14] (pcgamer.com) World of Warcraft: Forever will get a hardcore mode by winter, say devs—which'll be interesting, given all the new and undiscovered ways to die — 2304 chars, body=full
+- `S0134` [2026-09-14] (pcgamer.com) That Last of Us 2 multiplayer mod everyone was looking forward to has been killed by Sony — 2457 chars, body=full
+- `S0135` [2026-09-14] (pcgamer.com) Redfall co-director Harvey Smith thinks Arkane 'never should have been working on a games-as-a-service game' — 3140 chars, body=full
+- `S0136` [2026-09-14] (pcgamer.com) The RAMpocalypse support group — 17813 chars, body=full
+- `S0137` [2026-09-14] (mp.sohu.com) 《早春晴朗》刷新国产剧出海新纪录，优酷国际版App「YOUKU」在全球多市场App Store的榜单排名攀升！ — 1601 chars, body=full
+- `S0138` [2026-09-14] (yxrb.net) 15年的LOL，怎么还在C？ — 4282 chars, body=full
+- `S0139` [2026-09-14] (yxrb.net) DLSS 5时代来袭！技嘉RTX 50系显卡全系支持，影视级画面触手可及 — 645 chars, body=full
+- `S0140` [2026-09-14] (yxrb.net) 技嘉猎鹰白金电源技术解析：ATX 3.1、氮化镓与白金认证三重加持 — 618 chars, body=full
+- `S0141` [2026-09-14] (yxrb.net) 技嘉 GO27Q32 电竞显示器开售：尺寸随心切换，画面清晰无损 — 846 chars, body=full
+- `S0142` [2026-09-14] (yxrb.net) 从全面和解到间接参股：恺英网络的跨国纠纷解法与长远棋局 — 1437 chars, body=full
+- `S0143` [2026-09-14] (yxrb.net) 这波“江湖局”太会了！恺英双国风IP把三国和古龙搬进黄浦街头 — 1370 chars, body=full
+- `S0144` [2026-09-14] (yxrb.net) 机甲动作射击游戏《DARK MACHINE THE GAME》确认参展“东京电玩展2026”！ — 4129 chars, body=full
+- `S0145` [2026-09-14] (yxrb.net) 恺英成为娱美德大股东，传奇IP生态实现“统一”闭环 — 1590 chars, body=full
+- `S0146` [2026-09-14] (yxrb.net) 《伊莫》PC端预下载今日开启，9月16日，和3000万预约玩家“伊齐出发” — 1569 chars, body=full
+- `S0147` [2026-09-14] (nadianshi.com) 投稿丨恺英网络参股娱美德，传奇IP权属重构在即 — 1471 chars, body=full
+
+## release_calendar (15 records)
+
+- `S0152` [2026-09-14] (3839.com) 伊莫-9月23日上线 - PC预下载开启,9月16日上线 — 225 chars, body=full
+- `S0153` [2026-09-14] (3839.com) 斗罗大陆：魂师对决 - 「神赐好礼」活动开启 — 221 chars, body=full
+- `S0154` [2026-09-14] (3839.com) 穿越火线-枪战王者 - 「未命名潘多拉」活动上线 — 220 chars, body=full
+- `S0155` [2026-09-14] (3839.com) 逆战：未来-S3赛季 - 【去往太空】活动开启 — 218 chars, body=full
+- `S0156` [2026-09-14] (3839.com) 饥困荒野-26年内上线 - 参与活动领快爆专属背景框与头像框 — 229 chars, body=full
+- `S0157` [2026-09-14] (3839.com) 燃烧纪元-预下载 - 09:00 预下载，9月15日上线 — 212 chars, body=full
+- `S0158` [2026-09-14] (3839.com) 深色黎明：无垠 - 10:00 限量测试 — 205 chars, body=full
+- `S0159` [2026-09-14] (3839.com) 篮下狂潮 - 10:00 正式上线 — 203 chars, body=full
+- `S0160` [2026-09-14] (3839.com) 黑白之地-预下载 - 11:00 预下载，9月15日上线 — 224 chars, body=full
+- `S0161` [2026-09-14] (gematsu.com) Beyblade X: EVOBATTLE for PS5 now available — 397 chars, body=full
+- `S0162` [2026-09-14] (gematsu.com) Rayman Legends Retold delayed to December 3 — 522 chars, body=full
+- `S0163` [2026-09-14] (gematsu.com) Probably Stolen launches October 28 — 483 chars, body=full
+- `S0164` [2026-09-14] (gematsu.com) Hull Rupture launches November 4 — 459 chars, body=full
+- `S0165` [2026-09-14] (gematsu.com) Hozy coming to PS5, Xbox Series, and Switch in 2026; free DLC ‘Hideways’ now available — 556 chars, body=full
+- `S0166` [2026-09-14] (gematsu.com) FEROCIOUS now available for PS5, Xbox Series — 472 chars, body=full
+
