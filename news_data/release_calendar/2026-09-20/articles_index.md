@@ -1,0 +1,27 @@
+# Article Index - release_calendar / 2026-09-20
+
+- Records: 19
+- By source: `ceshibiao_17173` 1, `gematsu_release_dates` 7, `haoyou_kuaibao_3839` 11
+- Raw JSONL: `articles.jsonl`
+
+| # | ID | Source | Published | Chars | Status | Title | URL |
+| ---: | --- | --- | --- | ---: | --- | --- | --- |
+| 1 | `138206_20260920_2d599adc42` | `haoyou_kuaibao_3839` | 2026-09-20T19:30:00 | 237 | ok | 崩坏：星穹铁道(官服)-4.5版本 - 19:30 开启4.6版本前瞻直播 | [link](https://www.3839.com/a/138206.htm) |
+| 2 | `CBMibEFVX3lxTFBqY01GRzlMeUdSZ0FyWVFtY3B5N1ZlOGYzY0U4VHhWRGdDbU15_20260920_8515ca5c96` | `gematsu_release_dates` | 2026-09-20T16:50:54 | 416 | ok | Mycopunk launches October 20 | [link](https://news.google.com/rss/articles/CBMibEFVX3lxTFBqY01GRzlMeUdSZ0FyWVFtY3B5N1ZlOGYzY0U4VHhWRGdDbU15QW9iUWlINlFXYXFtZlFxRGxEVnlxS3FPdC00cjJfbU9mVGprWGlucEpVTkRmZ0RSOFUxY3pYNlVFSzVWcXYweg?oc=5) |
+| 3 | `CBMigwFBVV95cUxPZ2k5TG1PSU1yMWNrcXRtZzZLTGkxZUpaYW9vRmtmRHA0UFQ1_20260920_d398a1cc6e` | `gematsu_release_dates` | 2026-09-20T16:50:38 | 482 | ok | Virtue and a Sledgehammer launches October 27 | [link](https://news.google.com/rss/articles/CBMigwFBVV95cUxPZ2k5TG1PSU1yMWNrcXRtZzZLTGkxZUpaYW9vRmtmRHA0UFQ1YUk1VzBkSkNvT2R4RWxKSl9JaVMtLW9YN2dIV0owYTE0Zzh2UVQ4VmtUdW55T21tNnBYT051RWNDa3c4cGtSSEJBd2FwemZXbWdxNjQ1QWV5U0puczZlcw?oc=5) |
+| 4 | `CBMilAFBVV95cUxON2JZaXpjVW95dkQxZV93YTVIMk1VX053NEctUldSdm5QeEE4_20260920_6e5f613b97` | `gematsu_release_dates` | 2026-09-20T16:45:04 | 536 | ok | Cairn free DLC ‘On the Trail: Deep Water’ launches October 29 | [link](https://news.google.com/rss/articles/CBMilAFBVV95cUxON2JZaXpjVW95dkQxZV93YTVIMk1VX053NEctUldSdm5QeEE4bEd6X1U3bG1mRXBacTRGYko5bm5iT1RJNXVlQnpFZWJjRmJpSFVQb2FUaTNxVGo5akdOdFhRUTVhMnQwNHB6dVF3Ry14dk1oMXUyaXRrdW1xSjRtMjh4bUxYSkltLTltMWlYbmhfamst?oc=5) |
+| 5 | `CBMicEFVX3lxTFBsWGdGaHdadFF4MjBYSnBJMEFLdk8tejVPM3NFLUNmWElxMWxw_20260920_d69182deec` | `gematsu_release_dates` | 2026-09-20T16:24:22 | 426 | ok | Neon Abyss 2 launches October 8 | [link](https://news.google.com/rss/articles/CBMicEFVX3lxTFBsWGdGaHdadFF4MjBYSnBJMEFLdk8tejVPM3NFLUNmWElxMWxwWjRmckR0REY1c1JvVjdRMVJMbTV3LUtuSDZ0MF9HWEQ0QV9MNi12QnVtdVJlVno0TFRGLXRsckhIaXVRRUxnY094dlY?oc=5) |
+| 6 | `CBMifkFVX3lxTE1talpZcmhIemM2bEVxSjVPZnVoS19ZXzZjLU9oTUZGeFBVb1NP_20260920_2777b09d6d` | `gematsu_release_dates` | 2026-09-20T16:14:00 | 466 | ok | We Were Here Tomorrow launches October 20 | [link](https://news.google.com/rss/articles/CBMifkFVX3lxTE1talpZcmhIemM2bEVxSjVPZnVoS19ZXzZjLU9oTUZGeFBVb1NPdFRNOFZVZGVqenMzdXFoNVRWQmxKTTFWdmp4WnhmMlRvYi1XM1BlSzRhMV9OeEdIMXpTamh5eFZ6NXY4RENKcU1sOGRybEdSR2RXZ2R4NnRCQQ?oc=5) |
+| 7 | `190170_20260920_48f1052408` | `haoyou_kuaibao_3839` | 2026-09-20T10:00:00 | 213 | ok | 蜀山幻想志-预下载 - 10:00 预下载，9月21日上线 | [link](https://www.3839.com/a/190170.htm) |
+| 8 | `163966_20260920_3fc6adb907` | `haoyou_kuaibao_3839` | 2026-09-20T09:00:00 | 229 | ok | 星布谷地(官服)-米哈游生活模拟新作 - 09:00 限量测试 | [link](https://www.3839.com/a/163966.htm) |
+| 9 | `CBMiigFBVV95cUxOeUxkY05NRFpwQ3N5bGZBU3VDRUJ4dDRQNTJtX2ppS2xjR3hF_20260920_0d12a596aa` | `gematsu_release_dates` | 2026-09-20T06:35:22 | 504 | ok | Castlevania: Belmont’s Curse demo launches October 1 | [link](https://news.google.com/rss/articles/CBMiigFBVV95cUxOeUxkY05NRFpwQ3N5bGZBU3VDRUJ4dDRQNTJtX2ppS2xjR3hFdmVjcWo2RlEtelktVDZrYUVNWUdWTGFJa3FHWXRlVUxsWHotRlNLU0tTNjVKanJPOXJrUjFSaGxRZFR6eGdoU2Q5M2lkYTlCTHpoQ3FaSGRsNXdqdm5LY1FmYnhtYWc?oc=5) |
+| 10 | `CBMitAFBVV95cUxOeHd4Y0tVTUxHelNqWUY4X2o5RXljYWo0R2xMdXYxWnNBeHFa_20260920_8eb1d7c8c6` | `gematsu_release_dates` | 2026-09-20T05:43:29 | 565 | ok | Stellar Blade ‘Bayonetta Collaboration Vignette’ trailer, Switch 2 demo now available | [link](https://news.google.com/rss/articles/CBMitAFBVV95cUxOeHd4Y0tVTUxHelNqWUY4X2o5RXljYWo0R2xMdXYxWnNBeHFaQXJOSjZzX2d2czR4LVpEaWxXYzZZd2w1TXlHT1BLSVZlZ1huRHRKRnJScTdqWDdDS0dJQjBEem5ubFNMbDJBT0ZOdndqdWxPc2JJN1AzbWQyZkk0eVlUSzBOTmpqZ1NYYmRjTnFTbVdxUDNnRGprYmFmZlJRMy1XR2ZBajREU3ZhYXJBRU5RZEQ?oc=5) |
+| 11 | `197338_20260920_13c50ea33c` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 209 | ok | 金海豚奖游戏开发大赛 - 入围名单公布；10月31日公布最终奖项 | [link](https://www.3839.com/a/197338.htm) |
+| 12 | `164274_20260920_fdb28674c2` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 230 | ok | 蓝色星原：旅谣(官服) - 已开测！9月20日14点看直播赢资格 | [link](https://www.3839.com/a/164274.htm) |
+| 13 | `133565_20260920_d6d0eec7bc` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 243 | ok | 穿越火线-枪战王者-核心体验服 招募中 - 参与招募赢先锋团体验资格 | [link](https://www.3839.com/a/133565.htm) |
+| 14 | `173077_20260920_ee7f24421b` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 197 | ok | 烽火望长安 - 已上线 | [link](https://www.3839.com/a/173077.htm) |
+| 15 | `175403_20260920_adb6d2ad2f` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 232 | ok | 植物大战僵尸融合版-4.0版本 - 更新4.0版本，新增诅咒系列植物 | [link](https://www.3839.com/a/175403.htm) |
+| 16 | `131769_20260920_c1e68675a9` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 224 | ok | 斗罗大陆：魂师对决 - SP+「神王·霍雨浩」返场 | [link](https://www.3839.com/a/131769.htm) |
+| 17 | `120924_20260920_4b1117baf4` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 221 | ok | 光与夜之恋 - [6星]灵犀 陆沉・引罡上线 | [link](https://www.3839.com/a/120924.htm) |
+| 18 | `200073_20260920_7b6da82d26` | `haoyou_kuaibao_3839` | 2026-09-20T00:00:00 | 196 | ok | 万剑修仙传 - 上线试玩 | [link](https://www.3839.com/a/200073.htm) |
+| 19 | `1037156_PC_23995_1789833600` | `ceshibiao_17173` | 2026-09-20T00:00:00 | 234 | ok | 星布谷地 - 内测 | [link](https://newgame.17173.com/game-info-1037156.html) |
