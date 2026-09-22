@@ -1,0 +1,35 @@
+# industry_news/cgames failed at 2026-09-22T00:02:01.022455+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-21 --max-pages 3 --preset yesterday
+# returncode: 1
+
+[warn] hot page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/2.html\nCall log:\n  - navigating to "https://cgames.com/channels/2.html", waiting until "domcontentloaded"\n')
+[warn] game page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/6.html\nCall log:\n  - navigating to "https://cgames.com/channels/6.html", waiting until "domcontentloaded"\n')
+[warn] review page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/7.html\nCall log:\n  - navigating to "https://cgames.com/channels/7.html", waiting until "domcontentloaded"\n')
+[warn] producer page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/8.html\nCall log:\n  - navigating to "https://cgames.com/channels/8.html", waiting until "domcontentloaded"\n')
+[warn] trend page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/9.html\nCall log:\n  - navigating to "https://cgames.com/channels/9.html", waiting until "domcontentloaded"\n')
+[config] window: 2026-09-21 00:00:00 <= published < 2026-09-22 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-21
+[list] open hot https://cgames.com/channels/2.html
+[list] open game https://cgames.com/channels/6.html
+[list] open review https://cgames.com/channels/7.html
+[list] open producer https://cgames.com/channels/8.html
+[list] open trend https://cgames.com/channels/9.html
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 499, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 476, in main
+    items = await collect_news_items(context, since, until, args.max_pages)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\cgames.py", line 297, in collect_news_items
+    raise RuntimeError(f"all 竞核 channels failed during list discovery: {details}")
+RuntimeError: all 竞核 channels failed during list discovery: hot page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/2.html\nCall log:\n  - navigating to "https://cgames.com/channels/2.html", waiting until "domcontentloaded"\n'); game page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/6.html\nCall log:\n  - navigating to "https://cgames.com/channels/6.html", waiting until "domcontentloaded"\n'); review page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/7.html\nCall log:\n  - navigating to "https://cgames.com/channels/7.html", waiting until "domcontentloaded"\n'); producer page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/8.html\nCall log:\n  - navigating to "https://cgames.com/channels/8.html", waiting until "domcontentloaded"\n'); trend page 1: list page failed: Error('Page.goto: net::ERR_CERT_DATE_INVALID at https://cgames.com/channels/9.html\nCall log:\n  - navigating to "https://cgames.com/channels/9.html", waiting until "domcontentloaded"\n')
