@@ -1,0 +1,211 @@
+# Report Inputs Index
+
+- Total records: 189
+- 本文件列出每个 section 的**全部**记录（无截断）；表头计数 == 该节列出的行数。
+- 用途：生成阶段先扫这里做全局标题/来源/日期覆盖，再按 source_id 下钻 JSONL 细节。
+- **禁止截断**：任何一节的行数少于表头计数即为漏召回缺陷。
+
+## ai_trends (11 records)
+
+- `S0145` [2026-09-21] (aihot.virxact.com) 独立调查：ChatGPT 的 __obi 跨站 Cookie 可将站外浏览行为关联到 ChatGPT 账号 — 4847 chars, body=full
+- `S0146` [2026-09-21] (aihot.virxact.com) Google 确认 Gemini 在 Irregular 安全测试中访问 3 家真实公司系统，与 OpenAI、Anthropic、Meta 属同一评估事故 — 3636 chars, body=full
+- `S0147` [2026-09-21] (aihot.virxact.com) Tomer Tunguz 谈 AI 优化 if-then 判断：专用决策器把分类成本降近百倍 — 2350 chars, body=full
+- `S0148` [2026-09-21] (aihot.virxact.com) xAI 发布 Grok 4.7，主打编码与知识工作 — 2383 chars, body=full
+- `S0149` [2026-09-21] (aihot.virxact.com) 数字生命卡兹克访谈汉化组：AI 时代字幕组与漫画组的真实处境 — 492 chars, body=full
+- `S0150` [2026-09-21] (aihot.virxact.com) 通义千问发布 Qwen-Image-2.1：7B 单检查点同时支持图像生成与编辑 — 794 chars, body=full
+- `S0151` [2026-09-21] (aihot.virxact.com) Kimi 发布 Kimi Code Desktop 1.0，macOS 与 Windows 版同步上线 — 593 chars, body=full
+- `S0152` [2026-09-21] (aihot.virxact.com) 亚马逊封禁 Meta Muse 智能体代用户购物，双方争端升级 — 2609 chars, body=full
+- `S0153` [2026-09-21] (aihot.virxact.com) Nathan Lambert 撰文分析开源模型的中美实力格局 — 7265 chars, body=full
+- `S0154` [2026-09-21] (aihot.virxact.com) Linear 重构 CI 流程应对 AI 编码带来的验证瓶颈，PR 等待时间从 6 分钟降至 5 分钟 — 525 chars, body=full
+- `S0155` [2026-09-21] (unrealengine.com) TT Games brings Gotham City to life in LEGO Batman: Legacy of the Dark Knight — 225 chars, body=full
+
+## community_discourse (20 records)
+
+- `S0169` [2026-09-21] (bbs.nga.cn) [微瓜][朝四暮三]鸣潮3.7赠送抽数引争议 — 3047 chars, body=full
+- `S0170` [2026-09-21] (bbs.nga.cn) [新瓜] [异环]大膨胀时代？膨胀神游？错！利滚利神游！！！ — 4045 chars, body=full
+- `S0171` [2026-09-21] (bbs.nga.cn) 我曾经天真的以为“给氪佬情绪价值的时尚小垃圾”重点在“时尚” — 2840 chars, body=full
+- `S0172` [2026-09-21] (bbs.nga.cn) [新瓜]不止碧蓝，谭友对比发现蓝原限定角色小玉有四种不同的胸口样式 — 2596 chars, body=full
+- `S0173` [2026-09-21] (bbs.nga.cn) [联动]异环联动凉宫春日的忧郁 — 2716 chars, body=full
+- `S0174` [2026-09-21] (bbs.nga.cn) [米哈游]脉脉米哈游同事圈有员工diss崩坏系列新作 — 2272 chars, body=full
+- `S0175` [2026-09-21] (bbs.nga.cn) [新瓜] [蓝色星原 旅谣] 蓝原测试服每日发放秘虹晶由500降至300 — 1208 chars, body=full
+- `S0176` [2026-09-21] (bbs.nga.cn) 俄罗斯发布手游市场行业报告，宣布俄罗斯是全世界不可忽视的市场 — 1105 chars, body=full
+- `S0177` [2026-09-21] (bbs.nga.cn) [米哈游] [崩坏：星穹铁道]崩铁的新宠物系统外观引起争议 — 1585 chars, body=full
+- `S0178` [2026-09-21] (bbs.nga.cn) [周边]国庆暴雪登陆red land，现场演奏海的女儿并且有经典大孝女周边。(目前微博已经删除) — 2497 chars, body=full
+- `S0179` [2026-09-21] (bbs.nga.cn) 无人在意的角落，鸣潮即将飞游戏榜 — 1644 chars, body=full
+- `S0180` [2026-09-21] (bbs.nga.cn) [米哈游]米哈游通报原周边、国际化员工收贿 — 2859 chars, body=full
+- `S0181` [2026-09-21] (bbs.nga.cn) [NIKKE]个突“开挂”事件一个马来西亚人引起的地动山摇 — 2890 chars, body=full
+- `S0182` [2026-09-21] (bbs.nga.cn) [米哈游] [崩坏：星穹铁道]崩铁的新皮肤成功整出来个氪佬比零氪还不满意的定价 — 2786 chars, body=full
+- `S0183` [2026-09-21] (bbs.nga.cn) [米哈游][瓜小味甜]崩铁绯英新皮肤雷霆大手引争议 — 1486 chars, body=full
+- `S0184` [2026-09-21] (bbs.nga.cn) [疑似内容]鸣潮音乐组大佬，GoKou疑似离职 — 1331 chars, body=full
+- `S0185` [2026-09-21] (bbs.nga.cn) [厂商]突发！望月制作人突然辞任 — 1687 chars, body=full
+- `S0186` [2026-09-21] (bbs.nga.cn) [米哈游] [崩坏：星穹铁道][小甜瓜]风瑾新皮肤的脚似乎画反了 — 1459 chars, body=full
+- `S0187` [2026-09-21] (bbs.nga.cn) [战双帕弥什]战双九游渠道服关服(并非游戏关服，只是关渠道服) — 1576 chars, body=full
+- `S0188` [2026-09-21] (bbs.nga.cn) [厂商]解神者公司董事长离婚，前妻分走近一个亿 — 1469 chars, body=full
+
+## deep_analysis (1 records)
+
+- `S0189` [2026-09-21] (thegamebusiness.com) Tokyo Games Show Review: Japan’s video game industry looks backwards — 2219 chars, body=full
+
+## industry_news (144 records)
+
+- `S0001` [2026-09-21] (gcores.com) 定档9月24日，《有这么一个家伙》即将在全球PC和主机平台推出 — 31 chars, body=full
+- `S0002` [2026-09-21] (gcores.com) 新版本来袭+限时折扣！《魔女：终末旅途》新版本更新上线 — 31 chars, body=full
+- `S0003` [2026-09-21] (gcores.com) 《梦之形》一周年更新携主机版正式上线 — 36 chars, body=full
+- `S0004` [2026-09-21] (gcores.com) CDPR解释《巫师4》放弃自家引擎原因，拥抱虚幻符合长期愿景 — 50 chars, body=full
+- `S0005` [2026-09-21] (gcores.com) 《纸牌巫: 魔女决战》将于11月9日发售 — 59 chars, body=full
+- `S0006` [2026-09-21] (gcores.com) Epic喜加二：《将军 对决》《心灵警探》免费领 — 30 chars, body=full
+- `S0007` [2026-09-21] (gcores.com) 《美洲卡车模拟》福特车辆包将于9月29日发售 — 29 chars, body=full
+- `S0008` [2026-09-21] (gcores.com) 小岛秀夫透露与索尼分手内幕，不清楚《Physint》是否登陆PS — 38 chars, body=full
+- `S0009` [2026-09-21] (gcores.com) 《球比伦战记》“巨型扩展包”将于11月13日发售 — 30 chars, body=full
+- `S0010` [2026-09-21] (gcores.com) 【抽奖】日式美少女构筑式肉鸽RPG《索拉丽斯炼成计划》今日发售 — 35 chars, body=full
+- `S0011` [2026-09-21] (gcores.com) 高压清洗模拟游戏《清扫至天明》将于27年发售 — 30 chars, body=full
+- `S0012` [2026-09-21] (gcores.com) CRYSTALiA新作《越界恋人!!》定于12月31日发售 — 41 chars, body=full
+- `S0013` [2026-09-21] (gcores.com) 都市题材开放世界RPG《望月》制作人华韬宣布卸任 — 33 chars, body=full
+- `S0014` [2026-09-21] (gcores.com) 《Fate/EXTRA Record》确认参展2026年CICF×AGF广州动漫游戏盛典 — 53 chars, body=full
+- `S0015` [2026-09-21] (gcores.com) 米哈游两名前员工受贿被捕，一人涉案金额触及刑法最高量刑门槛 — 39 chars, body=full
+- `S0016` [2026-09-21] (gamelook.com.cn) “叠纸法务号”正式登场！“第一帖”剑指历史旧账、手把手教玩家如何申诉 — 1711 chars, body=full
+- `S0017` [2026-09-21] (gamelook.com.cn) “蔚蓝档案逆徒”TGS露出真身！制作人详解二游《阿索拉》，NCsoft押对了么？ — 5322 chars, body=full
+- `S0018` [2026-09-21] (gamelook.com.cn) 诗悦二游《望月》制作人卸任：《无限大》加速定档1月“冲击波”？ — 1794 chars, body=full
+- `S0019` [2026-09-21] (gamelook.com.cn) “用AI编程的菜鸟太多、忍不了”！知名极客停止PS5 Linux项目、宣布离职 — 1305 chars, body=full
+- `S0020` [2026-09-21] (gamelook.com.cn) “不加班,不乱改,不堆人”！CEO揭秘《黎明行者之血》，网易4000万美元赌中爆款 — 3524 chars, body=full
+- `S0021` [2026-09-21] (gamelook.com.cn) 获米哈游投资后，璇子新游戏有名字了？注册“于此降临”商标！ — 1954 chars, body=full
+- `S0022` [2026-09-21] (gamelook.com.cn) 星约长安，天诺集结：《Warframe》TennoVIP中国首站暨天诺学院校园行西安站落幕 — 4515 chars, body=full
+- `S0023` [2026-09-21] (m.sohu.com) 99%好评如潮：一款两年前的微恐游戏，突然在国内火了 — 8773 chars, body=full
+- `S0024` [2026-09-21] (m.sohu.com) 玩了200小时天美今年最大爆款，我对行业越来越没信心 — 4327 chars, body=full
+- `S0025` [2026-09-21] (m.sohu.com) 《盛世天下》系列官宣销量突破600万套，再次刷新全球纪录 — 194 chars, body=full
+- `S0026` [2026-09-21] (youxituoluo.com) 畅销 TOP2、单日爆开88服，《三战》首推 “S0 服”重新定义 SLG 开局体验 — 3453 chars, body=full
+- `S0027` [2026-09-21] (youxituoluo.com) 华韬卸任《望月》执行制作人，将继续在诗悦筹备硬核动作新作 — 479 chars, body=full
+- `S0028` [2026-09-21] (youxituoluo.com) 恺英20亿入股《传奇》母公司，《影之刃零》登Steam年度愿望单第一，《无限大》大改商业化｜陀螺周报 — 3626 chars, body=full
+- `S0029` [2026-09-21] (youxichaguan.com) 被中国挤出的韩国游戏厂商，重新在Steam发了财 — 3476 chars, body=full
+- `S0030` [2026-09-21] (youxichaguan.com) 从Heart Machine到Polyarc：2026年海外游戏业裁员与关停仍在继续 — 3994 chars, body=full
+- `S0031` [2026-09-21] (youxichaguan.com) 散场以后——我们缺少的真的只是一场独游展吗？ — 12967 chars, body=full
+- `S0032` [2026-09-21] (youxichaguan.com) Devolver Digital东京游戏展连发四款游戏最新信息，《球比伦战记》《检疫区》等新内容集体亮相 — 1367 chars, body=full
+- `S0033` [2026-09-21] (youxichaguan.com) Observations on the Summer 2026 "Mild Horror" Game Market: From "Dark Horse" to Large-Scale Expansion — 13312 chars, body=full
+- `S0034` [2026-09-21] (youxichaguan.com) The Intensifying Competition in the SLG Genre Enters the Next Round — 29760 chars, body=full
+- `S0035` [2026-09-21] (new.qq.com) 《飞吧龙骑士》暂停内容更新，按周期复刻卡池和活动 — 561 chars, body=full
+- `S0036` [2026-09-21] (new.qq.com) 米哈游通报2位员工舞弊：涉案数额远超立案标准，涉及供应商数量多 — 1328 chars, body=full
+- `S0037` [2026-09-21] (new.qq.com) 前《梦幻西游》端游主策获得投资！袁菁未参与，但有莉莉丝 — 692 chars, body=full
+- `S0038` [2026-09-21] (gamesindustry.biz) Hideo Kojima "couldn't understand" why Physint "would be on the list of being cancelled" by Sony — 2864 chars, body=full
+- `S0039` [2026-09-21] (gamesindustry.biz) Northern Forge Studios and Runaway Play lead Green Games Jam Awards 2026 — 3145 chars, body=full
+- `S0040` [2026-09-21] (gamesindustry.biz) Tokyo Game Show 2026 celebrated the past, and an uncertain AI future | Opinion — 10423 chars, body=full
+- `S0041` [2026-09-21] (gamesindustry.biz) Activision cites data claiming cheating in games is an $8.5bn industry; 69% of online multiplayer studios consider cheating "a significant or very significant problem" — 3253 chars, body=full
+- `S0042` [2026-09-21] (pocketgamer.biz) 5 more reasons PG Connects Nordics is an essential event — 607 chars, body=snippet
+- `S0043` [2026-09-21] (pocketgamer.biz) Hot Five: Sega confirms Crazy Taxi Netflix film, Google Play’s £260m UK settlement, and Brawl Stars and Duolingo launch crossover — 350 chars, body=snippet
+- `S0044` [2026-09-21] (pocketgamer.biz) Brian Ward asked to remain as Savvy Games Group advisor following departure — 472 chars, body=snippet
+- `S0045` [2026-09-21] (pocketgamer.biz) Playing for the Planet reveals 2026 Green Games Awards winners across sustainability categories — 545 chars, body=snippet
+- `S0046` [2026-09-21] (pocketgamer.biz) Nex raises over $150m to take Nex Playground global — 434 chars, body=snippet
+- `S0047` [2026-09-21] (pocketgamer.biz) Zynga Ads+ brings 100 mobile games to advertising offering — 471 chars, body=snippet
+- `S0048` [2026-09-21] (pocketgamer.biz) AppLovin grows 60% Y/Y rounding to $20bn in annual platform ad spend — 592 chars, body=snippet
+- `S0049` [2026-09-21] (pocketgamer.biz) Windup Minds' Bernie Yee on Plants vs. Zombies, UA costs and the wrong lessons from free-to-play — 468 chars, body=snippet
+- `S0050` [2026-09-21] (gamedeveloper.com) French publisher Dear Villagers confirms layoffs — 1491 chars, body=full
+- `S0051` [2026-09-21] (mobilegamer.biz) Jobs digest: moves and promotions at King, Scopely, Loom, Funday, Tactile, Zynga and more — 2781 chars, body=full
+- `S0052` [2026-09-21] (mobilegamer.biz) Vita Mahjong, Amaze Go and Meowdoku maker Oakever Games fights cloning accusations — 4624 chars, body=full
+- `S0053` [2026-09-21] (investgame.net) Kakao Games acquires ~40% of social casino developer ME2ON at 3.2x the market price — 373 chars, body=full
+- `S0054` [2026-09-21] (videogameschronicle.com) Silent Hill Townfall review: Outstanding horror marred by infuriating stealth — 148 chars, body=snippet
+- `S0055` [2026-09-21] (videogameschronicle.com) ‘I was just shocked and surprised’: Hideo Kojima says Sony told him Physint was being cancelled over a Zoom call — 160 chars, body=snippet
+- `S0056` [2026-09-21] (videogameschronicle.com) 007 First Light was delayed on Switch 2 for a third time to let players experience it ‘as fully as possible’, IO says — 140 chars, body=snippet
+- `S0057` [2026-09-21] (videogameschronicle.com) Final Fantasy 7 Revelation will let players raise their character’s level automatically to skip grinding — 169 chars, body=snippet
+- `S0058` [2026-09-21] (videogameschronicle.com) An officially endorsed box set of Manic Miner creator Matthew Smith’s ZX Spectrum games is coming — 147 chars, body=snippet
+- `S0059` [2026-09-21] (videogameschronicle.com) Sony officially announces a new limited edition PS5 DualSense controller based on K-pop star Lisa — 137 chars, body=snippet
+- `S0060` [2026-09-21] (chuapp.com) “白泽杯”的台前幕后 — 7526 chars, body=full
+- `S0061` [2026-09-21] (chuapp.com) 触乐怪话：《Fate/EXTRA》和《月姬》：TGS上的TYPE-MOON新作 — 3005 chars, body=full
+- `S0062` [2026-09-21] (gameres.com) 9月21日—9月27日共有34款游戏开测｜GameRes — 882 chars, body=full
+- `S0063` [2026-09-21] (gameres.com) “玩家想要什么，我们就做什么” 做成功游戏竟然如此简单？ — 4119 chars, body=full
+- `S0064` [2026-09-21] (gameres.com) 基于RL+LLM的关卡生成探索（一） — 6389 chars, body=full
+- `S0065` [2026-09-21] (gamespot.com) Resident Evil Movie Beats Box Office Expectations With $108 Million Opening — 2211 chars, body=snippet
+- `S0066` [2026-09-21] (gamespot.com) Hideo Kojima Says Sony Dropping Physint Was A Serious Blow, But There’s No Bad Blood — 2441 chars, body=snippet
+- `S0067` [2026-09-21] (gamespot.com) How Many Resident Evil Games Fit In The Popcorn Bucket? Now We Know — 1451 chars, body=snippet
+- `S0068` [2026-09-21] (gamespot.com) Sony Turned The DualSense Into Live, Laugh, Love For Lisa’s New PS5 Controller — 1883 chars, body=snippet
+- `S0069` [2026-09-21] (gamespot.com) 007 First Light Dev Says It Had “No Choice” But To Delay The Game’s Switch 2 Edition Again — 2223 chars, body=snippet
+- `S0070` [2026-09-21] (gamespot.com) Hideo Kojima Doesn’t Know If Physint Will Be Xbox Exclusive — 1777 chars, body=snippet
+- `S0071` [2026-09-21] (gamespot.com) We Can Take A Small Bite Of Castlevania: Belmont’s Curse Early — 1704 chars, body=snippet
+- `S0072` [2026-09-21] (gamespot.com) Physint Is Biggest-Selling Game Kojima Could Ever Make, He Says — 1757 chars, body=snippet
+- `S0073` [2026-09-21] (gamespot.com) Pokemon Is Celebrating Space Week With Cool Merch, And You Just Know Scalpers Will Ruin It — 2332 chars, body=snippet
+- `S0074` [2026-09-21] (gamespot.com) Wolverine Dev Denies Using GenAI After Weird-Looking In-Game Sign Discovered — 1285 chars, body=snippet
+- `S0075` [2026-09-21] (ign.com.cn) 《钢铁指挥官》 2.0版宣传视频 — 146 chars, body=full
+- `S0076` [2026-09-21] (ign.com.cn) TGS 2026《妖怪之国》试玩：和风动作冒险新体验｜IGN 中国 — 1587 chars, body=full
+- `S0077` [2026-09-21] (ign.com.cn) 《生化危机：爆发夜》无导演剪辑版 — 1307 chars, body=full
+- `S0078` [2026-09-21] (ign.com.cn) 《逃离游戏时间》将于10月开启抢先体验 — 537 chars, body=full
+- `S0079` [2026-09-21] (ign.com.cn) 小岛秀夫专访：关于索尼突然撤资《PHYSINT》 — 7551 chars, body=full
+- `S0080` [2026-09-21] (ign.com.cn) 现在Disney+所有套餐均可能出现广告 — 569 chars, body=full
+- `S0081` [2026-09-21] (ign.com.cn) 《生化危机：爆发夜》首周票房破预期 — 925 chars, body=full
+- `S0082` [2026-09-21] (ign.com.cn) 《最终幻想7 Revelation》通关时间可能「轻松超过100小时」 — 1119 chars, body=full
+- `S0083` [2026-09-21] (ign.com.cn) Valve解释为何Steam Frame没有首发护航大作 — 1781 chars, body=full
+- `S0084` [2026-09-21] (ign.com.cn) 《卡莉亚的炼金工房》「鲁特&蕾妮雅」宣传视频 — 205 chars, body=full
+- `S0085` [2026-09-21] (ign.com.cn) 《Escape From Playtime》发售日预告 — 236 chars, body=full
+- `S0086` [2026-09-21] (ign.com.cn) 《检疫区：最后一站》「迈阿密零」DLC预告 — 230 chars, body=full
+- `S0087` [2026-09-21] (ign.com.cn) 《球比伦战记》「升天球比伦」DLC公布预告 — 180 chars, body=full
+- `S0088` [2026-09-21] (ign.com.cn) 《血狼》剧情预告 — 152 chars, body=full
+- `S0089` [2026-09-21] (ign.com.cn) 《要塞4》「遭遇战」预告 — 104 chars, body=full
+- `S0090` [2026-09-21] (ign.com.cn) 《矮人挖掘机》公布预告 — 115 chars, body=full
+- `S0091` [2026-09-21] (ign.com.cn) 《真菌朋克》1.0正式版发售日预告 — 242 chars, body=full
+- `S0092` [2026-09-21] (ign.com.cn) 《孤山独影》「循迹识踪：深水」DLC上线日期预告 — 230 chars, body=full
+- `S0093` [2026-09-21] (ign.com.cn) 《WANE》公布预告 — 158 chars, body=full
+- `S0094` [2026-09-21] (ign.com.cn) 《寂静岭：Townfall》发售预告 — 115 chars, body=full
+- `S0095` [2026-09-21] (ign.com.cn) 《最终幻想 RESONANCE》最终前瞻 — 123 chars, body=full
+- `S0096` [2026-09-21] (ign.com.cn) TGS 2026《狂热运输 3》主创访谈｜IGN 中国 — 4184 chars, body=full
+- `S0097` [2026-09-21] (indienova.com) 本周 Steam 值得关注的游戏 09.21 - 09.27（一） — 3589 chars, body=full
+- `S0098` [2026-09-21] (pcgamer.com) Command a legion of robots in factory builder Brave New Wonders, launching tomorrow — 2310 chars, body=full
+- `S0099` [2026-09-21] (pcgamer.com) Lemonade Apocalypse has 3 simple tasks for you: Become a lemonade billionaire, 'fuel climate change,' and 'manipulate voters' — 2628 chars, body=full
+- `S0100` [2026-09-21] (pcgamer.com) Memory is the map in Wane, a roguelike where each biome is a corner of an archaeologist's fading mind — 2342 chars, body=full
+- `S0101` [2026-09-21] (pcgamer.com) Beautiful Freaks of the Desert is a speedrunning FPS flipping the middle finger at all things data center — 2094 chars, body=full
+- `S0102` [2026-09-21] (pcgamer.com) Escape From Playtime is a co-op survival horror where you play itsy-bitsy toy animals, and its playtest is taking signups now — 2631 chars, body=full
+- `S0103` [2026-09-21] (pcgamer.com) Young Suns is an optimistic life sim for an unoptimistic time coming in November, and I'm already forming intense opinions about its cast of NPCs — 2337 chars, body=full
+- `S0104` [2026-09-21] (pcgamer.com) Dust till Dawn is a horror-themed clean-'em-up with music from Silent Hill's composer — 2045 chars, body=full
+- `S0105` [2026-09-21] (pcgamer.com) Paper co-op deckbuilder Hellcard 2 has a new demo that you can play right now — 2179 chars, body=full
+- `S0106` [2026-09-21] (pcgamer.com) Cairn's delayed On the Trail: Deep Water DLC gets a new release date, and you don't have long to wait — 2036 chars, body=full
+- `S0107` [2026-09-21] (pcgamer.com) Core Keeper's Riders of the Underground update drops tomorrow, and you can get a sneak peek of it right here — 2119 chars, body=full
+- `S0108` [2026-09-21] (pcgamer.com) We just saw a big chunk of Thief Remastered gameplay, and I'm more desperate than ever to play — 2421 chars, body=full
+- `S0109` [2026-09-21] (pcgamer.com) Defend your farm from a gaze of raccoons in this charming tower defense roguelite, out tomorrow — 2566 chars, body=full
+- `S0110` [2026-09-21] (pcgamer.com) The new game from Lorn's Lure's developer is also set in the creepy world, and this one's a horror flight sim — 1924 chars, body=full
+- `S0111` [2026-09-21] (pcgamer.com) Virtue and a Sledgehammer announces October 27 release date with another banger of a trailer — 2281 chars, body=full
+- `S0112` [2026-09-21] (pcgamer.com) Robots versus fungi FPS Mycopunk is leaving early access next month — 2146 chars, body=full
+- `S0113` [2026-09-21] (pcgamer.com) Marked For Mayhem is a 4-player dungeon crawler that wants you to try to win as a team while also beating all your teammates as a player—good luck — 2413 chars, body=full
+- `S0114` [2026-09-21] (pcgamer.com) Unlock your inner Superman with a new demo from Undefeated: Genesis — 2145 chars, body=full
+- `S0115` [2026-09-21] (pcgamer.com) Solarpunk MMO Loftia is launching into early access November 3 — 2095 chars, body=full
+- `S0116` [2026-09-21] (pcgamer.com) I lost hours to this roguelike card-based city builder even though I had no idea how all of those words could fit together — 2253 chars, body=full
+- `S0117` [2026-09-21] (pcgamer.com) Feel like a kid again when toy car game Obstacle Overdrive launches October 2 — 1992 chars, body=full
+- `S0118` [2026-09-21] (pcgamer.com) Take to the skies and shoot your mates in the face with a shotgun in Fish & Ships — 2010 chars, body=full
+- `S0119` [2026-09-21] (pcgamer.com) Everything announced at the PC Gaming Show Tokyo Direct 2026 — 10740 chars, body=full
+- `S0120` [2026-09-21] (pcgamer.com) Elden Ring Nightreign is dead, but modders are dabbing on its corpse, with one porting an entire Dark Souls 2 DLC zone as a playable map — 2993 chars, body=full
+- `S0121` [2026-09-21] (pcgamer.com) First 5-day Tokyo Game Show in 30 years cuts back to 4 in face of Typhoon Dujuan — 1946 chars, body=full
+- `S0122` [2026-09-21] (pcgamer.com) Steam Week in Review: This indie publisher released 29 terrible-looking Steam games in a single day—will they make any money? — 7107 chars, body=full
+- `S0123` [2026-09-21] (pcgamer.com) Silent Hill: Townfall review — 10558 chars, body=full
+- `S0124` [2026-09-21] (pcgamer.com) WoW devs surprised to find pure liquid nostalgia is popular — 3036 chars, body=full
+- `S0125` [2026-09-21] (pcgamer.com) I tried to make a jpg bigger than mathematically possible out of an entire year's worth of PC Gamer magazine pages — 3331 chars, body=full
+- `S0126` [2026-09-21] (pcgamer.com) The brave adventurers of WoW: Forever are all called things like Take Meds and Skonch Prime — 1405 chars, body=full
+- `S0127` [2026-09-21] (pcgamer.com) Full unicorn vomit, or stealthed-out mean machine? I want to know how much RGB festoons your gaming PC, please and thank you — 2041 chars, body=full
+- `S0128` [2026-09-21] (pcgamer.com) Steam Frame's odd charging behaviour gets patched: cuts recharge times in half in some instances — 3774 chars, body=full
+- `S0129` [2026-09-21] (pcgamer.com) I remember when Jensen Huang used to sell me GPUs, now he's out there having to deny that AI will cause 'the end of the world' — 2058 chars, body=full
+- `S0130` [2026-09-21] (pcgamer.com) WoW: Forever mentally broke me with a boulder — 2624 chars, body=full
+- `S0131` [2026-09-21] (pcgamer.com) Kojima says his Sony split was amicable and they both still love us very much — 1003 chars, body=full
+- `S0132` [2026-09-21] (pcgamer.com) Who the hell is buying their server memory from Amazon?! Also, can I interest you in a $101,000 kit? — 1152 chars, body=full
+- `S0133` [2026-09-21] (pcgamer.com) Resident Evil is the best videogame movie because Bryan sucks — 5584 chars, body=full
+- `S0134` [2026-09-21] (pcgamer.com) I'm taking Insomniac's Wolverine patch as a sign: This is as bad as it's going to get — 1529 chars, body=full
+- `S0135` [2026-09-21] (pcgamer.com) WoW: Forever has rendered me a min-maxing hypocrite, and here's how you can join me — 1888 chars, body=full
+- `S0136` [2026-09-21] (pcgamer.com) Alright WoW: Forever gamers, are we team HD models or team old school models? — 440 chars, body=full
+- `S0137` [2026-09-21] (pcgamer.com) Touch grass? Not when AMD has whittled down ray tracing memory usage by 98% for these hardware-sapping bushes and trees — 2991 chars, body=full
+- `S0138` [2026-09-21] (mp.sohu.com) 全球累计销量已破1000万！「潜水员戴夫」手游版全球上线后，迅速登顶韩国等市场App Store游戏免费榜Top1！ — 1699 chars, body=full
+- `S0139` [2026-09-21] (yxrb.net) 2026年最新外出不用频繁充电的长续航笔记本电脑有哪些推荐 — 1796 chars, body=full
+- `S0140` [2026-09-21] (yxrb.net) 致存万象，念头通达：致态 | 《凡人》动画联名礼盒惊喜上市！ — 1093 chars, body=full
+- `S0141` [2026-09-21] (yxrb.net) Devolver Digital东京游戏展连发四款游戏最新信息，《球比伦战记》《检疫区》等新内容集体亮相 — 1368 chars, body=full
+- `S0142` [2026-09-21] (nadianshi.com) 投稿丨西班牙网红跨国线下约战策划，这款网易游戏做到了2亿用户 — 3705 chars, body=full
+- `S0143` [2026-09-21] (nadianshi.com) 原创｜流水创新高：腾讯牵线，这批主创来中国“取经”了 — 6430 chars, body=full
+- `S0144` [2026-09-21] (nadianshi.com) 投稿丨Devolver Digital东京游戏展连发四款游戏最新信息，《球比伦战记》《检疫区》等新内容集体亮相 — 1368 chars, body=full
+
+## release_calendar (13 records)
+
+- `S0156` [2026-09-21] (17173.com) 元气骑士 - 新版本 — 255 chars, body=full
+- `S0157` [2026-09-21] (3839.com) 一念逍遥 - 「秋为青岚月满礼」活动上线 — 217 chars, body=full
+- `S0158` [2026-09-21] (3839.com) 仙战西游-预下载 - 预下载开启，9月22日上线 — 209 chars, body=full
+- `S0159` [2026-09-21] (3839.com) 使命召唤手游体验服 招募中 - 参与招募赢9月体验服测试资格 — 239 chars, body=full
+- `S0160` [2026-09-21] (3839.com) 元气骑士 - 全新天赋系统试炼开启 — 221 chars, body=full
+- `S0161` [2026-09-21] (3839.com) 失控进化-9.24免费领快爆独家石头外观 - 官宣快爆定制石头外观9月24日免费领 — 240 chars, body=full
+- `S0162` [2026-09-21] (3839.com) 武士零-9月29日上线 - 定档9月29日10点上线,预购已开启 — 231 chars, body=full
+- `S0163` [2026-09-21] (3839.com) 新三国：荣耀再起 - 10:00 预下载，9月22日开测 — 226 chars, body=full
+- `S0164` [2026-09-21] (3839.com) 蜀山幻想志 - 10:00 正式上线 — 202 chars, body=full
+- `S0165` [2026-09-21] (3839.com) 西游大冒险-预下载 - 10:00 预下载，9月22日上线 — 215 chars, body=full
+- `S0166` [2026-09-21] (3839.com) 星眠-AI陪伴乙女 - 11:00 预下载，9月22日11点测试 — 231 chars, body=full
+- `S0167` [2026-09-21] (3839.com) 蓝色星原：旅谣(官服) - 14:00 观看直播赢测试资格 — 227 chars, body=full
+- `S0168` [2026-09-21] (gematsu.com) Blighted delayed to 2027 — 363 chars, body=full
+
