@@ -1,0 +1,72 @@
+# industry_news/youxichaguan failed at 2026-09-26T00:04:26.904396+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-25 --max-pages 5 --preset yesterday
+# returncode: 1
+
+[api] retry 1/3 after 游戏茶馆 API error: The read operation timed out
+[api] retry 2/3 after 游戏茶馆 API error: HTTP Error 504: Gateway Time-out
+[config] window: 2026-09-25 00:00:00 <= published < 2026-09-26 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-09-25
+[list] open https://youxichaguan.com/wp-json/wp/v2/posts?per_page=100&page=1&orderby=date&order=desc
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py", line 98, in fetch_json
+    with urlopen(request, timeout=30) as response:
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 487, in open
+    response = self._open(req, data)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 504, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+                              '_open', req)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 464, in _call_chain
+    result = func(*args)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 1369, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        context=self._context)
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\urllib\request.py", line 1325, in do_open
+    r = h.getresponse()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1459, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\socket.py", line 729, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py", line 389, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py", line 357, in main
+    items = collect_news_items(since, until, args.max_pages)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py", line 150, in collect_news_items
+    posts = fetch_json(url)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\youxichaguan.py", line 105, in fetch_json
+    raise RuntimeError(f"failed to fetch 游戏茶馆 API: {url}: {last_exc}") from last_exc
+RuntimeError: failed to fetch 游戏茶馆 API: https://youxichaguan.com/wp-json/wp/v2/posts?per_page=100&page=1&orderby=date&order=desc: The read operation timed out
