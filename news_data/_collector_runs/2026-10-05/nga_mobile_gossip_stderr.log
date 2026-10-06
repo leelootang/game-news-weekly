@@ -1,0 +1,54 @@
+# community_discourse/nga_mobile_gossip failed at 2026-10-06T00:10:43.390419+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-05 --max-pages 8 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-10-05 00:00:00 <= activity < 2026-10-06 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-05
+[config] popularity: new replies>=10; active replies>=20 or pages>=2; no view count on NGA list
+[list] open new_threads page=1: https://bbs.nga.cn/thread.php?fid=-61285727&order_by=postdatedesc
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py", line 622, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py", line 618, in main
+    return asyncio.run(amain(args))
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py", line 601, in amain
+    items = await collect_threads(since, until, args.max_pages, top_n, not args.headful)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py", line 322, in collect_threads
+    await open_nga_page(page, url)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\nga_mobile_gossip.py", line 193, in open_nga_page
+    await page.goto(url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\async_api\_generated.py", line 9611, in goto
+    await self._impl_obj.goto(
+    ...<4 lines>...
+    )
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 557, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 156, in goto
+    await self._channel.send(
+        "goto", self._navigation_timeout, locals_to_params(locals())
+    )
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_CERT_DATE_INVALID at https://bbs.nga.cn/thread.php?fid=-61285727&order_by=postdatedesc
+Call log:
+  - navigating to "https://bbs.nga.cn/thread.php?fid=-61285727&order_by=postdatedesc", waiting until "domcontentloaded"
+
