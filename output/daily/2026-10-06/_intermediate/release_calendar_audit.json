@@ -1,0 +1,156 @@
+{
+  "schema_version": 5,
+  "report_window": {
+    "start": "2026-10-06",
+    "end": "2026-10-06"
+  },
+  "release_lookahead_days": 1,
+  "release_window": {
+    "start": "2026-10-06",
+    "end": "2026-10-07"
+  },
+  "ranking": "publish_eligible desc, priority_score desc; tie company_bonus desc, event_type_score desc, appearance_count desc, industry_bonus desc, first_seen_order asc",
+  "formula": "priority_score = event_type_score * source_strength_score + company_bonus",
+  "focus_company_bonus": 3,
+  "focus_company_investment_bonus": 2,
+  "nodes": [
+    {
+      "product": "战争机器：事变日",
+      "event_date": "2026-10-06",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 2,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0045",
+        "S0075"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "9f783622d7bc590d9d10b6ca9c1c06c62bd8f971",
+        "a58de1d71e80371e3bf4601e29ca19487ead179c"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0045",
+        "S0075"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 9,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 9,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": true,
+      "coverage": "industry_only",
+      "coverage_rank": 3,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-003"
+    },
+    {
+      "product": "魔兽世界：无限",
+      "event_date": "2026-10-06",
+      "signal_type": "new_game_test",
+      "event": "内测",
+      "event_type_score": 3,
+      "first_seen_order": 1,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "内测"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0093"
+      ],
+      "source_fingerprints": [
+        "dded65f5dc5a2917d1080cac80236c9e15991ba5"
+      ],
+      "focus_companies": [
+        "网易"
+      ],
+      "focus_company_relationships": {
+        "网易": "direct"
+      },
+      "company_evidence_ids": [
+        "S0093"
+      ],
+      "source_ids": [
+        "S0093"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-001"
+    },
+    {
+      "product": "影之刃零",
+      "event_date": "2026-10-06",
+      "signal_type": "new_game_first_reveal",
+      "event": "新品首次曝光",
+      "event_type_score": 2,
+      "first_seen_order": 0,
+      "observed_signal_types": [
+        "new_game_first_reveal"
+      ],
+      "observed_events": [
+        "新品首次曝光"
+      ],
+      "industry_ids": [
+        "S0001"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "07a96f92c581afdcec33b2a1a1796342b05a4e65"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0001"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-002"
+    }
+  ]
+}
