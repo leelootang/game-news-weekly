@@ -1,0 +1,17 @@
+# Article Index - release_calendar / 2026-10-06
+
+- Records: 9
+- By source: `ceshibiao_17173` 2, `gematsu_release_dates` 6, `haoyou_kuaibao_3839` 1
+- Raw JSONL: `articles.jsonl`
+
+| # | ID | Source | Published | Chars | Status | Title | URL |
+| ---: | --- | --- | --- | ---: | --- | --- | --- |
+| 1 | `142198_20261006_9e229a8bd7` | `haoyou_kuaibao_3839` | 2026-10-06T19:30:00 | 232 | ok | 明日方舟：终末地(官服) - 19:30 「丹青渡」版本前瞻直播 | [link](https://www.3839.com/a/142198.htm) |
+| 2 | `CBMikwFBVV95cUxQVDVpLTQ5Qm1GMjY0RmhJb0dxTEJiZ2hLMXZKczRKcW5vREF6_20261006_01705d9ea9` | `gematsu_release_dates` | 2026-10-06T15:15:44 | 527 | ok | My Friendly Neighborhood coming to Switch 2 on October 22 | [link](https://news.google.com/rss/articles/CBMikwFBVV95cUxQVDVpLTQ5Qm1GMjY0RmhJb0dxTEJiZ2hLMXZKczRKcW5vREF6aDdPbXZCUmxhVWE5ZWdTOGNnSUZ4aGstS194VE50QW5xUUtiNXBoR0VpMm11TU8yVkxYRXBXbkFYYzhySjJIdEwxSmE5Ym0zX09LWVlhU0h2QTd6ZzJSU2ZvN0d6VTFxYWZCVURHLVE?oc=5) |
+| 3 | `CBMiigFBVV95cUxQVl8zRmc2T0dCU3U1Z2hfdk5BaTk1YUVVZTZSN1Z1ekhzNzZv_20261006_c4a7d6a521` | `gematsu_release_dates` | 2026-10-06T15:03:04 | 467 | ok | At Fate’s End delayed to 2027, PC demo now available | [link](https://news.google.com/rss/articles/CBMiigFBVV95cUxQVl8zRmc2T0dCU3U1Z2hfdk5BaTk1YUVVZTZSN1Z1ekhzNzZvZnlFRGxyYkVVeTRWY1NCWUY5blZPVE5MV2lxSHVfTTRxdDNreFByVGRRMmQxSWhLcUtaZW1SQzNHaFQ5bUsybC1YU01uTVdzNmNqTlZOR3FUb0NCV3NkWDlmd3NfU3c?oc=5) |
+| 4 | `1036711_PC_24315_1791266400` | `ceshibiao_17173` | 2026-10-06T14:00:00 | 221 | ok | 降魔录一折服 - 资料片 | [link](https://newgame.17173.com/game-info-1036711.html) |
+| 5 | `CBMifEFVX3lxTE56MnRhSFpRUTNkWTNZMThOQ2hHUmlCVWFWR1dOMW5MQzd6TjJS_20261006_894ef4b1ba` | `gematsu_release_dates` | 2026-10-06T13:58:40 | 462 | ok | Warhammer Survivors launches November 10 | [link](https://news.google.com/rss/articles/CBMifEFVX3lxTE56MnRhSFpRUTNkWTNZMThOQ2hHUmlCVWFWR1dOMW5MQzd6TjJSWVBLZlJ4dl9SOElKUkJIZFo1SEFITDg5RXBBTk1va3hKcERkSzFVSVhqR2dra29LdWE0dmJtSEhtUGlZMFRJc1F4OS1tSmhXdFNoNzNkM3Y?oc=5) |
+| 6 | `CBMibkFVX3lxTE1rdTVJYzRfaHNYTElnLU1iY0Vzb0NKZWxhemJmNGN1clp4T2x0_20261006_a2f2fe9ce7` | `gematsu_release_dates` | 2026-10-06T13:11:38 | 421 | ok | GrimKeep launches November 30 | [link](https://news.google.com/rss/articles/CBMibkFVX3lxTE1rdTVJYzRfaHNYTElnLU1iY0Vzb0NKZWxhemJmNGN1clp4T2x0R1pnQ2JFNU5mU0FGV0tEYjZpTC1hQVd4cGNCUEJreE1VMmFVWXVtcVNjb2VaTjZid2UzdVlWSllNVnBmSjFKUFF3?oc=5) |
+| 7 | `CBMikgFBVV95cUxNbF9EaTUzUlR5MFMtZlZvbUM0T2xWQ1BtbXBCZk9ZYWk5YUph_20261006_841f86d0e2` | `gematsu_release_dates` | 2026-10-06T03:41:13 | 527 | ok | Angelian Trigger coming to PC on December 10, PS5 in 2027 | [link](https://news.google.com/rss/articles/CBMikgFBVV95cUxNbF9EaTUzUlR5MFMtZlZvbUM0T2xWQ1BtbXBCZk9ZYWk5YUphclJzMmNkUVZDZjVkeEc5Y0t2U1FGZE5LbkJnYUVHNm9wVVZiMC13TXdnU1JFcXVteTJnWHV0NURFX2gweHhrVEVIaFRTT3VLNTBER0NyN1pqT09XODNhT0FNRTM3VHlSdEhzV1U3Zw?oc=5) |
+| 8 | `CBMiuwFBVV95cUxOQ1FNTjljSVNJdzk0dzlvcG5udlRxTUg4M1lIT08tTFo5aEUw_20261006_1d78ee296d` | `gematsu_release_dates` | 2026-10-06T01:25:09 | 645 | ok | Switch 2 Japanese-Language System ‘Choose-Your-Game Bundle’ launches November 12 in Japan | [link](https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQ1FNTjljSVNJdzk0dzlvcG5udlRxTUg4M1lIT08tTFo5aEUwdG4tb09XaFZ1RDROOFk3MDRRaFlTSnBremxyUk1SSEF0NXFnWlp0WmpIMnNJcGhNZG1CZ2luN3ljQTU2T2h2ODE3NHJhX2ZBMWNJcFBoZGdWYzNkRURkZTByN0NwaEttckpCT2p0NjBMVGVBa1NDSHhhTktFWF9acVJMdy1DZFdTbURZVWp6Nzd6b2hIV2FR?oc=5) |
+| 9 | `1048590_PC_23713_1791216000` | `ceshibiao_17173` | 2026-10-06T00:00:00 | 228 | ok | 魔兽世界：无限 - 内测 | [link](https://newgame.17173.com/game-info-1048590.html) |
