@@ -14,6 +14,7 @@ cannot drift from ``report_inputs.jsonl`` through copy/paste.
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import importlib.util
 import json
 import re
@@ -37,7 +38,12 @@ except ModuleNotFoundError:  # Imported as scripts.report_artifacts in tests/too
 
 SCHEMA_VERSION = 1
 COMMUNITY_CAP_ENFORCEMENT_START = "2026-08-11"
+DEEP_CARD_COPY_ENFORCEMENT_START = "2026-08-17"
 SOURCE_ID_RE = re.compile(r"\bS\d{4}\b")
+ABSOLUTE_DATE_CLAIM_RE = re.compile(
+    r"(?:20\d{2}[年./-]\d{1,2}(?:[月./-]\d{1,2}日?)?|\d{1,2}\s*月\s*\d{1,2}\s*日)"
+)
+RELATIVE_3839_TIME_RE = re.compile(r"今天|今日|明天|明日|明早|后天")
 SECTION_HEADINGS = {
     "industry": "行业新闻",
     "ai": "AI 新闻",
@@ -72,7 +78,11 @@ PIPELINE_LEAK = re.compile(
 )
 RELEASE_EVENT = re.compile(r"上线|公测|内测|首测|删档测试|不删档|付费测试|测试|抢先体验|EA|发售|发布|预约|开测|定档|上市|开服|重启|复活|停运|延期|跳票", re.I)
 PRIORITY_TRACKS = {"pvp_competitive", "strategy_card_rpg", "life_simulation"}
-ROBLOX_SUBJECT = re.compile(r"^(?:roblox(?: corporation)?|罗布乐思)$", re.IGNORECASE)
+IMPORTANT_INDUSTRY_SUBJECTS = {
+    "Roblox": re.compile(r"^(?:roblox(?: corporation)?|罗布乐思)$", re.IGNORECASE),
+    "Supercell": re.compile(r"^(?:supercell(?: oy)?|超级细胞)$", re.IGNORECASE),
+    "Riot Games": re.compile(r"^(?:riot(?: games?)?|拳头(?:游戏|公司)?)$", re.IGNORECASE),
+}
 # 新闻标题应陈述可核验事实，而非复用来源的宣传性修辞。具体规模
 # 应以销量、预约量、榜单名次等数据写出；这些词不应作为事实替身。
 PROMOTIONAL_INDUSTRY_TITLE_TERMS = ("爆红", "霸榜", "横扫", "席卷", "封神", "现象级", "杀疯了")
@@ -104,6 +114,25 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def invalid_3839_absolute_date_evidence(record: dict[str, Any], claim_text: str, evidence: str) -> bool:
+    """Reject absolute claims backed only by a relative 3839 timeline phrase.
+
+    The check is gated by the new collector audit fields so legacy report
+    snapshots keep their historical validation behavior.
+    """
+    if str(record.get("source_key") or "") != "haoyou_kuaibao_3839":
+        return False
+    source_text = str(record.get("text") or "")
+    if "Date resolution:" not in source_text:
+        return False
+    if not ABSOLUTE_DATE_CLAIM_RE.search(claim_text):
+        return False
+    return bool(
+        RELATIVE_3839_TIME_RE.search(evidence)
+        and not ABSOLUTE_DATE_CLAIM_RE.search(evidence)
+    )
+
+
 def release_cap_for_report(report_path: Path) -> int:
     if "game_industry_weekly_" in report_path.name:
         return 7
@@ -128,6 +157,72 @@ def community_cap_is_enforced(report_path: Path) -> bool:
     return bool(report_dates and max(report_dates) >= COMMUNITY_CAP_ENFORCEMENT_START)
 
 
+def deep_card_copy_is_enforced(report_path: Path) -> bool:
+    """Require compact deep-card copy only for reports created under the new contract."""
+    report_dates = re.findall(r"\d{4}-\d{2}-\d{2}", report_path.name)
+    return bool(report_dates and max(report_dates) >= DEEP_CARD_COPY_ENFORCEMENT_START)
+
+
+def normalize_deep_card_copy(
+    value: Any, title: str = ""
+) -> tuple[str, str, list[dict[str, str]]]:
+    """Validate and normalize the compact copy used by standalone deep cards."""
+    label = f": {title}" if title else ""
+    if not isinstance(value, dict):
+        raise ValueError(f"deep item lacks card_copy{label}")
+
+    source_label = str(value.get("source_label") or "").strip()
+    if not source_label:
+        raise ValueError(f"deep card_copy source_label is empty{label}")
+    if any(mark in source_label for mark in ("\n", "\r", "：", ":")):
+        raise ValueError(f"deep card_copy source_label must be one line without a colon{label}")
+    if len(source_label) > 40:
+        raise ValueError(f"deep card_copy source_label exceeds 40 characters{label}")
+    if PIPELINE_LEAK.search(source_label):
+        raise ValueError(f"deep card_copy source_label leaks source/pipeline metadata{label}")
+
+    summary = str(value.get("summary") or "").strip()
+    if not summary:
+        raise ValueError(f"deep card_copy summary is empty{label}")
+    if "\n" in summary or "\r" in summary:
+        raise ValueError(f"deep card_copy summary must be one line{label}")
+    if len(summary) > 100:
+        raise ValueError(f"deep card_copy summary exceeds 100 characters{label}")
+    if re.search(r"观察\s*[：:]|分析\s*[：:]", summary):
+        raise ValueError(f"deep card_copy summary must not reuse 观察/分析 labels{label}")
+    if PIPELINE_LEAK.search(summary):
+        raise ValueError(f"deep card_copy summary leaks source/pipeline metadata{label}")
+
+    raw_insights = value.get("insights")
+    if not isinstance(raw_insights, list) or not 3 <= len(raw_insights) <= 6:
+        raise ValueError(f"deep card_copy insights must contain 3-6 items{label}")
+
+    insights: list[dict[str, str]] = []
+    seen_titles: set[str] = set()
+    for index, insight in enumerate(raw_insights, 1):
+        if not isinstance(insight, dict):
+            raise ValueError(f"deep card_copy insight {index} must be an object{label}")
+        insight_title = str(insight.get("title") or "").strip()
+        detail = str(insight.get("detail") or "").strip()
+        if not insight_title or not detail:
+            raise ValueError(f"deep card_copy insight {index} needs title and detail{label}")
+        if any(mark in insight_title or mark in detail for mark in ("\n", "\r")):
+            raise ValueError(f"deep card_copy insight {index} must stay on one line per field{label}")
+        if len(insight_title) > 30:
+            raise ValueError(f"deep card_copy insight {index} title exceeds 30 characters{label}")
+        if len(detail) > 160:
+            raise ValueError(f"deep card_copy insight {index} detail exceeds 160 characters{label}")
+        if insight_title in seen_titles:
+            raise ValueError(f"deep card_copy insight titles must be unique{label}")
+        if re.search(r"观察\s*[：:]|分析\s*[：:]", f"{insight_title}\n{detail}"):
+            raise ValueError(f"deep card_copy insights must not reuse 观察/分析 labels{label}")
+        if PIPELINE_LEAK.search(f"{insight_title}\n{detail}"):
+            raise ValueError(f"deep card_copy insight {index} leaks source/pipeline metadata{label}")
+        seen_titles.add(insight_title)
+        insights.append({"title": insight_title, "detail": detail})
+    return source_label, summary, insights
+
+
 def inputs_by_id(inputs_path: Path) -> dict[str, dict[str, Any]]:
     records: dict[str, dict[str, Any]] = {}
     for record in load_jsonl(inputs_path):
@@ -144,13 +239,19 @@ def canonical_section(value: str) -> str:
     return SECTION_ALIASES.get(value.strip().lower(), value.strip().lower())
 
 
-def is_roblox_industry_subject(decision: dict[str, Any]) -> bool:
-    """Return true when Roblox is explicitly named as a candidate subject."""
+def important_industry_subjects(decision: dict[str, Any]) -> list[str]:
+    """Return fixed highest-attention subjects explicitly named by the candidate."""
     entities = decision.get("entities", [])
-    return isinstance(entities, list) and any(
-        isinstance(entity, str) and ROBLOX_SUBJECT.fullmatch(entity.strip())
-        for entity in entities
-    )
+    if not isinstance(entities, list):
+        return []
+    return [
+        subject
+        for subject, pattern in IMPORTANT_INDUSTRY_SUBJECTS.items()
+        if any(
+            isinstance(entity, str) and pattern.fullmatch(entity.strip())
+            for entity in entities
+        )
+    ]
 
 
 def parse_report_items(report_text: str) -> list[ReportItem]:
@@ -426,6 +527,63 @@ def validate_contract(
         errors.append("release_calendar_audit.json nodes must be a list")
         return errors, warnings
 
+    report_window_match = re.search(
+        r"(\d{4}-\d{2}-\d{2})_to_(\d{4}-\d{2}-\d{2})",
+        str(report_path),
+    )
+    if report_window_match:
+        release_window_start, report_window_end = report_window_match.groups()
+    else:
+        daily_window_match = re.search(
+            r"game_industry_daily_(\d{4}-\d{2}-\d{2})\.md$",
+            report_path.name,
+        )
+        release_window_start = report_window_end = (
+            daily_window_match.group(1) if daily_window_match else ""
+        )
+    expected_release_lookahead = (
+        1
+        if any(
+            marker in report_path.name
+            for marker in (
+                "game_industry_daily_",
+                "game_industry_weekly_",
+                "game_industry_weekend_",
+            )
+        )
+        else 0
+    )
+    release_window_end = report_window_end
+    if report_window_end and expected_release_lookahead:
+        release_window_end = (
+            dt.date.fromisoformat(report_window_end)
+            + dt.timedelta(days=expected_release_lookahead)
+        ).isoformat()
+    if audit_schema_version >= 5:
+        try:
+            actual_release_lookahead = int(audit.get("release_lookahead_days"))
+        except (TypeError, ValueError):
+            actual_release_lookahead = -1
+        if actual_release_lookahead != expected_release_lookahead:
+            errors.append(
+                "release audit lookahead does not match report type: "
+                f"{actual_release_lookahead}/{expected_release_lookahead}"
+            )
+        audit_report_window = audit.get("report_window")
+        audit_release_window = audit.get("release_window")
+        if (
+            not isinstance(audit_report_window, dict)
+            or audit_report_window.get("start") != release_window_start
+            or audit_report_window.get("end") != report_window_end
+        ):
+            errors.append("release audit report_window does not match report filename")
+        if (
+            not isinstance(audit_release_window, dict)
+            or audit_release_window.get("start") != release_window_start
+            or audit_release_window.get("end") != release_window_end
+        ):
+            errors.append("release audit release_window does not match product-calendar window")
+
     visible = [(item.section, item.title) for item in report_items]
     visible_by_key = {(item.section, item.title): item for item in report_items}
     structured: dict[tuple[str, str], dict[str, Any]] = {}
@@ -481,8 +639,15 @@ def validate_contract(
                     errors.append(f"claim text is not present in final item: {title}")
                 if sid not in source_ids:
                     errors.append(f"claim source_id is not item source: {title}/{sid}")
-                elif evidence not in str(inputs.get(sid, {}).get("text") or ""):
+                claim_record = inputs.get(sid, {})
+                if sid in source_ids and evidence not in str(claim_record.get("text") or ""):
                     errors.append(f"claim evidence not found in input text: {title}/{sid}")
+                elif sid in source_ids and invalid_3839_absolute_date_evidence(
+                    claim_record, claim_text, evidence
+                ):
+                    errors.append(
+                        f"3839 absolute date claim uses relative-only evidence: {title}/{sid}"
+                    )
         if section == "community":
             community = item.get("community")
             required = {"trigger", "claim_scope", "complaint_logic", "timeline", "follow_up_scan"}
@@ -494,6 +659,11 @@ def validate_contract(
                 errors.append(f"release calendar item lacks product/event/date/platform/company: {title}")
             elif len(source_ids) < 2:
                 errors.append(f"release calendar item needs multi-source evidence: {title}")
+        if section == "deep" and (deep_card_copy_is_enforced(report_path) or "card_copy" in item):
+            try:
+                normalize_deep_card_copy(item.get("card_copy"), title)
+            except ValueError as exc:
+                errors.append(str(exc))
 
     if len(claim_lengths) >= 5:
         dominant = max(set(claim_lengths), key=claim_lengths.count)
@@ -569,10 +739,11 @@ def validate_contract(
                         errors.append(f"industry E×R+M score out of range: {cid}")
                     if total != event * relevance + hook:
                         errors.append(f"industry total must equal E×R+M: {cid}")
-                    if is_roblox_industry_subject(decision) and relevance != 3:
-                        errors.append(
-                            f"Roblox industry subject must receive highest relevance R=3: {cid}"
-                        )
+                    for subject in important_industry_subjects(decision):
+                        if relevance != 3:
+                            errors.append(
+                                f"{subject} industry subject must receive highest relevance R=3: {cid}"
+                            )
                     if decision.get("decision") == "include" and (event == 0 or total < industry_threshold):
                         errors.append(
                             f"industry include fails E×R+M threshold "
@@ -686,12 +857,35 @@ def validate_contract(
         }
         if node.get("signal_type") not in allowed_calendar_signals:
             errors.append(f"release audit contains non-new-game signal: {node.get('title') or cid}")
+        if audit_schema_version >= 5:
+            event_date = str(node.get("event_date") or "")
+            signal_type = str(node.get("signal_type") or "")
+            expected_scope = (
+                "report_window"
+                if release_window_start and report_window_end and release_window_start <= event_date <= report_window_end
+                else "next_day_lookahead"
+                if report_window_end and release_window_end and report_window_end < event_date <= release_window_end
+                else "future_announcement"
+                if signal_type in {"new_game_schedule", "new_game_first_reveal"}
+                else "outside"
+            )
+            if node.get("window_scope") != expected_scope:
+                errors.append(
+                    f"release window_scope drift from audit window: {cid}/"
+                    f"{node.get('window_scope')}/{expected_scope}"
+                )
         if audit_schema_version >= 4:
             company_bonus = int(node.get("company_bonus") or 0)
             configured_bonus = int(audit.get("focus_company_bonus") or 0)
+            configured_investment_bonus = int(
+                audit.get("focus_company_investment_bonus") or 0
+            )
             focus_companies = node.get("focus_companies")
             company_evidence_ids = _ids(node.get("company_evidence_ids"))
-            if company_bonus not in {0, configured_bonus}:
+            allowed_company_bonuses = {0, configured_bonus}
+            if configured_investment_bonus:
+                allowed_company_bonuses.add(configured_investment_bonus)
+            if company_bonus not in allowed_company_bonuses:
                 errors.append(f"release company bonus is not configured value: {cid}/{company_bonus}")
             if company_bonus:
                 if not isinstance(focus_companies, list) or not all(
@@ -704,6 +898,12 @@ def validate_contract(
                     errors.append(f"release company evidence is outside node sources: {cid}")
                 if not str(node.get("signal_type") or "").startswith("new_game_"):
                     errors.append(f"old-product release signal cannot receive company bonus: {cid}")
+                relationship = str(node.get("company_relationship") or "")
+                if configured_investment_bonus and company_bonus == configured_investment_bonus:
+                    if relationship != "investment":
+                        errors.append(f"release investment bonus lacks investment relationship: {cid}")
+                elif relationship and relationship != "direct":
+                    errors.append(f"release direct bonus has invalid company relationship: {cid}")
         if decision:
             scores = decision.get("scores")
             required_release_scores = {"event", "source", "total"}
@@ -764,33 +964,30 @@ def validate_contract(
                             f"release include date is not evidenced by any source: "
                             f"{cid}/{event_date}"
                         )
-                    report_window = re.search(
-                        r"(\d{4}-\d{2}-\d{2})_to_(\d{4}-\d{2}-\d{2})",
-                        str(report_path),
-                    )
-                    if report_window:
-                        window_start, window_end = report_window.groups()
-                    else:
-                        daily_window = re.search(
-                            r"game_industry_daily_(\d{4}-\d{2}-\d{2})\.md$",
-                            report_path.name,
-                        )
-                        window_start = window_end = daily_window.group(1) if daily_window else ""
                     signal_type = str(node.get("signal_type") or "")
                     if (
-                        window_start
+                        release_window_start
                         and signal_type not in {"new_game_schedule", "new_game_first_reveal"}
-                        and not (window_start <= event_date <= window_end)
+                        and not (release_window_start <= event_date <= release_window_end)
                     ):
                         errors.append(
-                            f"release include event is outside report window: "
+                            f"release include event is outside product-calendar window: "
                             f"{cid}/{event_date}/{signal_type}"
                         )
 
     if audit_schema_version >= 4:
+        relationship_tier_enabled = bool(audit.get("focus_company_investment_bonus"))
         expected_audit_order = sorted(
             audit_nodes,
             key=lambda node: (
+                -int(bool(node.get("publish_eligible"))),
+                -int(node.get("priority_score") or 0),
+                -int(node.get("company_bonus") or 0),
+                -int(node.get("event_type_score") or 0),
+                -int(node.get("appearance_count") or 0),
+                -int(node.get("industry_bonus") or 0),
+                int(node.get("first_seen_order") or 0),
+            ) if relationship_tier_enabled else (
                 -int(bool(node.get("publish_eligible"))),
                 -int(node.get("priority_score") or 0),
                 -int(node.get("event_type_score") or 0),

@@ -34,13 +34,16 @@ def build_release_decision(node: dict[str, Any], include: bool) -> dict[str, Any
         "event": f"{event_date} {event}".strip(),
         "decision": "include" if include else "exclude",
         "reason": (
-            "多源候选按事件类型×来源强度+重点公司加分排序进入报告上限"
+            "次日及时性候选按事件类型×来源强度+重点公司加分排序进入报告上限"
+            if include and node.get("window_scope") == "next_day_lookahead"
+            else "多源候选按事件类型×来源强度+重点公司加分排序进入报告上限"
             if include
             else "事件日期不在报告窗口"
             if node.get("window_eligible") is False
             else "单源不具备正文资格" if int(node.get("appearance_count") or 0) < 2
             else "超过本报告产品日历条数上限"
         ),
+        "window_scope": str(node.get("window_scope") or ""),
         "scores": {
             "event": int(node.get("event_type_score") or 0),
             "source": int(node.get("source_strength_score") or 0),
@@ -53,6 +56,12 @@ def build_release_decision(node: dict[str, Any], include: bool) -> dict[str, Any
     ]
     if focus_companies:
         decision["focus_companies"] = focus_companies
+    relationships = node.get("focus_company_relationships")
+    if isinstance(relationships, dict) and relationships:
+        decision["focus_company_relationships"] = relationships
+    company_relationship = str(node.get("company_relationship") or "")
+    if company_relationship:
+        decision["company_relationship"] = company_relationship
     if len(sources) > 1:
         decision["cluster_basis"] = {
             "subject": product,

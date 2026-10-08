@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import tempfile
 import unittest
 from datetime import date
@@ -108,6 +109,61 @@ class DeepObservationHandoffTests(unittest.TestCase):
                 encoding="utf-8",
             )
             self.assertEqual([], HANDOFF.validate_weekly_handoff(report))
+
+    def test_future_selection_requires_matching_feishu_receipt(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            review_dir = root / "output" / "deep_observation_review"
+            review_dir.mkdir(parents=True)
+            selection = review_dir / "2026-09-18_to_2026-09-24_selection.md"
+            selection.write_text(
+                """# selection
+- 候选数据窗口: 2026-09-17_to_2026-09-23
+- 目标周报窗口: 2026-09-18_to_2026-09-24
+- 选择来源: 飞书周四备选 Bot
+- 飞书回执ID: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+- 正文候选ID: C005, C001
+- 指定卡片候选ID: C005
+- 卡片整合参考ID: C006, C014
+
+## 用户选择进入周报的条目
+
+### 1. ★卡片: Wardogs复盘
+观察：x
+分析：y
+
+### 2. 第二题
+观察：x
+分析：y
+""",
+                encoding="utf-8",
+            )
+            receipt_dir = root / "data" / "feishu" / "deep_review" / "replies"
+            receipt_dir.mkdir(parents=True)
+            receipt = {
+                "receipt_id": "a" * 32,
+                "target_weekly_id": "2026-09-18_to_2026-09-24",
+                "body_candidate_ids": ["C005", "C001"],
+                "card_candidate_ids": ["C005", "C006", "C014"],
+            }
+            (receipt_dir / f"{receipt['receipt_id']}.json").write_text(
+                json.dumps(receipt), encoding="utf-8"
+            )
+            self.assertEqual(
+                [],
+                HANDOFF.validate_feishu_selection_receipt(
+                    selection, selection.read_text(encoding="utf-8"), receipt["target_weekly_id"]
+                ),
+            )
+
+    def test_future_selection_rejects_missing_feishu_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            selection = Path(temp) / "selection.md"
+            text = "- 目标周报窗口: 2026-09-18_to_2026-09-24\n"
+            errors = HANDOFF.validate_feishu_selection_receipt(
+                selection, text, "2026-09-18_to_2026-09-24"
+            )
+            self.assertTrue(any("选择来源" in error for error in errors))
 
 
 if __name__ == "__main__":

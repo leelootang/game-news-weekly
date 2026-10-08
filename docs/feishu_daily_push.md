@@ -1,5 +1,15 @@
 # Feishu Daily Report Push
 
+## 周四深度观察备选 Bot
+
+周四备选使用独立飞书应用，不复用日报订阅 Bot。`FeishuDeepReviewListener` 在用户登录后保持长连接，首次私聊会把该应用专属 `open_id` 绑定到本地；之后周四任务将目标周报的全部合格候选分批发送到该私聊。
+
+回复必须同时包含正文与卡片，例如 `正文：C005，C001；卡片：C005`。需要融合时可写 `卡片：把 C005、C006、C014 的信息整合成 Wardogs 成绩复盘；正文：C005，C001`，其中卡片第一个编号是主卡并且必须进入正文，后续编号仅作为整合参考。最新一条有效回复覆盖此前回复。
+
+每条有效回复立即写入 `data/feishu/deep_review/replies/`（该目录不入库）。周五 09:00 任务先读取目标周报 ID 对应的最新回执，再生成 `output/deep_observation_review/<目标周报ID>_selection.md`。selection 必须写选择来源、回执 ID、正文候选 ID、指定卡片候选 ID及可选的卡片整合参考 ID，并通过 `deep_observation_handoff.py lint-selection`。没有有效回复时，周报继续生成但省略深度观察，不自动代选；存在有效回复但整理或校验失败时交给 09:40 兜底任务重试，不能静默忽略。
+
+凭据保存在已被 Git 忽略的 `.env.local`，变量名为 `FEISHU_DEEP_REVIEW_APP_ID` 与 `FEISHU_DEEP_REVIEW_APP_SECRET`。本地电脑需保持开机、用户已登录且监听任务运行；换电脑或新应用首次使用时需重新私聊绑定。
+
 This project supports a private-message subscription flow for the daily game
 industry report:
 

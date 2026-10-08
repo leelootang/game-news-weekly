@@ -260,7 +260,55 @@ class ReportArtifactContractTests(unittest.TestCase):
         self.audit.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
         errors, _ = self.validate()
         self.assertTrue(any("date is not evidenced" in error for error in errors))
-        self.assertTrue(any("outside report window" in error for error in errors))
+        self.assertTrue(any("outside product-calendar window" in error for error in errors))
+
+    def test_daily_release_can_use_next_day_timeliness_window(self) -> None:
+        self.report.write_text(
+            self.report.read_text(encoding="utf-8").replace("7 月 15 日", "7 月 16 日"),
+            encoding="utf-8",
+        )
+        records = [json.loads(line) for line in self.inputs.read_text(encoding="utf-8").splitlines()]
+        records[2]["text"] = records[2]["text"].replace("7 月 15 日", "7 月 16 日")
+        records[2]["text_chars"] = len(records[2]["text"])
+        self.inputs.write_text(
+            "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in records),
+            encoding="utf-8",
+        )
+        items = json.loads(self.items.read_text(encoding="utf-8"))
+        release_item = items["items"][2]
+        release_item["release"]["date"] = "2026-07-16"
+        release_item["claims"][0]["claim"] = release_item["claims"][0]["claim"].replace("7 月 15 日", "7 月 16 日")
+        release_item["claims"][0]["evidence"] = release_item["claims"][0]["evidence"].replace("7 月 15 日", "7 月 16 日")
+        self.items.write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+        decisions = json.loads(self.decisions.read_text(encoding="utf-8"))
+        decisions["decisions"][2]["scores"]["company"] = 0
+        decisions["decisions"][2]["window_scope"] = "next_day_lookahead"
+        self.decisions.write_text(json.dumps(decisions, ensure_ascii=False), encoding="utf-8")
+        audit = json.loads(self.audit.read_text(encoding="utf-8"))
+        audit.update({
+            "schema_version": 5,
+            "focus_company_bonus": 3,
+            "report_window": {"start": "2026-07-15", "end": "2026-07-15"},
+            "release_lookahead_days": 1,
+            "release_window": {"start": "2026-07-15", "end": "2026-07-16"},
+        })
+        node = audit["nodes"][0]
+        node.update({
+            "event_date": "2026-07-16",
+            "window_scope": "next_day_lookahead",
+            "window_eligible": True,
+            "publish_eligible": True,
+            "company_bonus": 0,
+            "focus_companies": [],
+            "company_evidence_ids": [],
+            "industry_bonus": 0,
+            "first_seen_order": 0,
+        })
+        self.audit.write_text(json.dumps(audit, ensure_ascii=False), encoding="utf-8")
+        ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
+        errors, warnings = self.validate()
+        self.assertEqual([], errors)
+        self.assertEqual([], warnings)
 
     def test_pipeline_metadata_in_published_body_is_blocking(self) -> None:
         text = self.report.read_text(encoding="utf-8")
@@ -288,6 +336,28 @@ class ReportArtifactContractTests(unittest.TestCase):
         )
         errors, _ = self.validate()
         self.assertTrue(any("deep item must start with 观察" in error for error in errors))
+
+    def test_new_reports_require_three_to_six_deep_card_insights(self) -> None:
+        current_report = self.root / "game_industry_daily_2026-08-17.md"
+        self.report.replace(current_report)
+        self.report = current_report
+        errors, _ = self.validate()
+        self.assertTrue(any("deep item lacks card_copy" in error for error in errors))
+
+        data = json.loads(self.items.read_text(encoding="utf-8"))
+        deep = next(item for item in data["items"] if item["section"] == "deep")
+        deep["card_copy"] = {
+            "source_label": "测试文章",
+            "summary": "流程变化正在降低验证成本。",
+            "insights": [
+                {"title": "变化", "detail": "团队调整了原有流程。"},
+                {"title": "机制", "detail": "验证成本随之下降。"},
+                {"title": "影响", "detail": "资源配置方式也会改变。"},
+            ],
+        }
+        self.items.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("deep card_copy" in error or "deep item lacks card_copy" in error for error in errors))
 
     def test_duplicate_source_set_in_one_section_is_blocking(self) -> None:
         self.report.write_text(
@@ -396,6 +466,43 @@ class ReportArtifactContractTests(unittest.TestCase):
         errors, _ = self.validate()
         self.assertTrue(any("company bonus lacks company evidence" in error for error in errors))
 
+    def test_schema_five_release_investment_bonus_is_validated(self) -> None:
+        audit = json.loads(self.audit.read_text(encoding="utf-8"))
+        audit.update(
+            {
+                "schema_version": 5,
+                "focus_company_bonus": 3,
+                "focus_company_investment_bonus": 2,
+            }
+        )
+        audit["nodes"][0].update(
+            {
+                "focus_companies": ["网易"],
+                "focus_company_relationships": {"网易": "investment"},
+                "company_relationship": "investment",
+                "company_evidence_ids": ["S0003"],
+                "company_bonus": 2,
+                "priority_score": 8,
+                "industry_bonus": 0,
+                "first_seen_order": 0,
+            }
+        )
+        self.audit.write_text(json.dumps(audit, ensure_ascii=False), encoding="utf-8")
+        decisions = json.loads(self.decisions.read_text(encoding="utf-8"))
+        release_decision = next(
+            decision for decision in decisions["decisions"]
+            if decision["candidate_id"] == "C3"
+        )
+        release_decision["scores"] = {"event": 3, "source": 2, "company": 2, "total": 8}
+        self.decisions.write_text(json.dumps(decisions, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertFalse(any("release" in error and "company" in error for error in errors))
+
+        audit["nodes"][0]["company_relationship"] = "direct"
+        self.audit.write_text(json.dumps(audit, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertTrue(any("investment relationship" in error for error in errors))
+
     def test_source_details_title_may_contain_pipe(self) -> None:
         _items, details = ARTIFACTS.parse_sources_used(
             "# Sources Used\n\n## Source Details\n\n"
@@ -437,6 +544,19 @@ class ReportArtifactContractTests(unittest.TestCase):
         errors, _ = self.validate()
         self.assertFalse(any("Roblox industry subject" in error for error in errors))
 
+    def test_supercell_and_riot_industry_subjects_require_highest_relevance(self) -> None:
+        for entity, subject in (("Supercell Oy", "Supercell"), ("拳头游戏", "Riot Games")):
+            with self.subTest(entity=entity):
+                data = json.loads(self.decisions.read_text(encoding="utf-8"))
+                industry = data["decisions"][0]
+                industry["entities"] = [entity]
+                self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                errors, _ = self.validate()
+                self.assertIn(
+                    f"{subject} industry subject must receive highest relevance R=3: C1",
+                    errors,
+                )
+
     def test_article_store_preserves_body_quality(self) -> None:
         out = self.root / "news_data" / "deep_analysis" / "2026-07-15"
         manifest = {"items": {}}
@@ -450,6 +570,47 @@ class ReportArtifactContractTests(unittest.TestCase):
 
     def test_article_store_detects_unlabelled_paid_preview(self) -> None:
         self.assertEqual("snippet", infer_body_status({}, "Preview. Subscribe to continue reading."))
+
+
+class HaoyouKuaibaoEvidenceGuardTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.record = {
+            "source_key": "haoyou_kuaibao_3839",
+            "text": (
+                "Event: 预下载已开启！明早10点开服上线\n"
+                "Collected at: 2026-08-20T08:16:00+08:00\n"
+                "Date resolution: detail_update\n"
+                "Detail update evidence: 将于8月21日上午10点正式上线"
+            ),
+        }
+
+    def test_rejects_absolute_claim_from_relative_only_evidence(self) -> None:
+        self.assertTrue(
+            ARTIFACTS.invalid_3839_absolute_date_evidence(
+                self.record,
+                "8月21日上午10点正式上线",
+                "明早10点开服上线",
+            )
+        )
+
+    def test_accepts_detail_update_absolute_evidence(self) -> None:
+        self.assertFalse(
+            ARTIFACTS.invalid_3839_absolute_date_evidence(
+                self.record,
+                "8月21日上午10点正式上线",
+                "将于8月21日上午10点正式上线",
+            )
+        )
+
+    def test_other_sources_keep_existing_relative_time_behavior(self) -> None:
+        record = dict(self.record, source_key="news_post_source")
+        self.assertFalse(
+            ARTIFACTS.invalid_3839_absolute_date_evidence(
+                record,
+                "8月21日上午10点正式上线",
+                "明早10点正式上线",
+            )
+        )
 
 
 if __name__ == "__main__":

@@ -36,11 +36,16 @@ class FeishuReportFeedbackTests(unittest.TestCase):
         self.assertEqual(card["schema"], "2.0")
         elements = card["body"]["elements"]
         encoded = json.dumps(elements, ensure_ascii=False)
+        self.assertIn("📄 查看完整周报文档（含新闻源地址、详细正文）", encoded)
         self.assertIn("😊 很有帮助！", encoded)
         self.assertIn('"type": "danger_filled"', encoded)
-        self.assertIn("😑 我有建议！", encoded)
+        self.assertIn("💡 我有想说的！", encoded)
+        self.assertNotIn("😑 我有建议！", encoded)
         self.assertIn('"action": "report_feedback_expand"', encoded)
         self.assertNotIn('"input_type": "multiline_text"', encoded)
+        self.assertIn("如发现文字或事实错误", encoded)
+        self.assertIn("进一步研究某条新闻", encoded)
+        self.assertIn("反馈给战略团队", encoded)
 
         expanded = build_daily_card(
             self.summary,
@@ -50,6 +55,7 @@ class FeishuReportFeedbackTests(unittest.TestCase):
         expanded_json = json.dumps(expanded, ensure_ascii=False)
         self.assertIn('"input_type": "multiline_text"', expanded_json)
         self.assertIn('"action": "report_feedback_submit"', expanded_json)
+        self.assertIn("提交反馈", expanded_json)
 
     def test_feedback_events_append_to_backend(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

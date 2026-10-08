@@ -16,7 +16,7 @@ import json
 import re
 import sys
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import URLError
@@ -37,6 +37,11 @@ MANIFEST_NAME = f"{FILE_PREFIX}_manifest.json"
 MANIFEST_DIR_NAME = "_collector_manifests"
 PAGE_TIMEOUT = 30_000
 PER_EVENT_DELAY = 0.2
+SHANGHAI_TZ = timezone(timedelta(hours=8), name="Asia/Shanghai")
+RELATIVE_TIME_RE = re.compile(r"今天|今日|明天|明日|明早|后天")
+ABSOLUTE_DATE_RE = re.compile(
+    r"(?:20\d{2}[年./-]\d{1,2}(?:[月./-]\d{1,2}日?)?|\d{1,2}月\d{1,2}日)"
+)
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -57,6 +62,11 @@ class TimelineEvent:
     tags: list[str]
     badges: list[str]
     image_url: str
+    observed_at: datetime | None = None
+    date_resolution_method: str = ""
+    detail_update_date: str = ""
+    detail_update_text: str = ""
+    resolved_event_text: str = ""
 
 
 def parse_date(value: str, *, end_of_day: bool = False) -> datetime:
@@ -102,9 +112,9 @@ def extract_attr(pattern: str, value: str) -> str:
     return html.unescape(match.group(1)).strip() if match else ""
 
 
-def fetch_timeline_html() -> str:
+def fetch_page_html(url: str, *, label: str) -> str:
     request = Request(
-        TIMELINE_URL,
+        url,
         headers={
             "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -119,9 +129,98 @@ def fetch_timeline_html() -> str:
         except (OSError, URLError, UnicodeDecodeError) as exc:
             last_exc = exc
             if attempt < 3:
-                print(f"[html] retry {attempt}/3 after 3839 timeline error: {exc}", file=sys.stderr)
+                print(f"[html] retry {attempt}/3 after 3839 {label} error: {exc}", file=sys.stderr)
                 time.sleep(1.5 * attempt)
-    raise RuntimeError(f"failed to fetch 3839 timeline: {TIMELINE_URL}: {last_exc}") from last_exc
+    raise RuntimeError(f"failed to fetch 3839 {label}: {url}: {last_exc}") from last_exc
+
+
+def fetch_timeline_html() -> str:
+    return fetch_page_html(TIMELINE_URL, label="timeline")
+
+
+def parse_detail_updates(source_html: str) -> list[tuple[str, str]]:
+    match = re.search(
+        r'<div class=["\'][^"\']*gameUdLog[^"\']*["\'][^>]*>.*?'
+        r'<div class=["\']log-bd["\'][^>]*>(.*?)</div>\s*</div>',
+        source_html,
+        flags=re.I | re.S,
+    )
+    if not match:
+        return []
+    updates = []
+    for item in re.finditer(r"<li\b[^>]*>(.*?)</li>", match.group(1), flags=re.I | re.S):
+        item_html = item.group(1)
+        update_date = extract_text(r"<span\b[^>]*>(.*?)</span>", item_html)
+        update_text = extract_text(r"<p\b[^>]*>(.*?)</p>", item_html)
+        if update_date and update_text:
+            updates.append((update_date, update_text))
+    return updates
+
+
+def select_detail_update(event_date: datetime, updates: list[tuple[str, str]]) -> tuple[str, str] | None:
+    expected = event_date.strftime("%Y.%m.%d")
+    for update_date, update_text in updates:
+        if update_date == expected and ABSOLUTE_DATE_RE.search(update_text):
+            return update_date, update_text
+    return None
+
+
+def resolve_relative_time(value: str, observed_at: datetime) -> str:
+    anchor = observed_at.astimezone(SHANGHAI_TZ).date()
+    replacements = {
+        "今天": (0, ""),
+        "今日": (0, ""),
+        "明天": (1, ""),
+        "明日": (1, ""),
+        "明早": (1, "早上"),
+        "后天": (2, ""),
+    }
+
+    def substitute(match: re.Match[str]) -> str:
+        offset, suffix = replacements[match.group(0)]
+        resolved = anchor + timedelta(days=offset)
+        return f"{resolved.year}年{resolved.month}月{resolved.day}日{suffix}"
+
+    return RELATIVE_TIME_RE.sub(substitute, value)
+
+
+def enrich_relative_event(
+    event: TimelineEvent,
+    observed_at: datetime,
+    detail_fetcher=fetch_page_html,
+) -> TimelineEvent:
+    enriched = replace(event, observed_at=observed_at)
+    if not RELATIVE_TIME_RE.search(event.event_text):
+        return enriched
+    if ABSOLUTE_DATE_RE.search(event.event_text):
+        return replace(
+            enriched,
+            date_resolution_method="timeline_absolute",
+            resolved_event_text=event.event_text,
+        )
+
+    try:
+        detail_html = detail_fetcher(event.url, label="detail")
+        selected = select_detail_update(event.event_at, parse_detail_updates(detail_html))
+    except Exception as exc:
+        print(f"[{event.event_id}] detail lookup failed, using collection-time anchor: {exc}", file=sys.stderr)
+        selected = None
+
+    if selected:
+        update_date, update_text = selected
+        return replace(
+            enriched,
+            date_resolution_method="detail_update",
+            detail_update_date=update_date,
+            detail_update_text=update_text,
+            resolved_event_text=update_text,
+        )
+
+    return replace(
+        enriched,
+        date_resolution_method="collection_time",
+        resolved_event_text=resolve_relative_time(event.event_text, observed_at),
+    )
 
 
 def load_manifest(out_dir: Path) -> dict:
@@ -228,6 +327,7 @@ def parse_card_events(card_html: str, date_value: datetime, day_label: str) -> l
 
 
 def collect_events(since: datetime, until: datetime) -> list[TimelineEvent]:
+    observed_at = datetime.now(SHANGHAI_TZ).replace(microsecond=0)
     source_html = fetch_timeline_html()
     cards = re.findall(r"(<div class=[\"']foreCard[\"'][^>]*>.*?)(?=<div class=[\"']foreCard[\"']|\Z)", source_html, flags=re.I | re.S)
     events: dict[str, TimelineEvent] = {}
@@ -242,7 +342,7 @@ def collect_events(since: datetime, until: datetime) -> list[TimelineEvent]:
             continue
         for event in parse_card_events(card, date_value, day_label):
             if since <= event.event_at < until:
-                events[event.event_id] = event
+                events[event.event_id] = enrich_relative_event(event, observed_at)
             else:
                 skipped_outside += 1
 
@@ -260,6 +360,16 @@ def event_text(event: TimelineEvent) -> str:
         ("Event date", event.event_at.strftime("%Y-%m-%d %H:%M")),
         ("Timeline label", event.day_label),
         ("Event", event.event_text),
+        (
+            "Collected at",
+            event.observed_at.astimezone(SHANGHAI_TZ).isoformat(timespec="seconds")
+            if event.observed_at
+            else "",
+        ),
+        ("Date resolution", event.date_resolution_method),
+        ("Detail update date", event.detail_update_date),
+        ("Detail update evidence", event.detail_update_text),
+        ("Resolved event", event.resolved_event_text),
         ("Action", event.action),
         ("Score", event.score),
         ("Tags", " / ".join(event.tags)),
@@ -277,6 +387,16 @@ def build_printable_html(event: TimelineEvent) -> str:
         ("事件日期", event.event_at.strftime("%Y-%m-%d %H:%M")),
         ("时间轴标注", event.day_label),
         ("事件说明", event.event_text),
+        (
+            "采集时刻",
+            event.observed_at.astimezone(SHANGHAI_TZ).isoformat(timespec="seconds")
+            if event.observed_at
+            else "",
+        ),
+        ("日期解析方式", event.date_resolution_method),
+        ("详情更新日期", event.detail_update_date),
+        ("详情更新证据", event.detail_update_text),
+        ("解析后事件", event.resolved_event_text),
         ("按钮状态", event.action),
         ("评分", event.score),
         ("标签", " / ".join(event.tags)),
@@ -383,6 +503,11 @@ async def save_event_pdf(context, event: TimelineEvent, out_dir: Path, manifest:
                     "extra": {
                         "game_name": event.game_name,
                         "event_text": event.event_text,
+                        "observed_at": event.observed_at.isoformat(timespec="seconds") if event.observed_at else "",
+                        "date_resolution_method": event.date_resolution_method,
+                        "detail_update_date": event.detail_update_date,
+                        "detail_update_text": event.detail_update_text,
+                        "resolved_event_text": event.resolved_event_text,
                         "action": event.action,
                         "score": event.score,
                         "tags": event.tags,
@@ -421,6 +546,11 @@ async def save_event_pdf(context, event: TimelineEvent, out_dir: Path, manifest:
             "url": event.url,
             "game_name": event.game_name,
             "event_text": event.event_text,
+            "observed_at": event.observed_at.isoformat(timespec="seconds") if event.observed_at else "",
+            "date_resolution_method": event.date_resolution_method,
+            "detail_update_date": event.detail_update_date,
+            "detail_update_text": event.detail_update_text,
+            "resolved_event_text": event.resolved_event_text,
             "action": event.action,
             "score": event.score,
             "tags": event.tags,

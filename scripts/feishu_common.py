@@ -112,6 +112,7 @@ def set_subscription_preferences(open_id: str, preferences: dict[str, Any]) -> d
     data = load_subscribers()
     now = utc_now_iso()
     existing = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    preferences_changed = existing is None or subscription_preferences(existing) != normalized
     if existing is None:
         existing = {
             "open_id": open_id,
@@ -119,6 +120,7 @@ def set_subscription_preferences(open_id: str, preferences: dict[str, Any]) -> d
             "union_id": None,
             "name": None,
             "created_at": now,
+            "subscription_changed_at": now,
             "last_pushed_date": None,
         }
         data["subscribers"].append(existing)
@@ -129,6 +131,8 @@ def set_subscription_preferences(open_id: str, preferences: dict[str, Any]) -> d
             "updated_at": now,
         }
     )
+    if preferences_changed:
+        existing["subscription_changed_at"] = now
     write_json(SUBSCRIBERS_PATH, data)
     return existing
 
@@ -146,6 +150,8 @@ def upsert_subscriber(
     data = load_subscribers()
     now = utc_now_iso()
     existing = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    normalized = {kind: subscribed for kind in REPORT_SUBSCRIPTION_KINDS}
+    subscription_changed = existing is None or subscription_preferences(existing) != normalized
     if existing is None:
         existing = {
             "open_id": open_id,
@@ -153,6 +159,7 @@ def upsert_subscriber(
             "union_id": union_id,
             "name": name,
             "created_at": now,
+            "subscription_changed_at": now,
             "last_pushed_date": None,
         }
         data["subscribers"].append(existing)
@@ -162,10 +169,12 @@ def upsert_subscriber(
             "union_id": union_id or existing.get("union_id"),
             "name": name or existing.get("name"),
             "subscribed": subscribed,
-            "subscriptions": {kind: subscribed for kind in REPORT_SUBSCRIPTION_KINDS},
+            "subscriptions": normalized,
             "updated_at": now,
         }
     )
+    if subscription_changed:
+        existing["subscription_changed_at"] = now
     write_json(SUBSCRIBERS_PATH, data)
     return existing
 
@@ -629,6 +638,38 @@ def _attach_industry_scores(
                 item["card_carryover"] = True
 
 
+def _attach_deep_card_copy(sections: list[dict[str, Any]], report_dir: Path) -> None:
+    """Attach authored compact copy to deep items without changing report prose."""
+    items_path = report_dir / "_intermediate" / "report_items.json"
+    if not items_path.exists():
+        return
+    try:
+        items_data = json.loads(items_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    report_items = items_data.get("items", items_data) if isinstance(items_data, dict) else items_data
+    if not isinstance(report_items, list):
+        return
+
+    copy_by_title: dict[str, dict[str, Any]] = {}
+    for item in report_items:
+        if not isinstance(item, dict) or item.get("section") not in ("deep", "deep_analysis"):
+            continue
+        card_copy = item.get("card_copy")
+        key = _card_title_key(str(item.get("title") or ""))
+        if key and isinstance(card_copy, dict):
+            copy_by_title[key] = card_copy
+
+    for section in sections:
+        _emoji, _display, is_deep = _section_meta(str(section.get("name") or ""))
+        if not is_deep:
+            continue
+        for item in section.get("items", []):
+            card_copy = copy_by_title.get(_card_title_key(str(item.get("title") or "")))
+            if card_copy:
+                item["card_copy"] = card_copy
+
+
 def _validate_card_report_artifacts(report_dir: Path, markdown_path: Path) -> None:
     """Run the full report contract before any card reads structured reports."""
     intermediate = report_dir / "_intermediate"
@@ -676,6 +717,7 @@ def load_report_summary(date: str, max_items: int | None = None) -> dict[str, An
     else:
         raise FileNotFoundError(f"Report markdown not found: {markdown_path}")
     _attach_industry_scores(sections, report_dir)
+    _attach_deep_card_copy(sections, report_dir)
     return {
         "date": date,
         "kind": kind,
@@ -1118,7 +1160,10 @@ def build_daily_card(
                         "elements": [
                             {
                                 "tag": "button",
-                                "text": {"tag": "plain_text", "content": f"📄 查看完整{noun}"},
+                                "text": {
+                                    "tag": "plain_text",
+                                    "content": f"📄 查看完整{noun}文档（含新闻源地址、详细正文）",
+                                },
                                 "type": "primary",
                                 "behaviors": [{"type": "open_url", "default_url": doc_url}],
                             }
@@ -1168,7 +1213,7 @@ def build_daily_card(
                             {
                                 "tag": "button",
                                 "element_id": "report_feedback_suggest",
-                                "text": {"tag": "plain_text", "content": "😑 我有建议！"},
+                                "text": {"tag": "plain_text", "content": "💡 我有想说的！"},
                                 "type": "default",
                                 "width": "fill",
                                 "behaviors": [
@@ -1205,14 +1250,14 @@ def build_daily_card(
                         "width": "fill",
                         "placeholder": {
                             "tag": "plain_text",
-                            "content": "哪里可以做得更好？请告诉我（最多 500 字）",
+                            "content": "欢迎写下你的反馈或进一步研究需求（最多 500 字）",
                         },
                     },
                     {
                         "tag": "button",
                         "name": "submit_feedback",
                         "form_action_type": "submit",
-                        "text": {"tag": "plain_text", "content": "提交建议"},
+                        "text": {"tag": "plain_text", "content": "提交反馈"},
                         "type": "primary",
                         "behaviors": [
                             {
@@ -1230,7 +1275,10 @@ def build_daily_card(
     elements.append(
         {
             "tag": "markdown",
-            "content": f"AI 自动整理 · 每条详情见完整{noun}",
+            "content": (
+                "AI 自动整理 · 如发现文字或事实错误，或对整体格式与内容有改进建议，"
+                "或希望进一步研究某条新闻，欢迎点击上方“💡 我有想说的！”反馈给战略团队。"
+            ),
             "text_size": "notation",
         }
     )
@@ -1272,11 +1320,36 @@ def build_deep_observation_card(
         body = re.sub(r"[ \t]+", " ", item.get("body", "")).strip()
         body = re.sub(r"\n{3,}", "\n\n", body)
         _validate_card_source_text(title, body, deep=True)
-        body = re.sub(r"\*{0,2}(观察：|分析：)\*{0,2}", r"**\1**", body)
-        content = f"**{title}**"
-        if body:
-            content += f"\n\n{body}"
-        elements.append({"tag": "markdown", "content": content})
+        card_copy = item.get("card_copy")
+        if card_copy is not None:
+            try:
+                from report_artifacts import normalize_deep_card_copy
+            except ModuleNotFoundError:
+                from scripts.report_artifacts import normalize_deep_card_copy
+            source_label, card_summary, insights = normalize_deep_card_copy(card_copy, title)
+            elements.append(
+                {"tag": "markdown", "content": f"**{source_label}：{title}**"}
+            )
+            elements.append({"tag": "hr"})
+            elements.append(
+                {
+                    "tag": "markdown",
+                    "content": f"**🎯 一句话总结**\n\n{card_summary}",
+                }
+            )
+            elements.append({"tag": "hr"})
+            insight_lines = ["**💎 核心洞察**"]
+            for index, insight in enumerate(insights, 1):
+                insight_lines.append(
+                    f"**{index}. {insight['title']}**\n{insight['detail']}"
+                )
+            elements.append({"tag": "markdown", "content": "\n\n".join(insight_lines)})
+        else:
+            body = re.sub(r"\*{0,2}(观察：|分析：)\*{0,2}", r"**\1**", body)
+            content = f"**{title}**"
+            if body:
+                content += f"\n\n{body}"
+            elements.append({"tag": "markdown", "content": content})
 
     buttons: list[dict[str, Any]] = []
     if doc_url:
@@ -1316,7 +1389,7 @@ def build_deep_observation_card(
     elements.append(
         {
             "tag": "markdown",
-            "content": "独立深度观察 · 观察与分析分层呈现",
+            "content": "独立深度观察 · 一句话总结与核心洞察",
             "text_size": "notation",
         }
     )

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from datetime import date, timedelta
 from pathlib import Path
@@ -13,6 +14,8 @@ WEEKLY_REPORT_RE = re.compile(
     r"game_industry_weekly_(?P<weekly_id>\d{4}-\d{2}-\d{2}_to_\d{4}-\d{2}-\d{2})\.md"
 )
 ITEM_HEADING_RE = re.compile(r"(?m)^###\s+\d+\.\s+(?P<title>.+?)\s*$")
+FEISHU_RECEIPT_ENFORCEMENT_END = date(2026, 9, 24)
+FEISHU_SOURCE = "飞书周四备选 Bot"
 
 
 def selection_windows(thursday: date) -> tuple[str, str]:
@@ -86,6 +89,62 @@ def parse_deep_titles(report_text: str) -> list[str]:
     return [_strip_card_prefix(match.group("title")) for match in ITEM_HEADING_RE.finditer(block_match.group("body"))]
 
 
+def _metadata(text: str, label: str) -> str | None:
+    match = re.search(rf"(?m)^-\s*{re.escape(label)}:\s*(.+?)\s*$", text)
+    return match.group(1).strip() if match else None
+
+
+def _candidate_ids(value: str | None) -> list[str]:
+    return [match.group(0).upper() for match in re.finditer(r"(?i)\bC\d{3}\b", value or "")]
+
+
+def validate_feishu_selection_receipt(selection_path: Path, selection_text: str, weekly_id: str) -> list[str]:
+    """Validate the future Thursday-Feishu receipt that authorized a selection."""
+    match = WEEKLY_ID_RE.fullmatch(weekly_id)
+    if not match or date.fromisoformat(match.group("end")) < FEISHU_RECEIPT_ENFORCEMENT_END:
+        return []
+    errors: list[str] = []
+    source = _metadata(selection_text, "选择来源")
+    receipt_id = _metadata(selection_text, "飞书回执ID")
+    body_ids = _candidate_ids(_metadata(selection_text, "正文候选ID"))
+    card_base_ids = _candidate_ids(_metadata(selection_text, "指定卡片候选ID"))
+    card_ref_ids = _candidate_ids(_metadata(selection_text, "卡片整合参考ID"))
+    selected_titles, _designated = parse_selection(selection_text)
+    if source != FEISHU_SOURCE:
+        errors.append(f"selection must declare 选择来源: {FEISHU_SOURCE}")
+    if not receipt_id or not re.fullmatch(r"[0-9a-f]{32}", receipt_id):
+        errors.append("selection must declare a valid 飞书回执ID")
+    if not body_ids:
+        errors.append("selection must declare non-empty 正文候选ID")
+    if len(card_base_ids) != 1:
+        errors.append("selection must declare exactly one 指定卡片候选ID")
+    elif body_ids and card_base_ids[0] not in body_ids:
+        errors.append("指定卡片候选ID must also appear in 正文候选ID")
+    if body_ids and len(selected_titles) != len(body_ids):
+        errors.append("selection heading count must match 正文候选ID count")
+    if errors or not receipt_id:
+        return errors
+
+    workspace = selection_path.resolve().parents[2]
+    receipt_path = workspace / "data" / "feishu" / "deep_review" / "replies" / f"{receipt_id}.json"
+    if not receipt_path.exists():
+        return [f"Feishu selection receipt is missing: {receipt_path}"]
+    try:
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"Feishu selection receipt is unreadable: {receipt_path}: {exc}"]
+    expected_card_ids = card_base_ids + card_ref_ids
+    if receipt.get("target_weekly_id") != weekly_id:
+        errors.append("Feishu receipt target_weekly_id does not match selection")
+    if receipt.get("body_candidate_ids") != body_ids:
+        errors.append("Feishu receipt body_candidate_ids do not match selection")
+    if receipt.get("card_candidate_ids") != expected_card_ids:
+        errors.append("Feishu receipt card_candidate_ids do not match selection")
+    if receipt.get("receipt_id") != receipt_id:
+        errors.append("Feishu receipt_id does not match its filename")
+    return errors
+
+
 def validate_weekly_handoff(report_path: Path) -> list[str]:
     """Validate selection → report deep section → deep_card_choice.txt closure."""
     errors: list[str] = []
@@ -125,6 +184,7 @@ def validate_weekly_handoff(report_path: Path) -> list[str]:
         return errors
 
     selection_text = selection_path.read_text(encoding="utf-8")
+    errors.extend(validate_feishu_selection_receipt(selection_path, selection_text, weekly_id))
     selected_titles, designated = parse_selection(selection_text)
     star_count = len(re.findall(r"(?m)^###\s+\d+\.\s+★卡片[:：]", selection_text))
     if not selected_titles:
@@ -174,6 +234,8 @@ def main() -> int:
     windows.add_argument("--thursday", required=True)
     validate = sub.add_parser("validate")
     validate.add_argument("--report", required=True)
+    lint_selection = sub.add_parser("lint-selection")
+    lint_selection.add_argument("--selection", required=True)
     args = parser.parse_args()
     if args.command == "windows":
         candidate_window, weekly_id = selection_windows(date.fromisoformat(args.thursday))
@@ -181,7 +243,18 @@ def main() -> int:
         print(f"target_weekly_id={weekly_id}")
         print(f"selection_filename={weekly_id}_selection.md")
         return 0
-    errors = validate_weekly_handoff(Path(args.report))
+    if args.command == "lint-selection":
+        selection_path = Path(args.selection)
+        text = selection_path.read_text(encoding="utf-8")
+        target = _metadata(text, "目标周报窗口")
+        errors = validate_feishu_selection_receipt(selection_path, text, target or "")
+        selected, designated = parse_selection(text)
+        if not selected:
+            errors.append("selection has no user-selected weekly items")
+        if not designated:
+            errors.append("selection must contain exactly one designated card heading")
+    else:
+        errors = validate_weekly_handoff(Path(args.report))
     for error in errors:
         print(f"ERROR: {error}")
     return 1 if errors else 0

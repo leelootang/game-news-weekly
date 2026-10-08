@@ -329,7 +329,7 @@ class FeishuCardEmphasisTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "pipeline/source metadata"):
             build_daily_card(self.summary)
 
-    def test_deep_card_preserves_paragraphs_and_uses_schema_two(self) -> None:
+    def test_deep_card_uses_authored_summary_and_three_to_six_insights(self) -> None:
         markdown = """# 周报
 
 ## 五、行业精选 / 深度观察
@@ -343,6 +343,15 @@ class FeishuCardEmphasisTests(unittest.TestCase):
 这是第二段分析。
 """
         sections = _parse_markdown_sections(markdown)
+        sections[0]["items"][0]["card_copy"] = {
+            "source_label": "NAAVIK文章",
+            "summary": "这是一句话总结。",
+            "insights": [
+                {"title": "机制一", "detail": "第一条解释。"},
+                {"title": "机制二", "detail": "第二条解释。"},
+                {"title": "机制三", "detail": "第三条解释。"},
+            ],
+        }
         summary = {
             "title": "测试周报",
             "date": "2026-07-17_to_2026-07-23",
@@ -358,8 +367,20 @@ class FeishuCardEmphasisTests(unittest.TestCase):
         assert card is not None
         self.assertEqual("2.0", card["schema"])
         self.assertEqual("fill", card["config"]["width_mode"])
-        content = card["body"]["elements"][0]["content"]
-        self.assertIn("**观察：**这是观察。\n\n**分析：**这是第一段分析。\n\n这是第二段分析。", content)
+        contents = [
+            element.get("content", "")
+            for element in card["body"]["elements"]
+            if element.get("tag") == "markdown"
+        ]
+        self.assertIn("**NAAVIK文章：深度标题**", contents)
+        self.assertIn("**🎯 一句话总结**\n\n这是一句话总结。", contents)
+        self.assertTrue(
+            any(
+                "**💎 核心洞察**\n\n**1. 机制一**\n第一条解释。" in content
+                for content in contents
+            )
+        )
+        self.assertFalse(any("观察：" in content or "分析：" in content for content in contents))
         buttons = next(
             element for element in card["body"]["elements"]
             if element.get("tag") == "column_set"
@@ -370,6 +391,34 @@ class FeishuCardEmphasisTests(unittest.TestCase):
                 for column in buttons["columns"]
             )
         )
+
+    def test_deep_card_rejects_card_copy_outside_three_to_six_insights(self) -> None:
+        summary = {
+            "title": "测试周报",
+            "date": "2026-08-17_to_2026-08-23",
+            "noun": "周报",
+            "sections": [
+                {
+                    "name": "深度观察",
+                    "items": [
+                        {
+                            "title": "深度标题",
+                            "body": "观察：事实。\n\n分析：第一段。\n\n第二段。",
+                            "card_copy": {
+                                "source_label": "测试文章",
+                                "summary": "一句话总结。",
+                                "insights": [
+                                    {"title": "机制一", "detail": "第一条。"},
+                                    {"title": "机制二", "detail": "第二条。"},
+                                ],
+                            },
+                        }
+                    ],
+                }
+            ],
+        }
+        with self.assertRaisesRegex(ValueError, "3-6"):
+            build_deep_observation_card(summary)
 
     def test_deep_card_rejects_prefixed_source_excerpt(self) -> None:
         summary = {
