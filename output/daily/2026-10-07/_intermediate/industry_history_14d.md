@@ -1,0 +1,654 @@
+# 行业新闻双周历史记忆
+
+- 历史窗口: 2026-09-23 至 2026-10-06
+- 已发布行业条目: 81
+- 判定: 换来源或补背景不算新进展；只有事件状态或关键事实发生实质变化才可再次入选。
+- 卡片曝光: 历史正文已收录但订阅卡片未展示的同一事件，可按当前分数线竞争一次 card_carryover；每期最多 1 条。
+
+## H001 - Niko Partners预计中国游戏市场2026年增至539亿美元
+- report: daily 2026-09-23 to 2026-09-23
+- event: Niko Partners更新中国游戏市场规模与2030年预测
+- entities: 中国游戏市场, Niko Partners
+- claims: 2025年收入为518亿美元；同比增长5.4%；2026年增长4%至539亿美元；2030年达到598亿美元；2025年首次达到70美元；2030年升至77.68美元；玩家规模达到7.69亿
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-23\_intermediate\report_items.json
+
+## H002 - Undead Labs脱离Xbox转为员工持有，独立同步伴随大规模裁员
+- report: daily 2026-09-23 to 2026-09-23
+- event: Undead Labs完成脱离Xbox并转为员工持有，同时裁撤大量岗位
+- entities: Undead Labs, Xbox, State of Decay 3
+- claims: 完成与Xbox的分离；转为员工持有的独立工作室；大量员工被裁；项目仍在开发；计划2027年登陆Xbox、Game Pass、PC和PlayStation；今年底前进行封闭测试
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-23\_intermediate\report_items.json
+
+## H003 - 《伊莫》移动端上线，预下载登顶18个国家和地区iOS免费榜
+- report: daily 2026-09-23 to 2026-09-23
+- event: 《伊莫》移动端正式上线并披露预下载与PC端新数据
+- entities: FunPlus, 爪印工作室, 伊莫
+- claims: 9月23日移动端正式上线；与PC端数据互通；预下载登顶18个国家和地区的iOS免费榜；进入53个市场前十；Steam同时在线峰值升至168260；全球预约玩家数突破4000万
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-23\_intermediate\report_items.json
+
+## H004 - 国产二次元自走棋《时之铃》计划11月至12月开启内测
+- report: daily 2026-09-23 to 2026-09-23
+- event: 国产二次元自走棋《时之铃》披露内测计划与PVE/PVP结构
+- entities: 水泠喵, 时之铃
+- claims: 计划在11月或12月进行内测；棋子与英雄角色近200个；装备、魔法卡和命运抉择也接近200种；PVE养成作为可带入PVP的局外辅助；教程后直接进入对战
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-23\_intermediate\report_items.json
+
+## H005 - 浏览器SLG《OPENFRONT》以百万月活基础登陆Steam
+- report: daily 2026-09-23 to 2026-09-23
+- event: 浏览器SLG《OPENFRONT》以百万月活基础登陆Steam
+- entities: OPENFRONT, OpenFront Team
+- claims: 9月17日进入Steam抢先体验；网页端月活已超过100万；日活约20万至25万；每月产生约6500万至7000万次广告展示；与Steam共享服务器和玩家池；核心团队仅3人
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-23\_intermediate\report_items.json
+
+## H006 - Bungie恢复《命运》系列开发，计划重开被封存内容
+- report: weekly 2026-09-18 to 2026-09-24
+- event: Bungie恢复《命运》系列开发，计划重开被封存内容
+- entities: Bungie恢复《命运》系列开发，计划重开被封存内容
+- claims: 《命运》仍是工作室未来的基础；恢复系列开发；被封存的战役、突袭与地点；导致信任和人员流失；适配现有灯光、战斗和底层系统
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H007 - B站自研《闪耀吧！噜咪》公测首日升至iOS畅销榜第22
+- report: weekly 2026-09-18 to 2026-09-24
+- event: B站自研《闪耀吧！噜咪》公测首日升至iOS畅销榜第22
+- entities: B站自研《闪耀吧！噜咪》公测首日升至iOS畅销榜第22
+- claims: 9月17日；Bilibili游戏自研发行；竖屏抓宠游戏《闪耀吧！噜咪》；开启全球公测；一天内进入iOS畅销榜第22；首日也登上App Store免费榜第2；单手操作；宠物收集养成、卡牌对战与家园经营
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H008 - Game Freak公布天气联动手游《雨后晴女》，计划今冬在日本上线
+- report: weekly 2026-09-18 to 2026-09-24
+- event: Game Freak公布天气联动手游《雨后晴女》，计划今冬在日本上线
+- entities: Game Freak公布天气联动手游《雨后晴女》，计划今冬在日本上线
+- claims: Game Freak与Chronogate共同开发；《雨后晴女》；计划于2026年冬季在日本上线iOS与Android；9月14日起已开启事前登录；现实天气数据接入回合制战斗与角色强化；Game Freak年内第二款脱离宝可梦IP的原创产品
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H009 - NCsoft发行《阿索拉：星之祈愿》首曝试玩，计划2027年全球同步上线移动端
+- report: weekly 2026-09-18 to 2026-09-24
+- event: NCsoft发行《阿索拉：星之祈愿》首曝试玩，计划2027年全球同步上线移动端
+- entities: NCsoft发行《阿索拉：星之祈愿》首曝试玩，计划2027年全球同步上线移动端
+- claims: NCsoft负责全球发行；在TGS首次提供试玩；回合制策略与即时操作结合；预计2027年先登陆iOS和Android；计划面向韩国、日本、美国和欧洲全球同步上市
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H010 - Nexon展示跨端RPG《FAREIDOLIA》，计划明年开启测试
+- report: weekly 2026-09-18 to 2026-09-24
+- event: Nexon展示跨端RPG《FAREIDOLIA》，计划明年开启测试
+- entities: Nexon展示跨端RPG《FAREIDOLIA》，计划明年开启测试
+- claims: Nexon旗下IO；东京电玩展公开《FAREIDOLIA》实机；全3D美少女收集RPG；半回合制战斗；确定跨端发行；正在准备CBT测试，今年内难以立即启动；IO内部开发；可在移动设备本地运行的语音交互AI
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H011 - Undead Labs脱离Xbox转为员工持有，独立同步伴随大规模裁员
+- report: weekly 2026-09-18 to 2026-09-24
+- event: Undead Labs脱离Xbox转为员工持有，独立同步伴随大规模裁员
+- entities: Undead Labs脱离Xbox转为员工持有，独立同步伴随大规模裁员
+- claims: 完成与Xbox的分离；转为员工持有的独立工作室；大量员工被裁；项目仍在开发；计划2027年登陆Xbox、Game Pass、PC和PlayStation；今年底前进行封闭测试
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H012 - Xbox再裁268人并重组工作室，动视接手《光环》新作
+- report: weekly 2026-09-18 to 2026-09-24
+- event: Xbox再裁268人并重组工作室，动视接手《光环》新作
+- entities: Xbox再裁268人并重组工作室，动视接手《光环》新作
+- claims: 裁减268个岗位；完成原定重组约四分之三；动视将开发下一部《光环》；管理Rare与World’s Edge；Bethesda扩大管理范围至Obsidian；Playground与Turn 10合并；Ninja Theory因两项出售协议失败
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H013 - 《伊莫》移动端上线，预下载登顶18个国家和地区iOS免费榜
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 《伊莫》移动端上线，预下载登顶18个国家和地区iOS免费榜
+- entities: 《伊莫》移动端上线，预下载登顶18个国家和地区iOS免费榜
+- claims: 9月23日移动端正式上线；与PC端数据互通；预下载登顶18个国家和地区的iOS免费榜；进入53个市场前十；Steam同时在线峰值升至168260；全球预约玩家数突破4000万
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H014 - 《影之刃零》全平台愿望单突破300万，一个月增加100万
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 《影之刃零》全平台愿望单突破300万，一个月增加100万
+- entities: 《影之刃零》全平台愿望单突破300万，一个月增加100万
+- claims: 9月17日；灵游坊；《影之刃零》全平台愿望单突破300万；8月12日开启预购；近一个月又增加100万；10月29日登陆PS5及PC平台
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H015 - 《旅行青蛙·中国之旅》停运归因出现反转，日方称仍在协商在华后续
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 《旅行青蛙·中国之旅》停运归因出现反转，日方称仍在协商在华后续
+- entities: 《旅行青蛙·中国之旅》停运归因出现反转，日方称仍在协商在华后续
+- claims: 因IP授权合作到期；将于12月8日停止运营；9月21日的回应；日方从未提出终止中国版服务或合作协议；仍在就产品今后在华发展保持沟通
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H016 - 《望月》更换执行制作人，工作室负责人直接带队
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 《望月》更换执行制作人，工作室负责人直接带队
+- entities: 《望月》更换执行制作人，工作室负责人直接带队
+- claims: 9月20日，华韬不再担任《望月》执行制作人；进入在职休整期；后续将以荣誉制作人身份参与；项目改由星辰工作室负责人何宗寰直接带队；在工作室内孵化一款PC与主机硬核动作新作
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H017 - 《潜水员戴夫》手游国际版全球上线，首日登顶韩国、泰国App Store游戏免费榜
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 《潜水员戴夫》手游国际版全球上线，首日登顶韩国、泰国App Store游戏免费榜
+- entities: 《潜水员戴夫》手游国际版全球上线，首日登顶韩国、泰国App Store游戏免费榜
+- claims: 9月17日登陆iOS和Android；登顶韩国、泰国等市场App Store游戏免费榜；全平台全球累计销量已突破1000万套；国内手游版此前由心动网络代理；移动端销量已突破100万套
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H018 - 动视估算游戏作弊产业年规模达85亿美元
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 动视估算游戏作弊产业年规模达85亿美元
+- entities: 动视估算游戏作弊产业年规模达85亿美元
+- claims: 动视估算；游戏作弊产业每年规模约85亿美元；仅15款游戏的外挂订阅服务年收入就约35亿美元；已干扰超过375个转售业务；协助关闭31个主要外挂供应商
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H019 - 双点工作室已有两个新项目进入早期开发，预计明年释出消息
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 双点工作室已有两个新项目进入早期开发，预计明年释出消息
+- entities: 双点工作室已有两个新项目进入早期开发，预计明年释出消息
+- claims: 已有两个新项目进入早期开发阶段；可能在明年放出消息；团队规模约50人；半数粉丝来自中国；世嘉在上海成立约3个月的中国团队
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H020 - 叠纸认缴逾1亿元成为新创投基金核心出资方
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 叠纸认缴逾1亿元成为新创投基金核心出资方
+- entities: 叠纸认缴逾1亿元成为新创投基金核心出资方
+- claims: 9月16日；上海叠纸科技进入南京铂睿数智壹号创业投资合伙企业；认缴出资1.0096亿元、出资比例99.9604%；认缴规模同期增至1.01亿元；广州铂睿创业投资有限公司担任执行事务合伙人；叠纸主要出资、专业机构负责具体事务
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H021 - 吉比特正式立项UE5移动端新作《代号M98》
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 在研移动新项目正式立项
+- entities: 吉比特, 代号M98
+- claims: 吉比特董事长卢竑岩带队；2026年8月通过公司评审并正式立项；UE5开发的移动端角色养成与战斗游戏；围绕1V1强敌战斗；战斗策划、养成策划、研发、项目管理与技术美术岗位
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H022 - 国产二次元自走棋《时之铃》计划11月至12月开启内测
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 国产二次元自走棋《时之铃》计划11月至12月开启内测
+- entities: 国产二次元自走棋《时之铃》计划11月至12月开启内测
+- claims: 计划在11月或12月进行内测；棋子与英雄角色近200个；装备、魔法卡和命运抉择也接近200种；PVE养成作为可带入PVP的局外辅助；教程后直接进入对战
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H023 - 完美世界拟出资1亿元认购前沿科技基金份额
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 完美世界拟出资1亿元认购前沿科技基金份额
+- entities: 完美世界拟出资1亿元认购前沿科技基金份额
+- claims: 9月22日公告；拟出资人民币1亿元认购拾象尚势（天津）创业投资合伙企业的基金份额；该基金于今年8月成立；近期第四次认购投资基金；5亿元；5000万元；5040万元
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H024 - 网易《Blood Strike》全球注册用户突破2亿，暑期营收创新高且包体约460MB
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 注册用户、营收与轻量化数据披露
+- entities: 网易, Blood Strike
+- claims: 2026年8月底全球累计注册用户突破2亿；3月两周年期间DAU创下历史新高；暑期营收也刷新纪录；当前包体约460MB；低于首发时的500多MB；拉美与东南亚
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H025 - 网易《无限大》定档2027年1月15日，取消角色抽卡并改用外观付费
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 网易《无限大》定档2027年1月15日，取消角色抽卡并改用外观付费
+- entities: 网易《无限大》定档2027年1月15日，取消角色抽卡并改用外观付费
+- claims: 2027年1月15日全球免费上线；覆盖PC、PS5和移动端；取消角色抽卡；收入主要来自外观付费；全球预约量已超过1700万
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H026 - 莉莉丝投资前《梦幻西游》主策创业公司肥啾科技
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 莉莉丝投资前《梦幻西游》主策创业公司肥啾科技
+- entities: 莉莉丝投资前《梦幻西游》主策创业公司肥啾科技
+- claims: 获得莉莉丝与另一位资方投资；今年5月与网易前同事孙沁滢共同创办广州肥啾科技；创造一个能自行演化的虚拟世界
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H027 - 莉莉丝首曝都市生活模拟新作《奇遇动物城》
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 新品首次公开
+- entities: 莉莉丝, 猫爪拿铁工作室, 奇遇动物城
+- claims: 9月24日首次公开；猫爪拿铁工作室研发；现代城市；玩家还可变成动物；开放预约
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H028 - 鹰角网络投资上海宇宙怪兽，持股20%
+- report: weekly 2026-09-18 to 2026-09-24
+- event: 鹰角网络投资上海宇宙怪兽，持股20%
+- entities: 鹰角网络投资上海宇宙怪兽，持股20%
+- claims: 鹰角网络投资上海宇宙怪兽，占股20%；宇宙怪兽于今年7月成立；目前没有明确履历和软著
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-18_to_2026-09-24\_intermediate\report_items.json
+
+## H029 - Scopely入股上海宝可拉，腾讯仍为第一大股东
+- report: weekend 2026-09-25 to 2026-09-27
+- event: Scopely入股上海宝可拉并获得23.94%股权
+- entities: Scopely, Savvy Games Group, 上海宝可拉, 腾讯
+- claims: 9月23日；Savvy Games Group旗下Scopely入股上海宝可拉；持股23.94%；腾讯仍为第一大股东；持股稀释至30.42%；《代号Hydra》；中世纪风多平台写实向多人RPG，面向全球市场
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-09-25_to_2026-09-27\_intermediate\report_items.json
+
+## H030 - Supercell将《mo.co》转回beta，产品进入低维护与快速试验阶段
+- report: weekend 2026-09-25 to 2026-09-27
+- event: 产品转回beta并进入低维护模式
+- entities: Supercell, mo.co
+- claims: Supercell；《mo.co》重新转回beta；低维护模式；长期更快地迭代和试验；表现不及预期
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-09-25_to_2026-09-27\_intermediate\report_items.json
+
+## H031 - Trophy Games收购Playrion，拟围绕机场模拟扩展产品系列
+- report: weekend 2026-09-25 to 2026-09-27
+- event: 收购移动模拟游戏开发商
+- entities: Trophy Games, Playrion, Paradox Interactive
+- claims: Trophy Games从Paradox Interactive收购；《Airport Simulator: First Class》开发商Playrion；225万欧元首付款；三年业绩对赌；30名员工随交易转入；建立新的模拟游戏系列
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-09-25_to_2026-09-27\_intermediate\report_items.json
+
+## H032 - 腾讯公布《怪物猎人：旅人》实机，11月启动全球首轮测试
+- report: weekend 2026-09-25 to 2026-09-27
+- event: 公布首支实机并确定全球首轮测试
+- entities: 腾讯, 天美, Capcom, 怪物猎人：旅人
+- claims: 9月25日；腾讯在东京电玩展公布《怪物猎人：旅人》首支实机预告；已于去年12月获得版号；计划今年11月开启全球首轮测试；天美与Capcom合作；长剑、弓、双剑和大剑等武器；建造、滑翔与砍树等生存建造机制
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-09-25_to_2026-09-27\_intermediate\report_items.json
+
+## H033 - 鸿蒙游戏超过1.2万款，20余天迎来多款头部手游版本
+- report: weekend 2026-09-25 to 2026-09-27
+- event: 多款头部手游密集接入鸿蒙并披露生态规模
+- entities: HarmonyOS, 中国手游市场, 腾讯, 米哈游
+- claims: 9月25日，《金铲铲之战》鸿蒙版上线；20余天内；《QQ飞车手游》《原神》《暗区突围》《英雄联盟手游》《三角洲行动》等相继接入；HarmonyOS 5终端已超过1700万台；游戏开发者超过1000家；游戏超过1.2万款
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-09-25_to_2026-09-27\_intermediate\report_items.json
+
+## H034 - 2026年上半年休闲手游下载下滑，收入继续向存量产品集中
+- report: daily 2026-09-28 to 2026-09-28
+- event: Azur Games披露2026年上半年休闲手游结构变化
+- entities: Azur Games, 移动游戏市场
+- claims: 休闲、超休闲和混合休闲游戏下载量均下滑超过10%；超休闲与混合休闲收入分别增长64%和24%；2026年新游占比只有2%；2023年年中的8%；超过一半产品在2024年之前发布
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H035 - B站代理《BanG Dream! Our Notes》开启全球公测
+- report: daily 2026-09-28 to 2026-09-28
+- event: B站代理《BanG Dream! Our Notes》全球公测
+- entities: 哔哩哔哩, BanG Dream! Our Notes
+- claims: 于9月24日开启全球公测；达成200万预约量；全球同版本上线、支持简体中文；五支乐队、25名角色；合计100话全语音剧情，总时长约24小时
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H036 - 《塔塔冒险队》海外公测四个月累计流水达到4560万美元
+- report: daily 2026-09-28 to 2026-09-28
+- event: 《塔塔冒险队》披露四个月累计流水新数据
+- entities: 莉莉丝, Farlight Games, 塔塔冒险队, Clash of Critters
+- claims: 海外公测首月收入1270万美元；四个月全球累计流水达到4560万美元；9月18日位列国区iOS畅销榜第23；弹珠抓宠、竖屏放置塔防与营地经营
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H037 - 《守墓人2》发售后Steam同时在线峰值达到54969
+- report: daily 2026-09-28 to 2026-09-28
+- event: 模拟经营新作《守墓人2》发售并披露首发表现
+- entities: Lazy Bear Games, 守墓人2
+- claims: Lazy Bear Games开发、Solo Game发行；已在Steam正式发售；国区定价68元；最高同时在线人数达到54969；好评率为86%；愿望单超过100万，约10%转化为预购
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H038 - 国产古蜀神话动作肉鸽《青铜灰烬》开放Steam试玩
+- report: daily 2026-09-28 to 2026-09-28
+- event: 国产古蜀神话动作肉鸽《青铜灰烬》开放试玩
+- entities: Ray² Game, 青铜灰烬
+- claims: 成都开发商Ray² Game研发；当日在Steam开放试玩Demo；以古蜀神话和青铜器为美术基底；开放两名角色与八种巫术效果；支持Steam好友联机共斗
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H039 - 暴雪公布《StarCraft》开放世界射击新作，计划2030年推出
+- report: daily 2026-09-28 to 2026-09-28
+- event: 暴雪公布《StarCraft》开放世界射击新作与2030年档期
+- entities: 暴雪, StarCraft
+- claims: 暴雪在2026年暴雪嘉年华公布《StarCraft》开放世界射击新作；计划2030年发售；《星际争霸：幽灵》于2014年正式确认取消；“阿瑞斯”项目于2019年取消
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H040 - 网易游戏会员俱乐部接入拉美五国本地支付渠道
+- report: daily 2026-09-28 to 2026-09-28
+- event: 网易游戏会员俱乐部接入拉美五国本地支付渠道
+- entities: 网易游戏, 网易游戏会员俱乐部, EBANX, 拉丁美洲
+- claims: 与跨境支付公司EBANX宣布达成合作；首批覆盖巴西、墨西哥、阿根廷、智利和秘鲁；接入Pix、SPEI、PagoEfectivo和Mercado Pago；五个市场2026年将创造84亿美元电子游戏收入
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H041 - 腾讯发行SLG《新三国：荣耀再起》进入第三次测试
+- report: daily 2026-09-28 to 2026-09-28
+- event: 腾讯发行SLG《新三国：荣耀再起》开启第三次测试
+- entities: 腾讯游戏, 凯撒文化, 新三国：荣耀再起
+- claims: 于9月22日开启“旌旗测试”；凯撒文化旗下团队研发、腾讯游戏发行；第三次测试；截至2025年底国服累计流水超过6亿元；低稀有度武将升橙
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-28\_intermediate\report_items.json
+
+## H042 - TGS中国展商降至93家，韩国展商增至127家
+- report: daily 2026-09-29 to 2026-09-29
+- event: TGS中韩参展结构变化
+- entities: 东京电玩展, 中国游戏厂商, 韩国游戏厂商
+- claims: 共有1138家参展商、创历史新高；中国展商降至93家；较上年164家减少约四成；韩国展商则从50家增至127家；商务洽谈区增至251家；促成3673次商谈
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H043 - 《恋与深空》旗舰店三天购物金充值超2.1亿元
+- report: daily 2026-09-29 to 2026-09-29
+- event: 《恋与深空》旗舰店开业并披露三日购物金数据
+- entities: 叠纸游戏, 恋与深空
+- claims: 于9月24日开业；截至9月26日；累计充值购物金超过2.1亿元；店铺入会人数达到35万；开业三天即登顶天猫潮玩游戏行业近七日榜单
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H044 - 《杖剑传说》欧美版6月海外收入突破1860万美元
+- report: daily 2026-09-29 to 2026-09-29
+- event: 《杖剑传说》欧美版披露收入与榜单表现
+- entities: 吉比特, 雷霆游戏, 杖剑传说, Sword x Staff
+- claims: 《Sword x Staff》于5月中下旬上线；基本保持在iOS畅销榜第30至60名；6月海外收入突破1860万美元；美国市场贡献约60%
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H045 - 《正中靶心2》上线小游戏，续作进入月流水近10亿元赛道
+- report: daily 2026-09-29 to 2026-09-29
+- event: 《正中靶心2》上线小游戏
+- entities: 广州开新, 正中靶心2, 小游戏市场
+- claims: 《正中靶心2》已在小游戏平台上线；四名英雄小队；前作《正中靶心》累计流水超过6亿元；微信小游戏单平台超过3亿元；海外App版本超过3200万美元；赛道整体月流水被业内估算接近10亿元
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H046 - 上半年小程序游戏收入增36.01%，头部集中继续加剧
+- report: daily 2026-09-29 to 2026-09-29
+- event: 2026年上半年小程序游戏收入与供给结构披露
+- entities: 中国小游戏市场, 微信小游戏
+- claims: 2026年上半年中国小程序游戏收入316.57亿元；同比增长36.01%；国内游戏市场12.17%和移动游戏7.9%；微信小游戏月活用户超过5亿、开发者超过50万；季度流水千万元级产品只有约300款
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H047 - 拳头在广州成立子公司，招聘信息指向至少两款在研游戏
+- report: daily 2026-09-29 to 2026-09-29
+- event: 拳头广州子公司成立并为至少两款游戏招聘
+- entities: Riot Games, 拳头游戏, 傲拳（广州）, Riot Discovery
+- claims: 于9月21日在广州成立傲拳（广州）网络科技有限公司；由中国区负责人林松担任法定代表人和董事；至少在为两款游戏招人；采用虚幻5引擎并定位多人联机第三人称动作游戏
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H048 - 网易《极限战场》海外商标信号显示项目覆盖移动端与PC
+- report: daily 2026-09-29 to 2026-09-29
+- event: 网易为在研射击项目申请海外商标并披露双端用途
+- entities: 网易游戏, 极限战场, ECC：REDLINE
+- claims: 于9月21日在美国和欧盟申请“ECC：REDLINE”商标；对应在研射击游戏《极限战场》；同时覆盖手机端与PC端；主打英雄射击、专业竞技和极限运动；包含搜打撤玩法
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H049 - 腾讯领投Circle Games 2500万美元A轮融资
+- report: daily 2026-09-29 to 2026-09-29
+- event: 腾讯领投Circle Games 2500万美元A轮融资
+- entities: 腾讯, Circle Games, Sort Express, Jelly Escape
+- claims: 腾讯领投土耳其手游工作室Circle Games的2500万美元A轮融资；累计融资额达到3225万美元；把员工人数至少扩大一倍；《Sort Express》当前月流水约1500万元
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-29\_intermediate\report_items.json
+
+## H050 - Grasshopper Manufacture与网易分离，重新成为独立工作室
+- report: daily 2026-09-30 to 2026-09-30
+- event: Grasshopper Manufacture与网易分离并恢复独立
+- entities: Grasshopper Manufacture, 网易游戏, 须田刚一
+- claims: 宣布与网易游戏分离，重新成为独立工作室；《No More Heroes》系列开发商；年内《Romeo is a Dead Man》发售后；希望拓宽作品风格；已提升自发行能力；未来仍期待继续合作
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H051 - King将《Minecraft Blast》重新投入软启动
+- report: daily 2026-09-30 to 2026-09-30
+- event: King将《Minecraft Blast》重新投入软启动
+- entities: King, Mojang Studios, Minecraft Blast
+- claims: 重新进入软启动；仅在马来西亚Google Play开放；6种障碍、4个章节；每日奖励、Raid Tournament、周榜竞赛和伙伴自定义；Candy Crush式地图推进与建造Meta；2025年11月在马来西亚和加拿大iOS测试；一个月后下架
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H052 - iQOO与Unreal Engine达成移动游戏图形合作
+- report: daily 2026-09-30 to 2026-09-30
+- event: iQOO与Unreal Engine达成移动游戏图形合作
+- entities: iQOO, Epic Games, Unreal Engine
+- claims: iQOO 16发布会；与Epic Games旗下Unreal Engine成为移动游戏合作伙伴；Lumen动态全局光照；Nanite虚拟化几何体；在手机游戏中更稳定地落地
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H053 - 《心之眼》开发商进入破产管理，已基本解雇全部员工
+- report: daily 2026-09-30 to 2026-09-30
+- event: 《心之眼》开发商进入破产管理并基本解雇全部员工
+- entities: Build A Rocket Boy, 心之眼, 网易游戏
+- claims: 已进入破产管理程序；企业无力偿债；由专业机构介入处理资产与债务；截至2025年9月30日；4750万英镑营业亏损；3620万英镑净亏损；6180万英镑负债；已基本解雇全部员工；投资超过2.33亿英镑
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H054 - 国产OC桌宠《角色屋》Demo最高同时在线近3万人
+- report: daily 2026-09-30 to 2026-09-30
+- event: 国产OC桌宠《角色屋》Demo最高同时在线近3万人
+- entities: Yinengjie, 角色屋：桌面伙伴
+- claims: 国内独立团队Yinengjie；首款Steam游戏；最高同时在线人数接近3万；258条用户评测中近98%为好评；原创角色捏人与桌面陪伴；支持多角色同时显示；双屏适配；内存占用
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H055 - 西山居招聘信息曝光跨端历史题材赛季制SLG
+- report: daily 2026-09-30 to 2026-09-30
+- event: 西山居招聘信息曝光跨端历史题材赛季制SLG
+- entities: 西山居, 在研SLG项目
+- claims: 公开7个标注“在研SLG项目”的珠海岗位；覆盖用户运营、数据运营、内容营销、商业化和交互设计；历史国风题材；赛季制地图；联盟国战及GVG/GVE生态；移动端和PC端；主要集中在运营与发行侧
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-09-30\_intermediate\report_items.json
+
+## H056 - B站代理《BanG Dream! Our Notes》开启全球公测
+- report: weekly 2026-09-25 to 2026-10-01
+- event: B站代理《BanG Dream! Our Notes》开启全球公测
+- entities: B站代理《BanG Dream! Our Notes》开启全球公测
+- claims: 于9月24日开启全球公测；达成200万预约量；全球同版本上线、支持简体中文；五支乐队、25名角色；合计100话全语音剧情，总时长约24小时
+- card_exposed: true (rank=7, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H057 - Grasshopper Manufacture与网易分离，重新成为独立工作室
+- report: weekly 2026-09-25 to 2026-10-01
+- event: Grasshopper Manufacture与网易分离，重新成为独立工作室
+- entities: Grasshopper Manufacture与网易分离，重新成为独立工作室
+- claims: 宣布与网易游戏分离，重新成为独立工作室；《No More Heroes》系列开发商；年内《Romeo is a Dead Man》发售后；希望拓宽作品风格；已提升自发行能力；未来仍期待继续合作
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H058 - Scopely入股上海宝可拉，腾讯仍为第一大股东
+- report: weekly 2026-09-25 to 2026-10-01
+- event: Scopely入股上海宝可拉，腾讯仍为第一大股东
+- entities: Scopely入股上海宝可拉，腾讯仍为第一大股东
+- claims: 9月23日；Savvy Games Group旗下Scopely入股上海宝可拉；持股23.94%；腾讯仍为第一大股东；持股稀释至30.42%；《代号Hydra》；中世纪风多平台写实向多人RPG，面向全球市场
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H059 - iQOO与Unreal Engine达成移动游戏图形合作
+- report: weekly 2026-09-25 to 2026-10-01
+- event: iQOO与Unreal Engine达成移动游戏图形合作
+- entities: iQOO与Unreal Engine达成移动游戏图形合作
+- claims: iQOO 16发布会；与Epic Games旗下Unreal Engine成为移动游戏合作伙伴；Lumen动态全局光照；Nanite虚拟化几何体；在手机游戏中更稳定地落地
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H060 - 《守墓人2》发售后Steam同时在线峰值达到54969
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 《守墓人2》发售后Steam同时在线峰值达到54969
+- entities: 《守墓人2》发售后Steam同时在线峰值达到54969
+- claims: Lazy Bear Games开发、Solo Game发行；已在Steam正式发售；国区定价68元；最高同时在线人数达到54969；好评率为86%；愿望单超过100万，约10%转化为预购
+- card_exposed: true (rank=8, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H061 - 《心之眼》开发商进入破产管理，已基本解雇全部员工
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 《心之眼》开发商进入破产管理，已基本解雇全部员工
+- entities: 《心之眼》开发商进入破产管理，已基本解雇全部员工
+- claims: 已进入破产管理程序；企业无力偿债；由专业机构介入处理资产与债务；截至2025年9月30日；4750万英镑营业亏损；3620万英镑净亏损；6180万英镑负债；已基本解雇全部员工；投资超过2.33亿英镑
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H062 - 《正中靶心2》上线小游戏，续作进入月流水近10亿元赛道
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 《正中靶心2》上线小游戏，续作进入月流水近10亿元赛道
+- entities: 《正中靶心2》上线小游戏，续作进入月流水近10亿元赛道
+- claims: 《正中靶心2》已在小游戏平台上线；四名英雄小队；前作《正中靶心》累计流水超过6亿元；微信小游戏单平台超过3亿元；海外App版本超过3200万美元；赛道整体月流水被业内估算接近10亿元
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H063 - 国产OC桌宠《角色屋》Demo最高同时在线近3万人
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 国产OC桌宠《角色屋》Demo最高同时在线近3万人
+- entities: 国产OC桌宠《角色屋》Demo最高同时在线近3万人
+- claims: 国内独立团队Yinengjie；首款Steam游戏；最高同时在线人数接近3万；258条用户评测中近98%为好评；原创角色捏人与桌面陪伴；支持多角色同时显示；双屏适配；内存占用
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H064 - 国产古蜀神话动作肉鸽《青铜灰烬》开放Steam试玩
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 国产古蜀神话动作肉鸽《青铜灰烬》开放Steam试玩
+- entities: 国产古蜀神话动作肉鸽《青铜灰烬》开放Steam试玩
+- claims: 成都开发商Ray² Game研发；当日在Steam开放试玩Demo；以古蜀神话和青铜器为美术基底；开放两名角色与八种巫术效果；支持Steam好友联机共斗
+- card_exposed: true (rank=9, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H065 - 拳头在广州成立子公司，招聘信息指向至少两款在研游戏
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 拳头在广州成立子公司，招聘信息指向至少两款在研游戏
+- entities: 拳头在广州成立子公司，招聘信息指向至少两款在研游戏
+- claims: 于9月21日在广州成立傲拳（广州）网络科技有限公司；由中国区负责人林松担任法定代表人和董事；至少在为两款游戏招人；采用虚幻5引擎并定位多人联机第三人称动作游戏
+- card_exposed: true (rank=10, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H066 - 朝夕光年展示7家工作室与12款产品，新一轮储备覆盖六个方向
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 展示7家工作室与12款产品的新一轮储备
+- entities: 朝夕光年, 字节跳动
+- claims: 7家工作室、12款产品；一半是自研新品；覆盖动作、射击、模拟经营等方向；《雾影猎人》《不问凡尘》《零境·入侵》《代号：对决》《集合！浆果镇》《托托比亚》；迪士尼、华纳、EA等国际厂商
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H067 - 欧盟消费者保护网络对九家公司游戏内虚拟货币启动协同行动
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 针对游戏内虚拟货币启动协同行动
+- entities: CPC Network, Supercell, Riot Games, King, Mojang
+- claims: 9月30日；对九家游戏公司启动协同行动；King、Mojang、Riot Games、Supercell和Ubisoft；《暗黑破坏神：不朽》《使命召唤手游》；显示真实货币价格；购买和使用虚拟货币时的撤回权
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H068 - 网易游戏会员俱乐部接入拉美五国本地支付渠道
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 网易游戏会员俱乐部接入拉美五国本地支付渠道
+- entities: 网易游戏会员俱乐部接入拉美五国本地支付渠道
+- claims: 与跨境支付公司EBANX宣布达成合作；首批覆盖巴西、墨西哥、阿根廷、智利和秘鲁；接入Pix、SPEI、PagoEfectivo和Mercado Pago；五个市场2026年将创造84亿美元电子游戏收入
+- card_exposed: true (rank=5, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H069 - 腾讯公布《怪物猎人：旅人》实机，11月启动全球首轮测试
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 腾讯公布《怪物猎人：旅人》实机，11月启动全球首轮测试
+- entities: 腾讯公布《怪物猎人：旅人》实机，11月启动全球首轮测试
+- claims: 9月25日；腾讯在东京电玩展公布《怪物猎人：旅人》首支实机预告；已于去年12月获得版号；计划今年11月开启全球首轮测试；天美与Capcom合作；长剑、弓、双剑和大剑等武器；建造、滑翔与砍树等生存建造机制
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H070 - 腾讯发行SLG《新三国：荣耀再起》进入第三次测试
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 腾讯发行SLG《新三国：荣耀再起》进入第三次测试
+- entities: 腾讯发行SLG《新三国：荣耀再起》进入第三次测试
+- claims: 于9月22日开启“旌旗测试”；凯撒文化旗下团队研发、腾讯游戏发行；第三次测试；截至2025年底国服累计流水超过6亿元；低稀有度武将升橙
+- card_exposed: true (rank=6, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H071 - 腾讯领投Circle Games 2500万美元A轮融资
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 腾讯领投Circle Games 2500万美元A轮融资
+- entities: 腾讯领投Circle Games 2500万美元A轮融资
+- claims: 腾讯领投土耳其手游工作室Circle Games的2500万美元A轮融资；累计融资额达到3225万美元；把员工人数至少扩大一倍；《Sort Express》当前月流水约1500万元
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H072 - 西山居招聘信息曝光跨端历史题材赛季制SLG
+- report: weekly 2026-09-25 to 2026-10-01
+- event: 西山居招聘信息曝光跨端历史题材赛季制SLG
+- entities: 西山居招聘信息曝光跨端历史题材赛季制SLG
+- claims: 公开7个标注“在研SLG项目”的珠海岗位；覆盖用户运营、数据运营、内容营销、商业化和交互设计；历史国风题材；赛季制地图；联盟国战及GVG/GVE生态；移动端和PC端；主要集中在运营与发行侧
+- card_exposed: false (rank=-, limit=10, source=publish_log_manifest)
+- artifact: output\weekly\2026-09-25_to_2026-10-01\_intermediate\report_items.json
+
+## H073 - Krafton终止《PUBG: Black Budget》开发，PUBG年内再砍一款衍生作
+- report: weekend 2026-10-02 to 2026-10-04
+- event: Krafton终止PUBG搜打撤衍生作开发
+- entities: Krafton, PUBG Studios, PUBG: Black Budget
+- claims: Steam封闭Alpha测试约九个月后；终止《PUBG: Black Budget》开发；当前方向无法提供可长期享受的体验；3月关闭《PUBG: Blindspot》；年内第二个被取消的PUBG衍生项目；8月公布；《PUBG: Ded.Net》；带Roguelike成长的多人射击衍生作
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-10-02_to_2026-10-04\_intermediate\report_items.json
+
+## H074 - Roblox把安全默认化用于1.2亿日活、数百万创作者的UGC生态
+- report: weekend 2026-10-02 to 2026-10-04
+- event: Roblox披露大规模UGC平台安全默认化与AI工具准入机制
+- entities: Roblox, Roblox Corporation
+- claims: 超过1.2亿日活用户；数百万外部创作者编写的代码；具有真实货币价值的虚拟经济；每段创作者代码都视为可能带有恶意或可被利用；沙箱、隔离和运行时监控；在内部放行AI代码工具前，也先构建沙箱环境完成验证
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-10-02_to_2026-10-04\_intermediate\report_items.json
+
+## H075 - 拳头披露《2XKO》需要数十万至数百万月活才能维持运营
+- report: weekend 2026-10-02 to 2026-10-04
+- event: 拳头披露2XKO长线服务月活门槛及项目失速原因
+- entities: Riot Games, 拳头游戏, 2XKO
+- claims: 联合创始人兼联席董事长Marc Merrill；数十万高位、甚至数百万；实际受众远不足以支撑该模式；8月结束主动开发；服务器将至少运行至2026年之后；战略不一致与管理分裂；无可归咎，责任在己
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\weekend\2026-10-02_to_2026-10-04\_intermediate\report_items.json
+
+## H076 - 9月全球手游下载与收入榜分化，腾讯与Roblox维持头部但多款长线产品回落
+- report: daily 2026-10-05 to 2026-10-05
+- event: Appmagic披露9月全球手游下载与收入结构
+- entities: 全球手游市场, 腾讯, Roblox, Garena
+- claims: 《Free Fire Max》约2200万次下载；Roblox略超2000万次；领先《Gossip Harbor》约3500万美元；9月收入9900万美元；Roblox也再次跌破1亿美元；《Whiteout Survival》约7900万美元，为2024年6月以来最低；《三角洲行动》约5100万美元，位列第11
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-05\_intermediate\report_items.json
+
+## H077 - Supercell将《mo.co》前产品负责人Antoine Madre升任游戏负责人
+- report: daily 2026-10-05 to 2026-10-05
+- event: Supercell将mo.co前产品负责人Antoine Madre升任game lead
+- entities: Supercell, Antoine Madre, mo.co
+- claims: Antoine Madre升任游戏负责人；在《mo.co》担任产品负责人超过两年；重新回到beta阶段；Patrick Williams同时加入Supercell担任全球传播策略师；Nafees Ahsan则以游戏研究实习生身份入职
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-05\_intermediate\report_items.json
+
+## H078 - Newzoo：F2P总游玩时长基本持平，PC二游成为主要增长带
+- report: daily 2026-10-06 to 2026-10-06
+- event: Newzoo披露F2P与PC二游游玩结构
+- entities: Newzoo, F2P, PC二游, RPG
+- claims: 37个市场；从2021年至2025年下降2.9个百分点至29.3%；绝对时长基本持平；PC二游游玩时长同期增长92%；增加8.64亿小时；主要二游数量从3款增至17款；RPG也是唯一在PC与主机两端均提高F2P时长份额的品类；《鸣潮》《崩坏：星穹铁道》和《绝区零》到2025年合计贡献11亿小时
+- card_exposed: true (rank=4, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-06\_intermediate\report_items.json
+
+## H079 - Scopely漫威跨端ARPG《Project Comet》疑似泄露
+- report: daily 2026-10-06 to 2026-10-06
+- event: Scopely漫威跨端ARPG疑似泄露
+- entities: Scopely, Marvel, Project Comet, Savvy Games Group
+- claims: Scopely制作的未公布漫威项目《Project Comet》疑似遭泄露；片段最初于10月2日出现在哔哩哔哩；Scopely和Marvel均未正式公布；手机与PC跨平台开放世界动作RPG；四人组队；金刚狼、奇异博士、黑寡妇、战争机器和蜘蛛侠
+- card_exposed: true (rank=1, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-06\_intermediate\report_items.json
+
+## H080 - Thatgamecompany设立移动游戏发行厂牌Thatgamepublisher
+- report: daily 2026-10-06 to 2026-10-06
+- event: 设立面向外部移动团队的发行厂牌
+- entities: Thatgamecompany, Thatgamepublisher, Sky
+- claims: Thatgamecompany的新发行厂牌Thatgamepublisher；资金、制作规划、上线策略、营销与长期IP开发支持；不限制团队规模、开发阶段或平台；原型期项目也可申请；有意义的情感领域；《Sky》自2019年上线以来全平台下载量超过3亿；移动端仍是最大玩家群体
+- card_exposed: true (rank=3, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-06\_intermediate\report_items.json
+
+## H081 - 灵犀互娱在东南亚测试微恐摸金手游《Project63》
+- report: daily 2026-10-06 to 2026-10-06
+- event: 灵犀互娱在东南亚测试微恐摸金手游
+- entities: 灵犀互娱, QOOKKA GAMES, Project63
+- claims: 9月下旬；灵犀互娱旗下海外发行主体QOOKKA GAMES；印度尼西亚、马来西亚、菲律宾、新加坡和泰国；下载量突破1万；四人小队合作寻宝并撤离；只开放两张地图、四名角色和15种怪物；东南亚民间恐怖元素
+- card_exposed: true (rank=2, limit=10, source=publish_log_manifest)
+- artifact: output\daily\2026-10-06\_intermediate\report_items.json

@@ -1,0 +1,3019 @@
+{
+  "decisions": [
+    {
+      "candidate_id": "I001",
+      "section": "industry_news",
+      "source_ids": [
+        "S0003",
+        "S0093"
+      ],
+      "entities": [
+        "DeepSeek",
+        "腾讯",
+        "宁德时代"
+      ],
+      "event": "DeepSeek接近完成至少800亿元融资，腾讯参与",
+      "decision": "include",
+      "reason": "E3×R3+M2=11；国内头部游戏公司参与超大额AI资本动作，且两条独立来源指向同一轮融资。",
+      "scores": {
+        "event": 3,
+        "relevance": 3,
+        "hook": 2,
+        "total": 11
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "DeepSeek",
+        "product": "新一轮融资",
+        "event_date": "2026-10-07",
+        "event": "至少800亿元融资接近完成"
+      }
+    },
+    {
+      "candidate_id": "I002",
+      "section": "industry_news",
+      "source_ids": [
+        "S0003",
+        "S0046"
+      ],
+      "entities": [
+        "小红书",
+        "RED LAND"
+      ],
+      "event": "第二届RED LAND扩大场地、IP与NPC世界观运营规模",
+      "decision": "include",
+      "reason": "E2×R3+M2=8；国内游戏IP线下平台披露可核验规模变化，两源覆盖同一届活动。",
+      "scores": {
+        "event": 2,
+        "relevance": 3,
+        "hook": 2,
+        "total": 8
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "RED LAND",
+        "product": "RED LAND 2026",
+        "event_date": "2026-10-06",
+        "event": "第二届活动结束并披露运营规模"
+      }
+    },
+    {
+      "candidate_id": "I003",
+      "section": "industry_news",
+      "source_ids": [
+        "S0005",
+        "S0010"
+      ],
+      "entities": [
+        "Paramount",
+        "Warner Bros. Games",
+        "Skydance"
+      ],
+      "event": "Paramount与华纳游戏业务并入Skydance同一部门",
+      "decision": "include",
+      "reason": "E3×R2+M2=8；大型并购完成后游戏资产正式整合，两篇完整来源覆盖同日事件。",
+      "scores": {
+        "event": 3,
+        "relevance": 2,
+        "hook": 2,
+        "total": 8
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "Skydance",
+        "product": "Paramount Games Studio / Warner Bros. Games",
+        "event_date": "2026-10-07",
+        "event": "并入同一游戏与体验部门"
+      }
+    },
+    {
+      "candidate_id": "I004",
+      "section": "industry_news",
+      "source_ids": [
+        "S0027"
+      ],
+      "entities": [
+        "Electronic Arts",
+        "PIF",
+        "Silver Lake",
+        "Affinity Partners"
+      ],
+      "event": "EA杠杆收购引发债券持有人追偿争议",
+      "decision": "include",
+      "reason": "E3×R2+M1=7；超大型发行商私有化出现可验证资本结构变化。",
+      "scores": {
+        "event": 3,
+        "relevance": 2,
+        "hook": 1,
+        "total": 7
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "I005",
+      "section": "industry_news",
+      "source_ids": [
+        "S0029"
+      ],
+      "entities": [
+        "Firy",
+        "Skillz",
+        "Exit Games",
+        "Photon"
+      ],
+      "event": "Firy出售并由Exit Games回购10.5%股权",
+      "decision": "include",
+      "reason": "E3×R2+M1=7；多人联机基础设施公司的股权回购构成移动与跨平台资产处置。",
+      "scores": {
+        "event": 3,
+        "relevance": 2,
+        "hook": 1,
+        "total": 7
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX001",
+      "section": "industry_news",
+      "source_ids": [
+        "S0023",
+        "S0053"
+      ],
+      "entities": [
+        "Undead Labs",
+        "Xbox",
+        "State of Decay 3"
+      ],
+      "event": "Undead Labs负责人复盘独立前后的裁员沟通",
+      "decision": "exclude",
+      "reason": "E1×R2+M2=4；历史同一独立与裁员事件曾进入订阅卡片，本期仅补充管理层复盘，repeat_only。",
+      "scores": {
+        "event": 1,
+        "relevance": 2,
+        "hook": 2,
+        "total": 4
+      },
+      "history_check": {
+        "history_match": true,
+        "novelty": "repeat_only",
+        "prior_occurrences": [
+          "Undead Labs脱离Xbox转为员工持有，独立同步伴随大规模裁员｜daily 2026-09-23"
+        ],
+        "new_facts": [],
+        "prior_card_exposed": true
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "Undead Labs",
+        "product": "State of Decay 3",
+        "event_date": "2026-10-07",
+        "event": "裁员沟通复盘"
+      }
+    },
+    {
+      "candidate_id": "IX002",
+      "section": "industry_news",
+      "source_ids": [
+        "S0007",
+        "S0032",
+        "S0048"
+      ],
+      "entities": [
+        "Xbox"
+      ],
+      "event": "Xbox称第一方业务从低点恢复增长",
+      "decision": "exclude",
+      "reason": "E1×R2+M2=4；有增长表态但无具体数值，且重组背景已在历史报告出现。",
+      "scores": {
+        "event": 1,
+        "relevance": 2,
+        "hook": 2,
+        "total": 4
+      },
+      "history_check": {
+        "history_match": true,
+        "novelty": "material_update",
+        "prior_occurrences": [
+          "Xbox再裁268人并重组工作室，动视接手《光环》新作｜weekly 2026-09-18_to_2026-09-24"
+        ],
+        "new_facts": [
+          "管理层称第一方业务已恢复增长并稳定用户参与"
+        ],
+        "prior_card_exposed": false
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "Xbox",
+        "product": "第一方业务",
+        "event_date": "2026-10-07",
+        "event": "管理层披露恢复增长"
+      }
+    },
+    {
+      "candidate_id": "IX003",
+      "section": "industry_news",
+      "source_ids": [
+        "S0034"
+      ],
+      "entities": [
+        "Xbox",
+        "Project Helix"
+      ],
+      "event": "Xbox称Project Helix将是设备家族",
+      "decision": "exclude",
+      "reason": "E2×R2+M1=5；下一代平台路线有迁移点，但仅摘要且低于日报门槛。",
+      "scores": {
+        "event": 2,
+        "relevance": 2,
+        "hook": 1,
+        "total": 5
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX004",
+      "section": "industry_news",
+      "source_ids": [
+        "S0024",
+        "S0037"
+      ],
+      "entities": [
+        "GameStop",
+        "PlayStation 5 Pro"
+      ],
+      "event": "PS5 Pro二手价格因短缺升至建议零售价以上",
+      "decision": "exclude",
+      "reason": "E2×R1+M2=4；海外硬件供应与转售价格，对游戏业务迁移有限。",
+      "scores": {
+        "event": 2,
+        "relevance": 1,
+        "hook": 2,
+        "total": 4
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": [],
+      "cluster_basis": {
+        "subject": "PlayStation 5 Pro",
+        "product": "PS5 Pro",
+        "event_date": "2026-10-07",
+        "event": "二手价格上调"
+      }
+    },
+    {
+      "candidate_id": "IX005",
+      "section": "industry_news",
+      "source_ids": [
+        "S0029"
+      ],
+      "entities": [
+        "土耳其手游市场",
+        "Adjust"
+      ],
+      "event": "土耳其开发商2025年全球收入达到27.6亿美元",
+      "decision": "exclude",
+      "reason": "E2×R2+M1=5；移动市场结构有迁移价值，但海外区域信号低于日报门槛。",
+      "scores": {
+        "event": 2,
+        "relevance": 2,
+        "hook": 1,
+        "total": 5
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX006",
+      "section": "industry_news",
+      "source_ids": [
+        "S0015"
+      ],
+      "entities": [
+        "Mastercard",
+        "Tamatem"
+      ],
+      "event": "Mastercard与Tamatem合作覆盖中东非洲游戏支付",
+      "decision": "exclude",
+      "reason": "E3×R2+M1=7；达到门槛，但正文为Cloudflare摘要，终稿证据门禁不允许引用。",
+      "scores": {
+        "event": 3,
+        "relevance": 2,
+        "hook": 1,
+        "total": 7
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX007",
+      "section": "industry_news",
+      "source_ids": [
+        "S0017"
+      ],
+      "entities": [
+        "AppLovin",
+        "San Diego County"
+      ],
+      "event": "圣迭戈县起诉AppLovin涉嫌儿童广告定向",
+      "decision": "exclude",
+      "reason": "E1×R2+M1=3；诉讼为摘要输入且低于日报门槛。",
+      "scores": {
+        "event": 1,
+        "relevance": 2,
+        "hook": 1,
+        "total": 3
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX008",
+      "section": "industry_news",
+      "source_ids": [
+        "S0018"
+      ],
+      "entities": [
+        "Fire Emblem Shadows"
+      ],
+      "event": "Fire Emblem Shadows首年收入89.2万美元",
+      "decision": "exclude",
+      "reason": "E2×R2+M1=5；单产品海外表现为摘要输入，低于日报门槛。",
+      "scores": {
+        "event": 2,
+        "relevance": 2,
+        "hook": 1,
+        "total": 5
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IX009",
+      "section": "industry_news",
+      "source_ids": [
+        "S0002"
+      ],
+      "entities": [
+        "库洛游戏",
+        "鸣潮"
+      ],
+      "event": "库洛创始人披露海内外用户结构与企业战略",
+      "decision": "exclude",
+      "reason": "E1×R3+M1=4；国内主体访谈有数据，但核心为宽泛战略表态，低于门槛。",
+      "scores": {
+        "event": 1,
+        "relevance": 3,
+        "hook": 1,
+        "total": 4
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB001",
+      "section": "industry_news",
+      "source_ids": [
+        "S0001"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《逃离塔科夫》PvE转生发布及EXFIL Brothers项目启动",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB002",
+      "section": "industry_news",
+      "source_ids": [
+        "S0004"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "今年哪款游戏，让你承认自己看走眼了？",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB003",
+      "section": "industry_news",
+      "source_ids": [
+        "S0006"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "GamesIndustry.biz to host panel at Game Republic's Investment Summit at MCM Comic Con October 2026",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB004",
+      "section": "industry_news",
+      "source_ids": [
+        "S0009"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "How to run an indie game studio: Part 2, Defining your future",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB005",
+      "section": "industry_news",
+      "source_ids": [
+        "S0013"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Start networking right now! MeetToMatch is LIVE for PG Connects Nordics",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB006",
+      "section": "industry_news",
+      "source_ids": [
+        "S0014"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "SuperScale CEO Ivan Trancik on finding profit beyond mobile UA's biggest networks",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB007",
+      "section": "industry_news",
+      "source_ids": [
+        "S0016"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Exir Games CEO Sahand Malaei on the challenges facing small game studios",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB008",
+      "section": "industry_news",
+      "source_ids": [
+        "S0019"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "October’s Collabs Corner: PUBG Mobile and B.Duck, Pokémon in space, Talking Tom meets SmileyWorld, and more",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB009",
+      "section": "industry_news",
+      "source_ids": [
+        "S0020"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Harvey Elliott named chair of Ukie as trade body targets next phase of UK growth",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB010",
+      "section": "industry_news",
+      "source_ids": [
+        "S0021"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The Turkish playbook: Investors talk work ethic, hybridcasual and AI",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB011",
+      "section": "industry_news",
+      "source_ids": [
+        "S0028"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Crossy Road Rush leads Apple Arcade’s November line-up",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB012",
+      "section": "industry_news",
+      "source_ids": [
+        "S0031"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Amazon Prime’s 10 ‘free’ games for October include Five Nights at Freddy’s: Into the Pit and Doom 2016",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB013",
+      "section": "industry_news",
+      "source_ids": [
+        "S0035"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Sources: Ape Escape revival in the works from Sonic Mania team",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB014",
+      "section": "industry_news",
+      "source_ids": [
+        "S0036"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Footage of Microsoft’s now-dead Perfect Dark revival appears online",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB015",
+      "section": "industry_news",
+      "source_ids": [
+        "S0038"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Forza Horizon 6 studio acknowledges to players ‘we haven’t been talking with you as much as we could be’",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB016",
+      "section": "industry_news",
+      "source_ids": [
+        "S0039"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The Pokémon Fossil Museum is heading to Colorado in 2027",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB017",
+      "section": "industry_news",
+      "source_ids": [
+        "S0040"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Resident Evil Requiem writer lets slip a major detail about the upcoming DLC",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB018",
+      "section": "industry_news",
+      "source_ids": [
+        "S0041"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Denuvo asks to subpoena Discord, Valve and Reddit to identify hacker it’s suing for cracking its DRM protection",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB019",
+      "section": "industry_news",
+      "source_ids": [
+        "S0042"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "A new way for businesses to support and promote on VGC: The Video Games Podcast",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB020",
+      "section": "industry_news",
+      "source_ids": [
+        "S0044"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Forza Horizon 6 isn’t coming to PS5 this year, it’s claimed",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB021",
+      "section": "industry_news",
+      "source_ids": [
+        "S0045"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The original Grand Theft Auto was open-world because ‘we didn’t want to have to build a front end’, dev says",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB022",
+      "section": "industry_news",
+      "source_ids": [
+        "S0047"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Razer’s Wolverine V4 Controller Is Overkill For Most Gamers, And That’s The Point",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB023",
+      "section": "industry_news",
+      "source_ids": [
+        "S0049"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "A Scary-Looking New Conjuring Game Just Got Announced, And It’s Out Next Week On Netflix",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB024",
+      "section": "industry_news",
+      "source_ids": [
+        "S0050"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "GTA 6 Will Not Stream To PC Through Xbox, Despite Earlier Report",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB025",
+      "section": "industry_news",
+      "source_ids": [
+        "S0051"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Resident Evil Requiem DLC Could Further Rewrite One Of The Series’ Biggest Villains",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB026",
+      "section": "industry_news",
+      "source_ids": [
+        "S0054"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "GTA 6 Won’t Make You “All-Powerful” Like GTA 5 Did",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB027",
+      "section": "industry_news",
+      "source_ids": [
+        "S0056"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The Next Gears Of War Game Probably Won’t Need 7 Years To Cook",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB028",
+      "section": "industry_news",
+      "source_ids": [
+        "S0057"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《Wild Blue Skies》评测",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB029",
+      "section": "industry_news",
+      "source_ids": [
+        "S0058"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《我的世界：地下城2》47分钟实机演示",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB030",
+      "section": "industry_news",
+      "source_ids": [
+        "S0059"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《街头霸王6》「阿俊」角色指南",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB031",
+      "section": "industry_news",
+      "source_ids": [
+        "S0060"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《女神异闻录4 Revival》「暗影」预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB032",
+      "section": "industry_news",
+      "source_ids": [
+        "S0061"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《使命召唤：现代战争4》「无人区」宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB033",
+      "section": "industry_news",
+      "source_ids": [
+        "S0062"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《古墓丽影：亚特兰蒂斯遗迹》开发幕后：拉森",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB034",
+      "section": "industry_news",
+      "source_ids": [
+        "S0063"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《末世神枪》试玩Demo宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB035",
+      "section": "industry_news",
+      "source_ids": [
+        "S0064"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Switch 2版《剑星》宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB036",
+      "section": "industry_news",
+      "source_ids": [
+        "S0065"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《战地风云6》第五赛季实机预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB037",
+      "section": "industry_news",
+      "source_ids": [
+        "S0066"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《战锤40K：爆矢枪2》「瓦什托尔」预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB038",
+      "section": "industry_news",
+      "source_ids": [
+        "S0067"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《战锤幸存者》发售日预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB039",
+      "section": "industry_news",
+      "source_ids": [
+        "S0068"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《星球大战：银河赛车手》发售宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB040",
+      "section": "industry_news",
+      "source_ids": [
+        "S0069"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《战锤40K：黑暗异端》侦探系统预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB041",
+      "section": "industry_news",
+      "source_ids": [
+        "S0070"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《黎明杀机》×《尼尔：自动人形》联动宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB042",
+      "section": "industry_news",
+      "source_ids": [
+        "S0071"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《渊舟蚀影》试玩Demo宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB043",
+      "section": "industry_news",
+      "source_ids": [
+        "S0072"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《战锤幸存者》试玩Demo实机演示",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB044",
+      "section": "industry_news",
+      "source_ids": [
+        "S0073"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《高达 异轨征途》游戏概览预告",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB045",
+      "section": "industry_news",
+      "source_ids": [
+        "S0074"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "《猫壳机动队》试玩Demo宣传视频",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB046",
+      "section": "industry_news",
+      "source_ids": [
+        "S0075"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "NOVA海外独立游戏见闻 Vol.155",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB047",
+      "section": "industry_news",
+      "source_ids": [
+        "S0076"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "诺娃独立游戏通讯 2026-#40",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB048",
+      "section": "industry_news",
+      "source_ids": [
+        "S0078"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "I've added scams to GTA 5, but I might have scammed myself",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB049",
+      "section": "industry_news",
+      "source_ids": [
+        "S0079"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Gears of War: E-Day review — terrific shooting buoys a sluggish campaign",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB050",
+      "section": "industry_news",
+      "source_ids": [
+        "S0080"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The PC Gamer Mysteries, Case #1, 'A Slice of Death': Why is there a dead golfer hidden in Golden Tee '99?",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB051",
+      "section": "industry_news",
+      "source_ids": [
+        "S0081"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "'Please give Novus one more chance': An 11-year-old early access survival game just got its first update since 2018",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB052",
+      "section": "industry_news",
+      "source_ids": [
+        "S0082"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "My most-played album of 2026? Sorry, Mitski—it's Final Fantasy 10: House Grooves, a real thing that exists",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB053",
+      "section": "industry_news",
+      "source_ids": [
+        "S0083"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "PSA: Star Wars Galactic Racer pilots, put some points in resilience before you hit the acid planet",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB054",
+      "section": "industry_news",
+      "source_ids": [
+        "S0084"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "2026 is a low-key revolutionary year for player movement in games",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB055",
+      "section": "industry_news",
+      "source_ids": [
+        "S0085"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "The biggest discounts on PC hardware we've spotted this Prime Day",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB056",
+      "section": "industry_news",
+      "source_ids": [
+        "S0086"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Quarterfinals: Vote for the best RTS unit of all time",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB057",
+      "section": "industry_news",
+      "source_ids": [
+        "S0087"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "Critical Role's latest D&D episode was so stressful, I discovered a new noise my mouth can make",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "IXB058",
+      "section": "industry_news",
+      "source_ids": [
+        "S0088"
+      ],
+      "entities": [
+        "常规宣传与编辑内容"
+      ],
+      "event": "I had 3 hours with Arc Raiders Frozen Trails update and spent most of it playing with the new grapple hook",
+      "decision": "exclude",
+      "reason": "事件0×相关0+钩子0 = 0；普通版本/联动/预告、评测、促销、会议宣传、编辑栏目或无独立商业事件。",
+      "scores": {
+        "event": 0,
+        "relevance": 0,
+        "hook": 0,
+        "total": 0
+      },
+      "history_check": {
+        "history_match": false,
+        "novelty": "new_event",
+        "prior_occurrences": [],
+        "new_facts": [],
+        "prior_card_exposed": null
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "A001",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0008",
+        "S0025",
+        "S0026",
+        "S0030"
+      ],
+      "entities": [
+        "Google",
+        "Unity",
+        "Playground",
+        "Unity Spark"
+      ],
+      "event": "Google Playground上线并与Unity Spark组成提示词游戏创作链路",
+      "decision": "include",
+      "reason": "直接作用于游戏开发、发布与UGC平台，四条来源覆盖同日产品发布。",
+      "ai_tier": "direct_application",
+      "game_stage": [
+        "development",
+        "product",
+        "publishing"
+      ],
+      "industry_reverse_scan": true,
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "A002",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0011"
+      ],
+      "entities": [
+        "Wizards of the Coast",
+        "Dungeons & Dragons",
+        "Magic: The Gathering"
+      ],
+      "event": "Wizards工会扩张并提出生成式AI政策诉求",
+      "decision": "include",
+      "reason": "生成式AI已直接进入游戏团队劳动关系、创作流程与知识产权治理。",
+      "ai_tier": "direct_application",
+      "game_stage": [
+        "development",
+        "operations"
+      ],
+      "industry_reverse_scan": true,
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "A003",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0097"
+      ],
+      "entities": [
+        "GitHub",
+        "Git",
+        "Azure Blob Storage"
+      ],
+      "event": "GitHub为智能体并发读写重建Git基础设施",
+      "decision": "include",
+      "reason": "可迁移到大型游戏代码库、CI和自动化资产管线的并发与治理约束。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "development",
+        "operations"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "智能体提交与CI扇出增长 → 游戏研发版本库与资产管线 → 并发写入、审查和审计成为基础设施瓶颈"
+    },
+    {
+      "candidate_id": "AX001",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0089",
+        "S0095",
+        "S0100",
+        "S0101",
+        "S0102",
+        "S0103",
+        "S0104"
+      ],
+      "entities": [
+        "通用AI工具"
+      ],
+      "event": "通用模型、嵌入、决策与开发者API产品更新批次",
+      "decision": "exclude",
+      "reason": "能力与成本可迁移，但本期已有三条更直接的游戏研发和治理事件；不以例行模型更新凑数。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "development",
+        "operations"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "模型或检索能力变化 → 游戏研发与运营工具 → 潜在成本、延迟与检索效率变化"
+    },
+    {
+      "candidate_id": "AX002",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0090",
+        "S0099"
+      ],
+      "entities": [
+        "Stanford HAI",
+        "Google Research"
+      ],
+      "event": "两项AI职场采用与专业判断研究",
+      "decision": "exclude",
+      "reason": "研究有组织迁移价值，但未直接落到游戏行业，优先级低于本期游戏原生事件。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "development",
+        "operations"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "AI采用方式与技能形成研究 → 游戏团队部署与培训 → 影响采纳率和长期专业判断"
+    },
+    {
+      "candidate_id": "AX003",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0091",
+        "S0092",
+        "S0096",
+        "S0098",
+        "S0105",
+        "S0106"
+      ],
+      "entities": [
+        "通用AI生态"
+      ],
+      "event": "文档路由、个人智能体协议、会议插件、数学与治理工具批次",
+      "decision": "exclude",
+      "reason": "均为泛科技事件，缺少足够具体的游戏业务迁移链条。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "operations"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "通用AI产品或协议 → 潜在企业工作流 → 本期缺少游戏环节的直接证据"
+    },
+    {
+      "candidate_id": "AX004",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0093"
+      ],
+      "entities": [
+        "DeepSeek",
+        "腾讯"
+      ],
+      "event": "DeepSeek新一轮融资",
+      "decision": "exclude",
+      "reason": "融资核心为资本动作且已归入行业新闻；AI分区不重复。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "development"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "通用模型融资 → 模型供给 → 可能影响游戏AI成本，但本事件核心是资本结构"
+    },
+    {
+      "candidate_id": "AX005",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0094",
+        "S0107"
+      ],
+      "entities": [
+        "亚利桑那州法院"
+      ],
+      "event": "亚利桑那州法院要求重新量刑的AI视频案件",
+      "decision": "exclude",
+      "reason": "两条记录为同一法律治理事件，与游戏研发、产品、发行和运营缺少具体连接。",
+      "ai_tier": "transferable_frontier",
+      "game_stage": [
+        "operations"
+      ],
+      "industry_reverse_scan": false,
+      "priority_tracks": [],
+      "migration_path": "AI合成视频司法边界 → 内容治理 → 本期无法建立具体游戏环节迁移"
+    },
+    {
+      "candidate_id": "AX006",
+      "section": "ai_trends",
+      "source_ids": [
+        "S0022",
+        "S0043",
+        "S0055",
+        "S0077"
+      ],
+      "entities": [
+        "Google Playground",
+        "RuneScape",
+        "Warhorse"
+      ],
+      "event": "AI游戏制作与行业观点摘要批次",
+      "decision": "exclude",
+      "reason": "Playground摘要已合并A001；RuneScape合作方事件仅摘要；Warhorse内容主要是观点，均不另立正文。",
+      "ai_tier": "direct_application",
+      "game_stage": [
+        "development",
+        "operations"
+      ],
+      "industry_reverse_scan": true,
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "C001",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0122"
+      ],
+      "entities": [
+        "鸣潮",
+        "月声尽，心灯明",
+        "jixwang"
+      ],
+      "event": "歌曲署名澄清与作曲者公开表态引发责任边界争论",
+      "decision": "include",
+      "reason": "10月7日新事件，触发、争议逻辑与时间线完整。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "C002",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0133"
+      ],
+      "entities": [
+        "反叛的鲁路修 Lost Stories",
+        "Genesic Re;CODE"
+      ],
+      "event": "鲁路修塔防手游宣布12月停服并引发剧情资产回顾",
+      "decision": "include",
+      "reason": "报告日新建事件，官方停服文本、玩家态度和后续纠错均可核验。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX001",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0123"
+      ],
+      "entities": [
+        "终末地"
+      ],
+      "event": "终末地旧争议帖再次回复",
+      "decision": "exclude",
+      "reason": "旧帖只有零散新回复，无窗口内实质事件进展。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX002",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0124"
+      ],
+      "entities": [
+        "鸣潮",
+        "UE5"
+      ],
+      "event": "鸣潮底层优化与UE5猜测",
+      "decision": "exclude",
+      "reason": "核心帖子创建于9月29日，窗口内新增内容主要是玩家猜测，不能写成官方升级引擎事实。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX003",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0125"
+      ],
+      "entities": [
+        "雀魂",
+        "武汉大学"
+      ],
+      "event": "雀魂高校赛疑似AI代打争议",
+      "decision": "exclude",
+      "reason": "帖内只有玩家转述的取消成绩说法，缺少可核验官方后续，避免放大未证实指控。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX004",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0126"
+      ],
+      "entities": [
+        "NIKKE"
+      ],
+      "event": "NIKKE个人突击作弊处罚争议",
+      "decision": "exclude",
+      "reason": "主要事件发生于8月至9月，10月7日只有延续性讨论，无新增官方处置。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX005",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0127"
+      ],
+      "entities": [
+        "无期迷途"
+      ],
+      "event": "无期迷途文本修改争议",
+      "decision": "exclude",
+      "reason": "10月7日回复未带来新的官方文本或机制变化。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX006",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0128"
+      ],
+      "entities": [
+        "艾希2"
+      ],
+      "event": "艾希续作众筹讨论",
+      "decision": "exclude",
+      "reason": "事件已在上一日报正文出现，窗口内只有态度延续。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX007",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0129"
+      ],
+      "entities": [
+        "三角洲行动"
+      ],
+      "event": "三角洲旧影游宣传争议",
+      "decision": "exclude",
+      "reason": "帖子创建于6月，报告日仅有旧话题回复，未形成新事件。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX008",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0130"
+      ],
+      "entities": [
+        "怪物猎人：旅人"
+      ],
+      "event": "怪物猎人旅人国服与国际服时间差讨论",
+      "decision": "exclude",
+      "reason": "上线与测试信息已在历史行业报告出现，窗口内讨论主要是旧测试评价。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX009",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0131"
+      ],
+      "entities": [
+        "物华弥新"
+      ],
+      "event": "物华弥新商业化争议后的回应",
+      "decision": "exclude",
+      "reason": "官方回应发布于10月1日，报告日回复未增加实质进展，债务说法也只有传闻。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "CX010",
+      "section": "community_discourse",
+      "source_ids": [
+        "S0132"
+      ],
+      "entities": [
+        "黑色信标"
+      ],
+      "event": "黑色信标官方账号注销讨论",
+      "decision": "exclude",
+      "reason": "账号注销发生于10月4日，报告日仅延续产品失败原因讨论，无新增官方动作。",
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "D001",
+      "section": "deep_analysis",
+      "source_ids": [
+        "S0134"
+      ],
+      "entities": [
+        "GameDiscoverCo",
+        "Steam",
+        "PlayStation",
+        "Xbox"
+      ],
+      "event": "GameDiscoverCo披露2026年9月PC与主机新品表现",
+      "decision": "include",
+      "reason": "R2/I3/E3/C3=11；单篇高质量数据分析支持完整的变化—机制—边界链条。",
+      "scores": {
+        "relevance": 2,
+        "insight": 3,
+        "evidence": 3,
+        "card": 3,
+        "total": 11
+      },
+      "priority_tracks": []
+    },
+    {
+      "candidate_id": "release-candidate-005",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003",
+        "S0109"
+      ],
+      "entities": [
+        "七界梦谭"
+      ],
+      "event": "2026-10-07 10月7日测试预下载，10月9日开测",
+      "decision": "include",
+      "reason": "多源候选按事件类型×来源强度+重点公司加分排序进入报告上限",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 3,
+        "company": 0,
+        "total": 6
+      },
+      "company_relationship": "none",
+      "cluster_basis": {
+        "subject": "七界梦谭",
+        "product": "七界梦谭",
+        "event_date": "2026-10-07",
+        "event": "同一产品同日产品日历节点"
+      }
+    },
+    {
+      "candidate_id": "release-candidate-001",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "异人之下"
+      ],
+      "event": "2026-10-07 11月4日测试定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 3,
+        "total": 7
+      },
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_relationship": "direct"
+    },
+    {
+      "candidate_id": "release-candidate-004",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "星布谷地"
+      ],
+      "event": "2026-10-07 12月上线定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 3,
+        "total": 7
+      },
+      "focus_companies": [
+        "米哈游"
+      ],
+      "focus_company_relationships": {
+        "米哈游": "direct"
+      },
+      "company_relationship": "direct"
+    },
+    {
+      "candidate_id": "release-candidate-010",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "剑侠世界4：无限"
+      ],
+      "event": "2026-10-07 10月15日上线定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 3,
+        "total": 7
+      },
+      "focus_companies": [
+        "西山居"
+      ],
+      "focus_company_relationships": {
+        "西山居": "direct"
+      },
+      "company_relationship": "direct"
+    },
+    {
+      "candidate_id": "release-candidate-006",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "伊莫"
+      ],
+      "event": "2026-09-23 正式上线",
+      "decision": "exclude",
+      "reason": "事件日期不在报告窗口",
+      "window_scope": "outside",
+      "scores": {
+        "event": 3,
+        "source": 2,
+        "company": 0,
+        "total": 6
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-008",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0068"
+      ],
+      "entities": [
+        "星球大战：银河赛车手"
+      ],
+      "event": "2026-10-07 正式上线",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 3,
+        "source": 2,
+        "company": 0,
+        "total": 6
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-015",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "查无此地"
+      ],
+      "event": "2026-10-07 10月14日Steam抢先体验定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-002",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "影之刃零"
+      ],
+      "event": "2026-10-07 新品定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-003",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "GTA6"
+      ],
+      "event": "2026-10-07 11月19日上线定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-009",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "绿梦：时空之声"
+      ],
+      "event": "2026-10-07 10月15日上线定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-011",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "淡墨水云乡"
+      ],
+      "event": "2026-10-07 10月15日测试定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-012",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0003"
+      ],
+      "entities": [
+        "对峙：交锋时刻"
+      ],
+      "event": "2026-10-07 10月16日测试定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-007",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0067"
+      ],
+      "entities": [
+        "战锤幸存者"
+      ],
+      "event": "2026-10-07 11月10日多平台发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 2,
+        "company": 0,
+        "total": 4
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-013",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0108"
+      ],
+      "entities": [
+        "抑：记忆破碎"
+      ],
+      "event": "2026-10-07 不删档测试",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 3,
+        "source": 1,
+        "company": 0,
+        "total": 3
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-019",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0110"
+      ],
+      "entities": [
+        "BECROWNED"
+      ],
+      "event": "2026-10-07 追加主机版本并延期至2027年第一季度",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-020",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0112"
+      ],
+      "entities": [
+        "The Hambagu Shop"
+      ],
+      "event": "2026-10-07 2027年1月11日发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-021",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0113"
+      ],
+      "entities": [
+        "BrokenLore: ASCEND"
+      ],
+      "event": "2026-10-07 2027年1月7日发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-022",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0114"
+      ],
+      "entities": [
+        "Springs, Eternal"
+      ],
+      "event": "2026-10-07 11月11日发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-023",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0115"
+      ],
+      "entities": [
+        "Hazard Levels"
+      ],
+      "event": "2026-10-07 11月12日发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-024",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0117"
+      ],
+      "entities": [
+        "SNØ: Ultimate Freeriding"
+      ],
+      "event": "2026-10-07 10月28日主机版发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-025",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0118"
+      ],
+      "entities": [
+        "Annihilated"
+      ],
+      "event": "2026-10-07 11月10日发售定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-026",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0119"
+      ],
+      "entities": [
+        "ATMOSFAR"
+      ],
+      "event": "2026-10-07 10月29日抢先体验定档",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "report_window",
+      "scores": {
+        "event": 2,
+        "source": 1,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-016",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0060"
+      ],
+      "entities": [
+        "女神异闻录4 Revival"
+      ],
+      "event": "2026-05-20 老品跨平台上线",
+      "decision": "exclude",
+      "reason": "事件日期不在报告窗口",
+      "window_scope": "outside",
+      "scores": {
+        "event": 1,
+        "source": 2,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-017",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0061"
+      ],
+      "entities": [
+        "使命召唤：现代战争4"
+      ],
+      "event": "2026-10-23 老品跨平台上线",
+      "decision": "exclude",
+      "reason": "事件日期不在报告窗口",
+      "window_scope": "outside",
+      "scores": {
+        "event": 1,
+        "source": 2,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-018",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0066"
+      ],
+      "entities": [
+        "战锤40K：爆矢枪"
+      ],
+      "event": "2026-10-14 老品跨平台上线",
+      "decision": "exclude",
+      "reason": "事件日期不在报告窗口",
+      "window_scope": "outside",
+      "scores": {
+        "event": 1,
+        "source": 2,
+        "company": 0,
+        "total": 2
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-027",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0120"
+      ],
+      "entities": [
+        "Ripple Island"
+      ],
+      "event": "2026-10-08 10月8日主机移植版上线",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "next_day_lookahead",
+      "scores": {
+        "event": 1,
+        "source": 1,
+        "company": 0,
+        "total": 1
+      },
+      "company_relationship": "none"
+    },
+    {
+      "candidate_id": "release-candidate-028",
+      "section": "release_calendar",
+      "source_ids": [
+        "S0121"
+      ],
+      "entities": [
+        "Fighting Golf"
+      ],
+      "event": "2026-10-08 10月8日主机移植版上线",
+      "decision": "exclude",
+      "reason": "单源不具备正文资格",
+      "window_scope": "next_day_lookahead",
+      "scores": {
+        "event": 1,
+        "source": 1,
+        "company": 0,
+        "total": 1
+      },
+      "company_relationship": "none"
+    }
+  ]
+}
