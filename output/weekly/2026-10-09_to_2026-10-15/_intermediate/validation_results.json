@@ -1,0 +1,60 @@
+[
+  {
+    "command": [
+      "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\scripts\\report_artifacts.py",
+      "generate-sources",
+      "--report",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\game_industry_weekly_2026-10-09_to_2026-10-15.md",
+      "--inputs",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\report_inputs.jsonl",
+      "--items",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\report_items.json",
+      "--output",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\sources_used.md"
+    ],
+    "returncode": 0,
+    "stdout": "wrote C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\sources_used.md\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+      "--report",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\game_industry_weekly_2026-10-09_to_2026-10-15.md",
+      "--sources",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\sources_used.md",
+      "--inputs",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\report_inputs.jsonl",
+      "--report-type",
+      "weekly"
+    ],
+    "returncode": 0,
+    "stdout": "WARN: input extraction has 1 empty text records\nWARN: input extraction has 152 short/snippet records; they are forbidden as final-item evidence\nWARN: weekly ai section has 10 items; expected 2-6 unless strong extra news exists\nReport lint passed with warnings.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\scripts\\report_artifacts.py",
+      "validate",
+      "--report",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\game_industry_weekly_2026-10-09_to_2026-10-15.md",
+      "--sources",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\sources_used.md",
+      "--inputs",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\report_inputs.jsonl",
+      "--items",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\report_items.json",
+      "--decisions",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\selection_decisions.json",
+      "--release-audit",
+      "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-09_to_2026-10-15\\_intermediate\\release_calendar_audit.json",
+      "--require-artifacts"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]
