@@ -1,0 +1,52 @@
+# Article Index - industry_news / 2026-10-17
+
+- Records: 44
+- By source: `cgames` 2, `chuapp` 1, `gamespot` 5, `gcores` 19, `ign_cn` 2, `pcgamer` 11, `polygon` 2, `youxiputao_sohu` 2
+- Raw JSONL: `articles.jsonl`
+
+| # | ID | Source | Published | Chars | Status | Title | URL |
+| ---: | --- | --- | --- | ---: | --- | --- | --- |
+| 1 | `true_detective_season_5_casting` | `polygon` | 2026-10-17T23:48:31 | 300 | ok | True Detective Season 5 to feature the best starring duo since Matthew McConaughey and Woody... | [link](https://www.polygon.com/true-detective-season-5-casting/) |
+| 2 | `ghostwire-tokyo-joins-gog-preservation-program-which-means-you-dont-have-to-deal` | `pcgamer` | 2026-10-17T23:45:38 | 1863 | ok | Ghostwire: Tokyo joins GOG Preservation Program, which means you don't have to deal with Beth... | [link](https://www.pcgamer.com/games/action/ghostwire-tokyo-joins-gog-preservation-program-which-means-you-dont-have-to-deal-with-bethesda-net-anymore/) |
+| 3 | `power_to_the_players_act_ritchie_torres` | `polygon` | 2026-10-17T23:30:47 | 415 | ok | US Representative Introduces Plan To Preserve Digital Game Ownership | [link](https://www.polygon.com/power-to-the-players-act-ritchie-torres/) |
+| 4 | `the-blood-of-dawnwalkers-first-major-update-will-add-directional-animal-petting-` | `pcgamer` | 2026-10-17T21:53:20 | 2637 | ok | The Blood of Dawnwalker's first major update will add directional animal petting and a new st... | [link](https://www.pcgamer.com/games/rpg/the-blood-of-dawnwalkers-first-major-update-will-add-directional-animal-petting-and-a-new-story-mode-thats-easier-than-the-previous-story-mode/) |
+| 5 | `developer-cancels-public-demo-of-its-upcoming-horror-drinking-game-fearing-it-wi` | `pcgamer` | 2026-10-17T20:04:00 | 2751 | ok | Developer cancels public demo of its upcoming horror drinking game, fearing it will be instan... | [link](https://www.pcgamer.com/gaming-industry/game-development/developer-cancels-public-demo-of-its-upcoming-horror-drinking-game-fearing-it-will-be-instantly-cloned-by-ai-vibe-coders-we-sincerely-apologise-for-the-short-notice/) |
+| 6 | `funcom-is-laying-off-yet-more-developers-as-it-pivots-to-supporting-dune-awakeni` | `pcgamer` | 2026-10-17T18:32:05 | 3052 | ok | Funcom is laying off yet more developers as it pivots to supporting Dune: Awakening and Conan... | [link](https://www.pcgamer.com/gaming-industry/funcom-is-laying-off-yet-more-developers-as-it-pivots-to-supporting-dune-awakening-and-conan-exiles/) |
+| 7 | `291693` | `chuapp` | 2026-10-17T17:13:38 | 3044 | ok | 触乐本周行业大事：小鸟播报！《塞尔达传说：时之笛》重制版公开新预告，育碧拟关闭“特技摩托”系列开发工作室 | [link](http://www.chuapp.com/article/291693.html) |
+| 8 | `221050` | `gcores` | 2026-10-17T17:00:13 | 63 | ok | Lo-Fi×心理悬疑冒险游戏《Rain98》Steam体验版正式上线，游玩时长超过3小时 | [link](https://www.gcores.com/articles/221050) |
+| 9 | `1089041501` | `youxiputao_sohu` | 2026-10-17T16:58:00 | 3254 | ok | 腾讯网易停运的游戏陆续复活，仿佛雨后春笋：都怪AI？ | [link](https://m.sohu.com/a/1089041501_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.1792281830292zAR6O7B) |
+| 10 | `1088919190` | `youxiputao_sohu` | 2026-10-17T10:58:00 | 5340 | ok | 2026年唯一的MMO大作，被快手折腾成了？ | [link](https://m.sohu.com/a/1088919190_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1792281830292zAR6O7B) |
+| 11 | `63451` | `ign_cn` | 2026-10-17T08:12:30 | 101 | ok | 《让球飞！》试玩Demo宣传视频 | [link](https://www.ign.com.cn/topic/63451/rang-qiu-fei-shi-wan-demoxuan-chuan-shi-pin) |
+| 12 | `220971` | `gcores` | 2026-10-17T08:00:19 | 67 | ok | 《跑车浪漫旅7》系列30周年限定版手柄公布，Spec IV第一部分更新上线 | [link](https://www.gcores.com/articles/220971) |
+| 13 | `220960` | `gcores` | 2026-10-17T08:00:19 | 31 | ok | 《叫魂》电影式预告片全球首曝，执念化作心魔 | [link](https://www.gcores.com/articles/220960) |
+| 14 | `221018` | `gcores` | 2026-10-17T08:00:13 | 70 | ok | 销量突破300万份！《WARDOGS 战狗》第二赛季现已上线 | [link](https://www.gcores.com/articles/221018) |
+| 15 | `220992` | `gcores` | 2026-10-17T08:00:13 | 34 | ok | 由《去月球》系列创作者打造的《鸟的故事》现已登陆各大主机平台 | [link](https://www.gcores.com/articles/220992) |
+| 16 | `221024` | `gcores` | 2026-10-17T08:00:13 | 43 | ok | 沙盒创作新作《哈克小天地》将于10月29日午夜登陆PC与NS | [link](https://www.gcores.com/articles/221024) |
+| 17 | `221025` | `gcores` | 2026-10-17T08:00:13 | 73 | ok | 和朋友胡闹种田！《嗨斗农场》全新实机预告公开，10月29日登陆 PC 与主机 | [link](https://www.gcores.com/articles/221025) |
+| 18 | `220998` | `gcores` | 2026-10-17T08:00:13 | 46 | ok | 【抽奖】多人合作饮品店经营游戏《杯杯倒满》于10月16日推出1.0正式版 | [link](https://www.gcores.com/articles/220998) |
+| 19 | `221002` | `gcores` | 2026-10-17T08:00:13 | 76 | ok | 【会员抽奖】链在一起，杀出重围！合作角斗肉鸽《链兽角斗》现已登陆 PC 与主机 | [link](https://www.gcores.com/articles/221002) |
+| 20 | `221000` | `gcores` | 2026-10-17T08:00:13 | 46 | ok | 【会员抽奖】冒险模拟游戏《北境深潜》登陆10月Steam新品节 | [link](https://www.gcores.com/articles/221000) |
+| 21 | `220962` | `gcores` | 2026-10-17T08:00:13 | 112 | ok | 【会员抽奖】《霜港迷城》PC 1.0 正式版今日上线！全新发售宣传片亮相 Galaxies Showcase | [link](https://www.gcores.com/articles/220962) |
+| 22 | `221031` | `gcores` | 2026-10-17T08:00:13 | 46 | ok | 【会员抽奖】30W愿望单：国产丧尸游戏《隔离区》正式版定档11月6日 | [link](https://www.gcores.com/articles/221031) |
+| 23 | `221007` | `gcores` | 2026-10-17T08:00:13 | 64 | ok | 《静穆急行列车909号房》Steam试玩版现已推出 | [link](https://www.gcores.com/articles/221007) |
+| 24 | `220986` | `gcores` | 2026-10-17T08:00:13 | 61 | ok | 《枪火重生》全新DLC“月海弦音”首曝，预约现已开启 | [link](https://www.gcores.com/articles/220986) |
+| 25 | `220972` | `gcores` | 2026-10-17T08:00:13 | 21 | ok | 《控制：共振》销量突破一百万份 | [link](https://www.gcores.com/articles/220972) |
+| 26 | `221029` | `gcores` | 2026-10-17T08:00:13 | 35 | ok | 《全面战争：幕府将军2》完全版差评如潮，世嘉回滚旧版本 | [link](https://www.gcores.com/articles/221029) |
+| 27 | `220985` | `gcores` | 2026-10-17T08:00:13 | 38 | ok | 《Hela：鼠鼠奇旅》试玩Demo现已限时登陆 Steam 新品节 | [link](https://www.gcores.com/articles/220985) |
+| 28 | `221005` | `gcores` | 2026-10-17T08:00:13 | 48 | ok | 《007 初露锋芒》NS2版将于2027年3月18日发售，现已开放预购 | [link](https://www.gcores.com/articles/221005) |
+| 29 | `220969` | `gcores` | 2026-10-17T08:00:13 | 43 | ok | Epic喜加二：《Agent A - 伪装游戏》《Bad Cheese》免费领 | [link](https://www.gcores.com/articles/220969) |
+| 30 | `tech-founder-vibe-codes-game-about-shooting-zombies-in-san-franciscos-poorest-ne` | `pcgamer` | 2026-10-17T07:53:11 | 1819 | ok | Tech founder criticized for vibe coding game about shooting 'zombies' in San Francisco's poor... | [link](https://www.pcgamer.com/software/ai/tech-founder-vibe-codes-game-about-shooting-zombies-in-san-franciscos-poorest-neighborhood/) |
+| 31 | `63433` | `ign_cn` | 2026-10-17T07:00:52 | 2833 | ok | 《生化危机 安魂曲》主演访谈：“里昂热”、角色高光时刻、末日求生建议 | [link](https://www.ign.com.cn/resident-evil-requiem/63433/sheng-hua-wei-ji-an-hun-qu-zhu-yan-fang-tan-li-ang-re-jiao-se-gao-guang-shi-ke-mo-ri-qiu-sheng-jian) |
+| 32 | `the-cyberpunk-2077-movie-wont-be-a-film-adaptation-of-the-game-cd-projekt-chief-` | `pcgamer` | 2026-10-17T06:02:23 | 2387 | ok | The Cyberpunk 2077 movie won't be 'a film adaptation of the game,' CD Projekt chief says | [link](https://www.pcgamer.com/movies-tv/the-cyberpunk-2077-movie-wont-be-a-film-adaptation-of-the-game-cd-projekt-chief-says/) |
+| 33 | `articles_all_the_records_gta_6_will_brea_a4be5afd` | `gamespot` | 2026-10-17T04:27:22 | 9495 | ok | All The Records GTA 6 Will Break, We Think | [link](https://www.gamespot.com/articles/all-the-records-gta-6-will-break-we-think/) |
+| 34 | `i-havent-wanted-to-100-percent-a-game-in-a-long-time-but` | `pcgamer` | 2026-10-17T04:07:29 | 2062 | ok | I haven't wanted to 100% a game in a long time, but… | [link](https://www.pcgamer.com/games/sim/i-havent-wanted-to-100-percent-a-game-in-a-long-time-but/) |
+| 35 | `we-f-ked-up-1-day-into-wardogs-season-2-the-blue-team-bribery-bonus-is-being-dro` | `pcgamer` | 2026-10-17T03:42:52 | 3730 | ok | 'We f**ked up': 1 day into Wardogs Season 2, the Blue team bribery bonus is being dropped | [link](https://www.pcgamer.com/games/fps/we-f-ked-up-1-day-into-wardogs-season-2-the-blue-team-bribery-bonus-is-being-dropped/) |
+| 36 | `articles_you_can_play_wow_forever_for_fr_c46f10e9` | `gamespot` | 2026-10-17T02:45:44 | 2977 | ok | You Can Play WoW: Forever For Free Next Week (But There’s A Catch) | [link](https://www.gamespot.com/articles/you-can-play-wow-forever-for-free-next-week-but-theres-a-catch/) |
+| 37 | `articles_this_espresso_machine_can_run_doom` | `gamespot` | 2026-10-17T02:28:36 | 1897 | ok | This Espresso Machine Can Run Doom | [link](https://www.gamespot.com/articles/this-espresso-machine-can-run-doom/) |
+| 38 | `articles_shrek_2_remaster_leaks_looks_am_4a0ec37f` | `gamespot` | 2026-10-17T02:21:13 | 2456 | ok | Shrek 2 Remaster Leaks, Looks Amazing And I Need It Now | [link](https://www.gamespot.com/articles/shrek-2-remaster-leaks-looks-amazing-and-i-need-it-now/) |
+| 39 | `articles_wow_forever_just_changed_the_ma_e2552626` | `gamespot` | 2026-10-17T02:01:39 | 29892 | ok | WoW: Forever Just Changed The Math On What Race To Play In A Big Way | [link](https://www.gamespot.com/articles/wow-forever-just-changed-the-math-on-what-race-to-play-in-a-big-way/) |
+| 40 | `my-career-as-a-weed-farmer-was-derailed-by-my-unslakeable-lust-for-golf` | `pcgamer` | 2026-10-17T01:06:21 | 2126 | ok | My career as a weed farmer was derailed by my unslakeable lust for golf | [link](https://www.pcgamer.com/games/grand-theft-auto/my-career-as-a-weed-farmer-was-derailed-by-my-unslakeable-lust-for-golf/) |
+| 41 | `call-of-duty-modern-warfare-4-review-in-progress-a-campaign-you-shouldnt-skip` | `pcgamer` | 2026-10-17T01:00:00 | 5671 | ok | Call of Duty: Modern Warfare 4 review-in-progress: A campaign you shouldn't skip | [link](https://www.pcgamer.com/games/call-of-duty/call-of-duty-modern-warfare-4-review-in-progress-a-campaign-you-shouldnt-skip/) |
+| 42 | `asus-not-only-replaced-an-rtx-4080-super-with-an-rtx-5080-but-also-swapped-it-ag` | `pcgamer` | 2026-10-17T00:29:30 | 4310 | ok | Asus not only replaced an RTX 4080 Super with an RTX 5080 but also swapped it *again* just to... | [link](https://www.pcgamer.com/hardware/graphics-cards/asus-not-only-replaced-an-rtx-4080-super-with-an-rtx-5080-but-also-swapped-it-again-just-to-give-this-lucky-redditor-one-that-matches-their-all-white-build/) |
+| 43 | `13147` | `cgames` | 2026-10-17T00:00:00 | 2849 | ok | 突发，腾讯育碧合研一款大作被砍 | [link](https://cgames.com/contents/2/13147.html) |
+| 44 | `13144` | `cgames` | 2026-10-17T00:00:00 | 5860 | ok | 火到排队，专访龙之谷红莲宫服主策：坚持第一性原理穿越周期 | [link](https://cgames.com/contents/2/13144.html) |
