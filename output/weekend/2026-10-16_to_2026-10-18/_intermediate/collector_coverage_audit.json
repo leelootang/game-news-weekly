@@ -1,0 +1,314 @@
+[
+  {
+    "date": "2026-10-16",
+    "consistency_mismatches": [],
+    "abnormal": [
+      {
+        "collector": "youxichaguan",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+          "--max-pages",
+          "5",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[api] retry 1/3 after 游戏茶馆 API error: <urlopen error [Errno 11001] getaddrinfo failed>\n[api] retry 2/3 after 游戏茶馆 API error: <urlopen error [Errno 11001] getaddrinfo failed>\n[config] window: 2026-10-16 00:00:00 <= published < 2026-10-17 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n[list] open https://youxichaguan.com/wp-json/wp/v2/posts?per_page=100&page=1&orderby=date&order=desc\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1321, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n              encode_chunked=req.has_header('Transfer-encoding'))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1367, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1413, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1362, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1122, in _send_output\n    self.send(msg)\n    ~~~~~~~~~^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1066, in send\n    self.connect()\n    ~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1501, in connect\n    super().connect()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1032, in connect\n    self.sock = self._create_connection(\n                ~~~~~~~~~~~~~~~~~~~~~~~^\n        (self.host,self.port), self.timeout, self.source_address)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\socket.py\", line 850, in create_connection\n    for res in getaddrinfo(host, port, 0, SOCK_STREAM):\n               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\socket.py\", line 987, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno 11001] getaddrinfo failed\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py\", line 98, in fetch_json\n    with urlopen(request, timeout=30) as response:\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 187, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 487, in open\n    response = self._open(req, data)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 504, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n                              '_open', req)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 464, in _call_chain\n    result = func(*args)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1369, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        context=self._context)\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1324, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py\", line 389, in <module>\n    asyncio.run(main())\n    ~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py\", line 357, in main\n    items = collect_news_items(since, until, args.max_pages)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py\", line 150, in collect_news_items\n    posts = fetch_json(url)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\youxichaguan.py\", line 105, in fetch_json\n    raise RuntimeError(f\"failed to fetch 游戏茶馆 API: {url}: {last_exc}\") from last_exc\nRuntimeError: failed to fetch 游戏茶馆 API: https://youxichaguan.com/wp-json/wp/v2/posts?per_page=100&page=1&orderby=date&order=desc: <urlopen error [Errno 11001] getaddrinfo failed>\n",
+        "stderr": ""
+      },
+      {
+        "collector": "pocketgamer",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\pocketgamer.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+          "--max-pages",
+          "1",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 0,
+        "status": "ok",
+        "health": "degraded",
+        "health_note": "[health] degraded reason=detail_unavailable full=0 rss_summary=6",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+        "in_window_article_count": 6,
+        "in_window_titles": [
+          "East Side Games secures $2.8m in Canadian credit and a $4m loan",
+          "Flow Games confirms $49m in total funding from Tencent and VC investors",
+          "New release roundup: Vampire Crawlers, Sifu, 9 Kings, and more",
+          "Supercell brings Clash Royale to tabletop with new Kickstarter board game",
+          "War Robots surpasses $50m in Steam lifetime revenue",
+          "Xbox launches Labs group to explore new gaming technology"
+        ],
+        "stdout": "[config] window: 2026-10-16 00:00:00 <= published < 2026-10-17 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n[rss] open https://www.pocketgamer.biz/index.rss\n[rss] using https://www.pocketgamer.biz/index.rss\n[rss] collected 6 article(s), older=44, future_or_today=0\n[rss] selected 6 article(s)\n[new_release_roundup_vampire_crawlers_sifu_9_king_457c4a40] open https://www.pocketgamer.biz/new-release-roundup-vampire-crawlers-sifu-9-kings-and-more/\n[new_release_roundup_vampire_crawlers_sifu_9_king_457c4a40] detail unavailable; saved RSS summary fallback\n[xbox_launches_labs_group_to_explore_new_gaming_t_a9dabb55] open https://www.pocketgamer.biz/xbox-launches-labs-group-to-explore-new-gaming-technology/\n[xbox_launches_labs_group_to_explore_new_gaming_t_a9dabb55] detail unavailable; saved RSS summary fallback\n[east_side_games_secures_28m_in_canadian_credit_a_9b24a807] open https://www.pocketgamer.biz/east-side-games-secures-28m-in-canadian-credit-and-a-4m-loan/\n[east_side_games_secures_28m_in_canadian_credit_a_9b24a807] detail unavailable; saved RSS summary fallback\n[war_robots_surpasses_50m_in_steam_lifetime_reven_f0f76ea8] open https://www.pocketgamer.biz/war-robots-surpasses-50m-in-steam-lifetime-revenue/\n[war_robots_surpasses_50m_in_steam_lifetime_reven_f0f76ea8] detail unavailable; saved RSS summary fallback\n[supercell_brings_clash_royale_to_tabletop_with_n_d6ca375d] open https://www.pocketgamer.biz/supercell-brings-clash-royale-to-tabletop-with-new-kickstarter-board-game/\n[supercell_brings_clash_royale_to_tabletop_with_n_d6ca375d] detail unavailable; saved RSS summary fallback\n[flow_games_confirms_49m_in_total_funding_from_te_4849a496] open https://www.pocketgamer.biz/flow-games-confirms-49m-in-total-funding-from-tencent-and-vc-investors/\n[flow_games_confirms_49m_in_total_funding_from_te_4849a496] detail unavailable; saved RSS summary fallback\n[health] degraded reason=detail_unavailable full=0 rss_summary=6\n[done] ok=6 full=0 fallback=6 fail=0 output=C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n",
+        "stderr": ""
+      },
+      {
+        "collector": "vgc",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+          "--max-pages",
+          "20",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 0,
+        "status": "ok",
+        "health": "degraded",
+        "health_note": "[health] degraded reason=detail_unavailable full=0 rss_summary=6",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+        "in_window_article_count": 6,
+        "in_window_titles": [
+          "COD Modern Warfare 4 will ‘close this chapter and launch a new one’ for the series, Activision says",
+          "Footage from a reportedly cancelled Assassin’s Creed game set in China has leaked",
+          "Former Overwatch director Jeff Kaplan says he hasn’t played or searched for it since leaving Blizzard five years ago",
+          "Ken Kutaragi ‘understands’ why PlayStation fans don’t want to give up physical games",
+          "Podcast: Zelda: Ocarina of Time remake impressions & a chat with Control Resonant actor",
+          "Steam is introducing Achievement Sets, designed to improve the achievement earning experience"
+        ],
+        "stdout": "[cod_modern_warfare_4_will_close_this_chapter_and_30583625] diagnostic {\"kind\": \"blocked_cloudflare\", \"status\": 403, \"title\": \"Just a moment...\", \"final_url\": \"https://www.videogameschronicle.com/news/cod-modern-warfare-4-will-close-this-chapter-and-launch-a-new-one-for-the-series-activision-says/\", \"body_preview\": \"www.videogameschronicle.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Ray ID: a4bb11507d2284ea Performance\"}\n[config] window: 2026-10-16 00:00:00 <= published < 2026-10-17 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n[rss] open https://www.videogameschronicle.com/feed/\n[rss] page 1: +6, older=4, total=6\n[rss] collected 6 article(s), future_or_today=0, excluded_guides=0\n[rss] selected 6 article(s)\n[cod_modern_warfare_4_will_close_this_chapter_and_30583625] open https://www.videogameschronicle.com/news/cod-modern-warfare-4-will-close-this-chapter-and-launch-a-new-one-for-the-series-activision-says/\n[cod_modern_warfare_4_will_close_this_chapter_and_30583625] detail unavailable; saved RSS summary fallback\n[footage_from_a_reportedly_cancelled_assassins_cr_43b523a3] open https://www.videogameschronicle.com/news/footage-from-a-reportedly-cancelled-assassins-creed-game-set-in-china-has-leaked/\n[footage_from_a_reportedly_cancelled_assassins_cr_43b523a3] detail unavailable; saved RSS summary fallback\n[steam_is_introducing_achievement_sets_designed_t_4a89216e] open https://www.videogameschronicle.com/news/steam-is-introducing-achievement-sets-designed-to-improve-the-achievement-earning-experience/\n[steam_is_introducing_achievement_sets_designed_t_4a89216e] detail unavailable; saved RSS summary fallback\n[former_overwatch_director_jeff_kaplan_says_he_ha_beee63dc] open https://www.videogameschronicle.com/news/former-overwatch-director-jeff-kaplan-says-he-hasnt-played-or-searched-for-it-since-leaving-blizzard-five-years-ago/\n[former_overwatch_director_jeff_kaplan_says_he_ha_beee63dc] detail unavailable; saved RSS summary fallback\n[podcast_zelda_ocarina_of_time_remake_impressions_6bad8bfa] open https://www.videogameschronicle.com/blog/podcast/podcast-zelda-ocarina-of-time-remake-impressions-a-chat-with-control-resonant-actor/\n[podcast_zelda_ocarina_of_time_remake_impressions_6bad8bfa] detail unavailable; saved RSS summary fallback\n[ken_kutaragi_understands_why_playstation_fans_do_3a93a9f3] open https://www.videogameschronicle.com/news/ken-kutaragi-understands-why-playstation-fans-dont-want-to-give-up-physical-games/\n[ken_kutaragi_understands_why_playstation_fans_do_3a93a9f3] detail unavailable; saved RSS summary fallback\n[health] degraded reason=detail_unavailable full=0 rss_summary=6\n[done] ok=6 full=0 fallback=6 fail=0 output=C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n",
+        "stderr": ""
+      },
+      {
+        "collector": "dataeye_36kr",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\dataeye_36kr.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+          "--max-pages",
+          "3",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[4027861725614465] failed: TimeoutError('Page.wait_for_selector: Timeout 45000ms exceeded.\\nCall log:\\n  - waiting for locator(\".articleDetailContent, .article-title, .kr-rich-text-wrapper\") to be visible\\n')\n[4027965377336967] failed: TimeoutError('Page.wait_for_selector: Timeout 45000ms exceeded.\\nCall log:\\n  - waiting for locator(\".articleDetailContent, .article-title, .kr-rich-text-wrapper\") to be visible\\n')\n[config] window: 2026-10-16 00:00:00 <= published < 2026-10-17 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n[list] fetch API page 1\n[list] page 1: +2, older=18, hasNext=True, total=2\n[list] selected 2 article(s)\n[4027861725614465] fetch https://36kr.com/p/4027861725614465\n[4027965377336967] fetch https://36kr.com/p/4027965377336967\n[done] ok=0 fail=2 output=C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16\n",
+        "stderr": ""
+      },
+      {
+        "collector": "cubox",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\cubox.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+          "--max-pages",
+          "1",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-16",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[cubox] cubox-cli card list returned an unexpected JSON shape\n",
+        "stderr": ""
+      },
+      {
+        "collector": "wanjiang_16p_newgame",
+        "section": "release_calendar",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-16",
+          "--max-pages",
+          "5",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-16",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[api] retry 1/3 after 16p API error: The read operation timed out\n[api] retry 2/3 after 16p API error: The read operation timed out\n[config] window: 2026-10-16 00:00:00 <= event < 2026-10-17 00:00:00\n[config] tabs: 国内游戏, 海外游戏; Steam游戏 skipped\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-16\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 108, in fetch_json\n    with urlopen(request, timeout=30) as response:\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 187, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 487, in open\n    response = self._open(req, data)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 504, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n                              '_open', req)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 464, in _call_chain\n    result = func(*args)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1369, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        context=self._context)\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1325, in do_open\n    r = h.getresponse()\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1459, in getresponse\n    response.begin()\n    ~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 336, in begin\n    version, status, reason = self._read_status()\n                              ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 297, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\socket.py\", line 729, in readinto\n    return self._sock.recv_into(b)\n           ~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1304, in recv_into\n    return self.read(nbytes, buffer)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1138, in read\n    return self._sslobj.read(len, buffer)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 518, in <module>\n    asyncio.run(main())\n    ~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 481, in main\n    events = collect_events(since, until, args.max_pages)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 201, in collect_events\n    data = fetch_json({\"date\": start_date, \"type_range\": type_range, \"p\": page})\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 115, in fetch_json\n    raise RuntimeError(f\"failed to fetch 16p newgame API: {url}: {last_exc}\") from last_exc\nRuntimeError: failed to fetch 16p newgame API: https://www.16p.com/gamecenter/api/test_game?date=2026-10-16&type_range=2&p=1: The read operation timed out\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "date": "2026-10-17",
+    "consistency_mismatches": [],
+    "abnormal": [
+      {
+        "collector": "nadianshi",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\nadianshi.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-17",
+          "--max-pages",
+          "3",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-17",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[http] retry 1/3: http://www.nadianshi.com/category/today (HTTP Error 301: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nMoved Permanently)\n[http] retry 2/3: http://www.nadianshi.com/category/today (HTTP Error 301: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nMoved Permanently)\n[catalog] open http://www.nadianshi.com/category/today\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\nadianshi.py\", line 326, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\nadianshi.py\", line 275, in main\n    page_urls = discover_article_urls(fetch_text(url))\n                                      ~~~~~~~~~~^^^^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\nadianshi.py\", line 69, in fetch_text\n    raise RuntimeError(f\"GET failed after {HTTP_RETRIES} tries: {url} ({last_exc!r})\")\nRuntimeError: GET failed after 3 tries: http://www.nadianshi.com/category/today (<HTTPError 301: 'The HTTP server returned a redirect error that would lead to an infinite loop.\\nThe last 30x error message was:\\nMoved Permanently'>)\n",
+        "stderr": ""
+      },
+      {
+        "collector": "cubox",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\cubox.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-17",
+          "--max-pages",
+          "1",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-17",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[cubox] cubox-cli card list returned an unexpected JSON shape\n",
+        "stderr": ""
+      },
+      {
+        "collector": "wanjiang_16p_newgame",
+        "section": "release_calendar",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-17",
+          "--max-pages",
+          "5",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-17",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[api] retry 1/3 after 16p API error: The read operation timed out\n[api] retry 2/3 after 16p API error: The read operation timed out\n[config] window: 2026-10-17 00:00:00 <= event < 2026-10-18 00:00:00\n[config] tabs: 国内游戏, 海外游戏; Steam游戏 skipped\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-17\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 108, in fetch_json\n    with urlopen(request, timeout=30) as response:\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 187, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 487, in open\n    response = self._open(req, data)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 504, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n                              '_open', req)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 464, in _call_chain\n    result = func(*args)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1369, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        context=self._context)\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1325, in do_open\n    r = h.getresponse()\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1459, in getresponse\n    response.begin()\n    ~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 336, in begin\n    version, status, reason = self._read_status()\n                              ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 297, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\socket.py\", line 729, in readinto\n    return self._sock.recv_into(b)\n           ~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1304, in recv_into\n    return self.read(nbytes, buffer)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1138, in read\n    return self._sslobj.read(len, buffer)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 518, in <module>\n    asyncio.run(main())\n    ~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 481, in main\n    events = collect_events(since, until, args.max_pages)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 201, in collect_events\n    data = fetch_json({\"date\": start_date, \"type_range\": type_range, \"p\": page})\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 115, in fetch_json\n    raise RuntimeError(f\"failed to fetch 16p newgame API: {url}: {last_exc}\") from last_exc\nRuntimeError: failed to fetch 16p newgame API: https://www.16p.com/gamecenter/api/test_game?date=2026-10-17&type_range=2&p=1: The read operation timed out\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "date": "2026-10-18",
+    "consistency_mismatches": [],
+    "abnormal": [
+      {
+        "collector": "vgc",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\vgc.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18",
+          "--max-pages",
+          "20",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 0,
+        "status": "ok",
+        "health": "degraded",
+        "health_note": "[health] degraded reason=detail_unavailable full=0 rss_summary=3",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18",
+        "in_window_article_count": 3,
+        "in_window_titles": [
+          "Konami boss says AI can’t replace the human chemistry behind great games",
+          "PlayStation 6’s memory costs alone exceed $680 per console, it’s claimed",
+          "Samson developer Liquid Swords is facing bankruptcy"
+        ],
+        "stdout": "[samson_developer_liquid_swords_is_facing_bankrup_d26d340a] diagnostic {\"kind\": \"blocked_cloudflare\", \"status\": 403, \"title\": \"Just a moment...\", \"final_url\": \"https://www.videogameschronicle.com/news/samson-developer-liquid-swords-is-facing-bankruptcy/?__cf_chl_rt_tk=iYXEq6xq4ORDe9OUDKvi_13wlDiiTjgWs9hgczziSSg-1792368191-1.0.1.1-YqgS_QaZY_3V4KLAfP1JPi1OcztldYFra4oI8ySExWo\", \"body_preview\": \"\"}\n[config] window: 2026-10-18 00:00:00 <= published < 2026-10-19 00:00:00\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18\n[rss] open https://www.videogameschronicle.com/feed/\n[rss] page 1: +3, older=7, total=3\n[rss] collected 3 article(s), future_or_today=0, excluded_guides=0\n[rss] selected 3 article(s)\n[samson_developer_liquid_swords_is_facing_bankrup_d26d340a] open https://www.videogameschronicle.com/news/samson-developer-liquid-swords-is-facing-bankruptcy/\n[samson_developer_liquid_swords_is_facing_bankrup_d26d340a] detail unavailable; saved RSS summary fallback\n[playstation_6s_memory_costs_alone_exceed_680_per_6e47e20a] open https://www.videogameschronicle.com/news/playstation-6s-memory-costs-alone-exceed-680-per-console-its-claimed/\n[playstation_6s_memory_costs_alone_exceed_680_per_6e47e20a] detail unavailable; saved RSS summary fallback\n[konami_boss_says_ai_cant_replace_the_human_chemi_7e20de81] open https://www.videogameschronicle.com/news/konami-boss-says-ai-cant-replace-the-human-chemistry-behind-great-games/\n[konami_boss_says_ai_cant_replace_the_human_chemi_7e20de81] detail unavailable; saved RSS summary fallback\n[health] degraded reason=detail_unavailable full=0 rss_summary=3\n[done] ok=3 full=0 fallback=3 fail=0 output=C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18\n",
+        "stderr": ""
+      },
+      {
+        "collector": "cubox",
+        "section": "industry_news",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\cubox.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18",
+          "--max-pages",
+          "1",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\industry_news\\2026-10-18",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[cubox] cubox-cli card list returned an unexpected JSON shape\n",
+        "stderr": ""
+      },
+      {
+        "collector": "wanjiang_16p_newgame",
+        "section": "release_calendar",
+        "command": [
+          "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py",
+          "--out",
+          "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-18",
+          "--max-pages",
+          "5",
+          "--preset",
+          "yesterday"
+        ],
+        "returncode": 1,
+        "status": "failed",
+        "health": "failed",
+        "health_note": "collector exited with a non-zero status",
+        "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-18",
+        "in_window_article_count": 0,
+        "in_window_titles": [],
+        "stdout": "[api] retry 1/3 after 16p API error: The read operation timed out\n[api] retry 2/3 after 16p API error: The read operation timed out\n[config] window: 2026-10-18 00:00:00 <= event < 2026-10-19 00:00:00\n[config] tabs: 国内游戏, 海外游戏; Steam游戏 skipped\n[config] output: C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\release_calendar\\2026-10-18\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 108, in fetch_json\n    with urlopen(request, timeout=30) as response:\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 187, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 487, in open\n    response = self._open(req, data)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 504, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n                              '_open', req)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 464, in _call_chain\n    result = func(*args)\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1369, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                        context=self._context)\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\urllib\\request.py\", line 1325, in do_open\n    r = h.getresponse()\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 1459, in getresponse\n    response.begin()\n    ~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 336, in begin\n    version, status, reason = self._read_status()\n                              ~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\http\\client.py\", line 297, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\socket.py\", line 729, in readinto\n    return self._sock.recv_into(b)\n           ~~~~~~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1304, in recv_into\n    return self.read(nbytes, buffer)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\ssl.py\", line 1138, in read\n    return self._sslobj.read(len, buffer)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nTimeoutError: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 518, in <module>\n    asyncio.run(main())\n    ~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 204, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\runners.py\", line 127, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\asyncio\\base_events.py\", line 719, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 481, in main\n    events = collect_events(since, until, args.max_pages)\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 201, in collect_events\n    data = fetch_json({\"date\": start_date, \"type_range\": type_range, \"p\": page})\n  File \"C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\collectors\\wanjiang_16p_newgame.py\", line 115, in fetch_json\n    raise RuntimeError(f\"failed to fetch 16p newgame API: {url}: {last_exc}\") from last_exc\nRuntimeError: failed to fetch 16p newgame API: https://www.16p.com/gamecenter/api/test_game?date=2026-10-18&type_range=2&p=1: The read operation timed out\n",
+        "stderr": ""
+      }
+    ]
+  }
+]
