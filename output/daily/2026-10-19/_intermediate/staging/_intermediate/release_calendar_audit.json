@@ -1,0 +1,3312 @@
+{
+  "schema_version": 5,
+  "report_window": {
+    "start": "2026-10-19",
+    "end": "2026-10-19"
+  },
+  "release_lookahead_days": 1,
+  "release_window": {
+    "start": "2026-10-19",
+    "end": "2026-10-20"
+  },
+  "ranking": "publish_eligible desc, priority_score desc; tie company_bonus desc, event_type_score desc, appearance_count desc, industry_bonus desc, first_seen_order asc",
+  "formula": "priority_score = event_type_score * source_strength_score + company_bonus",
+  "focus_company_bonus": 3,
+  "focus_company_investment_bonus": 2,
+  "nodes": [
+    {
+      "candidate_id": "R_ADD_39",
+      "product": "少女前线2：追放",
+      "event_date": "2026-10-19",
+      "signal_type": "old_major_update",
+      "event": "危区探遗新版本与全新搜打撤玩法",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0146",
+        "S0148"
+      ],
+      "observed_signal_types": [
+        "old_major_update"
+      ],
+      "observed_events": [
+        "危区探遗新版本与全新搜打撤玩法"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "69f3d21520d41f56aa9e6ff1112597d3a9648cb2",
+        "80d457dabcc55c4d6b0cc3ca04054c9efc95f7ed"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_ids": [],
+      "release_ids": [
+        "S0146",
+        "S0148"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 146,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": true,
+      "publish_eligible": true,
+      "coverage": "release_only"
+    },
+    {
+      "product": "全境封锁2",
+      "event_date": "2026-10-12",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_evidence_ids": [
+        "S0026"
+      ],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 9,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-003",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "无尽冬日",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 30,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0030"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "788df1c1b4e92fb78eaa6b84dc8ebf3c4a9aa5c4"
+      ],
+      "focus_companies": [
+        "世纪华通/点点互动"
+      ],
+      "focus_company_relationships": {
+        "世纪华通/点点互动": "direct"
+      },
+      "company_evidence_ids": [
+        "S0030"
+      ],
+      "source_ids": [
+        "S0030"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 9,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-004",
+      "editorial_reason": "历届金茶奖回顾，不是新品上线。",
+      "editorial_valid": false
+    },
+    {
+      "candidate_id": "R_ADD_55",
+      "product": "使命召唤：现代战争4",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_test",
+      "event": "DMZ预购模式提前访问",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0075",
+        "S0080"
+      ],
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "DMZ预购模式提前访问"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只开放新作单一模式的预购提前访问，非完整新品上线或独立测试；且S0075为snippet。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "9c66554f65e6b587d84b0a268b8b35501d58c216",
+        "3b7546ca76c039c2505dbae47c6fbe25756ada07"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_ids": [
+        "S0075",
+        "S0080"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 9,
+      "priority_score": 9,
+      "first_seen_order": 75,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": true,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "product": "火影忍者",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "2027年6月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "2027年6月上线定档"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_evidence_ids": [
+        "S0026"
+      ],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "direct",
+      "company_bonus": 3,
+      "priority_score": 7,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-005",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "钓遍海里的鱼",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 10,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0010"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "bfa4f79251c1b68824b305953e93864cac70c427"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0010"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-006",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "锈都残日",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 11,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0011"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "eaabca42cf4036984a054a627b01bd053dfcf2be"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0011"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-007",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "鹅鸭杀",
+      "event_date": "2026-01-07",
+      "signal_type": "new_game_launch",
+      "event": "公测",
+      "event_type_score": 3,
+      "first_seen_order": 15,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "公测"
+      ],
+      "industry_ids": [
+        "S0015"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "d9f16c01dbae334e2411f20994aac83466739b88"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {
+        "腾讯": "direct"
+      },
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0015"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-002",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。腾讯ACE为服务供应方，不是鹅鸭杀研运主体，删除公司加分。",
+      "editorial_valid": false
+    },
+    {
+      "product": "全面战争：幕府将军2",
+      "event_date": "2026-10-13",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 16,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0016"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "bb9529a5daff86e8f8fe5dd6974e50896315a023"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0016"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-008",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "伊莫",
+      "event_date": "2026-09-16",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 24,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0024"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "467d5388a8b298913a7fe3a93a64f65eb346960e"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0024"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-009",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "蓝色星原：旅谣",
+      "event_date": "2026-09-17",
+      "signal_type": "new_game_launch",
+      "event": "公测",
+      "event_type_score": 3,
+      "first_seen_order": 24,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "公测"
+      ],
+      "industry_ids": [
+        "S0024"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "467d5388a8b298913a7fe3a93a64f65eb346960e"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0024"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-010",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "恶魔城：贝尔蒙特的诅咒",
+      "event_date": "2026-10-15",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-011",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "剑侠世界4：无限",
+      "event_date": "2026-10-15",
+      "signal_type": "new_game_launch",
+      "event": "公测",
+      "event_type_score": 3,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "公测"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-012",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "绿梦：时空之声",
+      "event_date": "2026-10-15",
+      "signal_type": "new_game_launch",
+      "event": "公测",
+      "event_type_score": 3,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "公测"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-013",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "查无此地",
+      "event_date": "2026-10-14",
+      "signal_type": "new_game_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 3,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-035",
+      "editorial_reason": "原文明确14日首次EA，不是旧品跨平台，且在本期之前。",
+      "editorial_valid": false
+    },
+    {
+      "product": "黑神话：悟空",
+      "event_date": "2024-08-20",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 30,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0030"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "788df1c1b4e92fb78eaa6b84dc8ebf3c4a9aa5c4"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0030"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-014",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "最强蜗牛",
+      "event_date": "2021-12-16",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 30,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0030"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "788df1c1b4e92fb78eaa6b84dc8ebf3c4a9aa5c4"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0030"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-015",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "Rain98",
+      "event_date": "2026-10-17",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 36,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0036"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "2f6908ffd389a4cca7c76c493965776f0ed6746e"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0036"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-016",
+      "editorial_reason": "同体验版已通过周末报刊载，日历跨期重复。",
+      "editorial_valid": false
+    },
+    {
+      "product": "Hollywood Merge",
+      "event_date": "2026-02",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 40,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0040"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "5e372e8e49b2eaf15247cf13e0494ed283288da1"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0040"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-017",
+      "editorial_reason": "正文仅今年2月上线；日未知，保留月份，不补造具体日期。",
+      "editorial_valid": false
+    },
+    {
+      "candidate_id": "R_ADD_51",
+      "product": "极境：垂钓者",
+      "event_date": "2026-10-21",
+      "signal_type": "new_game_test",
+      "event": "PC限量删档测试",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0072"
+      ],
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "PC限量删档测试"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "117e151db2cd0838dcea2eb1761b48e623044b09"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0072"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 72,
+      "window_scope": "outside",
+      "window_eligible": false,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_54",
+      "product": "诡域深行",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_test",
+      "event": "试玩Demo推出",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0081"
+      ],
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "试玩Demo推出"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "68bee506f42bc0fddab76aac4145f7b9475e52bd"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0081"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 81,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_53",
+      "product": "最终幻想 Resonance",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_test",
+      "event": "试玩Demo推出",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0083"
+      ],
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "试玩Demo推出"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "93f048f6866fbd912e48afb6f6cb5989564aa4a4"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0083"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 83,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "product": "羊蹄山之魂",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 87,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0087"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "9955352f2f6b00b0726259e1c2650fce39c57373"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0087"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-018",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "Slam Tank",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_test",
+      "event": "试玩Demo推出",
+      "event_type_score": 3,
+      "first_seen_order": 92,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0092"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "bc809f0d063d744c9a1274aebbfef17632ac38c8"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0092"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-037",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "快递员汤姆",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 96,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0096"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "e74abd68d5257ab3a576d5341b6e8cbca917e2a7"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0096"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-019",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "乐高哈利·波特合集",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 97,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0097"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "fe0db61be7c96114e3f20e6d04899475e48814ba"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0097"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-020",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "candidate_id": "R_ADD_56",
+      "product": "Loop Dungeon - Incremental",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_57",
+      "product": "考古致富：挖出个博物馆（Big Dig）",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_58",
+      "product": "Warding Witches",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_59",
+      "product": "永生咒魇（Athanasia）",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_60",
+      "product": "FirstPlate",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_61",
+      "product": "Folk-Tography",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_62",
+      "product": "Hypernet Explorer",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_63",
+      "product": "我们曾到此：明日遗踪（We Were Here Tomorrow）",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_64",
+      "product": "A Sister's Journey",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_65",
+      "product": "Nomad Drive",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_66",
+      "product": "YUNO & DAWN",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_67",
+      "product": "Reborn a Zombie 2: Entwined Hearts",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_68",
+      "product": "Gloop: Liquid Physics",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_69",
+      "product": "宇宙大整理（Universal Tidy Up）",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "Steam即将发行清单节点",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0109"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "Steam即将发行清单节点"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有预排清单，未得到独立实际发行确认。",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e741b80314cecdbb0d87ec1432a46de41a589ba5"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0109"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 109,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "product": "幻兽帕鲁",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 128,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0128"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "41acecad4f0714819eeb505e29a7e88bbed59fa3"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0128"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-021",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "暗区突围",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 130,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [
+        "S0130"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "ce8461dc6486813bc608c9843749c1fb89588ed5"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0130"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-022",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "GTA6",
+      "event_date": "2026-11-19",
+      "signal_type": "new_game_schedule",
+      "event": "正式上线",
+      "event_type_score": 2,
+      "first_seen_order": 69,
+      "observed_signal_types": [
+        "new_game_launch",
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "正式上线",
+        "11月19日上线定档"
+      ],
+      "industry_ids": [
+        "S0069",
+        "S0108"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "4b5471bfecac8bcd083239ad4a3b7f00e939ad37",
+        "2db1fcbe11ac345f747603033f2341ffb192ba61"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0069",
+        "S0108"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-001",
+      "editorial_reason": "发售预告/档期分析不是正式上线，也未证明本期新定档。",
+      "editorial_valid": false
+    },
+    {
+      "candidate_id": "R_ADD_43",
+      "product": "Faraway",
+      "event_date": "2026-11-05",
+      "signal_type": "new_game_schedule",
+      "event": "公布11月5日多平台发售",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0074",
+        "S0153"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公布11月5日多平台发售"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "两来源日期一致，但S0074被标snippet，不能提供第二份完整发布证据。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "e1212f5d6465cf15734ae0285b34842208f7f838",
+        "4741e90d512fc14b459acafb6a394b0372e02f80"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_ids": [
+        "S0074"
+      ],
+      "release_ids": [
+        "S0153"
+      ],
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "priority_score": 6,
+      "first_seen_order": 74,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": true,
+      "publish_eligible": false,
+      "coverage": "industry_and_release"
+    },
+    {
+      "product": "上古卷轴OL",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "10月22日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 2,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "10月22日上线定档"
+      ],
+      "industry_ids": [
+        "S0002"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "70bf30ad4f458201d622355a095591af3124d19e"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0002"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-023",
+      "editorial_reason": "前者普通第二季内容，后者公开试玩已取消且前期已报道；非本期可发布实际事件。",
+      "editorial_valid": false
+    },
+    {
+      "product": "Reshine",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "11月26日上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 14,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "11月26日上线定档"
+      ],
+      "industry_ids": [
+        "S0014"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "7cdeb49769359900293ae9a37887a404cb1c9d3d"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0014"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-024",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "极限战场",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_first_reveal",
+      "event": "新品首次曝光",
+      "event_type_score": 2,
+      "first_seen_order": 22,
+      "observed_signal_types": [
+        "new_game_first_reveal"
+      ],
+      "observed_events": [
+        "新品首次曝光"
+      ],
+      "industry_ids": [
+        "S0022"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "1f4841e57a54ce35c7c16f81674dd4f843d73505"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0022"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-025",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "交织的乐章",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "1月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 23,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "1月上线定档"
+      ],
+      "industry_ids": [
+        "S0023"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "98304e2bbb055cce847603bf8d40f486267a721c"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0023"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-026",
+      "editorial_reason": "正文明确属于1月、9月或10月15日前后的历史上线/测试，无本期新阶段。",
+      "editorial_valid": false
+    },
+    {
+      "product": "星球大战",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "2027年3月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "2027年3月上线定档"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-027",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "燕云十六声",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "11月测试定档",
+      "event_type_score": 2,
+      "first_seen_order": 26,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "11月测试定档"
+      ],
+      "industry_ids": [
+        "S0026"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "3cf60bd27461e126c17718f193d89613cf7b7b68"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0026"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-028",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "神鬼寓言4",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_schedule",
+      "event": "2027年2月上线定档",
+      "event_type_score": 2,
+      "first_seen_order": 69,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "2027年2月上线定档"
+      ],
+      "industry_ids": [
+        "S0069"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "4b5471bfecac8bcd083239ad4a3b7f00e939ad37"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0069"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-029",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "candidate_id": "R_ADD_52",
+      "product": "篮球少女：飞跃巅峰",
+      "event_date": "2026-10-23",
+      "signal_type": "new_game_schedule",
+      "event": "公测定档",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0072"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公测定档"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "117e151db2cd0838dcea2eb1761b48e623044b09"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0072"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "priority_score": 4,
+      "first_seen_order": 72,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_75",
+      "product": "Crop",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "宣传中的既有未来档期",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0094"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "宣传中的既有未来档期"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "普通宣传，仅保留原文月份/年份，不补造日期。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "e02c69b56df85e4c51ecad2c9835dbd49f4a9940"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0094"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "priority_score": 4,
+      "first_seen_order": 94,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_73",
+      "product": "剑星",
+      "event_date": "2026-11-05",
+      "signal_type": "new_game_schedule",
+      "event": "宣传中的既有未来档期",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0095"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "宣传中的既有未来档期"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "普通宣传，仅保留原文月份/年份，不补造日期。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "a6996eff6cc846e60e60337af7a78af0335a1c60"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0095"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "priority_score": 4,
+      "first_seen_order": 95,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_74",
+      "product": "恶意不息",
+      "event_date": "2027-03",
+      "signal_type": "new_game_schedule",
+      "event": "宣传中的既有未来档期",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0099"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "宣传中的既有未来档期"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "普通宣传，仅保留原文月份/年份，不补造日期。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "b07d41724b6981cbd9b4b3b6bc29caebe495f370"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0099"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "priority_score": 4,
+      "first_seen_order": 99,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "product": "HUNGER",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_test",
+      "event": "内测",
+      "event_type_score": 3,
+      "first_seen_order": 144,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "内测"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0144"
+      ],
+      "source_fingerprints": [
+        "204cd178ed34395281a31f283d32bee7530a8253"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0144"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-030",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "人力全开-玩家自制",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "first_seen_order": 147,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0147"
+      ],
+      "source_fingerprints": [
+        "c73b8f300b87cc1ac2e360f4d49e489a7814a465"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0147"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-031",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "candidate_id": "R_ADD_42",
+      "product": "长夜守卫者",
+      "event_date": "2026-10-20",
+      "signal_type": "new_game_launch",
+      "event": "正式上线",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0149"
+      ],
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "正式上线"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "da5e841176d5bceaf4af9e235f0893d6a0ce868b"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0149"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "priority_score": 3,
+      "first_seen_order": 149,
+      "window_scope": "next_day_lookahead",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_48",
+      "product": "RPG Maker U2U",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_test",
+      "event": "P2D地图编辑器演示",
+      "event_type_score": 3,
+      "source_ids": [
+        "S0151"
+      ],
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "P2D地图编辑器演示"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "编辑器工具演示不是新品游戏；Saros普通新周目不按重大新模式。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "520eb4455510d45ea916f7e6e4db99774281e013"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0151"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "priority_score": 3,
+      "first_seen_order": 151,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "product": "长夜守卫者",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_preload",
+      "event": "预下载，20日上线",
+      "event_type_score": 2,
+      "first_seen_order": 149,
+      "observed_signal_types": [
+        "new_game_launch",
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "正式上线",
+        "10月20日上线定档"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0149"
+      ],
+      "source_fingerprints": [
+        "da5e841176d5bceaf4af9e235f0893d6a0ce868b"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0149"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-032",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "product": "我不是胖虎：小岛大当家",
+      "event_date": "2026-10-19",
+      "signal_type": "new_game_preload",
+      "event": "20时预下载，22日上线",
+      "event_type_score": 2,
+      "first_seen_order": 150,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "10月22日上线定档"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0150"
+      ],
+      "source_fingerprints": [
+        "5d4e920b3b8e1909787b0a44488ef62dd4d86af9"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0150"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-034",
+      "editorial_reason": "全文日期/阶段复核；保留原召回但不以采集日替代历史实际发生日。",
+      "editorial_valid": true
+    },
+    {
+      "candidate_id": "R_ADD_44",
+      "product": "PAYDAY: Aces High",
+      "event_date": "2026-11-05",
+      "signal_type": "new_game_schedule",
+      "event": "公布未来发售日",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0152"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公布未来发售日"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "1ef812a363c390cc9ccf23416aee6272c2f27889"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0152"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 152,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_45",
+      "product": "Littlelands",
+      "event_date": "2026-11-16",
+      "signal_type": "new_game_schedule",
+      "event": "公布未来发售日",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0156"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公布未来发售日"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "91f2ad52a97c09a1b30b007f9ca39799d5ebb983"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0156"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 156,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_46",
+      "product": "Cleaner Company",
+      "event_date": "2027-01-26",
+      "signal_type": "new_game_schedule",
+      "event": "公布未来发售日",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0157"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公布未来发售日"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "3cf0e9fee0e0438c67589dfae30e57e41bd9476e"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0157"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 157,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_47",
+      "product": "Dumpster Gang",
+      "event_date": "2026-12-03",
+      "signal_type": "new_game_schedule",
+      "event": "公布未来发售日",
+      "event_type_score": 2,
+      "source_ids": [
+        "S0158"
+      ],
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "公布未来发售日"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "e4a26ef1240083197e737ad938f1738a8097a0a0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0158"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 158,
+      "window_scope": "future_announcement",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "product": "赛博朋克：边缘行者",
+      "event_date": "2026-10-20",
+      "signal_type": "old_relaunch",
+      "event": "老品重启回归",
+      "event_type_score": 1,
+      "first_seen_order": 84,
+      "observed_signal_types": [
+        "old_relaunch"
+      ],
+      "observed_events": [
+        "老品重启回归"
+      ],
+      "industry_ids": [
+        "S0084"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "58bedff71278a7ab09612e7eba88f8416fb477dd"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0084"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-036",
+      "editorial_reason": "历史回顾/旧计划/非游戏动画；没有本期新增可发布阶段。",
+      "editorial_valid": false
+    },
+    {
+      "candidate_id": "R_ADD_70",
+      "product": "生化危机2重制版",
+      "event_date": "2026-10-19",
+      "signal_type": "old_cross_platform_launch",
+      "event": "Switch2移植体验",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0100"
+      ],
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "Switch2移植体验"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有单源，实际发生日未明确；采集日期不证明当日上线。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "33ef7c1d36b74315ebd75df41ec20351db1d89f6"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0100"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 100,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_71",
+      "product": "生化危机3重制版",
+      "event_date": "2026-10-19",
+      "signal_type": "old_cross_platform_launch",
+      "event": "Switch2移植体验",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0100"
+      ],
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "Switch2移植体验"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有单源，实际发生日未明确；采集日期不证明当日上线。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "33ef7c1d36b74315ebd75df41ec20351db1d89f6"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0100"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 100,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "candidate_id": "R_ADD_72",
+      "product": "生化危机4重制版",
+      "event_date": "2026-10-19",
+      "signal_type": "old_cross_platform_launch",
+      "event": "Switch2移植体验",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0100"
+      ],
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "Switch2移植体验"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "只有单源，实际发生日未明确；采集日期不证明当日上线。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "33ef7c1d36b74315ebd75df41ec20351db1d89f6"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [
+        "S0100"
+      ],
+      "release_ids": [],
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "priority_score": 2,
+      "first_seen_order": 100,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "industry_only"
+    },
+    {
+      "product": "酒鬼女神的酒诡",
+      "event_date": "2026-12-08",
+      "signal_type": "old_cross_platform_launch",
+      "event": "老品跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 101,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "老品跨平台上线"
+      ],
+      "industry_ids": [
+        "S0101"
+      ],
+      "release_ids": [],
+      "source_fingerprints": [
+        "907152a88a03085fac965fb5994239c55ab886b9"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "source_ids": [
+        "S0101"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "status": "pending_decision",
+      "candidate_id": "release-candidate-038",
+      "editorial_reason": "前者普通第二季内容，后者公开试玩已取消且前期已报道；非本期可发布实际事件。",
+      "editorial_valid": false
+    },
+    {
+      "candidate_id": "R_ADD_40",
+      "product": "仙境传说RO：新启航",
+      "event_date": "2026-10-19",
+      "signal_type": "old_major_update",
+      "event": "新区翡翠月湾",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0145"
+      ],
+      "observed_signal_types": [
+        "old_major_update"
+      ],
+      "observed_events": [
+        "新区翡翠月湾"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "普通新区，不属于老品重大玩法更新；保留排除。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "1ce0f8b74b85696b1b0d68640c7b8eecaf85d5db"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0145"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "priority_score": 1,
+      "first_seen_order": 145,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_49",
+      "product": "Directive 8020: A Dark Pictures Game",
+      "event_date": "2026-10-19",
+      "signal_type": "old_major_update",
+      "event": "在线多人模式",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0154"
+      ],
+      "observed_signal_types": [
+        "old_major_update"
+      ],
+      "observed_events": [
+        "在线多人模式"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "",
+      "editorial_valid": true,
+      "source_fingerprints": [
+        "4769b60db69fd755af03870ea8da38b23da31b68"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0154"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "priority_score": 1,
+      "first_seen_order": 154,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_41",
+      "product": "Super Meat Boy 3D",
+      "event_date": "2026-10-19",
+      "signal_type": "old_major_update",
+      "event": "MOUSE联动更新",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0155"
+      ],
+      "observed_signal_types": [
+        "old_major_update"
+      ],
+      "observed_events": [
+        "MOUSE联动更新"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "普通联动，不属于产品日历准入的重大玩法更新。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "2dba0b568d4a45c38f4502811d225212bb16c092"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0155"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "priority_score": 1,
+      "first_seen_order": 155,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    },
+    {
+      "candidate_id": "R_ADD_50",
+      "product": "Saros",
+      "event_date": "2026-10-19",
+      "signal_type": "old_major_update",
+      "event": "Zenith更新",
+      "event_type_score": 1,
+      "source_ids": [
+        "S0159"
+      ],
+      "observed_signal_types": [
+        "old_major_update"
+      ],
+      "observed_events": [
+        "Zenith更新"
+      ],
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "company_relationship": "none",
+      "company_bonus": 0,
+      "editorial_reason": "编辑器工具演示不是新品游戏；Saros普通新周目不按重大新模式。",
+      "editorial_valid": false,
+      "source_fingerprints": [
+        "b3a58b7179bceb7c13ea755e7d6f5289340a47c0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_ids": [],
+      "release_ids": [
+        "S0159"
+      ],
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "priority_score": 1,
+      "first_seen_order": 159,
+      "window_scope": "report_window",
+      "window_eligible": true,
+      "multi_source_eligible": false,
+      "publish_eligible": false,
+      "coverage": "release_only"
+    }
+  ],
+  "editorial_audit": "原始抽取保留raw；已全量反扫industry/release，修正历史日期、普通宣传及不可用证据；行业入选与否不参与日历排序。"
+}
