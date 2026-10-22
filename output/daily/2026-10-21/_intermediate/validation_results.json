@@ -1,0 +1,107 @@
+{
+  "completed_at": "2026-10-22T09:27:32.257134+08:00",
+  "staging": [
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\staging\\game_industry_daily_2026-10-21.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\staging\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_inputs.jsonl",
+        "--report-type",
+        "daily"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "warnings": [
+        "WARN: input extraction has 21 short/snippet records; they are forbidden as final-item evidence",
+        "WARN: daily ai section has 4 items; expected 1-3 unless strong extra news exists"
+      ],
+      "output": "WARN: input extraction has 21 short/snippet records; they are forbidden as final-item evidence\nWARN: daily ai section has 4 items; expected 1-3 unless strong extra news exists\nReport lint passed with warnings.\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\scripts\\report_artifacts.py",
+        "validate",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\staging\\game_industry_daily_2026-10-21.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\staging\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_items.json",
+        "--decisions",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\selection_decisions.json",
+        "--release-audit",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\release_calendar_audit.json",
+        "--require-artifacts"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "warnings": [],
+      "output": ""
+    }
+  ],
+  "canonical": [
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\game_industry_daily_2026-10-21.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_inputs.jsonl",
+        "--report-type",
+        "daily"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "warnings": [
+        "WARN: input extraction has 21 short/snippet records; they are forbidden as final-item evidence",
+        "WARN: daily ai section has 4 items; expected 1-3 unless strong extra news exists"
+      ],
+      "output": "WARN: input extraction has 21 short/snippet records; they are forbidden as final-item evidence\nWARN: daily ai section has 4 items; expected 1-3 unless strong extra news exists\nReport lint passed with warnings.\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\scripts\\report_artifacts.py",
+        "validate",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\game_industry_daily_2026-10-21.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\report_items.json",
+        "--decisions",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\selection_decisions.json",
+        "--release-audit",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-21\\_intermediate\\release_calendar_audit.json",
+        "--require-artifacts"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "warnings": [],
+      "output": ""
+    }
+  ],
+  "semantic_checks": {
+    "input_coverage": 375,
+    "inputs": 375,
+    "used_sources": 15,
+    "non_full_used": 0,
+    "claims": 69,
+    "forbidden_marker_matches": 0,
+    "news_data_modified": false,
+    "scoring_version": "subject_genre_v2"
+  }
+}

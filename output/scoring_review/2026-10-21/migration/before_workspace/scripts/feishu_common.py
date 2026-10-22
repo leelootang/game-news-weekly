@@ -1,0 +1,1515 @@
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+import time
+import uuid
+import urllib.error
+import urllib.parse
+import urllib.request
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data" / "feishu"
+SUBSCRIBERS_PATH = DATA_DIR / "subscribers.json"
+PUBLISH_LOG_DIR = DATA_DIR / "publish_logs"
+REPORT_FEEDBACK_PATH = DATA_DIR / "report_feedback.jsonl"
+OPEN_FEISHU_BASE = "https://open.feishu.cn/open-apis"
+REPORT_SUBSCRIPTION_KINDS = ("daily", "weekly", "weekend")
+CARD_ITEMS_PER_SECTION = 10
+COMMUNITY_CARD_ITEMS_BY_REPORT_KIND = {
+    "daily": 2,
+    "weekend": 2,
+    "weekly": 3,
+}
+
+
+def load_dotenv(path: Path | None = None) -> None:
+    env_path = path or ROOT / ".env.local"
+    if not env_path.exists():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8-sig").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip("'\"")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+def require_env(*names: str) -> dict[str, str]:
+    load_dotenv()
+    missing = [name for name in names if not os.environ.get(name)]
+    if missing:
+        raise SystemExit(f"Missing required environment variables: {', '.join(missing)}")
+    return {name: os.environ[name] for name in names}
+
+
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def read_json(path: Path, default: Any) -> Any:
+    if not path.exists():
+        return default
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def load_subscribers() -> dict[str, Any]:
+    data = read_json(SUBSCRIBERS_PATH, {"subscribers": []})
+    if "subscribers" not in data or not isinstance(data["subscribers"], list):
+        raise ValueError(f"Invalid subscriber file: {SUBSCRIBERS_PATH}")
+    return data
+
+
+def subscription_preferences(subscriber: dict[str, Any] | None) -> dict[str, bool]:
+    """Return the three report preferences, including a safe legacy fallback.
+
+    Subscriber records written before preference controls only have the
+    ``subscribed`` boolean.  Treat an old active subscriber as subscribed to
+    all report types, so this rollout never drops an existing recipient.
+    """
+    if not subscriber:
+        return {kind: False for kind in REPORT_SUBSCRIPTION_KINDS}
+    stored = subscriber.get("subscriptions")
+    if isinstance(stored, dict):
+        return {kind: bool(stored.get(kind, False)) for kind in REPORT_SUBSCRIPTION_KINDS}
+    enabled = bool(subscriber.get("subscribed"))
+    return {kind: enabled for kind in REPORT_SUBSCRIPTION_KINDS}
+
+
+def get_subscription_preferences(open_id: str) -> dict[str, bool]:
+    data = load_subscribers()
+    subscriber = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    return subscription_preferences(subscriber)
+
+
+def set_subscription_preferences(open_id: str, preferences: dict[str, Any]) -> dict[str, Any]:
+    """Persist a user's selected report types and keep the legacy total flag.
+
+    An all-false choice is a full unsubscribe.  Creating a record here also
+    lets a new user configure their preferences before using the old text
+    subscribe command.
+    """
+    if not open_id:
+        raise ValueError("open_id is required")
+    normalized = {kind: bool(preferences.get(kind, False)) for kind in REPORT_SUBSCRIPTION_KINDS}
+    data = load_subscribers()
+    now = utc_now_iso()
+    existing = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    preferences_changed = existing is None or subscription_preferences(existing) != normalized
+    if existing is None:
+        existing = {
+            "open_id": open_id,
+            "user_id": None,
+            "union_id": None,
+            "name": None,
+            "created_at": now,
+            "subscription_changed_at": now,
+            "last_pushed_date": None,
+        }
+        data["subscribers"].append(existing)
+    existing.update(
+        {
+            "subscriptions": normalized,
+            "subscribed": any(normalized.values()),
+            "updated_at": now,
+        }
+    )
+    if preferences_changed:
+        existing["subscription_changed_at"] = now
+    write_json(SUBSCRIBERS_PATH, data)
+    return existing
+
+
+def upsert_subscriber(
+    *,
+    open_id: str,
+    user_id: str | None = None,
+    union_id: str | None = None,
+    name: str | None = None,
+    subscribed: bool,
+) -> dict[str, Any]:
+    if not open_id:
+        raise ValueError("open_id is required")
+    data = load_subscribers()
+    now = utc_now_iso()
+    existing = next((row for row in data["subscribers"] if row.get("open_id") == open_id), None)
+    normalized = {kind: subscribed for kind in REPORT_SUBSCRIPTION_KINDS}
+    subscription_changed = existing is None or subscription_preferences(existing) != normalized
+    if existing is None:
+        existing = {
+            "open_id": open_id,
+            "user_id": user_id,
+            "union_id": union_id,
+            "name": name,
+            "created_at": now,
+            "subscription_changed_at": now,
+            "last_pushed_date": None,
+        }
+        data["subscribers"].append(existing)
+    existing.update(
+        {
+            "user_id": user_id or existing.get("user_id"),
+            "union_id": union_id or existing.get("union_id"),
+            "name": name or existing.get("name"),
+            "subscribed": subscribed,
+            "subscriptions": normalized,
+            "updated_at": now,
+        }
+    )
+    if subscription_changed:
+        existing["subscription_changed_at"] = now
+    write_json(SUBSCRIBERS_PATH, data)
+    return existing
+
+
+def active_subscribers(kind: str | None = None) -> list[dict[str, Any]]:
+    """Return active recipients, optionally filtered to a report type."""
+    if kind is not None and kind not in REPORT_SUBSCRIPTION_KINDS:
+        raise ValueError(f"Unsupported subscription kind: {kind}")
+    data = load_subscribers()
+    return [
+        row
+        for row in data["subscribers"]
+        if row.get("open_id")
+        and row.get("subscribed")
+        and (kind is None or subscription_preferences(row)[kind])
+    ]
+
+
+def mark_subscriber_pushed(open_id: str, date: str, kind: str | None = None) -> None:
+    """Record that `open_id` already received `date`'s report so a same-day
+    re-subscribe is not mistaken for a new subscriber and backfilled twice."""
+    data = load_subscribers()
+    row = next((r for r in data["subscribers"] if r.get("open_id") == open_id), None)
+    if row is None:
+        return
+    row["last_pushed_date"] = date
+    if kind in REPORT_SUBSCRIPTION_KINDS:
+        pushed_by_kind = row.setdefault("last_pushed_by_kind", {})
+        if isinstance(pushed_by_kind, dict):
+            pushed_by_kind[kind] = date
+    row["updated_at"] = utc_now_iso()
+    write_json(SUBSCRIBERS_PATH, data)
+
+
+class FeishuAPIError(RuntimeError):
+    pass
+
+
+@dataclass
+class FeishuClient:
+    app_id: str
+    app_secret: str
+    base_url: str = OPEN_FEISHU_BASE
+    _tenant_access_token: str | None = None
+    _token_expires_at: float = 0
+
+    @classmethod
+    def from_env(cls) -> "FeishuClient":
+        env = require_env("FEISHU_APP_ID", "FEISHU_APP_SECRET")
+        return cls(app_id=env["FEISHU_APP_ID"], app_secret=env["FEISHU_APP_SECRET"])
+
+    def tenant_access_token(self) -> str:
+        if self._tenant_access_token and time.time() < self._token_expires_at - 60:
+            return self._tenant_access_token
+        payload = {"app_id": self.app_id, "app_secret": self.app_secret}
+        data = self._request(
+            "POST",
+            "/auth/v3/tenant_access_token/internal",
+            payload,
+            auth=False,
+        )
+        token = data.get("tenant_access_token")
+        if not token:
+            raise FeishuAPIError(f"tenant_access_token missing in response: {data}")
+        self._tenant_access_token = token
+        self._token_expires_at = time.time() + int(data.get("expire", 7200))
+        return token
+
+    def _request(
+        self,
+        method: str,
+        path: str,
+        payload: dict[str, Any] | None = None,
+        *,
+        query: dict[str, str] | None = None,
+        auth: bool = True,
+    ) -> dict[str, Any]:
+        url = self.base_url + path
+        if query:
+            url += "?" + urllib.parse.urlencode(query)
+        body = None
+        headers = {"Content-Type": "application/json; charset=utf-8"}
+        if payload is not None:
+            body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        if auth:
+            headers["Authorization"] = f"Bearer {self.tenant_access_token()}"
+        request = urllib.request.Request(url, data=body, headers=headers, method=method)
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                text = response.read().decode("utf-8")
+        except urllib.error.HTTPError as exc:
+            text = exc.read().decode("utf-8", errors="replace")
+            raise FeishuAPIError(f"{method} {path} failed: HTTP {exc.code}: {text}") from exc
+        except urllib.error.URLError as exc:
+            raise FeishuAPIError(f"{method} {path} failed: {exc}") from exc
+        data = json.loads(text) if text else {}
+        if data.get("code", 0) != 0:
+            raise FeishuAPIError(f"{method} {path} returned code={data.get('code')}: {data}")
+        return data
+
+    def send_text(self, open_id: str, text: str) -> dict[str, Any]:
+        return self._send_message(open_id, "text", {"text": text})
+
+    def send_interactive_card(self, open_id: str, card: dict[str, Any]) -> dict[str, Any]:
+        return self._send_message(open_id, "interactive", card)
+
+    def _send_message(self, open_id: str, msg_type: str, content: dict[str, Any]) -> dict[str, Any]:
+        return self._request(
+            "POST",
+            "/im/v1/messages",
+            {
+                "receive_id": open_id,
+                "msg_type": msg_type,
+                "content": json.dumps(content, ensure_ascii=False),
+            },
+            query={"receive_id_type": "open_id"},
+        )
+
+    def _request_multipart(
+        self,
+        path: str,
+        fields: dict[str, str],
+        file_field: str,
+        file_name: str,
+        file_bytes: bytes,
+    ) -> dict[str, Any]:
+        boundary = f"----feishu{uuid.uuid4().hex}"
+        parts: list[bytes] = []
+        for key, value in fields.items():
+            parts.append(f"--{boundary}\r\n".encode("utf-8"))
+            parts.append(f'Content-Disposition: form-data; name="{key}"\r\n\r\n'.encode("utf-8"))
+            parts.append(value.encode("utf-8"))
+            parts.append(b"\r\n")
+        parts.append(f"--{boundary}\r\n".encode("utf-8"))
+        parts.append(
+            f'Content-Disposition: form-data; name="{file_field}"; filename="{file_name}"\r\n'.encode("utf-8")
+        )
+        parts.append(b"Content-Type: application/octet-stream\r\n\r\n")
+        parts.append(file_bytes)
+        parts.append(f"\r\n--{boundary}--\r\n".encode("utf-8"))
+        body = b"".join(parts)
+        url = self.base_url + path
+        headers = {
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "Authorization": f"Bearer {self.tenant_access_token()}",
+        }
+        request = urllib.request.Request(url, data=body, headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                text = response.read().decode("utf-8")
+        except urllib.error.HTTPError as exc:
+            text = exc.read().decode("utf-8", errors="replace")
+            raise FeishuAPIError(f"POST {path} failed: HTTP {exc.code}: {text}") from exc
+        except urllib.error.URLError as exc:
+            raise FeishuAPIError(f"POST {path} failed: {exc}") from exc
+        data = json.loads(text) if text else {}
+        if data.get("code", 0) != 0:
+            raise FeishuAPIError(f"POST {path} returned code={data.get('code')}: {data}")
+        return data
+
+    def upload_import_media(self, file_path: Path, file_name: str) -> str:
+        file_bytes = file_path.read_bytes()
+        fields = {
+            "parent_type": "ccm_import_open",
+            "file_name": file_name,
+            "size": str(len(file_bytes)),
+            "extra": json.dumps({"obj_type": "docx", "file_extension": "md"}, ensure_ascii=False),
+        }
+        data = self._request_multipart(
+            "/drive/v1/medias/upload_all", fields, "file", file_name, file_bytes
+        )
+        token = data.get("data", {}).get("file_token") or data.get("data", {}).get("token")
+        if not token:
+            raise FeishuAPIError(f"upload_import_media missing file token: {data}")
+        return token
+
+    def create_import_task(self, file_token: str, file_name: str, folder_token: str) -> str:
+        payload = {
+            "file_extension": "md",
+            "file_token": file_token,
+            "type": "docx",
+            "file_name": file_name,
+            "point": {"mount_type": 1, "mount_key": folder_token},
+        }
+        data = self._request("POST", "/drive/v1/import_tasks", payload)
+        ticket = data.get("data", {}).get("ticket")
+        if not ticket:
+            raise FeishuAPIError(f"create_import_task missing ticket: {data}")
+        return ticket
+
+    def poll_import_task(self, ticket: str, timeout: int = 60, interval: float = 2.0) -> dict[str, str]:
+        deadline = time.time() + timeout
+        while True:
+            data = self._request("GET", f"/drive/v1/import_tasks/{ticket}")
+            result = data.get("data", {}).get("result", {})
+            status = result.get("job_status")
+            if status == 0:
+                token = result.get("token")
+                url = result.get("url")
+                if not token or not url:
+                    raise FeishuAPIError(f"import task succeeded but missing token/url: {result}")
+                return {"token": token, "url": url}
+            if status in (1, 2):
+                if time.time() >= deadline:
+                    raise FeishuAPIError(f"import task {ticket} timed out (last status={status})")
+                time.sleep(interval)
+                continue
+            raise FeishuAPIError(
+                f"import task {ticket} failed: job_status={status} msg={result.get('job_error_msg')}"
+            )
+
+    def set_doc_public_permission(self, token: str, doc_type: str = "docx") -> dict[str, Any]:
+        """Allow anyone on the internet with the link to read the document."""
+        return self._request(
+            "PATCH",
+            f"/drive/v2/permissions/{token}/public",
+            {
+                "external_access": True,
+                "link_share_entity": "anyone_readable",
+            },
+            query={"type": doc_type},
+        )
+
+    def get_all_blocks(self, doc_id: str) -> list[dict[str, Any]]:
+        """Return every block in a docx (paginated). Each block carries its
+        block_id / block_type / children plus type-specific content."""
+        blocks: list[dict[str, Any]] = []
+        page_token: str | None = None
+        while True:
+            query = {"page_size": "500", "document_revision_id": "-1"}
+            if page_token:
+                query["page_token"] = page_token
+            data = self._request(
+                "GET", f"/docx/v1/documents/{doc_id}/blocks", query=query
+            ).get("data", {})
+            blocks.extend(data.get("items", []))
+            if not data.get("has_more"):
+                break
+            page_token = data.get("page_token")
+            if not page_token:
+                break
+        return blocks
+
+    @staticmethod
+    def _bullet_text(block: dict[str, Any]) -> str:
+        elems = (block.get("bullet") or {}).get("elements") or []
+        return "".join(
+            (e.get("text_run") or {}).get("content", "") for e in elems
+        )
+
+    def fold_source_bullets(self, doc_id: str) -> int:
+        """Collapse every bullet whose child is a `来源：...` bullet, so sources
+        hide by default. Returns the number of parents folded."""
+        blocks = self.get_all_blocks(doc_id)
+        by_id = {b.get("block_id"): b for b in blocks}
+        folded = 0
+        for block in blocks:
+            if block.get("block_type") != 12:  # bullet
+                continue
+            children = block.get("children") or []
+            has_source_child = any(
+                (child := by_id.get(cid)) is not None
+                and child.get("block_type") == 12
+                and self._bullet_text(child).lstrip().startswith("来源")
+                for cid in children
+            )
+            if not has_source_child:
+                continue
+            self._request(
+                "PATCH",
+                f"/docx/v1/documents/{doc_id}/blocks/{block['block_id']}",
+                {"update_text_style": {"style": {"folded": True}, "fields": [3]}},
+            )
+            folded += 1
+        return folded
+
+
+_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_RANGE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_to_\d{4}-\d{2}-\d{2}$")
+
+# kind -> reader-facing noun used in card labels / fallback titles.
+REPORT_NOUN = {"daily": "日报", "weekly": "周报", "weekend": "周末报", "monthly": "月报"}
+
+
+def resolve_report(identifier: str) -> tuple[str, Path, Path]:
+    """Locate a report by its identifier and return (kind, report_dir, md_path).
+
+    A single date (`YYYY-MM-DD`) is a daily report; a range
+    (`<start>_to_<end>`) is a weekly / weekend / monthly report — we pick the
+    kind by which folder actually holds the markdown."""
+    if _DATE_RE.match(identifier):
+        report_dir = ROOT / "output" / "daily" / identifier
+        return "daily", report_dir, report_dir / f"game_industry_daily_{identifier}.md"
+    if _RANGE_RE.match(identifier):
+        for kind in ("weekly", "weekend", "monthly"):
+            report_dir = ROOT / "output" / kind / identifier
+            md_path = report_dir / f"game_industry_{kind}_{identifier}.md"
+            if md_path.exists():
+                return kind, report_dir, md_path
+        # Nothing on disk yet: point at the weekly path so errors are legible.
+        report_dir = ROOT / "output" / "weekly" / identifier
+        return "weekly", report_dir, report_dir / f"game_industry_weekly_{identifier}.md"
+    raise ValueError(f"Unrecognized report identifier: {identifier!r}")
+
+
+def report_paths(date: str) -> tuple[Path, Path, Path]:
+    _, report_dir, md_path = resolve_report(date)
+    return md_path, report_dir / "report_page_data.json", report_dir
+
+
+def _strip_item_number(text: str) -> str:
+    return re.sub(r"^\s*\d+[.、)]\s*", "", text or "").strip()
+
+
+def _first_clause(text: str) -> str:
+    """Trim a bullet to its leading clause (drop trailing detail after ；/。)."""
+    t = (text or "").strip()
+    for sep in ("；", ";"):
+        idx = t.find(sep)
+        if idx > 0:
+            return t[:idx].strip()
+    idx = t.find("。")
+    if idx > 0:
+        return t[:idx].strip()
+    return t.rstrip("。").strip()
+
+
+def _parse_markdown_sections(text: str) -> list[dict[str, Any]]:
+    """Parse a daily report markdown into ordered sections.
+
+    Each section: {"name", "items": [{"title", "body", "kind"}]}.
+    "kind" is "heading" for `### N. ...` entries (title is the headline) or
+    "bullet" for `- ...` entries (title is the one-sentence line itself).
+    """
+    sections: list[dict[str, Any]] = []
+    cur: dict[str, Any] | None = None
+    pending: dict[str, str] | None = None
+
+    def flush() -> None:
+        nonlocal pending
+        if pending is not None and cur is not None:
+            cur["items"].append(pending)
+        pending = None
+
+    for raw in text.splitlines():
+        line = raw.rstrip()
+        h2 = re.match(r"^##\s+(.+)$", line)
+        if h2:
+            flush()
+            name = re.sub(r"^[一二三四五六七八九十]+、\s*", "", h2.group(1)).strip()
+            cur = {"name": name, "items": []}
+            sections.append(cur)
+            continue
+        if cur is None:
+            continue
+        h3 = re.match(r"^###\s+(.+)$", line)
+        if h3:
+            flush()
+            pending = {"title": _strip_item_number(h3.group(1)), "body": "", "kind": "heading"}
+            continue
+        bullet = re.match(r"^[-*]\s+(.+)$", line)
+        if bullet and pending is None:
+            cur["items"].append({"title": bullet.group(1).strip(), "body": "", "kind": "bullet"})
+            continue
+        stripped = line.strip()
+        if pending is not None:
+            if not stripped:
+                if pending["body"] and not pending["body"].endswith("\n\n"):
+                    pending["body"] = pending["body"].rstrip() + "\n\n"
+            elif not stripped.startswith("|"):
+                separator = "" if pending["body"].endswith("\n") else " "
+                pending["body"] = (pending["body"] + separator + stripped).strip()
+    flush()
+    return sections
+
+
+def _sections_from_json(data: dict[str, Any]) -> list[dict[str, Any]]:
+    groups: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+    for item in data.get("items", []):
+        if not item.get("title"):
+            continue
+        section = item.get("section", "") or "其他"
+        if section not in groups:
+            groups[section] = {"name": section, "items": []}
+            order.append(section)
+        groups[section]["items"].append(
+            {
+                "title": item.get("title", "").strip(),
+                "body": item.get("body", "").strip(),
+                "kind": "heading",
+            }
+        )
+    return [groups[section] for section in order]
+
+
+def _card_title_key(value: str) -> str:
+    value = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", value or "").replace("**", "")
+    return re.sub(r"\s+", " ", _strip_item_number(value)).strip()
+
+
+def _attach_industry_scores(
+    sections: list[dict[str, Any]], report_dir: Path
+) -> None:
+    """Attach audited industry/card metadata without displaying raw scores."""
+    items_path = report_dir / "_intermediate" / "report_items.json"
+    decisions_path = report_dir / "_intermediate" / "selection_decisions.json"
+    if not items_path.exists() or not decisions_path.exists():
+        return
+    try:
+        items_data = json.loads(items_path.read_text(encoding="utf-8"))
+        decisions_data = json.loads(decisions_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+
+    report_items = items_data.get("items", items_data) if isinstance(items_data, dict) else items_data
+    decisions = (
+        decisions_data.get("decisions", decisions_data)
+        if isinstance(decisions_data, dict)
+        else decisions_data
+    )
+    if not isinstance(report_items, list) or not isinstance(decisions, list):
+        return
+
+    decision_by_candidate: dict[str, dict[str, Any]] = {}
+    for decision in decisions:
+        if not isinstance(decision, dict) or decision.get("section") not in ("industry", "industry_news"):
+            continue
+        candidate_id = str(decision.get("candidate_id") or "")
+        if candidate_id:
+            decision_by_candidate[candidate_id] = decision
+
+    audit_by_title: dict[str, dict[str, Any]] = {}
+    for item in report_items:
+        if not isinstance(item, dict) or item.get("section") not in ("industry", "industry_news"):
+            continue
+        candidate_id = str(item.get("candidate_id") or "")
+        decision = decision_by_candidate.get(candidate_id, {})
+        total = (decision.get("scores") or {}).get("total")
+        key = _card_title_key(str(item.get("title") or ""))
+        if key:
+            audit_by_title[key] = {
+                "candidate_id": candidate_id,
+                "score_total": total if isinstance(total, (int, float)) else None,
+                "card_carryover": decision.get("card_carryover") is True,
+            }
+
+    for section in sections:
+        name = str(section.get("name") or "")
+        if "行业" not in name or "AI" in name.upper():
+            continue
+        for item in section.get("items", []):
+            audit = audit_by_title.get(_card_title_key(str(item.get("title") or "")))
+            if not audit:
+                continue
+            if audit["candidate_id"]:
+                item["candidate_id"] = audit["candidate_id"]
+            if audit["score_total"] is not None:
+                item["score_total"] = audit["score_total"]
+            if audit["card_carryover"]:
+                item["card_carryover"] = True
+
+
+def _attach_deep_card_copy(sections: list[dict[str, Any]], report_dir: Path) -> None:
+    """Attach authored compact copy to deep items without changing report prose."""
+    items_path = report_dir / "_intermediate" / "report_items.json"
+    if not items_path.exists():
+        return
+    try:
+        items_data = json.loads(items_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    report_items = items_data.get("items", items_data) if isinstance(items_data, dict) else items_data
+    if not isinstance(report_items, list):
+        return
+
+    copy_by_title: dict[str, dict[str, Any]] = {}
+    for item in report_items:
+        if not isinstance(item, dict) or item.get("section") not in ("deep", "deep_analysis"):
+            continue
+        card_copy = item.get("card_copy")
+        key = _card_title_key(str(item.get("title") or ""))
+        if key and isinstance(card_copy, dict):
+            copy_by_title[key] = card_copy
+
+    for section in sections:
+        _emoji, _display, is_deep = _section_meta(str(section.get("name") or ""))
+        if not is_deep:
+            continue
+        for item in section.get("items", []):
+            card_copy = copy_by_title.get(_card_title_key(str(item.get("title") or "")))
+            if card_copy:
+                item["card_copy"] = card_copy
+
+
+def _validate_card_report_artifacts(report_dir: Path, markdown_path: Path) -> None:
+    """Run the full report contract before any card reads structured reports."""
+    intermediate = report_dir / "_intermediate"
+    items_path = intermediate / "report_items.json"
+    decisions_path = intermediate / "selection_decisions.json"
+    release_audit_path = intermediate / "release_calendar_audit.json"
+    structured_paths = (items_path, decisions_path, release_audit_path)
+    if not any(path.exists() for path in structured_paths):
+        return
+    inputs_path = intermediate / "report_inputs.jsonl"
+    sources_path = report_dir / "sources_used.md"
+    try:
+        from report_artifacts import validate_contract
+    except ModuleNotFoundError:
+        from scripts.report_artifacts import validate_contract
+    errors, _warnings = validate_contract(
+        markdown_path,
+        inputs_path,
+        items_path,
+        decisions_path,
+        release_audit_path,
+        sources_path,
+        require_artifacts=True,
+    )
+    if errors:
+        raise ValueError("card report preflight failed:\n- " + "\n- ".join(errors))
+
+
+def load_report_summary(date: str, max_items: int | None = None) -> dict[str, Any]:
+    kind, report_dir, markdown_path = resolve_report(date)
+    data_path = report_dir / "report_page_data.json"
+    noun = REPORT_NOUN.get(kind, "日报")
+    if not report_dir.exists():
+        raise FileNotFoundError(f"Report folder not found: {report_dir}")
+    if markdown_path.exists():
+        _validate_card_report_artifacts(report_dir, markdown_path)
+        text = markdown_path.read_text(encoding="utf-8")
+        sections = _parse_markdown_sections(text)
+        title_match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
+        title = title_match.group(1).strip() if title_match else f"游戏行业{noun} | {date}"
+    elif data_path.exists():
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+        sections = _sections_from_json(data)
+        title = data.get("title") or f"游戏行业{noun} | {date}"
+    else:
+        raise FileNotFoundError(f"Report markdown not found: {markdown_path}")
+    _attach_industry_scores(sections, report_dir)
+    _attach_deep_card_copy(sections, report_dir)
+    return {
+        "date": date,
+        "kind": kind,
+        "noun": noun,
+        "title": title,
+        "sections": sections,
+        "item_count": sum(len(s["items"]) for s in sections),
+        "markdown_path": str(markdown_path),
+    }
+
+
+def _citation_parts(srcs: list | None) -> list[str]:
+    """Render each [sid, name, url] source as a markdown link `[标题](url)`
+    (or a plain label when there is no url), deduped by url (falling back to
+    label). Order is preserved. Brackets are full-widthed and `$` is escaped so
+    a source title can never break the markdown link text or trigger Feishu's
+    LaTeX math rendering."""
+    parts: list[str] = []
+    seen: set[str] = set()
+    for entry in srcs or []:
+        sid = entry[0] if len(entry) > 0 else ""
+        name = entry[1] if len(entry) > 1 else ""
+        url = entry[2] if len(entry) > 2 else ""
+        label = str(name or sid or "来源").strip()
+        label = label.replace("[", "【").replace("]", "】")
+        label = label.replace("$", "\\$")
+        url = str(url or "").strip()
+        key = url or label
+        if key in seen:
+            continue
+        seen.add(key)
+        if re.match(r"https?://", url):
+            parts.append(f"[{label}]({url})")
+        else:
+            parts.append(label)
+    return parts
+
+
+def _citation_md(srcs: list | None) -> str | None:
+    """Feishu quote line `> 来源：[标题](url) · ...`. None when nothing to cite."""
+    parts = _citation_parts(srcs)
+    if not parts:
+        return None
+    return "> 来源：" + " · ".join(parts)
+
+
+def _citation_child_bullet(srcs: list | None) -> str | None:
+    """A 2-space-indented child bullet `  - 来源：...` so the source nests under
+    its news-item bullet (folded by default after import). None when empty."""
+    parts = _citation_parts(srcs)
+    if not parts:
+        return None
+    return "  - 来源：" + " · ".join(parts)
+
+
+def build_docx_markdown(date: str) -> Path:
+    """Produce a markdown variant for Feishu docx import.
+
+    行业新闻 / AI / 舆论 items become an unordered-list bullet (the item body)
+    with its `来源：...` nested as a child bullet, so the source folds away by
+    default after import. 产品日历 bullets get the same child-bullet source.
+    深度观察 keeps its multi-paragraph prose and a `> 来源：...` quote (long-form,
+    few sources — nothing to fold). The canonical report markdown stays
+    untouched; the augmented file is written under
+    `_intermediate/docx_import_<date>.md` and its path is returned.
+
+    Source lookup + title mapping reuse build_report_html so the docx
+    citations match the same sources the webpage would show.
+    """
+    import build_report_html as brh  # reuse parse_sources / sources_for
+
+    md_path, _, report_dir = report_paths(date)
+    md = md_path.read_text(encoding="utf-8")
+    sources_path = report_dir / "sources_used.md"
+    if sources_path.exists():
+        title_ids, id_meta = brh.parse_sources(sources_path.read_text(encoding="utf-8"))
+    else:
+        title_ids, id_meta = {}, {}
+
+    out: list[str] = []
+    section_kind: str | None = None
+    pending_title: str | None = None   # open 深度观察 item awaiting its > 来源 quote
+    capture_body: str | None = None    # industry/ai/discourse item awaiting its body line
+
+    def flush_deep() -> None:
+        nonlocal pending_title
+        if pending_title:
+            line = _citation_md(brh.sources_for(pending_title, title_ids, id_meta))
+            if line:
+                out.append("")
+                out.append(line)
+        pending_title = None
+
+    for ln in md.splitlines():
+        s = ln.strip()
+        h2 = re.match(r"^##\s+(.+)$", s)
+        if h2:
+            flush_deep()
+            capture_body = None
+            section_kind = brh.heading_to_section(h2.group(1).strip())
+            out.append(ln)
+            continue
+        h3 = re.match(r"^###\s+(?:\d+\.\s+)?(.+)$", s)
+        if h3 and section_kind in ("industry", "ai", "discourse", "deep"):
+            flush_deep()
+            title = h3.group(1).strip()
+            out.append(ln)
+            if section_kind == "deep":
+                pending_title = title
+            else:
+                capture_body = title
+            continue
+        # first prose line after an industry/ai/discourse heading → body bullet + source child
+        if capture_body and s:
+            out.append(f"- {s}")
+            child = _citation_child_bullet(brh.sources_for(capture_body, title_ids, id_meta))
+            if child:
+                out.append(child)
+            capture_body = None
+            continue
+        if section_kind == "release" and s.startswith("- "):
+            out.append(ln)
+            body = s[2:].strip()
+            gm = re.search(r"《([^》]+)》", body)
+            gname = gm.group(1) if gm else body[:24]
+            srcs = brh.sources_for(f"产品日历 - {gname}", title_ids, id_meta) or brh.sources_for(gname, title_ids, id_meta)
+            child = _citation_child_bullet(srcs)
+            if child:
+                out.append(child)
+            continue
+        out.append(ln)
+
+    flush_deep()
+
+    augmented = "\n".join(out) + "\n"
+    out_path = report_dir / "_intermediate" / f"docx_import_{date}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(augmented, encoding="utf-8")
+    return out_path
+
+
+# Section name (markdown 中文标题或 json code) -> (emoji, 卡片显示名, 是否在卡片中略去)
+_DROP_KEYWORDS = ("深度", "精选")
+_WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+
+
+def _section_meta(name: str) -> tuple[str, str, bool]:
+    codes = {
+        "industry": ("📰", "行业新闻", False),
+        "ai": ("🤖", "AI 动态", False),
+        "release": ("🎮", "新游 / 产品", False),
+        "discourse": ("💬", "玩家舆论", False),
+        "deep": ("🧠", "深度观察", True),
+    }
+    if name in codes:
+        return codes[name]
+    lowered = name.lower()
+    if any(k in name for k in _DROP_KEYWORDS):
+        return ("🧠", name, True)
+    if "ai" in lowered:
+        return ("🤖", "AI 动态", False)
+    if any(k in name for k in ("新游", "产品", "发布", "日历")):
+        return ("🎮", "新游 / 产品", False)
+    if any(k in name for k in ("舆论", "社区")):
+        return ("💬", "玩家舆论", False)
+    if "行业" in name or "新闻" in name:
+        return ("📰", "行业新闻", False)
+    return ("📰", name or "其他", False)
+
+
+def _weekday_label(date: str) -> str:
+    try:
+        return _WEEKDAYS[datetime.strptime(date, "%Y-%m-%d").weekday()]
+    except ValueError:
+        return ""
+
+
+_CARD_PIPELINE_LEAK = re.compile(
+    r"(?:GameLook专稿|禁止转载|GameLook报道/|"
+    r"\bSource\s*:\s*|回复\s*[：:]\s*\d+|页数\s*[：:]\s*\d+|"
+    r"收录依据\s*[：:]|created\s*@|综合热度分|本周该信号聚焦|"
+    r"(?:【|\[)\s*(?:补位|上期卡片未展示)\s*(?:】|\])|"
+    r"上期卡片未展示|card_carryover)",
+    re.IGNORECASE,
+)
+
+
+def _validate_card_source_text(title: str, body: str, *, deep: bool = False) -> None:
+    """Block report-generation residue before it reaches a Feishu card."""
+    combined = f"{title}\n{body}"
+    matched = _CARD_PIPELINE_LEAK.search(combined)
+    if matched:
+        raise ValueError(f"card source contains pipeline/source metadata: {matched.group(0)}")
+    if deep:
+        plain = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", body or "").strip()
+        if not plain.startswith("观察：") or "分析：" not in plain:
+            raise ValueError("deep-observation card source must start with 观察： and contain 分析：")
+        if len([part for part in re.split(r"\n\s*\n", plain.split("分析：", 1)[1]) if part.strip()]) < 2:
+            raise ValueError("deep-observation card source needs at least two analysis paragraphs")
+
+
+def _industry_card_detail(body: str) -> str:
+    """Return one non-redundant factual extension for an industry-card line."""
+    sentences = [
+        sentence.strip().rstrip("\u3002\uff01\uff1f")
+        for sentence in re.split(r"(?<=[\u3002\uff01\uff1f])", re.sub(r"\s+", " ", body or ""))
+        if sentence.strip()
+    ]
+    factual_markers = re.compile(r"(\d|《|计划|将|新增|测试|上线|发布|收入|玩家|市场|模式|系统)")
+    editorial_markers = ("值得", "仍是", "仍需", "需看", "能否", "有待", "取决于")
+
+    def trim_editorial_tail(candidate: str) -> str:
+        for marker in editorial_markers:
+            position = candidate.find(marker)
+            if position > 0:
+                cut = max(candidate.rfind("，", 0, position), candidate.rfind("；", 0, position))
+                return candidate[:cut].rstrip("，； ") if cut > 0 else ""
+        return candidate
+
+    def usable(candidate: str) -> bool:
+        return bool(factual_markers.search(candidate)) and not any(
+            marker in candidate for marker in editorial_markers
+        ) and not _CARD_PIPELINE_LEAK.search(candidate)
+
+    # Industry item titles already carry the lead event. Select the strongest
+    # non-lead clause with a concrete product, timing, market, or mechanism
+    # fact; never append a generic reporter conclusion just to make it longer.
+    clauses = [
+        clause.strip()
+        for sentence in sentences[1:]
+        for clause in re.split(r"[\uff1b;]", sentence)
+        if clause.strip()
+    ]
+
+    def detail_score(candidate: str) -> int:
+        weights = {
+            r"《": 6,
+            r"\d": 5,
+            r"计划|将": 4,
+            r"测试|上线|发布": 3,
+            r"收入|玩家|市场": 3,
+            r"模式|系统": 2,
+        }
+        return sum(weight for pattern, weight in weights.items() if re.search(pattern, candidate))
+
+    usable_clauses = [trim_editorial_tail(candidate) for candidate in clauses]
+    usable_clauses = [candidate for candidate in usable_clauses if usable(candidate)]
+    if not usable_clauses and sentences:
+        lead_clauses = [
+            clause.strip()
+            for clause in re.split(r"[\uff1b;]", sentences[0])[1:]
+            if clause.strip()
+        ]
+        usable_clauses = [trim_editorial_tail(candidate) for candidate in lead_clauses]
+        usable_clauses = [candidate for candidate in usable_clauses if usable(candidate)]
+    detail = max(usable_clauses, key=detail_score, default="")
+    if not detail:
+        return ""
+    if len(detail) <= 88:
+        return detail
+    breakpoint = max(detail.rfind(mark, 0, 88) for mark in ("，", "；", "、"))
+    return detail[: breakpoint if breakpoint >= 36 else 85].rstrip("，、；： ") + "…"
+
+
+def _discourse_card_line(title: str, body: str) -> str:
+    """Render a 玩家舆论 card line as the section body's own ~100-char summary,
+    shown verbatim.
+
+    The 舆论 body is written as a self-contained ≤100-char account (前情一句带过
+    + 近期进展为主). The card shows it as-is — whitespace normalized and the
+    trailing 句号 dropped — and NEVER truncates at a fixed length or a
+    punctuation mark, so the reader never sees a cut-off clause or an ellipsis.
+    Keeping each line within ~100 chars is the job of writing the body short at
+    generation time, not of the card. Falls back to the headline when the body
+    is empty."""
+    body = re.sub(r"\s+", " ", body or "").strip()
+    return body.rstrip("。") if body else title
+
+
+def _item_one_liner(item: dict[str, str]) -> str:
+    title = (item.get("title") or "").replace("\n", " ").strip()
+    if item.get("kind") == "bullet":
+        return _first_clause(title)
+    title = _strip_item_number(title)
+    return title
+
+
+def _plain_card_text(value: str) -> str:
+    """Normalize upstream prose before applying card-owned, single-line styling."""
+    value = re.sub(r"\*{2}([^*]+?)\*{2}", r"\1", value or "").replace("**", "")
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _product_card_line(item: dict[str, str]) -> str:
+    """Keep the report sentence order while applying the card's compact wording."""
+    line = _plain_card_text(_item_one_liner(item))
+    return re.sub(r"(《[^》]+》)于(?=\d{1,2}月)", r"\1", line)
+
+
+def _emphasize_lead_clause(line: str) -> str:
+    """Bold only the first short clause of an industry headline."""
+    line = _plain_card_text(line)
+    boundaries = [line.find(sep) for sep in ("，", ",", "；", ";", "。") if line.find(sep) > 0]
+    end = min(boundaries, default=len(line))
+    return f"**{line[:end]}**{line[end:]}"
+
+
+def _select_section_card_items(
+    section: dict[str, Any],
+    per_section: int,
+    *,
+    report_kind: str = "",
+) -> list[dict[str, Any]]:
+    """Apply section caps and guarantee the one audited industry carryover slot."""
+    if per_section <= 0:
+        return []
+    items = list(section.get("items", []))
+    name = str(section.get("name") or "")
+    section_limit = per_section
+    if any(keyword in name for keyword in ("舆论", "社区")):
+        community_limit = COMMUNITY_CARD_ITEMS_BY_REPORT_KIND.get(report_kind)
+        if community_limit is not None:
+            section_limit = min(section_limit, community_limit)
+    selected = items[:section_limit]
+    if "行业" not in name or "AI" in name.upper():
+        return selected
+    carryover = next((item for item in items if item.get("card_carryover") is True), None)
+    if carryover is None or carryover in selected:
+        return selected
+    return selected[: max(0, per_section - 1)] + [carryover]
+
+
+def card_item_manifest(
+    summary: dict[str, Any], per_section: int = CARD_ITEMS_PER_SECTION
+) -> list[dict[str, Any]]:
+    """Return the exact report items rendered by the main subscriber card."""
+    manifest: list[dict[str, Any]] = []
+    for section in summary.get("sections", []):
+        _emoji, display, drop = _section_meta(section.get("name", ""))
+        if drop:
+            continue
+        for position, item in enumerate(
+            _select_section_card_items(
+                section,
+                per_section,
+                report_kind=str(summary.get("kind") or ""),
+            ),
+            1,
+        ):
+            manifest.append(
+                {
+                    "section": "industry" if display == "行业新闻" else display,
+                    "candidate_id": str(item.get("candidate_id") or ""),
+                    "title": _card_title_key(str(item.get("title") or "")),
+                    "position": position,
+                    "card_carryover": item.get("card_carryover") is True,
+                }
+            )
+    return manifest
+
+
+def build_daily_card(
+    summary: dict[str, Any],
+    doc_url: str | None = None,
+    per_section: int = CARD_ITEMS_PER_SECTION,
+    *,
+    feedback_expanded: bool = False,
+) -> dict[str, Any]:
+    """Build the compact Feishu report card.
+
+    The report Markdown deliberately keeps headings and prose separate for
+    auditability. The card is a different presentation layer: every industry
+    and product-calendar item must occupy exactly one bullet/Markdown line.
+    玩家舆论 keeps its intentional headline + summary hierarchy.
+    """
+    noun = summary.get("noun", "日报")
+    weekday = _weekday_label(summary["date"])
+    header_title = f"🤖 {summary['title']}"
+    if weekday:
+        header_title += f" {weekday}"
+
+    elements: list[dict[str, Any]] = []
+    for section in summary.get("sections", []):
+        emoji, display, drop = _section_meta(section.get("name", ""))
+        if drop:
+            continue
+        items = _select_section_card_items(
+            section,
+            per_section,
+            report_kind=str(summary.get("kind") or ""),
+        )
+        if not items:
+            continue
+        lines = [f"**{emoji} {display}**"]
+        for index, item in enumerate(items):
+            _validate_card_source_text(
+                item.get("title", ""),
+                item.get("body", ""),
+                deep=False,
+            )
+            title = _plain_card_text(_strip_item_number(item.get("title", "")))
+            if not title:
+                continue
+            if display == "行业新闻":
+                detail = _plain_card_text(_industry_card_detail(item.get("body", "")))
+                suffix = f"；{detail}" if detail else ""
+                headline = (
+                    _emphasize_lead_clause(title)
+                    if item.get("score_total") == 11
+                    else title
+                )
+                lines.append(f"• {headline}{suffix}")
+            elif display.startswith("AI"):
+                detail = _plain_card_text(_industry_card_detail(item.get("body", "")))
+                suffix = f"；{detail}" if detail else ""
+                lines.append(f"• {title}{suffix}")
+            elif display == "新游 / 产品":
+                line = _product_card_line(item)
+                if index < 2:
+                    line = f"**{line}**"
+                lines.append(f"• {line}")
+            elif display == "玩家舆论":
+                lines.append(f"• **{title}**")
+                detail = _plain_card_text(_discourse_card_line(title, item.get("body", "")))
+                if detail:
+                    lines.append(f"  {detail}")
+            else:
+                lines.append(f"• {title}")
+        elements.append({"tag": "markdown", "content": "\n".join(lines)})
+
+    if doc_url:
+        elements.append({"tag": "hr"})
+        elements.append(
+            {
+                "tag": "column_set",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "text": {
+                                    "tag": "plain_text",
+                                    "content": f"📄 查看完整{noun}文档（含新闻源地址、详细正文）",
+                                },
+                                "type": "primary",
+                                "behaviors": [{"type": "open_url", "default_url": doc_url}],
+                            }
+                        ],
+                    }
+                ],
+            }
+        )
+
+    feedback_context = {
+        "report_kind": str(summary.get("kind") or "daily"),
+        "report_date": str(summary.get("date") or ""),
+        "report_title": str(summary.get("title") or ""),
+    }
+    elements.extend(
+        [
+            {"tag": "hr"},
+            {"tag": "markdown", "content": "**这份报告对你有帮助吗？**", "text_size": "notation"},
+            {
+                "tag": "column_set",
+                "flex_mode": "bisect",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "element_id": "report_feedback_helpful",
+                                "text": {"tag": "plain_text", "content": "😊 很有帮助！"},
+                                "type": "danger_filled",
+                                "width": "fill",
+                                "behaviors": [
+                                    {
+                                        "type": "callback",
+                                        "value": {
+                                            "action": "report_feedback_helpful",
+                                            **feedback_context,
+                                        },
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                    {
+                        "tag": "column",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "element_id": "report_feedback_suggest",
+                                "text": {"tag": "plain_text", "content": "💡 我有想说的！"},
+                                "type": "default",
+                                "width": "fill",
+                                "behaviors": [
+                                    {
+                                        "type": "callback",
+                                        "value": {
+                                            "action": "report_feedback_expand",
+                                            **feedback_context,
+                                        },
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                ],
+            },
+        ]
+    )
+    if feedback_expanded:
+        elements.append(
+            {
+                "tag": "form",
+                "name": "report_feedback_form",
+                "elements": [
+                    {
+                        "tag": "input",
+                        "name": "feedback_text",
+                        "input_type": "multiline_text",
+                        "rows": 3,
+                        "auto_resize": True,
+                        "max_rows": 6,
+                        "max_length": 500,
+                        "required": True,
+                        "width": "fill",
+                        "placeholder": {
+                            "tag": "plain_text",
+                            "content": "欢迎写下你的反馈或进一步研究需求（最多 500 字）",
+                        },
+                    },
+                    {
+                        "tag": "button",
+                        "name": "submit_feedback",
+                        "form_action_type": "submit",
+                        "text": {"tag": "plain_text", "content": "提交反馈"},
+                        "type": "primary",
+                        "behaviors": [
+                            {
+                                "type": "callback",
+                                "value": {
+                                    "action": "report_feedback_submit",
+                                    **feedback_context,
+                                },
+                            }
+                        ],
+                    },
+                ],
+            }
+        )
+    elements.append(
+        {
+            "tag": "markdown",
+            "content": (
+                "AI 自动整理 · 如发现文字或事实错误，或对整体格式与内容有改进建议，"
+                "或希望进一步研究某条新闻，欢迎点击上方“💡 我有想说的！”反馈给战略团队。"
+            ),
+            "text_size": "notation",
+        }
+    )
+
+    return {
+        "schema": "2.0",
+        "config": {"width_mode": "fill"},
+        "header": {
+            "template": "blue",
+            "title": {"tag": "plain_text", "content": header_title},
+        },
+        "body": {"elements": elements},
+    }
+
+
+def build_deep_observation_card(
+    summary: dict[str, Any],
+    doc_url: str | None = None,
+    source_url: str | None = None,
+    max_items: int = 1,
+) -> dict[str, Any] | None:
+    """Build the standalone deep-observation card paired with a report card.
+
+    Keep this separate from ``build_daily_card``: the report card is a scan of
+    all sections, while this card gives one selected observation enough room
+    for a compact observation-and-analysis read.
+    """
+    items: list[dict[str, str]] = []
+    for section in summary.get("sections", []):
+        _emoji, _display, is_deep = _section_meta(section.get("name", ""))
+        if is_deep:
+            items.extend(section.get("items", []))
+    if not items:
+        return None
+
+    elements: list[dict[str, Any]] = []
+    for item in items[:max_items]:
+        title = _strip_item_number(item.get("title", ""))
+        body = re.sub(r"[ \t]+", " ", item.get("body", "")).strip()
+        body = re.sub(r"\n{3,}", "\n\n", body)
+        _validate_card_source_text(title, body, deep=True)
+        card_copy = item.get("card_copy")
+        if card_copy is not None:
+            try:
+                from report_artifacts import normalize_deep_card_copy
+            except ModuleNotFoundError:
+                from scripts.report_artifacts import normalize_deep_card_copy
+            source_label, card_summary, insights = normalize_deep_card_copy(card_copy, title)
+            elements.append(
+                {"tag": "markdown", "content": f"**{source_label}：{title}**"}
+            )
+            elements.append({"tag": "hr"})
+            elements.append(
+                {
+                    "tag": "markdown",
+                    "content": f"**🎯 一句话总结**\n\n{card_summary}",
+                }
+            )
+            elements.append({"tag": "hr"})
+            insight_lines = ["**💎 核心洞察**"]
+            for index, insight in enumerate(insights, 1):
+                insight_lines.append(
+                    f"**{index}. {insight['title']}**\n{insight['detail']}"
+                )
+            elements.append({"tag": "markdown", "content": "\n\n".join(insight_lines)})
+        else:
+            body = re.sub(r"\*{0,2}(观察：|分析：)\*{0,2}", r"**\1**", body)
+            content = f"**{title}**"
+            if body:
+                content += f"\n\n{body}"
+            elements.append({"tag": "markdown", "content": content})
+
+    buttons: list[dict[str, Any]] = []
+    if doc_url:
+        noun = summary.get("noun") or "周报"
+        buttons.append(
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": f"查看{noun}飞书文档"},
+                "type": "primary",
+                "behaviors": [{"type": "open_url", "default_url": doc_url}],
+            }
+        )
+    if source_url:
+        buttons.append(
+            {
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "查看原文链接"},
+                "type": "default",
+                "behaviors": [{"type": "open_url", "default_url": source_url}],
+            }
+        )
+    if buttons:
+        elements.append({"tag": "hr"})
+        elements.append(
+            {
+                "tag": "column_set",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [button],
+                    }
+                    for button in buttons
+                ],
+            }
+        )
+    elements.append(
+        {
+            "tag": "markdown",
+            "content": "独立深度观察 · 一句话总结与核心洞察",
+            "text_size": "notation",
+        }
+    )
+    return {
+        "schema": "2.0",
+        "config": {"width_mode": "fill"},
+        "header": {
+            "template": "purple",
+            "title": {"tag": "plain_text", "content": f"🧠 {summary['title']}｜深度观察"},
+        },
+        "body": {"elements": elements},
+    }
+
+
+def _deep_item_source_url(summary: dict[str, Any], item: dict[str, str]) -> str | None:
+    """Find the first auditable source URL for one deep-observation item."""
+    markdown_path = Path(str(summary.get("markdown_path") or ""))
+    sources_path = markdown_path.parent / "sources_used.md"
+    if not sources_path.exists():
+        return None
+    try:
+        import build_report_html as brh
+
+        title_ids, id_meta = brh.parse_sources(sources_path.read_text(encoding="utf-8"))
+        title = _strip_item_number(item.get("title", ""))
+        for _source_id, _name, url in brh.sources_for(title, title_ids, id_meta):
+            if isinstance(url, str) and re.match(r"https?://", url):
+                return url
+    except (ImportError, OSError, ValueError):
+        return None
+    return None
+
+
+def _designated_deep_card_title(summary: dict[str, Any]) -> str | None:
+    """Read the human-designated deep-observation card title, if any.
+
+    The Thursday human-curation step decides which single deep observation
+    becomes a card; the Friday generation writes that title to
+    ``deep_card_choice.txt`` in the report directory. Absent file → no card is
+    pushed (the deep card is human-gated, there is no auto-fallback).
+    """
+    markdown_path = summary.get("markdown_path")
+    if not markdown_path:
+        return None
+    choice_path = Path(str(markdown_path)).parent / "deep_card_choice.txt"
+    try:
+        title = choice_path.read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    return _strip_item_number(title) or None
+
+
+def build_deep_observation_cards(
+    summary: dict[str, Any], doc_url: str | None = None, max_cards: int = 1
+) -> list[dict[str, Any]]:
+    """Build the single human-designated weekly deep-observation card.
+
+    The report body may carry two or three deep-observation items, but only the
+    one the user designated on Thursday (recorded in ``deep_card_choice.txt``)
+    becomes a card. If no designation exists, no deep card is pushed.
+    """
+    if not doc_url:
+        return []
+    chosen_title = _designated_deep_card_title(summary)
+    if not chosen_title:
+        return []
+
+    items: list[dict[str, str]] = []
+    deep_name = "深度观察"
+    for section in summary.get("sections", []):
+        _emoji, display, is_deep = _section_meta(section.get("name", ""))
+        if is_deep:
+            deep_name = section.get("name") or display
+            items.extend(section.get("items", []))
+
+    cards: list[dict[str, Any]] = []
+    for item in items:
+        if _strip_item_number(item.get("title", "")) != chosen_title:
+            continue
+        source_url = _deep_item_source_url(summary, item)
+        if not source_url:
+            continue
+        card_summary = {**summary, "sections": [{"name": deep_name, "items": [item]}]}
+        card = build_deep_observation_card(
+            card_summary,
+            doc_url=doc_url,
+            source_url=source_url,
+            max_items=1,
+        )
+        if card:
+            cards.append(card)
+        if len(cards) >= max_cards:
+            break
+    return cards
+
+
+def content_hash(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def add_date_arg(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--date",
+        required=True,
+        help="Report identifier: a date for daily (2026-06-23) or a range for "
+        "weekly/weekend (2026-06-20_to_2026-06-26).",
+    )
+
+
+def main_check_config() -> int:
+    load_dotenv()
+    names = ["FEISHU_APP_ID", "FEISHU_APP_SECRET"]
+    for name in names:
+        print(f"{name}: {'ok' if os.environ.get(name) else 'missing'}")
+    return 0 if all(os.environ.get(name) for name in names) else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main_check_config())

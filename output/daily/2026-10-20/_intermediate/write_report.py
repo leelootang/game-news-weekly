@@ -10,6 +10,24 @@ for d in D:
 if 'J_MARKET' not in DM:
     survey=dict(candidate_id='J_MARKET',section='industry_news',source_ids=['S0050'],entities=['中国游戏社招市场'],event='游戏陀螺披露截至10月8日近60家游戏公司社招调查',event_date='2026-10-20',decision='include',reason='本期国内研发人才市场调查，有样本、统计时点、总量和需求结构；E2R3M1=7。单一调查事件，不把在研项目合并为产品首曝。',scores=dict(event=2,relevance=3,hook=1,total=7),history_check=dict(history_match=False,novelty='new_event',prior_occurrences=[],new_facts=[],prior_card_exposed=None),observation_as_of='2026-10-08')
     D.append(survey);DM['J_MARKET']=survey
+# User editorial correction, 2026-10-21: category tags and calendar labels do not
+# establish high business relevance or prove a first test. Keep every candidate.
+feedback_revisions={
+    'I020':(3,1,1,'原文只证明1—6人合作RPG首个试玩，未证明PVP竞技、重点主体、国内/移动关联或竞争格局迁移；多人合作不等于PVP。R3缺依据，改R1，4分排除。'),
+    'I191':(0,1,1,'只有日历“已上线试玩”及品类标签，不能证明新品首次测试；主体、平台和业务迁移点不明，不凭RPG标签给R3。按普通试玩宣传E0排除，保留日历单源审计。'),
+    'I195':(3,1,1,'正式上线节点可暂按E3，但来源只有时间和放置/卡牌标签，未证明重点主体、国内移动研运归属或实质业务迁移；不能仅凭标签给R3，改R1，4分排除。'),
+    'I198':(3,1,1,'正式上线节点可暂按E3，但只有JRPG/像素标签，无主体/平台/业务相关性取证；不能仅凭JRPG给R3，改R1，4分排除。'),
+    'I190':(0,3,1,'只有“国服正式首曝！预约赢OPPO手机”日历广告，缺公告、研运主体和首次立项/公开产品的实质内容；不能把预约标签认定为已发生的市场扩展。中国市场关联保留R3，例行预约宣传E0排除。'),
+    'I196':(0,1,1,'只有新品预下载和未来上线日，未发生正式上线或首测；既非平台政策也非已发生跨平台，原E2无依据。类型标签不足R3，按普通预下载宣传E0排除。'),
+    'I197':(0,1,1,'只有预下载及多人/格斗标签，没有首测/正式上线或具体主体事实；不以类型标签替代行业事件与相关性取证，普通预下载宣传E0排除。'),
+    'I201':(0,1,1,'只有预下载及未来23日上线，非本期正式上线或首测；策略/卡牌标签不自动授予R3，普通预下载宣传E0排除。'),
+    'I202':(0,1,1,'只有预下载及篮球/经营标签，不能证明行业重要事件或重点研运主体，原E2R3均无充分依据；普通预下载宣传E0排除。')}
+for cid,(e,r,m,reason) in feedback_revisions.items():
+    d=DM[cid]
+    if 'user_review_original_scores' not in d:d['user_review_original_scores']=dict(d['scores'])
+    d.update(decision='exclude',scores=dict(event=e,relevance=r,hook=m,total=e*r+m),reason=reason,user_review_basis='用户2026-10-21指出：普通Demo/上线节点不应靠品类标签机械抬高R进入行业新闻。')
+    if cid in {'I020','I191','I195','I198'}:
+        d['entity_assessment']=dict(developer=None,publisher=None,identity_status='unverified_in_current_sources',subject_weight='low',relevance_cap=1,scoring_location='主体因素计入R；现行行业公式无独立主体加分项。',basis='当前来源未提供可核验研运主体，不认定为重点厂商，也不凭缺失信息断言实际公司规模；品类标签不能覆盖主体证据不足。',source_ids=d['source_ids'])
 def save(n,x):(P/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def sid(i):return f'S{i:04}' if isinstance(i,int) else i
 def proof(i,needle):
@@ -179,6 +197,7 @@ demo='''观察：Digital Sun把《ReVamp》公开测试收缩为Discord社区内
 item('D_DEMO','AI复刻风险让公开试玩同时承担获客与泄露成本',[
 ('把《ReVamp》公开测试收缩为Discord社区内的受控测试',89,'more contained'),('TapTap上的相似产品下载达到30万次',72,'已经获得了30万次下载'),('距离正式推出尚有数月',89,'With launch still months away'),('获得反馈并积累受众',89,'solicit player feedback, gather metrics'),('强化概率、碎剑与出售武器',72,'破坏 ——武器消失')],body=demo,card_copy=dict(source_label='Game Developer与游戏新知案例分析',summary='公开试玩既帮助原创团队寻找玩家，也可能缩短复刻者的学习与发行时间，受控测试因此成为曝光和验证之间的取舍。',insights=[dict(title='提前展示的时间差缩小',detail='Digital Sun担心测试构建被抢先复刻；ForgeTax相似产品已进入国内多个小游戏渠道。'),dict(title='收紧范围也减少验证机会',detail='Discord受控测试能限制扩散，但仍要验证目标用户覆盖和行为数据的多样性。'),dict(title='隐藏玩法存在获客代价',detail='可展示范围、发布间隔与受众识别共同影响原作的防御能力，全面隐匿也会失去被发现的机会。')]))
 # Correct candidate metadata and prepare human-readable audit artifacts BEFORE report_items.
+items[:]=[it for it in items if DM[it['candidate_id']]['decision']=='include']
 DM['I193']['pc_release_scope']=dict(classification='unknown',basis='明确PC/主机单机试玩，但开发主体未知，R1。',evidence=[dict(source_id=sid(193),evidence=proof(193,'Badges: PC/主机'))])
 for d in D:
     if d['candidate_id'].startswith('G') and 'pc_release_scope' in d:
@@ -210,6 +229,7 @@ for d in D:
     sc=d.get('scores',{});score=f"事件{sc['event']}×相关{sc['relevance']}+钩子{sc['hook']} = {sc['total']}" if d['section']=='industry_news' else json.dumps(sc,ensure_ascii=False)
     md += ['| '+' | '.join([d['candidate_id'],d['decision']+(' into '+d['merge_into'] if d.get('merge_into') else ''),d['section'],score,d['reason'].replace('|','/')])+' |']
 md.insert(3,'产品日历漏挂反查：完整industry/release逐段召回新品首曝、定档、预下载、试玩与重大老品节点；全部节点均有include/exclude，行业是否收录不参与日历排序。')
+md.insert(4,'用户复核纠正：I020/I191/I195/I198移出行业；I190/I196/I197/I201/I202同类低信息预约/预下载一并排除。不得以RPG/卡牌/经营/多人标签直接给R3；不把“已上线试玩”直接认作新品首测，不把预下载套成E2平台/档期变化。日历资格仍独立，不能自动转入正文。')
 (P/'event_candidates.md').write_text('\n'.join(cards)+'\n',encoding='utf-8');(P/'selection_decisions.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
 save('report_items.json',{'report_type':'daily','date':'2026-10-20','items':items})
 report=['# 游戏行业日报｜2026-10-20','']

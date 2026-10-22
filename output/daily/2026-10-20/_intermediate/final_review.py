@@ -11,7 +11,7 @@ assert set(S)==covered
 assert all(S[s]['body_status']=='full' and S[s]['fetch_status']=='ok' for s in used)
 final=P.parent/'game_industry_daily_2026-10-20.md';text=final.read_text(encoding='utf-8')
 assert not re.search(r'沐瞳|Moonton|MLBB|决胜巅峰|Mobile Legends|card_carryover|补位|对我司|值得借鉴|启示',text,re.I)
-assert len(items)==27 and summary['sections']==dict(industry_news=15,ai_trends=6,release_calendar=2,community_discourse=2,deep_analysis=2)
+assert len(items)==18 and summary['sections']==dict(industry_news=6,ai_trends=6,release_calendar=2,community_discourse=2,deep_analysis=2)
 assert all(read('validation_results.json')[key]['exit_code']==0 for key in ['report_lint','artifact_validate'])
 assert subprocess.run(['git','diff','--quiet','--','news_data'],cwd=ROOT).returncode==0
 scan=read('full_input_scan.json')

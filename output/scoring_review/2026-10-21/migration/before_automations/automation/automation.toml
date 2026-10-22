@@ -1,0 +1,14 @@
+version = 1
+id = "automation"
+kind = "cron"
+name = "周四深度观察候选筛选"
+prompt = "每周四 16:00，为次日周五周报准备深度观察候选，并只通过独立“飞书周四备选 Bot”向用户送达。工作目录 C:\\Users\\Admin\\Documents\\AI游戏行业周月报。严格读取并遵循 C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\SKILL.md 与 references\\deep-observation.md，尤其执行“周四候选质量门禁”；所有 Python 命令设置 PYTHONUTF8=1。\n\n日期与文件契约：\n1. 按 Asia/Shanghai 当前日期确认今天是周四；运行 python scripts/deep_observation_handoff.py windows --thursday <今天YYYY-MM-DD>，脚本输出是唯一日期真源。\n2. candidate_window 固定为上周四至本周三；target_weekly_id 固定为上周五至本周四。候选只用 candidate_window，选择文件只按 target_weekly_id 命名。\n3. 全部通过质量门禁的候选写入 output/deep_observation_review/<target_weekly_id>_candidates.md；不得提前创建 selection。\n\n来源顺序与质量硬门槛：\n1. 第一优先完整检查 candidate_window 内用户已配置为 deep_analysis 的 newsletter 更新，不得被普通行业新闻挤掉。第二步检查已生成日报/周末报的深度内容，但已成稿不等于自动合格。仍有独立高价值主题时，才从已采集材料反扫深度市场研究、横向分析、开发复盘和含内部数据的访谈。\n2. 普通快讯、公告、发布稿、短摘要、单一现象稿只能补充事实，不能单独支撑候选；付费墙预告、无法读取全文的页面和纯宣传性厂商自述不能作为唯一核心来源。\n3. 每条候选的核心来源至少满足一条：\n   - 深度分析：包含问题、机制、成立前提和下游影响；\n   - 横向比较：在同一维度比较至少两个项目、公司或产品；\n   - 数据型案例：至少三个互不重复的实质证据锚点，且至少一个是内部/市场数据、明确决策、流程变化或可核验对比。\n4. “有趣事实”必须帮助解释机制、反常识结果或决策约束；单个数字、名单、趣闻和宣传口号不构成深度。\n\n主题合并：\n1. 先按“主体/产品 + 核心问题 + 关键机制”生成 topic_key，再生成候选。同一 topic_key、同一篇文章或高度重合的一组来源默认只形成一个候选，把数据、案例、机制和边界合并完整。\n2. 不得按段落、事实点、产品名或卡片洞察拆题。只有两个角度回答不同决策问题、证据集基本不重合、下游影响不同，且各自独立通过来源门槛和评分时才可拆分；必须在审计中写 split_justification，写不清就合并。\n3. 不设候选数量目标。“不截断”只表示保留全部通过门禁的独立候选；宁可少，不得拆题、降门槛或堆普通新闻凑数。\n4. 检查与上一期深度观察是否实质撞题；只有窗口内出现新证据、新机制或新阶段才能保留。\n\n表达与评分：\n1. 标题必须直接写清谁/什么发生了什么变化，以及关键结果或机制。读者只看标题和一句话观察，就应知道主题、变化和核心结论。\n2. 用语保持简洁、清晰、专业。禁止用抽象概念替代结论，避免无必要的“范式、重构、飞轮、解法、信号、想象空间、方法论”等词；不要用隐喻、对仗、反问或层层定语制造深度感。\n3. 一句话观察只承担一个核心判断，最多100字；分析要点只保留互不重复的机制、证据和边界，不重复改写标题，不为显得完整而过度解释。\n4. 写完执行首读测试：若无法用一句日常、专业中文向同事解释“这条到底要说什么”，必须重写；重写后仍不清楚则排除。\n5. 按 R/I/E/C 各0–3分。候选基础资格仍为 I>0、E>0、真实可核验 http(s) URL、事实由来源直接支持，但这只是必要条件；只有再通过上述来源、主题、证据和表达门禁才能展示。正文自动资格为总分>=9。不得因主体热门、数字多或来源多而虚高评分；C3只给无需额外背景即可理解且讨论点明确的候选。\n\n审计与候选文件：\n1. 审计产物须为每个展示候选记录 topic_key、source_priority、quality_route、至少三个 evidence_anchors、merge_basis；拆分时另写 split_justification。\n2. 发送前确认没有重复 topic_key，同一核心来源没有无理由对应多个候选，普通新闻只作辅助来源，候选数量由质量门槛自然产生。\n3. 候选文件按总分降序写入所有通过门禁的候选。每条必须有 Cxxx、标题、R/I/E/C与总分、正文资格、一句话观察、分析要点、真实来源 URL，以及“来源标签：原标题 + 一句话总结 + 3–6条核心洞察”的卡片预览。\n\n发送与结束：\n1. 完成候选文件后运行 python scripts/feishu_deep_review.py send --weekly-id <target_weekly_id>。必须核对返回 target_weekly_id、candidate_count、card_count 与候选文件一致；Bot 未绑定、API 失败或只完成部分发送均判定任务失败，不得声称已送达，也不要退回任务对话等待选择。\n2. 本次任务到发送完成即结束。用户回复由长连接监听器写入 data/feishu/deep_review/replies/，周五任务负责整理 selection；本任务不得自动代选、不得创建 selection。\n3. 最终摘要只报告候选窗口、目标周报 ID、候选文件、合格候选数、飞书 delivery_id、发送卡片数和绑定/发送状态，不在任务对话重复全部候选。"
+status = "ACTIVE"
+rrule = "FREQ=WEEKLY;BYDAY=TH;BYHOUR=16;BYMINUTE=0;BYSECOND=0"
+model = "gpt-6.1-sol"
+reasoning_effort = "high"
+execution_environment = "local"
+target = { type = "project", project_id = "local-02b6d61252a1af37e13aca7b35f6c099" }
+cwds = ["C:\\Users\\Admin\\Documents\\AI游戏行业周月报"]
+created_at = 1784614958548
+updated_at = 1792032848867

@@ -1,0 +1,14 @@
+version = 1
+id = "daily-git-push-for-game-report-workspace"
+kind = "cron"
+name = "游戏报告网页发布（工作日10点）"
+prompt = "每个工作日 10:00，把 09:00 生成的报告 Markdown 转成可交互单页 HTML，发布到 GitHub Pages 的 docs/，提交并推送。工作目录 C:\\Users\\Admin\\Documents\\AI游戏行业周月报。每次读取并严格遵循 C:\\Users\\Admin\\.codex\\skills\\report-interactive-webpage\\SKILL.md。不碰飞书。所有 Python 命令设置 PYTHONUTF8=1。\n\n按 Asia/Shanghai 当前日期独立重算目标；周末误触发直接结束：\n- 周二/三/四：日报，ID=昨天，终稿 output/daily/<ID>/game_industry_daily_<ID>.md。\n- 周五：周报，ID=<今天-7天>_to_<今天-1天>，终稿 output/weekly/<ID>/game_industry_weekly_<ID>.md。\n- 周一：周末报，ID=<今天-3天>_to_<今天-1天>，终稿 output/weekend/<ID>/game_industry_weekend_<ID>.md。\n若终稿不存在，立即停止并报告 09:00 任务可能失败，不得硬造内容。\n\n发布前硬门禁（2026-07-22 起）：确认同目录 sources_used.md 及 _intermediate/report_inputs.jsonl、report_items.json、selection_decisions.json、release_calendar_audit.json 全部存在；运行 python scripts/report_artifacts.py validate --report <终稿> --inputs <inputs> --items <items> --decisions <decisions> --release-audit <audit> --sources <sources> --require-artifacts。任何缺失或 error 都立即停止，不生成 HTML、不改 docs、不提交推送。2026-07-21 及以前旧报告不回溯。\n\n步骤：\n1. git pull --ff-only，并再次执行上述发布前硬门禁。\n2. python scripts/build_report_html.py <终稿完整路径>。\n3. python scripts/build_docs.py，把报告页和门户写入 docs/，logo 内联为 data URI。\n4. 用浏览器/预览验证所有条目、分区计数、搜索、来源抽屉、控制台、桌面及 390px 移动宽度无横向溢出。若工具不可用，必须如实说明未完成浏览器验证。\n5. 只执行 git add output docs；git commit，消息“docs: publish <kind> report <ID>”；git push。若被拒，git pull --rebase 后重试；冲突则停止报告。禁止强推、--no-verify、reset --hard。\n6. 摘要报告类型、ID、artifact gate、HTML 路径、docs 更新、commit hash、push 结果。"
+status = "ACTIVE"
+rrule = "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=10;BYMINUTE=0;BYSECOND=0"
+model = "gpt-5.6-sol"
+reasoning_effort = "medium"
+execution_environment = "local"
+target = { type = "project", project_id = "local-02b6d61252a1af37e13aca7b35f6c099" }
+cwds = ["C:\\Users\\Admin\\Documents\\AI游戏行业周月报"]
+created_at = 1780547644704
+updated_at = 1784616896917

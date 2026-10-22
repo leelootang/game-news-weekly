@@ -3,7 +3,6 @@
 ## Local Inputs
 
 - `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-20\articles.jsonl`
-- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-10-20\articles.jsonl`
 - `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-20\articles.jsonl`
 
 ## Item Source Map
@@ -13,18 +12,9 @@
 - 创梦天地与南山区国资共同发起2亿元游戏产业战略投资 — S0051
 - 猩球游戏建立广州发行分部，《弹壳战机》首月内购收入估算超百万美元 — S0071
 - 京东成立全资公司，经营范围纳入游戏开发与服务 — S0049
-- 合作海盗RPG《龙骨海盗》开放首个公开试玩版 — S0020
-- 放置地牢RPG《流放地牢》开放试玩 — S0191
-- 放置卡牌新作《大武林》于10月20日正式上线 — S0195
-- 像素JRPG《英雄请出战》于10月20日正式上线 — S0198
 - Griffin与Entertainment 360成立HITpoint，拓展游戏影视改编 — S0080, S0091
 - 近60家游戏公司社招超8500个岗位，UE5与AI需求进入研发职能 — S0050
 - 《ForgeTax》销量估算超25万份，国内复刻产品下载达30万次 — S0072
-- 《战舰移动2》国服首次曝光，开放预约 — S0190
-- 像素RPG《守护庄园》开放预下载，10月21日上线 — S0196
-- 多人格斗《拳皇·命运》开放预下载，10月21日上线 — S0197
-- 策略卡牌《征战王权》开放预下载，10月23日上线 — S0201
-- 篮球经营游戏《美职篮奇迹梦之队》开放预下载 — S0202
 ### AI 新闻
 
 - 海艺SeaGames扩展到游戏美术工作站，Maker正在内测 — S0073
@@ -51,19 +41,10 @@
 - S0051 | youxituoluo.com | 深圳南山区国资出手，游戏赛道再添战略资本 | https://www.youxituoluo.com/534973.html
 - S0071 | new.qq.com | 《弹壳特攻队》研发商入驻广州，建立发行分部 | https://new.qq.com/rain/a/20261020A0CBGE00
 - S0049 | m.sohu.com | 京东要亲自下场做游戏了？ | https://m.sohu.com/a/1090349655_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1792541113443c8sWgf3_324
-- S0020 | gcores.com | 支持简体中文：1—6人合作海盗RPG《龙骨海盗》推出免费试玩版 | https://www.gcores.com/articles/221151
-- S0191 | 3839.com | 流放地牢 - 已上线试玩 | https://www.3839.com/a/202876.htm
-- S0195 | 3839.com | 大武林 - 10:00 正式上线 | https://www.3839.com/a/194434.htm
-- S0198 | 3839.com | 英雄请出战 - 10:00 正式上线 | https://www.3839.com/a/188076.htm
 - S0080 | gamesindustry.biz | Griffin Gaming Partners and Entertainment 360 launch new company to support video game adaptations for film and TV | https://www.gamesindustry.biz/griffin-gaming-partners-and-entertainment-360-launch-new-company-to-support-video-game-adaptations-for-film-and-tv
 - S0091 | gamedeveloper.com | Griffin Gaming Partners, Entertainment 360 jointly unveil production company Hitpoint Entertainment | https://www.gamedeveloper.com/business/griffin-gaming-partners-entertainment-360-jointly-unveil-production-company-hitpoint-entertainment
 - S0050 | youxituoluo.com | 2026年大厂在偷偷做什么游戏？答案全在招聘页的“职位描述”里 | https://www.youxituoluo.com/534972.html
 - S0072 | new.qq.com | 大学生做独游卖出25万份，山寨版已获得30万下载 | https://new.qq.com/rain/a/20261020A0CBG300
-- S0190 | 3839.com | 战舰移动2-国服 - 国服正式首曝！预约赢OPPO手机 | https://www.3839.com/a/204853.htm
-- S0196 | 3839.com | 守护庄园-预下载 - 10:00 预下载，10月21日上线 | https://www.3839.com/a/184427.htm
-- S0197 | 3839.com | 拳皇·命运-预下载 - 10:00 预下载，10月21日上线 | https://www.3839.com/a/199085.htm
-- S0201 | 3839.com | 征战王权 - 12:00 预下载，10月23日上线 | https://www.3839.com/a/203099.htm
-- S0202 | 3839.com | 美职篮奇迹梦之队-预下载 - 18:00 预下载，10月21日上线 | https://www.3839.com/a/201857.htm
 - S0073 | new.qq.com | 年化收入超1亿美元，这家公司做AI比做游戏还赚钱？ | https://new.qq.com/rain/a/20261020A0CBFY00
 - S0043 | gamelook.com.cn | 游戏美术哭了：AI大模型操作Blender 3D建模，Tripo和Meshy都有危险？ | http://www.gamelook.com.cn/2026/10/604232/
 - S0089 | gamedeveloper.com | Moonlighter developer delays public playtest of next game over concerns of AI cloning | https://www.gamedeveloper.com/programming/moonlighter-developer-delays-public-playtest-of-next-game-over-concerns-of-ai-cloning

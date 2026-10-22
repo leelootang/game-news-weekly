@@ -12,6 +12,7 @@
 - notes: 海外单机未来档期与已有试玩，R1；与19日同短讯，无新阶段。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
+
 - history_occurrence_details: []
 
 - pc_release_scope: {"classification": "ordinary_overseas_single_player", "basis": "普通海外或主体未明PC/主机单机发布，类型标签不提高相关性R1。", "evidence": [{"source_id": "S0001", "evidence": "《Reshine》确定11月26日发售，Steam Demo现已上线"}]}
@@ -26,6 +27,7 @@
 - notes: 创作者疾病公告不是管理层离任或项目取消；不从健康状况推测商业后果。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
+
 - history_occurrence_details: []
 
 ## I003 - 目标钓上1亿条鱼的增量游戏《钓遍海里的鱼》Steam免费试玩版现已上线，预计参加10月新品节
@@ -38,6 +40,7 @@
 - notes: 普通海外/主体未明PC单机试玩，不能凭钓鱼模拟给R3。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
+
 - history_occurrence_details: []
 
 - pc_release_scope: {"classification": "ordinary_overseas_single_player", "basis": "普通海外或主体未明PC/主机单机发布，类型标签不提高相关性R1。", "evidence": [{"source_id": "S0003", "evidence": "目标钓上1亿条鱼的增量游戏《钓遍海里的鱼》Steam免费试玩版现已上线，预计参加10月新品节"}]}
@@ -268,8 +271,8 @@
 - source_ids: S0020
 - entities: 支持简体中文：1—6人合作海盗RPG《龙骨海盗》推出免费试玩版
 - event_date: 2026-10-20
-- facts: 支持简体中文：1—6人合作海盗RPG《龙骨海盗》推出免费试玩版；首个公开试玩版现已免费开放。扬帆出海，体验类魂战斗；本次试玩也是游戏迄今规模最大的可玩版本。
-- notes: 首个公开试玩；明确1—6人合作海盗RPG，属多人而非普通海外单机例外。
+- facts: 原文为支持简体中文：1—6人合作海盗RPG《龙骨海盗》推出免费试玩版；判断：原文只证明1—6人合作RPG首个试玩，未证明PVP竞技、重点主体、国内/移动关联或竞争格局迁移；多人合作不等于PVP。R3缺依据，改R1，4分排除。
+- notes: 原文只证明1—6人合作RPG首个试玩，未证明PVP竞技、重点主体、国内/移动关联或竞争格局迁移；多人合作不等于PVP。R3缺依据，改R1，4分排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -2936,8 +2939,8 @@
 - source_ids: S0190
 - entities: 战舰移动2-国服 - 国服正式首曝！预约赢OPPO手机
 - event_date: 2026-10-20
-- facts: Event: 国服正式首曝！预约赢OPPO手机；Game: 战舰移动2-国服；Tags: 海战 / 多人联机 / 竞技；Event date: 2026-10-20 00:00
-- notes: 国服正式首曝是地域/市场扩展节点，海战竞技，7分。
+- facts: Event: 国服正式首曝！预约赢OPPO手机；Tags: 海战 / 多人联机 / 竞技
+- notes: 只有“国服正式首曝！预约赢OPPO手机”日历广告，缺公告、研运主体和首次立项/公开产品的实质内容；不能把预约标签认定为已发生的市场扩展。中国市场关联保留R3，例行预约宣传E0排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -2949,8 +2952,8 @@
 - source_ids: S0191
 - entities: 流放地牢 - 已上线试玩
 - event_date: 2026-10-20
-- facts: Event: 已上线试玩；Event date: 2026-10-20 00:00；Game: 流放地牢；Tags: 放置 / 地牢 / 角色扮演
-- notes: 放置地牢RPG首次试玩节点，无PC单机限定，优先赛道10分；不补厂商和平台。
+- facts: Event: 已上线试玩；Tags: 放置 / 地牢 / 角色扮演
+- notes: 只有日历“已上线试玩”及品类标签，不能证明新品首次测试；主体、平台和业务迁移点不明，不凭RPG标签给R3。按普通试玩宣传E0排除，保留日历单源审计。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3003,8 +3006,8 @@
 - source_ids: S0195
 - entities: 大武林 - 10:00 正式上线
 - event_date: 2026-10-20
-- facts: Event: 10:00 正式上线；Game: 大武林；Event date: 2026-10-20 10:00；Tags: 放置 / 角色扮演 / 卡牌
-- notes: 放置卡牌角色扮演新品正式上线，10分；不凭武侠名猜开发商。
+- facts: Event: 10:00 正式上线；Tags: 放置 / 角色扮演 / 卡牌
+- notes: 正式上线节点可暂按E3，但来源只有时间和放置/卡牌标签，未证明重点主体、国内移动研运归属或实质业务迁移；不能仅凭标签给R3，改R1，4分排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3016,8 +3019,8 @@
 - source_ids: S0196
 - entities: 守护庄园-预下载 - 10:00 预下载，10月21日上线
 - event_date: 2026-10-20
-- facts: Event: 10:00 预下载，10月21日上线；Game: 守护庄园-预下载；Event date: 2026-10-20 10:00；Tags: 冒险 / 角色扮演 / 像素
-- notes: 新品预下载，像素RPG，7分；21日上线为明示绝对日期。
+- facts: Event: 10:00 预下载，10月21日上线；Tags: 冒险 / 角色扮演 / 像素
+- notes: 只有新品预下载和未来上线日，未发生正式上线或首测；既非平台政策也非已发生跨平台，原E2无依据。类型标签不足R3，按普通预下载宣传E0排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3029,8 +3032,8 @@
 - source_ids: S0197
 - entities: 拳皇·命运-预下载 - 10:00 预下载，10月21日上线
 - event_date: 2026-10-20
-- facts: Event: 10:00 预下载，10月21日上线；Game: 拳皇·命运-预下载；Event date: 2026-10-20 10:00；Tags: 格斗 / 多人联机 / 动作
-- notes: 多人格斗新品预下载，PVP赛道7分。
+- facts: Event: 10:00 预下载，10月21日上线；Tags: 格斗 / 多人联机 / 动作
+- notes: 只有预下载及多人/格斗标签，没有首测/正式上线或具体主体事实；不以类型标签替代行业事件与相关性取证，普通预下载宣传E0排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3042,8 +3045,8 @@
 - source_ids: S0198
 - entities: 英雄请出战 - 10:00 正式上线
 - event_date: 2026-10-20
-- facts: Event: 10:00 正式上线；Game: 英雄请出战；Event date: 2026-10-20 10:00；Tags: JRPG / 剧情 / 像素
-- notes: 像素JRPG新品正式上线，10分。
+- facts: Event: 10:00 正式上线；Tags: JRPG / 剧情 / 像素
+- notes: 正式上线节点可暂按E3，但只有JRPG/像素标签，无主体/平台/业务相关性取证；不能仅凭JRPG给R3，改R1，4分排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3081,8 +3084,8 @@
 - source_ids: S0201
 - entities: 征战王权 - 12:00 预下载，10月23日上线
 - event_date: 2026-10-20
-- facts: Event: 12:00 预下载，10月23日上线；Game: 征战王权；Event date: 2026-10-20 12:00；Tags: 策略 / 竞技 / 卡牌
-- notes: 策略卡牌新作预下载，7分；23日上线未发生。
+- facts: Event: 12:00 预下载，10月23日上线；Tags: 策略 / 竞技 / 卡牌
+- notes: 只有预下载及未来23日上线，非本期正式上线或首测；策略/卡牌标签不自动授予R3，普通预下载宣传E0排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -3094,8 +3097,8 @@
 - source_ids: S0202
 - entities: 美职篮奇迹梦之队-预下载 - 18:00 预下载，10月21日上线
 - event_date: 2026-10-20
-- facts: Event: 18:00 预下载，10月21日上线；Game: 美职篮奇迹梦之队-预下载；Event date: 2026-10-20 18:00；Tags: 篮球 / 体育 / 经营
-- notes: 篮球经营新品预下载，经营优先赛道7分。
+- facts: Event: 18:00 预下载，10月21日上线；Tags: 篮球 / 体育 / 经营
+- notes: 只有预下载及篮球/经营标签，不能证明行业重要事件或重点研运主体，原E2R3均无充分依据；普通预下载宣传E0排除。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
 
@@ -4657,3 +4660,4 @@
 - notes: 本期国内研发人才市场调查，有样本、统计时点、总量和需求结构；E2R3M1=7。单一调查事件，不把在研项目合并为产品首曝。
 
 - history_check: {"history_match": false, "novelty": "new_event", "prior_occurrences": [], "new_facts": [], "prior_card_exposed": null}
+
