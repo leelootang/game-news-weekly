@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-10-27T09:20:30.696501+08:00",
+  "canonical": true,
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\game_industry_daily_2026-10-26.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\_intermediate\\report_inputs.jsonl",
+        "--report-type",
+        "daily"
+      ],
+      "returncode": 0,
+      "stdout": "WARN: input extraction has 15 short/snippet records; they are forbidden as final-item evidence\nReport lint passed with warnings.\n",
+      "stderr": "",
+      "errors": [],
+      "warnings": [
+        "WARN: input extraction has 15 short/snippet records; they are forbidden as final-item evidence"
+      ]
+    },
+    {
+      "command": [
+        "C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\scripts\\report_artifacts.py",
+        "validate",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\game_industry_daily_2026-10-26.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\_intermediate\\report_items.json",
+        "--decisions",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\_intermediate\\selection_decisions.json",
+        "--release-audit",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\daily\\2026-10-26\\_intermediate\\release_calendar_audit.json",
+        "--require-artifacts"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
