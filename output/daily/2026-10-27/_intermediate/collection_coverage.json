@@ -1,0 +1,57 @@
+{
+  "window": {
+    "start": "2026-10-27",
+    "end": "2026-10-27"
+  },
+  "input_section_counts": {
+    "industry_news": 147,
+    "ai_trends": 23,
+    "release_calendar": 18,
+    "community_discourse": 16,
+    "deep_analysis": 5
+  },
+  "failed_collectors": [
+    {
+      "collector": "gamelook",
+      "section": "industry_news",
+      "returncode": 1
+    },
+    {
+      "collector": "vgc",
+      "section": "industry_news",
+      "returncode": 1
+    },
+    {
+      "collector": "dataeye_36kr",
+      "section": "industry_news",
+      "returncode": 1
+    },
+    {
+      "collector": "wanjiang_16p_newgame",
+      "section": "release_calendar",
+      "returncode": 1
+    }
+  ],
+  "degraded_collectors": [
+    {
+      "collector": "pocketgamer",
+      "health_note": "[health] degraded reason=detail_unavailable full=0 rss_summary=9"
+    }
+  ],
+  "consistency_mismatches": [
+    {
+      "section": "deep_analysis",
+      "collector": "sensortower",
+      "manifest_count": 4,
+      "jsonl_rows": 3,
+      "out": "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\news_data\\deep_analysis\\2026-10-27"
+    }
+  ],
+  "missing_manifest_entry": "2026年8月成功出海的中国手游 / 2026-8-last-asylum-plague-top-7；manifest有但JSONL缺失，本期未消费也未联网补造",
+  "zero_articles": [
+    "nadianshi",
+    "cubox"
+  ],
+  "news_data_modified": false,
+  "source": "news_data/_collector_runs/2026-10-27/run_summary.json"
+}
