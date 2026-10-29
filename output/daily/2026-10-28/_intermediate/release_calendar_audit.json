@@ -1,0 +1,5541 @@
+{
+  "schema_version": 5,
+  "focus_company_policy_version": "subject_genre_v2",
+  "report_window": {
+    "start": "2026-10-28",
+    "end": "2026-10-28"
+  },
+  "release_lookahead_days": 1,
+  "release_window": {
+    "start": "2026-10-28",
+    "end": "2026-10-29"
+  },
+  "ranking": "publish_eligible desc, priority_score desc; tie company_bonus desc, event_type_score desc, appearance_count desc, industry_bonus desc, first_seen_order asc",
+  "formula": "priority_score = event_type_score * source_strength_score + company_bonus",
+  "focus_company_bonus": 3,
+  "focus_company_investment_bonus": 2,
+  "nodes": [
+    {
+      "product": "影之刃零",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 2000,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0020",
+        "S0028",
+        "S0035",
+        "S0232",
+        "S0243",
+        "S0261",
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0020",
+        "S0028",
+        "S0035",
+        "S0232",
+        "S0243",
+        "S0261",
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221570|f37901deea9d1b076b268e329486d98b9491c80c",
+        "https://m.sohu.com/a/1094041150_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.6.1793232248602I2syOkV|536978dd01dd09d5591d3a80f40f46c30ec2dcc8",
+        "https://www.youxituoluo.com/535003.html|9bc4f359dffd80321b90cd56629fbf1b6c155659",
+        "https://www.sohu.com/a/1094013496_100136645|5043a160313147473d823a6864467a3c0bcf7e8e",
+        "https://www.pcgamer.com/games/action/phantom-blade-zero-release-date-launch-times/|1fe8de06e156d7f8557c73c78a07001a7b880321",
+        "http://www.nadianshi.com/2026/10/423367|8b0db85dabe3bf17f12b17bb91e721415110becd",
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 7,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 12,
+      "company_bonus": 2,
+      "company_relationship": "investment",
+      "focus_companies": [
+        "腾讯"
+      ],
+      "focus_company_relationships": {
+        "腾讯": "investment"
+      },
+      "company_evidence_ids": [
+        "S0232"
+      ],
+      "priority_score": 14,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": true,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "正式发售为29日；28日预下载另记，不能混成28日上线。腾讯仅投资+2。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-001"
+    },
+    {
+      "product": "Witchbrook",
+      "event_date": "2027-01-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19702,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197",
+        "S0201"
+      ],
+      "release_ids": [
+        "S0320"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0201",
+        "S0320"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://www.gamespot.com/articles/witchbrook-is-stardew-valley-meets-kikis-delivery-service-and-it-finally-has-a-release-date/|4d57e94b1964095af000b86271ae51d593e50b70",
+        "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTExac1hxdWp1dDJjOUxuLTh0YVpDdlhaZlVHbC1HMWVlNk5PWHAyWTNvd3hZSm9aSWdnclRvbUE1Z3RYRE9BWUFGVTBFVDlxbUIzTVFtaFdCck9heDdtRXZBU1Q3S3J0YWRoTXI2dmN5ZGplZWl2Sl95dGhsOHQzTUVRMzJCWlNLSWx2ag?oc=5|e39246bc46bb7dd792d0271d19c42324ae3c96d3"
+      ],
+      "appearance_count": 3,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 8,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 8,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "多平台生活模拟新品正式定档，无名单公司加分。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-003"
+    },
+    {
+      "product": "Petal Runner",
+      "event_date": "2027-03-08",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19703,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197",
+        "S0203"
+      ],
+      "release_ids": [
+        "S0308"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0203",
+        "S0308"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3",
+        "https://news.google.com/rss/articles/CBMikgFBVV95cUxOQ1Bqc3BUMmxKaXU3QXBLQ0REdk05UjFOS29UV2JGaFNwalNEQnYtZFhLYnJpeVFDZzdUNEZ4MVRkQWdHODk3UkR6Z0FUdDJwREJtWHNNM2JweHlvTGQyVDNMcVNCSno1d1NFT20yUk5oUlNzWWNidzJBb3UwSW5HYjV1RjhTajZhY0Znd2lkUlFUZw?oc=5|a4b75114d696fe48c83d73f60abe7bb2c0f9e4fb"
+      ],
+      "appearance_count": 3,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 8,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 8,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "当前公告未来定档；S0203另有单源Demo。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-004"
+    },
+    {
+      "product": "Raccoin: Chaos Max Edition",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19810,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197",
+        "S0203"
+      ],
+      "release_ids": [
+        "S0307"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0203",
+        "S0307"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3",
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxQN2xwdzZtV3ozVWx4cWJjRHVwSVFrYXFpMWZ5WGM5aWxsMDJ5LVpjQmI3bDJaQ1JsMjIyYjRYakh0M3FrT2JHb0ZlNVpaX3VRTnY5ZWhRUnpQX0JwMkNMOG45ZnA5REd1U1EwMEJZMThSNHRtS1F5WHBXNU1CYjJoTGR2NHZEWnk4V0JWTVJHdzZ1dV8yazFELVRjVHRZbjdIM3NTYWFPQ1Jjc0J5cTA3UA?oc=5|ba5246bbe96e3aa0a3b6f1746f6f64ac64b3354a"
+      ],
+      "appearance_count": 3,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 8,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 8,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-005"
+    },
+    {
+      "product": "奇迹：新纪元",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 28004,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0280",
+        "S0289"
+      ],
+      "source_ids": [
+        "S0280",
+        "S0289"
+      ],
+      "source_fingerprints": [
+        "https://newgame.17173.com/game-info-1048928.html|95f88e9a2c316df0ee7be50876a565d24fb79768",
+        "https://www.3839.com/a/202899.htm|7ac312c94f2dedbe8328fb88185092a878e09d75"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 0,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": true,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "17173与3839两源一致的实际测试。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-006"
+    },
+    {
+      "product": "Threads of Time",
+      "event_date": "2027-summer",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19806,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0317"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0317"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZFBvb2VtN2dBa19tbzJtY1ctTTMySTBzT0llUDFtSU9TbDhCOERZcWJPcFh5eGd4d0JtNHI5VmlKYk11LVJMdV84R0RsYWtSR254WHFmcGFKbC0wbVpmcE45b2VyN1dxdWw3VFB2VmxQc2tXZktHUElPZ19jUm9WeXRwdVRtbFVtTlh0ZkpEZ19oNHZEN2pNS3NRM3RKNWxJVXdWRHJMN2k?oc=5|81553989a12aff4f30099336105dd6e8a9972b6c"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-007"
+    },
+    {
+      "product": "Tenjutsu",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19806,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0318"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0318"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMihgFBVV95cUxQSzJMcm94Y09sS21EV2RQU05pc1NuRDdkcElLNWRmaXI1eFI4d05ZUjVxbG9LQjJwYi10V3U1RU1TMmtjSTZlRjZpcm11Q2lmdDZ0OEd3LW8yUHVQdkdZNFBOUlZlS3BFMERlLTlKRzNGUk9Id3huN2VaTElqeWh6eTdmV0JTUQ?oc=5|065d01a3e7eaec70e9d2487aedad01bd4525642f"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-008"
+    },
+    {
+      "product": "Dumpster Gang",
+      "event_date": "2027-03",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19806,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0316"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0316"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMinwFBVV95cUxPLUoxc3h2MFZRT2JOWmp1Z3c2dDNzb0VIdW0xSjZ4ZUNyQlNGdjFpcDJHY0NMR1daNFl4NWhYNjM3ckw4SnJZNlhHekZtT1I5NzdlU0JCZFlqNm00Z05VRERqQnFvdk1pT0RWb2ZWQUh5UlFWVVJReU80cnlHR3lYcFcyQ2Q1SzJoRFJmaEl2MW5QTG95bGRTaWppeUhwWlk?oc=5|afb470ac5af8b47ab24366e797326a9e2d0c4b0d"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-009"
+    },
+    {
+      "product": "Super Battle Golf",
+      "event_date": "2027-03-25",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19807,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0315"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0315"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbkZ5eWFfVDEzNHg2blpjQ1lpQWxxSEF4QlF0RjNxMTJ3dzB5RVpvV2NjazlDMm91U2EyblpWTnJZbTlneTJRUzhrQ2ZsU1VpeUE0eUJmcFNRbEhIcjJhb3lNV29ZOWpFQ0ZrUXBhM3l5RmVGdDZKZ2UwNklPOFduWVY3b0FTR1FmNjdCQWx1NWU0UlFtc01ZNExORkdWZUQyNk11aVRDakI?oc=5|c7852efa4d1e78e7be911fe25a13c6be858595ca"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-010"
+    },
+    {
+      "product": "Haunted Paws",
+      "event_date": "2027-05",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19808,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0314"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0314"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMic0FVX3lxTE9TakJreDlIV1hGRlV3Q0lUYlZZZVpmWm5jTEUxSUVFVjBQWUxvN3dBck4wdnhFMTJRNkVkeU1sd0tqUHRwdHBfbGdFVEdlUm9GaHBVLUsxS0IyQlJXbnlvbHBpUGdrOEFvLUVPcVpVVVJHOVU?oc=5|eec8b5b957051cb5f4c24bf0ddf18638f41daa73"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-011"
+    },
+    {
+      "product": "Slime Rancher 2",
+      "event_date": "2027-01",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19809,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0298"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0298"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNjY3cXVSQkdXRkI3RFg5eGc5Nk9DMVpucm90M3RYLURpUFpTY3VKMUNFUHBOOEI3Z1lrZ0RMcnFnNGh5OW12WHJheldFWnJRcVZManNQWnBiVG5NR3JOXzJQVEwzbmdFelJNTkVzQzBJVTh3R2ZLWmNpLXRzQjlScVhqSmFLUDlYN0E?oc=5|7f47a44771d46b32c79624b3e92ff4e925d49707"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-012"
+    },
+    {
+      "product": "Spirit Crossing",
+      "event_date": "2026-11-16",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19809,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0310"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0310"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMWhXLURBVkFMZjRReDkyZVdnTWV3bjZGMGEwV3JUNGc2XzNvQVo1S0tWMWZLT29XOUtuZlhxNnM0OVBKWGdqWUhjUE9jZWpOYjlhMWxFOFNxLVZHODF1MEZvTkVJbXNIaVVOc0tFeWJpRXZESGdDN1VpTFRKbzNJTXhxRU9xTFBBeGVUbmJHOHdsazdmb1JwMWF1NGhUY2EyQWthWA?oc=5|94ac37b70f801816707b525589f4cad12381f16b"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-013"
+    },
+    {
+      "product": "My Arms Are Longer Now",
+      "event_date": "2027-03-11",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19809,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0309"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0309"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUnZUdkh2UHVvbHZIYTVpNDVMZThRSUc0SVltYURTNXp0UGFEZWc1LTIxZnVfMm45d0NlQ2lfRllaaXBmSmozV2ItOTJaRFJDb3pLcC1JREdMMGdWaGN6ZGJ6MUZnS1ZFcVl0T3JzVTA3b1FuX0J5TFBjQUV4eGFrTHF3OA?oc=5|ba031ed17791571fb20505780268f67d97cda05e"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-014"
+    },
+    {
+      "product": "Tanuki Pon’s Summer",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19811,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0306"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0306"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTDJDRXlmV2NLMERhYms3RlpDb2JTZDEySnRVcWxzbXFtRHRCeWpILXlib3EwejNtVWZXdXNPZnYwTmhzNGk1SzB2YkFrUXhJUGhHZUJHVFdDS3N6Mm9pcUE1V2pTSWlxdFRpMUo1OVR6Q1l4OFlTd2VXRnZOT0hITlQ3WlJDbHRtSjU1Y1hvcFRhNW1GQk1aQUxIc05JbEJtUnNTWW5PMzZzUQ?oc=5|8a9fd8bd4d05107d84da0de00a6e780360ae235d"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-015"
+    },
+    {
+      "product": "Finding Polka",
+      "event_date": "2027-spring",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19811,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0305"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0305"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYjk4dEZ4Sl9BdHU0cWNwWWQtQkVlRmd6c1h0SjVnRmtTU09CblFCUHV0SHphb1pTbFNEVmNwaHFNNGpVYlBLay1SRlFPTWs3N25sd2RoNWVuN2RHQzc3dTVja014YVRrczlEdXgtT3NNQUpUcnRsdHBTQ1hKRzNwT0xxOA?oc=5|576c9321cf35173f1f275964bc6ff17d3c7b559a"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-016"
+    },
+    {
+      "product": "Floor Plan: Slap Out of It!",
+      "event_date": "2027-spring",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19811,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0304"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0304"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMG53dGlHZkltZ0tJX3Bfc04wY1oycGQxbFQ0RkR1ZGZXU05yMlk1MWJOU0dhYzZWNnJEYlRZVURGd3IxbVdIZEhCVzVvQnpMc19qYU5udG9QeEFzN3FuQWlaWW5PMURuRjdaZUhJRUVPdFFpMWFqRVNwWDhodWs4bWhJWWtIT1NKN2NRdkgyWS1EZXhYY1UxdkFEMnlwblNUZUZCN0pzc0pTWElIZDFZZl9IWkpWUQ?oc=5|30bda6f63214f5d0b5d35db3bd07716e37c25d2a"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-017"
+    },
+    {
+      "product": "HyperYuki: Snowboard Syndicate",
+      "event_date": "2027-early",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19813,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [
+        "S0302"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0302"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcW9DTFRyYkRFZTU4b081b00wZ1JmRWdmcHVEZXFsekFyUGdOMlZJRFFjWWZzNnQ5elUtZERXRnNHaURUbXVGd0xIOFJwNG4zaV9wZ2xTS1RYYUhKdDRNbHFGUDQwaDgxeFFIUkJZR3Z5cE1LQ0RPVEprTUxxbnJHdGMzTHBXRWRmUkpMeHg2LW1VOXR0RkNNQ0Y5QTlvdlJyVGk3VVc0QWpFUQ?oc=5|8fab307451047b14d3066b59f904ddb9513072c5"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-018"
+    },
+    {
+      "product": "Bao Bao’s Cozy Cleaning Services",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 19705,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [
+        "S0197",
+        "S0203"
+      ],
+      "release_ids": [
+        "S0303"
+      ],
+      "source_ids": [
+        "S0197",
+        "S0203",
+        "S0303"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3",
+        "https://news.google.com/rss/articles/CBMikgFBVV95cUxPT3AwelZtT0dOZDFGRzQ5SnprYmFtYzNmZGtoZjQyMk5iaV9uZG9FNGp6TlFpZ0ZoYXRmU2Z0UDJqN240M0xRYnpmNnh4SXM3d0dsSXpMbFdzRzJtSmV3QXJ6a0pwMEJaVzV2LXpUb0ZnbnN1SXE2MWVST2s2NzFsYlRyQWxsTUFPcTBYWmZKWlFFUQ?oc=5|706fb14ad0a7041653540095bca8c4e885e9f611"
+      ],
+      "appearance_count": 3,
+      "appearance_score": 3,
+      "industry_bonus": 1,
+      "source_strength_score": 4,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": true,
+      "coverage": "both",
+      "coverage_rank": 3,
+      "editorial_note": "Switch版当日可用；PC次日日期不与该Switch节点混并。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-019"
+    },
+    {
+      "product": "Raccoin: Chaos Max Edition",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 19701,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [
+        "S0197",
+        "S0203"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197",
+        "S0203"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb",
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 9,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 9,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "现已可玩不等于10月28日首次开放测试，缺确切启用日；保留其11月10日多源正式定档节点。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-002"
+    },
+    {
+      "product": "神探狗狗：汪者归来",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 1711,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0017"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0017"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221558|b837829b742f25bd96e47a17dc310821c5de1b68"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-020"
+    },
+    {
+      "product": "北境战场",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 2312,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [
+        "S0023"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0023"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221579|5ef7ff2f93ea0cce88aabe2031d8d853c6438cba"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-021"
+    },
+    {
+      "product": "Sarah’s Dungeon Inn",
+      "event_date": "2026-10-23",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 4117,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0040"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0040"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/en/archives/216003|87e9bf1f16c43037e966b02c2d350cae4860fefd"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "历史1.0上线，日历事件超窗。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-022"
+    },
+    {
+      "product": "Culdcept BEGINS（卡片召唤师 起源）",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 4213,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0042"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0042"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/archives/216007|3e128880c7259ce98bdd3cd862452cb2c61ea0fe"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-023"
+    },
+    {
+      "product": "Culdcept The First",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 4214,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0042"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0042"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/archives/216007|3e128880c7259ce98bdd3cd862452cb2c61ea0fe"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-024"
+    },
+    {
+      "product": "Dream Guardians",
+      "event_date": "2026-03-17",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 6016,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0059"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0059"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/en/archives/216144|39ce5b1d461b9228c9d8501f9a933140d7e29e45"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "历史3月上线，日历事件超窗；行业来源窗口独立可入选。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-025"
+    },
+    {
+      "product": "Land of Ashes",
+      "event_date": "2026-03-30",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 7218,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0071"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0071"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/en/archives/216192|507a8f140be2a560a8a9fb8a996fcfd261a2300e"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "历史EA上线，日历事件超窗。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-026"
+    },
+    {
+      "product": "Cervical Spondylosis",
+      "event_date": "2026-04-02",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 7819,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0077"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0077"
+      ],
+      "source_fingerprints": [
+        "https://youxichaguan.com/en/archives/216228|d4dc9c70980df91dd21e720cd9d6e1ed0469dc0e"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "历史发售，日历事件超窗。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-027"
+    },
+    {
+      "product": "宝可梦大集结",
+      "event_date": "2024-11-07",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 16007,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0160"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0160"
+      ],
+      "source_fingerprints": [
+        "https://new.qq.com/rain/a/20261028A0BKC000|a30fa4dad494b292eeeb2f0c214646a404ebe4c8"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-028"
+    },
+    {
+      "product": "王者荣耀",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 16217,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0162"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0162"
+      ],
+      "source_fingerprints": [
+        "https://new.qq.com/rain/a/20261028A0C51M00|b7f63c955ab57ec53bcb1a04d508d3377144f0c9"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-029"
+    },
+    {
+      "product": "Petal Runner",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 20414,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [
+        "S0203"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0203"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "单源现已开放Demo；其未来定档为另一个日期节点。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-030"
+    },
+    {
+      "product": "Haunted Paws",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 20415,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [
+        "S0203"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0203"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/|431c694080c93ad3ffa0dd808a6aed9c914255f3"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "单源Demo不因未来定档多源而提升当日测试资格。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-031"
+    },
+    {
+      "product": "寂静岭",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 20618,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0206"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0206"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/jjlgame/63662/pu-ji-jing-ling-zhong-zhi-ban-ni-yu-2027nian-fa-shou|7c0a6e564889b88c9ef69813b3dc54e0f579a2bc"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-032"
+    },
+    {
+      "product": "我的世界",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 21819,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0218"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0218"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/minecraft/63671/switch-2ban-wo-de-shi-jie-fa-shou-xuan-chuan-shi-pin|6c9fcd857810d1f8f1b39dd4da138929b1138733"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-033"
+    },
+    {
+      "product": "吸血鬼：避世血族 誓约与灰烬",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 22220,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0222"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0222"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/vampire-the-masquerade-oaths-ashes/63676/xi-xie-gui-bi-shi-xie-zu-shi-yue-yu-hui-jin-fa-shou-ri-yu-gao|0943a7374baa60fdd08a32228eebb3d1bce8512b"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-034"
+    },
+    {
+      "product": "模拟农场25",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 22521,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0225"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0225"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/farming-simulator-25/63679/mo-ni-nong-chang-25-dou-lei-yu-yang-tuo-kuo-zhan-bao-fa-shou-xuan-chuan-shi-pin|60fa5f8b65e34ce5481293223b174d09bbebfb60"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-035"
+    },
+    {
+      "product": "布莱克庄园降神会",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 22622,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0226"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0226"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/the-seance-of-blake-manor/63680/zhu-ji-ban-bu-lai-ke-zhuang-yuan-jiang-shen-hui-fa-shou-xuan-chuan-shi-pin|dd9d87af634735b86eea59e67d8c00027df8a240"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-036"
+    },
+    {
+      "product": "機場安檢：包過一下（Airport Contraband）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23067,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-037"
+    },
+    {
+      "product": "Neuron Activation",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23068,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-038"
+    },
+    {
+      "product": "BOOM! Buster",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23069,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-039"
+    },
+    {
+      "product": "CH13: Rest Stop",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23070,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-040"
+    },
+    {
+      "product": "Veterans: Napoleonic Wars",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23071,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-041"
+    },
+    {
+      "product": "FIRESTARTERS",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23072,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-042"
+    },
+    {
+      "product": "Infinity Bounce",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23073,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-043"
+    },
+    {
+      "product": "麦琪的花园（Magi Scapes）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23074,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-044"
+    },
+    {
+      "product": "Bao Bao's™ Cozy Cleaning Services",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23075,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-045"
+    },
+    {
+      "product": "Hunting Simulator 3",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23076,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-046"
+    },
+    {
+      "product": "Ghost in the SQL Data",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23077,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-047"
+    },
+    {
+      "product": "The Zibbo Show",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23078,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-048"
+    },
+    {
+      "product": "Rise of the Merchants",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23079,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-049"
+    },
+    {
+      "product": "Heir of the Dog",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23080,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-050"
+    },
+    {
+      "product": "Robo 娘: 冥星任务（RoboGAL: Gaga Delta Lady）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23081,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-051"
+    },
+    {
+      "product": "The Wolf Among Us Remastered",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23082,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-052"
+    },
+    {
+      "product": "兔兔岛（Usagi Shima: Bunny Island）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23083,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-053"
+    },
+    {
+      "product": "Slowly Sliding Ducks",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23084,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-054"
+    },
+    {
+      "product": "Curse of Resthaven",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23085,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-055"
+    },
+    {
+      "product": "Milo",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23086,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-056"
+    },
+    {
+      "product": "团地日和（Danchi Days）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23087,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-057"
+    },
+    {
+      "product": "S.O.N.A.R. - 潜艇菜鸟团（S.O.N.A.R. - Submarine Operators Not Actually Ready）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23088,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-058"
+    },
+    {
+      "product": "Fractured",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23089,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-059"
+    },
+    {
+      "product": "Know Your Ánima",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23090,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-060"
+    },
+    {
+      "product": "Sepulchron",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23091,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-061"
+    },
+    {
+      "product": "藿香（Agastache Rugosa）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23092,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-062"
+    },
+    {
+      "product": "Copy Cats",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23093,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-063"
+    },
+    {
+      "product": "Computer Sillow: Jobcersize",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23094,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-064"
+    },
+    {
+      "product": "tinymancer",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23095,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-065"
+    },
+    {
+      "product": "Joe & Mac Retro Collection",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23096,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-066"
+    },
+    {
+      "product": "Tama In-Between",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23097,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-067"
+    },
+    {
+      "product": "Vampolitics: Vassals of the Void",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23098,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-068"
+    },
+    {
+      "product": "Re:Re:Re:Respawn",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23099,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-069"
+    },
+    {
+      "product": "共氧同盟（O2GETHER）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23100,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-070"
+    },
+    {
+      "product": "嗨斗农场（Planted!）",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23101,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-071"
+    },
+    {
+      "product": "Hot Wax",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23102,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-072"
+    },
+    {
+      "product": "Phantasma Hotel",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23103,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0230"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0230"
+      ],
+      "source_fingerprints": [
+        "https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/|21c2665e891ca700421eee59ddb85601684f36e0"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品发行结构化清单；单源，次日窗口不豁免多源门槛。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-073"
+    },
+    {
+      "product": "塔塔冒险队",
+      "event_date": "2026-05-21",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23108,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0231"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0231"
+      ],
+      "source_fingerprints": [
+        "https://www.sohu.com/a/1094002134_100136645|36c7ff08e8e1ff68753695902d1677f340e1c6e8"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "历史起量与成绩复盘，不是当期新品上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-074"
+    },
+    {
+      "product": "剑星",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 23223,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0232"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0232"
+      ],
+      "source_fingerprints": [
+        "https://www.sohu.com/a/1094013496_100136645|5043a160313147473d823a6864467a3c0bcf7e8e"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-075"
+    },
+    {
+      "product": "Cop Bastard",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 25221,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0251"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0251"
+      ],
+      "source_fingerprints": [
+        "https://www.pcgamer.com/gaming-industry/gogs-getting-into-publishing-in-its-new-post-cd-projekt-life-and-it-already-has-games-on-the-way/|4266e006fec05c018e85d03077069d97e1c9b83c"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "明确次日发售，仅单源。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-076"
+    },
+    {
+      "product": "异环",
+      "event_date": "2026-04",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 25909,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0259"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0259"
+      ],
+      "source_fingerprints": [
+        "https://news.yxrb.net/mobile/index.php?m=mobile&c=index&a=show&catid=6&id=7745|7e2d4e99425d07ec1c3e25f2cdaf5cb1ddc004f2"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "文章回顾4月上线，非当期新开服；版本前瞻不算新品。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-077"
+    },
+    {
+      "product": "篮球少女：飞跃巅峰",
+      "event_date": "2026-10-23",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 26010,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [
+        "S0260"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0260"
+      ],
+      "source_fingerprints": [
+        "http://www.nadianshi.com/2026/10/423438|d52341e262c693b486eedb9bd0e3058cdc46d73d"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "开服后畅销成绩不等于当日再次上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-078"
+    },
+    {
+      "product": "影之刃零",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_preload",
+      "event": "新品预下载",
+      "event_type_score": 2,
+      "first_seen_order": 906,
+      "observed_signal_types": [
+        "new_game_preload"
+      ],
+      "observed_events": [
+        "new_game_preload"
+      ],
+      "industry_ids": [
+        "S0009",
+        "S0243"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0009",
+        "S0243"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221527|fe195c2b31d8fcb9591969b65d398d5760863309",
+        "https://www.pcgamer.com/games/action/phantom-blade-zero-release-date-launch-times/|1fe8de06e156d7f8557c73c78a07001a7b880321"
+      ],
+      "appearance_count": 2,
+      "appearance_score": 2,
+      "industry_bonus": 1,
+      "source_strength_score": 3,
+      "base_priority_score": 6,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 6,
+      "multi_source_eligible": true,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "上一期已发布同一PC预下载，不能因今日来源再次召回重复。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-079"
+    },
+    {
+      "product": "莎木3：增强版",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 1124,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0011"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0011"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221512|b167967a62694942a28f8c8274c49aeefb38be29"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-080"
+    },
+    {
+      "product": "潜渊症",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 2125,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0021"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0021"
+      ],
+      "source_fingerprints": [
+        "https://www.gcores.com/articles/221577|a5e589ca4dc5ca9d2e65437cd2c252298670ff42"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-081"
+    },
+    {
+      "product": "爱哩爱哩",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_first_reveal",
+      "event": "新品首次曝光",
+      "event_type_score": 2,
+      "first_seen_order": 3020,
+      "observed_signal_types": [
+        "new_game_first_reveal"
+      ],
+      "observed_events": [
+        "new_game_first_reveal"
+      ],
+      "industry_ids": [
+        "S0029"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0029"
+      ],
+      "source_fingerprints": [
+        "https://m.sohu.com/a/1094041153_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1793232248602I2syOkV|930da96a9c5dbea9c84f1c67399bf1706f8bfac3"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "新品首曝，仅单源。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-082"
+    },
+    {
+      "product": "Winds of Viridia",
+      "event_date": "2027-early",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19804,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-083"
+    },
+    {
+      "product": "City of None",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19805,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-084"
+    },
+    {
+      "product": "Sword of the Sea",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19806,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-085"
+    },
+    {
+      "product": "REPO",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19808,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-086"
+    },
+    {
+      "product": "Kitsune: The Journey of Adashino",
+      "event_date": "2027-spring",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19809,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-087"
+    },
+    {
+      "product": "Lost and Found Co.",
+      "event_date": "2027-early",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19812,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-088"
+    },
+    {
+      "product": "Everything is Crab",
+      "event_date": "2027-01-26",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 19813,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0197"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0197"
+      ],
+      "source_fingerprints": [
+        "https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/|7e7e358d96402949b6642b45b1aacc7a9aa8bfcb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "同一次发布会独立报道的未来定档；明确季度/月，不能按实际当期上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-089"
+    },
+    {
+      "product": "天国：拯救",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 20726,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0207"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0207"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/kingdom-come-deliverance-2/63663/tian-guo-zheng-jiu-kai-fa-shang-cheng-zao-yan-zhong-wang-luo-gong-ji|3a2fc2102bc29d22878921b1bd3f32a2b047857d"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-090"
+    },
+    {
+      "product": "恶灵骑士",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 21227,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0212"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0212"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/marvels-ghost-rider/63668/kang-na-si-tuo-rui-zheng-qia-tan-chu-yan-e-ling-qi-shi-fan-pai|13f573384879f64fd2edace902e98b1e97d15f9f"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-091"
+    },
+    {
+      "product": "魔兽世界：无限",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 21628,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0216"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0216"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/world-of-warcraft-game/63682/bao-xue-gong-bu-mo-shou-shi-jie-wu-xian-geng-xin-ji-hua|bf0a4cc574462242bbbd8302384e5ae3b014e13a"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-092"
+    },
+    {
+      "product": "沙丘3",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 21729,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0217"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0217"
+      ],
+      "source_fingerprints": [
+        "https://www.ign.com.cn/shaqiumovie/63670/dian-ying-sha-qiu-3-zui-zhong-yu-gao|473f9ddd7095736e3fba206ca3e428a584773420"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "网络攻击/影视/旧背景/运营宣传或未核实发售事件的误召回，不得当新品日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-093"
+    },
+    {
+      "product": "胧村正怪奇谭",
+      "event_date": "2027-02-05",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 26241,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [
+        "S0262"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0262"
+      ],
+      "source_fingerprints": [
+        "http://www.nadianshi.com/2026/10/423126|d59b3ab151d147000dd8c844deb7c7d34a8bbf47"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 4,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 4,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "强化重置新品已于6月定档，只有本次单源回顾，非当前跨平台实际上线。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-094"
+    },
+    {
+      "product": "BLEACH Mirrors High-资讯服务",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 28130,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0281"
+      ],
+      "source_ids": [
+        "S0281"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/192256.htm|1c637ee49e1ea6aa6642ea98e6c50f2c4307a8fb"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-095"
+    },
+    {
+      "product": "指尖大冒险",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 29032,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0290"
+      ],
+      "source_ids": [
+        "S0290"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/202968.htm|089ec848b4c23901c0713cf45440aed5a9d5b672"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-096"
+    },
+    {
+      "product": "英雄与远征",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 29234,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0292"
+      ],
+      "source_ids": [
+        "S0292"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/186658.htm|d9f1eb39b0351c9622cbbda5bd56865f3915793e"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-097"
+    },
+    {
+      "product": "魔神英雄传",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 29335,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0293"
+      ],
+      "source_ids": [
+        "S0293"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/199533.htm|5e881d2a8292440001e1fae028263007d63d605a"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-098"
+    },
+    {
+      "product": "迷失",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_launch",
+      "event": "新品上线",
+      "event_type_score": 3,
+      "first_seen_order": 29436,
+      "observed_signal_types": [
+        "new_game_launch"
+      ],
+      "observed_events": [
+        "new_game_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0294"
+      ],
+      "source_ids": [
+        "S0294"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/203782.htm|559082adfaeb2efc10a2f5baa2af871656dabd28"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-099"
+    },
+    {
+      "product": "快乐魔法",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_test",
+      "event": "新品试玩/测试",
+      "event_type_score": 3,
+      "first_seen_order": 29537,
+      "observed_signal_types": [
+        "new_game_test"
+      ],
+      "observed_events": [
+        "new_game_test"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0295"
+      ],
+      "source_ids": [
+        "S0295"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/186732.htm|c7a8345a528a04f2871a98acd7a11041b3cfcdef"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 3,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 3,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-100"
+    },
+    {
+      "product": "代号：Pico PC/主机",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 28238,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0282"
+      ],
+      "source_ids": [
+        "S0282"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/205194.htm|9a3b8c850aa43072a6066db20e413842ec27048b"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-101"
+    },
+    {
+      "product": "暗黑地牢2手游",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 28539,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0285"
+      ],
+      "source_ids": [
+        "S0285"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/205407.htm|5dff374389f00d2da10e0d7bf3ffc55dc553a573"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-102"
+    },
+    {
+      "product": "芙娅之魂",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 28740,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0287"
+      ],
+      "source_ids": [
+        "S0287"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/181020.htm|8cf2c9bd89783f7b3e838626e3de50e6b1c03062"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "复核原始节点；多源和事件日期门禁独立执行。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-103"
+    },
+    {
+      "product": "花开时见你",
+      "event_date": "unknown",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 28831,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0288"
+      ],
+      "source_ids": [
+        "S0288"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/204895.htm|2ae6f18301aa4935c1f39b4575d78d67644518c3"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "只有开启预约、上线时间待定，不足确认实际上线或新定档。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-104"
+    },
+    {
+      "product": "武道风云",
+      "event_date": "2026-10-28",
+      "signal_type": "new_game_preload",
+      "event": "新品预下载",
+      "event_type_score": 2,
+      "first_seen_order": 29133,
+      "observed_signal_types": [
+        "new_game_preload"
+      ],
+      "observed_events": [
+        "new_game_preload"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0291"
+      ],
+      "source_ids": [
+        "S0291"
+      ],
+      "source_fingerprints": [
+        "https://www.3839.com/a/175721.htm|1bd640c5dc0119d2031a59c61ae453d7ca99256d"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "28日预下载与29日上线分别审计，当前仅一独立来源。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-105"
+    },
+    {
+      "product": "Cronos: The New Dawn story DLC ‘Cronos: Lazarus’",
+      "event_date": "2026-12-03",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 29944,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0299"
+      ],
+      "source_ids": [
+        "S0299"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMinAFBVV95cUxNMjdvRUlSRGhHODhiUEhOS0czM1gxZzFlaVBvS09fUWNCOGJKMWppOXNSTU9wazdNT2xZZmNOaUl2aE03Z2xDbXllTVNPSER0OF9fQVk0cWFkekJSd2EzZDJvWEh0TkQ3RzdmVXNWc1RDM0ZVdzVaYXYwUkRaSHlmYjNnREkySjN2a2tSbGE2YTZRbzhxQ0dBOFp1SUk?oc=5|02e5fd1b785885f39b405ca6491ab92516023097"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-106"
+    },
+    {
+      "product": "BAKUDO",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 30045,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0300"
+      ],
+      "source_ids": [
+        "S0300"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxQT3I4Vi0yR3Q0MldKVEZSTk12a0RpMGVmcENCSFZ6b2lqc3pLMEhDSkJ4YWtBVU5uWTdiRnZCenBIWWpJbWhka3V1XzY1bnI1aVdtak9KUjB3eVRLalI1QVZsZHQyS1N6M1pISVdpR0ZNSXVMVzYwZWhTQUlUb0RuSDRxZw?oc=5|27bd2cea61c20a2b20a2c77cda66af7993b2fc0f"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-107"
+    },
+    {
+      "product": "Table Game World CCFOLIA for Nintendo Switch 2",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 30146,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0301"
+      ],
+      "source_ids": [
+        "S0301"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV2JlSDhsUHZjYS1xeF8xbnlBc25kZU9oTlgtWldTVHBQbkxYdXhKUmxlMXNnV2x4aHgwN1NKVnJ1eWJTQ1hQMTNTNVo4US1WUFIyUkpNbWlfWUh3cExpUGw0WVFiWVAyQVN6eUlvTk9uR2Q2ak1FV1BTaHFfRXl0SlFZWHYtSkxrSGdFOF9PMllOdXJFUlJEc0FSS2h5VDJuM1oybHIxUjh1NFBs?oc=5|3ae5969f684e3d65fb3bbb51ed0eafc6e0fdbc6a"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-108"
+    },
+    {
+      "product": "TANUKI: Pon’s Summer",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 30650,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0306"
+      ],
+      "source_ids": [
+        "S0306"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTDJDRXlmV2NLMERhYms3RlpDb2JTZDEySnRVcWxzbXFtRHRCeWpILXlib3EwejNtVWZXdXNPZnYwTmhzNGk1SzB2YkFrUXhJUGhHZUJHVFdDS3N6Mm9pcUE1V2pTSWlxdFRpMUo1OVR6Q1l4OFlTd2VXRnZOT0hITlQ3WlJDbHRtSjU1Y1hvcFRhNW1GQk1aQUxIc05JbEJtUnNTWW5PMzZzUQ?oc=5|8a9fd8bd4d05107d84da0de00a6e780360ae235d"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-109"
+    },
+    {
+      "product": "RACCOIN: Chaos Max Edition for PS5, Xbox Series, and Switch 2",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 30751,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0307"
+      ],
+      "source_ids": [
+        "S0307"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMisAFBVV95cUxQN2xwdzZtV3ozVWx4cWJjRHVwSVFrYXFpMWZ5WGM5aWxsMDJ5LVpjQmI3bDJaQ1JsMjIyYjRYakh0M3FrT2JHb0ZlNVpaX3VRTnY5ZWhRUnpQX0JwMkNMOG45ZnA5REd1U1EwMEJZMThSNHRtS1F5WHBXNU1CYjJoTGR2NHZEWnk4V0JWTVJHdzZ1dV8yazFELVRjVHRZbjdIM3NTYWFPQ1Jjc0J5cTA3UA?oc=5|ba5246bbe96e3aa0a3b6f1746f6f64ac64b3354a"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-110"
+    },
+    {
+      "product": "Super Battle Golf for PS5, Xbox Series, and Switch 2",
+      "event_date": "2027-03-25",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 31558,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0315"
+      ],
+      "source_ids": [
+        "S0315"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbkZ5eWFfVDEzNHg2blpjQ1lpQWxxSEF4QlF0RjNxMTJ3dzB5RVpvV2NjazlDMm91U2EyblpWTnJZbTlneTJRUzhrQ2ZsU1VpeUE0eUJmcFNRbEhIcjJhb3lNV29ZOWpFQ0ZrUXBhM3l5RmVGdDZKZ2UwNklPOFduWVY3b0FTR1FmNjdCQWx1NWU0UlFtc01ZNExORkdWZUQyNk11aVRDakI?oc=5|c7852efa4d1e78e7be911fe25a13c6be858595ca"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-111"
+    },
+    {
+      "product": "Rhythm Doctor",
+      "event_date": "2026-12",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 31962,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0319"
+      ],
+      "source_ids": [
+        "S0319"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQLThoSmkwOVEtMm5vX1p4Uk1LTkJBWFRRUERkUWIwTzE5SExCY0FMbVRQNTRySnliNzAtMEdrMjhXdDJlOTQ0VEV0bldPSlpfR2wzVzlJU2FqWFIzdWdlSjVfWFZnR1Nfckc0bEpxMzJ2b3hzUTFpUHllTjNXanBpU0p6N3hob0dQcWhn?oc=5|6fb800f947169c5613e26768301c3083f2a69883"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-112"
+    },
+    {
+      "product": "Monster Train 2 DLC ‘The Punished’",
+      "event_date": "2026-11-10",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 32163,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0321"
+      ],
+      "source_ids": [
+        "S0321"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMixwFBVV95cUxPaFJ1MDNDQ1hoY3RucUFoN2dRZU1WdzRFaUZ1bVg1VWFJTlJia0lqeXFwak5Vc2U1YlRxOWdadFctV2RfMHk5VjQtOTVyczdlUG95MDBwdWtDcXU4UVI0dUNueFBIcU9ETFZMcUt5LXlvVmVMMG1Fd0xGTHZGVGtnWEloVktCeU1tOEg1bXNUa3RBN0RGTG1hRmw4NmJNcU4xZUdBNXFsczFRT3hBa19mck9xU1FzaENzTHl3TE01UFVLNzhwZVFJ?oc=5|76b998ce52005cfc7dc0d23a10fc679b72b45870"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-113"
+    },
+    {
+      "product": "Smalland II: Lost Realms",
+      "event_date": "2027",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 32264,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0322"
+      ],
+      "source_ids": [
+        "S0322"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMie0FVX3lxTE5lUlgzNW1yS1RJbUpnSXE3QmdDQ2JEdlBYMEJQUHQ1bTY3QXE1OXVocW5ZU01idDN5SXRPd0kyVjNhTUU3NWxfa0tCMkY2dXJoU0R5RjluVWctNzJZOUw4UGRZNHNhRlhYc0F3S2tHNHJaYzczdTdtODhtaw?oc=5|52acf3b708fc6dbb47ad4182c388cf6bb9117fda"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "future_announcement",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-114"
+    },
+    {
+      "product": "Console Archives Marl Jong",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 32365,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0323"
+      ],
+      "source_ids": [
+        "S0323"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMihAFBVV95cUxNS3VXRV9OU0FyUlBfeDBJSFJFbkFGcVVtdFhtMXdDbUpDd3JIc242aEZqTVpBQmFSbkIzeFV1ekMzMVB2VE5DU1FuMEJfQWFpRGpOem9NcTE4S3c3aHVPZGgzaFNXbGpUeXhNU2pBbk54R0FmZUxkY3hvLTBUN3ZVVXJjc0w?oc=5|1e5cf7e9c07c0dad3c09c6fdbc511d61552f6564"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-115"
+    },
+    {
+      "product": "Arcade Archives Prehistoric Isle",
+      "event_date": "2026-10-29",
+      "signal_type": "new_game_schedule",
+      "event": "新品定档",
+      "event_type_score": 2,
+      "first_seen_order": 32466,
+      "observed_signal_types": [
+        "new_game_schedule"
+      ],
+      "observed_events": [
+        "new_game_schedule"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0324"
+      ],
+      "source_ids": [
+        "S0324"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUk1GQndfRlhLWHR0WExPQnZqd2lLVW15VVhZN19leHQyYnZzMzRaZlhOdHhXNmdXZ0R2YUlLX1V1dFFkOFlFdkczQ1lETEtrOXo2Q2dHNXdPRTVRSXZKRXVpdGN3cFQtZk5UckV0ZEZtX3h6aUtDbGdWYUpQVEZIV2Ewam1nS1VJbXlLTg?oc=5|2e1bee7e94db3c89e22b80947ffc9f568218d684"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "next_day_lookahead",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-116"
+    },
+    {
+      "product": "都市：天际线 扩展版",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 15915,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [
+        "S0159"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0159"
+      ],
+      "source_fingerprints": [
+        "http://www.yystv.net/p/14556|90facf5d1c98171cc3072daafd4d913f3c8a09ca"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "老品Switch2移植；不按新品上线E3计日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-117"
+    },
+    {
+      "product": "都市：天际线",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 15916,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [
+        "S0159"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0159"
+      ],
+      "source_fingerprints": [
+        "http://www.yystv.net/p/14556|90facf5d1c98171cc3072daafd4d913f3c8a09ca"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "老品Switch2移植；不按新品上线E3计日历。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-118"
+    },
+    {
+      "product": "宝可梦大集结",
+      "event_date": "2027-01-28",
+      "signal_type": "old_relaunch",
+      "event": "重启回归",
+      "event_type_score": 1,
+      "first_seen_order": 16122,
+      "observed_signal_types": [
+        "old_relaunch"
+      ],
+      "observed_events": [
+        "old_relaunch"
+      ],
+      "industry_ids": [
+        "S0160"
+      ],
+      "release_ids": [],
+      "source_ids": [
+        "S0160"
+      ],
+      "source_fingerprints": [
+        "https://new.qq.com/rain/a/20261028A0BKC000|a30fa4dad494b292eeeb2f0c214646a404ebe4c8"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 1,
+      "source_strength_score": 2,
+      "base_priority_score": 2,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 2,
+      "multi_source_eligible": false,
+      "window_eligible": false,
+      "window_scope": "outside",
+      "publish_eligible": false,
+      "coverage": "industry_only",
+      "coverage_rank": 2,
+      "editorial_note": "停运非回归：保留误召回审计，禁止刊载。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-119"
+    },
+    {
+      "product": "Wild Blue Skies for Switch",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 29742,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0297"
+      ],
+      "source_ids": [
+        "S0297"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMifEFVX3lxTE5hZWxDRUFZMXQ5TVJFRG04TDlqWEJQV1RWNzdVc0JwSmZOS0c1WnhDMXozRmpQOTNXQ1BfTXcwUHJPSFRGenJIZ3BLOHpzeUNtWVBNRmtTYk5GZGRGNVVEckRTMmJLaVNiNVhfdGRuU3k1ZHA2UDZ3cEJWNmw?oc=5|fb15902b14495be44fb59b4ead2ec4969aa023f6"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 1,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-120"
+    },
+    {
+      "product": "Schrodinger’s Call",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 31154,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0311"
+      ],
+      "source_ids": [
+        "S0311"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMiggFBVV95cUxPODRPbmJtTFk3V2s0UGY0NHdlR2hWMUxNc21kWHhqRDhObHBURUZ0UGM0bnllM2JIUm9pRWVBZ0VzRUFLZDgtR2JKZTJTakg5MUFBVkdwMThFcjJQMHR2UHFLVjJ2QU5IMXNoTS1uU2VaNWVPZ3kydUJMbW1xa1BLbkhn?oc=5|b5485e8c6a83aa899562e171607f109d25054a10"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 1,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-121"
+    },
+    {
+      "product": "Urban Myth Dissolution Center – Nintendo Switch 2 Edition",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 31255,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0312"
+      ],
+      "source_ids": [
+        "S0312"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdDY2RGZQWDNwOUZsanNBYnBSVXdzMkgzMkFHeGctbEV1X19ybUpHeVJiNHRSRVBELU02aFFHYjJQZzNGNFBVbEtnSVRaODJYRU01T2k3endYM2tIVXRvbXpWZmk1cFNyWDBBX0drb1JPaEFqbEVCd3hjQlBRRTlSNVVCV0taZUw3dFIxT2lhNmZCNUNLLUkxeUZqTTVuakZZc1c0?oc=5|3b504dfd8719c1c5a7a5354f2b677c2dbe4dcf1b"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 1,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-122"
+    },
+    {
+      "product": "One Turn Kill",
+      "event_date": "2026-10-28",
+      "signal_type": "old_cross_platform_launch",
+      "event": "跨平台上线",
+      "event_type_score": 1,
+      "first_seen_order": 31356,
+      "observed_signal_types": [
+        "old_cross_platform_launch"
+      ],
+      "observed_events": [
+        "old_cross_platform_launch"
+      ],
+      "industry_ids": [],
+      "release_ids": [
+        "S0313"
+      ],
+      "source_ids": [
+        "S0313"
+      ],
+      "source_fingerprints": [
+        "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNlVnQW4zMEFqTEY3LUdfREUwQXFEMThfYlh6TUNaSE01OXYyQjJsUi12SUhjRUNpOWRLUkVVdlNTS0pHZThCR3ZuZzc5QTUtZ2tMQktSa2F4aDB4LWFfVlRfQ1Y5UGxlc1RmS1pXbUxid0hLTFRmX19IUHRmRExJVndrVWxrdw?oc=5|2a4d4b9d9bcb68beffaa412ed9578ed37edef344"
+      ],
+      "appearance_count": 1,
+      "appearance_score": 1,
+      "industry_bonus": 0,
+      "source_strength_score": 1,
+      "base_priority_score": 1,
+      "company_bonus": 0,
+      "company_relationship": "none",
+      "focus_companies": [],
+      "focus_company_relationships": {},
+      "company_evidence_ids": [],
+      "priority_score": 1,
+      "multi_source_eligible": false,
+      "window_eligible": true,
+      "window_scope": "report_window",
+      "publish_eligible": false,
+      "coverage": "release_only",
+      "coverage_rank": 1,
+      "editorial_note": "未来实际跨平台/DLC未发生或单源，保留公告候选；季/月精度不擅自补日。",
+      "status": "reviewed",
+      "candidate_id": "release-candidate-123"
+    }
+  ],
+  "editorial_review": "逐源反扫并修正日期、历史背景与首曝/预下载/上线分类；不按行业include排除日历。"
+}
