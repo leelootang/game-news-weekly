@@ -1,0 +1,214 @@
+# Sources Used
+
+## Local Inputs
+
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-27\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-23\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-26\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-28\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-25\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-10-27\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\deep_analysis\2026-10-28\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\ai_trends\2026-10-28\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-10-23\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-10-24\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\release_calendar\2026-10-28\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-23\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-25\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-26\articles.jsonl`
+- `C:\Users\Admin\Documents\AI游戏行业周月报\news_data\community_discourse\2026-10-28\articles.jsonl`
+
+## Item Source Map
+
+### 行业新闻
+
+- 米哈游《星布谷地》三测开放付费，月卡、季卡与外观抽取分层 — S0901
+- 灵犀《篮球少女：飞跃巅峰》开服三天后进入游戏畅销榜第4 — S0909
+- 《Marathon》2月压力测试回顾：Steam峰值在线约14万，后续参与度回落 — S0119
+- 吉比特披露代号M98已立项并确定制作人 — S0039
+- 雷霆游戏投资上海火因山风网络，持股约30% — S0757
+- 《蔚蓝档案》日服将于2027年1月转交NEXON运营 — S0904
+- Xbox首任首席运营官Helen Chiang任职三个月后离职 — S0942
+- 据报Xbox拒绝Netflix的5亿美元影视改编提案 — S0943
+- 《宝可梦大集结》制作人杨思勤已转岗腾讯魔方 — S1249
+- Dan Ayoub升任威世智与孩之宝数字游戏负责人 — S1328
+- 前《Moore Manor》制作人加入网易《Eggy Party》团队，负责副玩法内容 — S0658
+- 腾讯魔方3月《Roco Kingdom》试玩回顾：围绕收集、培养与战斗构建开放世界 — S0715
+- Xbox在3月公开下一代主机代号Project Helix，计划兼容PC游戏 — S0727
+- 网易《遗忘之海》2月测试回顾：以海上探索和多种小游戏扩展开放世界 — S0222
+- 腾讯发行的《Kaeth's Dream》3月二测回顾：把卡组构筑与角色养成结合 — S0657
+- 天美三款王者IP产品同时占据iOS免费榜前三 — S0529
+- 《宝可梦大集结》公布停运安排，国际服将于2027年3月关闭 — S0906, S0929, S0959
+- 微软确认《Call of Duty》系列累计收入超过400亿美元 — S0960
+- 《王者荣耀：世界》3月定档回顾：PC版4月10日上线，公布两种PVP模式 — S0680, S0677
+- 三七互娱《Last Asylum: Plague》首月收入回顾：估算超过2500万元 — S0694
+- Shiyue Network复盘《Dream Guardians》3月上线，强化阵容与局内构筑 — S1148, S1149, S1150, S1151, S1152, S1153
+- 微软将Arkane Lyon寻找买家的协商期延长一个月 — S0761, S0969
+- 腾讯魔方筹划《Roco Kingdom》2027年西方市场发行 — S0947
+- 9月手游出海榜呈现多产品竞争，点点互动包揽收入榜第2至4名 — S0912, S1086
+- QuestMobile：手机游戏占抖音小程序分类数量60% — S1085
+- 7月收入回顾：中国38家手游发行商占全球百强收入42.6% — S1087
+- 据报《寂静岭》初代重制版以2027年发售为目标 — S1295
+- Discord拟于12月中旬开放部分公共服务器消息的网页搜索 — S1330
+- 据报澳大利亚法院要求《堡垒之夜》重返当地iOS商店 — S1435
+- 暴雪回顾《Project Titan》取消：七年研发后以六周重提新方案 — S1333
+- 莉莉丝《塔塔冒险队》累计下载超1800万次，双平台收入估算超9500万美元 — S1320
+- 卡普空确认Capcom ID数据泄露涉及逾1170万账户 — S0263
+- SYBO称《地铁跑酷》月活仍在1亿至1.5亿之间，长期基本未做买量 — S0029
+- 抖音小游戏白皮书回顾2025年流水近翻倍，内容渠道用户LTV提高约50% — S0109
+- 微信小游戏回顾2025年生态：逾300款产品季度流水超过千万元 — S0131
+- 卡普空3月销量回顾：《Resident Evil 9》五天销量超过500万份 — S0249
+- 原神UGC开发复盘：截至1月累计游玩超过1.5亿次，吸引逾3万创作者 — S0673
+- EA确认关闭BioWare并取消开发中的《Mass Effect》新作 — S0788
+- 网易回顾《天下：万象》跨端上线后表现，PCU达到近十年高点 — S0177
+- 米哈游参投的奥秘游戏首曝多人合作新作《潜梦者》 — S0528
+- 世佳、朗新与AlipayHK合作，LumiGames承接海外钱包小游戏业务 — S1119
+- Charu Desodt出任BAFTA游戏委员会主席 — S1253
+- GOG与Retrovibe联合发行，提供资金、营销与跨平台认证支持 — S1340
+- Zero Creation Games回顾《Ai Hong》首日回本，AVG投入上限仍受市场约束 — S1224, S1225, S1226, S1227, S1228, S1246
+- 《Raccoon Coin Pusher》发售复盘：三人团队首日销量10万份 — S1229, S1230, S1231, S1232, S1233, S1234
+- RocketWerkz开源BRUTAL框架，商业游戏可免版税使用 — S1318
+- Don't Nod工会警告年内清算风险，重组方案进入11月裁定节点 — S1300
+- Side收购成都美术工作室Roboto，并任命全球美术负责人 — S0141, S0764
+- 网易与哔哩哔哩参投的Nekoday以新作众筹缓解开发资金压力 — S0167
+- 《Slay the Spire 2》3月EA发售回顾：Steam峰值在线超过28万 — S0722
+- 《Witchbrook》定档2027年1月28日，生活模拟扩展到全平台 — S1290
+- 《Highguard》停运复盘：3月公告关闭服务器，未达到持续经营所需用户规模 — S0184
+- 益世界《疯狂水世界》1月上线回顾：休闲SLG进入小游戏畅销榜前十 — S0062
+### AI 新闻
+
+- 《全面战争：幕府将军2》完全版下架后，Creative Assembly承认外包审核失守 — S0760, S0621
+- Epic称已用AI开发UE6与《堡垒之夜》，工程师保留架构与性能控制 — S1336
+- Epic拟解除UE与MetaHuman输出的AI训练限制，具体游戏授权仍由开发者决定 — S1114, S1265
+- 《爱哩爱哩》以自主AI居民替代直接控制，付费对应内容生成频率 — S1118
+- 米哈游团队相关研究开源游戏操作模型，比较模型规模、数据量与实时表现 — S0035
+- Genie 4研究预览支持实时场景修改与原生音频，游戏开发者测试交互原型 — S1353
+### 新游发布
+
+- 产品日历 - 篮球少女：飞跃巅峰 — S0255, S0417, S0632, S1349
+- 产品日历 - 影之刃零 — S1109, S1117, S1124, S1321, S1332, S1350, S1319
+- 产品日历 - Sign：碎冠篇 — S0625, S0751
+- 产品日历 - 蓝色星原：旅谣 — S0034, S0283, S0464, S0409
+- 产品日历 - Witchbrook — S1286, S1290, S1409
+- 产品日历 - Petal Runner — S1286, S1292, S1397
+- 产品日历 - Raccoin: Chaos Max Edition — S1286, S1292, S1396
+### 玩家舆论
+
+- 《鸣潮》签到奖励被指少发体力药，帖内补发说明改变争议焦点 — S0428, S0609
+- 《明日方舟：终末地》活动立绘被指两次修改后仍留错误，玩家追问修复质量 — S0861
+- 《三角洲行动》“惊喜渡鸦”随机复制收藏品，玩家争论收益差距 — S1434
+### 行业精选
+
+- Steam新品节Demo增至7300多款，同等排名带来的新增关注明显减少 — S1435
+- 《塔塔冒险队》缩短随机奖励链路，也让消耗速度和宠物养成价值更难平衡 — S1320
+
+## Source Details
+
+- S0901 | cgames.com | 年度最卷赛道，腾网米莉到底怎么赚大钱 | https://cgames.com/contents/2/13238.html
+- S0909 | m.sohu.com | 爆冷登上畅销榜Top4：2026最鸡贼的新游，把两个品类都干沉默了 | https://m.sohu.com/a/1093553849_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1793145934902b2g2z94
+- S0119 | youxichaguan.com | Entre os três mais vendidos do Steam, com 150 mil jogadores online durante a fase de testes, mas este novo jogo AAA da Search & Strike está a caminhar sobre gelo fino. | https://youxichaguan.com/pt/archives/214706
+- S0039 | youxituoluo.com | 《杖剑传说》16个月流水破48亿元，卢竑岩：我们不赛马，只养马群​ | https://www.youxituoluo.com/534990.html
+- S0757 | new.qq.com | 雷霆游戏投资一家上海游戏公司，疑似前阿哇龙COO创业？ | https://new.qq.com/rain/a/20261026A0BKBT00
+- S0904 | cgames.com | 上线5年，千亿流水，上海头部二游发行权被放弃了 | https://cgames.com/contents/2/13253.html
+- S0942 | gamedeveloper.com | Xbox's first-ever COO is out after just three months | https://www.gamedeveloper.com/console/xbox-coo-helen-chiang-leaves-role-shortly-after-its-creation
+- S0943 | gamedeveloper.com | Xbox reportedly turned down a $500 million deal from Netflix to adapt its video game properties | https://www.gamedeveloper.com/business/xbox-reportedly-turned-down-a-500-million-deal-from-netflix-for-adapting-gaming-properties
+- S1249 | new.qq.com | 天美《宝可梦大集结》官宣停运，制作人已转岗至魔方工作室群 | https://new.qq.com/rain/a/20261028A0BKC000
+- S1328 | pcgamer.com | Former Halo boss is now in charge of Wizards of the Coast and Hasbro Digital Games | https://www.pcgamer.com/gaming-industry/former-halo-boss-is-now-in-charge-of-wizards-of-the-coast-and-hasbro-digital-games/
+- S0658 | youxichaguan.com | Tras el fracaso de «Mim», el antiguo productor de «Moore Manor» se ha incorporado al equipo de «Danzai» de NetEase. | https://youxichaguan.com/es/archives/215425
+- S0715 | youxichaguan.com | Con una base de 350 millones de usuarios, pero sin querer «ganar dinero rápido», este producto de Tencent pretende redefinir el futuro de su categoría. | https://youxichaguan.com/es/archives/215215
+- S0727 | youxichaguan.com | Microsoft presenta «Project Helix», una revolucionaria consola de videojuegos que romperá las barreras entre el PC y las consolas | https://youxichaguan.com/es/archives/215151
+- S0222 | youxichaguan.com | Depois de ter sido o grande destaque no final do ano passado, «O Mar Esquecido» traz desta vez mais do que apenas surpresas | https://youxichaguan.com/pt/archives/214562
+- S0657 | youxichaguan.com | El nuevo juego de Tencent dedicado al mundo del anime: ¿por qué se trata de un juego de cartas? | https://youxichaguan.com/es/archives/215183
+- S0529 | m.sohu.com | 天美三王史无前例包揽Top 3：国民游戏还是太懂了 | https://m.sohu.com/a/1092587377_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.1.17929729179434zs8r11
+- S0906 | m.sohu.com | 《宝可梦大集结》官宣将停运，世界第一IP也做不好MOBA？ | https://m.sohu.com/a/1093431195_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1793145934902b2g2z94
+- S0929 | gamesindustry.biz | TiMi Studio Group's Pokémon Unite to shut down on March 23, 2027 | https://www.gamesindustry.biz/timi-studio-groups-pokemon-unite-to-shut-down-on-march-23-2027
+- S0959 | gamespot.com | Pokemon Unite Is Shutting Down After Nearly Six Years | https://www.gamespot.com/articles/pokemon-unite-is-shutting-down-after-nearly-six-years/
+- S0960 | gamespot.com | Call Of Duty Lifetime Revenue Surges Past $40 Billion, Microsoft Confirms | https://www.gamespot.com/articles/call-of-duty-lifetime-revenue-surges-past-40-billion-microsoft-confirms/
+- S0680 | youxichaguan.com | 『왕자영예 월드』 PC 버전, 4월 10일 출시 확정… 텐센트의 가장 “야심 찬” 비장의 카드 | https://youxichaguan.com/ko/archives/215399
+- S0677 | youxichaguan.com | O lançamento da versão para PC de «Honor of Kings World» está marcado para 10 de abril: o trunfo mais «ambicioso» da Tencent | https://youxichaguan.com/pt/archives/215395
+- S0694 | youxichaguan.com | Lucro astronómico de 25 milhões no primeiro mês após o lançamento: será que o sucesso do início do ano é mais um SLG? | https://youxichaguan.com/pt/archives/215411
+- S1148 | youxichaguan.com | After its previous title surpassed 400 million in revenue, has this Guangzhou-based company created a new hit using the same old formula? | https://youxichaguan.com/en/archives/216144
+- S1149 | youxichaguan.com | 前作が4億を突破した後、この広州の企業は定番の手法で新たなヒット作を生み出したのか？ | https://youxichaguan.com/ja/archives/216146
+- S1150 | youxichaguan.com | Tras superar los 400 millones en la entrega anterior, ¿esta empresa de Guangzhou ha conseguido un nuevo éxito con la misma fórmula de siempre? | https://youxichaguan.com/es/archives/216148
+- S1151 | youxichaguan.com | Depois de o jogo anterior ter ultrapassado os 400 milhões, será que esta empresa de Guangzhou conseguiu criar um novo sucesso com a mesma fórmula de sempre? | https://youxichaguan.com/pt/archives/216150
+- S1152 | youxichaguan.com | Nachdem der Vorgänger 400 Millionen umgesetzt hatte: Hat dieses Unternehmen aus Guangzhou mit altbewährten Methoden einen neuen Hit gelandet? | https://youxichaguan.com/de/archives/216152
+- S1153 | youxichaguan.com | 전작이 4억을 돌파한 후, 이 광저우 기업은 익숙한 전략으로 새로운 히트작을 만들어 냈을까? | https://youxichaguan.com/ko/archives/216154
+- S0761 | gamesindustry.biz | Microsoft extends consultation period for Arkane Lyon as it continues development on Marvel's Blade | https://www.gamesindustry.biz/microsoft-extends-consultation-period-for-arkane-lyon-as-it-continues-development-on-marvels-blade
+- S0969 | ign.com.cn | 微软为《漫威刀锋战士》寻合作方，协商时间再延长一个月 | https://www.ign.com.cn/man-wei-dao-feng-zhan-shi/63633/wei-ruan-wei-man-wei-dao-feng-zhan-shi-xun-he-zuo-fang-xie-shang-shi-jian-zai-yan-chang-yi-ge-yue
+- S0947 | mobilegamer.biz | Tencent-owned Morefun wants to make Roco Kingdom a Pokémon-sized hit in the west | https://mobilegamer.biz/tencent-owned-morefun-wants-to-make-roco-kingdom-a-pokemon-sized-hit-in-the-west/
+- S0912 | youxituoluo.com | 出海榜：点点《Tasty Travels》累计破30亿，益世界《疯狂水世界》领跑增长榜 | https://www.youxituoluo.com/534998.html
+- S1086 | sensortower.com | 2026年9月成功出海的中国手游 | https://sensortower.com/zh-CN/blog/2026-9-tasty-travels
+- S1085 | questmobile.com.cn | QuestMobile 2026全景生态流量秋季报告：AI时代流量逻辑变革已至，多场景、全链路闭环形成，以意图为锚点的跨端续接和跨场景交付模式形成 | https://www.questmobile.com.cn/research/report/2114988800581107713
+- S1087 | sensortower.com | 2026年7月中国手游发行商全球收入排行榜 | https://sensortower.com/zh-CN/blog/2026-7-top-30
+- S1295 | ign.com.cn | 曝《寂静岭》重制版拟于2027年发售 | https://www.ign.com.cn/jjlgame/63662/pu-ji-jing-ling-zhong-zhi-ban-ni-yu-2027nian-fa-shou
+- S1330 | pcgamer.com | Messages in certain large public Discord servers will be searchable on the web after December | https://www.pcgamer.com/software/platforms/messages-in-certain-large-public-discord-servers-will-be-searchable-on-the-web-after-december/
+- S1435 | newsletter.gamediscover.co | Who ‘won’ October 2026’s Steam Next Fest? | https://newsletter.gamediscover.co/p/who-won-october-2026s-steam-next
+- S1333 | pcgamer.com | Project Titan's end 'immediately instilled a culture of humility' in the Overwatch team which has helped them see the last decade through | https://www.pcgamer.com/games/fps/project-titans-end-immediately-instilled-a-culture-of-humility-in-the-overwatch-team-which-has-helped-them-see-the-last-decade-through/
+- S1320 | mp.sohu.com | 莉莉丝这款新游《塔塔冒险队》，悄悄赚了7个多亿 | https://www.sohu.com/a/1094002134_100136645
+- S0263 | gamesindustry.biz | Capcom affected by data breach, over 11.7m Capcom ID accounts compromised | https://www.gamesindustry.biz/capcom-affected-by-data-breach-over-117m-capcom-id-accounts-compromised
+- S0029 | gamelook.com.cn | 《地铁跑酷》老板分享：15年，零买量，为何还能有1.5亿MAU？ | http://www.gamelook.com.cn/2026/10/604597/
+- S0109 | youxichaguan.com | 抖音，正在重新定义游戏市场 | https://youxichaguan.com/es/archives/214786
+- S0131 | youxichaguan.com | 300 produtos com volume de negócios trimestral superior a 10 milhões: divulgados os resultados dos minijogos do WeChat ao longo de 25 anos | https://youxichaguan.com/pt/archives/214322
+- S0249 | youxichaguan.com | Após ter vendido 5 milhões de exemplares, «Resident Evil 9» não conseguiu sair do impasse das pequenas inovações próprias de uma franquia antiga | https://youxichaguan.com/pt/archives/214772
+- S0673 | youxichaguan.com | Más de 150 millones en tres meses desde su lanzamiento; miHoYo comenta: «A diferencia de Genshin Impact, sé que lo hemos hecho bien». | https://youxichaguan.com/es/archives/215231
+- S0788 | ign.com.cn | 分析师称BioWare关闭早可预见 | https://www.ign.com.cn/zlxygame/63612/fen-xi-shi-cheng-biowareguan-bi-zao-ke-yu-jian
+- S0177 | youxichaguan.com | Receitas a atingirem novos máximos, número de jogadores online a atingirem novos picos: o que é que este MMO da NetEase tem para vencer em 2026? | https://youxichaguan.com/pt/archives/214602
+- S0528 | m.sohu.com | 米哈游投资，前沐瞳CEO公司发行：被大伟哥指点后，他们做了款搜躲撤 | https://m.sohu.com/a/1092517721_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.4.17929729179434zs8r11
+- S1119 | m.sohu.com | 世佳与AlipayHK官宣合作，小游戏出海迈入「生态共建」阶段 | https://m.sohu.com/a/1094039408_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1793232248602I2syOkV
+- S1253 | gamesindustry.biz | Interior Night studio head Charu Desodt appointed chair of BAFTA Games Committee | https://www.gamesindustry.biz/interior-night-studio-head-charu-desodt-appointed-chair-of-bafta-games-committee
+- S1340 | pcgamer.com | GOG's getting into publishing in its new, post-CD-Projekt life, and it already has games on the way | https://www.pcgamer.com/gaming-industry/gogs-getting-into-publishing-in-its-new-post-cd-projekt-life-and-it-already-has-games-on-the-way/
+- S1224 | youxichaguan.com | Recuperação do investimento logo no lançamento: o produtor de «Ai Hong» enfrenta tudo em meio à confusão: dá o seu melhor e mergulha de cabeça na controvérsia | https://youxichaguan.com/pt/archives/216102
+- S1225 | youxichaguan.com | 初版で元を取った。『哀鴻』のプロデューサーが混乱の中、すべてと向き合う：全力を尽くし、物議を醸す渦中へと突き進む | https://youxichaguan.com/ja/archives/216098
+- S1226 | youxichaguan.com | Recuperación de la inversión tras el estreno: el productor de «Ai Hong» afronta todo en medio del caos: da lo mejor de sí mismo y se adentra en la polémica | https://youxichaguan.com/es/archives/216100
+- S1227 | youxichaguan.com | Mit der Erstveröffentlichung die Kosten wieder hereinholen: Der Produzent von „Ai Hong“ stellt sich inmitten des Chaos allem: Er gibt sein Bestes und stürzt sich in die Kontroverse | https://youxichaguan.com/de/archives/216104
+- S1228 | youxichaguan.com | 첫 출시로 투자금 회수, 《애홍》 제작자가 혼란 속에서도 모든 것을 정면으로 마주하다: 온 힘을 다해 논란 속으로 뛰어들다 | https://youxichaguan.com/ko/archives/216106
+- S1246 | youxichaguan.com | Breaking Even on Day One: The Producer of *Aihong* Faces It All Head-On Amid the Chaos—Giving It His All and Charging Into the Controversy | https://youxichaguan.com/en/archives/216096
+- S1229 | youxichaguan.com | 졸업생 3명이 출시 첫날 10만 건의 다운로드를 기록한 게임을 만들었다고? 《너구리 코인 슬롯머신》 팀과 이야기를 나눠보았다 | https://youxichaguan.com/ko/archives/216082
+- S1230 | youxichaguan.com | Ein Spiel, das drei Absolventen entwickelt haben und das am ersten Tag 100.000 Mal verkauft wurde? Wir haben uns mit dem Team von „Raccoon Coin Machine“ unterhalten. | https://youxichaguan.com/de/archives/216080
+- S1231 | youxichaguan.com | Três recém-licenciados criaram um jogo que vendeu 100 mil cópias no primeiro dia? Conversámos com a equipa do «Raccoon Coin Pusher» | https://youxichaguan.com/pt/archives/216078
+- S1232 | youxichaguan.com | ¿Tres recién graduados han creado un juego que vendió 100 000 copias el primer día? Hemos hablado con el equipo de «Raccoon Coin Pusher». | https://youxichaguan.com/es/archives/216076
+- S1233 | youxichaguan.com | たった3人の卒業生が、初日に10万本売れたゲームを作った？『アライグマのコインプッシャー』チームに話を聞いた | https://youxichaguan.com/ja/archives/216074
+- S1234 | youxichaguan.com | Three Graduates Created a Game That Sold 100,000 Copies on Its First Day? We Chatted with the Team Behind *Raccoon Coin Pusher* | https://youxichaguan.com/en/archives/216072
+- S1318 | indienova.com | NOVA海外独立游戏见闻 Vol.158 | https://indienova.com/indie-game-news/news-of-overseas-indie-games-and-industry-vol-158/
+- S1300 | ign.com.cn | 《奇异人生》开发商遭工会员工指控违法 | https://www.ign.com.cn/life-is-strange/63667/qi-yi-ren-sheng-kai-fa-shang-zao-gong-hui-yuan-gong-zhi-kong-wei-fa
+- S0141 | youxichaguan.com | Side收购成都美术工作室Roboto，这个全球游戏服务商把美术决策中枢放到中国西部 | https://youxichaguan.com/archives/214914
+- S0764 | gamesindustry.biz | Side expands presence in China, opens new studio and acquires art outsourcing provider Roboto Entertainment | https://www.gamesindustry.biz/side-expands-presence-in-china-opens-new-studio-and-acquires-art-outsourcing-provider-roboto-entertainment
+- S0167 | youxichaguan.com | Após receber investimento da NetEase e da Bilibili, quando a situação estava no seu pior, só tinha 30 mil na conta, mas o veterano do mundo dos animes e mangás «Tiexue» vai regressar num piscar de olhos | https://youxichaguan.com/pt/archives/214756
+- S0722 | youxichaguan.com | The previous installment sold 9 million copies; the new release crashed servers upon launch and topped the best-seller charts at No. 1. | https://youxichaguan.com/en/archives/215129
+- S1290 | gamespot.com | Witchbrook Is Stardew Valley Meets Kiki’s Delivery Service, And It Finally Has A Release Date | https://www.gamespot.com/articles/witchbrook-is-stardew-valley-meets-kikis-delivery-service-and-it-finally-has-a-release-date/
+- S0184 | youxichaguan.com | Apenas 37 días después de su lanzamiento, «Highguard», que en su día recibió inversión de Tencent, anuncia el cese de sus servicios | https://youxichaguan.com/es/archives/214738
+- S0062 | youxichaguan.com | Top 10 das vendas mais populares: será que esta marca de longa data está a começar o ano em grande? | https://youxichaguan.com/pt/archives/214414
+- S0760 | gamesindustry.biz | Shogun 2 – Complete Edition was "not a Creative Assembly developed game," says Total War VP after it was pulled amid generative AI concerns | https://www.gamesindustry.biz/shogun-2-complete-edition-was-not-a-creative-assembly-developed-game-says-total-war-vp-after-it-was-pulled-amid-generative-ai-concerns
+- S0621 | gcores.com | Creative Assembly：《全面战争：幕府将军2》完全版系纯外包作品 | https://www.gcores.com/articles/221467
+- S1336 | pcgamer.com | 'Yes, we are vibe-coding things': Epic confirms it's using AI tools to code Unreal Engine 6, Fortnite, and more | https://www.pcgamer.com/software/ai/yes-we-are-vibe-coding-things-epic-confirms-its-using-ai-tools-to-code-unreal-engine-6-fortnite-and-more/
+- S1114 | gcores.com | Epic宣布将允许AI使用虚幻引擎和MetaHuman输出训练 | https://www.gcores.com/articles/221590
+- S1265 | gamedeveloper.com | Epic is updating its EULA to allow AI training on outputs from Unreal Engine and MetaHuman | https://www.gamedeveloper.com/programming/epic-is-updating-the-eula-to-allow-ai-training-on-outputs-from-unreal-engine-and-metahuman
+- S1118 | m.sohu.com | 做过畅销榜Top 1的制作人狂蹬AI两年，首曝了一款AI新品 | https://m.sohu.com/a/1094041153_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1793232248602I2syOkV
+- S0035 | m.sohu.com | 米哈游项目组联手清北高材生，开源游戏操作AI模型：字节也做过 | https://m.sohu.com/a/1091675950_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.2.1792800276878hRfKTKC_324
+- S1353 | aihot.virxact.com | Google DeepMind 发布实时交互世界模型 Genie 4 | https://aihot.news/items/l74eacnb38ytvm5hm8om7h7cs
+- S0255 | youxichaguan.com | NBA联动新游！教练，快来和篮球美少女们一起飞跃巅峰 | https://youxichaguan.com/archives/215084
+- S0417 | 3839.com | 篮球少女：飞跃巅峰 - 10:00 正式上线 | https://www.3839.com/a/181765.htm
+- S0632 | gamelook.com.cn | 灵犀还灵么？美少女二游《篮球少女》免费榜夺冠，还跟“NBA猛男”好上了！ | http://www.gamelook.com.cn/2026/10/604719/
+- S1349 | nadianshi.com | 原创｜畅销Top4，灵犀这一“球”把全行业打醒了 | http://www.nadianshi.com/2026/10/423438
+- S1109 | gcores.com | 梁其伟长文致谢玩家，《影之刃零》明日上线！ | https://www.gcores.com/articles/221570
+- S1117 | m.sohu.com | 距上线不到20小时，《影之刃零》制作人梁其伟发文回顾20年生涯 | https://m.sohu.com/a/1094041150_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.6.1793232248602I2syOkV
+- S1124 | youxituoluo.com | 梁其伟复盘《影之刃零》开发历程，砍掉其他项目、00后操盘重要战斗设计 | https://www.youxituoluo.com/535003.html
+- S1321 | mp.sohu.com | 放弃多款手游，烧掉数亿做单机，这家腾讯投资的公司要交卷了 | https://www.sohu.com/a/1094013496_100136645
+- S1332 | pcgamer.com | Here's the Phantom Blade Zero release time for your region | https://www.pcgamer.com/games/action/phantom-blade-zero-release-date-launch-times/
+- S1350 | nadianshi.com | 观察丨梁其伟：砍掉其他项目，癫狂一次，00后立大功 | http://www.nadianshi.com/2026/10/423367
+- S1319 | indienova.com | 本周 Steam 值得关注的游戏 10.26 - 11.01（三） | https://indienova.com/indie-game-news/guide-2026-1026-1101-part-3/
+- S0625 | gcores.com | JK × 魔女 × 异世界：《Sign 碎冠篇》今日正式发售 | https://www.gcores.com/articles/221489
+- S0751 | youxichaguan.com | Sign 碎冠篇今日正式发售 | https://youxichaguan.com/archives/215881
+- S0034 | m.sohu.com | 预约超2500万的《蓝色星原》官宣定档，我和蛮啾创始人及团队聊了聊 | https://m.sohu.com/a/1091592725_204824?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334&spm=smwp.channel_247.block2_307_epwR4p_1_fd.3.1792800276878hRfKTKC_324
+- S0283 | gameres.com | 检验抓宠二次元游戏的时刻终于来了 | https://www.gameres.com/901203319.html
+- S0464 | chuapp.com | 触乐本周行业大事：从业者怎么看？光子公布怪谈RPG新作，《影之刃：零》发布最终预告，Steam新品节AI游戏占比超三成 | http://www.chuapp.com/article/291712.html
+- S0409 | 3839.com | 蓝色星原：旅谣-11月26日上线(官服) - 定档11月26日正式上线 | https://www.3839.com/a/164274.htm
+- S1286 | gamespot.com | Nintendo Indie World October 2026 Showcase: All The Biggest Announcements | https://www.gamespot.com/articles/nintendo-indie-world-october-2026-showcase-all-the-biggest-announcements/
+- S1409 | gematsu.com | Witchbrook adds PS5 version, launches January 28, 2027 | https://news.google.com/rss/articles/CBMijAFBVV95cUxPTExac1hxdWp1dDJjOUxuLTh0YVpDdlhaZlVHbC1HMWVlNk5PWHAyWTNvd3hZSm9aSWdnclRvbUE1Z3RYRE9BWUFGVTBFVDlxbUIzTVFtaFdCck9heDdtRXZBU1Q3S3J0YWRoTXI2dmN5ZGplZWl2Sl95dGhsOHQzTUVRMzJCWlNLSWx2ag?oc=5
+- S1292 | gamespot.com | Every October 2026 Nintendo Indie World Game You Can Play Right Now | https://www.gamespot.com/articles/every-october-2026-nintendo-indie-world-game-you-can-play-right-now/
+- S1397 | gematsu.com | Petal Runner adds Switch 2 version, launches March 8, 2027 | https://news.google.com/rss/articles/CBMikgFBVV95cUxOQ1Bqc3BUMmxKaXU3QXBLQ0REdk05UjFOS29UV2JGaFNwalNEQnYtZFhLYnJpeVFDZzdUNEZ4MVRkQWdHODk3UkR6Z0FUdDJwREJtWHNNM2JweHlvTGQyVDNMcVNCSno1d1NFT20yUk5oUlNzWWNidzJBb3UwSW5HYjV1RjhTajZhY0Znd2lkUlFUZw?oc=5
+- S1396 | gematsu.com | RACCOIN: Chaos Max Edition for PS5, Xbox Series, and Switch 2 launches November 10 | https://news.google.com/rss/articles/CBMisAFBVV95cUxQN2xwdzZtV3ozVWx4cWJjRHVwSVFrYXFpMWZ5WGM5aWxsMDJ5LVpjQmI3bDJaQ1JsMjIyYjRYakh0M3FrT2JHb0ZlNVpaX3VRTnY5ZWhRUnpQX0JwMkNMOG45ZnA5REd1U1EwMEJZMThSNHRtS1F5WHBXNU1CYjJoTGR2NHZEWnk4V0JWTVJHdzZ1dV8yazFELVRjVHRZbjdIM3NTYWFPQ1Jjc0J5cTA3UA?oc=5
+- S0428 | bbs.nga.cn | [新瓜] [鸣潮] 鸣潮在前瞻说过的签到活动奖励与实际发放不足 | https://bbs.nga.cn/read.php?tid=47771885&forder_by=postdatedesc
+- S0609 | bbs.nga.cn | [新瓜] [鸣潮] 鸣潮在前瞻说过的签到活动奖励与实际发放不足 | https://bbs.nga.cn/read.php?tid=47771885&forder_by=postdatedesc
+- S0861 | bbs.nga.cn | [鹰角][厂商]明日方舟终末地新活动小葱立绘疑似使用ai生成(更新，已修复) | https://bbs.nga.cn/read.php?tid=47751423&_fp=2&forder_by=postdatedesc
+- S1434 | bbs.nga.cn | [腾讯]话说回来瓜版这边没人讨论吗，三角洲那边出了个很逆天的活动 | https://bbs.nga.cn/read.php?tid=47783517&forder_by=postdatedesc

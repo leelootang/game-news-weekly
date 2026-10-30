@@ -1,0 +1,138 @@
+{
+  "run_time": "2026-10-30T09:51:14.162614+08:00",
+  "results": [
+    {
+      "check": "staged_sources",
+      "exit_code": 0,
+      "stdout": "wrote C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\sources_used.md\n",
+      "stderr": "",
+      "command": [
+        "scripts/report_artifacts.py",
+        "generate-sources",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_items.json",
+        "--output",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\sources_used.md"
+      ]
+    },
+    {
+      "check": "staged_report_lint",
+      "exit_code": 0,
+      "stdout": "WARN: input extraction has 65 short/snippet records; they are forbidden as final-item evidence\nReport lint passed with warnings.\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--report-type",
+        "weekly"
+      ]
+    },
+    {
+      "check": "staged_artifact_validate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "command": [
+        "scripts/report_artifacts.py",
+        "validate",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\draft\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_items.json",
+        "--decisions",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\selection_decisions.json",
+        "--release-audit",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\release_calendar_audit.json",
+        "--require-artifacts"
+      ]
+    },
+    {
+      "check": "final_sources",
+      "exit_code": 0,
+      "stdout": "wrote C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\sources_used.md\n",
+      "stderr": "",
+      "command": [
+        "scripts/report_artifacts.py",
+        "generate-sources",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_items.json",
+        "--output",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\sources_used.md"
+      ]
+    },
+    {
+      "check": "final_report_lint",
+      "exit_code": 0,
+      "stdout": "WARN: input extraction has 65 short/snippet records; they are forbidden as final-item evidence\nReport lint passed with warnings.\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\Admin\\.codex\\skills\\game-industry-report\\scripts\\report_lint.py",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--report-type",
+        "weekly"
+      ]
+    },
+    {
+      "check": "final_artifact_validate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "command": [
+        "scripts/report_artifacts.py",
+        "validate",
+        "--report",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\game_industry_weekly_2026-10-23_to_2026-10-29.md",
+        "--sources",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\sources_used.md",
+        "--inputs",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_inputs.jsonl",
+        "--items",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\report_items.json",
+        "--decisions",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\selection_decisions.json",
+        "--release-audit",
+        "C:\\Users\\Admin\\Documents\\AI游戏行业周月报\\output\\weekly\\2026-10-23_to_2026-10-29\\_intermediate\\release_calendar_audit.json",
+        "--require-artifacts"
+      ]
+    }
+  ],
+  "final_recheck_time": "2026-10-30T09:53:36.381527+08:00",
+  "final_recheck": [
+    {
+      "check": "report_lint",
+      "errors": 0,
+      "warnings": [
+        "input extraction has 65 short/snippet records; they are forbidden as final-item evidence"
+      ],
+      "exit_code": 0
+    },
+    {
+      "check": "artifact_validate",
+      "errors": 0,
+      "warnings": [],
+      "exit_code": 0
+    }
+  ]
+}
