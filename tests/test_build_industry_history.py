@@ -149,6 +149,15 @@ def test_history_gate_rejects_repeat_include_and_empty_material_update() -> None
     assert any("new facts" in error for error in validate_industry_history_check(update, "I002"))
 
 
+def test_archive_preserves_exposure_before_two_week_window(tmp_path: Path) -> None:
+    _write_ranked_report(tmp_path, "2026-06-01")
+    _write_publish_log(tmp_path, "2026-06-01")
+    history = collect_history(tmp_path, date(2026, 7, 28))
+    assert not history["occurrences"]
+    assert history["archive_occurrences"]
+    assert history["archive_occurrences"][0]["card_exposed"] is True
+
+
 def test_legacy_publish_log_infers_first_ten_card_exposures(tmp_path: Path) -> None:
     _write_ranked_report(tmp_path, "2026-07-20")
     _write_publish_log(tmp_path, "2026-07-20")

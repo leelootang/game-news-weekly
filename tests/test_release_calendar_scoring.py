@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 
-SCRIPT = Path(r"C:\Users\Admin\.codex\skills\game-industry-report\scripts\extract_report_inputs.py")
+SCRIPT = Path(__file__).resolve().parents[1] / "skills/game-industry-report/scripts/extract_report_inputs.py"
 SPEC = importlib.util.spec_from_file_location("extract_report_inputs_contract", SCRIPT)
 assert SPEC and SPEC.loader
 EXTRACT = importlib.util.module_from_spec(SPEC)
@@ -34,6 +34,24 @@ def release_record(
 
 
 class ReleaseCalendarScoringTests(unittest.TestCase):
+    def test_unified_roster_all_companies_receive_direct_bonus(self) -> None:
+        self.assertEqual(35, len(EXTRACT.FOCUS_COMPANY_PATTERNS))
+        for company in EXTRACT.FOCUS_COMPANY_PATTERNS:
+            with self.subTest(company=company):
+                rows = EXTRACT.build_release_candidates([
+                    release_record("S0001", "政策测试新品", "正式上线", company=company),
+                ])
+                self.assertEqual(3, rows[0]["company_bonus"])
+                self.assertIn(company, rows[0]["focus_companies"])
+
+    def test_unrelated_sea_and_generic_words_do_not_receive_bonus(self) -> None:
+        for company in ["Sea电商业务", "这是令人心动的产品", "畅游数字世界", "未知厂商"]:
+            with self.subTest(company=company):
+                rows = EXTRACT.build_release_candidates([
+                    release_record("S0001", "政策测试新品", "正式上线", company=company),
+                ])
+                self.assertEqual(0, rows[0]["company_bonus"])
+
     def test_same_product_date_merges_test_labels(self) -> None:
         rows = EXTRACT.build_release_candidates([
             release_record("S0001", "航海奇兵", "计费删档内测"),

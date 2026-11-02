@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Deterministically replace release-calendar decisions from the extractor audit."""
+"""Rank calendar nodes independently of industry publication decisions.
+
+Shared products/events/sources across industry and calendar are allowed. Calendar
+source deduplication, time gates, ranked prefix and per-report cap remain intact.
+"""
 
 from __future__ import annotations
 
@@ -33,6 +37,7 @@ def build_release_decision(node: dict[str, Any], include: bool) -> dict[str, Any
         "entities": [product] if product else [],
         "event": f"{event_date} {event}".strip(),
         "decision": "include" if include else "exclude",
+        "industry_overlap_allowed": True,
         "reason": (
             "次日及时性候选按事件类型×来源强度+重点公司加分排序进入报告上限"
             if include and node.get("window_scope") == "next_day_lookahead"
@@ -92,7 +97,10 @@ def sync(audit_path: Path, decisions_path: Path, max_items: int) -> None:
             eligible_seen += 1
         release.append(build_release_decision(node, include))
 
-    output = {"decisions": non_release + release}
+    # Preserve scoring_version and other report metadata while replacing only
+    # calendar decisions; otherwise sync silently downgrades the scoring policy.
+    output = dict(current_raw) if isinstance(current_raw, dict) else {}
+    output["decisions"] = non_release + release
     decisions_path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

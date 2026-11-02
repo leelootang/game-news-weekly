@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import sys
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -119,6 +120,54 @@ class ReportArtifactContractTests(unittest.TestCase):
     def validate(self):
         return ARTIFACTS.validate_contract(self.report, self.inputs, self.items, self.decisions, self.audit, self.sources, True)
 
+    def enable_subject_genre(self):
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["scoring_version"] = "subject_genre_v2"
+        data["decisions"][0]["scores"] = {"event": 2, "relevance": 2, "hook": 1, "total": 5}
+        data["decisions"][0]["subject_assessment"] = {
+            "subject": "新工作室", "kind": "focus_affiliate", "focus_companies": ["库洛"],
+            "basis": "投资关系", "evidence": [{"source_id": "S0001", "evidence": "库洛投资的新工作室"}],
+        }
+        data["decisions"][0]["genre_assessment"] = {
+            "matched_genres": ["competitive"], "basis": "竞技射击",
+            "evidence": [{"source_id": "S0001", "evidence": "竞技射击"}],
+        }
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        inputs = [json.loads(line) for line in self.inputs.read_text(encoding="utf-8").splitlines()]
+        inputs[0]["text"] += "库洛投资的新工作室研发竞技射击产品。"
+        self.inputs.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in inputs), encoding="utf-8")
+        audit = json.loads(self.audit.read_text(encoding="utf-8"))
+        audit.update(focus_company_policy_version="subject_genre_v2", focus_company_bonus=3, focus_company_investment_bonus=2)
+        self.audit.write_text(json.dumps(audit), encoding="utf-8")
+
+    def test_v2_five_points_pass_artifact_gate(self):
+        self.enable_subject_genre()
+        self.assertEqual([], self.validate()[0])
+
+    def test_v2_m_two_fails_artifact_gate(self):
+        self.enable_subject_genre()
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["scores"].update(hook=2, total=6)
+        self.decisions.write_text(json.dumps(data), encoding="utf-8")
+        self.assertTrue(any("score out of range" in error for error in self.validate()[0]))
+
+    def test_v2_missing_subject_proof_fails_artifact_gate(self):
+        self.enable_subject_genre()
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["subject_assessment"]["evidence"] = []
+        self.decisions.write_text(json.dumps(data), encoding="utf-8")
+        self.assertTrue(any("subject_assessment needs source evidence" in error for error in self.validate()[0]))
+
+    def test_lint_rejects_v2_m_two_even_without_markdown_audit(self):
+        self.enable_subject_genre()
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["scores"].update(hook=2, total=6)
+        self.decisions.write_text(json.dumps(data), encoding="utf-8")
+        lint = ROOT / "skills/game-industry-report/scripts/report_lint.py"
+        result = subprocess.run([sys.executable, str(lint), "--report", str(self.report), "--sources", str(self.sources), "--inputs", str(self.inputs), "--report-type", "daily"], capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(1, result.returncode)
+        self.assertIn("subject_genre_v2 score out of range", result.stdout)
+
     def test_valid_contract_and_generated_sources(self) -> None:
         errors, warnings = self.validate()
         self.assertEqual([], errors)
@@ -150,6 +199,111 @@ class ReportArtifactContractTests(unittest.TestCase):
         self.report = weekly
         errors, _ = self.validate()
         self.assertTrue(any("required >= 8" in error and "C1" in error for error in errors))
+
+    def pc_launch_decision(self, classification="ordinary_overseas_single_player", relevance=3):
+        return {
+            "candidate_id": "PC1", "source_ids": ["S0001"], "event": "海外单机正式发售",
+            "priority_tracks": ["life_simulation"],
+            "scores": {"event": 3, "relevance": relevance, "hook": 2, "total": 3*relevance+2},
+            "pc_release_scope": {"classification": classification, "basis": "海外单机仅发售，品类不能替代业务相关性",
+                "evidence": [{"source_id": "S0001", "evidence": "海外单机现已登陆PC与PS5。"}]},
+        }
+
+    def test_overseas_pc_release_genre_cannot_supply_r_three(self) -> None:
+        inputs = {"S0001": {"text": "海外单机现已登陆PC与PS5。"}}
+        for track in ("life_simulation", "strategy_card_rpg"):
+            with self.subTest(track=track):
+                decision = self.pc_launch_decision()
+                decision["priority_tracks"] = [track]
+                errors = ARTIFACTS.validate_pc_release_scope(decision, inputs, required=True)
+                self.assertTrue(any("requires R=1" in error for error in errors))
+                decision["scores"] = {"event": 3, "relevance": 1, "hook": 2, "total": 5}
+                self.assertEqual([], ARTIFACTS.validate_pc_release_scope(decision, inputs, required=True))
+
+    def test_pc_launch_needs_scope_but_legacy_missing_scope_is_compatible(self) -> None:
+        decision = self.pc_launch_decision()
+        del decision["pc_release_scope"]
+        inputs = {"S0001": {"text": "海外单机现已登陆PC与PS5。"}}
+        self.assertTrue(ARTIFACTS.validate_pc_release_scope(decision, inputs, required=True))
+        self.assertEqual([], ARTIFACTS.validate_pc_release_scope(decision, inputs, required=False))
+
+    def test_pc_launch_scope_cannot_be_skipped_by_using_event_two(self) -> None:
+        decision = self.pc_launch_decision()
+        del decision["pc_release_scope"]
+        decision["scores"] = {"event": 2, "relevance": 3, "hook": 2, "total": 8}
+        errors = ARTIFACTS.validate_pc_release_scope(decision, {"S0001": {"text": "海外单机现已登陆PC与PS5。"}}, required=True)
+        self.assertTrue(any("lacks pc_release_scope" in error for error in errors))
+
+    def test_new_report_contract_enforces_pc_scope_without_metadata(self) -> None:
+        self.report.rename(self.root / "game_industry_daily_2026-10-15.md")
+        self.report = self.root / "game_industry_daily_2026-10-15.md"
+        records = [json.loads(x) for x in self.inputs.read_text(encoding="utf-8").splitlines()]
+        records[0]["text"] += "海外单机现已登陆PC与PS5。"
+        self.inputs.write_text("".join(json.dumps(x, ensure_ascii=False)+"\n" for x in records), encoding="utf-8")
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        data["decisions"][0]["event"] = "海外单机正式发售"
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        errors, _ = self.validate()
+        self.assertIn("PC/console launch decision lacks pc_release_scope: C1", errors)
+
+    def test_domestic_and_substantive_pc_events_are_not_blanket_downgraded(self) -> None:
+        inputs = {"S0001": {"text": "海外单机现已登陆PC与PS5。中国厂商发行；同时上线移动端，开放跨平台服务器。"}}
+        for classification, quote in [
+            ("domestic_or_focus", "中国厂商发行"),
+            ("substantive_migration", "同时上线移动端，开放跨平台服务器"),
+            ("multiplayer_or_other", "开放跨平台服务器"),
+        ]:
+            with self.subTest(classification=classification):
+                decision = self.pc_launch_decision(classification)
+                decision["pc_release_scope"]["basis"] = quote
+                decision["pc_release_scope"]["evidence"][0]["evidence"] = quote
+                self.assertEqual([], ARTIFACTS.validate_pc_release_scope(decision, inputs, required=True))
+
+    def test_pc_exception_needs_literal_candidate_evidence(self) -> None:
+        decision = self.pc_launch_decision("domestic_or_focus")
+        decision["pc_release_scope"]["evidence"][0]["evidence"] = "来源未写的重点厂商"
+        errors = ARTIFACTS.validate_pc_release_scope(decision, {"S0001": {"text": "海外单机现已登陆PC与PS5。"}}, required=True)
+        self.assertTrue(any("evidence not found" in error for error in errors))
+
+    def test_unknown_pc_relevance_is_not_promoted(self) -> None:
+        decision = self.pc_launch_decision("unknown")
+        errors = ARTIFACTS.validate_pc_release_scope(decision, {"S0001": {"text": "海外单机现已登陆PC与PS5。"}}, required=True)
+        self.assertTrue(any("cannot exceed R=1" in error for error in errors))
+
+    def test_policy_cutover_uses_report_end_including_monthly(self) -> None:
+        for name, expected in [
+            ("game_industry_daily_2026-10-15.md", "2026-10-15"),
+            ("game_industry_weekly_2026-10-09_to_2026-10-15.md", "2026-10-15"),
+            ("game_industry_monthly_2026-10.md", "2026-10-31"),
+            ("game_industry_monthly_2026-02.md", "2026-02-28"),
+        ]:
+            self.assertEqual(expected, ARTIFACTS.covered_end_for_policy(Path(name)))
+
+    def test_industry_and_calendar_can_share_exact_source_set(self) -> None:
+        item_data = json.loads(self.items.read_text(encoding="utf-8"))
+        item_data["items"][0]["source_ids"] = ["S0001", "S0003"]
+        self.items.write_text(json.dumps(item_data, ensure_ascii=False), encoding="utf-8")
+        data = json.loads(self.decisions.read_text(encoding="utf-8"))
+        cluster = {"subject": "测试公司", "product": "测试游戏", "event_date": "2026-07-15", "event": "正式上线"}
+        for d in data["decisions"]:
+            if d["candidate_id"] in {"C1", "C3"}:
+                d.update(source_ids=["S0001", "S0003"], entities=["测试游戏"], cluster_basis=cluster)
+        self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        ARTIFACTS.generate_sources_used(self.report, self.inputs, self.items, self.sources)
+        self.assertEqual([], self.validate()[0])
+
+    def test_calendar_industry_overlap_is_not_an_exclusion_reason(self) -> None:
+        for reason in ("行业已采用的新品不跨栏重复", "因已在行业新闻收录，日历排除", "为避免跨栏重复，排除"):
+            with self.subTest(reason=reason):
+                data = json.loads(self.decisions.read_text(encoding="utf-8"))
+                d = next(x for x in data["decisions"] if x["candidate_id"] == "C3")
+                d.update(decision="exclude", reason=reason, industry_overlap_allowed=True)
+                self.decisions.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                self.assertTrue(any("cannot be excluded for industry overlap" in x for x in self.validate()[0]))
+
+    def test_calendar_legitimate_exclusion_may_note_old_dedup_is_removed(self) -> None:
+        for reason in ("取消跨栏去重；单源不具备正文资格", "不做跨栏去重，实际日期在窗口外", "不执行行业新闻与产品日历的跨栏去重，跨期重复排除"):
+            self.assertFalse(ARTIFACTS.calendar_excluded_for_industry_overlap(reason))
 
     def test_weekly_industry_accepts_eight_points(self) -> None:
         weekly = self.root / "game_industry_weekly_2026-07-09_to_2026-07-15.md"

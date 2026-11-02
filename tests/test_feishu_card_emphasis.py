@@ -140,6 +140,16 @@ class FeishuCardEmphasisTests(unittest.TestCase):
         self.assertNotIn("**《游戏丙》", text)
         self.assertIn("• **玩家争议标题**\n  玩家围绕更新方案展开讨论", text)
 
+    def test_v2_emphasizes_ten_and_not_nine(self) -> None:
+        industry = self.summary["sections"][0]["items"]
+        for item in industry:
+            item["score_max"] = 10
+        industry[0]["score_total"] = 10
+        industry[1]["score_total"] = 9
+        text = "\n".join(self.markdown_blocks())
+        self.assertIn("• **行业标题**", text)
+        self.assertNotIn("**第二条标题**", text)
+
     def test_player_discourse_card_cap_depends_on_report_kind(self) -> None:
         discourse = next(
             section for section in self.summary["sections"]
@@ -279,6 +289,12 @@ class FeishuCardEmphasisTests(unittest.TestCase):
             self.assertTrue(sections[0]["items"][0]["card_carryover"])
             self.assertEqual(10, sections[0]["items"][1]["score_total"])
             self.assertNotIn("score_total", sections[0]["items"][2])
+            decision_path = intermediate / "selection_decisions.json"
+            document = json.loads(decision_path.read_text(encoding="utf-8"))
+            document["scoring_version"] = "subject_genre_v2"
+            decision_path.write_text(json.dumps(document), encoding="utf-8")
+            _attach_industry_scores(sections, report_dir)
+            self.assertEqual(10, sections[0]["items"][1]["score_max"])
 
     def test_card_carryover_replaces_last_industry_item_and_is_logged(self) -> None:
         items = [

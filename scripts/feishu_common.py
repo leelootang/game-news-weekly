@@ -599,6 +599,9 @@ def _attach_industry_scores(
     if not isinstance(report_items, list) or not isinstance(decisions, list):
         return
 
+    # Old reports retain their original 11-point emphasis rule.
+    score_max = 10 if isinstance(decisions_data, dict) and decisions_data.get("scoring_version") == "subject_genre_v2" else 11
+
     decision_by_candidate: dict[str, dict[str, Any]] = {}
     for decision in decisions:
         if not isinstance(decision, dict) or decision.get("section") not in ("industry", "industry_news"):
@@ -619,6 +622,7 @@ def _attach_industry_scores(
             audit_by_title[key] = {
                 "candidate_id": candidate_id,
                 "score_total": total if isinstance(total, (int, float)) else None,
+                "score_max": score_max,
                 "card_carryover": decision.get("card_carryover") is True,
             }
 
@@ -634,6 +638,7 @@ def _attach_industry_scores(
                 item["candidate_id"] = audit["candidate_id"]
             if audit["score_total"] is not None:
                 item["score_total"] = audit["score_total"]
+                item["score_max"] = audit["score_max"]
             if audit["card_carryover"]:
                 item["card_carryover"] = True
 
@@ -1126,7 +1131,7 @@ def build_daily_card(
                 suffix = f"；{detail}" if detail else ""
                 headline = (
                     _emphasize_lead_clause(title)
-                    if item.get("score_total") == 11
+                    if item.get("score_total") == item.get("score_max", 11)
                     else title
                 )
                 lines.append(f"• {headline}{suffix}")

@@ -177,14 +177,29 @@ COLLECTOR_RUNS_RETENTION_DAYS = 90
 LEGACY_LOG_RETENTION_DAYS = 30
 ```
 
-## Skill / Lint Range Drift
+## Report Scoring Policy
 
-`game-industry-report` skill's `report_lint.py` ships with section item-count ranges (e.g. daily industry 3–5) that were tuned for the original "少而精" doctrine. The current SKILL.md uses wider "宁多勿少" ranges (daily industry 3–7) so the user can filter. **As a result, lint will emit WARN on every report run.** WARN ≠ ERROR; the run still passes. Two ways to reconcile:
+Industry scoring uses `subject_genre_v2`: E remains event type (0–3), R is subject importance (0–3), and M is binary priority-genre bonus (0/1). All report types require E×R+M ≥5; E0 is excluded. There is no industry count cap. Source quality, report dates and exposure-aware deduplication remain independent gates.
 
-1. Sync `report_lint.py` ranges with SKILL's Section Targets table.
-2. Treat WARN as informational and ignore (current default).
+`config/game_report_policy.json` and `scripts/report_policy.py` are synchronized with the installed game-industry-report skill. The 35 canonical focus-subject groups are references for industry influence; unlisted subjects with comparable influence can also receive R3/R2. The canonical list still determines release-calendar company bonuses. Calendar scoring remains event×source+company with direct +3/investment +2, independent multi-source eligibility and existing caps.
 
-This drift is intentional for now — note it in your head when reading lint output.
+New decisions use a root `scoring_version` and non-E0 industry decisions record `subject_assessment` and `genre_assessment` with verbatim source evidence. Report windows ending on/after 2026-10-21 require v2; earlier existing reports without a version retain their historical scoring. Rebuilt reports explicitly use v2. The calendar sync preserves root metadata. Both lint and artifact validation enforce the new policy. Card maximum-score emphasis is 10 for v2 and 11 for legacy reports.
+
+Run policy, calendar, artifact, lint integration and card tests after policy changes. Skill mirrors must remain identical; archived reports and their generation scripts are historical artifacts, not live policy definitions.
+
+The versioned skill, including the extractor, lint, references and policy copies,
+is included at `skills/game-industry-report/`. Integration tests use this bundled
+copy so a checkout does not depend on one user's absolute installation path.
+When updating the installed skill, synchronize this directory and the shared
+workspace modules/config in the same change. Existing automations can continue
+using their installed skill path; this checkout does not change that installation.
+
+Run the relevant offline regressions without installing pytest:
+
+```powershell
+$env:PYTHONUTF8 = "1"
+python scripts/run_report_regressions.py --output-dir output/validation/report-regressions
+```
 
 ## Collector Contract
 
@@ -224,7 +239,7 @@ and inherit the runner's section/date output path and manifest handling.
 | `chuapp` | `industry_news` | Full-text RSS | Source body is in RSS description. |
 | `gameoracle` | `deep_analysis` | Sitemap + JSON-LD/article page | Long-form Steam market analysis. |
 | `gameres` | `industry_news` | Homepage + article page | Limits discovery to GameRes original articles. |
-| `gamespot` | `industry_news` | RSS | Source exposes summaries only; records are explicitly `partial`. |
+| `gamespot` | `industry_news` | Publisher RSS | Structured, untruncated article bodies can be full; short or truncated entries remain partial. |
 | `ign_cn` | `industry_news` | RSS + article-page fallback | Short RSS teasers are replaced with the server-rendered article body. |
 | `indienova` | `industry_news` | News index + article page | Handles absolute and relative Chinese dates. |
 | `luosiji_sohu` | `industry_news` | Official Sohu account API + article page | Uses excerpt only when the page body cannot be read, and marks it. |
@@ -321,3 +336,20 @@ to the `--out` path they receive.
 
 The workspace currently uses Python 3.14 on this machine. Playwright and
 Chromium are already installed for the local collector environment.
+
+PocketGamer uses a separate persistent browser profile at
+`data/browser_sessions/pocketgamer/`, which is excluded from Git. Its default
+browser channel is installed Chrome; `--browser-channel chromium` selects the
+Playwright-managed browser instead. The setup helper
+`scripts/setup_pocketgamer_browser.cmd` allows the user to complete website
+verification in that dedicated browser. Verification can expire, and an accepted
+session does not guarantee unattended detail retrieval: blocked details remain
+explicit RSS-summary fallbacks, while an existing full article is retained.
+
+## 行业新闻时间口径
+
+自2026-10-27采用 source_window_v1：行业窗口按本期来源 published_at（缺失回退抽取 date）召回，事件发生日期不设准入门槛。当期报道的未收录未曝光旧事件，只要 E×R+M≥5 且取证合格就可入选，不要求当期首次披露。正文保留真实历史语态。双周历史与更早 archive_occurrences 共同核对曝光，已曝光的同事件没有实质更新仍排除；曾入正文但未上卡片的原有至多1条规则不变。产品日历等分区仍执行各自日期规则。
+
+selection_decisions.json 写 industry_timing_version；非E0行业候选写 time_check，exclude 写具体 exclusion_gates，不能只写事件超窗。scripts/industry_timing.py 为日期审计与两道 lint 的共用实现；安装技能含相同副本。sync_release_decisions.py 保留时间与评分版本。
+
+行业R以名单为影响力参照，开放同等影响力的名单外主体：`comparable_major_subject`对应R3，`comparable_significant_subject`对应R2；用现有basis/evidence说明产品覆盖、规模或行业地位等综合判断，不设新硬性数值线。未列名不构成R1上限；产品日历名单公司加分仍独立。

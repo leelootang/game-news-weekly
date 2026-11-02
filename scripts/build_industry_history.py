@@ -120,7 +120,7 @@ def _card_exposure(
     }
 
 
-def collect_history(workspace: Path, target_start: date, lookback_days: int = 14) -> dict[str, Any]:
+def _collect_history_window(workspace: Path, target_start: date, lookback_days: int = 14) -> dict[str, Any]:
     history_start = target_start - timedelta(days=lookback_days)
     history_end = target_start - timedelta(days=1)
     occurrences: list[dict[str, Any]] = []
@@ -271,6 +271,21 @@ def collect_history(workspace: Path, target_start: date, lookback_days: int = 14
     }
 
 
+def collect_history(workspace: Path, target_start: date, lookback_days: int = 14) -> dict[str, Any]:
+    history = _collect_history_window(workspace, target_start, lookback_days)
+    windows = [window for path in workspace.glob("output/*/*/game_industry_*.md")
+               if (window := _window(path)) and window[0] < target_start]
+    windows.extend(window for path in workspace.glob("output/*/*/_intermediate/selection_decisions.json")
+                   if (window := _window(path)) and window[0] < target_start)
+    earliest = min((window[0] for window in windows), default=target_start)
+    archive = _collect_history_window(workspace, target_start, max(lookback_days, (target_start - earliest).days))
+    recent_keys = {(row["artifact"], row["candidate_id"], row["title"]) for row in history["occurrences"]}
+    history["archive_occurrences"] = [row for row in archive["occurrences"]
+        if (row["artifact"], row["candidate_id"], row["title"]) not in recent_keys]
+    history["archive_scope"] = "all available reports before target_start; excludes current report"
+    return history
+
+
 def render_markdown(history: dict[str, Any]) -> str:
     window = history["history_window"]
     lines = [
@@ -278,11 +293,12 @@ def render_markdown(history: dict[str, Any]) -> str:
         "",
         f"- 历史窗口: {window['start']} 至 {window['end']}",
         f"- 已发布行业条目: {len(history['occurrences'])}",
+        f"- 更早历史条目: {len(history.get('archive_occurrences', []))}；旧事件同时核对 archive_occurrences，不能因超出双周而重新当作未曝光。",
         "- 判定: 换来源或补背景不算新进展；只有事件状态或关键事实发生实质变化才可再次入选。",
         "- 卡片曝光: 历史正文已收录但订阅卡片未展示的同一事件，可按当前分数线竞争一次 card_carryover；每期最多 1 条。",
         "",
     ]
-    for index, row in enumerate(history["occurrences"], 1):
+    for index, row in enumerate(history["occurrences"] + history.get("archive_occurrences", []), 1):
         lines.extend(
             [
                 f"## H{index:03d} - {row['title']}",

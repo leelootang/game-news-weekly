@@ -14,6 +14,7 @@ cannot drift from ``report_inputs.jsonl`` through copy/paste.
 from __future__ import annotations
 
 import argparse
+import calendar
 import datetime as dt
 import importlib.util
 import json
@@ -22,6 +23,30 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+
+try:
+    from industry_timing import validate_timing_document
+except ModuleNotFoundError:
+    _timing_spec = importlib.util.spec_from_file_location("industry_timing", Path(__file__).with_name("industry_timing.py"))
+    _timing_module = importlib.util.module_from_spec(_timing_spec)
+    _timing_spec.loader.exec_module(_timing_module)
+    validate_timing_document = _timing_module.validate_timing_document
+
+try:
+    from report_policy import (
+        FOCUS_COMPANY_PATTERNS, SCORING_VERSION, THRESHOLD,
+        uses_subject_genre, validate_scoring_document,
+    )
+except ModuleNotFoundError:
+    _policy_spec = importlib.util.spec_from_file_location("report_policy", Path(__file__).with_name("report_policy.py"))
+    _policy_module = importlib.util.module_from_spec(_policy_spec)
+    sys.modules[_policy_spec.name] = _policy_module
+    _policy_spec.loader.exec_module(_policy_module)
+    FOCUS_COMPANY_PATTERNS = _policy_module.FOCUS_COMPANY_PATTERNS
+    SCORING_VERSION = _policy_module.SCORING_VERSION
+    THRESHOLD = _policy_module.THRESHOLD
+    uses_subject_genre = _policy_module.uses_subject_genre
+    validate_scoring_document = _policy_module.validate_scoring_document
 
 try:
     from deep_observation_handoff import validate_weekly_handoff
@@ -86,6 +111,20 @@ IMPORTANT_INDUSTRY_SUBJECTS = {
 # 新闻标题应陈述可核验事实，而非复用来源的宣传性修辞。具体规模
 # 应以销量、预约量、榜单名次等数据写出；这些词不应作为事实替身。
 PROMOTIONAL_INDUSTRY_TITLE_TERMS = ("爆红", "霸榜", "横扫", "席卷", "封神", "现象级", "杀疯了")
+PC_RELEASE_SCOPE_ENFORCEMENT_START = "2026-10-15"
+PC_CONSOLE_PLATFORM = re.compile(
+    r"(?<![A-Za-z0-9_])(?:PC|Steam|PS[45]|PlayStation|Xbox|Switch)(?![A-Za-z0-9_])|主机|端游", re.IGNORECASE
+)
+GAME_LAUNCH_EVENT = re.compile(
+    r"发售|正式上线|新品上线|首发|\b(?:launch(?:es|ed)?|releas(?:e|es|ed))\b", re.IGNORECASE
+)
+RELEASE_INDUSTRY_SUPPRESSION = re.compile(
+    r"(?:行业(?:新闻)?[^。；;\n]{0,16}(?:已采用|已收录|已入选|已写入|已发布)[^。；;\n]{0,30}(?:不跨栏|不再重复|去重|排除)|"
+    r"(?:已在|已经在|因在|因为在|因已在)[^。；;\n]{0,8}行业新闻[^。；;\n]{0,35}(?:不再|去重|排除|重复)|"
+    r"(?:不跨栏重复|跨栏去重|为避免跨栏重复)|"
+    r"(?:dedup|exclud|suppress)[^\n]{0,45}industry(?:_news)?\s+(?:overlap|inclusion))",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -252,6 +291,81 @@ def important_industry_subjects(decision: dict[str, Any]) -> list[str]:
             for entity in entities
         )
     ]
+
+
+def validate_pc_release_scope(
+    decision: dict[str, Any],
+    inputs: dict[str, dict[str, Any]],
+    *,
+    required: bool,
+    subject_genre: bool = False,
+) -> list[str]:
+    """Require an auditable scope judgment, not a genre-only relevance boost.
+
+    Text matching only identifies candidates needing review. It deliberately does
+    not guess a developer's country, single-player status, or strategic relevance.
+    """
+    cid = str(decision.get("candidate_id") or "")
+    source_ids = _ids(decision.get("source_ids"))
+    scores = decision.get("scores") if isinstance(decision.get("scores"), dict) else {}
+    try:
+        event_type = int(scores.get("event", 0))
+    except (TypeError, ValueError):
+        event_type = 0
+    is_pc_launch = (
+        event_type > 0
+        and bool(GAME_LAUNCH_EVENT.search(str(decision.get("event") or "")))
+        and any(PC_CONSOLE_PLATFORM.search(str(inputs.get(sid, {}).get("text") or "")) for sid in source_ids)
+    )
+    scope = decision.get("pc_release_scope")
+    if scope is None:
+        return [f"PC/console launch decision lacks pc_release_scope: {cid}"] if required and is_pc_launch else []
+    if not isinstance(scope, dict):
+        return [f"pc_release_scope must be an object: {cid}"]
+    errors: list[str] = []
+    classification = scope.get("classification")
+    allowed = {"ordinary_overseas_single_player", "domestic_or_focus", "substantive_migration", "multiplayer_or_other", "unknown"}
+    if not isinstance(classification, str) or classification not in allowed:
+        errors.append(f"invalid pc_release_scope classification: {cid}")
+    if not str(scope.get("basis") or "").strip():
+        errors.append(f"pc_release_scope needs a factual basis beyond genre: {cid}")
+    quotes = scope.get("evidence")
+    if not isinstance(quotes, list) or not quotes:
+        errors.append(f"pc_release_scope needs source evidence: {cid}")
+    else:
+        for quote in quotes:
+            if not isinstance(quote, dict):
+                errors.append(f"pc_release_scope evidence must be an object: {cid}")
+                continue
+            sid = str(quote.get("source_id") or "")
+            text = str(quote.get("evidence") or "").strip()
+            if sid not in source_ids or not text or text not in str(inputs.get(sid, {}).get("text") or ""):
+                errors.append(f"pc_release_scope evidence not found in candidate input: {cid}/{sid}")
+    relevance = scores.get("relevance")
+    if not subject_genre and classification == "ordinary_overseas_single_player" and relevance != 1:
+        errors.append(f"ordinary overseas PC/console single-player release requires R=1, not a genre boost: {cid}")
+    if not subject_genre and classification == "unknown" and isinstance(relevance, int) and relevance > 1:
+        errors.append(f"unverified PC/console release relevance cannot exceed R=1: {cid}")
+    return errors
+
+
+def covered_end_for_policy(report_path: Path) -> str:
+    dates = re.findall(r"\d{4}-\d{2}-\d{2}", report_path.name)
+    if dates:
+        return max(dates)
+    month = re.fullmatch(r"game_industry_monthly_(\d{4})-(\d{2})\.md", report_path.name)
+    if month:
+        year, month_number = map(int, month.groups())
+        if 1 <= month_number <= 12:
+            return dt.date(year, month_number, calendar.monthrange(year, month_number)[1]).isoformat()
+    return ""
+
+
+def calendar_excluded_for_industry_overlap(reason: str) -> bool:
+    # A decision may explicitly state that the old policy was removed before
+    # giving a genuine time/source exclusion; that is not an overlap exclusion.
+    reason = re.sub(r"(?:不做|不作|不执行|取消)(?:两栏之间的|行业新闻与产品日历的)?跨栏去重", "", reason)
+    return bool(RELEASE_INDUSTRY_SUPPRESSION.search(reason))
 
 
 def parse_report_items(report_text: str) -> list[ReportItem]:
@@ -497,7 +611,9 @@ def validate_contract(
             errors.append(f"published item leaks source/pipeline metadata: {item.section}/{item.title}")
     errors.extend(validate_editorial_titles(report_items))
     errors.extend(validate_weekly_handoff(report_path))
+    # Compatibility for archived pre-v2 reports only; new versions use THRESHOLD.
     industry_threshold = 8 if "game_industry_weekly_" in report_path.name else 7
+    pc_release_scope_required = covered_end_for_policy(report_path) >= PC_RELEASE_SCOPE_ENFORCEMENT_START
     if sources_path and sources_path.exists():
         errors.extend(validate_sources(report_items, sources_path.read_text(encoding="utf-8"), inputs))
 
@@ -516,8 +632,19 @@ def validate_contract(
         return errors, warnings
 
     items = _items_list(read_json(items_path))
-    decisions = _decisions_list(read_json(decisions_path))
+    decisions_document = read_json(decisions_path)
+    decisions = _decisions_list(decisions_document)
+    subject_genre = uses_subject_genre(decisions_document, report_path)
+    errors.extend(validate_scoring_document(decisions_document, inputs, report_path))
+    errors.extend(validate_timing_document(decisions_document, inputs, report_path))
+    if subject_genre:
+        industry_threshold = THRESHOLD
     audit = read_json(release_audit_path)
+    if subject_genre and isinstance(audit, dict):
+        if audit.get("focus_company_policy_version") != SCORING_VERSION:
+            errors.append(f"release audit requires focus_company_policy_version={SCORING_VERSION}")
+        if audit.get("focus_company_bonus") != 3 or audit.get("focus_company_investment_bonus") != 2:
+            errors.append("release audit must retain direct +3 and investment +2 company bonuses")
     try:
         audit_schema_version = int(audit.get("schema_version") or 0) if isinstance(audit, dict) else 0
     except (TypeError, ValueError):
@@ -713,6 +840,7 @@ def validate_contract(
             if unknown_tracks:
                 errors.append(f"decision has unknown priority_tracks {unknown_tracks}: {cid}")
         if canonical_section(str(decision.get("section") or "")) == "industry":
+            errors.extend(validate_pc_release_scope(decision, inputs, required=pc_release_scope_required, subject_genre=subject_genre))
             if industry_history_required:
                 errors.extend(
                     validate_industry_history_check(
@@ -735,11 +863,11 @@ def validate_contract(
                 except (TypeError, ValueError):
                     errors.append(f"industry E×R+M scores must be integers: {cid}")
                 else:
-                    if event not in range(4) or relevance not in range(4) or hook not in range(3):
+                    if event not in range(4) or relevance not in range(4) or hook not in range(2 if subject_genre else 3):
                         errors.append(f"industry E×R+M score out of range: {cid}")
                     if total != event * relevance + hook:
                         errors.append(f"industry total must equal E×R+M: {cid}")
-                    for subject in important_industry_subjects(decision):
+                    for subject in ([] if subject_genre else important_industry_subjects(decision)):
                         if relevance != 3:
                             errors.append(
                                 f"{subject} industry subject must receive highest relevance R=3: {cid}"
@@ -850,6 +978,10 @@ def validate_contract(
             errors.append(f"release audit node lacks a decision: {node.get('title') or cid}")
         elif canonical_section(str(decision.get("section") or "")) != "release_calendar":
             errors.append(f"release audit node decision is not release_calendar: {cid}")
+        if decision and decision.get("industry_overlap_allowed") is False:
+            errors.append(f"release calendar must allow industry overlap: {cid}")
+        if decision and (pc_release_scope_required or "industry_overlap_allowed" in decision) and decision.get("decision") == "exclude" and calendar_excluded_for_industry_overlap(str(decision.get("reason") or "")):
+            errors.append(f"release calendar cannot be excluded for industry overlap: {cid}")
         allowed_calendar_signals = {
             "new_game_launch", "new_game_test", "new_game_launch_or_test",
             "new_game_preload", "new_game_first_reveal", "new_game_schedule",
@@ -881,6 +1013,9 @@ def validate_contract(
                 audit.get("focus_company_investment_bonus") or 0
             )
             focus_companies = node.get("focus_companies")
+            if subject_genre and isinstance(focus_companies, list):
+                if any(not isinstance(company, str) or company not in FOCUS_COMPANY_PATTERNS for company in focus_companies):
+                    errors.append(f"release focus company is outside unified list: {cid}")
             company_evidence_ids = _ids(node.get("company_evidence_ids"))
             allowed_company_bonuses = {0, configured_bonus}
             if configured_investment_bonus:
