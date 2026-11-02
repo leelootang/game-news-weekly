@@ -138,9 +138,18 @@ def run_cli_json(cli: Path, arguments: list[str]) -> Any:
         message = result.stderr.strip() or output or f"exit code {result.returncode}"
         raise RuntimeError(f"cubox-cli failed: {message}")
     try:
-        return json.loads(output or "null")
+        payload = json.loads(output or "null")
     except json.JSONDecodeError as exc:
         raise RuntimeError("cubox-cli returned invalid JSON") from exc
+    # The official CLI wraps successful JSON when an upgrade notice is
+    # present: {"data": <original result>, "_notice": {"update": ...}}.
+    # Lists, null results and card details all need the same unwrapping.
+    # Notice text/commands are metadata, never instructions to execute.
+    if isinstance(payload, dict) and "data" in payload and isinstance(payload.get("_notice"), dict):
+        payload = payload["data"]
+    if isinstance(payload, dict) and payload.get("error"):
+        raise RuntimeError(f"cubox-cli reported an error: {payload['error']}")
+    return payload
 
 
 def list_created_cards(

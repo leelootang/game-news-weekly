@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from article_store import write_article_record
@@ -46,16 +46,17 @@ for _stream in (sys.stdout, sys.stderr):
 
 
 def fetch_text(url: str) -> str:
-    request = Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.7",
-        },
-    )
+    request_url = url
     last_exc: Exception | None = None
     for attempt in range(1, HTTP_RETRIES + 1):
+        request = Request(
+            request_url,
+            headers={
+                "User-Agent": USER_AGENT,
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.7",
+            },
+        )
         try:
             with urlopen(request, timeout=HTTP_TIMEOUT) as response:
                 return response.read().decode("utf-8-sig", "replace")
@@ -63,6 +64,20 @@ def fetch_text(url: str) -> str:
             last_exc = exc
             if isinstance(exc, HTTPError) and exc.code == 404:
                 break
+            if isinstance(exc, HTTPError) and exc.code in {301, 302, 303, 307, 308}:
+                location = exc.headers.get("Location", "") if exc.headers else ""
+                if location and urljoin(exc.url, location) == exc.url and attempt < HTTP_RETRIES:
+                    # The site intermittently serves a cached redirect pointing
+                    # at the same URL. Repeating that request cannot recover it.
+                    # Refresh only this transport request; stored source URLs
+                    # and article IDs remain the original canonical values.
+                    parts = urlsplit(url)
+                    query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+                             if k != "_nadianshi_refresh"]
+                    query.append(("_nadianshi_refresh", str(time.time_ns())))
+                    request_url = urlunsplit(parts._replace(query=urlencode(query)))
+                    print(f"[http] self-redirect detected; retry with cache refresh: {url}", file=sys.stderr)
+                    continue
             if attempt < HTTP_RETRIES:
                 print(f"[http] retry {attempt}/{HTTP_RETRIES}: {url} ({exc})", file=sys.stderr)
                 time.sleep(1.5 * attempt)

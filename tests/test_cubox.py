@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import sys
+import json
+import subprocess
 import unittest
 from datetime import datetime
 from pathlib import Path
@@ -15,6 +17,40 @@ import cubox as collector
 
 
 class CuboxCollectorTests(unittest.TestCase):
+    def cli_result(self, payload):
+        return subprocess.CompletedProcess([], 0, json.dumps(payload), "")
+
+    def test_list_accepts_upgrade_notice_envelope(self) -> None:
+        payload = {"data": [{"id": "123"}], "_notice": {"update": {"latest": "new"}}}
+        with patch.object(collector.subprocess, "run", return_value=self.cli_result(payload)):
+            cards = collector.list_created_cards(Path("cubox-cli"), datetime(2026, 10, 26), datetime(2026, 10, 27))
+        self.assertEqual([{"id": "123"}], cards)
+
+    def test_wrapped_null_and_empty_list_are_valid_empty_windows(self) -> None:
+        for value in (None, []):
+            with self.subTest(value=value), patch.object(collector.subprocess, "run", return_value=self.cli_result({"data": value, "_notice": {"update": {}}})):
+                self.assertEqual([], collector.list_created_cards(Path("cubox-cli"), datetime(2026, 10, 26), datetime(2026, 10, 27)))
+
+    def test_detail_accepts_upgrade_notice_envelope(self) -> None:
+        detail = {"id": "123", "content": "Complete article body"}
+        with patch.object(collector.subprocess, "run", return_value=self.cli_result({"data": detail, "_notice": {"update": {}}})):
+            self.assertEqual(detail, collector.get_card_detail(Path("cubox-cli"), "123"))
+
+    def test_unknown_objects_are_not_silently_treated_as_empty(self) -> None:
+        with patch.object(collector.subprocess, "run", return_value=self.cli_result({"unexpected": []})):
+            with self.assertRaisesRegex(RuntimeError, "unexpected JSON shape"):
+                collector.list_created_cards(Path("cubox-cli"), datetime(2026, 10, 26), datetime(2026, 10, 27))
+
+    def test_error_envelope_remains_a_failure(self) -> None:
+        with patch.object(collector.subprocess, "run", return_value=self.cli_result({"error": "unauthorized", "_notice": {"update": {}}})):
+            with self.assertRaisesRegex(RuntimeError, "unauthorized"):
+                collector.list_created_cards(Path("cubox-cli"), datetime(2026, 10, 26), datetime(2026, 10, 27))
+
+    def test_raw_detail_without_notice_is_unchanged(self) -> None:
+        detail = {"id": "123", "content": "Body", "data": "an article field"}
+        with patch.object(collector.subprocess, "run", return_value=self.cli_result(detail)):
+            self.assertEqual(detail, collector.get_card_detail(Path("cubox-cli"), "123"))
+
     def test_list_created_cards_treats_null_as_empty(self) -> None:
         with patch.object(collector, "run_cli_json", return_value=None):
             cards = collector.list_created_cards(

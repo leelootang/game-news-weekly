@@ -16,6 +16,7 @@ import gzip
 import hashlib
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -47,6 +48,7 @@ PER_ARTICLE_DELAY = 0.8
 MANIFEST_NAME = f"{FILE_PREFIX}_manifest.json"
 MANIFEST_DIR_NAME = "_collector_manifests"
 LOCAL_TZ = timezone(timedelta(hours=8))
+DEFAULT_BROWSER_PROFILE = Path(__file__).resolve().parents[1] / "data" / "browser_sessions" / "pocketgamer"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -277,7 +279,13 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
             or "just a moment" in title.lower()
             or "__cf_chl_" in final_url
         ):
-            raise RuntimeError(f"detail blocked by Cloudflare/HTTP status={status} title={title!r}")
+            # A normal browser may finish the site's JavaScript verification
+            # after the initial response. Wait for real article markup, without
+            # clicking or solving a challenge, before declaring it blocked.
+            try:
+                await page.wait_for_selector("article .content .main .body, article .body", timeout=PAGE_TIMEOUT)
+            except PWTimeout as exc:
+                raise RuntimeError(f"detail blocked by Cloudflare/HTTP status={status} title={title!r}") from exc
         try:
             await page.wait_for_selector("article .content .main .body, article .body", timeout=15_000)
         except PWTimeout as exc:
@@ -303,6 +311,7 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
                 }
                 return {
                     title,
+                    canonical: document.querySelector('link[rel="canonical"]')?.href || location.href,
                     strap,
                     author: authorText.replace(/^By\\s+/i, '').trim(),
                     content_html: body ? body.innerHTML : ''
@@ -312,13 +321,17 @@ async def fetch_article_content(context, item: NewsItem) -> NewsItem:
         content_html = clean_content_html(meta.get("content_html") or "")
         if not content_html:
             raise RuntimeError("article content was empty")
+        actual = urlparse(meta.get("canonical") or page.url)
+        expected = urlparse(item.url)
+        if actual.netloc != expected.netloc or actual.path.rstrip("/") != expected.path.rstrip("/"):
+            raise RuntimeError("detail canonical URL did not match the requested article")
         strap = html.escape(meta.get("strap") or "")
         if strap:
             content_html = f'<p class="strap">{strap}</p>\n{content_html}'
         return NewsItem(
             news_id=item.news_id,
             url=item.url,
-            title=meta.get("title") or item.title,
+            title=item.title,
             author=meta.get("author") or item.author,
             categories=item.categories,
             description_html=item.description_html,
@@ -456,6 +469,7 @@ def write_text_record(
                 "image_url": item.image_url,
                 "raw_published_at": item.raw_published_at,
                 "retrieval_error": reason,
+                "retrieval_method": "browser_detail" if body_status == "full" else "publisher_rss_summary",
             },
         },
     )
@@ -464,6 +478,21 @@ def write_text_record(
 
 async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dict) -> SaveResult:
     if not save_pdf_enabled():
+        # Retain a previously verified full article if a later network request
+        # would be blocked. A summary must never downgrade a complete record.
+        cached = manifest.get("items", {}).get(item.news_id, {})
+        data_path = out_dir / "articles.jsonl"
+        if cached.get("body_status") == "full" and data_path.exists():
+            for line in data_path.read_text(encoding="utf-8-sig").splitlines():
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if (record.get("id") == item.news_id and record.get("url") == item.url
+                        and record.get("title") == item.title and record.get("body_status") == "full"
+                        and str(record.get("text") or "").strip()):
+                    print(f"[{item.news_id}] retained previously saved full text")
+                    return SaveResult(True, "full")
         try:
             full_item = await fetch_article_content(context, item)
         except Exception as exc:
@@ -477,7 +506,7 @@ async def save_article_pdf(context, item: NewsItem, out_dir: Path, manifest: dic
                     fallback="rss_summary",
                     reason=reason,
                 )
-                print(f"[{item.news_id}] detail unavailable; saved RSS summary fallback")
+                print(f"[{item.news_id}] detail unavailable; saved RSS summary fallback: {reason}")
                 return SaveResult(True, "rss_summary", reason)
             except Exception as fallback_exc:
                 print(f"[{item.news_id}] RSS fallback failed: {fallback_exc!r}", file=sys.stderr)
@@ -554,6 +583,15 @@ async def main() -> None:
     parser.add_argument("--max-pages", type=int, default=1, help="Accepted for runner compatibility")
     parser.add_argument("--limit", type=int, default=0, help="Optional maximum articles to export")
     parser.add_argument("--headful", action="store_true", help="Show browser window")
+    parser.add_argument("--browser-profile", type=Path,
+                        default=Path(os.environ.get("POCKETGAMER_BROWSER_PROFILE") or DEFAULT_BROWSER_PROFILE),
+                        help="Dedicated reusable browser profile; do not point at your regular Chrome profile.")
+    parser.add_argument("--browser-channel", choices=("chrome", "msedge", "chromium"),
+                        default="chrome", help="Use a regular installed browser with the dedicated profile.")
+    parser.add_argument("--setup-browser", action="store_true",
+                        help="Open the dedicated browser for the user to complete verification, then collect.")
+    parser.add_argument("--setup-timeout", type=int, default=600,
+                        help="Seconds to wait for manual browser verification during setup.")
     args = parser.parse_args()
 
     try:
@@ -576,15 +614,36 @@ async def main() -> None:
     if args.limit > 0:
         items = items[: args.limit]
     print(f"[rss] selected {len(items)} article(s)")
+    if not items:
+        print(f"[done] ok=0 full=0 fallback=0 fail=0 output={args.out.resolve()}")
+        return
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=not args.headful)
-        context = await browser.new_context(
-            user_agent=USER_AGENT,
+        # This is a separate profile, never the user's normal Chrome directory.
+        # A manual setup can retain the site's own verification cookies. Expired
+        # sessions still fall back honestly; no challenge solving is automated.
+        args.browser_profile.mkdir(parents=True, exist_ok=True)
+        context = await p.chromium.launch_persistent_context(
+            user_data_dir=str(args.browser_profile.resolve()),
+            channel=None if args.browser_channel == "chromium" else args.browser_channel,
+            headless=not (args.headful or args.setup_browser),
             locale="en-US",
             timezone_id="Asia/Shanghai",
             viewport={"width": 1280, "height": 900},
         )
+        if args.setup_browser:
+            setup_page = context.pages[0] if context.pages else await context.new_page()
+            await setup_page.goto(items[-1].url, wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
+            print("[setup] Complete the site's verification in the browser; waiting for the article body.", flush=True)
+            try:
+                await setup_page.wait_for_selector("article .content .main .body, article .body",
+                                                   timeout=max(1, args.setup_timeout) * 1000)
+            except PWTimeout:
+                await context.close()
+                raise SystemExit("Browser verification was not completed; no challenge was bypassed.")
+            print("[setup] Article body visible; collecting with the verified session.", flush=True)
+            # Keep this tab alive until context.close(). Closing the last tab
+            # can terminate a persistent Chrome session before collection starts.
 
         ok = 0
         full = 0
@@ -603,7 +662,6 @@ async def main() -> None:
             await asyncio.sleep(PER_ARTICLE_DELAY)
 
         await context.close()
-        await browser.close()
 
     if fallback:
         print(f"[health] degraded reason=detail_unavailable full={full} rss_summary={fallback}")

@@ -1,12 +1,10 @@
 """
 Fetch GameSpot (gamespot.com) news from its public RSS feed.
 
-GameSpot's HTML pages return HTTP 403 to plain HTTP clients (bot protection), but the
-news RSS feed at https://www.gamespot.com/feeds/news/ serves fine to urllib: ~30 items
-with title, permalink, RFC-822 pubDate and a <description> summary. The feed carries
-summaries (not full <content:encoded>), and detail pages are 403-gated, so this collector
-ingests the RSS summary as the record body (headline + summary + link). That's
-summary-level, which is enough to surface the story; downstream tagging/editorial curate.
+The publisher's news RSS feed can carry complete, multi-paragraph articles in
+<description>, even without <content:encoded>. Classify the actual body rather
+than treating every description as a snippet. Short or visibly truncated entries
+remain partial discovery records; blocked detail pages are not required.
 
 Records go to the flat root articles.jsonl via write_article_record, keyed by URL slug/guid.
 """
@@ -152,6 +150,25 @@ def _text(elem: ET.Element | None) -> str:
     return elem.text.strip()
 
 
+def classify_feed_body(body_html: str) -> str:
+    """Conservatively recognise the publisher's structured RSS article bodies."""
+    text = html_to_text(body_html)
+    if not text:
+        return "empty"
+    tail = text[-600:]
+    truncated = re.search(
+        r"(?:\.{3}|…)\s*\[?\s*(?:more|read more|continue reading)\b"
+        r"|(?:read (?:the )?full (?:article|story)|continue reading)(?:\s+at\s+GameSpot)?[\s.!\]]*$"
+        r"|(?:subscribe|sign in|log in) to (?:continue|read)",
+        tail, re.I,
+    )
+    paragraphs = re.findall(r"<p\b[^>]*>(.*?)</p\s*>", body_html, re.I | re.S)
+    substantial_paragraphs = sum(len(html_to_text(p)) >= 40 for p in paragraphs)
+    if not truncated and len(text) >= 800 and substantial_paragraphs >= 3:
+        return "full"
+    return "snippet"
+
+
 def parse_feed(xml_text: str) -> list[dict]:
     root = ET.fromstring(xml_text)
     channel = root.find("channel")
@@ -166,6 +183,7 @@ def parse_feed(xml_text: str) -> list[dict]:
         author = _text(item.find(CREATOR_NS)) or _text(item.find("author"))
         content_elem = item.find(CONTENT_NS)
         body_html = content_elem.text if (content_elem is not None and content_elem.text) else ""
+        content_origin = "content:encoded" if body_html else "description"
         if not body_html:
             desc = item.find("description")
             body_html = desc.text if desc is not None and desc.text else ""
@@ -177,8 +195,36 @@ def parse_feed(xml_text: str) -> list[dict]:
             "published_at": published,
             "author": author,
             "html": body_html,
+            "content_origin": content_origin,
+            "body_status": classify_feed_body(body_html),
         })
     return out
+
+
+def write_feed_record(out_dir: Path, manifest: dict, entry: dict) -> str:
+    status = classify_feed_body(entry["html"])
+    write_article_record(
+        out_dir, manifest, entry["id"],
+        {
+            "source": SOURCE_DOMAIN,
+            "source_key": SOURCE_KEY,
+            "title": entry["title"],
+            "url": entry["url"],
+            "author": entry["author"],
+            "text": html_to_text(entry["html"]),
+            "html": entry["html"],
+            "published_at": entry["published_at"].isoformat(timespec="seconds"),
+            "fetch_status": "ok" if status == "full" else "partial",
+            "body_status": status,
+            "fallback": "none" if status == "full" else "rss_summary",
+            "extra": {
+                "retrieval_method": "publisher_rss",
+                "content_origin": entry["content_origin"],
+                "body_validation": "structured_body_no_truncation_markers" if status == "full" else "short_or_truncated_feed_entry",
+            },
+        },
+    )
+    return status
 
 
 def main() -> None:
@@ -227,39 +273,18 @@ def main() -> None:
         in_window = in_window[: args.limit]
     print(f"[feed] in-window={len(in_window)} skipped_nodate={skipped_nodate}")
 
-    ok = 0
+    ok = full = fallback = 0
     for e in in_window:
-        text = html_to_text(e["html"])
-        write_article_record(
-            args.out,
-            manifest,
-            e["id"],
-            {
-                "source": SOURCE_DOMAIN,
-                "source_key": SOURCE_KEY,
-                "title": e["title"],
-                "url": e["url"],
-                "author": e["author"],
-                "text": text,
-                "html": e["html"],
-                "published_at": e["published_at"].isoformat(timespec="seconds"),
-                # GameSpot's RSS entries contain the article body.  Mark a
-                # non-empty parsed entry as complete; `partial` is reserved
-                # for records where the collector could not obtain readable
-                # body text.
-                "fetch_status": "ok" if text else "partial",
-                # The site exposes only RSS summaries and blocks its detail
-                # pages to our collector. These are discovery snippets, never
-                # primary evidence for a report item.
-                "body_status": "snippet" if text else "empty",
-                "fallback": "none" if text else "source_excerpt",
-            },
-        )
+        status = write_feed_record(args.out, manifest, e)
         ok += 1
-        print(f"[{e['id']}] saved  {e['published_at']:%Y-%m-%d}  {e['title'][:40]}")
+        full += int(status == "full")
+        fallback += int(status != "full")
+        print(f"[{e['id']}] saved body={status} {e['published_at']:%Y-%m-%d} {e['title'][:40]}")
 
     save_manifest(args.out, manifest)
-    print(f"[done] saved={ok} window={since:%Y-%m-%d}..{until:%Y-%m-%d} output={args.out.resolve()}")
+    if fallback:
+        print(f"[health] degraded reason=short_or_truncated_feed full={full} rss_summary={fallback}")
+    print(f"[done] saved={ok} full={full} fallback={fallback} window={since:%Y-%m-%d}..{until:%Y-%m-%d} output={args.out.resolve()}")
 
 
 if __name__ == "__main__":
