@@ -1,0 +1,18 @@
+# Article Index - release_calendar / 2026-11-02
+
+- Records: 10
+- By source: `gematsu_release_dates` 6, `haoyou_kuaibao_3839` 4
+- Raw JSONL: `articles.jsonl`
+
+| # | ID | Source | Published | Chars | Status | Title | URL |
+| ---: | --- | --- | --- | ---: | --- | --- | --- |
+| 1 | `CBMitwFBVV95cUxQd09ldWFqX0lzZW9VM0c3Rjc5ekVsUlg2SHM3a1VOUzd3bFhj_20261102_ca049dea92` | `gematsu_release_dates` | 2026-11-02T17:18:19 | 640 | ok | Ova Magica for PS5, Xbox Series, Switch 2, PS4, Xbox One, and Switch launches November 10 | [link](https://news.google.com/rss/articles/CBMitwFBVV95cUxQd09ldWFqX0lzZW9VM0c3Rjc5ekVsUlg2SHM3a1VOUzd3bFhjcWJpR3F5cXQ0SEdwUjd3Z0ZaYWdJaGJVa2JRZnc5TUxBNnBSUHZnZWhEVG9aZC10bUIxcjFRclYzS1g2YUp4NFI1cTg4YnlReVNtQVdLMlFHSllScGRYVlNLeFluRGUxMVAyMzBrNDJtbG14MGhkQjFCWFBHS0JGUV92V1J3Q1M0LWFRV1ZTRnhNZEk?oc=5) |
+| 2 | `CBMijAFBVV95cUxQeURROTJQNi1makozSGo3Q0JSU055WlQzOTNGYUQ5ZWVxR0NK_20261102_e1a80eb3c1` | `gematsu_release_dates` | 2026-11-02T17:16:02 | 470 | ok | DELIVERY MUST COMPLETE demo launches in January 2027 | [link](https://news.google.com/rss/articles/CBMijAFBVV95cUxQeURROTJQNi1makozSGo3Q0JSU055WlQzOTNGYUQ5ZWVxR0NKV1VkU1p1UnlkeWRsc0ZCSlNJclBSbjJhRTdFTnBBb0hsU0o5bVplRk1KeWxfYk1sOTJ5eWVSLWFhSTF1M0h3ajE0WmwwRVA0ZUd6MldYbDVReTYtNXkyc2tGRlVKSm5xUQ?oc=5) |
+| 3 | `CBMif0FVX3lxTE1jNGtPUW9LdGs5amhuZHFIWmhLWHFmUmpHU2lRVG9wWlNuWGFq_20261102_419abe3f94` | `gematsu_release_dates` | 2026-11-02T17:12:31 | 478 | ok | Tales of Tuscany launches February 22, 2027 | [link](https://news.google.com/rss/articles/CBMif0FVX3lxTE1jNGtPUW9LdGs5amhuZHFIWmhLWHFmUmpHU2lRVG9wWlNuWGFqRTk1UGpCenQ5NVhrcEZoeElZVHplMWpTWkNOSFkxYmNhRUFiOUJmT2U1ZTZmVlh1NG40cjlYUVVmTXpXalBESHZjMDBzUVZzZWlVc2tiUmVjakE?oc=5) |
+| 4 | `CBMigwFBVV95cUxQWFM1a29ySmc2TFBneFQydUg0a2dLWlVHNV93QWt5MkFNQTNZ_20261102_ca4162005b` | `gematsu_release_dates` | 2026-11-02T17:00:15 | 483 | ok | HARMA launches in Early Access on November 17 | [link](https://news.google.com/rss/articles/CBMigwFBVV95cUxQWFM1a29ySmc2TFBneFQydUg0a2dLWlVHNV93QWt5MkFNQTNZdUc5ZHR1VThxSGx6MWNoQUVhVWZZRW1hbmR4S3hqUk05dWQ5R3F2b0pXQlowU00xQ3dDbE5XV3JoQjYzMTRRdTJiU28zTEN2bzFMSzRHdnB6dk82SmFqOA?oc=5) |
+| 5 | `CBMipgFBVV95cUxOdk9GellPdVRydERRQjJlU1Q5MGN6MVZCY2t0d0tzZ2pncDZr_20261102_51411ffb7a` | `gematsu_release_dates` | 2026-11-02T15:36:57 | 544 | ok | Castaway Diary: Portal to the Unknown Isles Early Access delayed to 2027 | [link](https://news.google.com/rss/articles/CBMipgFBVV95cUxOdk9GellPdVRydERRQjJlU1Q5MGN6MVZCY2t0d0tzZ2pncDZra0duaWxHNS1xMzgyb0p2enNBeDM1dlczOHNpX2NjYWd3dlhTbElMZGpaZEt0WHFRNTV3aTJmVVVELV8tYzlfd2xmWHRCUkZRWURxR3E4Tk9LclhQTTd6VENGeVNreEhZWTY5eHM1aVRGMkNYWlZuQkRfc2hMTnMzTTVB?oc=5) |
+| 6 | `CBMijgFBVV95cUxNVk5GTjRjMHlCbVhyb0poLXNneWFLU3pzVklIekZ2QnA5UGZZ_20261102_dc665e9c8d` | `gematsu_release_dates` | 2026-11-02T15:21:54 | 514 | ok | Thief: The Dark Project Remastered launches December 3 | [link](https://news.google.com/rss/articles/CBMijgFBVV95cUxNVk5GTjRjMHlCbVhyb0poLXNneWFLU3pzVklIekZ2QnA5UGZZR01qQldWWmpOMExVbjZFY2xPWm8wV3doZ1RYZHdxeFl2bjJMSnhYNkZOLVF5YUJlUGVadXBhd2VHQ3Uwb2JfMkNOcUprRkRGMVpmcC0yMWlmSEtpLUxJVDcwc3c1YWtZbEdB?oc=5) |
+| 7 | `202509_20261102_b04bee1c15` | `haoyou_kuaibao_3839` | 2026-11-02T10:00:00 | 215 | ok | 江湖田园-预下载 - 10:00 预下载，11月3日上线 | [link](https://www.3839.com/a/202509.htm) |
+| 8 | `205558_20261102_6dbb00b062` | `haoyou_kuaibao_3839` | 2026-11-02T10:00:00 | 203 | ok | 万世镜 - 10:00 删档测试 | [link](https://www.3839.com/a/205558.htm) |
+| 9 | `205599_20261102_2815cc5b45` | `haoyou_kuaibao_3839` | 2026-11-02T00:00:00 | 196 | ok | 青鸟 - 已上线试玩 | [link](https://www.3839.com/a/205599.htm) |
+| 10 | `205630_20261102_12e67a51f1` | `haoyou_kuaibao_3839` | 2026-11-02T00:00:00 | 201 | ok | 口袋漫游-玩家自制 - 已上线试玩 | [link](https://www.3839.com/a/205630.htm) |
