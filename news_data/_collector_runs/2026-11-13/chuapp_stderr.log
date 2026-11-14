@@ -1,0 +1,15 @@
+# industry_news/chuapp failed at 2026-11-14T00:15:16.436775+00:00
+# command: C:\Users\Admin\AppData\Local\Programs\Python\Python314\python.exe C:\Users\Admin\Documents\AI游戏行业周月报\collectors\chuapp.py --out C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-11-13 --max-pages 1 --preset yesterday
+# returncode: 1
+
+[config] window: 2026-11-13 00:00:00 <= published < 2026-11-14 00:00:00
+[config] output: C:\Users\Admin\Documents\AI游戏行业周月报\news_data\industry_news\2026-11-13
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\chuapp.py", line 248, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\chuapp.py", line 203, in main
+    xml_text = http_get(FEED_URL)
+  File "C:\Users\Admin\Documents\AI游戏行业周月报\collectors\chuapp.py", line 69, in http_get
+    raise RuntimeError(f"GET failed after {HTTP_RETRIES} tries: {url} ({last_exc!r})")
+RuntimeError: GET failed after 3 tries: https://www.chuapp.com/feed (URLError(ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)))
